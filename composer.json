@@ -1,0 +1,18 @@
+{
+    "name": "user/smartshop",
+    "version": "1.0.1",
+    "autoload": {
+        "psr-4": {
+            "SmartShop\\": "incs/",
+            "Smartshop\\Incs\\Admin\\Inc\\": "incs/admin/inc/",
+            "Smartshop\\Incs\\Admin\\Templates\\": "incs/admin/templates/"
+        }
+    }, 
+    "authors": [
+        {
+            "name": "nftushar",
+            "email": "nftushar5200@gmail.com"
+        }
+    ],
+    "require": {}
+}
