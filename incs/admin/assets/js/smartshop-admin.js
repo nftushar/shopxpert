@@ -274,6 +274,8 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
                             fields: response.data.fields,
                             content: response.data.content
                         });
+                        
+            console.log(content);
             
                         $('body').append(content);
                         smartshop_module_ajax_reactive();

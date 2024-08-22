@@ -1,13 +1,10 @@
 <?php
 namespace Smartshop\Incs\Admin;
-
-use Smartshop\Incs;
-use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
-use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields;
+use Smartshop\incs;
 
 use function Smartshop\Incs\smartshop_clean;
-
-if (!defined('ABSPATH')) exit;  // Exit if accessed directly
+ 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 class SmartShop_Admin_Init {
 
@@ -232,74 +229,44 @@ public function update_option($section, $option_key, $new_value) {
      * [module_data] Wp Ajax Callback
      * @return [JSON|Null]
      */
-    public function module_data(){
-        // Verify nonce for security
-        check_ajax_referer('smartshop_save_opt_nonce', 'nonce');
-    
-        // Retrieve and sanitize POST data
-        $subaction  = !empty($_POST['subaction']) ? sanitize_text_field($_POST['subaction']) : '';
-        $section    = !empty($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-        $fields     = !empty($_POST['fields']) ? array_map('sanitize_text_field', (array) $_POST['fields']) : [];
-        $fieldname  = !empty($_POST['fieldname']) ? sanitize_text_field($_POST['fieldname']) : '';
-    
-        // Debug output to PHP error log
-        error_log('subaction: ' . $subaction);
-        error_log('section: ' . $section);
-        error_log('fields: ' . print_r($fields, true));
-        error_log('fieldname: ' . $fieldname);
-    
-        // Handle module data reset
-        if ($subaction === 'reset_data') {
-            if (!empty($section)) {
-                delete_option($section);
-            }
-        }
-    
-        // Get module data only if section and fields are provided
-        if (empty($section) || empty($fields)) {
-            return;
-        }
-    
-        // Fetch module fields based on section or fieldname
-        $module_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['modules'];
+ public function module_data() {
+    // Verify nonce for security
+    check_ajax_referer('smartshop_save_opt_nonce', 'nonce');
 
+    // Retrieve and sanitize POST data
+    $subaction  = isset($_POST['subaction']) ? sanitize_text_field($_POST['subaction']) : '';
+    $section    = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
+    $fields     = isset($_POST['fields']) ? array_map('sanitize_text_field', (array) $_POST['fields']) : [];
+    $fieldname  = isset($_POST['fieldname']) ? sanitize_text_field($_POST['fieldname']) : '';
 
-        $section_fields = [];
-        foreach ($module_fields as $module) {
-    //         echo'<pre>';
-    //         echo"hello modal";
-    // var_dump($module['section']);
-    // echo'<pre>';
-            if (isset($module['section']) && $module['section'] === $section) {
-                $section_fields = $module['setting_fields'];
-                break;
-            } else {
-                if (isset($module['name']) && $module['name'] === $fieldname) {
-                    $section_fields = $module['setting_fields'];
-                    break;
-                }
-            }
-        }
-    
-        $response_content = $message = $field_html = '';
-        if ($subaction === 'get_data') {
-            foreach ($section_fields as $field) {
-                ob_start();
-                Smartshop_Admin_Fields_Manager::instance()->add_field($field, $section);
-                $field_html .= ob_get_clean();
-            }
-            $message = esc_html__('Data fetched successfully!', 'smartshop');
-            $response_content = $field_html;
-        }
-    
-        wp_send_json_success([
-            'message' => $message,
-            'content' => $response_content,
-            'fields'  => wp_json_encode($fields)
-        ]);
+    // Debug output to PHP error log
+    error_log('subaction: ' . $subaction);
+    error_log('section: ' . $section);
+    error_log('fields: ' . print_r($fields, true));
+    error_log('fieldname: ' . $fieldname);
+
+    // Simulate a response for demonstration
+    if ($subaction === 'get_data') {
+        $response_data = array(
+            'fields'  => $fields,
+            'content' => 'Some content here...' // Replace with actual content or data
+        );
+        wp_send_json_success($response_data);
+    } else {
+        wp_send_json_error('Invalid subaction');
     }
-    
- 
+}
+
+
+
+
+
+
+
+
+
+
+
     /**
      * [enqueue_scripts] Add Scripts Base Menu Slug
      * @param  [string] $hook
