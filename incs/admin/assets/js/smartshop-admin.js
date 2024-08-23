@@ -242,12 +242,11 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
         content = null,
         modulewrapper = wp.template('smartshopmodule');
 
-            console.log('x section',$section);
+            // console.log('x section',$section);
             // console.log('x fields',$fields);
             // console.log('x fieldname:',$fieldname);
             // console.log('x fileds',modulewrapper);
             
-
             $.ajax({
                 url: SMARTSHOP_ADMIN.ajaxurl,
                 type: 'POST',
@@ -264,26 +263,29 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
                 },
                 success: function(response) {
                     console.log('xx Raw Response:', response);
-            
-                    if (response.success && response.data && response.data.fields && response.data.content) {
-                        console.log('xxfields:', response.data.fields);
-                        console.log('xxcontent:', response.data.content);
-            
-                        content = modulewrapper({
-                            section: $section,
-                            fields: response.data.fields,
-                            content: response.data.content
-                        });
-                        
-            console.log(content);
-            
-                        $('body').append(content);
-                        smartshop_module_ajax_reactive();
-                        $(document).trigger('module_setting_loaded');
-                    } else {
-                        console.log('Response does not contain expected data.');
+                    
+                    // Check if response is JSON
+                    try {
+                        if (response.success && response.data && response.data.fields && response.data.content) {
+                            console.log('xxfields:', response.data.fields);
+                            console.log('xxcontent:', response.data.content);
+                    
+                            let content = modulewrapper({
+                                section: $section,
+                                fields: response.data.fields,
+                                content: response.data.content
+                            });
+                    
+                            $('body').append(content);
+                            smartshop_module_ajax_reactive();
+                            $(document).trigger('module_setting_loaded');
+                        } else {
+                            console.log('Response does not contain expected data.');
+                        }
+                    } catch (e) {
+                        console.error('Error parsing JSON response:', e);
                     }
-            
+                    
                     $this.removeClass('module-setting-loading');
                 },
                 complete: function() {
@@ -291,12 +293,9 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('AJAX Error:', textStatus, errorThrown);
-                    console.log('Response:', jqXHR.responseText);
+                    console.log('Response:', jqXHR.responseText); // Check if response contains HTML or unexpected data
                 }
             });
-            
-
-            
 
 });
  

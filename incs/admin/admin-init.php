@@ -50,9 +50,9 @@ class SmartShop_Admin_Init {
              add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
      
      
-             add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));
-             add_action('wp_ajax_nopriv_smartshop_module_data', array($this, 'module_data'));
+             add_action('wp_ajax_smartshop_module_data', array($this, 'save_data'));
 
+             add_action('wp_ajax_nopriv_smartshop_module_data', array($this, 'module_data'));
     }
 
  
