@@ -243,9 +243,9 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
         modulewrapper = wp.template('smartshopmodule');
 
             console.log('x section',$section);
-            console.log('x fields',$fields);
-            console.log('x fieldname:',$fieldname);
-            console.log('x fileds',modulewrapper);
+            // console.log('x fields',$fields);
+            // console.log('x fieldname:',$fieldname);
+            // console.log('x fileds',modulewrapper);
             
 
             $.ajax({

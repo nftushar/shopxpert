@@ -134,6 +134,53 @@ class Smartshop_Admin_Fields {
                         )
                     ),
                     array(
+                        'name'     => 'smartshop_backorder_settings',
+                        'label'    => esc_html__( 'xx Backorder', 'smartshop' ),
+                        'type'     => 'module',
+                        'default'  => 'off',
+                        'section'  => 'smartshop_backorder_settings',
+                        'option_id'=> 'enable',
+                        'require_settings'  => true,
+                        'documentation' => esc_url('https://smartshop.com/doc/how-to-enable-woocommerce-backorder/'),
+                        'setting_fields' => array(
+                        
+                            array(
+                                'name'  => 'enable',
+                                'label' => esc_html__( 'Enable / Disable', 'smartshop' ),
+                                'desc'  => esc_html__( 'You can enable / disable backorder module from here.', 'smartshop' ),
+                                'type'  => 'checkbox',
+                                'default' => 'off',
+                                'class' => 'smartshop-action-field-left'
+                            ),
+
+                            array(
+                                'name'    => 'backorder_limit',
+                                'label'   => esc_html__( 'Backorder Limit', 'smartshop' ),
+                                'desc'    => esc_html__( 'Set "Backorder Limit" on all "Backorder" products across the entire website. You can also set limits for each product individually from the "Inventory" tab.', 'smartshop' ),
+                                'type'    => 'number',
+                                'class'   => 'smartshop-action-field-left'
+                            ),
+
+                            array(
+                                'name'    => 'backorder_availability_date',
+                                'label'   => esc_html__( 'Availability Date', 'smartshop' ),
+                                'type'    => 'date',
+                                'class'   => 'smartshop-action-field-left'
+                            ),
+                        
+                            array(
+                                'name'        => 'backorder_availability_message',
+                                'label'       => esc_html__( 'Availability Message', 'smartshop' ),
+                                'desc'        => esc_html__( 'Manage how you want the "Message" to appear. Use this {availability_date} placeholder to display the date you set. ', 'smartshop' ),
+                                'type'        => 'text',
+                                'default'     => esc_html__( 'On Backorder: Will be available on {availability_date}', 'smartshop' ),
+                                'class'       => 'smartshop-action-field-left',
+                            ),
+                            
+                        )
+                        
+                    ),
+                    array(
                         'name'     => 'wishlist',
                         'label'    => esc_html__( 's Wishlist', 'smartshop' ),
                         'type'     => 'element',

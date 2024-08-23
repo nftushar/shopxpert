@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * Base
  */
 
-var_dump(SMARTSHOP_ADDONS_PL_PATH . 'iincs/admin/templates/dashboard-module-setting-popup.php');
+// var_dump(SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-module-setting-popup.php');
 
-final class Base {
+final class Base {  
 
     const MINIMUM_PHP_VERSION = '5.4';
     const MINIMUM_ELEMENTOR_VERSION = '3.0.0';
