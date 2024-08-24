@@ -9,9 +9,8 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * Base
  */
 
-// var_dump(SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-module-setting-popup.php');
 
-final class Base {  
+final class Base {
 
     const MINIMUM_PHP_VERSION = '5.4';
     const MINIMUM_ELEMENTOR_VERSION = '3.0.0';
@@ -48,11 +47,12 @@ final class Base {
         require SMARTSHOP_ADDONS_PL_PATH . 'incs/helper-function.php';
         require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.assest_management.php';
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.widgets_control.php';
-        //  require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.default_data.php';
+        // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.default_data.php';
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.quickview_manage.php';
-        //  require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.icon_list.php';
+        // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.icon_list.php';
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.multi_language.php';
-         require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-module-setting-popup.php'; 
+        require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-module-setting-popup.php'; 
+
         // Admin Setting file
         if (is_admin()) {
             // require SMARTSHOP_ADDONS_PL_PATH . 'incs/custom-metabox.php';

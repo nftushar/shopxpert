@@ -6,8 +6,8 @@ use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
 use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields;
 
 use function Smartshop\Incs\smartshop_clean;
-
-if (!defined('ABSPATH')) exit;  // Exit if accessed directly
+ 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 class SmartShop_Admin_Init {
 
@@ -50,9 +50,10 @@ class SmartShop_Admin_Init {
              add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
      
      
-             add_action('wp_ajax_smartshop_module_data', array($this, 'save_data'));
+     
+             add_action( 'wp_ajax_smartshop_save_opt_data', [ $this, 'save_data' ] );
+             add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));
 
-             add_action('wp_ajax_nopriv_smartshop_module_data', array($this, 'module_data'));
     }
 
  
@@ -168,7 +169,7 @@ class SmartShop_Admin_Init {
     check_ajax_referer( 'smartshop_save_opt_nonce', 'nonce' );
 
     // Fetch and clean the input data
-    $data     = isset($_POST['data']) ? smartshop_clean($_POST['data']) : [];
+    $data     = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
     $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
     $fields   = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
 
@@ -223,18 +224,20 @@ public function update_option($section, $option_key, $new_value) {
     $options_data[$option_key] = $new_value;
 
     // Save the updated options back to the database
-    // error_log("Saving Option Data: " . print_r($options_data, true));
+    error_log("Saving Option Data: " . print_r($options_data, true));
     update_option($section, $options_data);
 }
-
+ 
 
     /**
      * [module_data] Wp Ajax Callback
      * @return [JSON|Null]
      */
-    public function module_data(){
+    public function module_data() {
         // Verify nonce for security
-        check_ajax_referer('smartshop_save_opt_nonce', 'nonce');
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'smartshop_save_opt_nonce')) {
+            wp_send_json_error(['message' => 'Invalid nonce']);
+        }
     
         // Retrieve and sanitize POST data
         $subaction  = !empty($_POST['subaction']) ? sanitize_text_field($_POST['subaction']) : '';
@@ -252,32 +255,26 @@ public function update_option($section, $option_key, $new_value) {
         if ($subaction === 'reset_data') {
             if (!empty($section)) {
                 delete_option($section);
+                wp_send_json_success(['message' => 'Data reset successfully']);
             }
         }
     
         // Get module data only if section and fields are provided
         if (empty($section) || empty($fields)) {
-            return;
+            wp_send_json_error(['message' => 'Section or fields data is missing.']);
         }
     
         // Fetch module fields based on section or fieldname
         $module_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['modules'];
-
-
+    
         $section_fields = [];
         foreach ($module_fields as $module) {
-    //         echo'<pre>';
-    //         echo"hello modal";
-    // var_dump($module['section']);
-    // echo'<pre>';
             if (isset($module['section']) && $module['section'] === $section) {
                 $section_fields = $module['setting_fields'];
                 break;
-            } else {
-                if (isset($module['name']) && $module['name'] === $fieldname) {
-                    $section_fields = $module['setting_fields'];
-                    break;
-                }
+            } else if (isset($module['name']) && $module['name'] === $fieldname) {
+                $section_fields = $module['setting_fields'];
+                break;
             }
         }
     
@@ -295,11 +292,13 @@ public function update_option($section, $option_key, $new_value) {
         wp_send_json_success([
             'message' => $message,
             'content' => $response_content,
-            'fields'  => wp_json_encode($fields)
+            'fields'  => $fields  // Notice: No need to `wp_json_encode` here
         ]);
     }
     
- 
+    
+
+
     /**
      * [enqueue_scripts] Add Scripts Base Menu Slug
      * @param  [string] $hook
@@ -307,7 +306,7 @@ public function update_option($section, $option_key, $new_value) {
      */
         public function enqueue_scripts( $hook  ) {
             
-            if( $hook === 'SmartShop_page_smartshop' || $hook === 'SmartShop_page_smartshop_templates' || $hook ===  'SmartShop_page_smartshop_extension'){
+            if( $hook === 'SmartShop_page_smartshop' || $hook === 'SmartShop_page_smartshop_templates' || $hook === 'SmartShop_page_smartshop_extension'){
                 // wp_enqueue_style('smartshop-sweetalert');
             }
         }

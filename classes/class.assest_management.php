@@ -222,7 +222,9 @@ class Assets_Management{
     public function register_assets() {
         $scripts = $this->get_scripts();
         $styles  = $this->get_styles();
-    
+        // echo"<pre>";
+        // var_dump($scripts);
+        // echo"<pre>";
         
         // Register and enqueue Scripts
         foreach ( $scripts as $handle => $script ) {
@@ -231,6 +233,12 @@ class Assets_Management{
             wp_enqueue_script( $handle );
         }
 
+ // Register Scripts
+        // foreach ( $scripts as $handle => $script ) {
+        //     $deps = ( isset( $script['deps'] ) ? $script['deps'] : false ); 
+        //     wp_register_script( $handle, $script['src'], $deps, $script['version'], true );
+        // }
+ 
         // Register and enqueue Styles
         foreach ( $styles as $handle => $style ) {
             $deps = isset( $style['deps'] ) ? $style['deps'] : [];
@@ -238,6 +246,11 @@ class Assets_Management{
             wp_enqueue_style( $handle );
         }
 
+        // Register Styles
+        // foreach ( $styles as $handle => $style ) {
+        //     $deps = ( isset( $style['deps'] ) ? $style['deps'] : false );
+        //     wp_register_style( $handle, $style['src'], $deps, $style['version'] );
+        // }
 
            //Localize Scripts
            $localizeargs = array(

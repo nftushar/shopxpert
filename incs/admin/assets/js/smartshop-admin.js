@@ -253,7 +253,7 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
                 data: {
                     nonce: SMARTSHOP_ADMIN.nonce,
                     section: $section,
-                    fields: $fields,  // Ensure this matches the expected format
+                    fields: $fields,
                     fieldname: $fieldname,
                     action: 'smartshop_module_data',
                     subaction: 'get_data',
