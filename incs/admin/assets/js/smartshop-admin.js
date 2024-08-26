@@ -167,7 +167,6 @@ console.log("JS Switch Enable/Disable Function");
      * Admin Module additional setting button
      */
     $('.smartshop-admin-switch .checkbox').on('click', function (e) {
-console.log("JS Admin Module additional setting button");
 
         var actionBtn = $(this).closest('.smartshop-admin-switch-block-actions').find('.smartshop-admin-switch-block-setting');
         if (actionBtn.hasClass('smartshop-visibility-none')) {
@@ -177,45 +176,46 @@ console.log("JS Admin Module additional setting button");
         }
     });
 
-    // Option data save
-    $('.smartshop-admin-btn-save').on('click', function (event) {
-        event.preventDefault();
- 
+// Option data save
+$('.smartshop-admin-btn-save').on('click', function (event) {
+    event.preventDefault();
 
-        var $option_form = $(this).closest('.smartshop-admin-main-tab-pane').find('form.smartshop-dashboard'),
-            $savebtn = $(this),
-            $section = $option_form.data('section'),
-            $field_keys = $option_form.data('fields');
- 
-// console.log($option_form);
+    var $option_form = $(this).closest('.smartshop-admin-main-tab-pane').find('form.smartshop-dashboard'),
+        $savebtn = $(this),
+        $section = $option_form.data('section'),
+        $field_keys = $option_form.data('fields');
 
-        $.ajax({
-            url: SMARTSHOP_ADMIN.ajaxurl,
-            type: 'POST',
-            data: {
-                nonce: SMARTSHOP_ADMIN.nonce,
-                section: $section,
-                fields: JSON.stringify($field_keys),
-                action: 'smartshop_save_opt_data',
-                data: $option_form.serializeJSON()
-            },
-            beforeSend: function () {
-                $savebtn.text(SMARTSHOP_ADMIN.message.loading).addClass('updating-message');
-            },
-            success: function (response) {
-                // console.log("Entire response:", response); // Log the entire response
+    $.ajax({
+        url: SMARTSHOP_ADMIN.ajaxurl,
+        type: 'POST',
+        data: {
+            nonce: SMARTSHOP_ADMIN.nonce,
+            section: $section,
+            fields: JSON.stringify($field_keys),
+            action: 'smartshop_save_opt_data',
+            data: $option_form.serializeJSON() // Ensure this is formatted correctly
+        },
+        beforeSend: function () {
+            $savebtn.text(SMARTSHOP_ADMIN.message.loading).addClass('updating-message');
+        },
+        success: function (response) {
+            console.log("Response:", response);
+            if (response.success) {
                 $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SMARTSHOP_ADMIN.message.success);
-            },
-            complete: function (response) {
-                $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SMARTSHOP_ADMIN.message.success);
-            },
-            error: function (errorThrown) {
-                console.log(errorThrown);
+            } else {
+                console.error('Error:', response.data.message);
             }
-
-        });
-
+        },
+        complete: function () {
+            $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SMARTSHOP_ADMIN.message.success);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('AJAX Error:', textStatus, errorThrown);
+            console.log('Response:', jqXHR.responseText);
+        }
     });
+});
+
 
     // Save Button Enable
     $('.smartshop-admin-main-tab-pane .smartshop-dashboard').on('click', 'input,select,textarea,.smartshop-admin-number-btn', function () { $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);

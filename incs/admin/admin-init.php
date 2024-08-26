@@ -51,7 +51,8 @@ class SmartShop_Admin_Init {
      
      
      
-              add_action( 'wp_ajax_smartshop_save_opt_data', [ $this, 'save_data' ] );
+             add_action('wp_ajax_smartshop_save_opt_data', [$this, 'save_data']);
+
              add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));
 
     }
@@ -161,22 +162,29 @@ class SmartShop_Admin_Init {
  */
 
  public function save_data() {
-    if ( ! current_user_can( self::MENU_CAPABILITY ) ) {
+    
+    // Check if the user has the required capability
+    if (!current_user_can(self::MENU_CAPABILITY)) {
         error_log('User does not have the required capability.');
         return;
     }
 
-    check_ajax_referer( 'smartshop_save_opt_nonce', 'nonce' );
+    // Verify the nonce
+    if (!check_ajax_referer('smartshop_save_opt_nonce', 'nonce', false)) {
+        error_log('Nonce validation failed.');
+        wp_send_json_error(['message' => 'Nonce validation failed. save_data']);
+        return;
+    }
 
     // Fetch and clean the input data
-    $data     = isset($_POST['data']) ? smartshop_clean($_POST['data']) : [];
-    $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-    $fields   = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
+    $data = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
+    $section = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
+    $fields = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
 
     // Debugging: Log the received data
-    // error_log("Data: " . print_r($data, true));
-    // error_log("Section: " . print_r($section, true));
-    // error_log("Fields: " . print_r($fields, true));
+    error_log("Data: " . print_r($data, true));
+    error_log("Section: " . print_r($section, true));
+    error_log("Fields: " . print_r($fields, true));
 
     if (empty($section) || empty($fields)) {
         error_log('Section or fields data is missing.');
@@ -199,6 +207,7 @@ class SmartShop_Admin_Init {
         $this->update_option($section, $field, $value);
     }
 
+    // Send a success response
     wp_send_json_success([
         'message' => esc_html__('Data saved successfully!', 'smartshop'),
         'data'    => $data
