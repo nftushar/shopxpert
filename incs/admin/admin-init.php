@@ -169,12 +169,17 @@ class SmartShop_Admin_Init {
         return;
     }
 
-    // Verify the nonce
-    if (!check_ajax_referer('smartshop_save_opt_nonce', 'nonce', false)) {
-        error_log('Nonce validation failed.');
-        wp_send_json_error(['message' => 'Nonce validation failed. save_data']);
-        return;
-    }
+        // Debug log nonce
+        error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
+    
+        // Verify nonce for security
+        if (!wp_verify_nonce($_POST['nonce'], 'smartshop_nonce_action')) {
+            error_log('Nonce verification failed!');
+            wp_send_json_error('Invalid nonce');
+            return;
+        } else {
+            error_log('Nonce verification Done!');
+        }
 
     // Fetch and clean the input data
     $data = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
@@ -243,6 +248,13 @@ public function update_option($section, $option_key, $new_value) {
      * @return [JSON|Null]
      */
     public function module_data() {
+      
+    // Check if the user has the required capability
+    if (!current_user_can(self::MENU_CAPABILITY)) {
+        error_log('User does not have the required capability.');
+        return;
+    }
+
         // Debug log nonce
         error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
     
