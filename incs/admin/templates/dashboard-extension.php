@@ -3,6 +3,6 @@
 ?>
 <div id="smartshop_extension_tabs" class="smartshop-admin-main-tab-pane">
     <div class="smartshop-admin-main-tab-pane-inner">
-        <?php Woolentor_Extension_Manager::instance()->render_html(); ?>
+        <?php Smartshop_Extension_Manager::instance()->render_html(); ?>
     </div>
 </div>

@@ -38,11 +38,11 @@ final class Base {
      */
     public function init() {
          // Add this line to check
-        $this->include_files();
+        $this->included_files();
     }
     
 
-    public function include_files() {
+    public function included_files() {
     
         require SMARTSHOP_ADDONS_PL_PATH . 'incs/helper-function.php';
         require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.assest_management.php';
@@ -51,7 +51,7 @@ final class Base {
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.quickview_manage.php';
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.icon_list.php';
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.multi_language.php';
-        require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-module-setting-popup.php'; 
+        //    require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-module-setting-popups.php'; 
 
         // Admin Setting file
         if (is_admin()) {

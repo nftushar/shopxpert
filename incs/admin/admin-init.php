@@ -51,7 +51,7 @@ class SmartShop_Admin_Init {
      
      
      
-             add_action( 'wp_ajax_smartshop_save_opt_data', [ $this, 'save_data' ] );
+              add_action( 'wp_ajax_smartshop_save_opt_data', [ $this, 'save_data' ] );
              add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));
 
     }
@@ -169,14 +169,14 @@ class SmartShop_Admin_Init {
     check_ajax_referer( 'smartshop_save_opt_nonce', 'nonce' );
 
     // Fetch and clean the input data
-    $data     = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
+    $data     = isset($_POST['data']) ? smartshop_clean($_POST['data']) : [];
     $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
     $fields   = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
 
     // Debugging: Log the received data
-    error_log("Data: " . print_r($data, true));
-    error_log("Section: " . print_r($section, true));
-    error_log("Fields: " . print_r($fields, true));
+    // error_log("Data: " . print_r($data, true));
+    // error_log("Section: " . print_r($section, true));
+    // error_log("Fields: " . print_r($fields, true));
 
     if (empty($section) || empty($fields)) {
         error_log('Section or fields data is missing.');
@@ -234,15 +234,22 @@ public function update_option($section, $option_key, $new_value) {
      * @return [JSON|Null]
      */
     public function module_data() {
+        // Debug log nonce
+        error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
+    
         // Verify nonce for security
-        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'smartshop_save_opt_nonce')) {
-            wp_send_json_error(['message' => 'Invalid nonce']);
+        if (!wp_verify_nonce($_POST['nonce'], 'smartshop_nonce_action')) {
+            error_log('Nonce verification failed!');
+            wp_send_json_error('Invalid nonce');
+            return;
+        } else {
+            error_log('Nonce verification Done!');
         }
     
         // Retrieve and sanitize POST data
         $subaction  = !empty($_POST['subaction']) ? sanitize_text_field($_POST['subaction']) : '';
         $section    = !empty($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-        $fields     = !empty($_POST['fields']) ? array_map('sanitize_text_field', (array) $_POST['fields']) : [];
+        $fields     = !empty($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : ''; // Decode JSON data
         $fieldname  = !empty($_POST['fieldname']) ? sanitize_text_field($_POST['fieldname']) : '';
     
         // Debug output to PHP error log
@@ -261,12 +268,12 @@ public function update_option($section, $option_key, $new_value) {
     
         // Get module data only if section and fields are provided
         if (empty($section) || empty($fields)) {
-            wp_send_json_error(['message' => 'Section or fields data is missing.']);
+            wp_send_json_error(['message' => 'module_data Section or fields data is missing.']);
+            return; // Ensure no further processing is done if validation fails
         }
     
         // Fetch module fields based on section or fieldname
-        $module_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['modules'];
-    
+        $module_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['modules']; 
         $section_fields = [];
         foreach ($module_fields as $module) {
             if (isset($module['section']) && $module['section'] === $section) {
@@ -285,17 +292,19 @@ public function update_option($section, $option_key, $new_value) {
                 Smartshop_Admin_Fields_Manager::instance()->add_field($field, $section);
                 $field_html .= ob_get_clean();
             }
-            $message = esc_html__('Data fetched successfully!', 'smartshop');
+            $message = esc_html__('Data Fetch successfully!', 'smartshop');
             $response_content = $field_html;
         }
     
         wp_send_json_success([
             'message' => $message,
             'content' => $response_content,
-            'fields'  => $fields  // Notice: No need to `wp_json_encode` here
+            'fields'  => wp_json_encode($fields)
         ]);
     }
     
+    
+     
     
 
 
@@ -307,7 +316,7 @@ public function update_option($section, $option_key, $new_value) {
         public function enqueue_scripts( $hook  ) {
             
             if( $hook === 'SmartShop_page_smartshop' || $hook === 'SmartShop_page_smartshop_templates' || $hook === 'SmartShop_page_smartshop_extension'){
-                // wp_enqueue_style('smartshop-sweetalert');
+                  wp_enqueue_style('smartshop-sweetalert');
             }
         }
 }

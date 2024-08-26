@@ -1,11 +1,11 @@
 <?php
     if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-    $settings_fields = Woolentor_Admin_Fields::instance()->fields()['smartshop_gutenberg_tabs']['settings'];
-    $blocks_fields  = Woolentor_Admin_Fields::instance()->fields()['smartshop_gutenberg_tabs']['blocks'];
+    $settings_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_gutenberg_tabs']['settings'];
+    $blocks_fields  = Smartshop_Admin_Fields::instance()->fields()['smartshop_gutenberg_tabs']['blocks'];
 
     $all_fields   = array_merge( $settings_fields, $blocks_fields );
-    $element_keys = Woolentor_Admin_Fields_Manager::instance()->get_field_key( $all_fields, 'name' );
+    $element_keys = Smartshop_Admin_Fields_Manager::instance()->get_field_key( $all_fields, 'name' );
 ?>
 <div id="smartshop_gutenberg_tabs" class="smartshop-admin-main-tab-pane">
     <div class="smartshop-admin-main-tab-pane-inner">
@@ -38,7 +38,7 @@
                     <div class="smartshop-admin-switch-blocks">
                         <?php
                             foreach( $blocks_fields as $key => $field ){
-                                Woolentor_Admin_Fields_Manager::instance()->add_field( $field, 'smartshop_gutenberg_tabs' );
+                                Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'smartshop_gutenberg_tabs' );
                             }
                         ?>
                     </div>
@@ -50,7 +50,7 @@
                 <div id="general-settings" class="smartshop-admin-nested-tab-pane">
                     <?php
                         foreach( $settings_fields as $key => $field ){
-                            Woolentor_Admin_Fields_Manager::instance()->add_field( $field, 'smartshop_gutenberg_tabs' );
+                            Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'smartshop_gutenberg_tabs' );
                         }
                     ?>
                 </div>

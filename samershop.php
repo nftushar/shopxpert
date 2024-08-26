@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: SmartShop
+Plugin Name: working on SmartShop
 Plugin URI:
 Description: Demo of Plugin Options Page
 Version: 1.0.1
@@ -25,8 +25,8 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
         require_once __DIR__ . '/vendor/autoload.php';
     }
     
-
-
+  
+    
 // Required File
 require_once SMARTSHOP_ADDONS_PL_PATH . 'incs/base.php';
 // Load the plugin's base functionality

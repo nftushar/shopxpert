@@ -219,104 +219,88 @@ class Assets_Management{
      *
      * @return void
      */
-    public function register_assets() {
+    function register_assets() {
         $scripts = $this->get_scripts();
         $styles  = $this->get_styles();
-        // echo"<pre>";
-        // var_dump($scripts);
-        // echo"<pre>";
-        
+    
         // Register and enqueue Scripts
-        foreach ( $scripts as $handle => $script ) {
-            $deps = isset( $script['deps'] ) ? $script['deps'] : [];
-            wp_register_script( $handle, $script['src'], $deps, $script['version'], true );
-            wp_enqueue_script( $handle );
-        }
-
- // Register Scripts
-        // foreach ( $scripts as $handle => $script ) {
-        //     $deps = ( isset( $script['deps'] ) ? $script['deps'] : false ); 
-        //     wp_register_script( $handle, $script['src'], $deps, $script['version'], true );
-        // }
- 
+        foreach ($scripts as $handle => $script) {
+            $deps = isset($script['deps']) ? $script['deps'] : [];
+            wp_register_script($handle, $script['src'], $deps, $script['version'], true);
+            wp_enqueue_script($handle);
+        } 
+    
         // Register and enqueue Styles
-        foreach ( $styles as $handle => $style ) {
-            $deps = isset( $style['deps'] ) ? $style['deps'] : [];
-            wp_register_style( $handle, $style['src'], $deps, $style['version'] );
-            wp_enqueue_style( $handle );
+        foreach ($styles as $handle => $style) {
+            $deps = isset($style['deps']) ? $style['deps'] : [];
+            wp_register_style($handle, $style['src'], $deps, $style['version']);
+            wp_enqueue_style($handle);
         }
-
-        // Register Styles
-        // foreach ( $styles as $handle => $style ) {
-        //     $deps = ( isset( $style['deps'] ) ? $style['deps'] : false );
-        //     wp_register_style( $handle, $style['src'], $deps, $style['version'] );
-        // }
-
-           //Localize Scripts
-           $localizeargs = array(
-            'smartshopajaxurl' => admin_url( 'admin-ajax.php' ),
-            'ajax_nonce'       => wp_create_nonce( 'smartshop_psa_nonce' ),
+        
+        // Localize Scripts
+        $localizeargs = array(
+            'smartshopajaxurl' => admin_url('admin-ajax.php'),
+            'ajax_nonce'       => wp_create_nonce('smartshop_nonce_action'),
         );
-        wp_localize_script( 'smartshop-widgets-scripts', 'smartshop_addons', $localizeargs );
-
-            // For Admin
-            if( is_admin() ){
-
-                $datalocalize = array(
-                    'nonce' => wp_create_nonce( 'smartshop_save_opt_nonce' ),
-                    'ajaxurl' => admin_url( 'admin-ajax.php' ),
-                    'message'=>[
-                        'btntxt'  => esc_html__( 'Save Changes', 'smartshop' ),
-                        'loading' => esc_html__( 'Saving...', 'smartshop' ),
-                        'success' => esc_html__( 'Saved success Data', 'smartshop' ),
-                        'yes'     => esc_html__( 'Yes', 'smartshop' ),
-                        'cancel'  => esc_html__( 'Cancel', 'smartshop' ),
-                        'sure'    => esc_html__( 'Are you sure?', 'smartshop' ),
-                        'reseting'=> esc_html__( 'Resetting...', 'smartshop' ),
-                        'reseted' => esc_html__( 'Reset All Settings', 'smartshop' ),
-                    ],
-                    'option_data' => [],
-
-                );
-                wp_localize_script( 'smartshop-admin-main', 'SMARTSHOP_ADMIN', $datalocalize );
-
-                            //Localize Scripts For template Library
-            $current_user  = wp_get_current_user();
-            $localize_data = [
-                'ajaxurl'          => admin_url( 'admin-ajax.php' ),
-                'nonce'            => wp_create_nonce( 'smartshop_template_nonce' ),
-                'adminURL'         => admin_url(),
-                'elementorURL'     => admin_url( 'edit.php?post_type=elementor_library' ),
-                'version'          => SMARTSHOP_VERSION,
-                'pluginURL'        => plugin_dir_url( __FILE__ ),
-                'alldata'          => !empty( base::$template_info['templates'] ) ? base::$template_info['templates'] : array(),
-                'prolink'          => 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=library',
-                'prolabel'         => esc_html__( 'Pro', 'smartshop' ),
-                'loadingimg'       => SMARTSHOP_ADDONS_PL_URL . 'includes/admin/assets/images/loading.gif',
-                'message'          =>[
-                    'packagedesc'=> esc_html__( 'in this package', 'smartshop' ),
-                    'allload'    => esc_html__( 'All Items have been Loaded', 'smartshop' ),
-                    'notfound'   => esc_html__( 'Nothing Found', 'smartshop' ),
+        wp_localize_script('smartshop-widgets-scripts', 'smartshop_addons', $localizeargs);
+    
+        // For Admin
+        if (is_admin()) {
+            $datalocalize = array(
+                'nonce' => wp_create_nonce('smartshop_nonce_action'),
+                'ajaxurl' => admin_url('admin-ajax.php'),
+                'message' => [
+                    'btntxt'  => esc_html__('Save Changes', 'smartshop'),
+                    'loading' => esc_html__('Saving...', 'smartshop'),
+                    'success' => esc_html__('Saved success Data', 'smartshop'),
+                    'yes'     => esc_html__('Yes', 'smartshop'),
+                    'cancel'  => esc_html__('Cancel', 'smartshop'),
+                    'sure'    => esc_html__('Are you sure?', 'smartshop'),
+                    'reseting'=> esc_html__('Resetting...', 'smartshop'),
+                    'reseted' => esc_html__('Reset All Settings', 'smartshop'),
                 ],
-                'buttontxt'      =>[
-                    'tmplibrary' => esc_html__( 'Import to Library', 'smartshop' ),
-                    'tmppage'    => esc_html__( 'Import to Page', 'smartshop' ),
-                    'tmpbuilder' => esc_html__( 'Import to Builder', 'smartshop' ),
-                    'import'     => esc_html__( 'Import', 'smartshop' ),
-                    'buynow'     => esc_html__( 'Buy Now', 'smartshop' ),
-                    'preview'    => esc_html__( 'Preview', 'smartshop' ),
-                    'installing' => esc_html__( 'Installing..', 'smartshop' ),
-                    'activating' => esc_html__( 'Activating..', 'smartshop' ),
-                    'active'     => esc_html__( 'Active', 'smartshop' ),
+                'option_data' => [],
+            );
+            wp_localize_script('smartshop-admin-main', 'SMARTSHOP_ADMIN', $datalocalize);
+    
+            // Localize Scripts For template Library
+            $current_user = wp_get_current_user();
+            $localize_data = [
+                'ajaxurl'          => admin_url('admin-ajax.php'),
+                'nonce'            => wp_create_nonce('smartshop_nonce_action'),
+                'adminURL'         => admin_url(),
+                'elementorURL'     => admin_url('edit.php?post_type=elementor_library'),
+                'version'          => SMARTSHOP_VERSION,
+                'pluginURL'        => plugin_dir_url(__FILE__),
+                'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
+                'prolink'          => 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=library',
+                'prolabel'         => esc_html__('Pro', 'smartshop'),
+                'loadingimg'       => SMARTSHOP_ADDONS_PL_URL . 'includes/admin/assets/images/loading.gif',
+                'message'          => [
+                    'packagedesc'=> esc_html__('in this package', 'smartshop'),
+                    'allload'    => esc_html__('All Items have been Loaded', 'smartshop'),
+                    'notfound'   => esc_html__('Nothing Found', 'smartshop'),
+                ],
+                'buttontxt'      => [
+                    'tmplibrary' => esc_html__('Import to Library', 'smartshop'),
+                    'tmppage'    => esc_html__('Import to Page', 'smartshop'),
+                    'tmpbuilder' => esc_html__('Import to Builder', 'smartshop'),
+                    'import'     => esc_html__('Import', 'smartshop'),
+                    'buynow'     => esc_html__('Buy Now', 'smartshop'),
+                    'preview'    => esc_html__('Preview', 'smartshop'),
+                    'installing' => esc_html__('Installing..', 'smartshop'),
+                    'activating' => esc_html__('Activating..', 'smartshop'),
+                    'active'     => esc_html__('Active', 'smartshop'),
                 ],
                 'user'           => [
                     'email' => $current_user->user_email,
                 ],
             ];
-            wp_localize_script( 'smartshop-templates', 'WLTM', $localize_data );
-            wp_localize_script( 'smartshop-install-manager', 'WLIM', $localize_data );
-    } 
- }
+            wp_localize_script('smartshop-templates', 'WLTM', $localize_data);
+            wp_localize_script('smartshop-install-manager', 'WLIM', $localize_data);
+        }
+    }
+    
 
     /**
      * [enqueue_frontend_scripts Load frontend scripts]

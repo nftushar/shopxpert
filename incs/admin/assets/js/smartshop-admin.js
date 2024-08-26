@@ -123,7 +123,7 @@
     /* Switch Enable/Disable Function */
     $('[data-switch-toggle]').on('click', function (e) {
         e.preventDefault();
-console.log("Switch Enable/Disable Function");
+console.log("JS Switch Enable/Disable Function");
 
         const $this = $(this),
             $type = $this.data('switch-toggle'),
@@ -167,6 +167,8 @@ console.log("Switch Enable/Disable Function");
      * Admin Module additional setting button
      */
     $('.smartshop-admin-switch .checkbox').on('click', function (e) {
+console.log("JS Admin Module additional setting button");
+
         var actionBtn = $(this).closest('.smartshop-admin-switch-block-actions').find('.smartshop-admin-switch-block-setting');
         if (actionBtn.hasClass('smartshop-visibility-none')) {
             actionBtn.removeClass('smartshop-visibility-none');
@@ -231,73 +233,63 @@ console.log("Switch Enable/Disable Function");
         $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
     });
 
+
 // Module additional settings
 $('.smartshop-admin-switch-block-setting').on('click', function(event) {
     event.preventDefault();
+    console.log("JS Module additional settings");
 
     var $this = $(this),
         $section = $this.data('section'),
         $fields = $this.data('fields'),
-        $fieldname = $this.data('fieldname') ? $this.data('fieldname') : '',
-        content = null,
-        modulewrapper = wp.template('smartshopmodule');
+        $fieldname = $this.data('fieldname') ? $this.data('fieldname') : '';
 
-            // console.log('x section',$section);
-            // console.log('x fields',$fields);
-            // console.log('x fieldname:',$fieldname);
-            // console.log('x fileds',modulewrapper);
-            
-            $.ajax({
-                url: SMARTSHOP_ADMIN.ajaxurl,
-                type: 'POST',
-                data: {
-                    nonce: SMARTSHOP_ADMIN.nonce,
-                    section: $section,
-                    fields: $fields,
-                    fieldname: $fieldname,
-                    action: 'smartshop_module_data',
-                    subaction: 'get_data',
-                },
-                beforeSend: function() {
-                    $this.addClass('module-setting-loading');
-                },
-                success: function(response) {
-                    console.log('xx Raw Response:', response);
-                    
-                    // Check if response is JSON
-                    try {
-                        if (response.success && response.data && response.data.fields && response.data.content) {
-                            console.log('xxfields:', response.data.fields);
-                            console.log('xxcontent:', response.data.content);
-                    
-                            let content = modulewrapper({
-                                section: $section,
-                                fields: response.data.fields,
-                                content: response.data.content
-                            });
-                    
-                            $('body').append(content);
-                            smartshop_module_ajax_reactive();
-                            $(document).trigger('module_setting_loaded');
-                        } else {
-                            console.log('Response does not contain expected data.');
-                        }
-                    } catch (e) {
-                        console.error('Error parsing JSON response:', e);
-                    }
-                    
-                    $this.removeClass('module-setting-loading');
-                },
-                complete: function() {
-                    $this.removeClass('module-setting-loading');
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('AJAX Error:', textStatus, errorThrown);
-                    console.log('Response:', jqXHR.responseText); // Check if response contains HTML or unexpected data
-                }
+    // Log the values before the AJAX call
+    console.log('Nonce:', SMARTSHOP_ADMIN.nonce);
+    console.log('Section:', $section);
+    console.log('Fields:', $fields);
+    console.log('Fieldname:', $fieldname);
+
+    $.ajax({
+        url: SMARTSHOP_ADMIN.ajaxurl,
+        type: 'POST',
+        data: {
+            nonce: SMARTSHOP_ADMIN.nonce,
+            section: $section,
+            fields: JSON.stringify($fields), // Ensure fields are properly serialized
+            fieldname: $fieldname,
+            action: 'smartshop_module_data',
+            subaction: 'get_data',
+        },
+        beforeSend: function() {
+            console.log('AJAX Data:', {
+                nonce: SMARTSHOP_ADMIN.nonce,
+                section: $section,
+                fields: JSON.stringify($fields),
+                fieldname: $fieldname,
+                action: 'smartshop_module_data',
+                subaction: 'get_data',
             });
-
+            $this.addClass('module-setting-loading');
+        },
+        success: function(response) {
+            console.log('Raw Response:', response);
+            if (response.success) {
+                // Handle success
+            } else {
+                // Handle error
+                console.error('Error:', response.data.message);
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('AJAX Error:', textStatus, errorThrown);
+            console.log('Response:', jqXHR.responseText);
+        }
+    });   
 });
+
+
+    
  
 
     // PopUp reactive JS

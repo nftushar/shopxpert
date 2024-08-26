@@ -2,7 +2,6 @@
     if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 <script type="text/template" id="tmpl-smartshopmodule">
-
     <div class="smartshop-module-setting-popup">
         <div id="smartshop-admin-pro-popup" class="smartshop-admin-popup open">
             <div class="smartshop-module-setting-popup-content smartshop-admin-popup-inner">
@@ -22,6 +21,5 @@
                 </form>
             </div>
         </div>
-    </div>
-
+    </div> 
 </script>

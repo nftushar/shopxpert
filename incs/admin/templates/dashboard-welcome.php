@@ -5,7 +5,7 @@
     <div class="smartshop-admin-main-tab-pane-inner">
         <!-- Banner Start -->
         <div class="smartshop-admin-banner">
-            <img src="<?php echo esc_url(SMARTSHOP_ADDONS_PL_URL.'incs/admin/assets/images/banner/welcome.png'); ?>" alt="<?php echo esc_attr__('Welcome To WooLentor','smartshop');?>">
+            <img src="<?php echo esc_url(SMARTSHOP_ADDONS_PL_URL.'incs/admin/assets/images/banner/welcome.png'); ?>" alt="<?php echo esc_attr__('Welcome To smartshop','smartshop');?>">
         </div>
         <!-- Banner End -->
 

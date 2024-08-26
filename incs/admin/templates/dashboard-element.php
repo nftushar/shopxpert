@@ -1,9 +1,9 @@
 <?php
     if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-    $element_fields = Woolentor_Admin_Fields::instance()->fields()['smartshop_elements_tabs'];
+    $element_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_elements_tabs'];
     // $element_keys = array_column( $element_fields, 'name' );
-    $element_keys   = Woolentor_Admin_Fields_Manager::instance()->get_field_key( $element_fields, 'name' );
+    $element_keys   = Smartshop_Admin_Fields_Manager::instance()->get_field_key( $element_fields, 'name' );
 
 ?>
 <div id="smartshop_elements_tabs" class="smartshop-admin-main-tab-pane">
@@ -28,7 +28,7 @@
             <div class="smartshop-admin-switch-blocks">
                 <?php
                     foreach( $element_fields as $key => $field ){
-                        Woolentor_Admin_Fields_Manager::instance()->add_field( $field, 'smartshop_elements_tabs' );
+                        Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'smartshop_elements_tabs' );
                     }
                 ?>
             </div>

@@ -32,7 +32,7 @@ class Smartshop_Extension_Manager{
     }
 
     public function scripts( $hook ) {
-        if( 'shoplentor_page_smartshop_extension' == $hook ){
+        if( 'smartshop_page_smartshop_extension' == $hook ){
         	
         	//JS
             wp_enqueue_script( 'smartshop-install-manager' );

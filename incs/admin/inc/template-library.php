@@ -49,7 +49,7 @@ class Smartshop_Template_Library{
      */
     public function scripts( $hook ) {
 
-        if( 'shoplentor_page_smartshop_templates' == $hook ){
+        if( 'smartshop_page_smartshop_templates' == $hook ){
 
             // CSS
             wp_enqueue_style( 'smartshop-selectric' );
