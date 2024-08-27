@@ -236,19 +236,14 @@ $('.smartshop-admin-btn-save').on('click', function (event) {
 
 // Module additional settings
 $('.smartshop-admin-switch-block-setting').on('click', function(event) {
-    event.preventDefault();
-    console.log("JS Module additional settings");
+    event.preventDefault(); 
 
     var $this = $(this),
         $section = $this.data('section'),
         $fields = $this.data('fields'),
-        $fieldname = $this.data('fieldname') ? $this.data('fieldname') : '';
-
-    // Log the values before the AJAX call
-    console.log('Nonce:', SMARTSHOP_ADMIN.nonce);
-    console.log('Section:', $section);
-    console.log('Fields:', $fields);
-    console.log('Fieldname:', $fieldname);
+        $fieldname = $this.data('fieldname') ? $this.data('fieldname') : '',
+        content = null,
+        modulewrapper = wp.template('smartshopmodule');
 
     $.ajax({
         url: SMARTSHOP_ADMIN.ajaxurl,
@@ -262,36 +257,31 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
             subaction: 'get_data',
         },
         beforeSend: function() {
-            console.log('AJAX Data:', {
-                nonce: SMARTSHOP_ADMIN.nonce,
-                section: $section,
-                fields: JSON.stringify($fields),
-                fieldname: $fieldname,
-                action: 'smartshop_module_data',
-                subaction: 'get_data',
-            });
             $this.addClass('module-setting-loading');
         },
         success: function(response) {
-            console.log('Raw Response:', response);
-            if (response.success) {
-                // Handle success
-            } else {
-                // Handle error
-                console.error('Error:', response.data.message);
-            }
+            content = modulewrapper({
+                section: $section,
+                fields: response.data.fields,  // Corrected "fileds" to "fields"
+                content: response.data.content
+            });
+            $('body').append(content);
+
+            smartshop_module_ajax_reactive();
+            $(document).trigger('module_setting_loaded');
+            $this.removeClass('module-setting-loading');
+        },
+        complete: function() {
+            $this.removeClass('module-setting-loading');
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('AJAX Error:', textStatus, errorThrown);
             console.log('Response:', jqXHR.responseText);
         }
-    });   
+    });
 });
 
-
-    
  
-
     // PopUp reactive JS
     function smartshop_module_ajax_reactive() {
 
