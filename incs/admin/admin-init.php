@@ -60,7 +60,8 @@ class SmartShop_Admin_Init {
              add_action('admin_menu', [$this, 'add_menu'], 10);
              add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
       
-             add_action( 'admin_footer', [ $this, 'print_module_setting_popup' ], 99 );
+            add_action('admin_footer', [ $this, 'print_module_setting_popup' ], 99);
+
  
              add_action('wp_ajax_smartshop_save_opt_data', [$this, 'save_data']);
 
@@ -172,6 +173,7 @@ class SmartShop_Admin_Init {
     public function print_module_setting_popup() {
         $screen = get_current_screen();
         if ( 'smartshop_page_samrtshop' == $screen->base ) {
+            error_log("smartshop print_module_setting_popup 2");
             self::load_template('module-setting-popup');
         }
     }
@@ -209,7 +211,7 @@ add_action('in_admin_header', function (){
         return;
     } 
         // Debug log nonce
-        error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
+        // error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
     
         // Verify nonce for security
         if (!wp_verify_nonce($_POST['nonce'], 'smartshop_nonce_action')) {
@@ -226,8 +228,7 @@ add_action('in_admin_header', function (){
     $fields = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
 
     // Debugging: Log the received data
-    error_log("Data: " . print_r($data, true));
-    error_log("Section: " . print_r($section, true));
+  
     error_log("Fields: " . print_r($fields, true));
 
     if (empty($section) || empty($fields)) {
@@ -288,14 +289,14 @@ public function update_option($section, $option_key, $new_value) {
      */
     public function module_data() {
       
-    // Check if the user has the required capability
-    if (!current_user_can(self::MENU_CAPABILITY)) {
-        error_log('User does not have the required capability.');
-        return;
-    }
+        // Check if the user has the required capability
+        if (!current_user_can(self::MENU_CAPABILITY)) {
+            error_log('User does not have the required capability.');
+            return;
+        }
 
         // Debug log nonce
-        error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
+        // error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
     
         // Verify nonce for security
         if (!wp_verify_nonce($_POST['nonce'], 'smartshop_nonce_action')) {
@@ -309,15 +310,13 @@ public function update_option($section, $option_key, $new_value) {
         // Retrieve and sanitize POST data
         $subaction  = !empty($_POST['subaction']) ? sanitize_text_field($_POST['subaction']) : '';
         $section    = !empty($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-        $fields     = !empty($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : ''; // Decode JSON data
+        $fields = !empty($_POST['fields']) ? (is_array($_POST['fields']) ? $_POST['fields'] : json_decode(stripslashes_deep($_POST['fields']), true)) : [];
         $fieldname  = !empty($_POST['fieldname']) ? sanitize_text_field($_POST['fieldname']) : '';
+        
+        error_log(print_r($fields, true)); // Log the fields array
+        
     
-        // Debug output to PHP error log
-        error_log('subaction: ' . $subaction);
-        error_log('section: ' . $section);
-        error_log('fields: ' . print_r($fields, true));
-        error_log('fieldname: ' . $fieldname);
-    
+
         // Handle module data reset
         if ($subaction === 'reset_data') {
             if (!empty($section)) {
