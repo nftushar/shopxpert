@@ -236,7 +236,8 @@ $('.smartshop-admin-btn-save').on('click', function (event) {
 
 // Module additional settings
 $('.smartshop-admin-switch-block-setting').on('click', function(event) {
-    event.preventDefault(); 
+    event.preventDefault();
+    console.log("JS Module additional settings");
 
     var $this = $(this),
         $section = $this.data('section'),
@@ -251,28 +252,25 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
         data: {
             nonce: SMARTSHOP_ADMIN.nonce,
             section: $section,
-            fields: JSON.stringify($fields), // Ensure fields are properly serialized
+            fields: $fields,
             fieldname: $fieldname,
             action: 'smartshop_module_data',
             subaction: 'get_data',
         },
         beforeSend: function() {
+            console.log('AJAX Data:', {
+                nonce: SMARTSHOP_ADMIN.nonce,
+                section: $section,
+                fields: $fields,
+                fieldname: $fieldname,
+                action: 'smartshop_module_data',
+                subaction: 'get_data',
+            });
             $this.addClass('module-setting-loading');
         },
         success: function(response) {
-            content = modulewrapper({
-                section: $section,
-                fields: response.data.fields,  // Corrected "fileds" to "fields"
-                content: response.data.content
-            });
-            $('body').append(content);
-
-            smartshop_module_ajax_reactive();
-            $(document).trigger('module_setting_loaded');
-            $this.removeClass('module-setting-loading');
-        },
-        complete: function() {
-            $this.removeClass('module-setting-loading');
+            console.log('Raw Response:', response);
+            // Handle success response
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('AJAX Error:', textStatus, errorThrown);
@@ -280,6 +278,7 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
         }
     });
 });
+
 
  
     // PopUp reactive JS

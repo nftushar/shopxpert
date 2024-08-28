@@ -45,16 +45,30 @@ class SmartShop_Admin_Init {
     }
 
     public function __construct() {
+        $this->remove_all_notices();
+        $this->include();
+        $this->init(); 
+
+    }
+
+
+
+        /**
+     * [init] Assets Initializes
+     * @return [void]
+     */
+    public function init(){
              // Add menu with priority 10 to ensure it appears in the correct order
              add_action('admin_menu', [$this, 'add_menu'], 10);
              add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
      
      
+        add_action( 'admin_footer', [ $this, 'print_module_setting_popup' ], 99 );
+
      
              add_action('wp_ajax_smartshop_save_opt_data', [$this, 'save_data']);
 
              add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));
-
     }
 
  
@@ -155,6 +169,36 @@ class SmartShop_Admin_Init {
     }
 
 
+        /**
+     * [print_module_setting_popup] addmin_footer Callback
+     * @return [void]
+     */
+    public function print_module_setting_popup() {
+        $screen = get_current_screen();
+        if ( 'smartshop_page_samrtshop' == $screen->base ) {
+            self::load_template('module-setting-popup');
+        }
+    }
+
+
+/**
+ * [remove_all_notices] remove admin notices
+ * @return [void]
+ */
+public function remove_all_notices() {
+add_action('in_admin_header', function (){
+    $screen = get_current_screen();
+    if ( 'smartshop_page_samrtshop' == $screen->base ) {
+        remove_all_actions('admin_notices'); 
+        remove_all_actions('all_admin_notices');
+    }
+}, 1000);
+
+}
+
+
+ 
+
  
 /**
  * [smartshop_save_opt_data] WP Ajax Callback
@@ -167,8 +211,7 @@ class SmartShop_Admin_Init {
     if (!current_user_can(self::MENU_CAPABILITY)) {
         error_log('User does not have the required capability.');
         return;
-    }
-
+    } 
         // Debug log nonce
         error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
     
@@ -336,7 +379,7 @@ public function update_option($section, $option_key, $new_value) {
      */
         public function enqueue_scripts( $hook  ) {
             
-            if( $hook === 'SmartShop_page_smartshop' || $hook === 'SmartShop_page_smartshop_templates' || $hook === 'SmartShop_page_smartshop_extension'){
+            if( $hook === 'smartshop_page_smartshop' || $hook === 'smartshop_page_smartshop_templates' || $hook === 'smartshop_page_smartshop_extension'){
                   wp_enqueue_style('smartshop-sweetalert');
             }
         }
