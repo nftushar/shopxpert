@@ -49,11 +49,9 @@ class SmartShop_Admin_Init {
         $this->include();
         $this->init(); 
 
-    }
+    } 
 
-
-
-        /**
+    /**
      * [init] Assets Initializes
      * @return [void]
      */
@@ -61,11 +59,9 @@ class SmartShop_Admin_Init {
              // Add menu with priority 10 to ensure it appears in the correct order
              add_action('admin_menu', [$this, 'add_menu'], 10);
              add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-     
-     
-        add_action( 'admin_footer', [ $this, 'print_module_setting_popup' ], 99 );
-
-     
+      
+             add_action( 'admin_footer', [ $this, 'print_module_setting_popup' ], 99 );
+ 
              add_action('wp_ajax_smartshop_save_opt_data', [$this, 'save_data']);
 
              add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));

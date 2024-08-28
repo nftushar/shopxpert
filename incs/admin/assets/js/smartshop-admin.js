@@ -236,8 +236,7 @@ $('.smartshop-admin-btn-save').on('click', function (event) {
 
 // Module additional settings
 $('.smartshop-admin-switch-block-setting').on('click', function(event) {
-    event.preventDefault();
-    console.log("JS Module additional settings");
+    event.preventDefault(); 
 
     var $this = $(this),
         $section = $this.data('section'),
@@ -257,24 +256,27 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
             action: 'smartshop_module_data',
             subaction: 'get_data',
         },
-        beforeSend: function() {
-            console.log('AJAX Data:', {
-                nonce: SMARTSHOP_ADMIN.nonce,
-                section: $section,
-                fields: $fields,
-                fieldname: $fieldname,
-                action: 'smartshop_module_data',
-                subaction: 'get_data',
-            });
+        beforeSend: function(){
             $this.addClass('module-setting-loading');
         },
-        success: function(response) {
-            console.log('Raw Response:', response);
-            // Handle success response
+        success: function( response ) { 
+            content = modulewrapper( {
+                section : $section,
+                fileds  : response.data.fields,
+                content : response.data.content
+            } );
+            $( 'body' ).append( content );
+
+            smartshop_module_ajax_reactive();
+            $( document ).trigger('module_setting_loaded');
+            $this.removeClass('module-setting-loading');
+            
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('AJAX Error:', textStatus, errorThrown);
-            console.log('Response:', jqXHR.responseText);
+        complete: function( response ) {
+            $this.removeClass('module-setting-loading');
+        },
+        error: function(errorThrown){
+            console.log(errorThrown);
         }
     });
 });
