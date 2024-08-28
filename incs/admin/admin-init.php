@@ -5,12 +5,23 @@ use Smartshop\Incs;
 use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
 use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields;
 
-use function Smartshop\Incs\smartshop_clean;
+use function  Smartshop\incs\smartshop_clean;
+
+require_once( SMARTSHOP_ADDONS_PL_PATH . 'incs/helper-function.php' );
  
+if (function_exists('smartshop_update_option')) {
+    error_log('Function smartshop_clean Saving Option DataSaving Option Data exist.');
+
+} else {
+    error_log('Function smartshop_clean does not exist.');
+}
+
+
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class SmartShop_Admin_Init {
 
+class SmartShop_Admin_Init {
+ 
     /**
      * Parent Menu Page Slug
      */
@@ -173,7 +184,7 @@ class SmartShop_Admin_Init {
     public function print_module_setting_popup() {
         $screen = get_current_screen();
         if ( 'smartshop_page_samrtshop' == $screen->base ) {
-            error_log("smartshop print_module_setting_popup 2");
+            // error_log("smartshop print_module_setting_popup 2");
             self::load_template('module-setting-popup');
         }
     }
@@ -204,31 +215,21 @@ add_action('in_admin_header', function (){
  */
 
  public function save_data() {
-    
-    // Check if the user has the required capability
-    if (!current_user_can(self::MENU_CAPABILITY)) {
+    if ( ! current_user_can( self::MENU_CAPABILITY ) ) {
         error_log('User does not have the required capability.');
         return;
-    } 
-        // Debug log nonce
-        // error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
-    
-        // Verify nonce for security
-        if (!wp_verify_nonce($_POST['nonce'], 'smartshop_nonce_action')) {
-            error_log('Nonce verification failed!');
-            wp_send_json_error('Invalid nonce');
-            return;
-        } else {
-            error_log('Nonce verification Done!');
-        }
+    }
+
+    check_ajax_referer( 'smartshop_nonce_action', 'nonce' );
 
     // Fetch and clean the input data
-    $data = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
-    $section = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-    $fields = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
+    $data     = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
+    $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
+    $fields   = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
 
     // Debugging: Log the received data
-  
+    error_log("Data: " . print_r($data, true));
+    error_log("Section: " . print_r($section, true));
     error_log("Fields: " . print_r($fields, true));
 
     if (empty($section) || empty($fields)) {
@@ -252,13 +253,11 @@ add_action('in_admin_header', function (){
         $this->update_option($section, $field, $value);
     }
 
-    // Send a success response
     wp_send_json_success([
         'message' => esc_html__('Data saved successfully!', 'smartshop'),
         'data'    => $data
     ]);
 }
-
 /**
  * Updates a specific option within a section.
  *
@@ -278,7 +277,7 @@ public function update_option($section, $option_key, $new_value) {
     $options_data[$option_key] = $new_value;
 
     // Save the updated options back to the database
-    error_log("Saving Option Data: " . print_r($options_data, true));
+    // error_log("Saving Option Data: " . print_r($options_data, true));
     update_option($section, $options_data);
 }
  
