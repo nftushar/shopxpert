@@ -911,15 +911,7 @@ class Smartshop_Admin_Fields_Manager {
                 });
 
                 // Icon Picker
-                $('.smartshop_icon_picker .regular-text').fontIconPicker({
-                    source: smartshop_fields.iconset,
-                    emptyIcon: true,
-                    hasSearch: true,
-                    theme: 'fip-bootstrap'
-                }).on('change', function() {
-                    $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
-                });
-
+ 
                 // Media Uploader
                 $('.smartshop-browse').on('click', function (event) {
                     event.preventDefault();

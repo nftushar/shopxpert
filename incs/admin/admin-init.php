@@ -7,16 +7,7 @@ use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields;
 
 use function  Smartshop\incs\smartshop_clean;
 
-require_once( SMARTSHOP_ADDONS_PL_PATH . 'incs/helper-function.php' );
  
-if (function_exists('smartshop_update_option')) {
-    error_log('Function smartshop_clean Saving Option DataSaving Option Data exist.');
-
-} else {
-    error_log('Function smartshop_clean does not exist.');
-}
-
-
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 
@@ -204,8 +195,6 @@ add_action('in_admin_header', function (){
 }, 1000);
 
 }
-
-
  
 
  
@@ -228,9 +217,9 @@ add_action('in_admin_header', function (){
     $fields   = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
 
     // Debugging: Log the received data
-    error_log("Data: " . print_r($data, true));
-    error_log("Section: " . print_r($section, true));
-    error_log("Fields: " . print_r($fields, true));
+     error_log("Data: " . print_r($data, true));
+     error_log("Section: " . print_r($section, true));
+      error_log("Fields: " . print_r($fields, true));
 
     if (empty($section) || empty($fields)) {
         error_log('Section or fields data is missing.');
