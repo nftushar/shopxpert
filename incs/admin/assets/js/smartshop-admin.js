@@ -288,8 +288,7 @@ console.log("smartshop module_data");
 
  
     // PopUp reactive JS
-    function smartshop_module_ajax_reactive() {
-
+    function smartshop_module_ajax_reactive() { 
         // Select 2 Multiple selection
         $('.smartshop-module-setting-popup').find('.smartshop-admin-option:not(.smartshop-repeater-field) .smartshop-admin-select select[multiple="multiple"]').each(function () {
             const $this = $(this),
