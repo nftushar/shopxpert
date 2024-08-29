@@ -246,6 +246,9 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
         content = null,
         modulewrapper = wp.template('smartshopmodule');
 
+console.log("smartshop module_data");
+
+
     $.ajax({
         url: SMARTSHOP_ADMIN.ajaxurl,
         type: 'POST',
@@ -384,9 +387,7 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
                 return;
             }
 
-            console.log('SMARTSHOP_ADMIN:', SMARTSHOP_ADMIN);
-
-            // AJAX request
+            
             $.ajax({
                 url: SMARTSHOP_ADMIN.ajaxurl, // URL to send the request to
                 type: 'POST', // Method of request
@@ -402,9 +403,10 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
                     $savebtn.text(SMARTSHOP_ADMIN.message.loading).addClass('updating-message');
                 },
                 success: function (response) {
+                    $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SMARTSHOP_ADMIN.message.success); // Update the button state
+
                     console.log('xxx AJAX Success Response:', response); // Log the response
                     alert('Module additional setting saved'); // Alert success message
-                    $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SMARTSHOP_ADMIN.message.success); // Update the button state
                 },
                 complete: function (response) {
                     console.log('AJAX Complete Response:', response); // Log the response

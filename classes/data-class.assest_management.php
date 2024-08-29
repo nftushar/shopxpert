@@ -256,7 +256,7 @@ if (is_admin()) {
         'message' => [
             'btntxt'  => esc_html__('Save Changes', 'smartshop'),
             'loading' => esc_html__('Saving...', 'smartshop'),
-            'success' => esc_html__('Saved success Data', 'smartshop'),
+            'success' => esc_html__('ZZ Saved success Data', 'smartshop'),
             'yes'     => esc_html__('Yes', 'smartshop'),
             'cancel'  => esc_html__('Cancel', 'smartshop'),
             'sure'    => esc_html__('Are you sure?', 'smartshop'),

@@ -192,9 +192,7 @@ add_action('in_admin_header', function (){
         remove_all_actions('admin_notices'); 
         remove_all_actions('all_admin_notices');
     }
-}, 1000);
-
-}
+}, 1000); }
  
 
  
@@ -211,15 +209,23 @@ add_action('in_admin_header', function (){
 
     check_ajax_referer( 'smartshop_nonce_action', 'nonce' );
 
+  
+    error_log("Smartshop hello  save data");
+
+
     // Fetch and clean the input data
     $data     = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
     $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-    $fields   = isset($_POST['fields']) ? json_decode(stripslashes($_POST['fields']), true) : [];
+    $fields = isset($_POST['fields']) ? $_POST['fields'] : [];
 
-    // Debugging: Log the received data
-     error_log("Data: " . print_r($data, true));
-     error_log("Section: " . print_r($section, true));
-      error_log("Fields: " . print_r($fields, true));
+    // Ensure $fields is an array and process it accordingly
+    if (!is_array($fields)) {
+        $fields = json_decode(stripslashes($fields), true);
+    }
+    
+    // Error log for debugging
+    error_log("sssFields after processing: " . print_r($fields, true));
+    
 
     if (empty($section) || empty($fields)) {
         error_log('Section or fields data is missing.');
@@ -247,6 +253,8 @@ add_action('in_admin_header', function (){
         'data'    => $data
     ]);
 }
+
+
 /**
  * Updates a specific option within a section.
  *
