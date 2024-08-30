@@ -127,10 +127,29 @@ class SmartShop_Admin_Init {
               $options = get_option($section);
               
               echo '<div class="wrap">';
-              echo '<h1>Options Display</h1>';
+              echo '<h1>xxOptions Display</h1>';
               echo '<pre>' . print_r($options, true) . '</pre>';
               echo '</div>';
             ?> 
+             <hr>
+             
+        </div>
+        <div class="wrap">
+            <h1><?php esc_html_e('Welcome to SmartShop', 'samrtshop'); ?></h1>
+            <p><?php esc_html_e('This is the main page for the SmartShop plugin. You can customize settings and manage your shop here.', 'samrtshop'); ?></p>
+
+            
+            <?php 
+              // Retrieve and display the option
+              $section = 'smartshop_backorder_settings'; // Replace with your section key
+              $options = get_option($section);
+              
+              echo '<div class="wrap">';
+              echo '<h1>ZZ ptions Display</h1>';
+              echo '<pre>' . print_r($options, true) . '</pre>';
+              echo '</div>';
+            ?> 
+             <hr>
              
         </div>
         <?php
