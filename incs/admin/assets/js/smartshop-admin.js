@@ -300,14 +300,14 @@ console.log("smartshop module_data");
         });
 
         //Initiate Color Picker
-        $('.smartshop-module-setting-popup').find('.smartshop-admin-option:not(.smartshop-repeater-field) .wp-color-picker-field').wpColorPicker({
-            change: function (event, ui) {
-                $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
-            },
-            clear: function (event) {
-                $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
-            }
-        });
+        // $('.smartshop-module-setting-popup').find('.smartshop-admin-option:not(.smartshop-repeater-field) .wp-color-picker-field').wpColorPicker({
+        //     change: function (event, ui) {
+        //         $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //     },
+        //     clear: function (event) {
+        //         $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //     }
+        // });
 
         // WPColor Picker Button disable.
         $('div[data-smartshop-pro="disabled"] .wp-picker-container button').each(function () {
@@ -517,16 +517,16 @@ console.log('Module Setting Reset ajax');
             });
         });
 
-        $(hidden_repeater_elem).find('.wp-color-picker-field').each(function () {
-            $(this).wpColorPicker({
-                change: function (event, ui) {
-                    $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
-                },
-                clear: function (event) {
-                    $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
-                }
-            });
-        });
+        // $(hidden_repeater_elem).find('.wp-color-picker-field').each(function () {
+        //     $(this).wpColorPicker({
+        //         change: function (event, ui) {
+        //             $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //         },
+        //         clear: function (event) {
+        //             $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //         }
+        //     });
+        // });
 
     });
 

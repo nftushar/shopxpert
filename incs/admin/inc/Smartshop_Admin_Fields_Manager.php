@@ -894,17 +894,17 @@ class Smartshop_Admin_Fields_Manager {
             ;jQuery(document).ready(function($) {
                 
                 //Initiate Color Picker
-                $('.wp-color-picker-field').wpColorPicker({
+                // $('.wp-color-picker-field').wpColorPicker({
 
-                    change: function (event, ui) {
-                        $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
-                    },
+                //     change: function (event, ui) {
+                //         $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
+                //     },
 
-                    clear: function (event) {
-                        $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
-                    }
+                //     clear: function (event) {
+                //         $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
+                //     }
                     
-                });
+                // });
 
                 $('div[data-smartshop-pro="disabled"] .wp-picker-container button').each(function(){
                     $(this).attr("disabled", true);

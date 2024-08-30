@@ -65,7 +65,7 @@ class SmartShop_Admin_Init {
             add_action('admin_footer', [ $this, 'print_module_setting_popup' ], 99);
 
  
-             add_action('wp_ajax_smartshop_save_opt_data', [$this, 'save_data']);
+            add_action('wp_ajax_smartshop_save_opt_data', array($this, 'save_data'));
 
              add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));
     }
@@ -214,7 +214,7 @@ add_action('in_admin_header', function (){
 
 
     // Fetch and clean the input data
-    $data     = isset($_POST['data']) ? woolentor_clean($_POST['data']) : [];
+    $data     = isset($_POST['data']) ? smartshop_clean($_POST['data']) : [];
     $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
     $fields = isset($_POST['fields']) ? $_POST['fields'] : [];
 
@@ -224,7 +224,7 @@ add_action('in_admin_header', function (){
     }
     
     // Error log for debugging
-    error_log("sssFields after processing: " . print_r($fields, true));
+    error_log("sssFields after processing: " . print_r($data, true));
     
 
     if (empty($section) || empty($fields)) {
@@ -253,7 +253,6 @@ add_action('in_admin_header', function (){
         'data'    => $data
     ]);
 }
-
 
 /**
  * Updates a specific option within a section.
@@ -290,6 +289,7 @@ public function update_option($section, $option_key, $new_value) {
             error_log('User does not have the required capability.');
             return;
         }
+        check_ajax_referer( 'smartshop_nonce_action', 'nonce' );
 
         // Debug log nonce
         // error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));

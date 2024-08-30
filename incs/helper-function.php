@@ -561,7 +561,10 @@ function smartshop_update_option( $section, $option_key, $new_value ){
  */
 function smartshop_clean( $var ) {
     if ( is_array( $var ) ) {
-        return array_map( 'smartshop_clean', $var );
+        return array_map(function($item) {
+            return is_scalar($item) ? sanitize_text_field($item) : $item;
+        }, $var);
+        
     } else {
         return is_scalar( $var ) ? sanitize_text_field( $var ) : $var;
     }
