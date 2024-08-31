@@ -40,8 +40,8 @@ class Smartshop_Template_Library{
     }
 
     public function library_render_html(){
-        require_once SMARTSHOP_ADDONS_PL_PATH . 'includes/admin/include/template-library/templates_list.php';
-        require_once SMARTSHOP_ADDONS_PL_PATH . 'includes/admin/include/template-library/popup-template.php';
+        require_once SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/inc/template-library/templates_list.php';
+        require_once SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/inc/template-library/popup-template.php';
     }
 
     /**

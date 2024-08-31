@@ -44,7 +44,7 @@ class Smartshop_Extension_Manager{
     // Extension Menu HTML
     public function render_html(){
 
-    	if ( ! function_exists('plugins_api') ){ include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' ); }
+    	if ( ! function_exists('plugins_api') ){ include_once( ABSPATH . 'wp-admin/incs/plugin-install.php' ); }
 
     	$htplugins_plugins_list = !empty( $this->get_plugins() ) ? $this->get_plugins() : array();
     	$palscode_plugins_list = !empty( $this->get_plugins( 'palscode' ) ) ? $this->get_plugins( 'palscode' ) : array();
@@ -147,7 +147,7 @@ class Smartshop_Extension_Manager{
 									'slug'      => isset( $plugin['slug'] ) ? $plugin['slug'] : '',
 									'location'  => isset( $plugin['location'] ) ? $plugin['slug'].'/'.$plugin['location'] : '',
 									'name'      => isset( $plugin['name'] ) ? $plugin['name'] : '',
-									'image'     => isset( $plugin['icon'] ) ? $plugin['icon'] : SMARTSHOP_ADDONS_PL_URL.'/includes/admin/assets/images/extension/'.$plugin['slug'].'.png',
+									'image'     => isset( $plugin['icon'] ) ? $plugin['icon'] : SMARTSHOP_ADDONS_PL_URL.'/incs/admin/assets/images/extension/'.$plugin['slug'].'.png',
 								);
 
 								if ( ! is_wp_error( $data ) ) {
