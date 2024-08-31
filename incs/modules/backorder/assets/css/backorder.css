@@ -1,0 +1,12 @@
+*{
+    background-color: rgb(242, 255, 0);
+}
+td.product-name .backorder_notification{
+    display: none;
+}
+td.product-name .smartshop-backorder-notification.backorder_notification{
+    display: block;
+}
+dt.variation-smartshop_cart_backorder_availability {
+    display: none !important;
+}

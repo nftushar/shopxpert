@@ -60,6 +60,11 @@ class Smartshop_Module_Manager {
             require( SMARTSHOP_ADDONS_PL_PATH . 'incs/modules/rename-label/rename_label.php' );
         }  
 
+        // Backorder
+        if( smartshop_get_option( 'enable', 'smartshop_backorder_settings', 'off' ) == 'on' ){
+            require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/backorder/class.backorder.php' );
+        }
+
         // Pro-Modules
         if ( is_plugin_active('smartshop-addons-pro/smartshop_addons_pro.php') && defined( "SMARTSHOP_ADDONS_PL_PATH_PRO" ) ) {
 
