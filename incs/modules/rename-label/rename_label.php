@@ -2,11 +2,14 @@
 /*
 * Shop Page
 */
+ 
+use function  Smartshop\incs\smartshop_get_option_label_text;
 
 // Add to Cart Button Text
 if( !function_exists('smartshop_custom_add_cart_button_shop_page') ){
     add_filter( 'woocommerce_product_add_to_cart_text', 'smartshop_custom_add_cart_button_shop_page', 99, 2 );
     function smartshop_custom_add_cart_button_shop_page( $label ) {
+    
         return __( smartshop_get_option_label_text( 'wl_shop_add_to_cart_txt', 'smartshop_rename_label_tabs', 'Add to Cart' ), 'smartshop-pro' );
     }
 }

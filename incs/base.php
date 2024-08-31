@@ -58,6 +58,9 @@ final class Base {
             // require SMARTSHOP_ADDONS_PL_PATH . 'incs/custom-metabox.php';
             require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/admin-init.php';
         }
+
+        // Modules Manager
+        require( SMARTSHOP_ADDONS_PL_PATH. 'incs/modules/class.module-manager.php' );
     } 
 }
 
