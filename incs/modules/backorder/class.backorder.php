@@ -1,26 +1,27 @@
 <?php  
-use function Smartshop\incs\smartshop_get_option;
-
-
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+use function  Smartshop\incs\smartshop_get_option;
 
-// error_log('XavailabilityX');
+error_log('Smartshop_Backorder file');
+
 
 class Smartshop_Backorder extends WC_Product{
 
     private static $_instance = null;
 
-    public static function get_instance() {
-        if (is_null(self::$_instance)) {
+    /**
+     * Get Instance
+     */
+    public static function get_instance(){
+        if( is_null( self::$_instance ) ){
             self::$_instance = new self();
         }
         return self::$_instance;
     }
-    
 
     /**
-     * Constructor
+ * Constructor
      */
     function __construct(){
 
@@ -44,9 +45,7 @@ class Smartshop_Backorder extends WC_Product{
         add_action( 'woocommerce_process_product_meta', [ $this, 'save_product_metabox'], 10, 2 );
 
         // Render backorder availability text on product page
-       
-        add_filter('woocommerce_get_availability_text', [ $this, 'filter_get_availability_text'], 10, 2);
-
+        add_filter('woocommerce_get_availability_text', [ $this, 'filter_get_availability_text'], 10, 2 );
 
         // Render backorder label to the cart page
         // add_action('woocommerce_after_cart_item_name', [ $this, 'render_backorder_availability_cart_page'], 10, 2 );
@@ -65,22 +64,21 @@ class Smartshop_Backorder extends WC_Product{
     /**
      * Enqueue scripts
      */
-    public function enqueue_scripts() {
-        if (is_cart() || is_checkout()) {
-            wp_enqueue_style('smartshop-backorder', plugin_dir_url(__FILE__) . 'assets/css/backorder.css', [], SMARTSHOP_VERSION, 'all');
+    public function enqueue_scripts(){
+        if( is_cart() || is_checkout()){
+            wp_enqueue_style( 'smartshop-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], SMARTSHOPSMARTSHOP_VERSION, 'all' );
         }
     }
-    
 
     /**
      * Enqueue scripts admin
      */
-    public function admin_enqueue_scripts() {
+    public function admin_enqueue_scripts(){
         global $typenow;
-    
-        if ($typenow == 'product') {
-            wp_enqueue_style('smartshop-backorder-admin', plugin_dir_url(__FILE__) . 'assets/css/backorder-admin.css', [], SMARTSHOP_VERSION, 'all');
-            wp_enqueue_script('smartshop-backorder-admin', plugin_dir_url(__FILE__) . 'assets/js/backorder-admin.js', array('jquery'), SMARTSHOP_VERSION, true);
+
+        if( $typenow == 'product' ){
+            wp_enqueue_style( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/css/backorder-admin.css', [], SMARTSHOP_VERSION, 'all' );
+            wp_enqueue_script( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/js/backorder-admin.js', array('jquery'), SMARTSHOP_VERSION, true );
         }
     }
 
@@ -88,18 +86,14 @@ class Smartshop_Backorder extends WC_Product{
      * Save line items custom metadata
      * Line items refers to the individual item of an order
      */
-    public function line_item_save($item, $cart_item_key, $values, $order) {
-        error_log(print_r($item, true));
-error_log(print_r($values, true));
-
+    public function line_item_save( $item, $cart_item_key, $values, $order ) {
         $product = $values['data'];
-    
-        if ($product->is_on_backorder($values['quantity'])) {
-            $backorder_qty = $values['quantity'] - max(0, $product->get_stock_quantity());
-            $item->add_meta_data('smartshop_backordered', $backorder_qty, true);
+
+        if( $product->is_on_backorder($values['quantity']) ){
+            $backorder_qty = $values['quantity'] - max( 0, $product->get_stock_quantity() );
+            $item->add_meta_data( 'smartshop_backordered', $backorder_qty, true );
         }
     }
-    
 
     /**
      * Manage Order Item in thank you page || admin order page
@@ -219,6 +213,7 @@ error_log(print_r($values, true));
 
                 throw new Exception( $message ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }  
+
         }
 
         return $cart_item_data;
@@ -248,7 +243,6 @@ error_log(print_r($values, true));
      * Look for the respected product if it is already reached the backorder limit
      */
     public function get_limit_crossed_status( $product_id = '', $variation_id = '', $qty = 0 ){
-
         $product_id   = absint( $product_id );
         $variation_id = absint( $variation_id );
 
@@ -341,49 +335,89 @@ error_log(print_r($values, true));
      * Generate and return backorder availability message
      */
     public function get_availability_message( $product_id ){
-        
-        error_log('availability message');
- 
+        // Retrieve the availability date
         $availability_date = $this->get_option('backorder_availability_date', $product_id);
-        error_log('Availability Date:==' . $availability_date);
-
-
-
- 
-
+        error_log("Retrieved Availability Date: " . $availability_date);
+    
+        // Convert the availability date to timestamp
         $timestamp = strtotime($availability_date);
-
-
-
+        error_log("Timestamp: " . $timestamp);
+    
+        // Format the availability date
         if($timestamp){
-           $availability_date = gmdate(get_option('date_format'), $timestamp); 
+            $availability_date = gmdate(get_option('date_format'), $timestamp);
         }
-
-        $backorder_limit   = $this->get_option('backorder_limit', $product_id);
-
+        error_log("Formatted Availability Date: " . $availability_date);
+    
+        // Retrieve the backorder limit
+        $backorder_limit = $this->get_option('backorder_limit', $product_id);
+        error_log("Backorder Limit: " . $backorder_limit);
+    
+        // Retrieve the availability message
         $availability_message = smartshop_get_option('backorder_availability_message', 'smartshop_backorder_settings');
-        $availability_message = str_replace( '{availability_date}', '<span class="smartshop-backorder-availability">'.$availability_date.'</span>', $availability_message );
-
-        if( $backorder_limit && $availability_date && empty($availability_message) ){
-            $availability_message = __( 'On Backorder. Will be available on: '. $availability_date, 'smartshop' );
+        error_log("Initial Availability Message: " . $availability_message);
+    
+        // Log the placeholder before replacement
+        $placeholder = '{availability_date}';
+        error_log("Placeholder: " . $placeholder);
+        error_log("Availability Message with Placeholder: " . str_replace($placeholder, '<span class="smartshop-backorder-availability">'.$availability_date.'</span>', $availability_message));
+    
+        // Replace placeholder with actual availability date
+        $availability_message = str_replace($placeholder, '<span class="smartshop-backorder-availability">'.$availability_date.'</span>', $availability_message);
+        error_log("Availability Message after Replacement: " . $availability_message);
+    
+        // Default message if no availability message is set
+        if($backorder_limit && $availability_date && empty($availability_message)){
+            $availability_message = __('On Backorder. Will be available on: '. $availability_date, 'smartshop');
         }
-
+        error_log("Final Availability Message: " . $availability_message);
+    
         return $availability_message;
     }
+    
+    
 
     /**
      * Render the backorder availability message
      */
     public function filter_get_availability_text( $availability, $product ){
-        error_log('filter_get_availability_text called');
-        // rest of your code
+
+        $product_id = $product->get_id();
+        if( $product->is_type('variation') ){
+            $product_id = $product->get_parent_id();
+        }
+    
+        $availability_message = $this->get_availability_message( $product_id ) ? $this->get_availability_message( $product_id ) : $availability;
+    
+        error_log("Final Availability Message: " . $availability_message);
+    
+        if ( $product->managing_stock() && $product->is_on_backorder( 1 ) ) {
+            $availability = $product->backorders_require_notification() ? $availability_message : '';
+        } elseif ( ! $product->managing_stock() && $product->is_on_backorder( 1 ) ) {
+            $availability = $availability_message;
+        }
+    
+        return $availability;
     }
     
-
     /**
      * Render the backorder availability message on cart page
      */
- 
+    // public function render_backorder_availability_cart_page( $cart_item, $cart_item_key ){
+    //     $product_data = $cart_item['data'];
+
+    //     if($product_data->is_type('simple')){
+    //         $product_id = $product_data->get_id();
+    //     } elseif( $product_data->is_type('variation') ){
+    //         $product_id = $product_data->get_parent_id();
+    //     }
+
+    //     if( $product_data->is_on_backorder() ){
+    //         echo '<p class="smartshop-backorder-notification backorder_notification">';
+    //         echo wp_kses_post($this->get_availability_message( $product_id ));
+    //         echo '</p>';
+    //     }
+    // }
 
     public function render_backorder_availability_cart_page( $item_data, $cart_item ){
 

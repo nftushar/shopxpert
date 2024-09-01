@@ -263,7 +263,7 @@ add_action('in_admin_header', function (){
     // Update the options
     foreach ($fields as $field) {
         $value = isset($data[$field]) ? $data[$field] : null;
-        error_log("Updating Option: $field with Value: " . print_r($value, true));
+        error_log("zzzUpdating Option: $field with Value: " . print_r($value, true));
         $this->update_option($section, $field, $value);
     }
 
