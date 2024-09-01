@@ -1,6 +1,7 @@
 <?php
 
 use function Smartshop\incs\smartshop_get_option;
+ 
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -48,7 +49,6 @@ class Smartshop_Module_Manager {
         }
 
     }
-
     /**
      * [include_file] Necessary files required
      * @return [void]
@@ -63,6 +63,14 @@ class Smartshop_Module_Manager {
         // Backorder
         if( smartshop_get_option( 'enable', 'smartshop_backorder_settings', 'off' ) == 'on' ){
             require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/backorder/class.backorder.php' );
+        }
+
+        // Wishlist
+        if( smartshop_get_option( 'wishlist', 'woolentor_others_tabs', 'off' ) == 'on' ){
+            // $this->deactivate( 'wishsuite/wishsuite.php' );
+            if( ! class_exists('WishSuite_Base') ){
+                require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/wishlist/init.php' );
+            }
         }
 
         // Pro-Modules

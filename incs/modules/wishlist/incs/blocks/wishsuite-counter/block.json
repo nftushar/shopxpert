@@ -1,0 +1,116 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+    "name": "smartshop/wishsuite-counter",
+    "category": "smartshop-blocks",
+    "title": "WL: WishSuite Counter",
+    "description":"Display Wishlist Counter.",
+    "keywords": ["smartshop","wishlist","count","wishsuite","wishlist counter"],
+    "render": "file:./index.php",
+    "attributes": {
+        "blockUniqId":{
+            "type": "string",
+            "default": ""
+        },
+        "areaPadding": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+            }
+        },
+        "areaBGProperty":{
+            "type": "object",
+            "default": {
+                "imageId": null,
+                "imageUrl":"",
+                "position": "",
+                "attachment": "",
+                "repeat": "",
+                "size": ""
+            },
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}}"
+            }
+        },
+        "counterAfterText":{
+            "type":"string"
+        },
+
+        "contentAlign":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}} {text-align:{{contentAlign}};}"
+            }
+        },
+        "counterColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}} .wishsuite-counter-area span.wishsuite-counter{ color:{{counterColor}}!important; }"
+            }
+        },
+        "counterBGColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}} .wishsuite-counter-area span.wishsuite-counter{ background-color:{{counterBGColor}}!important; }"
+            }
+        },
+        "counterPadding": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}} .wishsuite-counter-area span.wishsuite-counter{ padding: {{counterPadding}}; }"
+            }
+        },
+        "counterBorderRadius": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}} .wishsuite-counter-area span.wishsuite-counter{ border-radius: {{counterBorderRadius}}; }"
+            }
+        },
+        "counterIconColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SMARTSHOP_WRAPPER}} .wishsuite-counter-area span.wishsuite-counter-icon{ color:{{counterIconColor}}; }"
+            }
+        },
+
+        "counterTextColor":{
+            "type":"string",
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "counterAfterText", 
+                            "condition": "!=", 
+                            "value": ""
+                        }
+                    ]
+                ],
+                "selector":"{{SMARTSHOP_WRAPPER}} .wishsuite-counter-area.wishsuite-has-text{ color:{{counterTextColor}}; }"
+            }
+        },
+        "counterTextSize":{
+            "type":"string",
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "counterAfterText", 
+                            "condition": "!=", 
+                            "value": ""
+                        }
+                    ]
+                ],
+                "selector":"{{SMARTSHOP_WRAPPER}} .wishsuite-counter-area.wishsuite-has-text{ font-size:{{counterTextSize}}; }"
+            }
+        }
+
+    }
+}

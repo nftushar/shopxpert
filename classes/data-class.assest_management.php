@@ -279,7 +279,7 @@ if (is_admin()) {
         'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
         'prolink'          => 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=library',
         'prolabel'         => esc_html__('Pro', 'smartshop'),
-        'loadingimg'       => SMARTSHOP_ADDONS_PL_URL . 'includes/admin/assets/images/loading.gif',
+        'loadingimg'       => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
         'message'          => [
             'packagedesc'=> esc_html__('in this package', 'smartshop'),
             'allload'    => esc_html__('All Items have been Loaded', 'smartshop'),
