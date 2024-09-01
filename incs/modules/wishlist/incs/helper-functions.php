@@ -4,6 +4,11 @@
  * @param  string $post_type
  * @return [array]
  */
+
+
+ use function  Smartshop\incs\smartshop_get_option;
+
+
 function wishsuite_get_post_list( $post_type = 'page' ){
     $options = array();
     $options['0'] = __('Select','wishsuite');

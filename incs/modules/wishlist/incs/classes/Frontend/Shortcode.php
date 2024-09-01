@@ -1,5 +1,9 @@
 <?php
 namespace WishSuite\Frontend;
+
+use function  Smartshop\incs\smartshop_get_option;
+
+
 /**
  * Shortcode handler class
  */

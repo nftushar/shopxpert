@@ -1,6 +1,12 @@
 <?php
+
+use function  Smartshop\incs\smartshop_clean;
+use function  Smartshop\incs\smartshop_get_option;
+
+
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-error_log('Smartshop_WishSuite_Base');
+error_log('file xxxxx Smartshop_WishSuite_Base');
 /**
  * Plugin Main Class
  */

@@ -1,5 +1,8 @@
 <?php
 namespace WishSuite;
+use function  Smartshop\incs\smartshop_get_option;
+
+
 /**
  * Assets handlers class
  */
