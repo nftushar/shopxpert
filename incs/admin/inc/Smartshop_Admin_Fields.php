@@ -32,7 +32,608 @@ class Smartshop_Admin_Fields {
     public function fields(){
 
         $settings_fields = array(
- 
+            'smartshop_gutenberg_tabs' => array(
+
+                'settings' => array(
+
+                    array(
+                        'name'    => 'css_add_via',
+                        'label'   => esc_html__( 'zzzz Add CSS through', 'smartshop' ),
+                        'desc'    => esc_html__( 'Choose how you want to add the newly generated CSS.', 'smartshop' ),
+                        'type'    => 'select',
+                        'default' => 'internal',
+                        'options' => array(
+                            'internal' => esc_html__('Internal','smartshop'),
+                            'external' => esc_html__('External','smartshop'),
+                        )
+                    ),
+
+                    array(
+                        'name'  => 'container_width',
+                        'label' => esc_html__( 'xxxx Container Width', 'smartshop' ),
+                        'desc'  => esc_html__( 'You can set the container width from here.', 'smartshop' ),
+                        'min'               => 1,
+                        'max'               => 10000,
+                        'step'              => '1',
+                        'type'              => 'number',
+                        'default'           => '1140',
+                        'sanitize_callback' => 'floatval'
+                    ),
+
+                ),
+
+                'blocks' => array(
+
+                    array(
+                        'name'      => 'general_blocks_heading',
+                        'headding'  => esc_html__( 'zz General', 'smartshop' ),
+                        'type'      => 'title',
+                        'class'     => 'smartshop_heading_style_two'
+                    ),
+
+                    array(
+                        'name'    => 'product_tab',
+                        'label'   => esc_html__( 'xxxxProduct Tab', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'promo_banner',
+                        'label'   => esc_html__( 'Promo Banner', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'special_day_offer',
+                        'label'   => esc_html__( 'Special Day Offer', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'image_marker',
+                        'label'   => esc_html__( 'Image Marker', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'store_feature',
+                        'label'   => esc_html__( 'Store Feature', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'brand_logo',
+                        'label'   => esc_html__( 'Brand Logo', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'category_grid',
+                        'label'   => esc_html__( 'Category Grid', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'faq',
+                        'label'   => esc_html__( 'FAQ', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_curvy',
+                        'label'   => esc_html__( 'Product Curvy', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'archive_title',
+                        'label'   => esc_html__( 'Archive Title', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'breadcrumbs',
+                        'label'   => esc_html__( 'Breadcrumbs', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'recently_viewed_products',
+                        'label'   => esc_html__( 'Recently Viewed Products', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_grid',
+                        'label'   => esc_html__( 'Product Grid', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro'  => true,
+                    ),
+    
+                    array(
+                        'name'    => 'customer_review',
+                        'label'   => esc_html__( 'Customer Review', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro'  => true,
+                    ),
+
+                    array(
+                        'name'      => 'shop_blocks_heading',
+                        'headding'  => esc_html__( 'Shop / Archive', 'smartshop' ),
+                        'type'      => 'title',
+                        'class'     => 'smartshop_heading_style_two'
+                    ),
+
+                    array(
+                        'name'    => 'shop_archive_product',
+                        'label'   => esc_html__( 'Product Archive (Default)', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'product_filter',
+                        'label'   => esc_html__( 'Product Filter', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'product_horizontal_filter',
+                        'label'   => esc_html__( 'Product Horizontal Filter', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'archive_result_count',
+                        'label'   => esc_html__( 'Archive Result Count', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'archive_catalog_ordering',
+                        'label'   => esc_html__( 'Archive Catalog Ordering', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'      => 'single_blocks_heading',
+                        'headding'  => esc_html__( 'Single Product', 'smartshop' ),
+                        'type'      => 'title',
+                        'class'     => 'smartshop_heading_style_two'
+                    ),
+
+                    array(
+                        'name'   => 'product_title',
+                        'label'  => esc_html__('Product Title','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_price',
+                        'label'   => esc_html__('Product Price','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'   => 'product_addtocart',
+                        'label'  => esc_html__('Product Add To Cart','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_short_description',
+                        'label'   => esc_html__('Product Short Description','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_description',
+                        'label'   => esc_html__('Product Description','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_rating',
+                        'label'   => esc_html__('Product Rating','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_image',
+                        'label'   => esc_html__('Product Image','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'product_video_gallery',
+                        'label'   => esc_html__('Product Video Gallery','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_meta',
+                        'label'   => esc_html__('Product Meta','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_additional_info',
+                        'label'   => esc_html__('Product Additional Info','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_tabs',
+                        'label'   => esc_html__('Product Tabs','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_stock',
+                        'label'   => esc_html__('Product Stock','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_qrcode',
+                        'label'   => esc_html__('Product QR Code','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_related',
+                        'label'   => esc_html__('Product Related','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_upsell',
+                        'label'   => esc_html__('Product Upsell','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+
+                    array(
+                        'name'    => 'product_reviews',
+                        'label'   => esc_html__('Product Reviews','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'product_categories',
+                        'label'   => esc_html__('Product Categories','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'product_tags',
+                        'label'   => esc_html__('Product Tags','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'product_sku',
+                        'label'   => esc_html__('Product SKU','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'call_for_price',
+                        'label'   => esc_html__('Call for Price','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
+                        'name'    => 'suggest_price',
+                        'label'   => esc_html__('Suggest Price','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'on',
+                    ),
+                    array(
+                        'name'    => 'product_social_share',
+                        'label'   => esc_html__('Product Social Share','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'    => 'product_stock_progressbar',
+                        'label'   => esc_html__('Stock Progressbar','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'    => 'product_sale_schedule',
+                        'label'   => esc_html__('Product Sale Schedule','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'    => 'product_navigation',
+                        'label'   => esc_html__('Product Navigation','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+
+                    array(
+                        'name'    => 'product_advance_image',
+                        'label'   => esc_html__('Advance Product Image','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'    => 'product_thumbnails_zoom_image',
+                        'label'   => esc_html__('Product Image With Zoom','smartshop'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+
+                    array(
+                        'name'      => 'cart_blocks_heading',
+                        'headding'  => esc_html__( 'Cart', 'smartshop' ),
+                        'type'      => 'title',
+                        'class'     => 'smartshop_heading_style_two'
+                    ),
+                    array(
+                        'name'  => 'cart_table',
+                        'label' => esc_html__( 'Product Cart Table', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'cart_table_list',
+                        'label' => esc_html__( 'Product Cart Table (List Style)', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'cart_total',
+                        'label' => esc_html__( 'Product Cart Total', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'corss_sell',
+                        'label' => esc_html__( 'Product Cross Sell', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'return_to_shop',
+                        'label' => esc_html__( 'Return To Shop Button', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'cart_empty_message',
+                        'label' => esc_html__( 'Empty Cart Message', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+
+                    array(
+                        'name'      => 'checkout_blocks_heading',
+                        'headding'  => esc_html__( 'Checkout', 'smartshop' ),
+                        'type'      => 'title',
+                        'class'     => 'smartshop_heading_style_two'
+                    ),
+                    array(
+                        'name'  => 'checkout_billing_form',
+                        'label' => esc_html__( 'Checkout Billing Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'checkout_shipping_form',
+                        'label' => esc_html__( 'Checkout Shipping Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'checkout_additional_form',
+                        'label' => esc_html__( 'Checkout Additional..', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'checkout_coupon_form',
+                        'label' => esc_html__( 'Checkout Coupon Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'checkout_payment',
+                        'label' => esc_html__( 'Checkout Payment Method', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'checkout_shipping_method',
+                        'label' => esc_html__( 'Checkout Shipping Method', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'checkout_order_review',
+                        'label' => esc_html__( 'Checkout Order Review', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'checkout_login_form',
+                        'label' => esc_html__( 'Checkout Login Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+
+                    array(
+                        'name'      => 'myaccount_blocks_heading',
+                        'headding'  => esc_html__( 'My Account', 'smartshop' ),
+                        'type'      => 'title',
+                        'class'     => 'smartshop_heading_style_two'
+                    ),
+                    array(
+                        'name'  => 'my_account',
+                        'label' => esc_html__( 'My Account', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_navigation',
+                        'label' => esc_html__( 'My Account Navigation', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_dashboard',
+                        'label' => esc_html__( 'My Account Dashboard', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_download',
+                        'label' => esc_html__( 'My Account Download', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_edit',
+                        'label' => esc_html__( 'My Account Edit', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_address',
+                        'label' => esc_html__( 'My Account Address', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_order',
+                        'label' => esc_html__( 'My Account Order', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_logout',
+                        'label' => esc_html__( 'My Account Logout', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_login_form',
+                        'label' => esc_html__( 'Login Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_registration_form',
+                        'label' => esc_html__( 'Registration Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_lost_password',
+                        'label' => esc_html__( 'Lost Password Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'my_account_reset_password',
+                        'label' => esc_html__( 'Reset Password Form', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+
+                    array(
+                        'name'      => 'thankyou_blocks_heading',
+                        'headding'  => esc_html__( 'Thank You', 'smartshop' ),
+                        'type'      => 'title',
+                        'class'     => 'smartshop_heading_style_two'
+                    ),
+                    array(
+                        'name'  => 'thankyou_order',
+                        'label' => esc_html__( 'Thank You Order', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'thankyou_address_details',
+                        'label' => esc_html__( 'Thank You Address', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'  => 'thankyou_order_details',
+                        'label' => esc_html__( 'Thank You Order Details', 'smartshop' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+
+                )
+
+            ),
+
             'smartshop_others_tabs' => array(
 
                 'modules' => array( 

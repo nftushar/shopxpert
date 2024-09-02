@@ -178,6 +178,8 @@ class SmartShop_Admin_Init {
             <div class="smartshop-admin-main-content">
                 <?php self::load_template('navs'); ?>
                 <div class="smartshop-admin-main-body"> 
+                <?php self::load_template('gutenberg'); ?>
+
                 <?php self::load_template('welcome'); ?>
                 <?php self::load_template('module'); ?>
                 </div>

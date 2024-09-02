@@ -1221,6 +1221,9 @@ if( class_exists('WooCommerce') ){
     }
     add_action( 'wp_footer', 'smartshop_html_render_infooter' );
 
+
+    
+
     /**
      * [smartshop_stock_status]
      */
@@ -1241,7 +1244,7 @@ if( class_exists('WooCommerce') ){
                 echo '<div class="smartshop-stock-progress-bar">';
                     echo '<div class="wlstock-info">';
                         echo '<div class="wltotal-sold">' . esc_html__( $order_text, 'smartshop' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
-                        echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'smartshop' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
+                    echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'smartshop' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
                     echo '</div>';
                     echo '<div class="wlprogress-area" title="' . esc_html__( 'Sold', 'smartshop' ) . ' ' . esc_attr( $percentage ) . '%">';
                         echo '<div class="wlprogress-bar"style="width:' . esc_attr( $percentage ) . '%;"></div>';
