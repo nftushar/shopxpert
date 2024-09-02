@@ -13,7 +13,7 @@
         <div class="smartshop-admin-header">
             <div class="smartshop-admin-header-content">
                 <h6 class="smartshop-admin-header-title"><?php echo esc_html__('SmartShop Element','smartshop');?></h6>
-                <p class="smartshop-admin-header-text"><?php echo esc_html__('You can enable or disable all options by one click.','smartshop');?></p>
+                <p class="smartshop-admin-header-text"><?php echo esc_html__('You can activate or deactivate all options with a single click','smartshop');?></p>
             </div>
             <div class="smartshop-admin-header-actions">
                 <button class="smartshop-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','smartshop'); ?></button>

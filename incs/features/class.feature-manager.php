@@ -5,7 +5,7 @@ use function Smartshop\incs\smartshop_get_option;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Smartshop_Module_Manager {
+class Smartshop_Feature_Manager {
 
     private static $_instance = null;
 
@@ -44,7 +44,7 @@ class Smartshop_Module_Manager {
         // Post Duplicator
         if ( !is_plugin_active('ht-mega-for-elementor/htmega_addons_elementor.php') ) {
             if ( smartshop_get_option( 'postduplicator', 'smartshop_others_tabs', 'off' ) === 'on' ) {
-                require_once ( SMARTSHOP_ADDONS_PL_PATH . 'incs/modules/post-duplicator/class.post-duplicator.php' );
+                require_once ( SMARTSHOP_ADDONS_PL_PATH . 'incs/features/post-duplicator/class.post-duplicator.php' );
             }
         }
 
@@ -55,47 +55,47 @@ class Smartshop_Module_Manager {
      */
     public function include_file() {
 
-        // Rename Label
+        // Change Label
         if ( !is_admin() && smartshop_get_option( 'enablerenamelabel', 'smartshop_rename_label_tabs', 'off' ) == 'on' ) {
-            require( SMARTSHOP_ADDONS_PL_PATH . 'incs/modules/rename-label/rename_label.php' );
+            require( SMARTSHOP_ADDONS_PL_PATH . 'incs/features/rename-label/rename_label.php' );
         }  
 
         // Search
         if( smartshop_get_option( 'ajaxsearch', 'smartshop_others_tabs', 'off' ) == 'on' ){
-            require( SMARTSHOP_ADDONS_PL_PATH. 'incs/modules/ajax-search/base.php' );
+            require( SMARTSHOP_ADDONS_PL_PATH. 'incs/features/ajax-search/main.php' );
         }
         
 
-        // Backorder
+        // Pending Stock
         if( smartshop_get_option( 'enable', 'smartshop_backorder_settings', 'off' ) == 'on' ){
-            require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/backorder/class.backorder.php' );
+            require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/features/backorder/class.backorder.php' );
         }
 
         // Wishlist
         if( smartshop_get_option( 'wishlist', 'smartshop_others_tabs', 'off' ) == 'on' ){
             // $this->deactivate( 'wishsuite/wishsuite.php' );
             if( ! class_exists('WooWishSuite_Base') ){
-                require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/wishlist/init.php' );
+                require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/features/wishlist/init.php' );
             }
         }
 
-        // Pro-Modules
+        // Pro-Features
         if ( is_plugin_active('smartshop-addons-pro/smartshop_addons_pro.php') && defined( "SMARTSHOP_ADDONS_PL_PATH_PRO" ) ) {
 
             // Partial payment
             if ( ( smartshop_get_option( 'enable', 'smartshop_partial_payment_settings', 'off' ) == 'on' ) ) {
-                require_once( SMARTSHOP_ADDONS_PL_PATH_PRO . 'incs/modules/partial-payment/partial-payment.php' );
+                require_once( SMARTSHOP_ADDONS_PL_PATH_PRO . 'incs/features/partial-payment/partial-payment.php' );
             }
         }
     }
 
     /**
-     * [include_product_filter_module_file] Include product filter module file
+     * [include_product_filter_Feature_file] Include product filter Feature file
      * @return [void]
      */
-    public function include_product_filter_module_file() {
-        if ( file_exists( SMARTSHOP_ADDONS_PL_PATH_PRO . 'incs/modules/product-filter/product-filter.php' ) ) {
-            require_once( SMARTSHOP_ADDONS_PL_PATH_PRO . 'incs/modules/product-filter/product-filter.php' );
+    public function include_product_filter_Feature_file() {
+        if ( file_exists( SMARTSHOP_ADDONS_PL_PATH_PRO . 'incs/features/product-filter/product-filter.php' ) ) {
+            require_once( SMARTSHOP_ADDONS_PL_PATH_PRO . 'incs/features/product-filter/product-filter.php' );
 
             if ( smartshop_get_option( 'enable', 'smartshop_product_filter_settings', 'off' ) == 'on' ) {
                 smartshop_product_filter( true );
@@ -116,4 +116,4 @@ class Smartshop_Module_Manager {
     }
 }
 
-Smartshop_Module_Manager::instance();
+Smartshop_Feature_Manager::instance();

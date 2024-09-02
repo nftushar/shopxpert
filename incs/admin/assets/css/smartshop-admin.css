@@ -324,14 +324,14 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
   }
 
-  /* For Module */
-  .smartshop-module-field .smartshop-admin-switch-block-setting {
+  /* For Feature */
+  .smartshop-Feature-field .smartshop-admin-switch-block-setting {
     color: #222;
   }
-  .smartshop-module-field.smartshop-module-enable .smartshop-admin-switch-block-setting{
+  .smartshop-Feature-field.smartshop-Feature-enable .smartshop-admin-switch-block-setting{
     color:#ff23b7;
   }
-  .smartshop-module-field .smartshop-admin-switch-block-setting i{
+  .smartshop-Feature-field .smartshop-admin-switch-block-setting i{
     font-size: 16px;
   }
   
@@ -2053,8 +2053,8 @@
   background-color: #ff23b7;
 }
 
-/* Module Edit PopUp */
-.smartshop-module-setting-popup-content {
+/* Feature Edit PopUp */
+.smartshop-Feature-setting-popup-content {
   padding: 20px;
   max-height: calc(100% - 100px);
   display: block;
@@ -2063,11 +2063,11 @@
   padding-bottom: 100px;
   width: 700px;
 }
-.smartshop-module-setting-data {
+.smartshop-Feature-setting-data {
   overflow-y: auto;
   height: 100%;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-footer {
+.smartshop-Feature-setting-popup-content .smartshop-admin-footer {
   margin-top: 0;
   padding: 20px;
   border-top: 1px solid #ddd;
@@ -2079,66 +2079,66 @@
 .smartshop-admin-footer.has-reset{
   justify-content: space-between;
 }
-.smartshop-admin-module-reset {
+.smartshop-admin-Feature-reset {
   background: #FFFFFF;
   border-color: #E7E7E7;
   color: rgba(109, 113, 117, 0.5);
   font-weight: normal;
 }
-.smartshop-admin-module-reset:hover{
+.smartshop-admin-Feature-reset:hover{
   background-color: rgb(221, 51, 51) !important;
   border-color: rgb(221, 51, 51) !important;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option{
   padding: 20px 5px 20px 0;
 }
 .smartshop-repeater-item-add + .smartshop-admin-option {
   border-top: 1px solid #EAEAEA;
   margin-top: 20px;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left){
+.smartshop-Feature-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left){
   display: block;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option-title{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option-title{
   margin-top: 0;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option-heading-title{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option-heading-title{
   text-align: left;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option-content,.smartshop-module-setting-popup-content .smartshop-admin-option-action{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option-content,.smartshop-Feature-setting-popup-content .smartshop-admin-option-action{
   text-align: left;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option.smartshop-action-field-left .smartshop-admin-option-content{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left .smartshop-admin-option-content{
   width: 55%;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option.smartshop-action-field-left .smartshop-admin-option-action{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left .smartshop-admin-option-action{
   width: 45%;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop-admin-option-content {
+.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop-admin-option-content {
   width: 40%;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop_dimensions li {
+.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop_dimensions li {
   width: 73px;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop-admin-option-action {
+.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop-admin-option-action {
   width: 60%;
   padding-left: 10px;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left) .smartshop-admin-option-content,.smartshop-module-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left) .smartshop-admin-option-action{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left) .smartshop-admin-option-content,.smartshop-Feature-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left) .smartshop-admin-option-action{
   width: 100%;
   padding-left: 0px;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-option-text{
+.smartshop-Feature-setting-popup-content .smartshop-admin-option-text{
   margin-top: 0;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-select select{
+.smartshop-Feature-setting-popup-content .smartshop-admin-select select{
   max-width: 100%;
 }
-.smartshop-module-setting-popup-content .icons-selector .selector-popup{
+.smartshop-Feature-setting-popup-content .icons-selector .selector-popup{
   right: 0;
   left: auto;
 }
-.module-setting-loading {
+.Feature-setting-loading {
   animation: loadingspin 2s linear infinite;
 }
 @keyframes loadingspin {
@@ -2146,18 +2146,18 @@
   100% { transform: rotate(360deg); }
 }
 
-.smartshop-module-setting-popup-content .smartshop-admin-btn {
+.smartshop-Feature-setting-popup-content .smartshop-admin-btn {
   margin: 0;
   padding: 7px 35px;
   transition: 0.4s;
 }
-.smartshop-module-setting-popup-content .smartshop-admin-popup-close {
+.smartshop-Feature-setting-popup-content .smartshop-admin-popup-close {
   top: -10px;
   right: -10px;
   background-color: #fff;
   box-shadow: 0 3px 5px rgb(0 0 0 / 25%);
 }
-.smartshop-module-setting-popup-content .smartshop-admin-popup-close:hover {
+.smartshop-Feature-setting-popup-content .smartshop-admin-popup-close:hover {
   background-color: #ff23b7;
 }
 .smartshop-visibility-none {
@@ -2227,7 +2227,7 @@
   display: inline-flex;
 }
 
-/* Currency Switcher Module */
+/* Currency Switcher Feature */
 form[data-section=smartshop_currency_switcher] .woolenor-reapeater-fields-area+.smartshop-admin-option {
   border-top: 1px solid #eaeaea;
   margin-top: 20px;

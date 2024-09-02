@@ -49,12 +49,12 @@ final class Smartshop_WooWishSuite_Base{
      */
     public function define_constants() {
         define( 'WOOWISHSUITE_FILE', __FILE__ );
-        define( 'WOOWISHSUITE_MODULE_PATH', __DIR__ );
+        define( 'WOOWISHSUITE_FEATURE_PATH', __DIR__ );
         define( 'WOOWISHSUITE_URL', plugins_url( '', WOOWISHSUITE_FILE ) );
         define( 'WOOWISHSUITE_DIR', plugin_dir_path( WOOWISHSUITE_FILE ) );
         define( 'WOOWISHSUITE_ASSETS', WOOWISHSUITE_URL . '/assets' );
         define( 'WOOWISHSUITE_BASE', plugin_basename( WOOWISHSUITE_FILE ) );
-        define( 'WOOWISHSUITE_BLOCKS_PATH', WOOWISHSUITE_MODULE_PATH. "/incs/blocks" );
+        define( 'WOOWISHSUITE_BLOCKS_PATH', WOOWISHSUITE_FEATURE_PATH. "/incs/blocks" );
     }
 
     /**

@@ -93,72 +93,7 @@ class Assets_Management{
     public function get_scripts() {
 
         $script_list = [
-            // 'slick' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/js/slick.min.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'countdown-min' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/js/jquery.countdown.min.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'smartshop-accordion-min' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/js/accordion.min.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'select2-min' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/js/select2.min.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'wow' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/lib/js/wow.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'jarallax' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/lib/js/jarallax.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'magnific-popup' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/lib/js/magnific-popup.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'one-page-nav' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/lib/js/one-page-nav.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jarallax','magnific-popup','wow','jquery' ]
-            // ],
-            // 'smartshop-widgets-scripts' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/js/smartshop-widgets-active.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery','slick','wc-add-to-cart-variation' ]
-            // ],
-            // 'smartshop-ajax-search' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/addons/ajax-search/js/ajax-search.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'smartshop-widgets-scripts' ]
-            // ],
-            // 'jquery-single-product-ajax-cart' =>[
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'assets/js/single_product_ajax_add_to_cart.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'smartshop-flash-sale-module' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/modules/flash-sale/assets/js/flash-sale.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery', 'countdown-min' ]
-            // ],
-
-            // 'smartshop-jquery-interdependencies' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/lib/js/jquery-interdependencies.min.js', 
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ],
-            // ],
+          
             'smartshop-condition' => [
                 'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/smartshop-condition.js', 
                 'version' => SMARTSHOP_VERSION,
@@ -171,42 +106,6 @@ class Assets_Management{
                 'version' => SMARTSHOP_VERSION,
                 'deps'    => [ 'jquery', 'wp-util', 'serializejson' ]
             ],
-
-
-            // 'smartshop-sweetalert' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/lib/js/sweetalert2.min.js',
-            //     'version' => SMARTSHOP_VERSION
-            // ],
-            // 'smartshop-modernizr' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/lib/js/modernizr.custom.63321.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'jquery-selectric' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/lib/js/jquery.selectric.min.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'jquery-ScrollMagic' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/lib/js/ScrollMagic.min.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'babel-min' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/lib/js/babel.min.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'smartshop-templates' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/template_library_manager.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'jquery', 'wp-util' ]
-            // ],
-            // 'smartshop-install-manager' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/install_manager.js',
-            //     'version' => SMARTSHOP_VERSION,
-            //     'deps'    => [ 'wp-util', 'updates' ]
-            // ],
             
         ];
 

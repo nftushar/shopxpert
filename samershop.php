@@ -11,6 +11,7 @@ Text Domain: smartshop
 Domain Path: /languages/
 */
 
+
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 define('SMARTSHOP_VERSION', '1.0.2');
@@ -25,9 +26,10 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
         require_once __DIR__ . '/vendor/autoload.php';
     }
     
-  
+ 
+
     
 // Required File
-require_once SMARTSHOP_ADDONS_PL_PATH . 'incs/base.php';
+require_once SMARTSHOP_ADDONS_PL_PATH . 'incs/main.php';
 // Load the plugin's base functionality
 \SmartShop\smartshop();

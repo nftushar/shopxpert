@@ -315,11 +315,11 @@ class Smartshop_Admin_Fields_Manager {
     }
 
     /**
-     * Displays a module for a settings field
+     * Displays a Feature for a settings field
      *
      * @param array   $args settings field args
      */
-    public function callback_module( $args ) {
+    public function callback_Feature( $args ) {
 
         if ( strstr( $args['id'], ',' ) ) {
             $option_ids = explode( ',' , $args['id'] );
@@ -340,7 +340,7 @@ class Smartshop_Admin_Fields_Manager {
         }
 
         if( $value === 'on' ){
-            $args['class'] .= ' smartshop-module-enable';
+            $args['class'] .= ' smartshop-Feature-enable';
         }
 
         $setting_fields = '';
@@ -348,7 +348,7 @@ class Smartshop_Admin_Fields_Manager {
             $setting_fields = wp_json_encode( $this->get_field_key( $args['additional_info']['setting_fields'], 'name' ) );
         }
 
-        $html  = '<div class="smartshop-admin-switch-block smartshop-module-field '.esc_attr( $args['class'] ).'" '.$args['depend'].' >';
+        $html  = '<div class="smartshop-admin-switch-block smartshop-Feature-field '.esc_attr( $args['class'] ).'" '.$args['depend'].' >';
             $html .= '<div class="smartshop-admin-switch-block-content">';
                 $html  .= sprintf('<h6 class="smartshop-admin-switch-block-title">%1$s</h6>', $args['name'] );
                 $html  .= '<div class="smartshop-admin-switch-block-info">';
@@ -953,7 +953,7 @@ class Smartshop_Admin_Fields_Manager {
                     handle: ".smartshop-option-repeater-tools",
                     placeholder: "widget-placeholder",
                     update: function( event, ui ) {
-                        $('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
+                        $('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
                     }
                 });
 

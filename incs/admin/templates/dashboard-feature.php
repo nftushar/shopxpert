@@ -7,10 +7,10 @@ use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields;
 use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
 
 // Get the fields using the singleton instance of Smartshop_Admin_Fields
-$module_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['modules'];
+$Feature_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['features'];
 $other_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['others'];
 
-$all_fields = array_merge($module_fields, $other_fields);
+$all_fields = array_merge($Feature_fields, $other_fields);
 $element_keys = Smartshop_Admin_Fields_Manager::instance()->get_field_key($all_fields, 'name');
 
 echo "<pre>";
@@ -19,10 +19,10 @@ echo "</pre>";
 
 
  
-// print_r($module_fields);
+// print_r($Feature_fields);
 
-if (!is_array($module_fields)) {
-   echo "no module_fields";
+if (!is_array($Feature_fields)) {
+   echo "no Feature_fields";
 }
 if (!is_array($other_fields)) {
    echo "no other_fields";
@@ -33,8 +33,8 @@ if (!is_array($other_fields)) {
         <!-- Header Start -->
         <div class="smartshop-admin-header">
             <div class="smartshop-admin-header-content">
-                <h6 class="smartshop-admin-header-title"><?php echo esc_html__('SmartShop Module','smartshop'); ?></h6>
-                <p class="smartshop-admin-header-text"><?php echo esc_html__('You can enable or disable all options by one click.','smartshop'); ?></p>
+                <h6 class="smartshop-admin-header-title"><?php echo esc_html__('SmartShop Feature','smartshop'); ?></h6>
+                <p class="smartshop-admin-header-text"><?php echo esc_html__('You can activate or deactivate all options with a single click','smartshop'); ?></p>
             </div>
             <div class="smartshop-admin-header-actions">
                 <button class="smartshop-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','smartshop'); ?></button>
@@ -43,17 +43,17 @@ if (!is_array($other_fields)) {
         </div>
         <!-- Header End -->
 
-        <form class="smartshop-dashboard" id="smartshop-dashboard-module-form" action="#" method="post" data-section="smartshop_others_tabs" data-fields='<?php echo wp_json_encode($element_keys); ?>'> 
-            <!-- Modules Start -->
+        <form class="smartshop-dashboard" id="smartshop-dashboard-Feature-form" action="#" method="post" data-section="smartshop_others_tabs" data-fields='<?php echo wp_json_encode($element_keys); ?>'> 
+            <!-- Features Start -->
             <div class="smartshop-admin-switch-blocks">
                 <?php 
 
-                foreach($module_fields as $key => $field) {
+                foreach($Feature_fields as $key => $field) {
                     Smartshop_Admin_Fields_Manager::instance()->add_field($field, 'smartshop_others_tabs');
                 }
                 ?>
             </div>
-            <!-- Modules End -->
+            <!-- Features End -->
 
             <div class="smartshop-admin-others-options">
                 <?php

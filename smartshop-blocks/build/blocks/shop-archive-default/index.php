@@ -25,7 +25,7 @@ if( isset( $settings['saleTagShow'] ) && $settings['saleTagShow'] === false){
 !empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-products-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-products-columns-tablet-2';
 !empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-products-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-products-columns-mobile-1';
 
-//Product Filter Module
+//Product Filter Feature
 $contentClasses = array();
 $areaAttributes = array();
 $filterable = ( isset( $settings['filterable'] ) ? rest_sanitize_boolean( $settings['filterable'] ) : true );

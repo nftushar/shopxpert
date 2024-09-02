@@ -636,11 +636,11 @@ class Smartshop_Admin_Fields {
 
             'smartshop_others_tabs' => array(
 
-                'modules' => array( 
+                'features' => array( 
                     array(
                         'name'     => 'rename_label_settings',
-                        'label'    => esc_html__( 'Rename Label', 'smartshop' ),
-                        'type'     => 'module',
+                        'label'    => esc_html__( 'Change Label', 'smartshop' ),
+                        'type'     => 'Feature',
                         'default'  => 'off',
                         'section'  => 'smartshop_rename_label_tabs',
                         'option_id'=> 'enablerenamelabel',
@@ -651,7 +651,7 @@ class Smartshop_Admin_Fields {
                             array(
                                 'name'  => 'enablerenamelabel',
                                 'label' => esc_html__( 'Enable / Disable', 'smartshop' ),
-                                'desc'  => esc_html__( 'You can enable / disable rename label from here.', 'smartshop' ),
+                                'desc'  => esc_html__( 'You can enable / disable change Label from here.', 'smartshop' ),
                                 'type'  => 'checkbox',
                                 'default' => 'off',
                                 'class'   =>'enablerenamelabel smartshop-action-field-left',
@@ -736,8 +736,8 @@ class Smartshop_Admin_Fields {
                     ),
                     array(
                         'name'     => 'smartshop_backorder_settings',
-                        'label'    => esc_html__( 'xx Backorder', 'smartshop' ),
-                        'type'     => 'module',
+                        'label'    => esc_html__( 'xx Pending Stock', 'smartshop' ),
+                        'type'     => 'Feature',
                         'default'  => 'off',
                         'section'  => 'smartshop_backorder_settings',
                         'option_id'=> 'enable',
@@ -748,7 +748,7 @@ class Smartshop_Admin_Fields {
                             array(
                                 'name'  => 'enable',
                                 'label' => esc_html__( 'Enable / Disable', 'smartshop' ),
-                                'desc'  => esc_html__( 'You can enable / disable backorder module from here.', 'smartshop' ),
+                                'desc'  => esc_html__( 'You can enable / disable backorder Feature from here.', 'smartshop' ),
                                 'type'  => 'checkbox',
                                 'default' => 'off',
                                 'class' => 'smartshop-action-field-left'
@@ -756,8 +756,8 @@ class Smartshop_Admin_Fields {
 
                             array(
                                 'name'    => 'backorder_limit',
-                                'label'   => esc_html__( 'Backorder Limit', 'smartshop' ),
-                                'desc'    => esc_html__( 'Set "Backorder Limit" on all "Backorder" products across the entire website. You can also set limits for each product individually from the "Inventory" tab.', 'smartshop' ),
+                                'label'   => esc_html__( 'Pending Stock Limit', 'smartshop' ),
+                                'desc'    => esc_html__( 'Set "Pending Stock Limit" on all "Pending Stock" products across the entire website. You can also set limits for each product individually from the "Inventory" tab.', 'smartshop' ),
                                 'type'    => 'number',
                                 'class'   => 'smartshop-action-field-left'
                             ),
@@ -774,7 +774,7 @@ class Smartshop_Admin_Fields {
                                 'label'       => esc_html__( 'Availability Message', 'smartshop' ),
                                 'desc'        => esc_html__( 'Manage how you want the "Message" to appear. Use this {availability_date} placeholder to display the date you set. ', 'smartshop' ),
                                 'type'        => 'text',
-                                'default'     => esc_html__( 'On Backorder: Will be available on {availability_date}', 'smartshop' ),
+                                'default'     => esc_html__( 'On Pending Stock: Will be available on {availability_date}', 'smartshop' ),
                                 'class'       => 'smartshop-action-field-left',
                             ),
                             
@@ -790,8 +790,8 @@ class Smartshop_Admin_Fields {
                     ), 
                     array(
                         'name'    => 'ajaxsearch',
-                        'label'   => esc_html__( 'Ajax Search Widget', 'smartshop' ),
-                        'desc'    => esc_html__( 'AJAX Search Widget', 'smartshop' ),
+                        'label'   => esc_html__( 'Dynamic Search Widget', 'smartshop' ),
+                        'desc'    => esc_html__( 'Dynamic Search Widget', 'smartshop' ),
                         'type'    => 'element',
                         'default' => 'off',
                         'documentation' => esc_url('https://smartshop.com/doc/how-to-use-woocommerce-ajax-search/')
@@ -858,7 +858,7 @@ class Smartshop_Admin_Fields {
 
             array(
                 'id'    => 'smartshop_others_tabs',
-                'title' => esc_html__( 'Modules', 'smartshop' ),
+                'title' => esc_html__( 'Features', 'smartshop' ),
                 'icon'  => 'wli-grid'
             ),
 

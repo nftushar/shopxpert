@@ -1,6 +1,6 @@
 <?php
 /**
-*  Class Ajax Search Widgets
+*  Class Dynamic Search Widgets
 */
  
 error_log('SmartShop_Product_Search_Ajax_Widget');

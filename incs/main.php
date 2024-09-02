@@ -51,7 +51,7 @@ final class Base {
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.quickview_manage.php';
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.icon_list.php';
         // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.multi_language.php';
-        //    require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-module-setting-popups.php'; 
+        //    require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popups.php'; 
 
         // Admin Setting file
         if (is_admin()) {
@@ -59,8 +59,8 @@ final class Base {
             require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/admin-init.php';
         }
 
-        // Modules Manager
-        require( SMARTSHOP_ADDONS_PL_PATH. 'incs/modules/class.module-manager.php' );
+        // features Manager
+        require( SMARTSHOP_ADDONS_PL_PATH. 'incs/features/class.feature-manager.php' );
     } 
 }
 

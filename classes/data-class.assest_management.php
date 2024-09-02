@@ -148,8 +148,8 @@ class Assets_Management{
             //     'version' => SMARTSHOP_VERSION,
             //     'deps'    => [ 'jquery' ]
             // ],
-            // 'smartshop-flash-sale-module' => [
-            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/modules/flash-sale/assets/js/flash-sale.js',
+            // 'smartshop-flash-sale-Feature' => [
+            //     'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/features/flash-sale/assets/js/flash-sale.js',
             //     'version' => SMARTSHOP_VERSION,
             //     'deps'    => [ 'jquery', 'countdown-min' ]
             // ],

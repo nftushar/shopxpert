@@ -62,12 +62,12 @@ class SmartShop_Admin_Init {
              add_action('admin_menu', [$this, 'add_menu'], 10);
              add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
       
-            add_action('admin_footer', [ $this, 'print_module_setting_popup' ], 99);
+            add_action('admin_footer', [ $this, 'print_Feature_setting_popup' ], 99);
 
  
             add_action('wp_ajax_smartshop_save_opt_data', array($this, 'save_data'));
 
-             add_action('wp_ajax_smartshop_module_data', array($this, 'module_data'));
+             add_action('wp_ajax_smartshop_Feature_data', array($this, 'Feature_data'));
     }
 
  
@@ -181,7 +181,7 @@ class SmartShop_Admin_Init {
                 <?php self::load_template('gutenberg'); ?>
 
                 <?php self::load_template('welcome'); ?>
-                <?php self::load_template('module'); ?>
+                <?php self::load_template('Feature'); ?>
                 </div>
             </div> 
         </div>
@@ -190,14 +190,14 @@ class SmartShop_Admin_Init {
 
 
         /**
-     * [print_module_setting_popup] addmin_footer Callback
+     * [print_Feature_setting_popup] addmin_footer Callback
      * @return [void]
      */
-    public function print_module_setting_popup() {
+    public function print_Feature_setting_popup() {
         $screen = get_current_screen();
         if ( 'smartshop_page_samrtshop' == $screen->base ) {
-            // error_log("smartshop print_module_setting_popup 2");
-            self::load_template('module-setting-popup');
+            // error_log("smartshop print_Feature_setting_popup 2");
+            self::load_template('Feature-setting-popup');
         }
     }
 
@@ -300,10 +300,10 @@ public function update_option($section, $option_key, $new_value) {
  
 
     /**
-     * [module_data] Wp Ajax Callback
+     * [Feature_data] Wp Ajax Callback
      * @return [JSON|Null]
      */
-    public function module_data() {
+    public function Feature_data() {
       
         // Check if the user has the required capability
         if (!current_user_can(self::MENU_CAPABILITY)) {
@@ -334,7 +334,7 @@ public function update_option($section, $option_key, $new_value) {
         
     
 
-        // Handle module data reset
+        // Handle Feature data reset
         if ($subaction === 'reset_data') {
             if (!empty($section)) {
                 delete_option($section);
@@ -342,21 +342,21 @@ public function update_option($section, $option_key, $new_value) {
             }
         }
     
-        // Get module data only if section and fields are provided
+        // Get Feature data only if section and fields are provided
         if (empty($section) || empty($fields)) {
-            wp_send_json_error(['message' => 'module_data Section or fields data is missing.']);
+            wp_send_json_error(['message' => 'Feature_data Section or fields data is missing.']);
             return; // Ensure no further processing is done if validation fails
         }
     
-        // Fetch module fields based on section or fieldname
-        $module_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['modules']; 
+        // Fetch Feature fields based on section or fieldname
+        $Feature_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['features']; 
         $section_fields = [];
-        foreach ($module_fields as $module) {
-            if (isset($module['section']) && $module['section'] === $section) {
-                $section_fields = $module['setting_fields'];
+        foreach ($Feature_fields as $Feature) {
+            if (isset($Feature['section']) && $Feature['section'] === $section) {
+                $section_fields = $Feature['setting_fields'];
                 break;
-            } else if (isset($module['name']) && $module['name'] === $fieldname) {
-                $section_fields = $module['setting_fields'];
+            } else if (isset($Feature['name']) && $Feature['name'] === $fieldname) {
+                $section_fields = $Feature['setting_fields'];
                 break;
             }
         }

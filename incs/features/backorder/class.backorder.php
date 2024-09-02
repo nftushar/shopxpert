@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use function  Smartshop\incs\smartshop_get_option;
 
 
-class Smartshop_Backorder extends WC_Product{
+class Smartshop_Pending_Stock extends WC_Product{
 
     private static $_instance = null;
 
@@ -104,7 +104,7 @@ class Smartshop_Backorder extends WC_Product{
 
 		foreach ( $formatted_meta as $key => $meta ) {
 			if ( $meta->key == 'smartshop_backordered' ) {
-                $meta->display_key  = esc_html__('Backordered','smartshop');
+                $meta->display_key  = esc_html__('Pending Stocked','smartshop');
 			}
 		}
 
@@ -349,7 +349,7 @@ class Smartshop_Backorder extends WC_Product{
     
         // Retrieve the backorder limit
         $backorder_limit = $this->get_option('backorder_limit', $product_id);
-        error_log("Backorder Limit: " . $backorder_limit);
+        error_log("Pending Stock Limit: " . $backorder_limit);
     
         // Retrieve the availability message
         $availability_message = smartshop_get_option('backorder_availability_message', 'smartshop_backorder_settings');
@@ -366,7 +366,7 @@ class Smartshop_Backorder extends WC_Product{
     
         // Default message if no availability message is set
         if($backorder_limit && $availability_date && empty($availability_message)){
-            $availability_message = __('On Backorder. Will be available on: '. $availability_date, 'smartshop');
+            $availability_message = __('On Pending Stock. Will be available on: '. $availability_date, 'smartshop');
         }
         error_log("Final Availability Message: " . $availability_message);
     
@@ -520,11 +520,11 @@ class Smartshop_Backorder extends WC_Product{
             array(
                 'id'                => '_smartshop_backorder_limit',
                 'value'             =>  $backorder_limit,
-                'label'             => __( 'Backorder Limit', 'smartshop' ),
+                'label'             => __( 'Pending Stock Limit', 'smartshop' ),
                 'placeholder'       => $backorder_limit_global,
                 'wrapper_class'     => '',
                 'desc_tip'          => true,
-                'description'       => __( 'Backorder limit. If this is a variable product this value will be used to control backorder limit for all variations, unless you define backorder limit at variation level.', 'smartshop' ),
+                'description'       => __( 'Pending Stock limit. If this is a variable product this value will be used to control backorder limit for all variations, unless you define backorder limit at variation level.', 'smartshop' ),
                 'type'              => 'number',
                 'custom_attributes' => array(
                     'step' => 'any',
@@ -533,8 +533,8 @@ class Smartshop_Backorder extends WC_Product{
         );
         ?>
             <p class="form-field">
-                <label for="_smartshop_backorder_availability_date"><?php echo esc_html__('Backorder Availability', 'smartshop') ?></label>
-                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the module settings.', 'smartshop') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <label for="_smartshop_backorder_availability_date"><?php echo esc_html__('Pending Stock Availability', 'smartshop') ?></label>
+                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the Feature settings.', 'smartshop') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 <input type="date" class="short hasDatepicker" name="_smartshop_backorder_availability_date" id="_smartshop_backorder_availability_date" value="<?php echo esc_attr($backorder_availability); ?>" placeholder="<?php echo esc_attr($availability_date_global); ?>">
             </p>
         </div> <!-- .smartshop-backorder-fields -->
@@ -559,4 +559,4 @@ class Smartshop_Backorder extends WC_Product{
     }
 }
 
-Smartshop_Backorder::get_instance();    
+Smartshop_Pending_Stock::get_instance();    

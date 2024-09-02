@@ -146,8 +146,8 @@ class Scripts {
 		}
 		wp_enqueue_style('wishsuite-frontend');
 		wp_enqueue_style('evercompare-frontend');
-		if( defined('\Smartshop\Modules\CurrencySwitcher\MODULE_ASSETS') ){
-			wp_enqueue_style('smartshop-currency-switcher', \Smartshop\Modules\CurrencySwitcher\MODULE_ASSETS . '/css/frontend.css', [], SMARTSHOP_VERSION );
+		if( defined('\Smartshop\Features\CurrencySwitcher\FEATURE_ASSETS') ){
+			wp_enqueue_style('smartshop-currency-switcher', \Smartshop\Features\CurrencySwitcher\FEATURE_ASSETS . '/css/frontend.css', [], SMARTSHOP_VERSION );
 		}
 
 	}

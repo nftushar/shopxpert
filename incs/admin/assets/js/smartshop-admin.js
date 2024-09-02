@@ -164,7 +164,7 @@ console.log("JS Switch Enable/Disable Function");
     })
 
     /**
-     * Admin Module additional setting button
+     * Admin Feature additional setting button
      */
     $('.smartshop-admin-switch .checkbox').on('click', function (e) {
 
@@ -235,7 +235,7 @@ console.log("JS Switch Enable/Disable Function");
     });
 
 
-// Module additional settings
+// Feature additional settings
 $('.smartshop-admin-switch-block-setting').on('click', function(event) {
     event.preventDefault(); 
 
@@ -244,9 +244,9 @@ $('.smartshop-admin-switch-block-setting').on('click', function(event) {
         $fields = $this.data('fields'),
         $fieldname = $this.data('fieldname') ? $this.data('fieldname') : '',
         content = null,
-        modulewrapper = wp.template('smartshopmodule');
+        Featurewrapper = wp.template('smartshopFeature');
 
-console.log("smartshop module_data");
+console.log("smartshop Feature_data");
 
 
     $.ajax({
@@ -257,27 +257,27 @@ console.log("smartshop module_data");
             section: $section,
             fields: $fields,
             fieldname: $fieldname,
-            action: 'smartshop_module_data',
+            action: 'smartshop_Feature_data',
             subaction: 'get_data',
         },
         beforeSend: function(){
-            $this.addClass('module-setting-loading');
+            $this.addClass('Feature-setting-loading');
         },
         success: function( response ) { 
-            content = modulewrapper( {
+            content = Featurewrapper( {
                 section : $section,
                 fileds  : response.data.fields,
                 content : response.data.content
             } );
             $( 'body' ).append( content );
 
-            smartshop_module_ajax_reactive();
-            $( document ).trigger('module_setting_loaded');
-            $this.removeClass('module-setting-loading');
+            smartshop_Feature_ajax_reactive();
+            $( document ).trigger('Feature_setting_loaded');
+            $this.removeClass('Feature-setting-loading');
             
         },
         complete: function( response ) {
-            $this.removeClass('module-setting-loading');
+            $this.removeClass('Feature-setting-loading');
         },
         error: function(errorThrown){
             console.log(errorThrown);
@@ -288,9 +288,9 @@ console.log("smartshop module_data");
 
  
     // PopUp reactive JS
-    function smartshop_module_ajax_reactive() { 
+    function smartshop_Feature_ajax_reactive() { 
         // Select 2 Multiple selection
-        $('.smartshop-module-setting-popup').find('.smartshop-admin-option:not(.smartshop-repeater-field) .smartshop-admin-select select[multiple="multiple"]').each(function () {
+        $('.smartshop-Feature-setting-popup').find('.smartshop-admin-option:not(.smartshop-repeater-field) .smartshop-admin-select select[multiple="multiple"]').each(function () {
             const $this = $(this),
                 $parent = $this.parent();
             $this.select2({
@@ -300,12 +300,12 @@ console.log("smartshop module_data");
         });
 
         //Initiate Color Picker
-        // $('.smartshop-module-setting-popup').find('.smartshop-admin-option:not(.smartshop-repeater-field) .wp-color-picker-field').wpColorPicker({
+        // $('.smartshop-Feature-setting-popup').find('.smartshop-admin-option:not(.smartshop-repeater-field) .wp-color-picker-field').wpColorPicker({
         //     change: function (event, ui) {
-        //         $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //         $(this).closest('.smartshop-Feature-setting-popup-content').find('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
         //     },
         //     clear: function (event) {
-        //         $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //         $(this).closest('.smartshop-Feature-setting-popup-content').find('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
         //     }
         // });
 
@@ -363,14 +363,14 @@ console.log("smartshop module_data");
             self.siblings('.smartshop_display').html('');
         });
 
-        // Module additional setting save
-        $('.smartshop-admin-module-save').on('click', function (event) {
+        // Feature additional setting save
+        $('.smartshop-admin-Feature-save').on('click', function (event) {
             event.preventDefault();
 
-            console.log('Module additional setting save clicked');
+            console.log('Feature additional setting save clicked');
 
             // Getting relevant form and button elements
-            var $option_form = $(this).closest('.smartshop-module-setting-popup-content').find('form.smartshop-module-setting-data'),
+            var $option_form = $(this).closest('.smartshop-Feature-setting-popup-content').find('form.smartshop-Feature-setting-data'),
                 $savebtn = $(this),
                 $section = $option_form.data('section'),
                 $field_keys = $option_form.data('fields');
@@ -378,7 +378,7 @@ console.log("smartshop module_data");
             // Debugging variables
             // console.log('xxSection:', $section);
             // console.log('xxFields:', $field_keys);
-            // console.log('xxSerialized Data:', $(this).closest('.smartshop-module-setting-popup-content').find('form.smartshop-module-setting-data :input').not('.smartshop-repeater-hidden :input').serializeJSON());
+            // console.log('xxSerialized Data:', $(this).closest('.smartshop-Feature-setting-popup-content').find('form.smartshop-Feature-setting-data :input').not('.smartshop-repeater-hidden :input').serializeJSON());
 
             // Ensure SMARTSHOP_ADMIN is defined
             if (typeof SMARTSHOP_ADMIN === 'undefined') {
@@ -395,7 +395,7 @@ console.log("smartshop module_data");
                     section: $section, // Section data
                     fields: $field_keys, // Field keys data
                     action: 'smartshop_save_opt_data', // Action to be handled in PHP
-                    data: $(this).closest('.smartshop-module-setting-popup-content').find('form.smartshop-module-setting-data :input').not('.smartshop-repeater-hidden :input').serializeJSON() // Serialized form data
+                    data: $(this).closest('.smartshop-Feature-setting-popup-content').find('form.smartshop-Feature-setting-data :input').not('.smartshop-repeater-hidden :input').serializeJSON() // Serialized form data
                 },
                 beforeSend: function () {
                     // Update the button text and add a loading class
@@ -405,7 +405,7 @@ console.log("smartshop module_data");
                     $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SMARTSHOP_ADMIN.message.success); // Update the button state
 
                     console.log('xxx AJAX Success Response:', response); // Log the response
-                    alert('Module additional setting saved'); // Alert success message
+                    alert('Feature additional setting saved'); // Alert success message
                 },
                 complete: function (response) {
                     console.log('AJAX Complete Response:', response); // Log the response
@@ -417,13 +417,13 @@ console.log("smartshop module_data");
             });
         });
 
-        // Module Setting Reset
-        $('.smartshop-admin-module-reset').on('click', function (event) {
+        // Feature Setting Reset
+        $('.smartshop-admin-Feature-reset').on('click', function (event) {
             event.preventDefault();
 
-console.log('Module Setting Reset ajax');
+console.log('Feature Setting Reset ajax');
 
-            var $option_form = $(this).closest('.smartshop-module-setting-popup-content').find('form.smartshop-module-setting-data'),
+            var $option_form = $(this).closest('.smartshop-Feature-setting-popup-content').find('form.smartshop-Feature-setting-data'),
                 $resetbtn = $(this),
                 $section = $option_form.data('section');
 
@@ -445,7 +445,7 @@ console.log('Module Setting Reset ajax');
                         data: {
                             nonce: SMARTSHOP_ADMIN.nonce,
                             section: $section,
-                            action: 'smartshop_module_data',
+                            action: 'smartshop_Feature_data',
                             subaction: 'reset_data',
                         },
 
@@ -454,7 +454,7 @@ console.log('Module Setting Reset ajax');
                         },
 
                         success: function (response) {
-                            alert('Module Setting Reset ajax saved');
+                            alert('Feature Setting Reset ajax saved');
                             $resetbtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SMARTSHOP_ADMIN.message.reseted);
                         },
 
@@ -476,16 +476,16 @@ console.log('Module Setting Reset ajax');
         });
 
         // Save button active
-        $('.smartshop-module-setting-popup-content .smartshop-module-setting-data').on('click', 'input,select,textarea,.smartshop-admin-number-btn', function () {
-            $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        $('.smartshop-Feature-setting-popup-content .smartshop-Feature-setting-data').on('click', 'input,select,textarea,.smartshop-admin-number-btn', function () {
+            $(this).closest('.smartshop-Feature-setting-popup-content').find('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
         });
 
-        $('.smartshop-module-setting-popup-content .smartshop-module-setting-data').on('keyup', 'input', function () {
-            $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        $('.smartshop-Feature-setting-popup-content .smartshop-Feature-setting-data').on('keyup', 'input', function () {
+            $(this).closest('.smartshop-Feature-setting-popup-content').find('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
         });
 
-        $('.smartshop-module-setting-popup-content .smartshop-module-setting-data').on('change', 'select', function () {
-            $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        $('.smartshop-Feature-setting-popup-content .smartshop-Feature-setting-data').on('change', 'select', function () {
+            $(this).closest('.smartshop-Feature-setting-popup-content').find('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
         });
 
         /* Close PopUp */
@@ -500,7 +500,7 @@ console.log('Module Setting Reset ajax');
 
         // Field Dependency
         $(document).ready(function () {
-            $('.smartshop-module-setting-data').smartshop_conditions();
+            $('.smartshop-Feature-setting-data').smartshop_conditions();
         });
 
     }
@@ -520,10 +520,10 @@ console.log('Module Setting Reset ajax');
         // $(hidden_repeater_elem).find('.wp-color-picker-field').each(function () {
         //     $(this).wpColorPicker({
         //         change: function (event, ui) {
-        //             $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //             $(this).closest('.smartshop-Feature-setting-popup-content').find('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
         //         },
         //         clear: function (event) {
-        //             $(this).closest('.smartshop-module-setting-popup-content').find('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        //             $(this).closest('.smartshop-Feature-setting-popup-content').find('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
         //         }
         //     });
         // });
@@ -572,17 +572,17 @@ console.log('Module Setting Reset ajax');
                 $this.closest('.woolenor-reapeater-fields-area').find('.smartshop-option-repeater-item-area').html($hidden);
             }
 
-            $(document).trigger('repeater_field_added', [$('.smartshop-module-setting-data .smartshop-option-repeater-item.smartshop_active_repeater')]);
-            $(document).trigger('repeater_field_item_added', [$('.smartshop-module-setting-data .smartshop-option-repeater-item.smartshop_active_repeater')]);
+            $(document).trigger('repeater_field_added', [$('.smartshop-Feature-setting-data .smartshop-option-repeater-item.smartshop_active_repeater')]);
+            $(document).trigger('repeater_field_item_added', [$('.smartshop-Feature-setting-data .smartshop-option-repeater-item.smartshop_active_repeater')]);
 
             // Title Value update after add.
-            $('.smartshop-module-setting-data .smartshop-option-repeater-item.smartshop_active_repeater').find('.smartshop-repeater-title-field :input').trigger('change');
+            $('.smartshop-Feature-setting-data .smartshop-option-repeater-item.smartshop_active_repeater').find('.smartshop-repeater-title-field :input').trigger('change');
 
             // Field Dependency
             $('.smartshop-option-repeater-item-area').children('.smartshop-option-repeater-item').children('.smartshop-option-repeater-fields').smartshop_conditions();
 
             // Enable Button
-            $('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+            $('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
 
             return false;
 
@@ -602,7 +602,7 @@ console.log('Module Setting Reset ajax');
                 $parentItem.removeClass('smartshop_active_repeater');
             } else {
                 $parentItem.addClass('smartshop_active_repeater').siblings().removeClass('smartshop_active_repeater');
-                $(document).trigger('repeater_field_added', [$('.smartshop-module-setting-data .smartshop-option-repeater-item.smartshop_active_repeater')]);
+                $(document).trigger('repeater_field_added', [$('.smartshop-Feature-setting-data .smartshop-option-repeater-item.smartshop_active_repeater')]);
                 $(document).trigger('repeater_field_item_active', [$parentItem]);
             }
             $('.smartshop-option-repeater-item-area').children('.smartshop-option-repeater-item').children('.smartshop-option-repeater-fields').smartshop_conditions();
@@ -625,7 +625,7 @@ console.log('Module Setting Reset ajax');
             $(document).trigger('repeater_field_item_removed', [$parentItem, $fieldsArea]);
 
             // Enable Button
-            $('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+            $('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
 
             return false;
         });
@@ -638,7 +638,7 @@ console.log('Module Setting Reset ajax');
                 handle: ".smartshop-option-repeater-tools",
                 placeholder: "widget-placeholder",
                 update: function (event, ui) {
-                    $('.smartshop-admin-module-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+                    $('.smartshop-admin-Feature-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
                     $('.smartshop-option-repeater-item-area').children('.smartshop-option-repeater-item').children('.smartshop-option-repeater-fields').smartshop_conditions();
                 }
             });
@@ -655,7 +655,7 @@ console.log('Module Setting Reset ajax');
                 $fieldsArea = $this.siblings('.smartshop-option-repeater-item-area'),
                 $data = typeof $this.attr('data-customaction') !== 'undefined' ? JSON.parse($this.attr('data-customaction')) : '',
                 $fieldValue = $(document).find($data['option_selector']),
-                $moduleSaveButton = $('.smartshop-admin-module-save');
+                $FeatureSaveButton = $('.smartshop-admin-Feature-save');
 
             if (typeof $fieldValue !== 'undefined') {
                 $data = { ...$data, value: $fieldValue.val() }
@@ -672,22 +672,22 @@ console.log('Module Setting Reset ajax');
 
                 beforeSend: function () {
                     $this.removeClass('disabled').addClass('updating-message');
-                    // Enable Module Data save button
-                    $moduleSaveButton.removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+                    // Enable Feature Data save button
+                    $FeatureSaveButton.removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
                 },
 
                 success: function (response) {
                      alert('Repeater Custom Button saved');
                     $this.removeClass('updating-message');
                     $(document).trigger('repeater_custom_action_start', [$data, $fieldsArea, response.data]);
-                    // Save Module Data
-                    $moduleSaveButton.trigger('click');
+                    // Save Feature Data
+                    $FeatureSaveButton.trigger('click');
                 },
 
                 complete: function (response) {
                     $this.removeClass('updating-message');
-                    // Save Module Data
-                    $moduleSaveButton.trigger('click');
+                    // Save Feature Data
+                    $FeatureSaveButton.trigger('click');
                 },
 
                 error: function (errorThrown) {
@@ -706,7 +706,7 @@ console.log('Module Setting Reset ajax');
 
 
         /**
-         * For Currency Switcher Module
+         * For Currency Switcher Feature
          */
         $(document).on('change', '.wlcs-currency-selection .smartshop-admin-select select', function (e) {
             let thisField = $(this),
