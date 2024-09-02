@@ -13,7 +13,7 @@ class Smartshop_Module_Manager {
      * Instance
      */
     public static function instance() {
-        if ( is_null( self::$_instance ) ) {
+            if ( is_null( self::$_instance ) ) {
             self::$_instance = new self();
         }
         return self::$_instance;
@@ -60,12 +60,18 @@ class Smartshop_Module_Manager {
             require( SMARTSHOP_ADDONS_PL_PATH . 'incs/modules/rename-label/rename_label.php' );
         }  
 
+        // Search
+        if( smartshop_get_option( 'ajaxsearch', 'smartshop_others_tabs', 'off' ) == 'on' ){
+            require( SMARTSHOP_ADDONS_PL_PATH. 'incs/modules/ajax-search/base.php' );
+        }
+        
+
         // Backorder
         if( smartshop_get_option( 'enable', 'smartshop_backorder_settings', 'off' ) == 'on' ){
             require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/backorder/class.backorder.php' );
         }
 
-    // Wishlist
+        // Wishlist
         if( smartshop_get_option( 'wishlist', 'smartshop_others_tabs', 'off' ) == 'on' ){
             // $this->deactivate( 'wishsuite/wishsuite.php' );
             if( ! class_exists('WooWishSuite_Base') ){

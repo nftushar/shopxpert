@@ -788,6 +788,14 @@ class Smartshop_Admin_Fields {
                         'default'  => 'off',
                         'documentation' => esc_url('https://smartshop.com/doc/wishlist-for-woocommerce/')
                     ), 
+                    array(
+                        'name'    => 'ajaxsearch',
+                        'label'   => esc_html__( 'Ajax Search Widget', 'smartshop' ),
+                        'desc'    => esc_html__( 'AJAX Search Widget', 'smartshop' ),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'documentation' => esc_url('https://smartshop.com/doc/how-to-use-woocommerce-ajax-search/')
+                    ),
                 ),
 
                 'others' => array(

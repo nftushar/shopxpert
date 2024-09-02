@@ -3,8 +3,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use function  Smartshop\incs\smartshop_get_option;
 
-error_log('Smartshop_Backorder file');
-
 
 class Smartshop_Backorder extends WC_Product{
 
