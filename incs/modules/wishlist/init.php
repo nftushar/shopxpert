@@ -6,11 +6,11 @@ use function  Smartshop\incs\smartshop_get_option;
 
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-error_log('file xxxxx Smartshop_WishSuite_Base');
+error_log('file xxxxx Smartshop_WooWishSuite_Base');
 /**
  * Plugin Main Class
  */
-final class Smartshop_WishSuite_Base{
+final class Smartshop_WooWishSuite_Base{
 
     /**
      * [$_instance]
@@ -48,13 +48,13 @@ final class Smartshop_WishSuite_Base{
      * @return void
      */
     public function define_constants() {
-        define( 'WISHSUITE_FILE', __FILE__ );
-        define( 'WISHSUITE_MODULE_PATH', __DIR__ );
-        define( 'WISHSUITE_URL', plugins_url( '', WISHSUITE_FILE ) );
-        define( 'WISHSUITE_DIR', plugin_dir_path( WISHSUITE_FILE ) );
-        define( 'WISHSUITE_ASSETS', WISHSUITE_URL . '/assets' );
-        define( 'WISHSUITE_BASE', plugin_basename( WISHSUITE_FILE ) );
-        define( 'WISHSUITE_BLOCKS_PATH', WISHSUITE_MODULE_PATH. "/incs/blocks" );
+        define( 'WOOWISHSUITE_FILE', __FILE__ );
+        define( 'WOOWISHSUITE_MODULE_PATH', __DIR__ );
+        define( 'WOOWISHSUITE_URL', plugins_url( '', WOOWISHSUITE_FILE ) );
+        define( 'WOOWISHSUITE_DIR', plugin_dir_path( WOOWISHSUITE_FILE ) );
+        define( 'WOOWISHSUITE_ASSETS', WOOWISHSUITE_URL . '/assets' );
+        define( 'WOOWISHSUITE_BASE', plugin_basename( WOOWISHSUITE_FILE ) );
+        define( 'WOOWISHSUITE_BLOCKS_PATH', WOOWISHSUITE_MODULE_PATH. "/incs/blocks" );
     }
 
     /**
@@ -80,17 +80,17 @@ final class Smartshop_WishSuite_Base{
      */
     public function init_plugin() {
 
-        WishSuite\Assets::instance();
+        WooWooWishSuite\Assets::instance();
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            WishSuite\Ajax::instance();
+            WooWooWishSuite\Ajax::instance();
         }
 
         if ( is_admin() ) {
-            WishSuite\Admin::instance();
+            WooWooWishSuite\Admin::instance();
         }
-        WishSuite\Frontend::instance();
-        WishSuite\Widgets_And_Blocks::instance();
+        WooWooWishSuite\Frontend::instance();
+        WooWooWishSuite\Widgets_And_Blocks::instance();
 
         // add image size
         $this->set_image_size();
@@ -107,7 +107,7 @@ final class Smartshop_WishSuite_Base{
      * @return void
      */
     public function activate() {
-        $installer = new WishSuite\Installer();
+        $installer = new WooWooWishSuite\Installer();
         $installer->run();
     }
 
@@ -148,9 +148,9 @@ final class Smartshop_WishSuite_Base{
 /**
  * Initializes the main plugin
  *
- * @return Smartshop_WishSuite_Base
+ * @return Smartshop_WooWishSuite_Base
  */
-function Smartshop_WishSuite() {
-    return Smartshop_WishSuite_Base::instance();
+function Smartshop_WooWishSuite() {
+    return Smartshop_WooWishSuite_Base::instance();
 }
-Smartshop_WishSuite();
+Smartshop_WooWishSuite();

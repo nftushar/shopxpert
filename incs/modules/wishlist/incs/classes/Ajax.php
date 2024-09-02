@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite;
+namespace WooWooWishSuite;
 /**
  * Ajax handlers class
  */
@@ -56,14 +56,14 @@ class Ajax {
             wp_send_json_error( $errormessage );
         }
         $id = sanitize_text_field( $_GET['id'] );
-        $inserted = \WishSuite\Frontend\Manage_Wishlist::instance()->add_product( $id );
+        $inserted = \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->add_product( $id );
         if ( ! $inserted ) {
             wp_send_json_success([
                 'message' => __( 'The product does not add!', 'wishsuite' )
             ]);
         }else{
             wp_send_json_success([
-                'item_count' => count( \WishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
+                'item_count' => count( \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
                 'message' => __( 'Product successfully added!', 'wishsuite' )
             ]);
         }
@@ -82,14 +82,14 @@ class Ajax {
             wp_send_json_error( $errormessage );
         }
         $id = sanitize_text_field( $_GET['id'] );
-        $deleted = \WishSuite\Frontend\Manage_Wishlist::instance()->remove_product( $id );
+        $deleted = \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->remove_product( $id );
         if ( ! $deleted ) {
             wp_send_json_success([
                 'message' => __( 'The product does not delete!', 'wishsuite' )
             ]);
         }else{
             wp_send_json_success([
-                'item_count' => count( \WishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
+                'item_count' => count( \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
                 'per_page' => (int)smartshop_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 ),
                 'message' => __( 'Product successfully deleted!', 'wishsuite' )
             ]);

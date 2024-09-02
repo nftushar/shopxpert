@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite\Frontend;
+namespace WooWooWishSuite\Frontend;
 use function  Smartshop\incs\smartshop_get_option;
 
 
@@ -52,7 +52,7 @@ class Manage_Wishlist {
                 'user_id' => $user_id
             ];
 
-            $insert_id = \WishSuite\Manage_Data::instance()->create( $args );
+            $insert_id = \WooWooWishSuite\Manage_Data::instance()->create( $args );
             $add_status = $insert_id;
 
         }else{
@@ -86,7 +86,7 @@ class Manage_Wishlist {
         $delete_status = false;
 
         if( $user_id ){
-            $deleted = \WishSuite\Manage_Data::instance()->delete( $user_id, $id );
+            $deleted = \WooWooWishSuite\Manage_Data::instance()->delete( $user_id, $id );
             $delete_status = $deleted;
         }else{
 
@@ -219,7 +219,7 @@ class Manage_Wishlist {
      */
     public function button_html( $atts ) {
         $button_attr = apply_filters( 'wishsuite_button_arg', $atts );
-        return wishsuite_get_template( 'wishsuite-button-'.$atts['template_name'].'.php', $button_attr, false );
+        return woowishsuite_get_template( 'wishsuite-button-'.$atts['template_name'].'.php', $button_attr, false );
     }
 
     /**
@@ -228,7 +228,7 @@ class Manage_Wishlist {
      */
     public function table_html( $atts ) {
         $table_attr = apply_filters( 'wishsuite_table_arg', $atts );
-        return wishsuite_get_template( 'wishsuite-table.php', $table_attr, false );
+        return woowishsuite_get_template( 'wishsuite-table.php', $table_attr, false );
     }
 
     /**
@@ -237,7 +237,7 @@ class Manage_Wishlist {
      */
     public function count_html( $atts ) {
         $count_attr = apply_filters( 'wishsuite_count_arg', $atts );
-        return wishsuite_get_template( 'wishsuite-count.php', $count_attr, false );
+        return woowishsuite_get_template( 'wishsuite-count.php', $count_attr, false );
     }
 
     /**
@@ -265,7 +265,7 @@ class Manage_Wishlist {
                 'number'  => $per_page,
                 'offset'  => $offset,
             ];
-            $items = \WishSuite\Manage_Data::instance()->read( $args );
+            $items = \WooWooWishSuite\Manage_Data::instance()->read( $args );
 
             $ids = array();
             foreach ( $items as $itemkey => $item ) {
@@ -342,7 +342,7 @@ class Manage_Wishlist {
             $rating_count   = $product->get_rating_count();
             $average        = $product->get_average_rating();
 
-            $get_row = \WishSuite\Manage_Data::instance()->read_single_item( get_current_user_id(), $product->get_id() );
+            $get_row = \WooWooWishSuite\Manage_Data::instance()->read_single_item( get_current_user_id(), $product->get_id() );
             if( is_object( $get_row ) && $get_row->quantity ){
                 $min_value = $get_row->quantity;
             }else{
@@ -478,7 +478,7 @@ class Manage_Wishlist {
                 break;
 
             case 'add_to_cart':
-                echo apply_filters( 'wishsuite_add_to_cart_btn', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo apply_filters( 'woowishsuite_add_to_cart_btn', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             case 'attribute':
@@ -519,7 +519,7 @@ class Manage_Wishlist {
             return $field;
         }
 
-        $default = wishsuite_get_default_fields();
+        $default = woowishsuite_get_default_fields();
 
         $str = substr( $field, 0, 3 );
         if( 'pa_' === $str ){
@@ -607,7 +607,7 @@ class Manage_Wishlist {
             'products_ids' => $ids,
         ];
         $social_share_attr = apply_filters( 'wishsuite_social_share_arg', $atts );
-        wishsuite_get_template( 'wishsuite-social-share.php', $social_share_attr, true );
+        woowishsuite_get_template( 'wishsuite-social-share.php', $social_share_attr, true );
         
     }
 
@@ -617,7 +617,7 @@ class Manage_Wishlist {
      */
     public function pagination(){
         $current_page = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-        $total_items = count( \WishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() );
+        $total_items = count( \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() );
         $product_per_page = smartshop_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 );
         $total_pages = ceil($total_items / $product_per_page);
         $args = array(

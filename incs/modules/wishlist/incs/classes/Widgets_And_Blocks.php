@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite;
+namespace WooWooWishSuite;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
@@ -40,23 +40,23 @@ class Widgets_And_Blocks {
     public function block_list( $block_list = [] ){
 
         $block_list['wishsuite_table'] = [
-            'label'  => __('WishSuite Table','smartshop'),
+            'label'  => __('WooWooWishSuite Table','smartshop'),
             'name'   => 'smartshop/wishsuite-table',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
             'is_pro' => false,
-            'location' => WISHSUITE_BLOCKS_PATH,
+            'location' => WOOWISHSUITE_BLOCKS_PATH,
         ];
 
         $block_list['wishsuite_counter'] = [
-            'label'  => __('WishSuite Counter','smartshop'),
+            'label'  => __('WooWooWishSuite Counter','smartshop'),
             'name'   => 'smartshop/wishsuite-counter',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
             'is_pro' => false,
-            'location' => WISHSUITE_BLOCKS_PATH,
+            'location' => WOOWISHSUITE_BLOCKS_PATH,
         ];
 
         return $block_list;

@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite\Frontend;
+namespace WooWooWishSuite\Frontend;
 
 use function  Smartshop\incs\smartshop_get_option;
 
@@ -78,7 +78,7 @@ class Shortcode {
             $has_product   = false;
         }else{
             $button_text = smartshop_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );
-            $page_url = wishsuite_get_page_url();
+            $page_url = woowishsuite_get_page_url();
         }
 
         $button_class = array(
@@ -187,7 +187,7 @@ class Shortcode {
             $has_product   = false;
         }else{
             $button_text = smartshop_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );
-            $page_url = wishsuite_get_page_url();
+            $page_url = woowishsuite_get_page_url();
         }
 
         $default_atts = array(
@@ -209,8 +209,8 @@ class Shortcode {
      */
     public function icon_generate( $type = '' ){
 
-        $default_icon   = wishsuite_icon_list('default');
-        $default_loader = '<span class="wishsuite-loader">'.wishsuite_icon_list('loading').'</span>';
+        $default_icon   = woowishsuite_icon_list('default');
+        $default_loader = '<span class="wishsuite-loader">'.woowishsuite_icon_list('loading').'</span>';
         
         $button_icon = '';
         $button_text = ( $type === 'added' ) ? smartshop_get_option( 'added_button_text','wishsuite_settings_tabs', 'Wishlist' ) : smartshop_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );

@@ -1400,7 +1400,7 @@ function smartshop_compare_button( $button_arg = array() ){
  * @return [bool]
  */
 function smartshop_has_wishlist_plugin(){
-    if( class_exists('WishSuite_Base') || class_exists('Smartshop_WishSuite_Base') ){
+    if( class_exists('WooWishSuite_Base') || class_exists('Smartshop_WooWishSuite_Base') ){
         return true;
     }elseif( class_exists('YITH_WCWL') ){
         return true;
@@ -1427,7 +1427,7 @@ function smartshop_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
 
     $output = '';
 
-    if( class_exists('WishSuite_Base') || class_exists('Smartshop_WishSuite_Base') ){
+    if( class_exists('WooWishSuite_Base') || class_exists('Smartshop_WooWishSuite_Base') ){
 
         $button_class = ' wishlist'.( $tooltip == 'yes' ? '' : ' wltooltip_no' );
 

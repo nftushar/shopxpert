@@ -3,7 +3,7 @@
 	"apiVersion": 3,
     "name": "smartshop/wishsuite-counter",
     "category": "smartshop-blocks",
-    "title": "WL: WishSuite Counter",
+    "title": "WL: WooWooWishSuite Counter",
     "description":"Display Wishlist Counter.",
     "keywords": ["smartshop","wishlist","count","wishsuite","wishlist counter"],
     "render": "file:./index.php",

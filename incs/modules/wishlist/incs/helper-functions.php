@@ -1,6 +1,6 @@
 <?php
 /**
- * [wishsuite_get_post_list]
+ * [woowishsuite_get_post_list]
  * @param  string $post_type
  * @return [array]
  */
@@ -9,7 +9,7 @@
  use function  Smartshop\incs\smartshop_get_option;
 
 
-function wishsuite_get_post_list( $post_type = 'page' ){
+function woowishsuite_get_post_list( $post_type = 'page' ){
     $options = array();
     $options['0'] = __('Select','wishsuite');
     $perpage = -1;
@@ -24,35 +24,35 @@ function wishsuite_get_post_list( $post_type = 'page' ){
 }
 
 /**
- * [wishsuite_locate_template]
+ * [woowishsuite_locate_template]
  * @param  [string] $tmp_name Template name
  * @return [Template path]
  */
-function wishsuite_locate_template( $tmp_name ) {
+function woowishsuite_locate_template( $tmp_name ) {
     $woo_tmp_base = WC()->template_path();
 
     $woo_tmp_path     = $woo_tmp_base . $tmp_name; //active theme directory/woocommerce/
     $theme_tmp_path   = '/' . $tmp_name; //active theme root directory
-    $plugin_tmp_path  = WISHSUITE_DIR . 'incs/templates/' . $tmp_name;
+    $plugin_tmp_path  = WOOWISHSUITE_DIR . 'incs/templates/' . $tmp_name;
 
     $located = locate_template( [ $woo_tmp_path, $theme_tmp_path ] );
 
     if ( ! $located && file_exists( $plugin_tmp_path ) ) {
-        return apply_filters( 'wishsuite_locate_template', $plugin_tmp_path, $tmp_name );
+        return apply_filters( 'woowishsuite_locate_template', $plugin_tmp_path, $tmp_name );
     }
 
-    return apply_filters( 'wishsuite_locate_template', $located, $tmp_name );
+    return apply_filters( 'woowishsuite_locate_template', $located, $tmp_name );
 }
 
 /**
- * [wishsuite_get_template]
+ * [woowishsuite_get_template]
  * @param  [string]  $tmp_name Template name
  * @param  [array]  $args template argument array
  * @param  boolean $echo
  * @return [void]
  */
-function wishsuite_get_template( $tmp_name, $args = null, $echo = true ) {
-    $located = wishsuite_locate_template( $tmp_name );
+function woowishsuite_get_template( $tmp_name, $args = null, $echo = true ) {
+    $located = woowishsuite_locate_template( $tmp_name );
 
     if ( $args && is_array( $args ) ) {
         extract( $args );
@@ -68,28 +68,28 @@ function wishsuite_get_template( $tmp_name, $args = null, $echo = true ) {
 }
 
 /**
- * [wishsuite_get_page_url]
+ * [woowishsuite_get_page_url]
  * @return [URL]
  */
-function wishsuite_get_page_url() {
+function woowishsuite_get_page_url() {
     $page_id = smartshop_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' );
     return get_permalink( $page_id );
 }
 
 /**
- * [wishsuite_add_to_cart]
+ * [woowishsuite_add_to_cart]
  * @param  [object] $product
  * @return [HTML]
  */
-function wishsuite_add_to_cart( $product, $quentity ){
-    return \WishSuite\Frontend\Manage_Wishlist::instance()->add_to_cart_html( $product, $quentity );
+function woowishsuite_add_to_cart( $product, $quentity ){
+    return \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->add_to_cart_html( $product, $quentity );
 }
 
 /**
  * Get default fields List
  * return array
  */
-function wishsuite_get_default_fields(){
+function woowishsuite_get_default_fields(){
     $fields = array(
         'remove'      => esc_html__( 'Remove', 'wishsuite' ),
         'image'       => esc_html__( 'Image', 'wishsuite' ),
@@ -107,19 +107,19 @@ function wishsuite_get_default_fields(){
 }
 
 /**
- * [wishsuite_table_active_heading]
+ * [woowishsuite_table_active_heading]
  * @return [array]
  */
-function wishsuite_table_active_heading(){
+function woowishsuite_table_active_heading(){
     $active_heading = !empty( smartshop_get_option( 'show_fields', 'wishsuite_table_settings_tabs' ) ) ? smartshop_get_option( 'show_fields', 'wishsuite_table_settings_tabs' ) : array();
     return $active_heading;
 }
 
 /**
- * [wishsuite_table_heading]
+ * [woowishsuite_table_heading]
  * @return [array]
  */
-function wishsuite_table_heading(){
+function woowishsuite_table_heading(){
     $new_list = array();
 
     $active_default_fields = array(
@@ -131,9 +131,9 @@ function wishsuite_table_heading(){
         'add_to_cart' => esc_html__( 'Add To Cart', 'wishsuite' ),
     );
 
-    $field_list = count( wishsuite_table_active_heading() ) > 0 ? wishsuite_table_active_heading() : $active_default_fields;
+    $field_list = count( woowishsuite_table_active_heading() ) > 0 ? woowishsuite_table_active_heading() : $active_default_fields;
     foreach ( $field_list as $key => $value ) {
-        $new_list[$key] = \WishSuite\Frontend\Manage_Wishlist::instance()->field_name( $key );
+        $new_list[$key] = \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->field_name( $key );
     }
     return $new_list;
 }
@@ -142,14 +142,14 @@ function wishsuite_table_heading(){
  * Get Post List
  * return array
  */
-function wishsuite_get_available_attributes() {
+function woowishsuite_get_available_attributes() {
     $attribute_list = array();
 
     if( function_exists( 'wc_get_attribute_taxonomies' ) ) {
         $attribute_list = wc_get_attribute_taxonomies();
     }
 
-    $fields = wishsuite_get_default_fields();
+    $fields = woowishsuite_get_default_fields();
 
     if ( count( $attribute_list ) > 0 ) {
         foreach ( $attribute_list as $attribute ) {
@@ -162,12 +162,12 @@ function wishsuite_get_available_attributes() {
 
 
 /**
- * [wishsuite_dimensions]
+ * [woowishsuite_dimensions]
  * @param  [string] $key
  * @param  [string] $tab
  * @return [String | Bool]
  */
-function wishsuite_dimensions( $key, $tab, $css_attr ){
+function woowishsuite_dimensions( $key, $tab, $css_attr ){
     $dimensions = !empty( smartshop_get_option( $key, $tab ) ) ? smartshop_get_option( $key, $tab ) : array();
     if( !empty( $dimensions['top'] ) || !empty( $dimensions['right'] ) || !empty( $dimensions['bottom'] ) || !empty( $dimensions['left'] ) ){
         $unit = empty( $dimensions['unit'] ) ? 'px' : $dimensions['unit'];
@@ -179,10 +179,10 @@ function wishsuite_dimensions( $key, $tab, $css_attr ){
 }
 
 /**
- * [wishsuite_generate_css]
+ * [woowishsuite_generate_css]
  * @return [String | Bool]
  */
-function wishsuite_generate_css( $key, $tab, $css_attr ){
+function woowishsuite_generate_css( $key, $tab, $css_attr ){
     $field_value = !empty( smartshop_get_option( $key, $tab ) ) ? smartshop_get_option( $key, $tab ) : '';
 
     if( !empty( $field_value ) ){
@@ -195,10 +195,10 @@ function wishsuite_generate_css( $key, $tab, $css_attr ){
 }
 
 /**
- * [wishsuite_icon_list]
+ * [woowishsuite_icon_list]
  * @return [svg]
  */
-function wishsuite_icon_list( $key = '' ){
+function woowishsuite_icon_list( $key = '' ){
     $icon_list = [
         'default' => '<svg height="15px" width="15px" viewBox="0 0 471.701 471.701">
             <path class="heart" d="M433.601,67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7,13.6-92.4,38.3l-12.9,12.9l-13.1-13.1 c-24.7-24.7-57.6-38.4-92.5-38.4c-34.8,0-67.6,13.6-92.2,38.2c-24.7,24.7-38.3,57.5-38.2,92.4c0,34.9,13.7,67.6,38.4,92.3 l187.8,187.8c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-3.9l188.2-187.5c24.7-24.7,38.3-57.5,38.3-92.4 C471.801,124.501,458.301,91.701,433.601,67.001z M414.401,232.701l-178.7,178l-178.3-178.3c-19.6-19.6-30.4-45.6-30.4-73.3 s10.7-53.7,30.3-73.2c19.5-19.5,45.5-30.3,73.1-30.3c27.7,0,53.8,10.8,73.4,30.4l22.6,22.6c5.3,5.3,13.8,5.3,19.1,0l22.4-22.4 c19.6-19.6,45.7-30.4,73.3-30.4c27.6,0,53.6,10.8,73.2,30.3c19.6,19.6,30.3,45.6,30.3,73.3 C444.801,187.101,434.001,213.101,414.401,232.701z"/><g class="loading"><path d="M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479 c-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933 c0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207 c-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4 C426.667,7.641,419.026,0,409.6,0z"/><path d="M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696 c-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606 c-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4 c0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068 c40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z"/></g><g class="check"><path d="M238.933,0C106.974,0,0,106.974,0,238.933s106.974,238.933,238.933,238.933s238.933-106.974,238.933-238.933 C477.726,107.033,370.834,0.141,238.933,0z M238.933,443.733c-113.108,0-204.8-91.692-204.8-204.8s91.692-204.8,204.8-204.8 s204.8,91.692,204.8,204.8C443.611,351.991,351.991,443.611,238.933,443.733z"/><path d="M370.046,141.534c-6.614-6.388-17.099-6.388-23.712,0v0L187.733,300.134l-56.201-56.201 c-6.548-6.78-17.353-6.967-24.132-0.419c-6.78,6.548-6.967,17.353-0.419,24.132c0.137,0.142,0.277,0.282,0.419,0.419 l68.267,68.267c6.664,6.663,17.468,6.663,24.132,0l170.667-170.667C377.014,158.886,376.826,148.082,370.046,141.534z"/></g></svg>',

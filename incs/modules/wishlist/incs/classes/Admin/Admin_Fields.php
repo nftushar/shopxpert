@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite\Admin;
+namespace WooWooWishSuite\Admin;
 /**
  * Admin Page Fields handlers class
  */
@@ -26,7 +26,7 @@ class Admin_Fields {
 
     function __construct() {
         require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/admin/inc/settings_field_manager_default.php' );
-        $this->settings_api = new \WooLentor_Settings_Field_Manager_Default();
+        $this->settings_api = new \SmartShop_Settings_Field_Manager_Default();
         add_action( 'admin_init', [ $this, 'admin_init' ] );
     }
 
@@ -240,7 +240,7 @@ class Admin_Fields {
                     'label'   => __( 'Wishlist page', 'wishsuite' ),
                     'type'    => 'select',
                     'default' => '0',
-                    'options' => wishsuite_get_post_list(),
+                    'options' => woowishsuite_get_post_list(),
                     'desc'    => wp_kses_post('Select a wishlist page for wishlist table. It should contain the shortcode <code>[wishsuite_table]</code>'),
                 ),
 
@@ -264,7 +264,7 @@ class Admin_Fields {
                     'label' => __('Show fields in table', 'wishsuite'),
                     'desc' => __('Choose which fields should be presented on the product compare page with table.', 'wishsuite'),
                     'type' => 'multicheckshort',
-                    'options' => wishsuite_get_available_attributes(),
+                    'options' => woowishsuite_get_available_attributes(),
                     'default' => [
                         'remove'        => esc_html__( 'Remove', 'wishsuite' ),
                         'image'         => esc_html__( 'Image', 'wishsuite' ),
@@ -280,7 +280,7 @@ class Admin_Fields {
                     'label'   => __( 'Table heading text', 'wishsuite' ),
                     'desc'    => __( 'You can change table heading text from here.', 'wishsuite' ),
                     'type'    => 'multitext',
-                    'options' => wishsuite_table_heading()
+                    'options' => woowishsuite_table_heading()
                 ),
 
                 array(

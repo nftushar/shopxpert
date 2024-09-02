@@ -4,7 +4,7 @@
     var $body = $('body');
 
     // Add product in wishlist table
-    if( 'on' !== WishSuite.option_data['btn_limit_login_off'] ){
+    if( 'on' !== WooWooWishSuite.option_data['btn_limit_login_off'] ){
         $body.on('click', 'a.wishsuite-btn', function (e) {
             var $this = $(this),
                 id = $this.data('product_id'),
@@ -15,11 +15,11 @@
             $this.addClass('loading');
 
             $.ajax({
-                url: WishSuite.ajaxurl,
+                url: WooWooWishSuite.ajaxurl,
                 data: {
                     action: 'wishsuite_add_to_list',
                     id: id,
-                    nonce: WishSuite.wsnonce
+                    nonce: WooWooWishSuite.wsnonce
                 },
                 dataType: 'json',
                 method: 'GET',
@@ -57,11 +57,11 @@
         $table.addClass('loading');
 
         $.ajax({
-            url: WishSuite.ajaxurl,
+            url: WooWooWishSuite.ajaxurl,
             data: {
                 action: 'wishsuite_remove_from_list',
                 id: productId,
-                nonce: WishSuite.wsnonce
+                nonce: WooWooWishSuite.wsnonce
             },
             dataType: 'json',
             method: 'GET',
@@ -158,7 +158,7 @@
 
     // Delete table row after added to cart
     $(document).on('added_to_cart',function( e, fragments, carthash, button ){
-        if( 'on' === WishSuite.option_data['after_added_to_cart'] ){
+        if( 'on' === WooWooWishSuite.option_data['after_added_to_cart'] ){
 
             let $table = $('.wishsuite-table-content');
             let product_id = button.data('product_id');
@@ -190,11 +190,11 @@
         var data = {
             action: 'wishsuite_quick_variation_form',
             id: id,
-            nonce: WishSuite.wsnonce
+            nonce: WooWooWishSuite.wsnonce
         };
         $.ajax({
             type: 'post',
-            url: WishSuite.ajaxurl,
+            url: WooWooWishSuite.ajaxurl,
             data: data,
             beforeSend: function (response) {
                 $this.addClass(btn_loading_class);
@@ -292,14 +292,14 @@
                 quantity: product_qty,
                 variation_id: variation_id,
                 variations: item,
-                nonce: WishSuite.wsnonce
+                nonce: WooWooWishSuite.wsnonce
             };
 
             $( document.body ).trigger('adding_to_cart', [$this, data]);
 
             $.ajax({
                 type: 'post',
-                url:  WishSuite.ajaxurl,
+                url:  WooWooWishSuite.ajaxurl,
                 data: data,
 
                 beforeSend: function (response) {

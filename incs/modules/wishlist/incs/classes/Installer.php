@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite;
+namespace WooWooWishSuite;
 /**
  * Installer class
  */
@@ -55,7 +55,7 @@ class Installer {
             $create_page_id = wc_create_page(
                 sanitize_title_with_dashes( _x( 'wishsuite', 'page_slug', 'wishsuite' ) ),
                 '',
-                __( 'WishSuite', 'wishsuite' ),
+                __( 'WooWooWishSuite', 'wishsuite' ),
                 '<!-- wp:shortcode -->[wishsuite_table]<!-- /wp:shortcode -->'
             );
             if( $create_page_id ){

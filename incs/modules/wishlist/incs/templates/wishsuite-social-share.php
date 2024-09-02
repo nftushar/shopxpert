@@ -76,7 +76,7 @@
 				<li>
 					<a rel="nofollow" href="<?php echo esc_url( $social_button_list[$buttonkey]['url'] ); ?>" <?php echo ( $buttonkey === 'email' ? '' : 'target="_blank"' ) ?>>
 						<span class="wishsuite-social-icon">
-							<?php echo wishsuite_icon_list( $buttonkey ); ?>
+							<?php echo woowishsuite_icon_list( $buttonkey ); ?>
 						</span>
 					</a>
 				</li>

@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite;
+namespace WooWooWishSuite;
 /**
  * Manage_Data handlers class
  */

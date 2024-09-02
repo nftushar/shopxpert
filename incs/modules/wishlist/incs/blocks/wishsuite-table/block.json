@@ -3,7 +3,7 @@
 	"apiVersion": 3,
     "name": "smartshop/wishsuite-table",
     "category": "smartshop-blocks",
-    "title": "WL: WishSuite Table",
+    "title": "WL: WooWooWishSuite Table",
     "description":"Display Wishlist Table.",
     "keywords": ["smartshop","wishlist","table","wishsuite"],
     "render": "file:./index.php",

@@ -65,10 +65,10 @@ class Smartshop_Module_Manager {
             require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/backorder/class.backorder.php' );
         }
 
-        // Wishlist
-        if( smartshop_get_option( 'wishlist', 'woolentor_others_tabs', 'off' ) == 'on' ){
+    // Wishlist
+        if( smartshop_get_option( 'wishlist', 'smartshop_others_tabs', 'off' ) == 'on' ){
             // $this->deactivate( 'wishsuite/wishsuite.php' );
-            if( ! class_exists('WishSuite_Base') ){
+            if( ! class_exists('WooWishSuite_Base') ){
                 require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/modules/wishlist/init.php' );
             }
         }

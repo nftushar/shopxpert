@@ -2,21 +2,21 @@
 "use strict";
 
     // Active settigns menu item
-    if ( typeof WishSuite.is_settings != "undefined" && WishSuite.is_settings == 1 ){
+    if ( typeof WooWooWishSuite.is_settings != "undefined" && WooWooWishSuite.is_settings == 1 ){
         $('.toplevel_page_wishsuite .wp-first-item').addClass('current');
     }
 
     // Save value
-    wishsuiteConditionField( WishSuite.option_data['btn_icon_type'], 'custom', '.button_custom_icon' );
-    wishsuiteConditionField( WishSuite.option_data['added_btn_icon_type'], 'custom', '.addedbutton_custom_icon' );
-    wishsuiteConditionField( WishSuite.option_data['shop_btn_position'], 'use_shortcode', '.depend_shop_btn_position_use_shortcode' );
-    wishsuiteConditionField( WishSuite.option_data['shop_btn_position'], 'custom_position', '.depend_shop_btn_position_custom_hook' );
-    wishsuiteConditionField( WishSuite.option_data['product_btn_position'], 'use_shortcode', '.depend_product_btn_position_use_shortcode' );
-    wishsuiteConditionField( WishSuite.option_data['product_btn_position'], 'custom_position', '.depend_product_btn_position_custom_hook' );
-    wishsuiteConditionField( WishSuite.option_data['button_style'], 'custom', '.button_custom_style' );
-    wishsuiteConditionField( WishSuite.option_data['table_style'], 'custom', '.table_custom_style' );
-    wishsuiteConditionField( WishSuite.option_data['enable_social_share'], 'on', '.depend_social_share_enable' );
-    wishsuiteConditionField( WishSuite.option_data['enable_login_limit'], 'on', '.depend_user_login_enable' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['btn_icon_type'], 'custom', '.button_custom_icon' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['added_btn_icon_type'], 'custom', '.addedbutton_custom_icon' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['shop_btn_position'], 'use_shortcode', '.depend_shop_btn_position_use_shortcode' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['shop_btn_position'], 'custom_position', '.depend_shop_btn_position_custom_hook' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['product_btn_position'], 'use_shortcode', '.depend_product_btn_position_use_shortcode' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['product_btn_position'], 'custom_position', '.depend_product_btn_position_custom_hook' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['button_style'], 'custom', '.button_custom_style' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['table_style'], 'custom', '.table_custom_style' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['enable_social_share'], 'on', '.depend_social_share_enable' );
+    wishsuiteConditionField( WooWooWishSuite.option_data['enable_login_limit'], 'on', '.depend_user_login_enable' );
 
     // After Select field change Condition Field
     wishsuiteChangeField( '.button_icon_type select', '.button_custom_icon', 'custom' );

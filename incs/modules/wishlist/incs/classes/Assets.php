@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite;
+namespace WooWooWishSuite;
 use function  Smartshop\incs\smartshop_get_option;
 
 
@@ -41,12 +41,12 @@ class Assets {
     public function get_scripts() {
         return [
             'wishsuite-admin' => [
-                'src'     => WISHSUITE_ASSETS . '/js/admin.js',
+                'src'     => WOOWISHSUITE_ASSETS . '/js/admin.js',
                 'version' => SMARTSHOP_VERSION,
                 'deps'    => [ 'jquery' ]
             ],
             'wishsuite-frontend' => [
-                'src'     => WISHSUITE_ASSETS . '/js/frontend.js',
+                'src'     => WOOWISHSUITE_ASSETS . '/js/frontend.js',
                 'version' => SMARTSHOP_VERSION,
                 'deps'    => [ 'jquery', 'wc-add-to-cart-variation' ]
             ],
@@ -61,11 +61,11 @@ class Assets {
     public function get_styles() {
         return [
             'wishsuite-admin' => [
-                'src'     => WISHSUITE_ASSETS . '/css/admin.css',
+                'src'     => WOOWISHSUITE_ASSETS . '/css/admin.css',
                 'version' => SMARTSHOP_VERSION,
             ],
             'wishsuite-frontend' => [
-                'src'     => WISHSUITE_ASSETS . '/css/frontend.css',
+                'src'     => WOOWISHSUITE_ASSETS . '/css/frontend.css',
                 'version' => SMARTSHOP_VERSION,
             ],
         ];
@@ -131,8 +131,8 @@ class Assets {
             'option_data'=> $admin_option_data,
         );
 
-        wp_localize_script( 'wishsuite-frontend', 'WishSuite', $localize_data );
-        wp_localize_script( 'wishsuite-admin', 'WishSuite', $admin_localize_data );
+        wp_localize_script( 'wishsuite-frontend', 'WooWooWishSuite', $localize_data );
+        wp_localize_script( 'wishsuite-admin', 'WooWooWishSuite', $admin_localize_data );
 
         if( class_exists( '\Elementor\Plugin' ) && ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) ){
             wp_enqueue_style( 'wishsuite-frontend' );
@@ -152,16 +152,16 @@ class Assets {
         // Button Custom Style
         if( 'custom' === smartshop_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' ) ){
 
-            $btn_padding = wishsuite_dimensions( 'button_custom_padding','wishsuite_style_settings_tabs','padding' );
-            $btn_margin  = wishsuite_dimensions( 'button_custom_margin','wishsuite_style_settings_tabs','margin' );
-            $btn_border_radius = wishsuite_dimensions( 'button_custom_border_radius','wishsuite_style_settings_tabs','border-radius' );
+            $btn_padding = woowishsuite_dimensions( 'button_custom_padding','wishsuite_style_settings_tabs','padding' );
+            $btn_margin  = woowishsuite_dimensions( 'button_custom_margin','wishsuite_style_settings_tabs','margin' );
+            $btn_border_radius = woowishsuite_dimensions( 'button_custom_border_radius','wishsuite_style_settings_tabs','border-radius' );
 
-            $btn_color    = wishsuite_generate_css('button_color','wishsuite_style_settings_tabs','color');
-            $btn_bg_color = wishsuite_generate_css('background_color','wishsuite_style_settings_tabs','background-color');
+            $btn_color    = woowishsuite_generate_css('button_color','wishsuite_style_settings_tabs','color');
+            $btn_bg_color = woowishsuite_generate_css('background_color','wishsuite_style_settings_tabs','background-color');
 
             // Hover
-            $btn_hover_color    = wishsuite_generate_css('button_hover_color','wishsuite_style_settings_tabs','color');
-            $btn_hover_bg_color = wishsuite_generate_css('hover_background_color','wishsuite_style_settings_tabs','background-color');
+            $btn_hover_color    = woowishsuite_generate_css('button_hover_color','wishsuite_style_settings_tabs','color');
+            $btn_hover_bg_color = woowishsuite_generate_css('hover_background_color','wishsuite_style_settings_tabs','background-color');
 
             $button_custom_css = "
                 .wishsuite-button{
@@ -181,17 +181,17 @@ class Assets {
         // Wishlist table style
         if( 'custom' === smartshop_get_option( 'table_style', 'wishsuite_style_settings_tabs', 'default' ) ){
 
-            $heading_color    = wishsuite_generate_css('table_heading_color','wishsuite_style_settings_tabs','color');
-            $heading_bg_color = wishsuite_generate_css('table_heading_bg_color','wishsuite_style_settings_tabs','background-color');
-            $heading_border_color = wishsuite_generate_css('table_heading_border_color','wishsuite_style_settings_tabs','border-color');
+            $heading_color    = woowishsuite_generate_css('table_heading_color','wishsuite_style_settings_tabs','color');
+            $heading_bg_color = woowishsuite_generate_css('table_heading_bg_color','wishsuite_style_settings_tabs','background-color');
+            $heading_border_color = woowishsuite_generate_css('table_heading_border_color','wishsuite_style_settings_tabs','border-color');
 
-            $border_color = wishsuite_generate_css('table_border_color','wishsuite_style_settings_tabs','border-color');
+            $border_color = woowishsuite_generate_css('table_border_color','wishsuite_style_settings_tabs','border-color');
 
             // Add To cart Button
-            $button_color = wishsuite_generate_css('table_cart_button_color','wishsuite_style_settings_tabs','color');
-            $button_bg_color = wishsuite_generate_css('table_cart_button_bg_color','wishsuite_style_settings_tabs','background-color');
-            $button_hover_color = wishsuite_generate_css('table_cart_button_hover_color','wishsuite_style_settings_tabs','color');
-            $button_hover_bg_color = wishsuite_generate_css('table_cart_button_hover_bg_color','wishsuite_style_settings_tabs','background-color');
+            $button_color = woowishsuite_generate_css('table_cart_button_color','wishsuite_style_settings_tabs','color');
+            $button_bg_color = woowishsuite_generate_css('table_cart_button_bg_color','wishsuite_style_settings_tabs','background-color');
+            $button_hover_color = woowishsuite_generate_css('table_cart_button_hover_color','wishsuite_style_settings_tabs','color');
+            $button_hover_bg_color = woowishsuite_generate_css('table_cart_button_hover_bg_color','wishsuite_style_settings_tabs','background-color');
 
             $table_custom_css = "
                 .wishsuite-table-content table thead > tr{

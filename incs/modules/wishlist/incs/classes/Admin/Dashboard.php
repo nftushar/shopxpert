@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite\Admin;
+namespace WooWooWishSuite\Admin;
 /**
  * Dashboard handlers class
  */
@@ -50,7 +50,7 @@ class Dashboard {
 
         add_action( 'admin_menu', [ $this, 'add_menu' ], 225 );
 
-        // Add a post display state for special WishSuite page.
+        // Add a post display state for special WooWooWishSuite page.
         add_filter( 'display_post_states', [ $this, 'add_display_post_states' ], 10, 2 );
 
     }
@@ -102,14 +102,14 @@ class Dashboard {
     }
 
     /**
-     * Add a post display state for special WishSuite page in the page list table.
+     * Add a post display state for special WooWooWishSuite page in the page list table.
      *
      * @param array   $post_states An array of post display states.
      * @param WP_Post $post  The current post object.
      */
     public function add_display_post_states( $post_states, $post ){
         if ( (int)smartshop_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' ) === $post->ID ) {
-            $post_states['wishsuite_page_for_wishlist_table'] = __( 'WishSuite', 'wishsuite' );
+            $post_states['wishsuite_page_for_wishlist_table'] = __( 'WooWooWishSuite', 'wishsuite' );
         }
         return $post_states;
     }
