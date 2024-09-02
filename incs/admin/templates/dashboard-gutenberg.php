@@ -10,8 +10,7 @@ use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
 
     $settings_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_gutenberg_tabs']['settings'];
     $blocks_fields  = Smartshop_Admin_Fields::instance()->fields()['smartshop_gutenberg_tabs']['blocks'];
-
-error_log("zzgutenberg:",$settings_fields);
+ 
 
     $all_fields   = array_merge( $settings_fields, $blocks_fields );
     $element_keys = Smartshop_Admin_Fields_Manager::instance()->get_field_key( $all_fields, 'name' );

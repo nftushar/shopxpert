@@ -1,0 +1,141 @@
+{
+  "name": "smartshop/product-additional-info",
+  "category": "smartshop-single-product",
+  "title": "WL : Product Additional Info",
+  "description": "Display product additional information.",
+  "keywords": [
+    "smartshop",
+    "additional info",
+    "information",
+    "product information"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { margin: {{areaMargin}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "showHeading": {
+      "type": "boolean",
+      "default": true
+    },
+    "headingColor": {
+      "type": "string",
+      "style": {
+        "dependency": [
+          [
+            {
+              "key": "showHeading",
+              "condition": "==",
+              "value": true
+            }
+          ]
+        ],
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} h2 { color: {{headingColor}}; }"
+      }
+    },
+    "headingSize": {
+      "type": "string",
+      "style": {
+        "dependency": [
+          [
+            {
+              "key": "showHeading",
+              "condition": "==",
+              "value": true
+            }
+          ]
+        ],
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} h2 { font-size: {{headingSize}}; }"
+      }
+    },
+    "headingMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "dependency": [
+          [
+            {
+              "key": "showHeading",
+              "condition": "==",
+              "value": true
+            }
+          ]
+        ],
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} h2 { margin: {{headingMargin}}; }"
+      }
+    },
+    "tableHeadingColor": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes th { color: {{tableHeadingColor}}; }"
+      }
+    },
+    "tableHeadingSize": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes th { font-size: {{tableHeadingSize}}; }"
+      }
+    },
+    "tableContentColor": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes td { color: {{tableContentColor}}; }"
+      }
+    },
+    "tableContentSize": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes td { font-size: {{tableContentSize}}; }"
+      }
+    }
+  }
+}

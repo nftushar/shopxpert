@@ -1,0 +1,107 @@
+{
+  "name": "smartshop/archive-catalog-ordering",
+  "category": "smartshop-shop",
+  "title": "WL: Archive Catalog Ordering",
+  "description": "Display archive catalog ordering menu for shop and Archive page.",
+  "keywords": [
+    "smartshop",
+    "archive",
+    "ordering",
+    "shorting",
+    "catalog",
+    "archive ordering catalog"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "orderingSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ font-size:{{orderingSize}}!important; }"
+      }
+    },
+    "orderingColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ color:{{orderingColor}}!important; }"
+      }
+    },
+    "orderingBGColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ background-color:{{orderingBGColor}}!important; }"
+      }
+    },
+    "orderingHeight": {
+      "type": "number",
+      "default": 40,
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ height:{{orderingHeight}}px!important; }"
+      }
+    },
+    "orderingBorder": {
+      "type": "object",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select"
+      }
+    },
+    "orderingBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ border-radius:{{orderingBorderRadius}}!important; }"
+      }
+    },
+    "orderingMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering{ margin:{{orderingMargin}}!important; }"
+      }
+    }
+  }
+}

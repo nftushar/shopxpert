@@ -1,0 +1,84 @@
+{
+  "name": "smartshop/product-rating",
+  "category": "smartshop-single-product",
+  "title": "WL : Rating",
+  "description": "Display product rating.",
+  "keywords": [
+    "smartshop",
+    "rating",
+    "product review",
+    "product rating"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { margin: {{areaMargin}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "ratingColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .star-rating,{{SMARTSHOP_WRAPPER}} .star-rating::before, {{SMARTSHOP_WRAPPER}} .woocommerce-product-rating,{{SMARTSHOP_WRAPPER}} .woocommerce-product-rating::before{ color: {{ratingColor}} !important; }"
+      }
+    },
+    "linkColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} a.woocommerce-review-link{ color: {{linkColor}} !important; }"
+      }
+    },
+    "linkSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} a.woocommerce-review-link{ font-size: {{linkSize}} !important; }"
+      }
+    },
+    "contentAlignment": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .woocommerce-product-rating { text-align: {{contentAlignment}} !important;line-height:1; } .woocommerce {{SMARTSHOP_WRAPPER}} .woocommerce-product-rating .star-rating{ display:inline-block;float:none;margin-top:0;text-align:left }"
+      }
+    }
+  }
+}

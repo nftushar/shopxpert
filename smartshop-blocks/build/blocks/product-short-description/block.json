@@ -1,0 +1,92 @@
+{
+  "name": "smartshop/product-short-description",
+  "category": "smartshop-single-product",
+  "title": "WL : Short Description",
+  "description": "Display product short description.",
+  "keywords": [
+    "smartshop",
+    "product description",
+    "short description",
+    "description"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { margin: {{areaMargin}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "textColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description, {{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description p{ color: {{textColor}} !important; }"
+      }
+    },
+    "textSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description, {{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description p{ font-size: {{textSize}} !important; }"
+      }
+    },
+    "textAlignment": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description, {{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description p{ text-align: {{textAlignment}} !important; }"
+      }
+    },
+    "textMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description, {{SMARTSHOP_WRAPPER}} .woocommerce-product-details__short-description p{ margin: {{textMargin}}; }"
+      }
+    }
+  }
+}

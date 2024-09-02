@@ -1,5 +1,8 @@
 <?php
 namespace WooWooWishSuite\Admin;
+
+use function  Smartshop\incs\smartshop_get_option;
+
 /**
  * Dashboard handlers class
  */

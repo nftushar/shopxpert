@@ -1,0 +1,247 @@
+.smartshop-modal-design-library {
+    --wp-admin-theme-color: #f00069;
+    --wp-admin-theme-color-darker-10: #bd0053;
+    --wp-admin-theme-color-darker-20: #8a003c;
+    height: 90%;
+    max-width: 90%;
+    min-height: 500px;
+    width: 100%;
+}
+.smartshop-modal-design-library .components-modal__header {
+    border-bottom: 1px solid #ddd;
+    height: 55px;
+    margin: 0;
+    padding-right: 0;
+}
+.smartshop-modal-design-library .components-modal__header h1{
+	width: 100%;
+    margin-bottom: 10px;
+}
+.smartshop-modal-design-library .components-modal__header .components-button{
+    bottom: 5px;
+}
+.smartshop-library-logo {
+    float: left;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.smartshop-library-logo svg{
+	margin-right: 5px;
+}
+ul.free-pro-filter-menu {
+    margin: 0;
+    padding: 0;
+    float: right;
+    border-radius: 4px;
+}
+ul.free-pro-filter-menu li {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 18px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+	margin-left: -1px;
+}
+ul.free-pro-filter-menu li:first-child{
+	border-radius: 4px 0px 0px 4px;
+}
+ul.free-pro-filter-menu li:last-child{
+	border-radius: 0px 4px 4px 0px;
+}
+.smartshop-template-library {
+    display: flex;
+}
+.smartshop-template-list {
+	font-size: 14px;
+	color: #7A8B9A;
+	font-weight: 400;
+	line-height: 1.4;
+	width: calc(100% - 150px);
+}
+.smartshop-template-library-sidebar {
+    width: 165px;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+ul.smartshop-template-filter-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* height: 100vh; */
+    /* overflow-y: auto; */
+    padding-right: 15px;
+}
+.smartshop-template-filter-menu li {
+	text-transform: capitalize;
+	cursor: pointer;
+	position: relative;
+	height: 45px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	color: #444444;
+	border: 1px solid #ddd;
+	transition: all 0.3s ease;
+	border-radius: 10px;
+	line-height: 45px;
+	padding: 0 20px;
+	background: #fff;
+	margin: 0 0 15px 0;
+	text-align: center;
+}
+.smartshop-template-filter-menu li.smartshop-menu-active, ul.free-pro-filter-menu li.smartshop-menu-active{
+	background-color: #ec5858;
+	color: #fff;
+	border-color: #ec5858;
+}
+.smartshop-templates-library-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+.smartshop-modal-design-library .components-modal__content {
+    padding-bottom: 0;
+    padding-right: 10px;
+}
+.smartshop-templates-library-single-template {
+	position: relative;
+	background: #fff;
+	width: calc(25% - 30px);
+	margin: 0 15px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+	border: 1px solid #E5E8F3;
+}
+.smartshop-template-image{
+	position: relative;
+}
+.smartshop-template-image .template-image-wrapper {
+	border-radius: 10px 10px 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center 0;
+	position: relative;
+	overflow: hidden;
+	transition: background-position 1.5s linear;
+}
+.smartshop-template-image .template-image-wrapper::before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+.smartshop-templates-library-single-template:hover .template-image-wrapper{
+	background-position: center 100%;
+}
+/* .smartshop-template-image .template-image-wrapper.template-no-image {
+    background-position: center 120%;
+    background-size: 100% auto;
+} */
+.smartshop-data-importer-spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000063;
+    z-index: 1;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.smartshop-templates-library-single-template .smartshop-template-info {
+	background: #ffffff;
+	border-radius: 0 0 10px 10px;
+	position: relative;
+	min-height: 50px;
+	border-top: 1px solid #E5E8F3;
+}
+.smartshop-templates-library-single-template .smartshop-template-title {
+	margin: 0;
+	color: #363B4E;
+	font-weight: 400;
+	padding: 13px 10px;
+	text-align: center;
+	text-transform: capitalize;
+	min-height: 50px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+.smartshop-templates-library-single-template .smartshop-template-action-button {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	border-radius: 0 0 10px 10px;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	padding: 13px 15px;
+	background: #fff;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+}
+.smartshop-templates-library-single-template:not(.smartshop-not-clickable):hover .smartshop-template-action-button {
+	opacity: 1;
+	visibility: visible;
+}
+.smartshop-templates-library-single-template .smartshop-template-button {
+    min-width: inherit;
+    margin: 0 5px;
+    font-weight: 500;
+    padding: 0px 15px;
+    height: 25px;
+    min-height: auto;
+    line-height: 25px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #ec5858;
+    color: #ffffff;
+    text-transform: capitalize;
+    transition: 0.4s;
+	cursor: pointer;
+    text-decoration: none;
+}
+.smartshop-templates-library-single-template .smartshop-template-button:hover{
+    background-color: #ca4646;
+}
+.smartshop-data-importer-spinner .dashicons-lock:before {
+    color: #ec5858;
+    font-size: 32px;
+}
+.smartshop-template-pro-badge {
+    background: #ec5858;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    position: absolute;
+    right: 10px;
+    text-transform: uppercase;
+    top: 10px;
+    z-index: 2;
+}
+.smartshop-template-not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    opacity: 0.5;
+	flex-direction: column;
+}
+.smartshop-template-not-found svg {
+    margin-top: 90px;
+}

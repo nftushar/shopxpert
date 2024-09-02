@@ -1,0 +1,120 @@
+{
+  "name": "smartshop/archive-title",
+  "category": "smartshop-blocks",
+  "title": "WL : Archive Title",
+  "description": "Display archive title.",
+  "keywords": [
+    "smartshop",
+    "archive",
+    "title",
+    "category title"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDescription": {
+      "type": "boolean",
+      "default": true
+    },
+    "showImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "contentAlignment": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { text-align:{{contentAlignment}}; }"
+      }
+    },
+    "titleColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-title{ color:{{titleColor}}!important; }"
+      }
+    },
+    "titleSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-title{ font-size:{{titleSize}}!important; }"
+      }
+    },
+    "titleMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-title{ margin:{{titleMargin}}!important; }"
+      }
+    },
+    "descColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-desc{ color:{{descColor}}!important; }"
+      }
+    },
+    "descSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-desc{ font-size:{{descSize}}!important; }"
+      }
+    },
+    "descMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-desc{ margin:{{descMargin}}!important; }"
+      }
+    }
+  }
+}

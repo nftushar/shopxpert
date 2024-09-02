@@ -1,0 +1,106 @@
+{
+  "name": "smartshop/product-sku",
+  "category": "smartshop-single-product",
+  "title": "WL: Product SKU",
+  "description": "Display product SKU in product details page.",
+  "keywords": [
+    "smartshop",
+    "product",
+    "single",
+    "SKU",
+    "details",
+    "product details",
+    "single product SKU"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "skuFontSize": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info span{ font-size:{{skuFontSize}}; }"
+      }
+    },
+    "skuContentAlignment": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info{ text-align:{{skuContentAlignment}}; }"
+      }
+    },
+    "skuTitleHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "skuTitleColor": {
+      "type": "string",
+      "style": {
+        "dependency": [
+          [
+            {
+              "key": "skuTitleHide",
+              "condition": "==",
+              "value": false
+            }
+          ]
+        ],
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info .sku-title{ color:{{skuTitleColor}}; }"
+      }
+    },
+    "skuValueColor": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info .sku{ color:{{skuValueColor}}; }"
+      }
+    },
+    "skuSpecing": {
+      "type": "number",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info .sku{ margin-left:{{skuSpecing}}px; }"
+      }
+    },
+    "skuMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info{ margin:{{skuMargin}}; }"
+      }
+    }
+  }
+}

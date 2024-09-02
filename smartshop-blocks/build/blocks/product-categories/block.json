@@ -1,0 +1,112 @@
+{
+  "name": "smartshop/product-categories",
+  "category": "smartshop-single-product",
+  "title": "WL: Product Categories",
+  "description": "Display product categories in product details page.",
+  "keywords": [
+    "smartshop",
+    "product",
+    "single",
+    "categories",
+    "details",
+    "product details",
+    "single product category"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "categoriesFontSize": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info{ font-size:{{categoriesFontSize}}; }"
+      }
+    },
+    "categoriesContentAlignment": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info{ text-align:{{categoriesContentAlignment}}; }"
+      }
+    },
+    "categoriesTitleHide": {
+      "type": "boolean",
+      "default": false
+    },
+    "categoriesTitleColor": {
+      "type": "string",
+      "style": {
+        "dependency": [
+          [
+            {
+              "key": "categoriesTitleHide",
+              "condition": "==",
+              "value": false
+            }
+          ]
+        ],
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .categories-title{ color:{{categoriesTitleColor}}; }"
+      }
+    },
+    "categoriesValueColor": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in, .woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in a{ color:{{categoriesValueColor}}; }"
+      }
+    },
+    "categoriesValueHoverColor": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in a:hover{ color:{{categoriesValueHoverColor}}; }"
+      }
+    },
+    "categoriesSpecing": {
+      "type": "number",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in{ margin-left:{{categoriesSpecing}}px; }"
+      }
+    },
+    "categoryMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info{ margin:{{categoryMargin}}; }"
+      }
+    }
+  }
+}

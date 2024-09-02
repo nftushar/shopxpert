@@ -1,0 +1,57 @@
+{
+  "name": "smartshop/product-stock",
+  "category": "smartshop-single-product",
+  "title": "Product Stock",
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "textColor": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} [class^='stock']{ color: {{textColor}}!important; }"
+      }
+    },
+    "textSize": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} [class^='stock']{ font-size: {{textSize}}!important; }"
+      }
+    },
+    "contentAlignment": {
+      "type": "string",
+      "style": {
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}}.product_stock_status { text-align: {{contentAlignment}}; } .woocommerce {{SMARTSHOP_WRAPPER}}.product_stock_status > p{display:inline-block;}"
+      }
+    }
+  }
+}

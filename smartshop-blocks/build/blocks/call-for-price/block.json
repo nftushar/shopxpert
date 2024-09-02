@@ -1,0 +1,140 @@
+{
+  "name": "smartshop/call-for-price",
+  "category": "smartshop-single-product",
+  "title": "WL: Call For Price",
+  "description": "Display call for price button in single product page.",
+  "keywords": [
+    "smartshop",
+    "product",
+    "single",
+    "call",
+    "price",
+    "call for price"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Call For Price"
+    },
+    "buttonPhoneNumber": {
+      "type": "string",
+      "default": "123-456-7890"
+    },
+    "buttonColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a{ color:{{buttonColor}}!important; }"
+      }
+    },
+    "buttonFontSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a{ font-size:{{buttonFontSize}}; }"
+      }
+    },
+    "buttonPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a{ padding:{{buttonPadding}}; }"
+      }
+    },
+    "buttonMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a{ margin:{{buttonMargin}}; }"
+      }
+    },
+    "buttonBorder": {
+      "type": "object",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a"
+      }
+    },
+    "buttonRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a{ border-radius:{{buttonRadius}}; }"
+      }
+    },
+    "buttonBGColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a{ background-color:{{buttonBGColor}}; }"
+      }
+    },
+    "buttonHoverColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a:hover{ color:{{buttonHoverColor}}; }"
+      }
+    },
+    "buttonHoverBorderColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a:hover{ border-color:{{buttonHoverBorderColor}}; }"
+      }
+    },
+    "buttonHoverBGColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-call-forprice a:hover{ background-color:{{buttonHoverBGColor}}; }"
+      }
+    }
+  }
+}

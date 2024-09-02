@@ -1,0 +1,101 @@
+{
+  "name": "smartshop/breadcrumbs",
+  "category": "smartshop-blocks",
+  "title": "WL : Breadcrumbs",
+  "description": "Display breadcrumbs.",
+  "keywords": [
+    "smartshop",
+    "breadcrumbs",
+    "navigation",
+    "breadcrumb",
+    "breadcrumbs menu"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "separator": {
+      "type": "string",
+      "default": "/"
+    },
+    "contentAlignment": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} {text-align:{{contentAlignment}}; }"
+      }
+    },
+    "textSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb{font-size:{{textSize}}; }"
+      }
+    },
+    "textColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb{color:{{textColor}}; }"
+      }
+    },
+    "linkColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb a{color:{{linkColor}}; }"
+      }
+    },
+    "linkHoverColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb a:hover{color:{{linkHoverColor}}; }"
+      }
+    },
+    "space": {
+      "type": "number",
+      "default": 10,
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} span.breadcrumb-separator{margin: 0 {{space}}px; }"
+      }
+    },
+    "separateColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} span.breadcrumb-separator{color:{{separateColor}}; }"
+      }
+    },
+    "separateSize": {
+      "type": "number",
+      "default": 14,
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} span.breadcrumb-separator{font-size:{{separateSize}}px; }"
+      }
+    }
+  }
+}

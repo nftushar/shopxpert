@@ -1,0 +1,230 @@
+{
+  "name": "smartshop/faq",
+  "category": "smartshop-blocks",
+  "title": "WL : FAQ",
+  "description": "Display faq.",
+  "keywords": [
+    "SmartShop",
+    "faq",
+    "accordion",
+    "question",
+    "answer"
+  ],
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "faqList": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Words To Live By",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris niesi ut aliquip ex ea commodo consequat.sed do eiusmod tempor incididunt ut quis labore et doliore magna aliqua."
+        },
+        {
+          "title": "Producing Perfume From Home",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris niesi ut aliquip ex ea commodo consequat.sed do eiusmod tempor incididunt ut quis labore et doliore magna aliqua."
+        },
+        {
+          "title": "The Basics Of Western Astrology Explained",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris niesi ut aliquip ex ea commodo consequat.sed do eiusmod tempor incididunt ut quis labore et doliore magna aliqua."
+        },
+        {
+          "title": "What Curling Irons Are The Best Ones",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris niesi ut aliquip ex ea commodo consequat.sed do eiusmod tempor incididunt ut quis labore et doliore magna aliqua."
+        }
+      ]
+    },
+    "showFirstItem": {
+      "type": "boolean",
+      "default": true
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "right"
+    },
+    "headBackgroundColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head{ background-color: {{headBackgroundColor}}; }"
+      }
+    },
+    "faqTitleColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head-text{ color: {{faqTitleColor}}; }"
+      }
+    },
+    "titleSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head-text{ font-size: {{titleSize}}; }"
+      }
+    },
+    "titleBorderType": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head{ border-style: {{titleBorderType}}; }"
+      }
+    },
+    "titleBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head{ border-width: {{titleBorderWidth}}; }"
+      }
+    },
+    "titleBorderColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head{ border-color: {{titleBorderColor}}; }"
+      }
+    },
+    "titleBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head{ border-radius: {{titleBorderRadius}}; }"
+      }
+    },
+    "iconColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head-indicator:before,{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head-indicator:after{ background-color: {{iconColor}}!important; }"
+      }
+    },
+    "activeHeadBackgroundColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .is-active .htsmartshop-faq-head{ background-color: {{activeHeadBackgroundColor}}; }"
+      }
+    },
+    "activeFaqTitleColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .is-active .htsmartshop-faq-head-text{ color: {{activeFaqTitleColor}}; }"
+      }
+    },
+    "activeFaqBorderColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-card.is-active .htsmartshop-faq-head{ border-color: {{activeFaqBorderColor}}; }"
+      }
+    },
+    "activeIconColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .is-active .htsmartshop-faq-head-indicator:before,{{SMARTSHOP_WRAPPER}} .is-active .htsmartshop-faq-head-indicator:after{ background-color: {{activeIconColor}}!important; }"
+      }
+    },
+    "titlePadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head{ padding: {{titlePadding}}; }"
+      }
+    },
+    "titleMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-head{ margin: {{titleMargin}}; }"
+      }
+    },
+    "contentColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-content{ color: {{contentColor}}; }"
+      }
+    },
+    "contentSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-content,{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-content p{ font-size: {{contentSize}}!important; }"
+      }
+    },
+    "contentPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-content{ padding: {{contentPadding}}!important; }"
+      }
+    },
+    "contentMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-content{ margin: {{contentMargin}}; }"
+      }
+    },
+    "contentBorder": {
+      "type": "object",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-content"
+      }
+    },
+    "contentBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .htsmartshop-faq-content{ border-radius: {{contentBorderRadius}}; }"
+      }
+    }
+  }
+}

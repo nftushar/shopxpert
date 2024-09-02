@@ -1,0 +1,90 @@
+{
+  "name": "smartshop/product-price",
+  "category": "smartshop-single-product",
+  "title": "WL : Product Price",
+  "description": "Display product price.",
+  "keywords": [
+    "smartshop",
+    "product",
+    "price",
+    "product price"
+  ],
+  "attributes": {
+    "blockUniqId": {
+      "type": "string",
+      "default": ""
+    },
+    "areaPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+      }
+    },
+    "areaBGProperty": {
+      "type": "object",
+      "default": {
+        "imageId": null,
+        "imageUrl": "",
+        "position": "",
+        "attachment": "",
+        "repeat": "",
+        "size": ""
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}}"
+      }
+    },
+    "contentAlignment": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .price { text-align: {{contentAlignment}} !important; }"
+      }
+    },
+    "priceColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .price { color: {{priceColor}} !important; }"
+      }
+    },
+    "priceSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .price { font-size: {{priceSize}} !important; }"
+      }
+    },
+    "priceMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": "",
+        "unit": "px",
+        "link": "yes"
+      },
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .price { margin: {{priceMargin}} !important; }"
+      }
+    },
+    "oldPriceColor": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .price del { color: {{oldPriceColor}} !important; }"
+      }
+    },
+    "oldPriceSize": {
+      "type": "string",
+      "style": {
+        "selector": "{{SMARTSHOP_WRAPPER}} .price del { font-size: {{oldPriceSize}} !important; }"
+      }
+    }
+  }
+}
