@@ -64,7 +64,7 @@ class Smartshop_Pending_Stock extends WC_Product{
      */
     public function enqueue_scripts(){
         if( is_cart() || is_checkout()){
-            wp_enqueue_style( 'smartshop-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], SMARTSHOPSMARTSHOP_VERSION, 'all' );
+            wp_enqueue_style( 'smartshop-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], SMARTSHOPSHOPXPERT_VERSION, 'all' );
         }
     }
 
@@ -75,8 +75,8 @@ class Smartshop_Pending_Stock extends WC_Product{
         global $typenow;
 
         if( $typenow == 'product' ){
-            wp_enqueue_style( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/css/backorder-admin.css', [], SMARTSHOP_VERSION, 'all' );
-            wp_enqueue_script( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/js/backorder-admin.js', array('jquery'), SMARTSHOP_VERSION, true );
+            wp_enqueue_style( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/css/backorder-admin.css', [], SHOPXPERT_VERSION, 'all' );
+            wp_enqueue_script( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/js/backorder-admin.js', array('jquery'), SHOPXPERT_VERSION, true );
         }
     }
 

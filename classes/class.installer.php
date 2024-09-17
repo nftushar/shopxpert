@@ -42,7 +42,7 @@ class Installer {
             update_option( 'smartshop_installed', time() );
         }
 
-        update_option( 'smartshop_version', SMARTSHOP_VERSION );
+        update_option( 'SHOPXPERT_VERSION', SHOPXPERT_VERSION );
     }
 
     /**

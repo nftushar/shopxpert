@@ -427,14 +427,14 @@ class Smartshop_Template_Manager{
         if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'smartshop-template' ){
 
 			// CSS
-            wp_enqueue_style( 'smartshop-template-edit-manager', SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/css/template_edit_manager.css', [], SMARTSHOP_VERSION );
+            wp_enqueue_style( 'smartshop-template-edit-manager', SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/css/template_edit_manager.css', [], SHOPXPERT_VERSION );
 			wp_enqueue_style('smartshop-sweetalert');
-			wp_enqueue_style('slick', SMARTSHOP_ADDONS_PL_URL . 'assets/css/slick.css', [], SMARTSHOP_VERSION );
+			wp_enqueue_style('slick', SMARTSHOP_ADDONS_PL_URL . 'assets/css/slick.css', [], SHOPXPERT_VERSION );
 			
 			// JS
 			wp_enqueue_script('smartshop-sweetalert');
-			wp_enqueue_script('slick', SMARTSHOP_ADDONS_PL_URL . 'assets/js/slick.min.js', array('jquery'), SMARTSHOP_VERSION, true );
-            wp_enqueue_script( 'smartshop-template-edit-manager', SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/template_edit_manager.js', array('jquery', 'wp-util'), SMARTSHOP_VERSION, true );
+			wp_enqueue_script('slick', SMARTSHOP_ADDONS_PL_URL . 'assets/js/slick.min.js', array('jquery'), SHOPXPERT_VERSION, true );
+            wp_enqueue_script( 'smartshop-template-edit-manager', SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/template_edit_manager.js', array('jquery', 'wp-util'), SHOPXPERT_VERSION, true );
 
 			$localize_data = [
                 'ajaxurl' 	=> admin_url( 'admin-ajax.php' ),
@@ -835,7 +835,7 @@ class Smartshop_Template_Manager{
 	public function update_option( $section, $option_key, $new_value, $template_data ){
         if( $new_value === Null ){ $new_value = ''; }
         $options_datad = is_array( get_option( $section ) ) ? get_option( $section ) : array();
-		if( defined( 'SMARTSHOP_VERSION_PRO' ) && ( '2.0.6' >= SMARTSHOP_VERSION_PRO ) ){
+		if( defined( 'SHOPXPERT_VERSION_PRO' ) && ( '2.0.6' >= SHOPXPERT_VERSION_PRO ) ){
 			$options_datad[$option_key] = $new_value;
 		}else{
 			$options_data_value = isset( $options_datad[$option_key] ) ? $options_datad[$option_key] : '';

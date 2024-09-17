@@ -45,7 +45,7 @@ class Scripts {
 		    'smartshop-block-main',
 		    SMARTSHOP_BLOCK_URL . '/assets/js/script.js',
 		    array('jquery'),
-		    SMARTSHOP_VERSION,
+		    SHOPXPERT_VERSION,
 		    true
 		);
 
@@ -53,14 +53,14 @@ class Scripts {
 		    'smartshop-block-common',
 		    SMARTSHOP_BLOCK_URL . '/assets/css/common-style.css',
 		    array(),
-		    SMARTSHOP_VERSION
+		    SHOPXPERT_VERSION
 		);
 
 		wp_enqueue_style(
 		    'smartshop-block-default',
 		    SMARTSHOP_BLOCK_URL . '/assets/css/style-index.css',
 		    array(),
-		    SMARTSHOP_VERSION
+		    SHOPXPERT_VERSION
 		);
 
 		if ( smartshopBlocks_Has_Blocks( smartshopBlocks_get_ID() ) || smartshopBlocks_is_gutenberg_page() || (is_front_page() || is_home()) ){
@@ -73,7 +73,7 @@ class Scripts {
 	 * Load CSS File
 	 */
 	public function load_css(){
-		wp_enqueue_style( 'smartshop-block-style', SMARTSHOP_BLOCK_URL . '/assets/css/blocks.style.build.css', array(), SMARTSHOP_VERSION );
+		wp_enqueue_style( 'smartshop-block-style', SMARTSHOP_BLOCK_URL . '/assets/css/blocks.style.build.css', array(), SHOPXPERT_VERSION );
 	}
 
 	/**
@@ -94,15 +94,15 @@ class Scripts {
 			// Third-Party Scripts
 			$this->load_extra_scripts();
 
-			wp_enqueue_style( 'smartshop-block-template-library', SMARTSHOP_BLOCK_URL . '/assets/css/template-library.css', [], SMARTSHOP_VERSION, 'all' );
-			wp_enqueue_style( 'smartshop-block-editor-style', SMARTSHOP_BLOCK_URL . '/assets/css/editor-style.css', [], SMARTSHOP_VERSION, 'all' );
+			wp_enqueue_style( 'smartshop-block-template-library', SMARTSHOP_BLOCK_URL . '/assets/css/template-library.css', [], SHOPXPERT_VERSION, 'all' );
+			wp_enqueue_style( 'smartshop-block-editor-style', SMARTSHOP_BLOCK_URL . '/assets/css/editor-style.css', [], SHOPXPERT_VERSION, 'all' );
 
 			$dependencies = require_once( SMARTSHOP_BLOCK_PATH . '/build/blocks-smartshop.asset.php' );
 			wp_enqueue_script(
 				'smartshop-blocks',
 				SMARTSHOP_BLOCK_URL . '/build/blocks-smartshop.js',
 				$dependencies['dependencies'],
-				SMARTSHOP_VERSION,
+				SHOPXPERT_VERSION,
 				true
 			);
 
@@ -147,7 +147,7 @@ class Scripts {
 		wp_enqueue_style('wishsuite-frontend');
 		wp_enqueue_style('evercompare-frontend');
 		if( defined('\Smartshop\Features\CurrencySwitcher\FEATURE_ASSETS') ){
-			wp_enqueue_style('smartshop-currency-switcher', \Smartshop\Features\CurrencySwitcher\FEATURE_ASSETS . '/css/frontend.css', [], SMARTSHOP_VERSION );
+			wp_enqueue_style('smartshop-currency-switcher', \Smartshop\Features\CurrencySwitcher\FEATURE_ASSETS . '/css/frontend.css', [], SHOPXPERT_VERSION );
 		}
 
 	}

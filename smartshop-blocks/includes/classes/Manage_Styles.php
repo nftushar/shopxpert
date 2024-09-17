@@ -312,22 +312,22 @@ class Manage_Styles {
 				$reusable_dir_path = $upload_css_dir_url."smartshop-addons/smartshop-css-{$id}.css";
 				if (file_exists( $reusable_dir_path )) {
                     $css_file_url = $css_dir_url . "smartshop-addons/smartshop-css-{$id}.css";
-				    wp_enqueue_style( "smartshop-post-{$id}", $css_file_url, [], SMARTSHOP_VERSION, 'all' );
+				    wp_enqueue_style( "smartshop-post-{$id}", $css_file_url, [], SHOPXPERT_VERSION, 'all' );
 				}else{
 					$css = get_post_meta( $id, '_smartshop_css', true );
                     if( $css ) {
-                        wp_enqueue_style( "smartshop-post-{$id}", $css, [], SMARTSHOP_VERSION );
+                        wp_enqueue_style( "smartshop-post-{$id}", $css, [], SHOPXPERT_VERSION );
                     }
 				}
             }
 
 			if ( file_exists( $css_file_path ) ) {
 				$css_file_url = $css_dir_url . "smartshop-addons/smartshop-css-{$post_id}.css";
-				wp_enqueue_style( "smartshop-post-{$post_id}", $css_file_url, [], SMARTSHOP_VERSION, 'all' );
+				wp_enqueue_style( "smartshop-post-{$post_id}", $css_file_url, [], SHOPXPERT_VERSION, 'all' );
 			} else {
 				$css = get_post_meta( $post_id, '_smartshop_css', true );
 				if( $css ) {
-					wp_enqueue_style( "smartshop-post-{$post_id}", $css, [], SMARTSHOP_VERSION );
+					wp_enqueue_style( "smartshop-post-{$post_id}", $css, [], SHOPXPERT_VERSION );
 				}
 			}
 		}

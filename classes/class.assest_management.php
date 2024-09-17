@@ -78,7 +78,7 @@ class Assets_Management{
             'smartshop-admin' => [  
 
                 'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/css/smartshop-admin.css',
-                'version' => SMARTSHOP_VERSION
+                'version' => SHOPXPERT_VERSION
             ],
         ];
         return $style_list;
@@ -96,14 +96,14 @@ class Assets_Management{
           
             'smartshop-condition' => [
                 'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/smartshop-condition.js', 
-                'version' => SMARTSHOP_VERSION,
+                'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery'],
             ],
 
 
             'smartshop-admin-main' =>[
                 'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/smartshop-admin.js',
-                'version' => SMARTSHOP_VERSION,
+                'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery', 'wp-util', 'serializejson' ]
             ],
             
@@ -170,7 +170,7 @@ class Assets_Management{
                 'nonce'            => wp_create_nonce('smartshop_nonce_action'),
                 'adminURL'         => admin_url(),
                 'elementorURL'     => admin_url('edit.php?post_type=elementor_library'),
-                'version'          => SMARTSHOP_VERSION,
+                'version'          => SHOPXPERT_VERSION,
                 'pluginURL'        => plugin_dir_url(__FILE__),
                 'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
                 'prolink'          => 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=library',

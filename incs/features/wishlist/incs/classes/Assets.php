@@ -42,12 +42,12 @@ class Assets {
         return [
             'wishsuite-admin' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/js/admin.js',
-                'version' => SMARTSHOP_VERSION,
+                'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery' ]
             ],
             'wishsuite-frontend' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/js/frontend.js',
-                'version' => SMARTSHOP_VERSION,
+                'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery', 'wc-add-to-cart-variation' ]
             ],
         ];
@@ -62,11 +62,11 @@ class Assets {
         return [
             'wishsuite-admin' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/css/admin.css',
-                'version' => SMARTSHOP_VERSION,
+                'version' => SHOPXPERT_VERSION,
             ],
             'wishsuite-frontend' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/css/frontend.css',
-                'version' => SMARTSHOP_VERSION,
+                'version' => SHOPXPERT_VERSION,
             ],
         ];
     }
