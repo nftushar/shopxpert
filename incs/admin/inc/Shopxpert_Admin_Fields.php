@@ -12,7 +12,7 @@ use function Shopxpert\shopxpert_post_name;
 if (!defined('ABSPATH')) exit; 
 
 
-class Smartshop_Admin_Fields {
+class Shopxpert_Admin_Fields {
     
     private static $_instance = null;
 

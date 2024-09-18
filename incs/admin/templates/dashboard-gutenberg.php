@@ -3,17 +3,17 @@ namespace Shopxpert\Incs\Admin\Templates;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields;
-use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
+use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields;
+use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
 
 
 
-    $settings_fields = Smartshop_Admin_Fields::instance()->fields()['shopxpert_gutenberg_tabs']['settings'];
-    $blocks_fields  = Smartshop_Admin_Fields::instance()->fields()['shopxpert_gutenberg_tabs']['blocks'];
+    $settings_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_gutenberg_tabs']['settings'];
+    $blocks_fields  = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_gutenberg_tabs']['blocks'];
  
 
     $all_fields   = array_merge( $settings_fields, $blocks_fields );
-    $element_keys = Smartshop_Admin_Fields_Manager::instance()->get_field_key( $all_fields, 'name' );
+    $element_keys = Shopxpert_Admin_Fields_Manager::instance()->get_field_key( $all_fields, 'name' );
 ?>
 <div id="shopxpert_gutenberg_tabs" class="shopxper-admin-main-tab-pane">
     <div class="shopxper-admin-main-tab-pane-inner">
@@ -46,7 +46,7 @@ use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
                     <div class="shopxpert-admin-switch-blocks">
                         <?php
                             foreach( $blocks_fields as $key => $field ){
-                                Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'shopxpert_gutenberg_tabs' );
+                                Shopxpert_Admin_Fields_Manager::instance()->add_field( $field, 'shopxpert_gutenberg_tabs' );
                             }
                         ?>
                     </div>
@@ -58,7 +58,7 @@ use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
                 <div id="general-settings" class="shopxpert-admin-nested-tab-pane">
                     <?php
                         foreach( $settings_fields as $key => $field ){
-                            Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'shopxpert_gutenberg_tabs' );
+                            Shopxpert_Admin_Fields_Manager::instance()->add_field( $field, 'shopxpert_gutenberg_tabs' );
                         }
                     ?>
                 </div>

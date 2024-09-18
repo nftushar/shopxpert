@@ -594,11 +594,11 @@ function shopxpert_locate_template( $tmp_name, $template_path ) {
 /**
  * get Template
  * @param  [string]  $tmp_name Template name
- * @param  [array]  $args template argument array
+ * @param  [array]  $args template argument arrayP
  * @param  boolean $echo
  * @return [void]
  */
-function shopxpert_get_template( $tmp_name, $args = null, $echo = true, $template_path = SMARTSHOP_TEMPLATE ) {
+function shopxpert_get_template( $tmp_name, $args = null, $echo = true, $template_path = SHOPXPERT_TEMPLATE ) {
     $located = shopxpert_locate_template( $tmp_name, $template_path );
 
     if ( $args && is_array( $args ) ) {
@@ -1337,7 +1337,7 @@ function shopxpert_order_by_opts() {
  * @return [bool]
  */
 function shopxpert_exist_compare_plugin(){
-    if( class_exists('Ever_Compare') || class_exists('Smartshop_Ever_Compare') ){
+    if( class_exists('Ever_Compare') || class_exists('Shopxpert_Ever_Compare') ){
         return true;
     }elseif( class_exists('YITH_Woocompare') ){
         return true;
@@ -1368,7 +1368,7 @@ function shopxpert_compare_button( $button_arg = array() ){
     $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','shopxper');
     $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','shopxper' );
 
-    if( class_exists('Ever_Compare') || class_exists('Smartshop_Ever_Compare') ){
+    if( class_exists('Ever_Compare') || class_exists('Shopxpert_Ever_Compare') ){
 
         if( !empty( $button_arg['btn_text_type'] ) && $button_arg['btn_text_type'] === 'text'){
             $button_text        = shopxpert_get_option( 'button_text','ever_compare_settings_tabs', 'Compare' );
@@ -1403,7 +1403,7 @@ function shopxpert_compare_button( $button_arg = array() ){
  * @return [bool]
  */
 function shopxpert_has_wishlist_plugin(){
-    if( class_exists('WooWishSuite_Base') || class_exists('Smartshop_WooWishSuite_Base') ){
+    if( class_exists('WooWishSuite_Base') || class_exists('Shopxpert_WooWishSuite_Base') ){
         return true;
     }elseif( class_exists('YITH_WCWL') ){
         return true;
@@ -1430,7 +1430,7 @@ function shopxpert_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
 
     $output = '';
 
-    if( class_exists('WooWishSuite_Base') || class_exists('Smartshop_WooWishSuite_Base') ){
+    if( class_exists('WooWishSuite_Base') || class_exists('Shopxpert_WooWishSuite_Base') ){
 
         $button_class = ' wishlist'.( $tooltip == 'yes' ? '' : ' wltooltip_no' );
 

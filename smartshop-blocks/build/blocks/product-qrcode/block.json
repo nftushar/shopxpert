@@ -27,7 +27,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaBGProperty": {
@@ -41,7 +41,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "size": {
@@ -59,7 +59,7 @@
     "codeAlign": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { text-align: {{codeAlign}} !important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { text-align: {{codeAlign}} !important; }"
       }
     }
   }

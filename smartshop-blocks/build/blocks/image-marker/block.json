@@ -32,7 +32,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "style": {
@@ -65,19 +65,19 @@
     "markerColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer::before { color: {{markerColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer::before { color: {{markerColor}}; }"
       }
     },
     "markerBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer { background-color: {{markerBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer { background-color: {{markerBGColor}}; }"
       }
     },
     "markerBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer"
       }
     },
     "markerBorderRadius": {
@@ -91,7 +91,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer { border-radius: {{markerBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer { border-radius: {{markerBorderRadius}}; }"
       }
     },
     "markerPadding": {
@@ -105,13 +105,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer { padding: {{markerPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer { padding: {{markerPadding}}; }"
       }
     },
     "markerContentBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box { background-color: {{markerContentBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box { background-color: {{markerContentBGColor}}; }"
       }
     },
     "markerContentBorderRadius": {
@@ -125,7 +125,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box { border-radius: {{markerContentBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box { border-radius: {{markerContentBorderRadius}}; }"
       }
     },
     "markerContentPadding": {
@@ -139,19 +139,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box { padding: {{markerContentPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box { padding: {{markerContentPadding}}; }"
       }
     },
     "markerTitleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box h4 { color: {{markerTitleColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box h4 { color: {{markerTitleColor}}; }"
       }
     },
     "markerTitleSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box h4 { font-size: {{markerTitleSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box h4 { font-size: {{markerTitleSize}}; }"
       }
     },
     "markerTitleMargin": {
@@ -165,19 +165,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box h4 { margin: {{markerTitleMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box h4 { margin: {{markerTitleMargin}}; }"
       }
     },
     "markerDescriptionColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box p { color: {{markerDescriptionColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box p { color: {{markerDescriptionColor}}; }"
       }
     },
     "markerDescriptionSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box p { font-size: {{markerDescriptionSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box p { font-size: {{markerDescriptionSize}}; }"
       }
     },
     "markerDescriptionMargin": {
@@ -191,13 +191,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlb_image_pointer .wlb_pointer_box p { margin: {{markerDescriptionMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlb_image_pointer .wlb_pointer_box p { margin: {{markerDescriptionMargin}}; }"
       }
     },
     "markerImageBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "markerImageBorderRadius": {
@@ -211,7 +211,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { border-radius: {{markerImageBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { border-radius: {{markerImageBorderRadius}}; }"
       }
     }
   }

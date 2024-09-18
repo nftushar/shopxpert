@@ -289,8 +289,8 @@ function shopxpertBlocks_get_settings_by_blockName( $id, $block_name ){
  * Get Post ID
  */
 function shopxpertBlocks_get_ID(){
-    if( class_exists('\Smartshop_Manage_WC_Template') ){
-        $post_id = \Smartshop_Manage_WC_Template::instance()->get_builder_template_id();
+    if( class_exists('\Shopxpert_Manage_WC_Template') ){
+        $post_id = \Shopxpert_Manage_WC_Template::instance()->get_builder_template_id();
     }else{
         $post_id = '';
     }
@@ -593,7 +593,7 @@ function shopxpertBlocks_compare_button( $button_arg = array() ){
 
     $button_style       = !empty( $button_arg['style'] ) ? $button_arg['style'] : 1;
 
-    if( class_exists('Ever_Compare') || class_exists('Smartshop_Ever_Compare') ){
+    if( class_exists('Ever_Compare') || class_exists('Shopxpert_Ever_Compare') ){
 
         $button_title       = !empty( $button_arg['title'] ) ? $button_arg['title'] : esc_html__('Add to Compare','shopxper');
         $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','shopxper');

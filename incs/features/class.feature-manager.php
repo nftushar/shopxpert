@@ -5,7 +5,7 @@ use function Shopxpert\incs\shopxpert_get_option;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Smartshop_Feature_Manager {
+class Shopxpert_Feature_Manager {
 
     private static $_instance = null;
 
@@ -116,4 +116,4 @@ class Smartshop_Feature_Manager {
     }
 }
 
-Smartshop_Feature_Manager::instance();
+Shopxpert_Feature_Manager::instance();

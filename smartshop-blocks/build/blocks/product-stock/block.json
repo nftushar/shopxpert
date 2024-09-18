@@ -18,7 +18,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaBGProperty": {
@@ -32,25 +32,25 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "textColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} [class^='stock']{ color: {{textColor}}!important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} [class^='stock']{ color: {{textColor}}!important; }"
       }
     },
     "textSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} [class^='stock']{ font-size: {{textSize}}!important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} [class^='stock']{ font-size: {{textSize}}!important; }"
       }
     },
     "contentAlignment": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}}.product_stock_status { text-align: {{contentAlignment}}; } .woocommerce {{SMARTSHOP_WRAPPER}}.product_stock_status > p{display:inline-block;}"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}}.product_stock_status { text-align: {{contentAlignment}}; } .woocommerce {{SHOPXPERT_WRAPPER}}.product_stock_status > p{display:inline-block;}"
       }
     }
   }

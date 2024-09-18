@@ -27,7 +27,7 @@
         "device": "desktop"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}} !important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}} !important; }"
       }
     },
     "areaMargin": {
@@ -36,7 +36,7 @@
         "device": "desktop"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { margin: {{areaMargin}} !important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { margin: {{areaMargin}} !important; }"
       }
     },
     "areaBGProperty": {
@@ -50,55 +50,55 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "commentBoxColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #reviews #review_form #respond #comment{ color: {{commentBoxColor}} !important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #reviews #review_form #respond #comment{ color: {{commentBoxColor}} !important; }"
       }
     },
     "commentBoxSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #reviews #review_form #respond #comment{ font-size: {{commentBoxSize}} !important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #reviews #review_form #respond #comment{ font-size: {{commentBoxSize}} !important; }"
       }
     },
     "commentBoxBorder": {
       "type": "object",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #reviews #review_form #respond #comment"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #reviews #review_form #respond #comment"
       }
     },
     "submitBtnColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #review_form #respond .form-submit input{ color: {{submitBtnColor}} !important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #review_form #respond .form-submit input{ color: {{submitBtnColor}} !important; }"
       }
     },
     "submitBtnBGColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #review_form #respond .form-submit input{ background-color: {{submitBtnBGColor}} !important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #review_form #respond .form-submit input{ background-color: {{submitBtnBGColor}} !important; }"
       }
     },
     "submitBtnSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #review_form #respond .form-submit input{ font-size: {{submitBtnSize}} !important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #review_form #respond .form-submit input{ font-size: {{submitBtnSize}} !important; }"
       }
     },
     "submitBtnHoverColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #review_form #respond .form-submit input:hover{ color: {{submitBtnHoverColor}} !important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #review_form #respond .form-submit input:hover{ color: {{submitBtnHoverColor}} !important; }"
       }
     },
     "submitBtnBGHoverColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} #review_form #respond .form-submit input:hover{ background-color: {{submitBtnBGHoverColor}} !important; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} #review_form #respond .form-submit input:hover{ background-color: {{submitBtnBGHoverColor}} !important; }"
       }
     }
   }

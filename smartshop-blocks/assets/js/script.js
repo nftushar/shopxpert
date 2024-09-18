@@ -361,7 +361,7 @@
 
   // For Editor Mode Slider
   document.addEventListener(
-    "SmartshopEditorModeSlick",
+    "ShopxpertEditorModeSlick",
     function (event) {
       let editorMainArea = $(".block-editor__container"),
         editorIframe = $("iframe.edit-site-visual-editor__editor-canvas"),
@@ -386,7 +386,7 @@
 
   // For Editor Mode Nav For As Slider
   document.addEventListener(
-    "SmartshopEditorModeNavForSlick",
+    "ShopxpertEditorModeNavForSlick",
     function (event) {
       let editorMainArea = $(".block-editor__container"),
         editorIframe = $("iframe.edit-site-visual-editor__editor-canvas"),

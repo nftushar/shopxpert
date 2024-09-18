@@ -73,7 +73,7 @@ class Template_Library {
             return rest_ensure_response( $response_data );
         }
         
-        $response_data  = \Smartshop_Template_Library_Manager::get_template_data( 'gutenberg', $params['template_id'] );
+        $response_data  = \Shopxpert_Template_Library_Manager::get_template_data( 'gutenberg', $params['template_id'] );
 
         return rest_ensure_response( $response_data );
 

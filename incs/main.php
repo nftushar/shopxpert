@@ -29,7 +29,7 @@ final class Base {
         add_action('plugins_loaded', [$this, 'init']);
 
         // Startshop Template CPT Manager
-        require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/Smartshop_Template_Manager.php';
+        require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/Shopxpert_Template_Manager.php';
     }
 
     /**

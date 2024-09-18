@@ -28,7 +28,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaBGProperty": {
@@ -42,7 +42,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "openButtonText": {
@@ -84,25 +84,25 @@
     "inputTextColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input{ color:{{inputTextColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input{ color:{{inputTextColor}}; }"
       }
     },
     "inputPlaceholderColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type*='text']::-webkit-input-placeholder{ color:{{inputPlaceholderColor}}; }{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type*='text']::-moz-placeholder{ color:{{inputPlaceholderColor}}; } {{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type*='email']::-webkit-input-placeholder{ color:{{inputPlaceholderColor}}; } {{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type*='email']::-moz-placeholder{ color:{{inputPlaceholderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type*='text']::-webkit-input-placeholder{ color:{{inputPlaceholderColor}}; }{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type*='text']::-moz-placeholder{ color:{{inputPlaceholderColor}}; } {{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type*='email']::-webkit-input-placeholder{ color:{{inputPlaceholderColor}}; } {{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type*='email']::-moz-placeholder{ color:{{inputPlaceholderColor}}; }"
       }
     },
     "inputTextSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input{ font-size:{{inputTextSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input{ font-size:{{inputTextSize}}; }"
       }
     },
     "inputBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input{ background-color:{{inputBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input{ background-color:{{inputBGColor}}; }"
       }
     },
     "inputPadding": {
@@ -116,7 +116,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input{ padding:{{inputPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input{ padding:{{inputPadding}}; }"
       }
     },
     "inputMargin": {
@@ -130,13 +130,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input{ margin:{{inputMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input{ margin:{{inputMargin}}; }"
       }
     },
     "inputBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input"
       }
     },
     "inputBorderRadius": {
@@ -150,31 +150,31 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input{ border-radius:{{inputBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input{ border-radius:{{inputBorderRadius}}; }"
       }
     },
     "textareaTextColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea{ color:{{textareaTextColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea{ color:{{textareaTextColor}}; }"
       }
     },
     "textareaPlaceholderColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea::-webkit-input-placeholder{ color:{{textareaPlaceholderColor}}; }{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea::-moz-placeholder{ color:{{textareaPlaceholderColor}}; } {{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea:-ms-input-placeholder{ color:{{textareaPlaceholderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea::-webkit-input-placeholder{ color:{{textareaPlaceholderColor}}; }{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea::-moz-placeholder{ color:{{textareaPlaceholderColor}}; } {{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea:-ms-input-placeholder{ color:{{textareaPlaceholderColor}}; }"
       }
     },
     "textareaTextSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea{ font-size:{{textareaTextSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea{ font-size:{{textareaTextSize}}; }"
       }
     },
     "textareaBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea{ background-color:{{textareaBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea{ background-color:{{textareaBGColor}}; }"
       }
     },
     "textareaPadding": {
@@ -188,7 +188,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea{ padding:{{textareaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea{ padding:{{textareaPadding}}; }"
       }
     },
     "textareaMargin": {
@@ -202,13 +202,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea{ margin:{{textareaMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea{ margin:{{textareaMargin}}; }"
       }
     },
     "textareaBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea"
       }
     },
     "textareaBorderRadius": {
@@ -222,25 +222,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input textarea{ border-radius:{{textareaBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input textarea{ border-radius:{{textareaBorderRadius}}; }"
       }
     },
     "submitButtonColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']{ color:{{submitButtonColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']{ color:{{submitButtonColor}}; }"
       }
     },
     "submitButtonSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']{ font-size:{{submitButtonSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']{ font-size:{{submitButtonSize}}; }"
       }
     },
     "submitButtonBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']{ background-color:{{submitButtonBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']{ background-color:{{submitButtonBGColor}}; }"
       }
     },
     "submitButtonPadding": {
@@ -254,7 +254,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']{ padding:{{submitButtonPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']{ padding:{{submitButtonPadding}}; }"
       }
     },
     "submitButtonMargin": {
@@ -268,13 +268,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']{ margin:{{submitButtonMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']{ margin:{{submitButtonMargin}}; }"
       }
     },
     "submitButtonBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']"
       }
     },
     "submitButtonBorderRadius": {
@@ -288,25 +288,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']{ border-radius:{{submitButtonBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']{ border-radius:{{submitButtonBorderRadius}}; }"
       }
     },
     "submitButtonHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover{ color:{{submitButtonHoverColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover{ color:{{submitButtonHoverColor}}; }"
       }
     },
     "submitButtonHoverBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover{ background-color:{{submitButtonHoverBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover{ background-color:{{submitButtonHoverBGColor}}; }"
       }
     },
     "submitButtonHoverBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover"
       }
     },
     "submitButtonHoverBorderRadius": {
@@ -320,25 +320,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover{ border-radius:{{submitButtonHoverBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wl-suggest-form-input input[type='submit']:hover{ border-radius:{{submitButtonHoverBorderRadius}}; }"
       }
     },
     "openButtonColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen{ color:{{openButtonColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen{ color:{{openButtonColor}}; }"
       }
     },
     "openButtonSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen{ font-size:{{openButtonSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen{ font-size:{{openButtonSize}}; }"
       }
     },
     "openButtonBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen{ background-color:{{openButtonBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen{ background-color:{{openButtonBGColor}}; }"
       }
     },
     "openButtonPadding": {
@@ -352,7 +352,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen{ padding:{{openButtonPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen{ padding:{{openButtonPadding}}; }"
       }
     },
     "openButtonMargin": {
@@ -366,13 +366,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen{ margin:{{openButtonMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen{ margin:{{openButtonMargin}}; }"
       }
     },
     "openButtonBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen"
       }
     },
     "openButtonBorderRadius": {
@@ -386,25 +386,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen{ border-radius:{{openButtonBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen{ border-radius:{{openButtonBorderRadius}}; }"
       }
     },
     "openButtonHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen:hover{ color:{{openButtonHoverColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen:hover{ color:{{openButtonHoverColor}}; }"
       }
     },
     "openButtonHoverBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen:hover{ background-color:{{openButtonHoverBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen:hover{ background-color:{{openButtonHoverBGColor}}; }"
       }
     },
     "openButtonHoverBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen:hover"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen:hover"
       }
     },
     "openButtonHoverBorderRadius": {
@@ -418,25 +418,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen:hover{ border-radius:{{openButtonHoverBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen:hover{ border-radius:{{openButtonHoverBorderRadius}}; }"
       }
     },
     "closeButtonColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose{ color:{{closeButtonColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose{ color:{{closeButtonColor}}; }"
       }
     },
     "closeButtonSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose{ font-size:{{closeButtonSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose{ font-size:{{closeButtonSize}}; }"
       }
     },
     "closeButtonBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose{ background-color:{{closeButtonBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose{ background-color:{{closeButtonBGColor}}; }"
       }
     },
     "closeButtonPadding": {
@@ -450,7 +450,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose{ padding:{{closeButtonPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose{ padding:{{closeButtonPadding}}; }"
       }
     },
     "closeButtonMargin": {
@@ -464,13 +464,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose{ margin:{{closeButtonMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose{ margin:{{closeButtonMargin}}; }"
       }
     },
     "closeButtonBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose"
       }
     },
     "closeButtonBorderRadius": {
@@ -484,25 +484,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose{ border-radius:{{closeButtonBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose{ border-radius:{{closeButtonBorderRadius}}; }"
       }
     },
     "closeButtonHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose:hover{ color:{{closeButtonHoverColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose:hover{ color:{{closeButtonHoverColor}}; }"
       }
     },
     "closeButtonHoverBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlclose:hover{ background-color:{{closeButtonHoverBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlclose:hover{ background-color:{{closeButtonHoverBGColor}}; }"
       }
     },
     "closeButtonHoverBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .wlsugget-button.wlopen:hover"
+        "selector": "{{SHOPXPERT_WRAPPER}} .wlsugget-button.wlopen:hover"
       }
     },
     "closeButtonHoverBorderRadius": {
@@ -516,7 +516,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ..wlsugget-button.wlclose:hover{ border-radius:{{closeButtonHoverBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ..wlsugget-button.wlclose:hover{ border-radius:{{closeButtonHoverBorderRadius}}; }"
       }
     }
   }

@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use function  Shopxpert\incs\shopxpert_get_option;
 
 
-class Smartshop_Pending_Stock extends WC_Product{
+class Shopxpert_Pending_Stock extends WC_Product{
 
     private static $_instance = null;
 
@@ -64,7 +64,7 @@ class Smartshop_Pending_Stock extends WC_Product{
      */
     public function enqueue_scripts(){
         if( is_cart() || is_checkout()){
-            wp_enqueue_style( 'shopxpert-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], SMARTSHOPSHOPXPERT_VERSION, 'all' );
+            wp_enqueue_style( 'shopxpert-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], SHOPXPERTSHOPXPERT_VERSION, 'all' );
         }
     }
 
@@ -559,4 +559,4 @@ class Smartshop_Pending_Stock extends WC_Product{
     }
 }
 
-Smartshop_Pending_Stock::get_instance();    
+Shopxpert_Pending_Stock::get_instance();    

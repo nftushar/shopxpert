@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
 
-class Smartshop_Admin_Fields_Manager { 
+class Shopxpert_Admin_Fields_Manager { 
     /**
      * [$_instance]
      * @var null
@@ -14,7 +14,7 @@ class Smartshop_Admin_Fields_Manager {
 
     /**
      * [instance] Initializes a singleton instance
-     * @return [Smartshop_Admin_Fields_Manager]
+     * @return [Shopxpert_Admin_Fields_Manager]
      */
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -44,7 +44,7 @@ class Smartshop_Admin_Fields_Manager {
         $depend_id  = isset( $option['option_depend_id'] ) ? $option['option_depend_id'] : $option['name'];
         $value      = isset( $option['value'] ) ? $option['value'] : '';
         $type       = isset( $option['type'] ) ? $option['type'] : 'text';
-        $tooltip    = isset( $option['tooltip'] ) && is_array( $option['tooltip'] ) ? sprintf( '<span class="woolenor-help-tip"><span class="shopxpert-help-tip-trigger">%s</span><span class="woolenor-help-text shopxpert-helptip-%s">%s</span></span>','<i class="dashicons dashicons-editor-help"></i>',$option['tooltip']['placement'], $option['tooltip']['text'] ) : '';
+        $tooltip    = isset( $option['tooltip'] ) && is_array( $option['tooltip'] ) ? sprintf( '<span class="shopxpert-help-tip"><span class="shopxpert-help-tip-trigger">%s</span><span class="shopxpert-help-text shopxpert-helptip-%s">%s</span></span>','<i class="dashicons dashicons-editor-help"></i>',$option['tooltip']['placement'], $option['tooltip']['text'] ) : '';
         $label      = isset( $option['label'] ) ? $option['label'] : '';
         $preview    = isset( $option['preview'] ) ? $option['preview'] : '';
         $section    = isset( $option['section'] ) ? $option['section'] : $section;
@@ -377,7 +377,7 @@ class Smartshop_Admin_Fields_Manager {
         echo '<div class="shopxpert-admin-option shopxpert-repeater-heading" '.$args['depend'].'>';
             echo $this->get_field_title( $args );
             echo $this->get_field_description( $args );
-        echo '</div><div class="woolenor-reapeater-fields-area" '.$args['depend'].'>';
+        echo '</div><div class="shopxpert-reapeater-fields-area" '.$args['depend'].'>';
         $number = 0;
         if ( ! empty( $values ) && is_array( $values ) ) {
             echo '<div class="shopxpert-option-repeater-item-area">';

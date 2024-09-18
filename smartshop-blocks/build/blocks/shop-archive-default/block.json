@@ -32,7 +32,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaBGProperty": {
@@ -46,7 +46,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "columns": {
@@ -83,7 +83,7 @@
       "type": "string",
       "default": "",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product { border-style: {{itemBorderType}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product { border-style: {{itemBorderType}}; }"
       }
     },
     "itemBorderWidth": {
@@ -106,7 +106,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product { border-width: {{itemBorderWidth}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product { border-width: {{itemBorderWidth}}; }"
       }
     },
     "itemBorderColor": {
@@ -121,7 +121,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product { border-color: {{itemBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product { border-color: {{itemBorderColor}}; }"
       }
     },
     "itemBorderRadius": {
@@ -135,7 +135,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product { border-radius: {{itemBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product { border-radius: {{itemBorderRadius}}; }"
       }
     },
     "itemPadding": {
@@ -149,20 +149,20 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product { padding: {{itemPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product { padding: {{itemPadding}}; }"
       }
     },
     "contentAlignment": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product { text-align: {{contentAlignment}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product { text-align: {{contentAlignment}}; }"
       }
     },
     "imageBorderType": {
       "type": "string",
       "default": "",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .attachment-woocommerce_thumbnail { border-style: {{imageBorderType}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .attachment-woocommerce_thumbnail { border-style: {{imageBorderType}}; }"
       }
     },
     "imageBorderWidth": {
@@ -185,7 +185,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .attachment-woocommerce_thumbnail { border-width: {{imageBorderWidth}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .attachment-woocommerce_thumbnail { border-width: {{imageBorderWidth}}; }"
       }
     },
     "imageBorderColor": {
@@ -200,7 +200,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .attachment-woocommerce_thumbnail { border-color: {{imageBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .attachment-woocommerce_thumbnail { border-color: {{imageBorderColor}}; }"
       }
     },
     "imageBorderRadius": {
@@ -214,7 +214,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .attachment-woocommerce_thumbnail { border-radius: {{imageBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .attachment-woocommerce_thumbnail { border-radius: {{imageBorderRadius}}; }"
       }
     },
     "imageMargin": {
@@ -228,25 +228,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .attachment-woocommerce_thumbnail { margin: {{imageMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .attachment-woocommerce_thumbnail { margin: {{imageMargin}}; }"
       }
     },
     "titleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .woocommerce-loop-product__title,{{SMARTSHOP_WRAPPER}} ul.products li.product .title a { color: {{titleColor}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .woocommerce-loop-product__title,{{SHOPXPERT_WRAPPER}} ul.products li.product .title a { color: {{titleColor}}!important; }"
       }
     },
     "titleHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .woocommerce-loop-product__title:hover,{{SMARTSHOP_WRAPPER}} ul.products li.product .title a:hover { color: {{titleHoverColor}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .woocommerce-loop-product__title:hover,{{SHOPXPERT_WRAPPER}} ul.products li.product .title a:hover { color: {{titleHoverColor}}!important; }"
       }
     },
     "titleSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .woocommerce-loop-product__title,{{SMARTSHOP_WRAPPER}} ul.products li.product .title a { font-size: {{titleSize}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .woocommerce-loop-product__title,{{SHOPXPERT_WRAPPER}} ul.products li.product .title a { font-size: {{titleSize}}!important; }"
       }
     },
     "titleMargin": {
@@ -260,49 +260,49 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .woocommerce-loop-product__title,{{SMARTSHOP_WRAPPER}} ul.products li.product .title a { margin: {{titleMargin}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .woocommerce-loop-product__title,{{SHOPXPERT_WRAPPER}} ul.products li.product .title a { margin: {{titleMargin}}!important; }"
       }
     },
     "salePriceColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .price,{{SMARTSHOP_WRAPPER}} ul.products li.product .price ins,{{SMARTSHOP_WRAPPER}} ul.products li.product .price ins .amount,{{SMARTSHOP_WRAPPER}} ul.products li.product .price .amount{ color: {{salePriceColor}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .price,{{SHOPXPERT_WRAPPER}} ul.products li.product .price ins,{{SHOPXPERT_WRAPPER}} ul.products li.product .price ins .amount,{{SHOPXPERT_WRAPPER}} ul.products li.product .price .amount{ color: {{salePriceColor}}!important; }"
       }
     },
     "salePriceSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .price{ font-size: {{salePriceSize}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .price{ font-size: {{salePriceSize}}!important; }"
       }
     },
     "regularPriceColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .price del,{{SMARTSHOP_WRAPPER}} ul.products li.product .price del .amount,{{SMARTSHOP_WRAPPER}} .price del .amount{ color: {{regularPriceColor}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .price del,{{SHOPXPERT_WRAPPER}} ul.products li.product .price del .amount,{{SHOPXPERT_WRAPPER}} .price del .amount{ color: {{regularPriceColor}}!important; }"
       }
     },
     "regularPriceSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .price del .amount,{{SMARTSHOP_WRAPPER}} ul.products li.product .price del{ font-size: {{regularPriceSize}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .price del .amount,{{SHOPXPERT_WRAPPER}} ul.products li.product .price del{ font-size: {{regularPriceSize}}!important; }"
       }
     },
     "ratingColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .star-rating{ color: {{ratingColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .star-rating{ color: {{ratingColor}}; }"
       }
     },
     "emptyRatingColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .star-rating::before{ color: {{emptyRatingColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .star-rating::before{ color: {{emptyRatingColor}}; }"
       }
     },
     "ratingSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .star-rating{ font-size: {{ratingSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .star-rating{ font-size: {{ratingSize}}; }"
       }
     },
     "ratingMargin": {
@@ -316,26 +316,26 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .star-rating{ margin: {{ratingMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .star-rating{ margin: {{ratingMargin}}; }"
       }
     },
     "cartBtnColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ color: {{cartBtnColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ color: {{cartBtnColor}}; }"
       }
     },
     "cartBtnBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ background-color: {{cartBtnBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ background-color: {{cartBtnBGColor}}; }"
       }
     },
     "cartBtnBorderType": {
       "type": "string",
       "default": "",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ border-style: {{cartBtnBorderType}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ border-style: {{cartBtnBorderType}}; }"
       }
     },
     "cartBtnBorderWidth": {
@@ -358,7 +358,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ border-width: {{cartBtnBorderWidth}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ border-width: {{cartBtnBorderWidth}}; }"
       }
     },
     "cartBtnBorderColor": {
@@ -373,7 +373,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ border-color: {{cartBtnBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ border-color: {{cartBtnBorderColor}}; }"
       }
     },
     "cartBtnBorderRadius": {
@@ -387,13 +387,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ border-radius: {{cartBtnBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ border-radius: {{cartBtnBorderRadius}}; }"
       }
     },
     "cartBtnSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ font-size: {{cartBtnSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ font-size: {{cartBtnSize}}; }"
       }
     },
     "cartBtnPadding": {
@@ -407,7 +407,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ padding: {{cartBtnPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ padding: {{cartBtnPadding}}; }"
       }
     },
     "cartBtnMargin": {
@@ -421,43 +421,43 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button{ margin: {{cartBtnMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button{ margin: {{cartBtnMargin}}; }"
       }
     },
     "cartBtnHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button:hover{ color: {{cartBtnHoverColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button:hover{ color: {{cartBtnHoverColor}}; }"
       }
     },
     "cartBtnHoverBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button:hover{ background-color: {{cartBtnHoverBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button:hover{ background-color: {{cartBtnHoverBGColor}}; }"
       }
     },
     "cartBtnHoverBorderColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product .button:hover{ border-color: {{cartBtnHoverBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product .button:hover{ border-color: {{cartBtnHoverBorderColor}}; }"
       }
     },
     "paginationColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li a{ color: {{paginationColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li a{ color: {{paginationColor}}; }"
       }
     },
     "paginationBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li a{ background-color: {{paginationBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li a{ background-color: {{paginationBGColor}}; }"
       }
     },
     "paginationBorderColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul{ border-color: {{paginationBorderColor}}; }{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li{ border-right-color: {{paginationBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul{ border-color: {{paginationBorderColor}}; }{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li{ border-right-color: {{paginationBorderColor}}; }"
       }
     },
     "PaginationPadding": {
@@ -471,19 +471,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li a,{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li span{ padding: {{PaginationPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li a,{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li span{ padding: {{PaginationPadding}}; }"
       }
     },
     "paginationHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li a:hover,{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li span.current{ color: {{paginationHoverColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li a:hover,{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li span.current{ color: {{paginationHoverColor}}; }"
       }
     },
     "paginationHoverBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li a:hover,{{SMARTSHOP_WRAPPER}} nav.woocommerce-pagination ul li span.current{ background-color: {{paginationHoverBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li a:hover,{{SHOPXPERT_WRAPPER}} nav.woocommerce-pagination ul li span.current{ background-color: {{paginationHoverBGColor}}; }"
       }
     },
     "saleTagShow": {
@@ -502,7 +502,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product span.onsale{ color: {{saleTextColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product span.onsale{ color: {{saleTextColor}}; }"
       }
     },
     "saleTagBGColor": {
@@ -517,7 +517,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product span.onsale{ background-color: {{saleTagBGColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product span.onsale{ background-color: {{saleTagBGColor}}; }"
       }
     },
     "saleTagPadding": {
@@ -540,7 +540,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product span.onsale{ padding: {{saleTagPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product span.onsale{ padding: {{saleTagPadding}}; }"
       }
     },
     "saleTagBorderRadius": {
@@ -563,7 +563,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} ul.products li.product span.onsale{ border-radius: {{saleTagBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} ul.products li.product span.onsale{ border-radius: {{saleTagBorderRadius}}; }"
       }
     },
     "saleTagPosition": {

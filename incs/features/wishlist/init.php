@@ -6,11 +6,11 @@ use function  Shopxpert\incs\shopxpert_get_option;
 
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-error_log('file xxxxx Smartshop_WooWishSuite_Base');
+error_log('file xxxxx Shopxpert_WooWishSuite_Base');
 /**
  * Plugin Main Class
  */
-final class Smartshop_WooWishSuite_Base{
+final class Shopxpert_WooWishSuite_Base{
 
     /**
      * [$_instance]
@@ -148,9 +148,9 @@ final class Smartshop_WooWishSuite_Base{
 /**
  * Initializes the main plugin
  *
- * @return Smartshop_WooWishSuite_Base
+ * @return Shopxpert_WooWishSuite_Base
  */
-function Smartshop_WooWishSuite() {
-    return Smartshop_WooWishSuite_Base::instance();
+function Shopxpert_WooWishSuite() {
+    return Shopxpert_WooWishSuite_Base::instance();
 }
-Smartshop_WooWishSuite();
+Shopxpert_WooWishSuite();

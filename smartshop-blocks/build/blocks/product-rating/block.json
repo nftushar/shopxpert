@@ -25,7 +25,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaMargin": {
@@ -39,7 +39,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { margin: {{areaMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { margin: {{areaMargin}}; }"
       }
     },
     "areaBGProperty": {
@@ -53,31 +53,31 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "ratingColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .star-rating,{{SMARTSHOP_WRAPPER}} .star-rating::before, {{SMARTSHOP_WRAPPER}} .woocommerce-product-rating,{{SMARTSHOP_WRAPPER}} .woocommerce-product-rating::before{ color: {{ratingColor}} !important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .star-rating,{{SHOPXPERT_WRAPPER}} .star-rating::before, {{SHOPXPERT_WRAPPER}} .woocommerce-product-rating,{{SHOPXPERT_WRAPPER}} .woocommerce-product-rating::before{ color: {{ratingColor}} !important; }"
       }
     },
     "linkColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} a.woocommerce-review-link{ color: {{linkColor}} !important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} a.woocommerce-review-link{ color: {{linkColor}} !important; }"
       }
     },
     "linkSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} a.woocommerce-review-link{ font-size: {{linkSize}} !important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} a.woocommerce-review-link{ font-size: {{linkSize}} !important; }"
       }
     },
     "contentAlignment": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .woocommerce-product-rating { text-align: {{contentAlignment}} !important;line-height:1; } .woocommerce {{SMARTSHOP_WRAPPER}} .woocommerce-product-rating .star-rating{ display:inline-block;float:none;margin-top:0;text-align:left }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} .woocommerce-product-rating { text-align: {{contentAlignment}} !important;line-height:1; } .woocommerce {{SHOPXPERT_WRAPPER}} .woocommerce-product-rating .star-rating{ display:inline-block;float:none;margin-top:0;text-align:left }"
       }
     }
   }

@@ -46,13 +46,13 @@
     "areaBorderColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .ht-feature-inner { border-color: {{areaBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .ht-feature-inner { border-color: {{areaBorderColor}}; }"
       }
     },
     "areaHoverBorderColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap:hover .ht-feature-inner { border-color: {{areaHoverBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap:hover .ht-feature-inner { border-color: {{areaHoverBorderColor}}; }"
       }
     },
     "areaMargin": {
@@ -66,7 +66,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-inner { margin: {{areaMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-inner { margin: {{areaMargin}}; }"
       }
     },
     "areaPadding": {
@@ -80,25 +80,25 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-inner { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-inner { padding: {{areaPadding}}; }"
       }
     },
     "areaBackgroundColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap { background-color: {{areaBackgroundColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap { background-color: {{areaBackgroundColor}}; }"
       }
     },
     "titleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-content h4 { color: {{titleColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-content h4 { color: {{titleColor}}; }"
       }
     },
     "titleSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-content h4 { font-size: {{titleSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-content h4 { font-size: {{titleSize}}; }"
       }
     },
     "titleMargin": {
@@ -112,19 +112,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-content h4 { margin: {{titleMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-content h4 { margin: {{titleMargin}}; }"
       }
     },
     "subTitleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-content p { color: {{subTitleColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-content p { color: {{subTitleColor}}; }"
       }
     },
     "subTitleSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-content p { font-size: {{subTitleSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-content p { font-size: {{subTitleSize}}; }"
       }
     },
     "subTitleMargin": {
@@ -138,7 +138,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.ht-feature-wrap .ht-feature-content p { margin: {{subTitleMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.ht-feature-wrap .ht-feature-content p { margin: {{subTitleMargin}}; }"
       }
     }
   }

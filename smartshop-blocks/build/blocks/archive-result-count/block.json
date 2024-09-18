@@ -26,7 +26,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaBGProperty": {
@@ -40,7 +40,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "productPerPage": {
@@ -50,19 +50,19 @@
     "resultCountSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_result_count .woocommerce-result-count{ font-size:{{resultCountSize}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.shopxpert_archive_result_count .woocommerce-result-count{ font-size:{{resultCountSize}}!important; }"
       }
     },
     "resultCountColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_result_count .woocommerce-result-count{ color:{{resultCountColor}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.shopxpert_archive_result_count .woocommerce-result-count{ color:{{resultCountColor}}!important; }"
       }
     },
     "contentAlignment": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { text-align:{{contentAlignment}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { text-align:{{contentAlignment}}; }"
       }
     },
     "resultCountMargin": {
@@ -76,7 +76,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_result_count{ margin:{{resultCountMargin}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}}.shopxpert_archive_result_count{ margin:{{resultCountMargin}}!important; }"
       }
     }
   }

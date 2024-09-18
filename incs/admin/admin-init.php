@@ -2,8 +2,8 @@
 namespace Shopxpert\Incs\Admin;
 
 use Shopxpert\Incs;
-use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
-use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields;
+use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
+use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields;
 
 use function  Shopxpert\incs\shopxpert_clean;
 
@@ -78,8 +78,8 @@ class ShopXpert_Admin_Init {
     public function include(){
         // require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/api.php');
         // require_once('inc/diagnostic-data.php');
-        require_once('inc/Smartshop_Admin_Fields_Manager.php');
-        require_once('inc/Smartshop_Admin_Fields.php');
+        require_once('inc/Shopxpert_Admin_Fields_Manager.php');
+        require_once('inc/Shopxpert_Admin_Fields.php');
         require_once('inc/template-library.php'); 
     }
 
@@ -349,7 +349,7 @@ public function update_option($section, $option_key, $new_value) {
         }
     
         // Fetch Feature fields based on section or fieldname
-        $Feature_fields = Smartshop_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features']; 
+        $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features']; 
         $section_fields = [];
         foreach ($Feature_fields as $Feature) {
             if (isset($Feature['section']) && $Feature['section'] === $section) {
@@ -365,7 +365,7 @@ public function update_option($section, $option_key, $new_value) {
         if ($subaction === 'get_data') {
             foreach ($section_fields as $field) {
                 ob_start();
-                Smartshop_Admin_Fields_Manager::instance()->add_field($field, $section);
+                Shopxpert_Admin_Fields_Manager::instance()->add_field($field, $section);
                 $field_html .= ob_get_clean();
             }
             $message = esc_html__('Data Fetch successfully!', 'shopxper');

@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
 
-class Smartshop_Template_CPT{
+class Shopxpert_Template_CPT{
 
     const CPTTYPE = 'shopxpert-template';
 
@@ -78,7 +78,7 @@ class Smartshop_Template_CPT{
 
 		$args = array(
 			'label'               => esc_html__('Template Builder', 'shopxper'),
-			'description'         => esc_html__('SMARTSHOP Template', 'shopxper'),
+			'description'         => esc_html__('SHOPXPERT Template', 'shopxper'),
 			'labels'              => $labels,
 			'supports'            => array('title', 'editor', 'elementor', 'author', 'permalink', 'custom-fields'),
 			'hierarchical'        => false,

@@ -44,8 +44,8 @@ if ( ! class_exists( 'ShopXpertBlocks' ) ) :
 		public function init(){
 			// Pattern Remote Info
 			if(wntorBlocks_gutenberg_edit_screen() ){
-				if( is_admin() && class_exists('\Smartshop_Template_Library_Manager') ){
-					self::$pattern_info = \Smartshop_Template_Library_Manager::instance()->get_gutenberg_patterns_info();
+				if( is_admin() && class_exists('\Shopxpert_Template_Library_Manager') ){
+					self::$pattern_info = \Shopxpert_Template_Library_Manager::instance()->get_gutenberg_patterns_info();
 				}
 			}
 			$this->dependency_class_instance();
@@ -57,12 +57,12 @@ if ( ! class_exists( 'ShopXpertBlocks' ) ) :
 		 * @return void
 		 */
 		public function define_constants() {
-			$this->define( 'SMARTSHOP_BLOCK_FILE', __FILE__ );
-			$this->define( 'SMARTSHOP_BLOCK_PATH', __DIR__ );
-			$this->define( 'SMARTSHOP_BLOCK_URL', plugins_url( '', SMARTSHOP_BLOCK_FILE ) );
-			$this->define( 'SMARTSHOP_BLOCK_DIR', plugin_dir_path( SMARTSHOP_BLOCK_FILE ) );
-			$this->define( 'SMARTSHOP_BLOCK_ASSETS', SMARTSHOP_BLOCK_URL . '/assets' );
-			$this->define( 'SMARTSHOP_BLOCK_TEMPLATE', trailingslashit( SMARTSHOP_BLOCK_DIR . 'includes/templates' ) );
+			$this->define( 'SHOPXPERT_BLOCK_FILE', __FILE__ );
+			$this->define( 'SHOPXPERT_BLOCK_PATH', __DIR__ );
+			$this->define( 'SHOPXPERT_BLOCK_URL', plugins_url( '', SHOPXPERT_BLOCK_FILE ) );
+			$this->define( 'SHOPXPERT_BLOCK_DIR', plugin_dir_path( SHOPXPERT_BLOCK_FILE ) );
+			$this->define( 'SHOPXPERT_BLOCK_ASSETS', SHOPXPERT_BLOCK_URL . '/assets' );
+			$this->define( 'SHOPXPERT_BLOCK_TEMPLATE', trailingslashit( SHOPXPERT_BLOCK_DIR . 'includes/templates' ) );
 		}
 
 		/**
@@ -83,7 +83,7 @@ if ( ! class_exists( 'ShopXpertBlocks' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-			include( SMARTSHOP_BLOCK_PATH . '/vendor/autoload.php' );
+			include( SHOPXPERT_BLOCK_PATH . '/vendor/autoload.php' );
 		}
 
 		/**

@@ -288,7 +288,7 @@ if( class_exists('WC_Shortcode_Products') ){
                         if( $layout === "content" ){
                             echo wc_get_template_part( 'content','product' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }else{
-                            wc_get_template( 'product-'.$layout.'.php', $this->settings, '', SMARTSHOP_BLOCK_TEMPLATE );
+                            wc_get_template( 'product-'.$layout.'.php', $this->settings, '', SHOPXPERT_BLOCK_TEMPLATE );
                         }
 
                         // Restore product visibility.

@@ -25,7 +25,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaBGProperty": {
@@ -39,7 +39,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "perPage": {
@@ -64,7 +64,7 @@
       "type": "boolean",
       "default": false,
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .products > h2{ display: none !important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .products > h2{ display: none !important; }"
       }
     },
     "headingColor": {
@@ -79,7 +79,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .products > h2{ color: {{headingColor}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .products > h2{ color: {{headingColor}}!important; }"
       }
     },
     "headingSize": {
@@ -94,7 +94,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .products > h2{ font-size: {{headingSize}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .products > h2{ font-size: {{headingSize}}!important; }"
       }
     },
     "headingMargin": {
@@ -117,7 +117,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .products > h2{ margin: {{headingMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .products > h2{ margin: {{headingMargin}}; }"
       }
     },
     "headingAlignment": {
@@ -132,7 +132,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .products > h2{ text-align: {{headingAlignment}}!important; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .products > h2{ text-align: {{headingAlignment}}!important; }"
       }
     }
   }

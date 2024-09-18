@@ -25,7 +25,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaMargin": {
@@ -39,7 +39,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { margin: {{areaMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { margin: {{areaMargin}}; }"
       }
     },
     "areaBGProperty": {
@@ -53,7 +53,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "showHeading": {
@@ -72,7 +72,7 @@
             }
           ]
         ],
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} h2 { color: {{headingColor}}; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} h2 { color: {{headingColor}}; }"
       }
     },
     "headingSize": {
@@ -87,7 +87,7 @@
             }
           ]
         ],
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} h2 { font-size: {{headingSize}}; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} h2 { font-size: {{headingSize}}; }"
       }
     },
     "headingMargin": {
@@ -110,31 +110,31 @@
             }
           ]
         ],
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} h2 { margin: {{headingMargin}}; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} h2 { margin: {{headingMargin}}; }"
       }
     },
     "tableHeadingColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes th { color: {{tableHeadingColor}}; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} .shop_attributes th { color: {{tableHeadingColor}}; }"
       }
     },
     "tableHeadingSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes th { font-size: {{tableHeadingSize}}; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} .shop_attributes th { font-size: {{tableHeadingSize}}; }"
       }
     },
     "tableContentColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes td { color: {{tableContentColor}}; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} .shop_attributes td { color: {{tableContentColor}}; }"
       }
     },
     "tableContentSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shop_attributes td { font-size: {{tableContentSize}}; }"
+        "selector": ".woocommerce {{SHOPXPERT_WRAPPER}} .shop_attributes td { font-size: {{tableContentSize}}; }"
       }
     }
   }

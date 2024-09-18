@@ -43,7 +43,7 @@ class Scripts {
 
 		wp_enqueue_script(
 		    'shopxpert-block-main',
-		    SMARTSHOP_BLOCK_URL . '/assets/js/script.js',
+		    SHOPXPERT_BLOCK_URL . '/assets/js/script.js',
 		    array('jquery'),
 		    SHOPXPERT_VERSION,
 		    true
@@ -51,14 +51,14 @@ class Scripts {
 
 		wp_enqueue_style(
 		    'shopxpert-block-common',
-		    SMARTSHOP_BLOCK_URL . '/assets/css/common-style.css',
+		    SHOPXPERT_BLOCK_URL . '/assets/css/common-style.css',
 		    array(),
 		    SHOPXPERT_VERSION
 		);
 
 		wp_enqueue_style(
 		    'shopxpert-block-default',
-		    SMARTSHOP_BLOCK_URL . '/assets/css/style-index.css',
+		    SHOPXPERT_BLOCK_URL . '/assets/css/style-index.css',
 		    array(),
 		    SHOPXPERT_VERSION
 		);
@@ -73,7 +73,7 @@ class Scripts {
 	 * Load CSS File
 	 */
 	public function load_css(){
-		wp_enqueue_style( 'shopxpert-block-style', SMARTSHOP_BLOCK_URL . '/assets/css/blocks.style.build.css', array(), SHOPXPERT_VERSION );
+		wp_enqueue_style( 'shopxpert-block-style', SHOPXPERT_BLOCK_URL . '/assets/css/blocks.style.build.css', array(), SHOPXPERT_VERSION );
 	}
 
 	/**
@@ -94,13 +94,13 @@ class Scripts {
 			// Third-Party Scripts
 			$this->load_extra_scripts();
 
-			wp_enqueue_style( 'shopxpert-block-template-library', SMARTSHOP_BLOCK_URL . '/assets/css/template-library.css', [], SHOPXPERT_VERSION, 'all' );
-			wp_enqueue_style( 'shopxpert-block-editor-style', SMARTSHOP_BLOCK_URL . '/assets/css/editor-style.css', [], SHOPXPERT_VERSION, 'all' );
+			wp_enqueue_style( 'shopxpert-block-template-library', SHOPXPERT_BLOCK_URL . '/assets/css/template-library.css', [], SHOPXPERT_VERSION, 'all' );
+			wp_enqueue_style( 'shopxpert-block-editor-style', SHOPXPERT_BLOCK_URL . '/assets/css/editor-style.css', [], SHOPXPERT_VERSION, 'all' );
 
-			$dependencies = require_once( SMARTSHOP_BLOCK_PATH . '/build/blocks-shopxpert.asset.php' );
+			$dependencies = require_once( SHOPXPERT_BLOCK_PATH . '/build/blocks-shopxpert.asset.php' );
 			wp_enqueue_script(
 				'shopxpert-blocks',
-				SMARTSHOP_BLOCK_URL . '/build/blocks-shopxpert.js',
+				SHOPXPERT_BLOCK_URL . '/build/blocks-shopxpert.js',
 				$dependencies['dependencies'],
 				SHOPXPERT_VERSION,
 				true
@@ -110,7 +110,7 @@ class Scripts {
 			 * Localize data
 			 */
 			$editor_localize_data = array(
-				'url' 		=> SMARTSHOP_BLOCK_URL,
+				'url' 		=> SHOPXPERT_BLOCK_URL,
 				'ajax' 		=> admin_url('admin-ajax.php'),
 				'security' 	=> wp_create_nonce('shopxpertblock-nonce'),
 				'locale' 	=> get_locale(),
@@ -118,7 +118,7 @@ class Scripts {
 				'templateType'	=> $this->get_block_list()['template_type'],
 				'sampledata'	=> is_admin() ? Sample_Data::instance()->get_sample_data( false, 'sampledata/product' ) : array(),
 				'prostatus'		=> is_admin() ? is_plugin_active('shopxpert-addons-pro/shopxpert_addons_pro.php') : false,
-				'templatelist'	=> is_admin() ? \Smartshop_Template_Library_Manager::get_gutenberg_templates_info() : array(),
+				'templatelist'	=> is_admin() ? \Shopxpert_Template_Library_Manager::get_gutenberg_templates_info() : array(),
 				'prolink'		=> 'https://shopxpert.com/pricing/?utm_source=admin&utm_medium=gtlibrary',
 			);
 

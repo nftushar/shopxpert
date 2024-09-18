@@ -3,15 +3,15 @@ namespace Shopxpert\Incs\Admin\Templates;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields;
-use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
+use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields;
+use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
 
-// Get the fields using the singleton instance of Smartshop_Admin_Fields
-$Feature_fields = Smartshop_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
-$other_fields = Smartshop_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['others'];
+// Get the fields using the singleton instance of Shopxpert_Admin_Fields
+$Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
+$other_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['others'];
 
 $all_fields = array_merge($Feature_fields, $other_fields);
-$element_keys = Smartshop_Admin_Fields_Manager::instance()->get_field_key($all_fields, 'name');
+$element_keys = Shopxpert_Admin_Fields_Manager::instance()->get_field_key($all_fields, 'name');
 
 echo "<pre>";
 print_r($element_keys);
@@ -49,7 +49,7 @@ if (!is_array($other_fields)) {
                 <?php 
 
                 foreach($Feature_fields as $key => $field) {
-                    Smartshop_Admin_Fields_Manager::instance()->add_field($field, 'shopxpert_others_tabs');
+                    Shopxpert_Admin_Fields_Manager::instance()->add_field($field, 'shopxpert_others_tabs');
                 }
                 ?>
             </div>
@@ -58,7 +58,7 @@ if (!is_array($other_fields)) {
             <div class="shopxpert-admin-others-options">
                 <?php
                 foreach($other_fields as $key => $field) {
-                    Smartshop_Admin_Fields_Manager::instance()->add_field($field, 'shopxpert_others_tabs');
+                    Shopxpert_Admin_Fields_Manager::instance()->add_field($field, 'shopxpert_others_tabs');
                 }
                 ?>
             </div>

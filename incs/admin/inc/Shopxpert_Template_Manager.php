@@ -1,13 +1,13 @@
 <?php  
 namespace Shopxpert\Incs\Admin\Inc;
 
-use Shopxpert\Incs\Admin\Inc\Smartshop_Template_CPT;
+use Shopxpert\Incs\Admin\Inc\Shopxpert_Template_CPT;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // require( SHOPXPERT_ADDONS_PL_PATH. 'incs/admin/inc/class.template_cpt.php' );
 // require( SHOPXPERT_ADDONS_PL_PATH. 'incs/admin/inc/template-library/manager.php' );
 
-class Smartshop_Template_Manager{
+class Shopxpert_Template_Manager{
 
     const CPTTYPE = 'shopxpert-template';
 	const CPT_META = 'shopxpert_template_meta';
@@ -22,7 +22,7 @@ class Smartshop_Template_Manager{
     }
 
     function __construct(){
-		Smartshop_Template_CPT::instance();
+		Shopxpert_Template_CPT::instance();
 
 		add_action('wp_loaded', function(){
 			self::$language_code = apply_filters('shopxpert_current_language_code', 'en');
@@ -145,7 +145,7 @@ class Smartshop_Template_Manager{
 	}
 
 	/**
-	 * Check SMARTSHOP template screen
+	 * Check SHOPXPERT template screen
 	 *
 	 * @return boolean
 	 */
@@ -315,8 +315,8 @@ class Smartshop_Template_Manager{
 			delete_option('shopxpert_do_activation_library_cache');
         }
 
-		$elementor_template = Smartshop_Template_Library_Manager::get_templates_info();
-		$gutenberg_template	= Smartshop_Template_Library_Manager::get_gutenberg_templates_info();
+		$elementor_template = Shopxpert_Template_Library_Manager::get_templates_info();
+		$gutenberg_template	= Shopxpert_Template_Library_Manager::get_gutenberg_templates_info();
 		$get_data = (!empty( $elementor_template['templates'] ) && !empty( $gutenberg_template['templates'] )) ?  array_merge($elementor_template['templates'],$gutenberg_template['templates']) : [];
 		$data = [];
 
@@ -523,7 +523,7 @@ class Smartshop_Template_Manager{
 				wp_send_json_error( $errormessage );
 			}
 
-			$title 		= !empty( $_POST['title'] ) ? sanitize_text_field( $_POST['title'] ) : esc_html__( 'SMARTSHOP template '.time(), 'shopxper' );
+			$title 		= !empty( $_POST['title'] ) ? sanitize_text_field( $_POST['title'] ) : esc_html__( 'SHOPXPERT template '.time(), 'shopxper' );
 			$tmpid 		= !empty( $_POST['tmpId'] ) ? sanitize_text_field( $_POST['tmpId'] ) : '';
 			$tmpType 	= !empty( $_POST['tmpType'] ) ? sanitize_text_field( $_POST['tmpType'] ) : 'single';
 			$tmpEditor 	= !empty( $_POST['tmpEditor'] ) ? sanitize_text_field( $_POST['tmpEditor'] ) : 'gutenberg';
@@ -656,7 +656,7 @@ class Smartshop_Template_Manager{
 
 		if( !empty( $data['sampletmpid'] ) ){
 
-			$response_data = ($data['sampletmpbuilder'] == 'elementor') ? Smartshop_Template_Library_Manager::get_template_data('template', $data['sampletmpid']) : Smartshop_Template_Library_Manager::get_template_data('gutenberg', $data['sampletmpid']);
+			$response_data = ($data['sampletmpbuilder'] == 'elementor') ? Shopxpert_Template_Library_Manager::get_template_data('template', $data['sampletmpid']) : Shopxpert_Template_Library_Manager::get_template_data('gutenberg', $data['sampletmpid']);
 
 			$this->popBuilderSettings( $response_data, $post_id );
 
@@ -912,4 +912,4 @@ class Smartshop_Template_Manager{
 
 }
 
-Smartshop_Template_Manager::instance();
+Shopxpert_Template_Manager::instance();

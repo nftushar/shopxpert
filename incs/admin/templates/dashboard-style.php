@@ -1,8 +1,8 @@
 <?php
     if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-    $element_fields = Smartshop_Admin_Fields::instance()->fields()['shopxpert_style_tabs'];
-    $element_keys   = Smartshop_Admin_Fields_Manager::instance()->get_field_key( $element_fields, 'name' );
+    $element_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_style_tabs'];
+    $element_keys   = Shopxpert_Admin_Fields_Manager::instance()->get_field_key( $element_fields, 'name' );
 
 ?>
 <div id="shopxpert_style_tabs" class="shopxper-admin-main-tab-pane">
@@ -12,7 +12,7 @@
 
                 <?php
                     foreach( $element_fields as $key => $field ){
-                        Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'shopxpert_style_tabs' );
+                        Shopxpert_Admin_Fields_Manager::instance()->add_field( $field, 'shopxpert_style_tabs' );
                     }
                 ?>
 

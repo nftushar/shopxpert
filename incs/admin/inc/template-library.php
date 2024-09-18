@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
-class Smartshop_Template_Library{
+class Shopxpert_Template_Library{
 
     // Get Instance
     private static $_instance = null;
@@ -94,7 +94,7 @@ class Smartshop_Template_Library{
                 $page_title         = sanitize_text_field( $_REQUEST['pagetitle'] );
                 $template_type      = sanitize_text_field( $_REQUEST['templatetype'] ); //other
 
-                $response_data  = \Smartshop_Template_Library_Manager::get_template_data('template', $template_id );
+                $response_data  = \Shopxpert_Template_Library_Manager::get_template_data('template', $template_id );
                 $defaulttitle   = ucfirst( $template_parentid ) .' -> '.$template_title;
 
 
@@ -353,4 +353,4 @@ class Smartshop_Template_Library{
 
 }
 
-Smartshop_Template_Library::instance();
+Shopxpert_Template_Library::instance();

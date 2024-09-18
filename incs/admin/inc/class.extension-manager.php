@@ -1,7 +1,7 @@
-<?php
+w<?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
-class Smartshop_Extension_Manager{
+class Shopxpert_Extension_Manager{
 
 	// Get Instance
     private static $_instance = null;
@@ -309,4 +309,4 @@ class Smartshop_Extension_Manager{
 
 }
 
-Smartshop_Extension_Manager::instance();
+Shopxpert_Extension_Manager::instance();

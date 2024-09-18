@@ -538,8 +538,8 @@ console.log('Feature Setting Reset ajax');
 
             var $this = $(this),
                 $hidden = $this.prev('.shopxpert-repeater-hidden').clone(true),
-                $insert_location = $this.closest('.woolenor-reapeater-fields-area').find('div.shopxpert-option-repeater-item:not(.shopxpert-repeater-hidden):last'),
-                $itemCount = $this.closest('.woolenor-reapeater-fields-area').find('.shopxpert-option-repeater-item:not(.shopxpert-repeater-hidden)').length,
+                $insert_location = $this.closest('.shopxpert-reapeater-fields-area').find('div.shopxpert-option-repeater-item:not(.shopxpert-repeater-hidden):last'),
+                $itemCount = $this.closest('.shopxpert-reapeater-fields-area').find('.shopxpert-option-repeater-item:not(.shopxpert-repeater-hidden)').length,
                 $addLimit = typeof $this.attr('data-limit') !== 'undefined' ? parseInt($this.attr('data-limit')) : '';
 
             // If already reach adding limit
@@ -569,7 +569,7 @@ console.log('Feature Setting Reset ajax');
             $hidden.insertAfter($insert_location);
 
             if ($insert_location.length == 0) {
-                $this.closest('.woolenor-reapeater-fields-area').find('.shopxpert-option-repeater-item-area').html($hidden);
+                $this.closest('.shopxpert-reapeater-fields-area').find('.shopxpert-option-repeater-item-area').html($hidden);
             }
 
             $(document).trigger('repeater_field_added', [$('.shopxpert-Feature-setting-data .shopxpert-option-repeater-item.shopxpert_active_repeater')]);
@@ -613,7 +613,7 @@ console.log('Feature Setting Reset ajax');
 
             const $this = $(this),
                 $parentItem = $this.parents('.shopxpert-option-repeater-item'),
-                $fieldsArea = $parentItem.parents('.woolenor-reapeater-fields-area');
+                $fieldsArea = $parentItem.parents('.shopxpert-reapeater-fields-area');
 
             $parentItem.remove();
 
@@ -711,7 +711,7 @@ console.log('Feature Setting Reset ajax');
         $(document).on('change', '.wlcs-currency-selection .shopxpert-admin-select select', function (e) {
             let thisField = $(this),
                 item = thisField.closest('.shopxpert-option-repeater-item'),
-                fieldsArea = item.closest('.woolenor-reapeater-fields-area'),
+                fieldsArea = item.closest('.shopxpert-reapeater-fields-area'),
                 uniqueIdWrap = item.find('.wlcs-currency-selection');
 
             if ((true === uniqueIdWrap.hasClass('wlcs-currency-selection-field')) && ('undefined' !== typeof fieldsArea)) {

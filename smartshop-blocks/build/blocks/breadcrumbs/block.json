@@ -26,7 +26,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
       }
     },
     "areaBGProperty": {
@@ -40,7 +40,7 @@
         "size": ""
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}"
+        "selector": "{{SHOPXPERT_WRAPPER}}"
       }
     },
     "separator": {
@@ -50,51 +50,51 @@
     "contentAlignment": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} {text-align:{{contentAlignment}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} {text-align:{{contentAlignment}}; }"
       }
     },
     "textSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb{font-size:{{textSize}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .woocommerce-breadcrumb{font-size:{{textSize}}; }"
       }
     },
     "textColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb{color:{{textColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .woocommerce-breadcrumb{color:{{textColor}}; }"
       }
     },
     "linkColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb a{color:{{linkColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .woocommerce-breadcrumb a{color:{{linkColor}}; }"
       }
     },
     "linkHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .woocommerce-breadcrumb a:hover{color:{{linkHoverColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .woocommerce-breadcrumb a:hover{color:{{linkHoverColor}}; }"
       }
     },
     "space": {
       "type": "number",
       "default": 10,
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} span.breadcrumb-separator{margin: 0 {{space}}px; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} span.breadcrumb-separator{margin: 0 {{space}}px; }"
       }
     },
     "separateColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} span.breadcrumb-separator{color:{{separateColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} span.breadcrumb-separator{color:{{separateColor}}; }"
       }
     },
     "separateSize": {
       "type": "number",
       "default": 14,
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} span.breadcrumb-separator{font-size:{{separateSize}}px; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} span.breadcrumb-separator{font-size:{{separateSize}}px; }"
       }
     }
   }

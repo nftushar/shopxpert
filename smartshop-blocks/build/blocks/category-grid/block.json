@@ -139,7 +139,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-grid:not(.shopxpert-no-gutters) { column-gap: {{itemSpace}}px; row-gap: {{itemSpace}}px; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .shopxpert-grid:not(.shopxpert-no-gutters) { column-gap: {{itemSpace}}px; row-gap: {{itemSpace}}px; }"
       }
     },
     "areaPadding": {
@@ -153,19 +153,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} [class*='ht-category-wrap'] { padding: {{areaPadding}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} [class*='ht-category-wrap'] { padding: {{areaPadding}}; }"
       }
     },
     "areaBackgroundColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} [class*='ht-category-wrap'] { background-color: {{areaBackgroundColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} [class*='ht-category-wrap'] { background-color: {{areaBackgroundColor}}; }"
       }
     },
     "imageBoxColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .ht-category-wrap .ht-category-image a.ht-category-border::before,{{SMARTSHOP_WRAPPER}} .ht-category-wrap-2:hover::before,{{SMARTSHOP_WRAPPER}} .ht-category-wrap .ht-category-image a.ht-category-border-2::before { border-color: {{imageBoxColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .ht-category-wrap .ht-category-image a.ht-category-border::before,{{SHOPXPERT_WRAPPER}} .ht-category-wrap-2:hover::before,{{SHOPXPERT_WRAPPER}} .ht-category-wrap .ht-category-image a.ht-category-border-2::before { border-color: {{imageBoxColor}}; }"
       }
     },
     "imageMargin": {
@@ -179,7 +179,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-image'] { margin: {{imageMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-image'] { margin: {{imageMargin}}; }"
       }
     },
     "imageBorderRadius": {
@@ -193,19 +193,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .ht-category-wrap .ht-category-image, {{SMARTSHOP_WRAPPER}} .ht-category-wrap .ht-category-image a.ht-category-border::before,{{SMARTSHOP_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-image-'] { border-radius: {{imageBorderRadius}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .ht-category-wrap .ht-category-image, {{SHOPXPERT_WRAPPER}} .ht-category-wrap .ht-category-image a.ht-category-border::before,{{SHOPXPERT_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-image-'] { border-radius: {{imageBorderRadius}}; }"
       }
     },
     "titleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-content'] h3 a { color: {{titleColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-content'] h3 a { color: {{titleColor}}; }"
       }
     },
     "titleHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-content'] h3 a:hover { color: {{titleHoverColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-content'] h3 a:hover { color: {{titleHoverColor}}; }"
       }
     },
     "titleMargin": {
@@ -219,7 +219,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-content'] h3 { margin: {{titleMargin}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-content'] h3 { margin: {{titleMargin}}; }"
       }
     },
     "titleAfterBorder": {
@@ -238,19 +238,19 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .ht-category-wrap-2 .ht-category-content-2 h3::before { background-color: {{titleAfterBorderColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .ht-category-wrap-2 .ht-category-content-2 h3::before { background-color: {{titleAfterBorderColor}}; }"
       }
     },
     "countColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .ht-category-wrap [class*='ht-category-content'] span { color: {{countColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .ht-category-wrap [class*='ht-category-content'] span { color: {{countColor}}; }"
       }
     },
     "countBeforeColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .ht-category-wrap [class*='ht-category-content'] span::before { background-color: {{countBeforeColor}}; }"
+        "selector": "{{SHOPXPERT_WRAPPER}} .ht-category-wrap [class*='ht-category-content'] span::before { background-color: {{countBeforeColor}}; }"
       }
     }
   }

@@ -132,12 +132,12 @@
   }
 
   /* Help Tip */
-  .woolenor-help-tip {
+  .-help-tip {
     color: #666;
     display: inline-block;
     position: relative;
   }
-  .woolenor-help-text {
+  .shopxpert-help-text {
     position: absolute;
     max-width: 200px;
     width: -webkit-max-content;
@@ -156,7 +156,7 @@
     color: #fff;
     pointer-events: none;
 }
-.woolenor-help-text::before {
+.shopxpert-help-text::before {
     content: "";
     position: absolute;
     width: 0;
@@ -164,52 +164,52 @@
     border: 0.375rem solid transparent;
     border-top-color: #333;
 }
-.woolenor-help-tip:hover span.woolenor-help-text{
+.shopxpert-help-tip:hover span.shopxpert-help-text{
     opacity: 1;
     visibility: visible;
 }
-.woolenor-help-tip .shopxpert-helptip-top, .woolenor-help-tip .shopxpert-helptip-bottom {
+.shopxpert-help-tip .shopxpert-helptip-top, .shopxpert-help-tip .shopxpert-helptip-bottom {
   left: 50%;
   transform: translate(-50%, 5px);
 }
-.woolenor-help-tip .shopxpert-helptip-top {
+.shopxpert-help-tip .shopxpert-helptip-top {
   bottom: calc(100% + 10px);
 }
-.woolenor-help-tip .shopxpert-helptip-bottom {
+.shopxpert-help-tip .shopxpert-helptip-bottom {
   top: 100%;
 }
-.woolenor-help-tip .shopxpert-helptip-left, .woolenor-help-tip .shopxpert-helptip-right {
+.shopxpert-help-tip .shopxpert-helptip-left, .shopxpert-help-tip .shopxpert-helptip-right {
   top: 50%;
 }
-.woolenor-help-tip .shopxpert-helptip-left {
+.shopxpert-help-tip .shopxpert-helptip-left {
   right: 100%;
   transform: translate(-5px, -50%);
 }
-.woolenor-help-tip .shopxpert-helptip-right {
+.shopxpert-help-tip .shopxpert-helptip-right {
   left: 100%;
   transform: translate(5px, -50%);
 }
 
 /* Arrow Position */
-.woolenor-help-tip .shopxpert-helptip-top:before, .woolenor-help-tip .shopxpert-helptip-bottom:before {
+.shopxpert-help-tip .shopxpert-helptip-top:before, .shopxpert-help-tip .shopxpert-helptip-bottom:before {
   left: 50%;
 }
-.woolenor-help-tip .shopxpert-helptip-top:before {
+.shopxpert-help-tip .shopxpert-helptip-top:before {
   top: 100%;
   transform: translate(-50%, 0);
 }
-.woolenor-help-tip .shopxpert-helptip-bottom:before {
+.shopxpert-help-tip .shopxpert-helptip-bottom:before {
   bottom: 100%;
   transform: translate(-50%, 0) rotate(180deg);
 }
-.woolenor-help-tip .shopxpert-helptip-left:before, .woolenor-help-tip .shopxpert-helptip-right:before {
+.shopxpert-help-tip .shopxpert-helptip-left:before, .shopxpert-help-tip .shopxpert-helptip-right:before {
   top: 50%;
 }
-.woolenor-help-tip .shopxpert-helptip-left:before {
+.shopxpert-help-tip .shopxpert-helptip-left:before {
   left: 100%;
   transform: translate(0, -50%) rotate(-90deg);
 }
-.woolenor-help-tip .shopxpert-helptip-right:before {
+.shopxpert-help-tip .shopxpert-helptip-right:before {
   right: 100%;
   transform: translate(0, -50%) rotate(90deg);
 }
@@ -542,7 +542,7 @@
   }
 
   /* For Repeater */
-  .woolenor-reapeater-fields-area {
+  .shopxpert-reapeater-fields-area {
     text-align: left;
   }
   .shopxpert-admin-option.shopxpert-repeater-heading:not(.shopxpert-condition-on) {
@@ -2228,7 +2228,7 @@
 }
 
 /* Currency Switcher Feature */
-form[data-section=shopxpert_currency_switcher] .woolenor-reapeater-fields-area+.shopxpert-admin-option {
+form[data-section=shopxpert_currency_switcher] .shopxpert-reapeater-fields-area+.shopxpert-admin-option {
   border-top: 1px solid #eaeaea;
   margin-top: 20px;
 }
