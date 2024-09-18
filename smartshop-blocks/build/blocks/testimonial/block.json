@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/testimonial",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/testimonial",
+  "category": "shopxpert-blocks",
   "title": "WL : Testimonial",
   "description": "Display testimonial.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "testimonial",
     "review",
     "customer",
@@ -136,7 +136,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-grid:not(.smartshop-no-gutters) { column-gap: {{columnSpace}}px; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-grid:not(.shopxpert-no-gutters) { column-gap: {{columnSpace}}px; }"
       }
     },
     "rowSpace": {
@@ -152,7 +152,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-grid:not(.smartshop-no-gutters) { row-gap: {{rowSpace}}px; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-grid:not(.shopxpert-no-gutters) { row-gap: {{rowSpace}}px; }"
       }
     },
     "contentAlign": {

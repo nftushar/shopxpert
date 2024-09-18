@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/popup-close-trigger-button",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/popup-close-trigger-button",
+  "category": "shopxpert-blocks",
   "title": "WL: Popup Close Trigger Button",
   "description": "Display close button for popup builder template",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "popup",
     "close",
     "button"

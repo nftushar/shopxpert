@@ -4,9 +4,9 @@
 td.product-name .backorder_notification{
     display: none;
 }
-td.product-name .smartshop-backorder-notification.backorder_notification{
+td.product-name .shopxpert-backorder-notification.backorder_notification{
     display: block;
 }
-dt.variation-smartshop_cart_backorder_availability {
+dt.variation-shopxpert_cart_backorder_availability {
     display: none !important;
 }

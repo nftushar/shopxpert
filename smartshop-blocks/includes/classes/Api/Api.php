@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks\Api;
+namespace ShopXpertBlocks\Api;
 
 use Exception;
 use WP_REST_Server;
@@ -22,7 +22,7 @@ class Api
      */
     public function __construct()
     {
-        $this->namespace = 'smartshop/v1';
+        $this->namespace = 'shopxpert/v1';
     }
 
     /**
@@ -155,10 +155,10 @@ class Api
         );
 
         // Template Library
-        \SmartShopBlocks\Template_Library::instance()->register_routes($this->namespace);
+        \ShopXpertBlocks\Template_Library::instance()->register_routes($this->namespace);
 
         // CSS
-        \SmartShopBlocks\Manage_Styles::instance()->register_routes($this->namespace);
+        \ShopXpertBlocks\Manage_Styles::instance()->register_routes($this->namespace);
 
     }
 
@@ -180,11 +180,11 @@ class Api
     public function get_category_data($request)
     {
 
-        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'smartshopblock-nonce')) {
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'shopxpertblock-nonce')) {
             return rest_ensure_response([]);
         }
 
-        $data = smartshopBlocks_taxnomy_data($request['querySlug'], $request['queryLimit'], $request['queryOrder'], $request['queryType']);
+        $data = shopxpertBlocks_taxnomy_data($request['querySlug'], $request['queryLimit'], $request['queryOrder'], $request['queryType']);
         return rest_ensure_response($data);
 
     }
@@ -195,11 +195,11 @@ class Api
     public function get_image_sizes($request)
     {
 
-        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'smartshopblock-nonce')) {
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'shopxpertblock-nonce')) {
             return rest_ensure_response([]);
         }
 
-        $data = smartshopBlocks_get_image_size();
+        $data = shopxpertBlocks_get_image_size();
         return rest_ensure_response($data);
 
     }
@@ -210,7 +210,7 @@ class Api
     public function get_post_data($request)
     {
 
-        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'smartshopblock-nonce')) {
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'shopxpertblock-nonce')) {
             return rest_ensure_response([]);
         }
 
@@ -219,7 +219,7 @@ class Api
         }
 
         $data = [];
-        $loop = new \WP_Query(smartshopBlocks_Product_Query($request));
+        $loop = new \WP_Query(shopxpertBlocks_Product_Query($request));
 
         if ($loop->have_posts()) {
             while ($loop->have_posts()) {
@@ -239,7 +239,7 @@ class Api
                 $item['price_regular'] = $product->get_regular_price();
                 $item['on_sale'] = $product->is_on_sale();
                 $item['badge'] = [
-                    'sale_badge' => smartshop_sale_flash('default', false),
+                    'sale_badge' => shopxpert_sale_flash('default', false),
                 ];
                 $item['discount'] = ($item['price_sale'] && $item['price_regular']) ? round(($item['price_regular'] - $item['price_sale']) / $item['price_regular'] * 100) . '%' : '';
                 $item['price_html'] = $product->get_price_html();
@@ -249,7 +249,7 @@ class Api
                     'count' => $product->get_rating_count(),
                     'average' => $product->get_average_rating(),
                     'html' => wc_get_rating_html($product->get_average_rating(), $product->get_rating_count()),
-                    'html2' => smartshop_wc_get_rating_html('yes'),
+                    'html2' => shopxpert_wc_get_rating_html('yes'),
                 ];
                 $cart_btn_class = $product->is_purchasable() && $product->is_in_stock() ? ' add_to_cart_button' : '';
                 $cart_btn_class .= $product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock() ? ' ajax_add_to_cart' : '';
@@ -259,13 +259,13 @@ class Api
                     'class' => $cart_btn_class,
                 ];
                 $item['wishlist'] = [
-                    'status' => smartshop_has_wishlist_plugin(),
-                    'html' => smartshop_add_to_wishlist_button()
+                    'status' => shopxpert_has_wishlist_plugin(),
+                    'html' => shopxpert_add_to_wishlist_button()
                 ];
                 $item['compare'] = [
-                    'status' => smartshop_exist_compare_plugin(),
-                    'html' => smartshopBlocks_compare_button(array('style' => 2)),
-                    'html2' => smartshopBlocks_compare_button(array('style' => 2, 'btn_text' => '<i class="fa fa-exchange"></i>', 'btn_added_txt' => '<i class="fa fa-exchange"></i>')),
+                    'status' => shopxpert_exist_compare_plugin(),
+                    'html' => shopxpertBlocks_compare_button(array('style' => 2)),
+                    'html2' => shopxpertBlocks_compare_button(array('style' => 2, 'btn_text' => '<i class="fa fa-exchange"></i>', 'btn_added_txt' => '<i class="fa fa-exchange"></i>')),
                 ];
 
                 $time = current_time('timestamp');
@@ -275,7 +275,7 @@ class Api
                 // Images
                 if (has_post_thumbnail()) {
                     $thumb_id = get_post_thumbnail_id($product_id);
-                    $image_sizes = smartshopBlocks_get_image_size();
+                    $image_sizes = shopxpertBlocks_get_image_size();
                     $image_src = array();
                     foreach ($image_sizes as $key => $size) {
                         $image_src[$key] = [
@@ -334,7 +334,7 @@ class Api
     public function get_last_product_data($request)
     {
 
-        // if ( !isset( $_REQUEST['wpnonce'] ) || !wp_verify_nonce( $_REQUEST['wpnonce'], 'smartshopblock-nonced') ){
+        // if ( !isset( $_REQUEST['wpnonce'] ) || !wp_verify_nonce( $_REQUEST['wpnonce'], 'shopxpertblock-nonced') ){
         //     return rest_ensure_response([]);
         // }
 
@@ -343,11 +343,11 @@ class Api
             \WC()->frontend_includes();
         }
 
-        if (!class_exists('\SmartShop_Default_Data')) {
+        if (!class_exists('\ShopXpert_Default_Data')) {
             return [];
         }
 
-        $product = \SmartShop_Default_Data::instance()->get_product('');
+        $product = \ShopXpert_Default_Data::instance()->get_product('');
 
         $data = $item = [];
 
@@ -360,21 +360,21 @@ class Api
             'link' => $product->add_to_cart_url(),
             'class' => $cart_btn_class,
             'text' => $product->single_add_to_cart_text(),
-            'html' => \SmartShop_Default_Data::instance()->default('wl-product-add-to-cart')
+            'html' => \ShopXpert_Default_Data::instance()->default('wl-product-add-to-cart')
         ];
 
-        $item['price_html'] = \SmartShop_Default_Data::instance()->default('wl-single-product-price');
-        $item['short_description'] = \SmartShop_Default_Data::instance()->default('wl-single-product-short-description');
-        $item['description'] = \SmartShop_Default_Data::instance()->default('wl-single-product-description');
-        $item['rating'] = \SmartShop_Default_Data::instance()->default('wl-single-product-rating');
-        $item['image'] = \SmartShop_Default_Data::instance()->default('wl-single-product-image');
-        $item['meta_info'] = \SmartShop_Default_Data::instance()->default('wl-single-product-meta');
-        $item['additional_info'] = \SmartShop_Default_Data::instance()->default('wl-product-additional-information');
-        $item['product_tabs'] = \SmartShop_Default_Data::instance()->default('wl-product-data-tabs2');
-        $item['product_reviews'] = \SmartShop_Default_Data::instance()->default('wl-single-product-reviews');
-        $item['product_stock'] = \SmartShop_Default_Data::instance()->default('wl-single-product-stock');
-        $item['product_upsell'] = \SmartShop_Default_Data::instance()->default('wl-single-product-upsell');
-        $item['product_related'] = \SmartShop_Default_Data::instance()->default('wl-product-related', array('orderby' => 'date', 'order' => 'desc'));
+        $item['price_html'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-price');
+        $item['short_description'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-short-description');
+        $item['description'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-description');
+        $item['rating'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-rating');
+        $item['image'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-image');
+        $item['meta_info'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-meta');
+        $item['additional_info'] = \ShopXpert_Default_Data::instance()->default('wl-product-additional-information');
+        $item['product_tabs'] = \ShopXpert_Default_Data::instance()->default('wl-product-data-tabs2');
+        $item['product_reviews'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-reviews');
+        $item['product_stock'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-stock');
+        $item['product_upsell'] = \ShopXpert_Default_Data::instance()->default('wl-single-product-upsell');
+        $item['product_related'] = \ShopXpert_Default_Data::instance()->default('wl-product-related', array('orderby' => 'date', 'order' => 'desc'));
 
         $data = $item;
 
@@ -390,11 +390,11 @@ class Api
      */
     public function get_post_list_data($request)
     {
-        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'smartshopblock-nonce')) {
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'shopxpertblock-nonce')) {
             return rest_ensure_response([]);
         }
 
-        $post_type = isset($request['postType']) ? $request['postType'] : 'smartshop-template';
+        $post_type = isset($request['postType']) ? $request['postType'] : 'shopxpert-template';
         $per_page = isset($request['perPage']) ? $request['perPage'] : -1;
         $meta_query = isset($request['metaQuery']) ? $request['metaQuery'] : [];
 
@@ -427,7 +427,7 @@ class Api
      */
     public function get_taxonomies_list_data($request)
     {
-        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'smartshopblock-nonce')) {
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'shopxpertblock-nonce')) {
             return rest_ensure_response([]);
         }
 
@@ -466,14 +466,14 @@ class Api
      * @return \WP_Error|\WP_REST_Response
      */
     public function get_options_data($request){
-        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'smartshopblock-nonce')) {
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'shopxpertblock-nonce')) {
             return rest_ensure_response([]);
         }
 
         $option_section = isset($request['optionSection']) ? $request['optionSection'] : '';
         $option_key     = isset($request['optionKey']) ? $request['optionKey'] : '';
 
-        $getData = smartshopBlocks_get_option( $option_key, $option_section );
+        $getData = shopxpertBlocks_get_option( $option_key, $option_section );
         $data = [];
         
         if (!empty($getData)) {

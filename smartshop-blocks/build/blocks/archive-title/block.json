@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/archive-title",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/archive-title",
+  "category": "shopxpert-blocks",
   "title": "WL : Archive Title",
   "description": "Display archive title.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "archive",
     "title",
     "category title"
@@ -67,13 +67,13 @@
     "titleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-title{ color:{{titleColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-archive-title{ color:{{titleColor}}!important; }"
       }
     },
     "titleSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-title{ font-size:{{titleSize}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-archive-title{ font-size:{{titleSize}}!important; }"
       }
     },
     "titleMargin": {
@@ -87,19 +87,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-title{ margin:{{titleMargin}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-archive-title{ margin:{{titleMargin}}!important; }"
       }
     },
     "descColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-desc{ color:{{descColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-archive-desc{ color:{{descColor}}!important; }"
       }
     },
     "descSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-desc{ font-size:{{descSize}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-archive-desc{ font-size:{{descSize}}!important; }"
       }
     },
     "descMargin": {
@@ -113,7 +113,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-archive-desc{ margin:{{descMargin}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-archive-desc{ margin:{{descMargin}}!important; }"
       }
     }
   }

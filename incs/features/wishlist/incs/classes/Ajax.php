@@ -90,7 +90,7 @@ class Ajax {
         }else{
             wp_send_json_success([
                 'item_count' => count( \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
-                'per_page' => (int)smartshop_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 ),
+                'per_page' => (int)shopxpert_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 ),
                 'message' => __( 'Product successfully deleted!', 'wishsuite' )
             ]);
         }

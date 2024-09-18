@@ -2,95 +2,95 @@
     outline: 0;
 }
 /*My Account Page*/
-.smartshop_myaccount_page {
+.shopxpert_myaccount_page {
     overflow: hidden;
 }
-.smartshop_myaccount_page .woocommerce-MyAccount-content .form-row {
+.shopxpert_myaccount_page .woocommerce-MyAccount-content .form-row {
     display: block;
 }
-.smartshop-user-area {
+.shopxpert-user-area {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
 }
-.smartshop-user-image {
+.shopxpert-user-image {
     margin-right: 20px;
 }
-.smartshop-user-image img {
+.shopxpert-user-image img {
     border-radius: 100% !important;
 }
-.smartshop-user-info span {
+.shopxpert-user-info span {
     display: block;
 }
-.smartshop-username {
+.shopxpert-username {
     font-size: 20px;
 }
-.smartshop-logout {
+.shopxpert-logout {
     font-size: 14px;
 }
-.smartshop_myaccount_page .woocommerce-MyAccount-navigation ul {
+.shopxpert_myaccount_page .woocommerce-MyAccount-navigation ul {
     margin: 0;
     padding: 0;
     list-style: none;
     border-top: 1px solid #ddd;
 }
-.smartshop_myaccount_page .woocommerce-MyAccount-navigation ul li {
+.shopxpert_myaccount_page .woocommerce-MyAccount-navigation ul li {
     border-bottom: 1px solid #ddd;
     padding: 12px 0;
     line-height: 1.5;
 }
-.smartshop_myaccount_page .woocommerce-MyAccount-navigation ul li a{
+.shopxpert_myaccount_page .woocommerce-MyAccount-navigation ul li a{
     transition: 0.4s;
 }
   
-.woocommerce-account .smartshop_myaccount_menu_pos_vtop .woocommerce-MyAccount-navigation,.woocommerce-account .smartshop_myaccount_menu_pos_vbottom .woocommerce-MyAccount-navigation{
+.woocommerce-account .shopxpert_myaccount_menu_pos_vtop .woocommerce-MyAccount-navigation,.woocommerce-account .shopxpert_myaccount_menu_pos_vbottom .woocommerce-MyAccount-navigation{
     width: 100%;
     float: none;
 }
-.smartshop_myaccount_menu_pos_vtop .woocommerce-MyAccount-navigation ul,.smartshop_myaccount_menu_pos_vbottom .woocommerce-MyAccount-navigation ul{
+.shopxpert_myaccount_menu_pos_vtop .woocommerce-MyAccount-navigation ul,.shopxpert_myaccount_menu_pos_vbottom .woocommerce-MyAccount-navigation ul{
     border:none;
 }
-.smartshop_myaccount_menu_pos_vtop .woocommerce-MyAccount-navigation ul li,.smartshop_myaccount_menu_pos_vbottom .woocommerce-MyAccount-navigation ul li{
+.shopxpert_myaccount_menu_pos_vtop .woocommerce-MyAccount-navigation ul li,.shopxpert_myaccount_menu_pos_vbottom .woocommerce-MyAccount-navigation ul li{
     display: inline-block;
     border-bottom: 0;
     padding: 12px 10px;
 }
   
-.woocommerce-account .smartshop_myaccount_menu_pos_vtop .woocommerce-MyAccount-content,.woocommerce-account .smartshop_myaccount_menu_pos_vbottom .woocommerce-MyAccount-content{
+.woocommerce-account .shopxpert_myaccount_menu_pos_vtop .woocommerce-MyAccount-content,.woocommerce-account .shopxpert_myaccount_menu_pos_vbottom .woocommerce-MyAccount-content{
     width: 100%;
     float: none;
 }
   
-.woocommerce-account .smartshop_myaccount_menu_pos_hright .woocommerce-MyAccount-navigation,.smartshop_myaccount_menu_pos_hleft .woocommerce-MyAccount-content{
+.woocommerce-account .shopxpert_myaccount_menu_pos_hright .woocommerce-MyAccount-navigation,.shopxpert_myaccount_menu_pos_hleft .woocommerce-MyAccount-content{
     float: right;
 }
   
-.woocommerce-account .smartshop_myaccount_menu_pos_hright .woocommerce-MyAccount-content,.smartshop_myaccount_menu_pos_hleft .woocommerce-MyAccount-navigation{
+.woocommerce-account .shopxpert_myaccount_menu_pos_hright .woocommerce-MyAccount-content,.shopxpert_myaccount_menu_pos_hleft .woocommerce-MyAccount-navigation{
     float: left;
 }
-.smartshop_block_my_account,.smartshop_block_my_account_navigation{
+.shopxpert_block_my_account,.shopxpert_block_my_account_navigation{
     overflow: hidden;
 }
 
-.smartshop_block_my_account_navigation .woocommerce-MyAccount-navigation {
+.shopxpert_block_my_account_navigation .woocommerce-MyAccount-navigation {
     width: 100% !important;
     float: none !important;
 }
-.smartshop_myaccount_menu_type_vertical ul li{
+.shopxpert_myaccount_menu_type_vertical ul li{
     display: inline-block;
     border: none !important;
 }
-.smartshop_myaccount_menu_type_vertical ul{
+.shopxpert_myaccount_menu_type_vertical ul{
     border-top: 0 !important;
 }
-.smartshop_block_my_account_navigation .smartshop-user-area:not(:first-child){
+.shopxpert_block_my_account_navigation .shopxpert-user-area:not(:first-child){
     display: none;
 }
-.smartshop-customer-logout a{
+.shopxpert-customer-logout a{
     display: inline-block;
 }
 
 /* Product Grid */
-.smartshop_block_product_grid .ht-product-ratting i {
+.shopxpert_block_product_grid .ht-product-ratting i {
     font-family: 'FontAwesome';
 }

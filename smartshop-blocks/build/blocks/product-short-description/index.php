@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'smartshop-product-short-description' );
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array( $uniqClass, 'shopxpert-product-short-description' );
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 
 $product = wc_get_product();

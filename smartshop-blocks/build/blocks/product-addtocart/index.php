@@ -10,7 +10,7 @@ if( $block['is_editor'] ){
 	\WC()->session = new \WC_Session_Handler();
 	\WC()->session->init();
 	\WC()->cart = new \WC_Cart();
-	$product = wc_get_product( smartshop_get_last_product_id() );
+	$product = wc_get_product( shopxpert_get_last_product_id() );
 } else{
 	$product = wc_get_product();
 }
@@ -18,8 +18,8 @@ if ( empty( $product ) ) { return; }
 
 require_once ('manager.php');
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'smartshop-product-addtocart' );
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array( $uniqClass, 'shopxpert-product-addtocart' );
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 
 $product_type = $product->get_type();
@@ -32,7 +32,7 @@ $button_classes[] = !empty( $settings['quantityText'] ) ? 'wl-hasquantity-txt' :
 ( $product_type === 'external' ) ? $button_classes[] = $settings['buttonsPosition'] : '';
 
 if( '1' != $settings['layoutStyle'] ){
-	(new \SmartShopBlocks\Customize_Button())->wishlist_compare_button( $settings, $product_type );
+	(new \ShopXpertBlocks\Customize_Button())->wishlist_compare_button( $settings, $product_type );
 }
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'" data-producttype="'.esc_attr( $product_type ).'">';

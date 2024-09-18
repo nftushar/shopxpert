@@ -772,7 +772,7 @@
     }
 }
  /** Block: image-marker Style End **/
-svg.smartshop-banner-default{
+svg.shopxpert-banner-default{
   fill-opacity: 0.1;
 }
 .wlspcial-banner .banner-thumb a {
@@ -843,30 +843,30 @@ svg.smartshop-banner-default{
   display: inline-block;
 }
 
-.smartshop-banner-content-pos-center .banner-content{
+.shopxpert-banner-content-pos-center .banner-content{
     top: 50%;
     right: 0;
     left: auto;
     transform: translateY(-50%);
 }
 
-.smartshop-banner-content-pos-bottom .banner-content {
+.shopxpert-banner-content-pos-bottom .banner-content {
   bottom: 0;
   padding-bottom: 40px;
 }
 
-.smartshop-banner-content-pos-top .banner-content {
+.shopxpert-banner-content-pos-top .banner-content {
   top: 0;
   padding-top: 40px;
 }
 
-.wlspcial-banner.smartshop-banner-content-pos-right .banner-content {
+.wlspcial-banner.shopxpert-banner-content-pos-right .banner-content {
   top: 50%;
   right: 0;
   width: auto;
   transform: translateY(-50%);
 }
-.wlspcial-banner.smartshop-banner-content-pos-left .banner-content {
+.wlspcial-banner.shopxpert-banner-content-pos-left .banner-content {
   top: 50%;
   left: 0;
   width: auto;
@@ -974,7 +974,7 @@ svg.smartshop-banner-default{
 .ht-feature-style-3 .ht-feature-img img{
     border-radius: 100%;
 }
-.smartshop-blocks.ht-feature-style-3 .ht-feature-img{
+.shopxpert-blocks.ht-feature-style-3 .ht-feature-img{
     line-height: 48px;
 }
 .ht-feature-style-3 .ht-feature-img i{
@@ -1049,7 +1049,7 @@ svg.smartshop-banner-default{
     max-width: 100%;
 }
  /** Block: store-feature Style End **/
-.smartshop-product-tab-area {
+.shopxpert-product-tab-area {
     position: relative;
     z-index: 35;
 }
@@ -1463,89 +1463,89 @@ svg.smartshop-banner-default{
     border-color: #282828;
 }
  /** Block: product-tab Style End **/
-.smartshop-banner {
+.shopxpert-banner {
     align-items: center;
     display: flex;
     flex-flow: row wrap;
     overflow: hidden;
 }
 
-.smartshop-banner-img, .smartshop-content {
+.shopxpert-banner-img, .shopxpert-content {
     width: 50%;
     float: left;
 }
 
-.smartshop-content {
+.shopxpert-content {
     padding-left: 70px;
 }
 
-.smartshop-banner .banner_subtitle {
+.shopxpert-banner .banner_subtitle {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
 }
 
-.smartshop-banner .banner_title {
+.shopxpert-banner .banner_title {
     font-size: 28px;
     font-weight: normal;
     margin: 35px 0;
 }
 
-.smartshop-banner .banner_button {
+.shopxpert-banner .banner_button {
     border-bottom: 1px solid #000;
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
 }
 
-.smartshop-content-align-right .smartshop-banner-img {
+.shopxpert-content-align-right .shopxpert-banner-img {
     order: 1;
     padding-left: 50px;
 }
 
-.smartshop-content-align-right .smartshop-content {
+.shopxpert-content-align-right .shopxpert-content {
     order: 2;
     padding-left: 40px;
 }
 
-.smartshop-content-align-right.smartshop-banner .banner_title {
+.shopxpert-content-align-right.shopxpert-banner .banner_title {
     margin: 20px 0;
 }
 
-.smartshop-content-align-bottom .smartshop-banner-img {
+.shopxpert-content-align-bottom .shopxpert-banner-img {
     order: 1;
     padding-left: 0;
     width: 100%;
 }
 
-.smartshop-content-align-bottom .smartshop-content {
+.shopxpert-content-align-bottom .shopxpert-content {
     order: 2;
     padding: 30px 0;
     text-align: center;
     width: 100%;
 }
 
-.smartshop-content-align-bottom .banner_title {
+.shopxpert-content-align-bottom .banner_title {
     margin: 0 0 20px;
 }
 
 /* Banner style two */
 
-.smartshop-banner-layout-2 {
+.shopxpert-banner-layout-2 {
     display: block;
     position: relative;
 }
 
-.smartshop-banner-layout-2 .smartshop-content {
+.shopxpert-banner-layout-2 .shopxpert-content {
     padding-left: 0;
 }
 
-.smartshop-banner-layout-2 .smartshop-banner-img {
+.shopxpert-banner-layout-2 .shopxpert-banner-img {
     float: none;
     width: 100%;
 }
 
-.smartshop-banner-layout-2 .smartshop-content {
+.shopxpert-banner-layout-2 .shopxpert-content {
     padding-left: 50px;
     position: absolute;
     top: 50px;
@@ -1553,18 +1553,18 @@ svg.smartshop-banner-default{
     width: 100%;
 }
 
-.smartshop-banner-layout-2 .smartshop-content h2 {
+.shopxpert-banner-layout-2 .shopxpert-content h2 {
     margin: 0;
 }
 
-.smartshop-banner-layout-2.smartshop-content-align-bottom .smartshop-content {
+.shopxpert-banner-layout-2.shopxpert-content-align-bottom .shopxpert-content {
     bottom: 50px;
     padding: 0 0 0 50px;
     top: auto;
     text-align: left;
 }
 
-.smartshop-banner-layout-2.smartshop-content-align-right .smartshop-content {
+.shopxpert-banner-layout-2.shopxpert-content-align-right .shopxpert-content {
     left: auto;
     padding-right: 50px;
     padding-left: 0;
@@ -1572,7 +1572,7 @@ svg.smartshop-banner-default{
     text-align: right;
 }
 
-.smartshop-banner-layout-2.smartshop-content-align-right .smartshop-banner-img {
+.shopxpert-banner-layout-2.shopxpert-content-align-right .shopxpert-banner-img {
     padding-left: 0px;
 }
 
@@ -1580,11 +1580,11 @@ svg.smartshop-banner-default{
     float: left;
 }
  /** Block: promo-banner Style End **/
-.htsmartshop-faq-card {
+.htshopxpert-faq-card {
     margin-bottom: 12px;
 }
 
-.htsmartshop-faq-card .htsmartshop-faq-head {
+.htshopxpert-faq-card .htshopxpert-faq-head {
     font-size: 17px;
     font-weight: 500;
     line-height: 1.625;
@@ -1601,46 +1601,46 @@ svg.smartshop-banner-default{
     justify-content: space-between;
 }
 
-.htsmartshop-faq .htsmartshop-faq-card.is-active .htsmartshop-faq-head .htsmartshop-faq-head-icon.htsmartshop-faq-close-icon, .htsmartshop-faq .htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-icon.htsmartshop-faq-open-icon {
+.htshopxpert-faq .htshopxpert-faq-card.is-active .htshopxpert-faq-head .htshopxpert-faq-head-icon.htshopxpert-faq-close-icon, .htshopxpert-faq .htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-icon.htshopxpert-faq-open-icon {
     display: block;
 }
 
-.htsmartshop-faq .htsmartshop-faq-card.is-active .htsmartshop-faq-head .htsmartshop-faq-head-icon.htsmartshop-faq-open-icon, .htsmartshop-faq .htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-icon.htsmartshop-faq-close-icon {
+.htshopxpert-faq .htshopxpert-faq-card.is-active .htshopxpert-faq-head .htshopxpert-faq-head-icon.htshopxpert-faq-open-icon, .htshopxpert-faq .htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-icon.htshopxpert-faq-close-icon {
     display: none;
 }
 
-.htsmartshop-faq .htsmartshop-faq-card.is-active .htsmartshop-faq-head .htsmartshop-faq-head-icon svg :not([stroke="none"]) {
+.htshopxpert-faq .htshopxpert-faq-card.is-active .htshopxpert-faq-head .htshopxpert-faq-head-icon svg :not([stroke="none"]) {
     fill: #FFFFFF;
 }
 
-.htsmartshop-faq .htsmartshop-faq-card.is-active .htsmartshop-faq-head .htsmartshop-faq-head-icon svg :not([fill="none"]) {
+.htshopxpert-faq .htshopxpert-faq-card.is-active .htshopxpert-faq-head .htshopxpert-faq-head-icon svg :not([fill="none"]) {
     stroke: #FFFFFF;
 }
 
-.htsmartshop-faq .htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-icon svg [fill="none"] {
+.htshopxpert-faq .htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-icon svg [fill="none"] {
     fill: transparent !important;
 }
 
-.htsmartshop-faq .htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-icon svg [stroke="none"] {
+.htshopxpert-faq .htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-icon svg [stroke="none"] {
     stroke: transparent !important;
 }
 
 @media only screen and (max-width: 767px) {
-    .htsmartshop-faq-card .htsmartshop-faq-head {
+    .htshopxpert-faq-card .htshopxpert-faq-head {
         padding: 15px 15px;
         font-size: 16px;
         line-height: 1.5;
     }
 }
 
-.htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-indicator {
+.htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-indicator {
     position: relative;
     width: 14px;
     height: 14px;
     margin-left: 10px;
 }
 
-.htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-indicator::before, .htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-indicator::after {
+.htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-indicator::before, .htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-indicator::after {
     position: absolute;
     top: 50%;
     left: 0;
@@ -1654,42 +1654,42 @@ svg.smartshop-banner-default{
 }
 
 @media only screen and (max-width: 767px) {
-    .htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-indicator {
+    .htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-indicator {
         margin-left: 15px;
     }
 }
 
-.htsmartshop-faq-card .htsmartshop-faq-head .htsmartshop-faq-head-indicator::after {
+.htshopxpert-faq-card .htshopxpert-faq-head .htshopxpert-faq-head-indicator::after {
     transform: translateY(-50%) rotate(90deg);
 }
 
-.htsmartshop-faq-card .htsmartshop-faq-body {
+.htshopxpert-faq-card .htshopxpert-faq-body {
     overflow: hidden;
 }
 
-.htsmartshop-faq-card .htsmartshop-faq-body .htsmartshop-faq-content {
+.htshopxpert-faq-card .htshopxpert-faq-body .htshopxpert-faq-content {
     padding: 16px 25px 4px;
 }
 
 @media only screen and (max-width: 767px) {
-    .htsmartshop-faq-card .htsmartshop-faq-body .htsmartshop-faq-content {
+    .htshopxpert-faq-card .htshopxpert-faq-body .htshopxpert-faq-content {
         padding: 16px 15px 4px;
     }
 }
 
-.htsmartshop-faq-card .htsmartshop-faq-body .htsmartshop-faq-content p {
+.htshopxpert-faq-card .htshopxpert-faq-body .htshopxpert-faq-content p {
     font-size: 15px;
     line-height: 30px;
     margin: 0;
 }
 
-.htsmartshop-faq-card.is-active .htsmartshop-faq-head {
+.htshopxpert-faq-card.is-active .htshopxpert-faq-head {
     color: #FFFFFF;
     border-color: #dc9a0e;
     background-color: #dc9a0e;
 }
 
-.htsmartshop-faq-card.is-active .htsmartshop-faq-head .htsmartshop-faq-head-indicator::after {
+.htshopxpert-faq-card.is-active .htshopxpert-faq-head .htshopxpert-faq-head-indicator::after {
     background-color: #ffffff;
     transform: translateY(-50%);
 }
@@ -1735,7 +1735,7 @@ svg.smartshop-banner-default{
     width: 100%;
 }
 
-.smartshop_block_cart_table .wl_cart_table{
+.shopxpert_block_cart_table .wl_cart_table{
     width: 100%;
 }
 
@@ -2028,7 +2028,7 @@ svg.smartshop-banner-default{
     color: #aaaaaa;
 }
 
-.wl_single-product-item .action li .smartshop-compare.compare::before {
+.wl_single-product-item .action li .shopxpert-compare.compare::before {
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -2125,13 +2125,13 @@ svg.smartshop-banner-default{
     margin-right: 10px
 }
 
-.smartshop-compare.compare{
+.shopxpert-compare.compare{
     -webkit-text-indent: -99999px;
     text-indent: -99999px;
 }
 .wl_product-accordion .action .woocommerce.product.compare-button a:before,
 .wl_horizontal-hover-accordion .action .woocommerce.product.compare-button a:before,
-.wl_single-product-item .action li .smartshop-compare.compare::before {
+.wl_single-product-item .action li .shopxpert-compare.compare::before {
     content: "\f0ec";
     position: absolute;
     font-family: FontAwesome !important;
@@ -2153,7 +2153,7 @@ svg.smartshop-banner-default{
     border-radius: 50%;
     text-align: center;
 }
-.woocommerce.smartshop-product-curvy .wl_single-product-item .product-content .action li a:not(.added){
+.woocommerce.shopxpert-product-curvy .wl_single-product-item .product-content .action li a:not(.added){
     /* display: block !important; */
     display: flex !important;
     line-height: 40px !important;
@@ -2163,10 +2163,10 @@ svg.smartshop-banner-default{
  /** Block: product-curvy Style End **/
 
  /** Block: universla-product Style Start **/
- [class*="smartshop-grid-"].smartshop-block-slider{
+ [class*="shopxpert-grid-"].shopxpert-block-slider{
      margin: 0 -15px;
  }
-.ht-product.smartshop-slider-item {
+.ht-product.shopxpert-slider-item {
     padding: 0 15px;
 }
 /** Block: universla-product Style End **/

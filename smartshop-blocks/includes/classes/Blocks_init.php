@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks;
+namespace ShopXpertBlocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -48,7 +48,7 @@ class Blocks_init {
             require_once( ABSPATH . 'wp-includes/formatting.php' );
         }
 
-        $block = apply_filters( 'smartshop/register_block_args', $block );
+        $block = apply_filters( 'shopxpert/register_block_args', $block );
 
         if ( ! function_exists( 'register_block_type' ) ) {
 			return;
@@ -64,7 +64,7 @@ class Blocks_init {
             $block_dir = ( isset($block['is_pro']) && $block['is_pro'] == true && defined( "SHOPXPERT_ADDONS_PL_PATH_PRO" ) ) ? SHOPXPERT_ADDONS_PL_PATH_PRO . 'blocks/' : SMARTSHOP_BLOCK_PATH . '/build/blocks/';
         }
 
-        $block_name  = str_replace('smartshop/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));
+        $block_name  = str_replace('shopxpert/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));
         $block_file  = $block_dir . $block_name . '/index.php';
 
         // Get Block JSON
@@ -133,7 +133,7 @@ class Blocks_init {
 	public function enqueue_block_assets( $block ){
 
         // Assest handle name.
-        $handle = 'smartshop-' . $block['block_name'];
+        $handle = 'shopxpert-' . $block['block_name'];
         
         // Enqueue style.
         if( $block['enqueue_style'] ) {
@@ -186,8 +186,8 @@ class Blocks_init {
 
         foreach ( $block_list as $block_key => $block ) {
             if( is_array( $block ) ){
-                $block_name = str_replace('smartshop/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));
-                if( $block['active'] === true && smartshopBlocks_get_option( $block_key, 'smartshop_gutenberg_tabs', 'on' ) === 'on' ){
+                $block_name = str_replace('shopxpert/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));
+                if( $block['active'] === true && shopxpertBlocks_get_option( $block_key, 'shopxpert_gutenberg_tabs', 'on' ) === 'on' ){
                     $this->register_block( $block );
                     self::$blocksList[$block['type']][] = $block_name;
                 }
@@ -267,7 +267,7 @@ class Blocks_init {
      * @return boolean
      */
     public function is_fire_quickview_ajax() {
-        if( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'smartshop_quickview' ){
+        if( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'shopxpert_quickview' ){
             return true;
         }else{
             return false;

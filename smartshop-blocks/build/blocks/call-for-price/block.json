@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/call-for-price",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/call-for-price",
+  "category": "shopxpert-single-product",
   "title": "WL: Call For Price",
   "description": "Display call for price button in single product page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product",
     "single",
     "call",

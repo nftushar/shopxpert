@@ -1,6 +1,6 @@
 <?php  
 
-namespace Smartshop\Incs\Admin\Inc;
+namespace Shopxpert\Incs\Admin\Inc;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Smartshop_Template_CPT{
 
-    const CPTTYPE = 'smartshop-template';
+    const CPTTYPE = 'shopxpert-template';
 
     private static $_instance = null;
     public static function instance(){
@@ -90,7 +90,7 @@ class Smartshop_Template_CPT{
 			'can_export'          => true,
 			'has_archive'         => false,
 			'rewrite'             => array(
-				'slug'       => 'smartshop-template',
+				'slug'       => 'shopxpert-template',
 				'pages'      => false,
 				'with_front' => true,
 				'feeds'      => false,
@@ -112,9 +112,9 @@ class Smartshop_Template_CPT{
      * @return [void]
      */
     public function flush_rewrite_rules() {
-        if( get_option('smartshop_plugin_permalinks_flushed', TRUE ) !== 'yes' ) {
+        if( get_option('shopxpert_plugin_permalinks_flushed', TRUE ) !== 'yes' ) {
             flush_rewrite_rules();
-            update_option( 'smartshop_plugin_permalinks_flushed', 'yes' );
+            update_option( 'shopxpert_plugin_permalinks_flushed', 'yes' );
         }
     }
 
@@ -126,10 +126,10 @@ class Smartshop_Template_CPT{
 	public function register_post_meta_field() {
 
 		// Get Default Value from Global Option
-		$default_width = function_exists( 'smartshop_get_option' ) ? (int)smartshop_get_option( 'container_width', 'smartshop_gutenberg_tabs', 1140 ) : 1140;
+		$default_width = function_exists( 'shopxpert_get_option' ) ? (int)shopxpert_get_option( 'container_width', 'shopxpert_gutenberg_tabs', 1140 ) : 1140;
 
 		// Meta Field for Container Width
-		register_post_meta( self::CPTTYPE, '_smartshop_container_width',
+		register_post_meta( self::CPTTYPE, '_shopxpert_container_width',
 			[
 				'show_in_rest' 	=> true,
 				'single' 		=> true,

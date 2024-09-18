@@ -1,6 +1,6 @@
 <?php 
 
-namespace smartshop;
+namespace shopxpert;
  
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly

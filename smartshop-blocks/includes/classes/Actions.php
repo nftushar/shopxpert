@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks;
+namespace ShopXpertBlocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {

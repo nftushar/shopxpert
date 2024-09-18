@@ -1,6 +1,6 @@
 <?php 
 
-namespace SmartShop;
+namespace ShopXpert ;
  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -161,7 +161,7 @@ class Assets_Management{
                 ],
                 'option_data' => [],
             );
-            wp_localize_script('shopxpert-admin-main', 'SMARTSHOP_ADMIN', $datalocalize);
+            wp_localize_script('shopxpert-admin-main', 'SHOPXPERT_ADMIN', $datalocalize);
     
             // Localize Scripts For template Library
             $current_user = wp_get_current_user();
@@ -173,7 +173,7 @@ class Assets_Management{
                 'version'          => SHOPXPERT_VERSION,
                 'pluginURL'        => plugin_dir_url(__FILE__),
                 'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
-                'prolink'          => 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=library',
+                'prolink'          => 'https:// shopxpert .com/pricing/?utm_source=admin&utm_medium=library',
                 'prolabel'         => esc_html__('Pro', 'shopxper'),
                 'loadingimg'       => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
                 'message'          => [

@@ -4,16 +4,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass     = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses   = array( $uniqClass, 'woocommerce', 'smartshop-product-curvy' );
+$uniqClass     = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses   = array( $uniqClass, 'woocommerce', 'shopxpert-product-curvy' );
 
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 
-!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'smartshop-grid-columns-'.$settings['columns']['desktop'] : 'smartshop-grid-columns-4';
-!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'smartshop-grid-columns-laptop-'.$settings['columns']['laptop'] : 'smartshop-grid-columns-laptop-3';
-!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-grid-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-grid-columns-tablet-2';
-!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-grid-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-grid-columns-mobile-1';
+!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-'.$settings['columns']['desktop'] : 'shopxpert-grid-columns-4';
+!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-laptop-'.$settings['columns']['laptop'] : 'shopxpert-grid-columns-laptop-3';
+!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'shopxpert-grid-columns-tablet-'.$settings['columns']['tablet'] : 'shopxpert-grid-columns-tablet-2';
+!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'shopxpert-grid-columns-mobile-'.$settings['columns']['mobile'] : 'shopxpert-grid-columns-mobile-1';
 
 $queryArgs = [
 	'perPage'	=> $settings['perPage'],
@@ -26,7 +26,7 @@ if( $settings['customOrder'] ){
 if( is_array( $settings['selectedCategories'] ) && count( $settings['selectedCategories'] ) > 0 ){
 	$queryArgs['categories'] = $settings['selectedCategories'];
 }
-$products = new \WP_Query( smartshopBlocks_Product_Query( $queryArgs ) );
+$products = new \WP_Query( shopxpertBlocks_Product_Query( $queryArgs ) );
 
 
 $content_style = '';
@@ -45,7 +45,7 @@ if( isset( $settings['layout'] ) ){
 
 	<?php if( $products->have_posts() ): ?>
 
-		<div class="smartshop-grid <?php echo ( $settings['noGutter'] === true ? esc_attr('smartshop-no-gutters') : '' ); ?>">
+		<div class="shopxpert-grid <?php echo ( $settings['noGutter'] === true ? esc_attr('shopxpert-no-gutters') : '' ); ?>">
 			<?php
 				while( $products->have_posts() ) {
 					$products->the_post();
@@ -58,7 +58,7 @@ if( isset( $settings['layout'] ) ){
 					$description = wp_trim_words ( get_the_content(), $settings['contentLimit'], '' );
 
 					?>
-						<div class="smartshop-grid-column">
+						<div class="shopxpert-grid-column">
 							<div class="wl_single-product-item <?php echo esc_attr($content_style); ?>">
 
 								<a href="<?php the_permalink(); ?>" class="product-thumbnail">
@@ -98,14 +98,14 @@ if( isset( $settings['layout'] ) ){
 											<a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( '<i class="fa fa-shopping-cart"></i>', 'shopxper' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 										</li>
 										<?php
-											if( true === smartshop_has_wishlist_plugin() ){
-												echo '<li>'.smartshop_add_to_wishlist_button('<i class="fa fa-heart-o"></i>','<i class="fa fa-heart"></i>').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											if( true === shopxpert_has_wishlist_plugin() ){
+												echo '<li>'.shopxpert_add_to_wishlist_button('<i class="fa fa-heart-o"></i>','<i class="fa fa-heart"></i>').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 											}
 										?>                                    
 										<?php
-											if( function_exists('smartshop_compare_button') && true === smartshop_exist_compare_plugin() ){
+											if( function_exists('shopxpert_compare_button') && true === shopxpert_exist_compare_plugin() ){
 												echo '<li>';
-													smartshop_compare_button(
+													shopxpert_compare_button(
 														array(
 															'style' => 2,
 															'btn_text' => '<i class="fa fa-exchange"></i>',

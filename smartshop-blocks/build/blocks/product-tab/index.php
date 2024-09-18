@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 	}
 
-	$args = smartshop_product_query( $query_args );
+	$args = shopxpert_product_query( $query_args );
 
 	$products = new \WP_Query( $args );
 
@@ -68,19 +68,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$slider_settings = array_merge( $slider_settings, $slider_responsive_settings );
 	}
 
-	$collumval = 'slide-item smartshop-grid-column';
+	$collumval = 'slide-item shopxpert-grid-column';
 	
 
 	$tabuniqid = $settings['blockUniqId'];
-	$uniqClass = 'smartshopblock-'.$settings['blockUniqId'];
+	$uniqClass = 'shopxpertblock-'.$settings['blockUniqId'];
 	$customClass .= ' '.$uniqClass;
 	!empty( $settings['className'] ) ? $customClass .= ' '.$settings['className'] : '';
 
-	$areaClasses   = array( 'smartshop-product-tab-area' );
-	!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'smartshop-grid-columns-'.$settings['columns']['desktop'] : 'smartshop-grid-columns-4';
-	!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'smartshop-grid-columns-laptop-'.$settings['columns']['laptop'] : 'smartshop-grid-columns-laptop-3';
-	!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-grid-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-grid-columns-tablet-2';
-	!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-grid-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-grid-columns-mobile-1';
+	$areaClasses   = array( 'shopxpert-product-tab-area' );
+	!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-'.$settings['columns']['desktop'] : 'shopxpert-grid-columns-4';
+	!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-laptop-'.$settings['columns']['laptop'] : 'shopxpert-grid-columns-laptop-3';
+	!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'shopxpert-grid-columns-tablet-'.$settings['columns']['tablet'] : 'shopxpert-grid-columns-tablet-2';
+	!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'shopxpert-grid-columns-mobile-'.$settings['columns']['mobile'] : 'shopxpert-grid-columns-mobile-1';
 
 ?>
 <div class="<?php echo esc_attr($customClass); ?>">
@@ -126,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						if( $fetchproduct->have_posts() ){
 							?>
-								<li><a class="<?php if($m==1){ echo 'htactive';}?>" href="#smartshoptab<?php echo esc_attr($tabuniqid.$m);?>">
+								<li><a class="<?php if($m==1){ echo 'htactive';}?>" href="#shopxperttab<?php echo esc_attr($tabuniqid.$m);?>">
 									<?php echo esc_attr( $prod_cats->name );?>
 								</a></li>
 							<?php
@@ -173,8 +173,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				if( $products->have_posts() ):
 		?>
-			<div class="ht-tab-pane <?php if( $j==1 ){ echo 'htactive'; } ?>" id="<?php echo esc_attr('smartshoptab'.$tabuniqid.$j);?>">
-				<div class="smartshop-grid">
+			<div class="ht-tab-pane <?php if( $j==1 ){ echo 'htactive'; } ?>" id="<?php echo esc_attr('shopxperttab'.$tabuniqid.$j);?>">
+				<div class="shopxpert-grid">
 
 					<!-- product item start -->
 					<div class="<?php echo esc_attr( $collumval );?>">
@@ -197,7 +197,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; endforeach;?>
 
 	<?php else:?>
-		<div class="smartshop-grid <?php echo ( $proslider == 'yes' ) ? 'smartshop-grid-slider' : ''; ?>">
+		<div class="shopxpert-grid <?php echo ( $proslider == 'yes' ) ? 'shopxpert-grid-slider' : ''; ?>">
 
 			<?php if( $proslider == 'yes' ){ echo '<div id="product-slider-' . esc_attr($settings['blockUniqId']) . '" dir="'.esc_attr($direction).'" class="product-slider" data-settings=\'' . wp_json_encode($slider_settings) . '\' style="display:none">';}?>
 				

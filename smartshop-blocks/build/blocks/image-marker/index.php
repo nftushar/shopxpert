@@ -4,14 +4,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	$uniqClass = 'smartshopblock-'.$settings['blockUniqId'];
-	$areaClasses = array( 'smartshop-marker-area' );
+	$uniqClass = 'shopxpertblock-'.$settings['blockUniqId'];
+	$areaClasses = array( 'shopxpert-marker-area' );
 	$classes = array( $uniqClass, 'wlb-marker-wrapper' );
 	!empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 	!empty( $settings['className'] ) ? $classes[] = esc_attr( $settings['className'] ) : '';
 	!empty( $settings['style'] ) ? $classes[] = 'wlb-marker-style-'.$settings['style'] : 'wlb-marker-style-1';
 
-	$background_image = smartshopBlocks_Background_Control( $settings, 'bgProperty' );
+	$background_image = shopxpertBlocks_Background_Control( $settings, 'bgProperty' );
 
 ?>
 <div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">

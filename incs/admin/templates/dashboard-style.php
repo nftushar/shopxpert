@@ -1,29 +1,29 @@
 <?php
     if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-    $element_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_style_tabs'];
+    $element_fields = Smartshop_Admin_Fields::instance()->fields()['shopxpert_style_tabs'];
     $element_keys   = Smartshop_Admin_Fields_Manager::instance()->get_field_key( $element_fields, 'name' );
 
 ?>
-<div id="smartshop_style_tabs" class="shopxper-admin-main-tab-pane">
+<div id="shopxpert_style_tabs" class="shopxper-admin-main-tab-pane">
     <div class="shopxper-admin-main-tab-pane-inner">
-        <form class="smartshop-dashboard" id="smartshop-dashboard-style-form" action="#" method="post" data-section="smartshop_style_tabs" data-fields='<?php echo wp_json_encode( $element_keys ); ?>'>
-            <div class="smartshop-admin-options">
+        <form class="shopxpert-dashboard" id="shopxpert-dashboard-style-form" action="#" method="post" data-section="shopxpert_style_tabs" data-fields='<?php echo wp_json_encode( $element_keys ); ?>'>
+            <div class="shopxpert-admin-options">
 
                 <?php
                     foreach( $element_fields as $key => $field ){
-                        Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'smartshop_style_tabs' );
+                        Smartshop_Admin_Fields_Manager::instance()->add_field( $field, 'shopxpert_style_tabs' );
                     }
                 ?>
 
-                <div class="smartshop-admin-option-heading">
-                    <h4 class="smartshop-admin-option-heading-title"><?php echo esc_html__('Helping Screenshot','shopxper');?></h4>
+                <div class="shopxpert-admin-option-heading">
+                    <h4 class="shopxpert-admin-option-heading-title"><?php echo esc_html__('Helping Screenshot','shopxper');?></h4>
                 </div>
-                <div class="smartshop-admin-option">
+                <div class="shopxpert-admin-option">
                     <img src="<?php echo esc_url(SHOPXPERT_ADDONS_PL_URL.'incs/admin/assets/images/helping-screenshot.png'); ?>" alt="<?php echo esc_attr__('Helping Screenshot','shopxper'); ?>">
                 </div>
-                <div class="smartshop-admin-option smartshop-sticky-condition">
-                    <button class="smartshop-admin-btn-save smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1" style="margin-left:auto;" disabled="disabled"><?php echo esc_html__('D Save Changes','shopxper');?></button>
+                <div class="shopxpert-admin-option shopxpert-sticky-condition">
+                    <button class="shopxpert-admin-btn-save shopxpert-admin-btn shopxpert-admin-btn-primary hover-effect-1" style="margin-left:auto;" disabled="disabled"><?php echo esc_html__('D Save Changes','shopxper');?></button>
                 </div>
             </div>
         </form>

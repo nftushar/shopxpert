@@ -1,6 +1,6 @@
 <?php
 namespace WooWooWishSuite;
-use function  Smartshop\incs\smartshop_get_option;
+use function  Shopxpert\incs\shopxpert_get_option;
 
 
 /**
@@ -95,12 +95,12 @@ class Assets {
         
         // Frontend Localize data
         $option_data = array(
-            'after_added_to_cart' => smartshop_get_option( 'after_added_to_cart', 'wishsuite_table_settings_tabs', 'on' ),
+            'after_added_to_cart' => shopxpert_get_option( 'after_added_to_cart', 'wishsuite_table_settings_tabs', 'on' ),
         );
         
-        if( is_user_logged_in() &&  smartshop_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' ) === 'on' ){
+        if( is_user_logged_in() &&  shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' ) === 'on' ){
             $option_data['btn_limit_login_off'] = 'off';
-        }else if( !is_user_logged_in() && smartshop_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' ) === 'on' ){
+        }else if( !is_user_logged_in() && shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' ) === 'on' ){
             $option_data['btn_limit_login_off'] = 'on';
         }
 
@@ -116,14 +116,14 @@ class Assets {
             $setting_page = 1;
         }
         $admin_option_data = array(
-            'btn_icon_type'        => smartshop_get_option( 'button_icon_type', 'wishsuite_style_settings_tabs', 'default' ),
-            'added_btn_icon_type'  => smartshop_get_option( 'addedbutton_icon_type', 'wishsuite_style_settings_tabs', 'default' ),
-            'shop_btn_position'    => smartshop_get_option( 'shop_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' ),
-            'product_btn_position' => smartshop_get_option( 'product_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' ),
-            'button_style'         => smartshop_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' ),
-            'table_style'          => smartshop_get_option( 'table_style', 'wishsuite_style_settings_tabs', 'default' ),
-            'enable_social_share'  => smartshop_get_option( 'enable_social_share','wishsuite_table_settings_tabs','on' ),
-            'enable_login_limit'   => smartshop_get_option( 'enable_login_limit','wishsuite_general_tabs','off' ),
+            'btn_icon_type'        => shopxpert_get_option( 'button_icon_type', 'wishsuite_style_settings_tabs', 'default' ),
+            'added_btn_icon_type'  => shopxpert_get_option( 'addedbutton_icon_type', 'wishsuite_style_settings_tabs', 'default' ),
+            'shop_btn_position'    => shopxpert_get_option( 'shop_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' ),
+            'product_btn_position' => shopxpert_get_option( 'product_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' ),
+            'button_style'         => shopxpert_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' ),
+            'table_style'          => shopxpert_get_option( 'table_style', 'wishsuite_style_settings_tabs', 'default' ),
+            'enable_social_share'  => shopxpert_get_option( 'enable_social_share','wishsuite_table_settings_tabs','on' ),
+            'enable_login_limit'   => shopxpert_get_option( 'enable_login_limit','wishsuite_general_tabs','off' ),
         );
         $admin_localize_data = array(
             'ajaxurl'    => admin_url( 'admin-ajax.php' ),
@@ -150,7 +150,7 @@ class Assets {
         $button_custom_css = $table_custom_css = '';
 
         // Button Custom Style
-        if( 'custom' === smartshop_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' ) ){
+        if( 'custom' === shopxpert_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' ) ){
 
             $btn_padding = woowishsuite_dimensions( 'button_custom_padding','wishsuite_style_settings_tabs','padding' );
             $btn_margin  = woowishsuite_dimensions( 'button_custom_margin','wishsuite_style_settings_tabs','margin' );
@@ -179,7 +179,7 @@ class Assets {
         }
 
         // Wishlist table style
-        if( 'custom' === smartshop_get_option( 'table_style', 'wishsuite_style_settings_tabs', 'default' ) ){
+        if( 'custom' === shopxpert_get_option( 'table_style', 'wishsuite_style_settings_tabs', 'default' ) ){
 
             $heading_color    = woowishsuite_generate_css('table_heading_color','wishsuite_style_settings_tabs','color');
             $heading_bg_color = woowishsuite_generate_css('table_heading_bg_color','wishsuite_style_settings_tabs','background-color');

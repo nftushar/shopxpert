@@ -60,8 +60,8 @@
         'linkedin'   => esc_html__( 'Linkedin', 'wishsuite' ),
         'telegram'   => esc_html__( 'Telegram', 'wishsuite' ),
     ];
-	$button_list = smartshop_get_option( 'social_share_buttons','wishsuite_table_settings_tabs', $default_buttons );
-	$button_text = smartshop_get_option( 'social_share_button_title','wishsuite_table_settings_tabs', 'Share:' );
+	$button_list = shopxpert_get_option( 'social_share_buttons','wishsuite_table_settings_tabs', $default_buttons );
+	$button_text = shopxpert_get_option( 'social_share_button_title','wishsuite_table_settings_tabs', 'Share:' );
 
 	if( is_array($button_list) ){
 

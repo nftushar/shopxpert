@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/category-grid",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/category-grid",
+  "category": "shopxpert-blocks",
   "title": "WL : Category Grid",
   "description": "Display product category grid.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "shop category",
     "category grid",
     "product category",
@@ -139,7 +139,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-grid:not(.smartshop-no-gutters) { column-gap: {{itemSpace}}px; row-gap: {{itemSpace}}px; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-grid:not(.shopxpert-no-gutters) { column-gap: {{itemSpace}}px; row-gap: {{itemSpace}}px; }"
       }
     },
     "areaPadding": {

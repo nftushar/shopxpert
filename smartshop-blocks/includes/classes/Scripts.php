@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks;
+namespace ShopXpertBlocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -42,7 +42,7 @@ class Scripts {
 	public function block_assets() {
 
 		wp_enqueue_script(
-		    'smartshop-block-main',
+		    'shopxpert-block-main',
 		    SMARTSHOP_BLOCK_URL . '/assets/js/script.js',
 		    array('jquery'),
 		    SHOPXPERT_VERSION,
@@ -50,20 +50,20 @@ class Scripts {
 		);
 
 		wp_enqueue_style(
-		    'smartshop-block-common',
+		    'shopxpert-block-common',
 		    SMARTSHOP_BLOCK_URL . '/assets/css/common-style.css',
 		    array(),
 		    SHOPXPERT_VERSION
 		);
 
 		wp_enqueue_style(
-		    'smartshop-block-default',
+		    'shopxpert-block-default',
 		    SMARTSHOP_BLOCK_URL . '/assets/css/style-index.css',
 		    array(),
 		    SHOPXPERT_VERSION
 		);
 
-		if ( smartshopBlocks_Has_Blocks( smartshopBlocks_get_ID() ) || smartshopBlocks_is_gutenberg_page() || (is_front_page() || is_home()) ){
+		if ( shopxpertBlocks_Has_Blocks( shopxpertBlocks_get_ID() ) || shopxpertBlocks_is_gutenberg_page() || (is_front_page() || is_home()) ){
 			$this->load_css();
 		}
 
@@ -73,7 +73,7 @@ class Scripts {
 	 * Load CSS File
 	 */
 	public function load_css(){
-		wp_enqueue_style( 'smartshop-block-style', SMARTSHOP_BLOCK_URL . '/assets/css/blocks.style.build.css', array(), SHOPXPERT_VERSION );
+		wp_enqueue_style( 'shopxpert-block-style', SMARTSHOP_BLOCK_URL . '/assets/css/blocks.style.build.css', array(), SHOPXPERT_VERSION );
 	}
 
 	/**
@@ -94,13 +94,13 @@ class Scripts {
 			// Third-Party Scripts
 			$this->load_extra_scripts();
 
-			wp_enqueue_style( 'smartshop-block-template-library', SMARTSHOP_BLOCK_URL . '/assets/css/template-library.css', [], SHOPXPERT_VERSION, 'all' );
-			wp_enqueue_style( 'smartshop-block-editor-style', SMARTSHOP_BLOCK_URL . '/assets/css/editor-style.css', [], SHOPXPERT_VERSION, 'all' );
+			wp_enqueue_style( 'shopxpert-block-template-library', SMARTSHOP_BLOCK_URL . '/assets/css/template-library.css', [], SHOPXPERT_VERSION, 'all' );
+			wp_enqueue_style( 'shopxpert-block-editor-style', SMARTSHOP_BLOCK_URL . '/assets/css/editor-style.css', [], SHOPXPERT_VERSION, 'all' );
 
-			$dependencies = require_once( SMARTSHOP_BLOCK_PATH . '/build/blocks-smartshop.asset.php' );
+			$dependencies = require_once( SMARTSHOP_BLOCK_PATH . '/build/blocks-shopxpert.asset.php' );
 			wp_enqueue_script(
-				'smartshop-blocks',
-				SMARTSHOP_BLOCK_URL . '/build/blocks-smartshop.js',
+				'shopxpert-blocks',
+				SMARTSHOP_BLOCK_URL . '/build/blocks-shopxpert.js',
 				$dependencies['dependencies'],
 				SHOPXPERT_VERSION,
 				true
@@ -112,22 +112,22 @@ class Scripts {
 			$editor_localize_data = array(
 				'url' 		=> SMARTSHOP_BLOCK_URL,
 				'ajax' 		=> admin_url('admin-ajax.php'),
-				'security' 	=> wp_create_nonce('smartshopblock-nonce'),
+				'security' 	=> wp_create_nonce('shopxpertblock-nonce'),
 				'locale' 	=> get_locale(),
 				'options'	=> $this->get_block_list()['block_list'],
 				'templateType'	=> $this->get_block_list()['template_type'],
 				'sampledata'	=> is_admin() ? Sample_Data::instance()->get_sample_data( false, 'sampledata/product' ) : array(),
-				'prostatus'		=> is_admin() ? is_plugin_active('smartshop-addons-pro/smartshop_addons_pro.php') : false,
+				'prostatus'		=> is_admin() ? is_plugin_active('shopxpert-addons-pro/shopxpert_addons_pro.php') : false,
 				'templatelist'	=> is_admin() ? \Smartshop_Template_Library_Manager::get_gutenberg_templates_info() : array(),
-				'prolink'		=> 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=gtlibrary',
+				'prolink'		=> 'https://shopxpert.com/pricing/?utm_source=admin&utm_medium=gtlibrary',
 			);
 
 			// My Account MenuList
-			if( (get_post_type() === 'smartshop-template') || (basename( $_SERVER['PHP_SELF'] ) === 'site-editor.php') ){
+			if( (get_post_type() === 'shopxpert-template') || (basename( $_SERVER['PHP_SELF'] ) === 'site-editor.php') ){
 				$editor_localize_data['myaccountmenu'] = function_exists('wc_get_account_menu_items') ? ( wc_get_account_menu_items() + ['customadd' => esc_html__( 'Custom', 'shopxper' )] ) : [];
 			}
 
-			wp_localize_script( 'smartshop-blocks', 'smartshopData', $editor_localize_data );
+			wp_localize_script( 'shopxpert-blocks', 'shopxpertData', $editor_localize_data );
 		}
 
 	}
@@ -146,8 +146,8 @@ class Scripts {
 		}
 		wp_enqueue_style('wishsuite-frontend');
 		wp_enqueue_style('evercompare-frontend');
-		if( defined('\Smartshop\Features\CurrencySwitcher\FEATURE_ASSETS') ){
-			wp_enqueue_style('smartshop-currency-switcher', \Smartshop\Features\CurrencySwitcher\FEATURE_ASSETS . '/css/frontend.css', [], SHOPXPERT_VERSION );
+		if( defined('\Shopxpert\Features\CurrencySwitcher\FEATURE_ASSETS') ){
+			wp_enqueue_style('shopxpert-currency-switcher', \Shopxpert\Features\CurrencySwitcher\FEATURE_ASSETS . '/css/frontend.css', [], SHOPXPERT_VERSION );
 		}
 
 	}
@@ -171,8 +171,8 @@ class Scripts {
 			);
 		}
 		
-		if( get_post_type() === 'smartshop-template' ){
-            $tmpType = Blocks_init::instance()->get_template_type( get_post_meta( get_the_ID(), 'smartshop_template_meta_type', true ) );
+		if( get_post_type() === 'shopxpert-template' ){
+            $tmpType = Blocks_init::instance()->get_template_type( get_post_meta( get_the_ID(), 'shopxpert_template_meta_type', true ) );
         }else{
             $tmpType = '';
         }

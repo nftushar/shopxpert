@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/shop-archive-default",
-  "category": "smartshop-shop",
+  "name": "shopxpert/shop-archive-default",
+  "category": "shopxpert-shop",
   "title": "WL: Product Archive Layout (Default)",
   "description": "Display product grid on shop / archive page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "shop",
     "archive",
     "product shop",

@@ -4,7 +4,7 @@
  
  
 
-  .smartshop-admin-wrapper {
+  .shopxpert-admin-wrapper {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -14,73 +14,73 @@
     visibility: visible;
     color: #6D7175;
   }
-  .smartshop-admin-wrapper h1, .smartshop-admin-wrapper h2, .smartshop-admin-wrapper h3, .smartshop-admin-wrapper h4, .smartshop-admin-wrapper h5, .smartshop-admin-wrapper h6 {
+  .shopxpert-admin-wrapper h1, .shopxpert-admin-wrapper h2, .shopxpert-admin-wrapper h3, .shopxpert-admin-wrapper h4, .shopxpert-admin-wrapper h5, .shopxpert-admin-wrapper h6 {
     font-family: "Open Sans", sans-serif;
     line-height: 1.2;
     margin-top: 0;
   }
-  .smartshop-admin-wrapper .h1, .smartshop-admin-wrapper .h2, .smartshop-admin-wrapper .h3, .smartshop-admin-wrapper .h4, .smartshop-admin-wrapper .h5, .smartshop-admin-wrapper .h6 {
+  .shopxpert-admin-wrapper .h1, .shopxpert-admin-wrapper .h2, .shopxpert-admin-wrapper .h3, .shopxpert-admin-wrapper .h4, .shopxpert-admin-wrapper .h5, .shopxpert-admin-wrapper .h6 {
     line-height: inherit;
     margin: 0;
   }
-  .smartshop-admin-wrapper p {
+  .shopxpert-admin-wrapper p {
     margin-top: 0;
   }
-  .smartshop-admin-wrapper p:last-child {
+  .shopxpert-admin-wrapper p:last-child {
     margin-bottom: 0;
   }
-  .smartshop-admin-wrapper a, .smartshop-admin-wrapper button {
+  .shopxpert-admin-wrapper a, .shopxpert-admin-wrapper button {
     cursor: pointer;
     text-decoration: none;
   }
-  .smartshop-admin-wrapper a:not(.ui-draggable), .smartshop-admin-wrapper button, .smartshop-admin-wrapper img, .smartshop-admin-wrapper input {
+  .shopxpert-admin-wrapper a:not(.ui-draggable), .shopxpert-admin-wrapper button, .shopxpert-admin-wrapper img, .shopxpert-admin-wrapper input {
     transition: all 0.3s ease 0s;
   }
-  .smartshop-admin-wrapper *:focus {
+  .shopxpert-admin-wrapper *:focus {
     outline: none;
     box-shadow: none;
   }
-  .smartshop-admin-wrapper a:hover {
+  .shopxpert-admin-wrapper a:hover {
     text-decoration: none;
   }
-  .smartshop-admin-wrapper button, .smartshop-admin-wrapper input[type=submit] {
+  .shopxpert-admin-wrapper button, .shopxpert-admin-wrapper input[type=submit] {
     cursor: pointer;
   }
-  .smartshop-admin-wrapper button[disabled="disabled"] {
+  .shopxpert-admin-wrapper button[disabled="disabled"] {
     cursor: not-allowed;
 }
-  .smartshop-admin-wrapper img {
+  .shopxpert-admin-wrapper img {
     max-width: 100%;
   }
-  .smartshop-admin-wrapper input::-webkit-input-placeholder, .smartshop-admin-wrapper textarea::-webkit-input-placeholder {
+  .shopxpert-admin-wrapper input::-webkit-input-placeholder, .shopxpert-admin-wrapper textarea::-webkit-input-placeholder {
     opacity: 0.5;
   }
-  .smartshop-admin-wrapper input:-moz-placeholder, .smartshop-admin-wrapper textarea:-moz-placeholder {
+  .shopxpert-admin-wrapper input:-moz-placeholder, .shopxpert-admin-wrapper textarea:-moz-placeholder {
     opacity: 0.5;
   }
-  .smartshop-admin-wrapper input::-moz-placeholder, .smartshop-admin-wrapper textarea::-moz-placeholder {
+  .shopxpert-admin-wrapper input::-moz-placeholder, .shopxpert-admin-wrapper textarea::-moz-placeholder {
     opacity: 0.5;
   }
-  .smartshop-admin-wrapper input:-ms-input-placeholder, .smartshop-admin-wrapper textarea:-ms-input-placeholder {
+  .shopxpert-admin-wrapper input:-ms-input-placeholder, .shopxpert-admin-wrapper textarea:-ms-input-placeholder {
     opacity: 0.5;
   }
-  .smartshop-admin-wrapper ul {
+  .shopxpert-admin-wrapper ul {
     margin-top: 0;
   }
-  .smartshop-admin-wrapper ul:last-child {
+  .shopxpert-admin-wrapper ul:last-child {
     margin-bottom: 0;
   }
-  .smartshop-admin-wrapper hr {
+  .shopxpert-admin-wrapper hr {
     border-top-width: 2px;
   }
   
   /* Option Disable */
-  [data-smartshop-pro=disabled] {
+  [data-shopxpert-pro=disabled] {
     position: relative;
     z-index: 1;
     cursor: pointer;
   }
-  [data-smartshop-pro=disabled]::before {
+  [data-shopxpert-pro=disabled]::before {
     position: absolute;
     z-index: 9;
     top: 0;
@@ -91,19 +91,19 @@
     opacity: 0;
     background-color: transparent;
   }
-  [data-smartshop-pro=disabled] .smartshop-admin-switch input{
+  [data-shopxpert-pro=disabled] .shopxpert-admin-switch input{
     z-index: inherit;
   }
   
   /* Tooltip */
-  [data-smartshop-tooltip] {
+  [data-shopxpert-tooltip] {
     position: relative;
   }
-  [data-smartshop-tooltip]:hover::before, [data-smartshop-tooltip]:hover::after {
+  [data-shopxpert-tooltip]:hover::before, [data-shopxpert-tooltip]:hover::after {
     visibility: visible;
     opacity: 1;
   }
-  [data-smartshop-tooltip]::before, [data-smartshop-tooltip]::after {
+  [data-shopxpert-tooltip]::before, [data-shopxpert-tooltip]::after {
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -111,19 +111,19 @@
     transition: all 0.3s ease 0s;
     opacity: 0;
   }
-  [data-smartshop-tooltip]::before {
+  [data-shopxpert-tooltip]::before {
     font-size: 12px;
     line-height: 1;
     margin-bottom: 3px;
     padding: 3px 5px;
-    content: attr(data-smartshop-tooltip);
+    content: attr(data-shopxpert-tooltip);
     transform: translateX(-50%);
     text-transform: capitalize;
     color: #FFFFFF;
     border-radius: 3px;
     background-color: #333333;
   }
-  [data-smartshop-tooltip]::after {
+  [data-shopxpert-tooltip]::after {
     width: 5px;
     height: 5px;
     content: "";
@@ -168,54 +168,54 @@
     opacity: 1;
     visibility: visible;
 }
-.woolenor-help-tip .smartshop-helptip-top, .woolenor-help-tip .smartshop-helptip-bottom {
+.woolenor-help-tip .shopxpert-helptip-top, .woolenor-help-tip .shopxpert-helptip-bottom {
   left: 50%;
   transform: translate(-50%, 5px);
 }
-.woolenor-help-tip .smartshop-helptip-top {
+.woolenor-help-tip .shopxpert-helptip-top {
   bottom: calc(100% + 10px);
 }
-.woolenor-help-tip .smartshop-helptip-bottom {
+.woolenor-help-tip .shopxpert-helptip-bottom {
   top: 100%;
 }
-.woolenor-help-tip .smartshop-helptip-left, .woolenor-help-tip .smartshop-helptip-right {
+.woolenor-help-tip .shopxpert-helptip-left, .woolenor-help-tip .shopxpert-helptip-right {
   top: 50%;
 }
-.woolenor-help-tip .smartshop-helptip-left {
+.woolenor-help-tip .shopxpert-helptip-left {
   right: 100%;
   transform: translate(-5px, -50%);
 }
-.woolenor-help-tip .smartshop-helptip-right {
+.woolenor-help-tip .shopxpert-helptip-right {
   left: 100%;
   transform: translate(5px, -50%);
 }
 
 /* Arrow Position */
-.woolenor-help-tip .smartshop-helptip-top:before, .woolenor-help-tip .smartshop-helptip-bottom:before {
+.woolenor-help-tip .shopxpert-helptip-top:before, .woolenor-help-tip .shopxpert-helptip-bottom:before {
   left: 50%;
 }
-.woolenor-help-tip .smartshop-helptip-top:before {
+.woolenor-help-tip .shopxpert-helptip-top:before {
   top: 100%;
   transform: translate(-50%, 0);
 }
-.woolenor-help-tip .smartshop-helptip-bottom:before {
+.woolenor-help-tip .shopxpert-helptip-bottom:before {
   bottom: 100%;
   transform: translate(-50%, 0) rotate(180deg);
 }
-.woolenor-help-tip .smartshop-helptip-left:before, .woolenor-help-tip .smartshop-helptip-right:before {
+.woolenor-help-tip .shopxpert-helptip-left:before, .woolenor-help-tip .shopxpert-helptip-right:before {
   top: 50%;
 }
-.woolenor-help-tip .smartshop-helptip-left:before {
+.woolenor-help-tip .shopxpert-helptip-left:before {
   left: 100%;
   transform: translate(0, -50%) rotate(-90deg);
 }
-.woolenor-help-tip .smartshop-helptip-right:before {
+.woolenor-help-tip .shopxpert-helptip-right:before {
   right: 100%;
   transform: translate(0, -50%) rotate(90deg);
 }
   
   /* Button */
-  .smartshop-admin-btn {
+  .shopxpert-admin-btn {
     font-size: 14px;
     font-weight: 600;
     line-height: 24px;
@@ -228,22 +228,22 @@
     border-radius: 5px;
     background-color: #FFFFFF;
   }
-  .smartshop-admin-btn-primary {
+  .shopxpert-admin-btn-primary {
     color: #FFFFFF;
     border-color: #ff23b7;
     background-color: #ff23b7;
   }
-  .smartshop-admin-btn-primary-outline {
+  .shopxpert-admin-btn-primary-outline {
     color: #ff23b7;
     border-color: #ff23b7;
     background-color: transparent;
   }
-  .smartshop-admin-btn.hover-effect-1:not(.activated,[disabled=disabled]):hover {
+  .shopxpert-admin-btn.hover-effect-1:not(.activated,[disabled=disabled]):hover {
     border-color: #0065cc;
     background-color: #0065cc;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
-  .smartshop-admin-btn[disabled=disabled] {
+  .shopxpert-admin-btn[disabled=disabled] {
     cursor: not-allowed;
     color: rgba(109, 113, 117, 0.5);
     border: 1px solid #E7E7E7;
@@ -251,11 +251,11 @@
 }
   
   /* Form Switch */
-  .smartshop-admin-switch {
+  .shopxpert-admin-switch {
     position: relative;
     display: inline-flex;
   }
-  .smartshop-admin-switch input {
+  .shopxpert-admin-switch input {
     position: absolute;
     top: 0;
     left: 0;
@@ -266,21 +266,21 @@
     margin: 0;
     z-index: 99;
 }
-  .smartshop-admin-switch input:checked + label {
+  .shopxpert-admin-switch input:checked + label {
     background-color: #ff23b7;
   }
-  .smartshop-admin-switch input:checked + label .smartshop-admin-switch-label.on {
+  .shopxpert-admin-switch input:checked + label .shopxpert-admin-switch-label.on {
     visibility: visible;
     opacity: 1;
   }
-  .smartshop-admin-switch input:checked + label .smartshop-admin-switch-label.off {
+  .shopxpert-admin-switch input:checked + label .shopxpert-admin-switch-label.off {
     visibility: hidden;
     opacity: 0;
   }
-  .smartshop-admin-switch input:checked + label .smartshop-admin-switch-indicator {
+  .shopxpert-admin-switch input:checked + label .shopxpert-admin-switch-indicator {
     left: 31px;
   }
-  .smartshop-admin-switch label {
+  .shopxpert-admin-switch label {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -292,7 +292,7 @@
     background: #A8CBFF;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
   }
-  .smartshop-admin-switch-label {
+  .shopxpert-admin-switch-label {
     font-size: 12px;
     font-weight: 600;
     line-height: 1;
@@ -303,15 +303,15 @@
     text-transform: uppercase;
     color: #FFFFFF;
   }
-  .smartshop-admin-switch-label.on {
+  .shopxpert-admin-switch-label.on {
     left: 5px;
     visibility: hidden;
     opacity: 0;
   }
-  .smartshop-admin-switch-label.off {
+  .shopxpert-admin-switch-label.off {
     right: 5px;
   }
-  .smartshop-admin-switch-indicator {
+  .shopxpert-admin-switch-indicator {
     position: absolute;
     top: 3px;
     left: 3px;
@@ -325,23 +325,23 @@
   }
 
   /* For Feature */
-  .smartshop-Feature-field .smartshop-admin-switch-block-setting {
+  .shopxpert-Feature-field .shopxpert-admin-switch-block-setting {
     color: #222;
   }
-  .smartshop-Feature-field.smartshop-Feature-enable .smartshop-admin-switch-block-setting{
+  .shopxpert-Feature-field.shopxpert-Feature-enable .shopxpert-admin-switch-block-setting{
     color:#ff23b7;
   }
-  .smartshop-Feature-field .smartshop-admin-switch-block-setting i{
+  .shopxpert-Feature-field .shopxpert-admin-switch-block-setting i{
     font-size: 16px;
   }
   
   /* For Number */
-  .smartshop-admin-number {
+  .shopxpert-admin-number {
     position: relative;
     display: flex;
     width: 85px;
   }
-  .smartshop-admin-number input[type=number] {
+  .shopxpert-admin-number input[type=number] {
     display: flex;
     width: 100%;
     height: 40px;
@@ -354,11 +354,11 @@
        -moz-appearance: textfield;
             appearance: textfield;
   }
-  .smartshop-admin-number input[type=number]::-webkit-outer-spin-button, .smartshop-admin-number input[type=number]::-webkit-inner-spin-button {
+  .shopxpert-admin-number input[type=number]::-webkit-outer-spin-button, .shopxpert-admin-number input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
             appearance: none;
   }
-  .smartshop-admin-number-btn {
+  .shopxpert-admin-number-btn {
     position: absolute;
     right: 5px;
     width: 14px;
@@ -368,22 +368,22 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .smartshop-admin-number-btn.increase {
+  .shopxpert-admin-number-btn.increase {
     top: 7px;
     background-image: url(../images/icons/caret-up.png);
   }
-  .smartshop-admin-number-btn.decrease {
+  .shopxpert-admin-number-btn.decrease {
     bottom: 7px;
     background-image: url(../images/icons/caret-down.png);
   }
   
   /* Form Select */
-  .smartshop-admin-select {
+  .shopxpert-admin-select {
     display: flex;
     width: 100%;
     position: relative;
   }
-  .smartshop-admin-select select {
+  .shopxpert-admin-select select {
     font-size: 13px;
     font-weight: 400;
     width: 100%;
@@ -401,21 +401,21 @@
        -moz-appearance: none;
             appearance: none;
   }
-  .smartshop-admin-select select:not(:disabled) {
+  .shopxpert-admin-select select:not(:disabled) {
     cursor: pointer;
   }
-  .smartshop-admin-select select:disabled {
+  .shopxpert-admin-select select:disabled {
     background-color: inherit;
     background-image: url(../images/icons/caret-down.png) !important;
     opacity: 0.5;
 }
   
   /* Form Input */
-  .smartshop-admin-input {
+  .shopxpert-admin-input {
     display: flex;
     width: 100%;
   }
-  .smartshop-admin-input input,.smartshop-admin-input textarea {
+  .shopxpert-admin-input input,.shopxpert-admin-input textarea {
     font-size: 12px;
     width: 100%;
     height: 40px;
@@ -426,24 +426,24 @@
     border-radius: 3px;
     background: #FFFFFF;
   }
-  .smartshop-admin-input input:focus,.smartshop-admin-input textarea:focus {
+  .shopxpert-admin-input input:focus,.shopxpert-admin-input textarea:focus {
     border-color: #CBE0FF;
     box-shadow: 0 0 8px rgba(0, 126, 255, 0.25);
   }
-  .smartshop-admin-input textarea{
+  .shopxpert-admin-input textarea{
     height: auto;
   }
   
   /* Form Radio */
-  .smartshop-admin-radio {
+  .shopxpert-admin-radio {
     position: relative;
     display: flex;
     margin-right: 40px;
   }
-  .smartshop-admin-radio:last-child {
+  .shopxpert-admin-radio:last-child {
     margin-right: 0;
   }
-  .smartshop-admin-radio input[type=radio] {
+  .shopxpert-admin-radio input[type=radio] {
     position: absolute;
     left: 0;
     width: 100%;
@@ -452,11 +452,11 @@
     opacity: 0;
     z-index: 99;
   }
-  .smartshop-admin-radio input[type=radio]:checked + label::after {
+  .shopxpert-admin-radio input[type=radio]:checked + label::after {
     transform: scale(0.444);
     opacity: 1;
   }
-  .smartshop-admin-radio label {
+  .shopxpert-admin-radio label {
     font-size: 14px;
     line-height: 18px !important;
     position: relative;
@@ -465,7 +465,7 @@
     cursor: pointer;
     text-transform: capitalize;
   }
-  .smartshop-admin-radio label::before, .smartshop-admin-radio label::after {
+  .shopxpert-admin-radio label::before, .shopxpert-admin-radio label::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -475,42 +475,42 @@
     transition: all 0.3s ease 0s;
     border-radius: 50%;
   }
-  .smartshop-admin-radio label::before {
+  .shopxpert-admin-radio label::before {
     border: 2px solid #ff23b7;
   }
-  .smartshop-admin-radio label::after {
+  .shopxpert-admin-radio label::after {
     opacity: 0;
     background-color: #ff23b7;
   }
   
   /* Form Color */
-  .smartshop-admin-color {
+  .shopxpert-admin-color {
     display: flex;
     width: 100%;
   }
 
   /* Form Media Uploader */
-  .smartshop_display {
+  .shopxpert_display {
     max-width: 150px;
   }
-  .smartshop_display img {
+  .shopxpert_display img {
     width: 100%;
     margin-bottom: 5px;
   }
-  .smartshop-remove{
+  .shopxpert-remove{
     margin-left: 10px !important;
   }
 
   /* Dimensions Field */
-  .smartshop_dimensions{
+  .shopxpert_dimensions{
     margin: 0;
   }
-  .smartshop_dimensions li {
+  .shopxpert_dimensions li {
     float: left;
     width: 75px;
     margin: 0;
   }
-  .smartshop_dimensions li input {
+  .shopxpert_dimensions li input {
     display: block;
     text-align: center;
     width: 100%;
@@ -520,20 +520,20 @@
     border-radius: 0;
     padding: 4px 4px 4px 0;
   }
-  .smartshop_dimensions li input:focus{
+  .shopxpert_dimensions li input:focus{
     outline: none;
     box-shadow: none;
     border:1px solid #007cba !important;
   }
-  .smartshop_dimensions li:first-child input {
+  .shopxpert_dimensions li:first-child input {
     border-left: 1px solid #d5dadf;
     border-radius: 3px 0 0 3px;
   }
-  .smartshop_dimensions li:last-child input {
+  .shopxpert_dimensions li:last-child input {
     border-right: 1px solid #d5dadf;
     border-radius: 0 3px 3px 0;
   }
-  .smartshop_dimensions li label {
+  .shopxpert_dimensions li label {
     display: block !important;
     text-align: center;
     font-size: 13px;
@@ -545,24 +545,24 @@
   .woolenor-reapeater-fields-area {
     text-align: left;
   }
-  .smartshop-admin-option.smartshop-repeater-heading:not(.smartshop-condition-on) {
+  .shopxpert-admin-option.shopxpert-repeater-heading:not(.shopxpert-condition-on) {
     display: block !important;
     text-align: left;
     padding-bottom: 10px !important;
 }
-  .smartshop-option-repeater-item:not(.smartshop_active_repeater) .smartshop-option-repeater-fields, .smartshop-option-repeater-item.smartshop-repeater-hidden {
+  .shopxpert-option-repeater-item:not(.shopxpert_active_repeater) .shopxpert-option-repeater-fields, .shopxpert-option-repeater-item.shopxpert-repeater-hidden {
     display: none;
   }
-  .smartshop-option-repeater-item-area{
+  .shopxpert-option-repeater-item-area{
     margin-right: 10px;
   }
-  .smartshop-option-repeater-item {
+  .shopxpert-option-repeater-item {
     margin-bottom: 10px;
   }
-  .smartshop-option-repeater-item + .smartshop-option-repeater-item {
+  .shopxpert-option-repeater-item + .shopxpert-option-repeater-item {
     margin-top: 10px;
   }
-  .smartshop-option-repeater-item .smartshop-option-repeater-tools {
+  .shopxpert-option-repeater-item .shopxpert-option-repeater-tools {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -570,10 +570,10 @@
     cursor: pointer;
     background-color: #FFFFFF;
   }
-  .smartshop-option-repeater-tools .smartshop-option-repeater-item-title {
+  .shopxpert-option-repeater-tools .shopxpert-option-repeater-item-title {
     margin-left: 10px;
   }
-  .smartshop-option-repeater-item-remove {
+  .shopxpert-option-repeater-item-remove {
     width: 40px;
     display: flex;
     height: 40px;
@@ -581,16 +581,16 @@
     align-items: center;
     border-left: 1px solid #d5dadf;
   }
-  .smartshop-option-repeater-item-remove:hover{
+  .shopxpert-option-repeater-item-remove:hover{
     color: rgb(230, 23, 23);
   }
-  .smartshop-option-repeater-fields {
+  .shopxpert-option-repeater-fields {
     border: 1px solid #d5dadf;
     padding: 10px;
     border-top: 0;
     background-color: #ffffff;
   }
-  button.smartshop-repeater-item-add, .smartshop-repeater-custom-action {
+  button.shopxpert-repeater-item-add, .shopxpert-repeater-custom-action {
     padding: 5px 15px;
     font-size: 13px;
     cursor: pointer;
@@ -603,7 +603,7 @@
     border-radius: 3px;
     transition: 0.4s;
   }
-  .wp-core-ui .button-primary.smartshop-repeater-custom-action {
+  .wp-core-ui .button-primary.shopxpert-repeater-custom-action {
     float: right;
     margin-right: 10px;
     margin-top: 10px;
@@ -612,30 +612,30 @@
     padding: 1px 10px;
     box-shadow:none;
   }
-  button.smartshop-repeater-item-add:hover, .wp-core-ui .button-primary.smartshop-repeater-custom-action:hover {
+  button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-repeater-custom-action:hover {
     border-color: #0065cc;
     background-color: #0065cc;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
 
   /* Button Field Type */
-  .smartshop-admin-button-type a{
+  .shopxpert-admin-button-type a{
     text-decoration: none;
   }
-  .smartshop-admin-button-type a.smartshop-admin-btn{
+  .shopxpert-admin-button-type a.shopxpert-admin-btn{
     color: #fff;
   }
   
   /* Icon List */
   @font-face {
-    font-family: "smartshop-admin";
+    font-family: "shopxpert-admin";
     font-weight: normal;
     font-style: normal;
     font-display: block;
-    src: url("../fonts/smartshop-admin.ttf?55zl88") format("truetype"), url("../fonts/smartshop-admin.woff?55zl88") format("woff"), url("../fonts/smartshop-admin.svg?55zl88#smartshop-admin") format("svg");
+    src: url("../fonts/shopxpert-admin.ttf?55zl88") format("truetype"), url("../fonts/shopxpert-admin.woff?55zl88") format("woff"), url("../fonts/shopxpert-admin.svg?55zl88#shopxpert-admin") format("svg");
   }
   .wli {
-    font-family: "smartshop-admin";
+    font-family: "shopxpert-admin";
     font-weight: normal;
     font-style: normal;
     font-variant: normal;
@@ -825,29 +825,29 @@
   }
 
   /* Nested Tab */
-  #smartshop_gutenberg_tabs .shopxper-admin-main-tab-pane-inner {
+  #shopxpert_gutenberg_tabs .shopxper-admin-main-tab-pane-inner {
     padding-top: 10px;
   }
-  .smartshop-nested-tabs-area {
+  .shopxpert-nested-tabs-area {
     margin-bottom: 30px;
     border-bottom: 2px solid #EAEAEA;
   }
-  ul.smartshop-nested-tabs {
+  ul.shopxpert-nested-tabs {
     margin: 0;
     list-style: none;
     display: block;
   }
-  ul.smartshop-nested-tabs li {
+  ul.shopxpert-nested-tabs li {
     display: inline-block;
     margin: 0 5px;
   }
-  ul.smartshop-nested-tabs li:first-child{
+  ul.shopxpert-nested-tabs li:first-child{
     margin: 0;
   }
-  ul.smartshop-nested-tabs li:last-child {
+  ul.shopxpert-nested-tabs li:last-child {
     margin-right: 0;
   }
-  ul.smartshop-nested-tabs li a {
+  ul.shopxpert-nested-tabs li a {
     padding: 15px 0;
     margin-right: 20px;
     display: block;
@@ -858,7 +858,7 @@
     font-weight: 400;
     line-height: 1;
   }
-  ul.smartshop-nested-tabs li a:after {
+  ul.shopxpert-nested-tabs li a:after {
     content: "";
     background: transparent;
     width: 100%;
@@ -867,15 +867,15 @@
     bottom: -2px;
     left: 0;
   }
-  ul.smartshop-nested-tabs li a.wlactive:after,ul.smartshop-nested-tabs li a:hover:after{
+  ul.shopxpert-nested-tabs li a.wlactive:after,ul.shopxpert-nested-tabs li a:hover:after{
     background: #ff23b7;
   }
-  ul.smartshop-nested-tabs li a.wlactive{
+  ul.shopxpert-nested-tabs li a.wlactive{
     color: #000000;
     font-weight: 700;
   }
   
-  .smartshop-admin-wrapper {
+  .shopxpert-admin-wrapper {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: -30px;
@@ -908,7 +908,7 @@
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   }
   
-  .shopxper-admin-main-tab-pane:not(.wlactive),.smartshop-admin-nested-tab-pane:not(.wlactive) {
+  .shopxper-admin-main-tab-pane:not(.wlactive),.shopxpert-admin-nested-tab-pane:not(.wlactive) {
     display: none;
   }
   .shopxper-admin-main-tab-pane-inner {
@@ -925,7 +925,7 @@
     }
   }
   
-  .smartshop-admin-sidebar {
+  .shopxpert-admin-sidebar {
     width: 375px;
     margin-bottom: 30px;
     position: -webkit-sticky; /* Safari */
@@ -935,94 +935,94 @@
     align-self: flex-start;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px) {
-    .smartshop-admin-sidebar {
+    .shopxpert-admin-sidebar {
       width: 320px;
     }
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .smartshop-admin-sidebar {
+    .shopxpert-admin-sidebar {
       width: 280px;
     }
   }
   @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-sidebar {
+    .shopxpert-admin-sidebar {
       width: 100%;
     }
   }
   
-  .smartshop-admin-header { 
+  .shopxpert-admin-header { 
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 25px;
   }
-  .smartshop-admin-header-content {
+  .shopxpert-admin-header-content {
     margin-bottom: 15px;
     padding-right: 30px;
   }
-  .smartshop-admin-header-title {
+  .shopxpert-admin-header-title {
     font-size: 14px;
     font-weight: 700;
     line-height: 23px !important;
     margin-bottom: 2px;
     color: #202223;
   }
-  .smartshop-admin-header-text {
+  .shopxpert-admin-header-text {
     font-size: 14px;
   }
-  .smartshop-admin-header-actions {
+  .shopxpert-admin-header-actions {
     display: flex;
     align-self: center;
     margin-bottom: 15px;
   }
-  .smartshop-admin-header .smartshop-admin-btn.enable {
+  .shopxpert-admin-header .shopxpert-admin-btn.enable {
     color: #ff23b7;
   }
-  .smartshop-admin-header .smartshop-admin-btn.enable:hover {
+  .shopxpert-admin-header .shopxpert-admin-btn.enable:hover {
     color: #FFFFFF;
     border-color: #ff23b7;
     background-color: #ff23b7;
   }
-  .smartshop-admin-header .smartshop-admin-btn.disable {
+  .shopxpert-admin-header .shopxpert-admin-btn.disable {
     margin-left: 20px;
     color: #FF7676;
   }
-  .smartshop-admin-header .smartshop-admin-btn.disable:hover {
+  .shopxpert-admin-header .shopxpert-admin-btn.disable:hover {
     color: #FFFFFF;
     border-color: #FF7676;
     background-color: #FF7676;
   }
-  .smartshop-admin-header .smartshop-admin-btn:hover {
+  .shopxpert-admin-header .shopxpert-admin-btn:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   
-  .smartshop-admin-footer {
+  .shopxpert-admin-footer {
     display: flex;
     justify-content: flex-end;
     margin-top: 30px;
     padding: 20px 0;
     border-top: 1px solid #E7E7E7;
   }
-  .smartshop-admin-footer button{
+  .shopxpert-admin-footer button{
     margin: 0;
   }
-  #smartshop_others_tabs .smartshop-admin-footer{
+  #shopxpert_others_tabs .shopxpert-admin-footer{
     margin-top: 0;
   }
-  .smartshop-admin-sticky {
+  .shopxpert-admin-sticky {
     position: sticky;
     bottom: 0;
     background-color: #fff;
     z-index: 99;
   }
   
-  .smartshop-admin-switch-blocks {
+  .shopxpert-admin-switch-blocks {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px -20px;
   }
-  .smartshop-admin-switch-block {
+  .shopxpert-admin-switch-block {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -1033,22 +1033,22 @@
     border-radius: 8px;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 768px) and (max-width: 991px) {
-    .smartshop-admin-switch-block {
+    .shopxpert-admin-switch-block {
       width: calc(50% - 30px);
     }
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-    .smartshop-admin-switch-block {
+    .shopxpert-admin-switch-block {
       width: calc(100% - 30px);
     }
   }
-  .smartshop-admin-switch-block-content {
+  .shopxpert-admin-switch-block-content {
     display: flex;
     flex-wrap: wrap;
     max-width: calc(100% - 85px);
     margin-bottom: -5px;
   }
-  .smartshop-admin-switch-block-title {
+  .shopxpert-admin-switch-block-title {
     font-size: 14px;
     font-weight: 400;
     line-height: 24px !important;
@@ -1058,25 +1058,25 @@
     margin-bottom: 5px;
     color: #202223;
   }
-  .smartshop-admin-switch-block-info {
+  .shopxpert-admin-switch-block-info {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
   }
-  .smartshop-admin-switch-block-info > a {
+  .shopxpert-admin-switch-block-info > a {
     line-height: 1;
     display: flex;
     padding: 3px;
     cursor: pointer;
     color: #6D7175;
   }
-  .smartshop-admin-switch-block-info > a + a {
+  .shopxpert-admin-switch-block-info > a + a {
     margin-left: 4px;
   }
-  .smartshop-admin-switch-block-info > a i {
+  .shopxpert-admin-switch-block-info > a i {
     font-size: 14px;
   }
-  .smartshop-admin-switch-block-badge {
+  .shopxpert-admin-switch-block-badge {
     font-size: 10px;
     font-weight: 400;
     line-height: 12px;
@@ -1089,49 +1089,49 @@
     border-radius: 60px;
     background: rgba(255, 0, 0, 0.1);
   }
-  .smartshop-admin-switch-block-actions {
+  .shopxpert-admin-switch-block-actions {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 85px;
   }
-  .smartshop-admin-switch-block-setting {
+  .shopxpert-admin-switch-block-setting {
     display: flex;
     padding: 0;
     color: #ff23b7;
     border: none;
     background-color: transparent;
   }
-  .smartshop-admin-switch-block-setting i {
+  .shopxpert-admin-switch-block-setting i {
     font-size: 14px;
   }
-  .smartshop-admin-switch-block-setting + .smartshop-admin-switch {
+  .shopxpert-admin-switch-block-setting + .shopxpert-admin-switch {
     margin-left: 15px;
   }
   
-  .smartshop-admin-banner {
+  .shopxpert-admin-banner {
     overflow: hidden;
     border-radius: 10px;
   }
-  .smartshop-admin-banner:not(:last-child) {
+  .shopxpert-admin-banner:not(:last-child) {
     margin-bottom: 65px;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-banner:not(:last-child) {
+    .shopxpert-admin-banner:not(:last-child) {
       margin-bottom: 40px;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-banner:not(:last-child) {
+    .shopxpert-admin-banner:not(:last-child) {
       margin-bottom: 30px;
     }
   }
-  .smartshop-admin-banner img {
+  .shopxpert-admin-banner img {
     display: block;
     width: 100%;
   }
   
-  .smartshop-admin-subscribe {
+  .shopxpert-admin-subscribe {
     position: relative;
     z-index: 1;
     display: flex;
@@ -1143,32 +1143,32 @@
     background-image: linear-gradient(272.65deg, #9BF4FF 0%, #ff23b7 100%);
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 768px) and (max-width: 991px) {
-    .smartshop-admin-subscribe {
+    .shopxpert-admin-subscribe {
       margin-top: 40px;
       padding: 60px;
     }
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .smartshop-admin-subscribe {
+    .shopxpert-admin-subscribe {
       flex-direction: column;
       margin-top: 40px;
       padding: 40px;
     }
   }
   @media only screen and (max-width: 767px) {
-    .smartshop-admin-subscribe {
+    .shopxpert-admin-subscribe {
       flex-direction: column;
       margin-top: 40px;
       padding: 40px;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-subscribe {
+    .shopxpert-admin-subscribe {
       margin-top: 30px;
       padding: 30px;
     }
   }
-  .smartshop-admin-subscribe::before, .smartshop-admin-subscribe::after {
+  .shopxpert-admin-subscribe::before, .shopxpert-admin-subscribe::after {
     position: absolute;
     z-index: -1;
     width: 95px;
@@ -1176,75 +1176,75 @@
     content: "";
     border: 21px solid rgba(0, 126, 255, 0.1);
   }
-  .smartshop-admin-subscribe::before {
+  .shopxpert-admin-subscribe::before {
     bottom: 0;
     left: 0;
     border-color: rgba(152, 242, 255, 0.1);
     border-top-right-radius: 100%;
   }
-  .smartshop-admin-subscribe::after {
+  .shopxpert-admin-subscribe::after {
     top: 0;
     right: 0;
     border-color: rgba(51, 108, 255, 0.1);
     border-bottom-left-radius: 100%;
   }
-  .smartshop-admin-subscribe-content {
+  .shopxpert-admin-subscribe-content {
     display: block;
     padding-right: 30px;
   }
-  .smartshop-admin-subscribe-title {
+  .shopxpert-admin-subscribe-title {
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 6px;
     color: #FFFFFF;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-subscribe-title {
+    .shopxpert-admin-subscribe-title {
       font-size: 32px;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-subscribe-title {
+    .shopxpert-admin-subscribe-title {
       font-size: 24px;
     }
   }
-  .smartshop-admin-subscribe-text {
+  .shopxpert-admin-subscribe-text {
     font-size: 18px;
     max-width: 410px;
     color: #FFFFFF;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-subscribe-text {
+    .shopxpert-admin-subscribe-text {
       font-size: 16px;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-subscribe-text {
+    .shopxpert-admin-subscribe-text {
       font-size: 14px;
     }
   }
-  .smartshop-admin-subscribe .smartshop-admin-btn {
+  .shopxpert-admin-subscribe .shopxpert-admin-btn {
     align-self: center;
     padding: 10px 40px;
     box-shadow: 3px 3px 0 0 #0065cc;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-    .smartshop-admin-subscribe .smartshop-admin-btn {
+    .shopxpert-admin-subscribe .shopxpert-admin-btn {
       align-self: flex-start;
       margin-top: 20px;
     }
   }
-  .smartshop-admin-subscribe .smartshop-admin-btn:hover {
+  .shopxpert-admin-subscribe .shopxpert-admin-btn:hover {
     box-shadow: 5px 5px 0 0 #0065cc;
     color: #FFFFFF;
   }
   
-  .smartshop-admin-extensions {
+  .shopxpert-admin-extensions {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px -30px;
   }
-  .smartshop-admin-extension {
+  .shopxpert-admin-extension {
     display: flex;
     overflow: hidden;
     flex-direction: column;
@@ -1254,10 +1254,10 @@
     background: #FFFFFF;
     box-shadow: 0 2px 40px rgba(175, 175, 175, 0.5);
   }
-  .smartshop-extension-col-3 .smartshop-admin-extension{
+  .shopxpert-extension-col-3 .shopxpert-admin-extension{
     width: calc(33.333% - 30px);
   }
-  .shopxper-admin-main-tab-pane-inner .smartshop-extension-col-3 .smartshop-admin-extension{
+  .shopxper-admin-main-tab-pane-inner .shopxpert-extension-col-3 .shopxpert-admin-extension{
     width: calc(50% - 30px);
   }
   .shopxper-admin-main-tab-pane-inner .wrap{
@@ -1270,50 +1270,50 @@
     margin-top: 0;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-extension {
+    .shopxpert-admin-extension {
       width: calc(100% - 30px);
     }
   }
-  .smartshop-admin-extension-top {
+  .shopxpert-admin-extension-top {
     display: flex;
     flex-wrap: wrap;
     padding: 30px 25px;
   }
   @media only screen and (max-width: 479px) {
-    .smartshop-admin-extension-top {
+    .shopxpert-admin-extension-top {
       flex-direction: column;
     }
   }
-  .smartshop-admin-extension-image {
+  .shopxpert-admin-extension-image {
     overflow: hidden;
     width: 110px;
     height: 110px;
     border-radius: 50%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-  .smartshop-admin-extension-content {
+  .shopxpert-admin-extension-content {
     width: calc(100% - 110px);
     padding-left: 25px;
   }
   @media only screen and (max-width: 479px) {
-    .smartshop-admin-extension-content {
+    .shopxpert-admin-extension-content {
       width: 100%;
       margin-top: 20px;
       padding-left: 0;
     }
   }
-  .smartshop-admin-extension-title {
+  .shopxpert-admin-extension-title {
     font-size: 18px;
     line-height: 28px !important;
     margin-bottom: 13px;
     margin-top: 0;
     color: #202223;
   }
-  .smartshop-admin-extension-text {
+  .shopxpert-admin-extension-text {
     font-size: 14px;
     max-width: 315px;
   }
-  .smartshop-admin-extension-bottom {
+  .shopxpert-admin-extension-bottom {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -1323,69 +1323,69 @@
     background-color: #F4F6FC;
   }
   @media only screen and (max-width: 479px) {
-    .smartshop-admin-extension-bottom {
+    .shopxpert-admin-extension-bottom {
       align-items: flex-start;
       flex-direction: column;
     }
   }
-  .smartshop-admin-extension-info {
+  .shopxpert-admin-extension-info {
     font-size: 14px;
     width: calc(100% - 200px);
     margin: 0;
   }
   @media only screen and (max-width: 479px) {
-    .smartshop-admin-extension-info {
+    .shopxpert-admin-extension-info {
       width: 100%;
     }
   }
-  .smartshop-admin-extension .button {
+  .shopxpert-admin-extension .button {
     background: #ff23b7 !important;
     border-color: #ff23b7 !important;
     padding: 5px 40px;
     color: #FFFFFF !important;
     transition: all 0.3s ease 0s;
   }
-  .smartshop-admin-extension .button::before{
+  .shopxpert-admin-extension .button::before{
     color:#FFFFFF;
   }
-  .smartshop-admin-extension .hover-effect-1:not(.disabled):hover {
+  .shopxpert-admin-extension .hover-effect-1:not(.disabled):hover {
     border-color: #0065cc !important;
     background-color: #0065cc !important;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
   }
-  .smartshop-admin-extension-info i {
+  .shopxpert-admin-extension-info i {
     margin-right: 10px;
   }
-  .smartshop-admin-extension-info a {
+  .shopxpert-admin-extension-info a {
     color: #ff23b7;
   }
-  .smartshop-admin-extension-info a:hover {
+  .shopxpert-admin-extension-info a:hover {
     text-decoration: underline;
   }
-  .smartshop-admin-btn {
+  .shopxpert-admin-btn {
     margin-bottom: 15px;
     padding: 7px 40px;
     cursor: pointer;
   }
-  .smartshop-admin-btn.activated, .smartshop-admin-extension .button.disabled {
+  .shopxpert-admin-btn.activated, .shopxpert-admin-extension .button.disabled {
     cursor: not-allowed;
     color: #6D7175 !important;
     border-color: #FFFFFF !important;
     background-color: #FFFFFF !important;
 }
   
-  .smartshop-admin-infoboxes {
+  .shopxpert-admin-infoboxes {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: -40px;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-infoboxes {
+    .shopxpert-admin-infoboxes {
       margin-bottom: -30px;
     }
   }
-  .smartshop-admin-infobox {
+  .shopxpert-admin-infobox {
     display: flex;
     flex-wrap: wrap;
     width: calc(50% - 20px);
@@ -1397,23 +1397,23 @@
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-infobox {
+    .shopxpert-admin-infobox {
       width: 100%;
       margin-bottom: 30px;
     }
   }
   @media only screen and (max-width: 767px) {
-    .smartshop-admin-infobox {
+    .shopxpert-admin-infobox {
       padding: 30px;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-infobox {
+    .shopxpert-admin-infobox {
       margin-bottom: 20px;
       padding: 20px;
     }
   }
-  .smartshop-admin-infobox-icon {
+  .shopxpert-admin-infobox-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1424,32 +1424,32 @@
     background-color: #ff23b7;
     box-shadow: 5px 5px 0 0 #0065cc;
   }
-  .smartshop-admin-infobox-icon i {
+  .shopxpert-admin-infobox-icon i {
     font-size: 24px;
   }
-  .smartshop-admin-infobox-content {
+  .shopxpert-admin-infobox-content {
     width: calc(100% - 60px);
     padding-left: 30px;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (max-width: 575px) {
-    .smartshop-admin-infobox-content {
+    .shopxpert-admin-infobox-content {
       width: 100%;
       margin-top: 30px;
       padding-left: 0;
     }
   }
-  .smartshop-admin-infobox-title {
+  .shopxpert-admin-infobox-title {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 15px;
     color: #2C406B;
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-infobox-title {
+    .shopxpert-admin-infobox-title {
       font-size: 20px;
     }
   }
-  .smartshop-admin-infobox-text {
+  .shopxpert-admin-infobox-text {
     max-width: 365px;
     margin-bottom: 22px;
     color: #546EA1;
@@ -1458,66 +1458,66 @@
     line-height: 1.715;
 }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-infobox-text {
+    .shopxpert-admin-infobox-text {
       font-size: 14px;
     }
   }
-  .smartshop-admin-infobox .smartshop-admin-btn {
+  .shopxpert-admin-infobox .shopxpert-admin-btn {
     width: 200px;
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-infobox .smartshop-admin-btn {
+    .shopxpert-admin-infobox .shopxpert-admin-btn {
       width: auto;
     }
   }
-  .smartshop-admin-infobox:hover {
+  .shopxpert-admin-infobox:hover {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
   }
-  .smartshop-admin-infobox:hover .smartshop-admin-btn {
+  .shopxpert-admin-infobox:hover .shopxpert-admin-btn {
     color: #FFFFFF;
     background-color: #ff23b7;
   }
   
-  .smartshop-admin-options {
+  .shopxpert-admin-options {
     display: flex;
     flex-direction: column;
     max-width: 935px;
   }
   
-  .smartshop-admin-option {
+  .shopxpert-admin-option {
     display: flex;
     flex-wrap: wrap;
     padding: 30px 0;
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-option {
+    .shopxpert-admin-option {
       padding: 20px 0;
     }
   }
-  .smartshop-admin-option + .smartshop-admin-option {
+  .shopxpert-admin-option + .shopxpert-admin-option {
     border-top: 1px solid #EAEAEA;
   }
-  .smartshop-admin-option:first-child {
+  .shopxpert-admin-option:first-child {
     padding-top: 0;
   }
-  .smartshop-admin-option:last-child {
+  .shopxpert-admin-option:last-child {
     padding-bottom: 0;
   }
-  .smartshop-admin-option-content {
+  .shopxpert-admin-option-content {
     width: 60%;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-    .smartshop-admin-option-content {
+    .shopxpert-admin-option-content {
       width: 50%;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-option-content {
+    .shopxpert-admin-option-content {
       width: 100%;
       margin-bottom: 15px;
     }
   }
-  .smartshop-admin-option-title {
+  .shopxpert-admin-option-title {
     font-size: 14px;
     font-weight: 700;
     line-height: 23px !important;
@@ -1526,7 +1526,7 @@
     margin-bottom: 2px;
     color: #202223;
   }
-  .smartshop-admin-option-title .badge-pro {
+  .shopxpert-admin-option-title .badge-pro {
     font-size: 12px;
     font-weight: 600;
     line-height: 24px;
@@ -1539,10 +1539,10 @@
     border-radius: 60px;
     background: rgba(255, 83, 83, 0.3);
   }
-  .smartshop-admin-option-text {
+  .shopxpert-admin-option-text {
     font-size: 14px;
   }
-  .smartshop-admin-option-action {
+  .shopxpert-admin-option-action {
     display: flex;
     align-self: center;
     flex-wrap: wrap;
@@ -1550,52 +1550,52 @@
     padding-left: 30px;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-    .smartshop-admin-option-action {
+    .shopxpert-admin-option-action {
       width: 50%;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-option-action {
+    .shopxpert-admin-option-action {
       width: 100%;
       padding-left: 0;
     }
   }
-  #smartshop_elements_tabs .smartshop-admin-header, .smartshop-admin-header-two{
+  #shopxpert_elements_tabs .shopxpert-admin-header, .shopxpert-admin-header-two{
     border-bottom: 1px solid #E7E7E7;
     margin-bottom: 0;
     padding-bottom: 10px;
   }
-  .smartshop-admin-option-heading:not(.smartshop_heading_style_two) {
+  .shopxpert-admin-option-heading:not(.shopxpert_heading_style_two) {
     padding: 16px 20px;
     border-radius: 5px;
     background-color: #EBF9FC;
   }
-  .smartshop_heading_style_two{
+  .shopxpert_heading_style_two{
     width: 100%;
     padding: 0 20px;
     margin: 30px 0 10px 0;
   }
-  .smartshop_heading_style_two .smartshop-admin-option-heading-title{
+  .shopxpert_heading_style_two .shopxpert-admin-option-heading-title{
     margin-bottom: 10px;
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-option-heading:not(.smartshop_heading_style_two) {
+    .shopxpert-admin-option-heading:not(.shopxpert_heading_style_two) {
       padding: 12px 20px;
     }
   }
-  .smartshop-admin-option-heading-title {
+  .shopxpert-admin-option-heading-title {
     font-size: 18px;
     line-height: 28px !important;
     margin: 0;
     color: #202223;
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-option-heading-title {
+    .shopxpert-admin-option-heading-title {
       font-size: 16px;
     }
   }
   
-  .smartshop-admin-popup {
+  .shopxpert-admin-popup {
     position: fixed;
     z-index: 999;
     top: 0;
@@ -1610,14 +1610,14 @@
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.5);
   }
-  .smartshop-admin-popup.open {
+  .shopxpert-admin-popup.open {
     visibility: visible;
     opacity: 1;
   }
-  .smartshop-admin-popup.open .smartshop-admin-popup-inner {
+  .shopxpert-admin-popup.open .shopxpert-admin-popup-inner {
     margin-top: 0;
   }
-  .smartshop-admin-popup-inner {
+  .shopxpert-admin-popup-inner {
     position: relative;
     display: flex;
     align-items: center;
@@ -1632,10 +1632,10 @@
     background-color: #FFFFFF;
     box-shadow: 0 0 50px rgba(92, 92, 92, 0.2);
   }
-  .smartshop-admin-popup-inner .smartshop-admin-btn:not(.activated,[disabled=disabled]):hover{
+  .shopxpert-admin-popup-inner .shopxpert-admin-btn:not(.activated,[disabled=disabled]):hover{
     color: #ffffff;
   }
-  .smartshop-admin-popup-close {
+  .shopxpert-admin-popup-close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -1650,16 +1650,16 @@
     background-color: rgba(40, 47, 58, 0.1);
     cursor: pointer;
   }
-  .smartshop-admin-popup-close:hover {
+  .shopxpert-admin-popup-close:hover {
     color: #FFFFFF;
     background-color: #ff23b7;
   }
-  .smartshop-admin-popup-icon {
+  .shopxpert-admin-popup-icon {
     display: flex;
     justify-content: center;
     margin-bottom: 18px;
   }
-  .smartshop-admin-popup-title {
+  .shopxpert-admin-popup-title {
     font-size: 48px;
     line-height: 1 !important;
     margin-bottom: 15px;
@@ -1667,27 +1667,27 @@
     text-shadow: 3px 3px 0 #ff23b7;
     -webkit-text-stroke: 2px rgba(0, 126, 255, 0.2);
   }
-  .smartshop-admin-popup-text {
+  .shopxpert-admin-popup-text {
     font-size: 14px;
     margin-bottom: 22px;
   }
-  .smartshop-admin-popup .smartshop-admin-btn {
+  .shopxpert-admin-popup .shopxpert-admin-btn {
     padding: 10px 35px;
   }
-  .smartshop-admin-popup .smartshop-admin-btn:not(.activated,[disabled=disabled]):hover {
+  .shopxpert-admin-popup .shopxpert-admin-btn:not(.activated,[disabled=disabled]):hover {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
 
   /* Sidebar Pro-Banner */
-  .smartshop-promo-banner {
+  .shopxpert-promo-banner {
     margin-bottom: 30px;
     padding-top: 47px;
   }
-  .smartshop-promo-banner a{
+  .shopxpert-promo-banner a{
     display: block;
     line-height: 1;
   }
-  .smartshop-pro-banner {
+  .shopxpert-pro-banner {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -1695,37 +1695,37 @@
     background-color: #FFFFFF;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   }
-  .smartshop-pro-banner-logo {
+  .shopxpert-pro-banner-logo {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
   }
-  .smartshop-pro-banner-logo img {
+  .shopxpert-pro-banner-logo img {
     width: 90px;
     height: auto;
   }
-  .smartshop-pro-banner-summary {
+  .shopxpert-pro-banner-summary {
     font-size: 14px;
     margin-bottom: 35px;
     text-align: center;
   }
-  .smartshop-pro-banner-options {
+  .shopxpert-pro-banner-options {
     font-size: 14px;
     margin-bottom: 35px;
     padding: 0;
     list-style: none;
     text-align: left;
   }
-  .smartshop-pro-banner-options li {
+  .shopxpert-pro-banner-options li {
     padding-left: 30px;
     background-image: url(../images/icons/check.png);
     background-repeat: no-repeat;
     background-position: left 8px;
   }
-  .smartshop-pro-banner-options li + li {
+  .shopxpert-pro-banner-options li + li {
     margin-top: 15px;
   }
-  .smartshop-pro-banner-btn {
+  .shopxpert-pro-banner-btn {
     font-size: 14px;
     font-weight: 600;
     line-height: 24px;
@@ -1738,7 +1738,7 @@
     border-radius: 100px;
     background-color: #ff23b7;
   }
-  .smartshop-pro-banner-btn .icon {
+  .shopxpert-pro-banner-btn .icon {
     font-size: 22px;
     display: flex;
     align-items: center;
@@ -1751,14 +1751,14 @@
     border-radius: 50%;
     background-color: #FFFFFF;
   }
-  .smartshop-pro-banner-btn:hover {
+  .shopxpert-pro-banner-btn:hover {
     border-color: #0065cc;
     background-color: #0065cc;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     color: #FFFFFF;
   }
   
-  .smartshop-rating,.smartshop-rating-trustpilot {
+  .shopxpert-rating,.shopxpert-rating-trustpilot {
     display: flex;
     width: 100%;
     margin-top: 50px;
@@ -1767,42 +1767,42 @@
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-rating {
+    .shopxpert-rating {
       margin-top: 30px;
     }
   }
-  .smartshop-rating-icon {
+  .shopxpert-rating-icon {
     align-self: center;
     width: 52px;
   }
-  .smartshop-rating-intro {
+  .shopxpert-rating-intro {
     width: calc(100% - 52px);
     padding-left: 20px;
   }
-  .smartshop-rating-intro p {
+  .shopxpert-rating-intro p {
     font-size: 14px;
   }
-  .smartshop-rating-intro p a {
+  .shopxpert-rating-intro p a {
     color: #ff23b7;
   }
-  .smartshop-rating-intro p a:hover {
+  .shopxpert-rating-intro p a:hover {
     text-decoration: underline;
   }
-  .smartshop-rating-trustpilot {
+  .shopxpert-rating-trustpilot {
     display: block;
     text-align: center;
   }
-  .smartshop-rating-trustpilot a{
+  .shopxpert-rating-trustpilot a{
     display: block;
     line-height: 1;
   }
 
-  .smartshop-admin-others-options{
+  .shopxpert-admin-others-options{
     padding: 30px 0;
     border-top: 1px solid #ddd;
     margin-top: 30px;
   }
-  .smartshop-admin-others-options .smartshop-admin-option:last-child{
+  .shopxpert-admin-others-options .shopxpert-admin-option:last-child{
     padding-bottom: 0;
   }
 
@@ -1986,7 +1986,7 @@
   margin-bottom: 30px;
   border: none;
 }
-.smartshop-admin-tabs.filter-links {
+.shopxpert-admin-tabs.filter-links {
   display: flex;
   padding: 7px 10px;
   list-style: none;
@@ -1994,12 +1994,12 @@
   border-radius: 5px;
   box-shadow: 0 4px 13px rgba(0, 0, 0, 0.1);
 }
-.smartshop-admin-tabs.filter-links li {
+.shopxpert-admin-tabs.filter-links li {
   position: relative;
   z-index: 1;
   border: none;
 }
-.smartshop-admin-tabs.filter-links li::before, .smartshop-admin-tabs.filter-links li::after {
+.shopxpert-admin-tabs.filter-links li::before, .shopxpert-admin-tabs.filter-links li::after {
   position: absolute;
   z-index: -2;
   top: 50%;
@@ -2012,27 +2012,27 @@
   border-radius: 10px;
   background-color: #ff23b7;
 }
-.smartshop-admin-tabs.filter-links li::before {
+.shopxpert-admin-tabs.filter-links li::before {
   left: -2.5px;
 }
-.smartshop-admin-tabs.filter-links li::after {
+.shopxpert-admin-tabs.filter-links li::after {
   right: -2.5px;
 }
-.smartshop-admin-tabs.filter-links li:first-child::before {
+.shopxpert-admin-tabs.filter-links li:first-child::before {
   display: none;
 }
-.smartshop-admin-tabs.filter-links li:last-child::after {
+.shopxpert-admin-tabs.filter-links li:last-child::after {
   display: none;
 }
-.smartshop-admin-tabs.filter-links li.wlactive {
+.shopxpert-admin-tabs.filter-links li.wlactive {
   z-index: 2;
 }
-.smartshop-admin-tabs.filter-links li.wlactive::before, .smartshop-admin-tabs.filter-links li.wlactive::after {
+.shopxpert-admin-tabs.filter-links li.wlactive::before, .shopxpert-admin-tabs.filter-links li.wlactive::after {
   z-index: -1;
   opacity: 1;
   background-color: #FFFFFF;
 }
-.smartshop-admin-tabs.filter-links li a {
+.shopxpert-admin-tabs.filter-links li a {
   font-size: 12px;
   font-weight: 600;
   line-height: 1;
@@ -2044,17 +2044,17 @@
   margin: 0;
   border: none;
 }
-.smartshop-admin-tabs.filter-links li a.wlactive {
+.shopxpert-admin-tabs.filter-links li a.wlactive {
   color: #FFFFFF;
   background-color: #ff23b7;
 }
-.smartshop-admin-tabs.filter-links li a.wlactive:hover,.smartshop-admin-tabs.filter-links li a.wlactive:focus {
+.shopxpert-admin-tabs.filter-links li a.wlactive:hover,.shopxpert-admin-tabs.filter-links li a.wlactive:focus {
   color: #FFFFFF;
   background-color: #ff23b7;
 }
 
 /* Feature Edit PopUp */
-.smartshop-Feature-setting-popup-content {
+.shopxpert-Feature-setting-popup-content {
   padding: 20px;
   max-height: calc(100% - 100px);
   display: block;
@@ -2063,11 +2063,11 @@
   padding-bottom: 100px;
   width: 700px;
 }
-.smartshop-Feature-setting-data {
+.shopxpert-Feature-setting-data {
   overflow-y: auto;
   height: 100%;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-footer {
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-footer {
   margin-top: 0;
   padding: 20px;
   border-top: 1px solid #ddd;
@@ -2076,65 +2076,65 @@
   bottom: 0;
   width: 100%;
 }
-.smartshop-admin-footer.has-reset{
+.shopxpert-admin-footer.has-reset{
   justify-content: space-between;
 }
-.smartshop-admin-Feature-reset {
+.shopxpert-admin-Feature-reset {
   background: #FFFFFF;
   border-color: #E7E7E7;
   color: rgba(109, 113, 117, 0.5);
   font-weight: normal;
 }
-.smartshop-admin-Feature-reset:hover{
+.shopxpert-admin-Feature-reset:hover{
   background-color: rgb(221, 51, 51) !important;
   border-color: rgb(221, 51, 51) !important;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option{
   padding: 20px 5px 20px 0;
 }
-.smartshop-repeater-item-add + .smartshop-admin-option {
+.shopxpert-repeater-item-add + .shopxpert-admin-option {
   border-top: 1px solid #EAEAEA;
   margin-top: 20px;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left){
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option:not(.shopxpert-action-field-left){
   display: block;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option-title{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option-title{
   margin-top: 0;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option-heading-title{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option-heading-title{
   text-align: left;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option-content,.smartshop-Feature-setting-popup-content .smartshop-admin-option-action{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option-content,.shopxpert-Feature-setting-popup-content .shopxpert-admin-option-action{
   text-align: left;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left .smartshop-admin-option-content{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option.shopxpert-action-field-left .shopxpert-admin-option-content{
   width: 55%;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left .smartshop-admin-option-action{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option.shopxpert-action-field-left .shopxpert-admin-option-action{
   width: 45%;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop-admin-option-content {
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option.shopxpert-action-field-left.shopxpert-dimention-field-left .shopxpert-admin-option-content {
   width: 40%;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop_dimensions li {
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option.shopxpert-action-field-left.shopxpert-dimention-field-left .shopxpert_dimensions li {
   width: 73px;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option.smartshop-action-field-left.smartshop-dimention-field-left .smartshop-admin-option-action {
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option.shopxpert-action-field-left.shopxpert-dimention-field-left .shopxpert-admin-option-action {
   width: 60%;
   padding-left: 10px;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left) .smartshop-admin-option-content,.smartshop-Feature-setting-popup-content .smartshop-admin-option:not(.smartshop-action-field-left) .smartshop-admin-option-action{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option:not(.shopxpert-action-field-left) .shopxpert-admin-option-content,.shopxpert-Feature-setting-popup-content .shopxpert-admin-option:not(.shopxpert-action-field-left) .shopxpert-admin-option-action{
   width: 100%;
   padding-left: 0px;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-option-text{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-option-text{
   margin-top: 0;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-select select{
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-select select{
   max-width: 100%;
 }
-.smartshop-Feature-setting-popup-content .icons-selector .selector-popup{
+.shopxpert-Feature-setting-popup-content .icons-selector .selector-popup{
   right: 0;
   left: auto;
 }
@@ -2146,29 +2146,29 @@
   100% { transform: rotate(360deg); }
 }
 
-.smartshop-Feature-setting-popup-content .smartshop-admin-btn {
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-btn {
   margin: 0;
   padding: 7px 35px;
   transition: 0.4s;
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-popup-close {
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-popup-close {
   top: -10px;
   right: -10px;
   background-color: #fff;
   box-shadow: 0 3px 5px rgb(0 0 0 / 25%);
 }
-.smartshop-Feature-setting-popup-content .smartshop-admin-popup-close:hover {
+.shopxpert-Feature-setting-popup-content .shopxpert-admin-popup-close:hover {
   background-color: #ff23b7;
 }
-.smartshop-visibility-none {
+.shopxpert-visibility-none {
   opacity: 0;
   visibility: hidden;
 }
-.smartshop-condition-on{
+.shopxpert-condition-on{
   display: none !important;
 }
 
-.smartshop-adv-pro-notice > *,.smartshop-adv-pro-opacity{
+.shopxpert-adv-pro-notice > *,.shopxpert-adv-pro-opacity{
   opacity: 0.5;
   pointer-events: none;
 }
@@ -2180,11 +2180,11 @@
 .freevspro .shopxper-admin-main-nav-btn:hover,.freevspro .shopxper-admin-main-nav-btn.wlactive{
   color: #ffffff;
 }
-#smartshop_freevspro_tabs .smartshop-admin-header .smartshop-admin-btn.enable{
+#shopxpert_freevspro_tabs .shopxpert-admin-header .shopxpert-admin-btn.enable{
   background-color: #ff23b7;
   color: #ffffff;
 }
-#smartshop_freevspro_tabs .smartshop-admin-header .smartshop-admin-btn.enable:hover{
+#shopxpert_freevspro_tabs .shopxpert-admin-header .shopxpert-admin-btn.enable:hover{
   background-color: #ffffff;
   color: #ff23b7;
 }
@@ -2213,7 +2213,7 @@
 .different-free-vs-pro table tbody tr:nth-child(2n+1) {
   background-color: #fbfcfd;
 }
-#smartshop_freevspro_tabs .smartshop_heading_style_two{
+#shopxpert_freevspro_tabs .shopxpert_heading_style_two{
   padding-left: 0;
 }
 .different-free-vs-pro table tbody tr.explore-pro-features{
@@ -2228,7 +2228,7 @@
 }
 
 /* Currency Switcher Feature */
-form[data-section=smartshop_currency_switcher] .woolenor-reapeater-fields-area+.smartshop-admin-option {
+form[data-section=shopxpert_currency_switcher] .woolenor-reapeater-fields-area+.shopxpert-admin-option {
   border-top: 1px solid #eaeaea;
   margin-top: 20px;
 }

@@ -16,11 +16,11 @@ class Smartshop_Template_Library{
     function __construct(){
         if ( is_admin() ) {
             add_action( 'admin_menu', [ $this, 'admin_menu' ], 225 );
-            add_action( 'wp_ajax_smartshop_ajax_request', [ $this, 'templates_ajax_request' ] );
+            add_action( 'wp_ajax_shopxpert_ajax_request', [ $this, 'templates_ajax_request' ] );
 
-            add_action( 'wp_ajax_smartshop_ajax_get_required_plugin', [ $this, 'ajax_plugin_data' ] );
-            add_action( 'wp_ajax_smartshop_ajax_plugin_activation', [ $this, 'ajax_plugin_activation' ] );
-            add_action( 'wp_ajax_smartshop_ajax_theme_activation', [ $this, 'ajax_theme_activation' ] );
+            add_action( 'wp_ajax_shopxpert_ajax_get_required_plugin', [ $this, 'ajax_plugin_data' ] );
+            add_action( 'wp_ajax_shopxpert_ajax_plugin_activation', [ $this, 'ajax_plugin_activation' ] );
+            add_action( 'wp_ajax_shopxpert_ajax_theme_activation', [ $this, 'ajax_theme_activation' ] );
         }
         
         add_action( 'admin_enqueue_scripts', [ $this, 'scripts' ], 999 );
@@ -30,11 +30,11 @@ class Smartshop_Template_Library{
     // Plugins Library Register
     public function admin_menu() {
         add_submenu_page(
-            'smartshop_page', 
+            'shopxpert_page', 
             esc_html__( 'Template Library', 'shopxper' ),
             esc_html__( 'Template Library', 'shopxper' ), 
             'manage_options', 
-            'smartshop_templates', 
+            'shopxpert_templates', 
             [ $this, 'library_render_html' ] 
         );
     }
@@ -49,14 +49,14 @@ class Smartshop_Template_Library{
      */
     public function scripts( $hook ) {
 
-        if( 'smartshop_page_smartshop_templates' == $hook ){
+        if( 'shopxpert_page_shopxpert_templates' == $hook ){
 
             // CSS
-            wp_enqueue_style( 'smartshop-selectric' );
-            wp_enqueue_style( 'smartshop-temlibray-style' );
+            wp_enqueue_style( 'shopxpert-selectric' );
+            wp_enqueue_style( 'shopxpert-temlibray-style' );
 
             // JS
-            wp_enqueue_script( 'smartshop-modernizr' );
+            wp_enqueue_script( 'shopxpert-modernizr' );
             wp_enqueue_script( 'jquery-selectric' );
             wp_enqueue_script( 'jquery-ScrollMagic' );
             wp_enqueue_script( 'babel-min' );
@@ -81,7 +81,7 @@ class Smartshop_Template_Library{
         }else{
             if ( isset( $_REQUEST ) ) {
 
-                if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'smartshop_template_nonce' ) ) {
+                if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'shopxpert_template_nonce' ) ) {
                     $errormessage = array(
                         'message'  => __('Are you cheating?','shopxper')
                     );
@@ -106,7 +106,7 @@ class Smartshop_Template_Library{
                 ];
 
                 if( $template_type !== 'other' ){
-                    $args['post_type'] = 'smartshop-template';
+                    $args['post_type'] = 'shopxpert-template';
                 }
 
                 $new_post_id = wp_insert_post( $args );
@@ -117,8 +117,8 @@ class Smartshop_Template_Library{
                 update_post_meta( $new_post_id, '_elementor_edit_mode', 'builder' );
 
                 if( $template_type !== 'other' && $new_post_id && ! is_wp_error( $new_post_id ) ){
-                    update_post_meta( $new_post_id, 'smartshop_template_meta_type', $template_type );
-                    update_post_meta( $new_post_id, 'smartshop_template_meta_editor', 'elementor' );
+                    update_post_meta( $new_post_id, 'shopxpert_template_meta_type', $template_type );
+                    update_post_meta( $new_post_id, 'shopxpert_template_meta_editor', 'elementor' );
                 }
                 
                 if( isset( $response_data['page_settings'] ) ){
@@ -147,7 +147,7 @@ class Smartshop_Template_Library{
     public function ajax_plugin_data(){
         if ( isset( $_POST ) ) {
 
-            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'smartshop_template_nonce' ) ) {
+            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'shopxpert_template_nonce' ) ) {
                 wp_send_json_error(
                     array(
                         'success' => false,
@@ -277,7 +277,7 @@ class Smartshop_Template_Library{
      */
     public function ajax_plugin_activation() {
 
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'smartshop_template_nonce' ) ) {
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'shopxpert_template_nonce' ) ) {
             wp_send_json_error(
                 array(
                     'success' => false,
@@ -321,7 +321,7 @@ class Smartshop_Template_Library{
     */
     public function ajax_theme_activation() {
 
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'smartshop_template_nonce' ) ) {
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'shopxpert_template_nonce' ) ) {
             wp_send_json_error(
                 array(
                     'success' => false,

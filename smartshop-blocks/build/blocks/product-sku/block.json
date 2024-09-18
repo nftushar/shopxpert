@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-sku",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-sku",
+  "category": "shopxpert-single-product",
   "title": "WL: Product SKU",
   "description": "Display product SKU in product details page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product",
     "single",
     "SKU",
@@ -48,13 +48,13 @@
     "skuFontSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info span{ font-size:{{skuFontSize}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_sku_info span{ font-size:{{skuFontSize}}; }"
       }
     },
     "skuContentAlignment": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info{ text-align:{{skuContentAlignment}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_sku_info{ text-align:{{skuContentAlignment}}; }"
       }
     },
     "skuTitleHide": {
@@ -73,19 +73,19 @@
             }
           ]
         ],
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info .sku-title{ color:{{skuTitleColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_sku_info .sku-title{ color:{{skuTitleColor}}; }"
       }
     },
     "skuValueColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info .sku{ color:{{skuValueColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_sku_info .sku{ color:{{skuValueColor}}; }"
       }
     },
     "skuSpecing": {
       "type": "number",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info .sku{ margin-left:{{skuSpecing}}px; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_sku_info .sku{ margin-left:{{skuSpecing}}px; }"
       }
     },
     "skuMargin": {
@@ -99,7 +99,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop_product_sku_info{ margin:{{skuMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert_product_sku_info{ margin:{{skuMargin}}; }"
       }
     }
   }

@@ -1,7 +1,7 @@
 <?php
 
-namespace Smartshop\incs;
-use Smartshop\Incs\Admin\Inc;
+namespace Shopxpert\incs;
+use Shopxpert\Incs\Admin\Inc;
 
 // Exit if accessed directly
 if( ! defined( 'ABSPATH' ) ) exit();
@@ -20,11 +20,11 @@ function shopxpert_is_woocommerce() {
  * @return [boolean]
  */
 function shopxpert_is_pro() {
-    return class_exists( '\SmartShopPro\Base' );
+    return class_exists( '\ShopXpertPro\Base' );
 }
 
 /*
- * Smartshop Templates List
+ * Shopxpert Templates List
  * return array
  */
 function shopxpert_wltemplate_list( $type = [] ){
@@ -33,14 +33,14 @@ function shopxpert_wltemplate_list( $type = [] ){
     $template_lists = [];
 
     $args = array(
-        'post_type'            => 'smartshop-template',
+        'post_type'            => 'shopxpert-template',
         'post_status'          => 'publish',
         'ignore_sticky_posts'  => 1,
         'posts_per_page'       => -1,
     );
 
     if( is_array( $type ) && count( $type ) > 0 ){
-        $args['meta_key'] = 'smartshop_template_meta_type';
+        $args['meta_key'] = 'shopxpert_template_meta_type';
         $args['meta_value'] = $type;
         $args['meta_compare'] = 'IN';
     }
@@ -100,7 +100,7 @@ function shopxpert_is_elementor_editor_mode(){
 * @return boolean
 */
 function shopxpert_is_preview_mode(){
-    if( shopxpert_is_elementor_editor_mode() || get_post_type() === 'smartshop-template' ){
+    if( shopxpert_is_elementor_editor_mode() || get_post_type() === 'shopxpert-template' ){
         return true;
     }else{
         return false;
@@ -111,7 +111,7 @@ function shopxpert_is_preview_mode(){
  *
  * @return [void]
  */
-function smartshop_is_elementor_active() {
+function shopxpert_is_elementor_active() {
     return did_action('elementor/loaded');
 }
 
@@ -121,14 +121,14 @@ function smartshop_is_elementor_active() {
  * @param [ind] $page_id
  * @return [HTML]
  */
-function smartshop_build_page_content( $page_id ){
+function shopxpert_build_page_content( $page_id ){
     return class_exists('\Elementor\Plugin') ? \Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $page_id ) : '';
 }
 
 /**
 * Checked Current theme is FSE
 */
-function smartshop_current_theme_is_fse() {
+function shopxpert_current_theme_is_fse() {
 	if ( function_exists( 'wp_is_block_theme' ) ) {
 		return (bool) wp_is_block_theme();
 	}
@@ -147,7 +147,7 @@ function smartshop_current_theme_is_fse() {
  * @param  array  $attributes icon attributes
  * @return [html]  html | false
  */
-function smartshop_render_icon( $settings = [], $new_icon = 'selected_icon', $old_icon = 'icon', $attributes = [] ){
+function shopxpert_render_icon( $settings = [], $new_icon = 'selected_icon', $old_icon = 'icon', $attributes = [] ){
 
     $migrated = isset( $settings['__fa4_migrated'][$new_icon] );
     $is_new = empty( $settings[$old_icon] ) && \Elementor\Icons_Manager::is_migration_allowed();
@@ -205,10 +205,10 @@ function smartshop_render_icon( $settings = [], $new_icon = 'selected_icon', $ol
 }
 
 /**
- * [smartshop_get_cookie_name] Get Compare cookie name
+ * [shopxpert_get_cookie_name] Get Compare cookie name
  * @return [string] 
  */
-function smartshop_get_cookie_name( $name ) {
+function shopxpert_get_cookie_name( $name ) {
     $name = 'shopxpert_'.$name;
     if ( is_multisite() ){
         $name .= '_' . get_current_blog_id();
@@ -217,17 +217,17 @@ function smartshop_get_cookie_name( $name ) {
 }
 
 /**
- * [smartshop_set_views_count]
+ * [shopxpert_set_views_count]
  * @param  [int] $postid
  * @param  [string] $posttype
  * @return [null] 
  */
-function smartshop_set_views_count( $postid, $posttype ) {
+function shopxpert_set_views_count( $postid, $posttype ) {
 
-    $count_key  = 'smartshop_views_count_'.$posttype;
+    $count_key  = 'shopxpert_views_count_'.$posttype;
     $count      = get_post_meta( $postid, $count_key, true );
 
-    $cookie_name    = smartshop_get_cookie_name( 'already_views_count_'.$posttype );
+    $cookie_name    = shopxpert_get_cookie_name( 'already_views_count_'.$posttype );
     $products_list  = isset( $_COOKIE[$cookie_name] ) ? unserialize( $_COOKIE[ $cookie_name ], ['allowed_classes' => false] ) : [];
     $timestamp      = time();
 
@@ -249,14 +249,14 @@ function smartshop_set_views_count( $postid, $posttype ) {
 }
 
 /**
- * [smartshop_get_views_count]
+ * [shopxpert_get_views_count]
  * @param  [int] $postid
  * @param  [string] $posttype
  * @return [string] 
  */
-function smartshop_get_views_count( $postid, $posttype ){
+function shopxpert_get_views_count( $postid, $posttype ){
 
-    $count_key = 'smartshop_views_count_'.$posttype;
+    $count_key = 'shopxpert_views_count_'.$posttype;
 
     $count =  get_post_meta( $postid, $count_key, true );
     if( $count == '' ){
@@ -273,10 +273,10 @@ function smartshop_get_views_count( $postid, $posttype ){
  *
  * @return array
  */
-function smartshop_get_track_user_data(){
+function shopxpert_get_track_user_data(){
 
     $user_id     = get_current_user_id();
-    $cookie_name = smartshop_get_cookie_name( 'viewed_products_list' );
+    $cookie_name = shopxpert_get_cookie_name( 'viewed_products_list' );
     if (! $user_id) {
         $products_list = isset( $_COOKIE[$cookie_name] ) ? unserialize( $_COOKIE[ $cookie_name ], ['allowed_classes' => false] ) : [];
     } else {
@@ -288,11 +288,11 @@ function smartshop_get_track_user_data(){
 }
 
 /**
- * [smartshop_product_query]
+ * [shopxpert_product_query]
  * @param  array  $query_args
  * @return [array] Generate query
  */
-function smartshop_product_query( $query_args = [] ){
+function shopxpert_product_query( $query_args = [] ){
     
     $meta_query = $tax_query = array();
 
@@ -421,7 +421,7 @@ function smartshop_product_query( $query_args = [] ){
  * Get all menu list
  * return array
  */
-function smartshop_get_all_create_menus() {
+function shopxpert_get_all_create_menus() {
     $raw_menus = wp_get_nav_menus();
     $menus     = wp_list_pluck( $raw_menus, 'name', 'term_id' );
     $parent    = isset( $_GET['parent_menu'] ) ? absint( $_GET['parent_menu'] ) : 0;
@@ -435,7 +435,7 @@ function smartshop_get_all_create_menus() {
  *  Taxonomy List
  * @return array
  */
-function smartshop_taxonomy_list( $taxonomy = 'product_cat', $option_value = 'slug' ){
+function shopxpert_taxonomy_list( $taxonomy = 'product_cat', $option_value = 'slug' ){
      
     $terms = get_terms( array(
         'taxonomy'   => $taxonomy,
@@ -454,7 +454,7 @@ function smartshop_taxonomy_list( $taxonomy = 'product_cat', $option_value = 'sl
  * Get Post Type
  * return array
  */
-function smartshop_get_post_types( $args = [] ) {
+function shopxpert_get_post_types( $args = [] ) {
     $post_type_args = [
         'show_in_nav_menus' => true,
     ];
@@ -478,10 +478,10 @@ function smartshop_get_post_types( $args = [] ) {
  * Get Post List
  * return array
  */
-function smartshop_post_name( $post_type = 'post', $args = [] ){
+function shopxpert_post_name( $post_type = 'post', $args = [] ){
     $options = array();
     $options['0'] = __('Select','shopxper');
-    $perpage = !empty( $args['limit'] ) ? $args['limit'] : smartshop_get_option( 'loadproductlimit', 'smartshop_others_tabs', '20' );
+    $perpage = !empty( $args['limit'] ) ? $args['limit'] : shopxpert_get_option( 'loadproductlimit', 'shopxpert_others_tabs', '20' );
     $all_post = array( 'posts_per_page' => $perpage, 'post_type'=> $post_type );
     $post_terms = get_posts( $all_post );
     if ( ! empty( $post_terms ) && ! is_wp_error( $post_terms ) ){
@@ -518,7 +518,7 @@ function shopxpert_elementor_template() {
  * Plugisn Options value
  * return on/off
  */
-function smartshop_get_option( $option, $section, $default = '' ){
+function shopxpert_get_option( $option, $section, $default = '' ){
     $options = get_option( $section );
     if ( isset( $options[$option] ) ) {
         return $options[$option];
@@ -526,7 +526,7 @@ function smartshop_get_option( $option, $section, $default = '' ){
     return $default;
 }
 
-function smartshop_get_option_label_text( $option, $section, $default = '' ){
+function shopxpert_get_option_label_text( $option, $section, $default = '' ){
     $options = get_option( $section );
     if ( isset( $options[$option] ) ) {
         if( !empty($options[$option]) ){
@@ -538,13 +538,13 @@ function smartshop_get_option_label_text( $option, $section, $default = '' ){
 }
 
 /**
- * [smartshop_update_option]
+ * [shopxpert_update_option]
  * @param  [string] $option
  * @param  [string] $section
  * @param  string $new_value
  * @return [string]
  */
-function smartshop_update_option( $section, $option_key, $new_value ){
+function shopxpert_update_option( $section, $option_key, $new_value ){
     $options_data = get_option( $section );
     if( isset( $options_data[$option_key] ) ){
         $options_data[$option_key] = $new_value;
@@ -555,11 +555,11 @@ function smartshop_update_option( $section, $option_key, $new_value ){
 }
 
 /**
- * [smartshop_clean]
+ * [shopxpert_clean]
  * @param  [JSON] $var
  * @return [array]
  */
-function smartshop_clean( $var ) {
+function shopxpert_clean( $var ) {
     if ( is_array( $var ) ) {
         return array_map(function($item) {
             return is_scalar($item) ? sanitize_text_field($item) : $item;
@@ -575,20 +575,20 @@ function smartshop_clean( $var ) {
  * @param  [string] $tmp_name Template name
  * @return [Template path]
  */
-function smartshop_locate_template( $tmp_name, $template_path ) {
+function shopxpert_locate_template( $tmp_name, $template_path ) {
     $woo_tmp_base = WC()->template_path();
 
-    $woo_tmp_path     = $woo_tmp_base .'smartshop/'. $tmp_name; //active theme directory/woocommerce/
-    $theme_tmp_path   = 'smartshop/' . $tmp_name; //active theme root directory
+    $woo_tmp_path     = $woo_tmp_base .'shopxpert/'. $tmp_name; //active theme directory/woocommerce/
+    $theme_tmp_path   = 'shopxpert/' . $tmp_name; //active theme root directory
     $plugin_tmp_path  = $template_path . $tmp_name . '.php';
 
     $located = locate_template( [ $woo_tmp_path, $theme_tmp_path ] );
 
     if ( ! $located && file_exists( $plugin_tmp_path ) ) {
-        return apply_filters( 'smartshop_locate_template', $plugin_tmp_path, $tmp_name );
+        return apply_filters( 'shopxpert_locate_template', $plugin_tmp_path, $tmp_name );
     }
 
-    return apply_filters( 'smartshop_locate_template', $located, $tmp_name );
+    return apply_filters( 'shopxpert_locate_template', $located, $tmp_name );
 }
 
 /**
@@ -598,8 +598,8 @@ function smartshop_locate_template( $tmp_name, $template_path ) {
  * @param  boolean $echo
  * @return [void]
  */
-function smartshop_get_template( $tmp_name, $args = null, $echo = true, $template_path = SMARTSHOP_TEMPLATE ) {
-    $located = smartshop_locate_template( $tmp_name, $template_path );
+function shopxpert_get_template( $tmp_name, $args = null, $echo = true, $template_path = SMARTSHOP_TEMPLATE ) {
+    $located = shopxpert_locate_template( $tmp_name, $template_path );
 
     if ( $args && is_array( $args ) ) {
         extract( $args );
@@ -623,7 +623,7 @@ function smartshop_get_template( $tmp_name, $args = null, $echo = true, $templat
  *
  * @return string|bool False on failure, the result of the shortcode on success.
  */
-function smartshop_do_shortcode( $tag, array $atts = array(), $content = null ) {
+function shopxpert_do_shortcode( $tag, array $atts = array(), $content = null ) {
     global $shortcode_tags;
 
     if ( ! isset( $shortcode_tags[ $tag ] ) ) {
@@ -636,10 +636,10 @@ function smartshop_do_shortcode( $tag, array $atts = array(), $content = null ) 
 /**
 * Woocommerce Product last product id return
 */
-function smartshop_get_last_product_id(){
+function shopxpert_get_last_product_id(){
     global $wpdb;
 
-    $cache_key  = 'smartshop_last_product_id';
+    $cache_key  = 'shopxpert_last_product_id';
     $results    = wp_cache_get( $cache_key );
 
     // Getting last Product ID (max value)
@@ -659,7 +659,7 @@ function smartshop_get_last_product_id(){
  * HTML Tag list
  * return array
  */
-function smartshop_html_tag_lists() {
+function shopxpert_html_tag_lists() {
     $html_tag_list = [
         'h1'   => __( 'H1', 'shopxper' ),
         'h2'   => __( 'H2', 'shopxper' ),
@@ -678,7 +678,7 @@ function smartshop_html_tag_lists() {
  * HTML Tag Validation
  * return strig
  */
-function smartshop_validate_html_tag( $tag = 'div' ) {
+function shopxpert_validate_html_tag( $tag = 'div' ) {
     $allowed_html_tags = [
         'article',
         'aside',
@@ -706,7 +706,7 @@ function smartshop_validate_html_tag( $tag = 'div' ) {
  * @param string $tag_type Allowed levels are title and desc
  * @return array
  */
-function smartshop_get_html_allowed_tags($tag_type = 'title') {
+function shopxpert_get_html_allowed_tags($tag_type = 'title') {
 	$accept_html_tags = [
         'span'   => [
 			'class' => [],
@@ -910,7 +910,7 @@ function smartshop_get_html_allowed_tags($tag_type = 'title') {
 * Category list
 * return first one
 */
-function smartshop_get_product_category_list( $id = null, $taxonomy = 'product_cat', $limit = 1 ) { 
+function shopxpert_get_product_category_list( $id = null, $taxonomy = 'product_cat', $limit = 1 ) { 
     $terms = get_the_terms( $id, $taxonomy );
     $i = 0;
     if ( is_wp_error( $terms ) )
@@ -938,7 +938,7 @@ function smartshop_get_product_category_list( $id = null, $taxonomy = 'product_c
  *
  * @return array
  */
-function smartshop_get_archive_data() {
+function shopxpert_get_archive_data() {
 
     $data = [
         'title'     => '',
@@ -997,7 +997,7 @@ function smartshop_get_archive_data() {
 if( class_exists('WooCommerce') ){
 
     /* Custom product badge */
-    function smartshop_custom_product_badge( $show = 'yes' ){
+    function shopxpert_custom_product_badge( $show = 'yes' ){
         global $product;
         $custom_saleflash_text = get_post_meta( get_the_ID(), '_saleflash_text', true );
         if( $show == 'yes' && is_a( $product, 'WC_Product' ) ){
@@ -1012,7 +1012,7 @@ if( class_exists('WooCommerce') ){
     }
 
     /* Sale Flash for Single Product page */
-    function smartshop_show_product_sale_flash( $echo = true ){
+    function shopxpert_show_product_sale_flash( $echo = true ){
         global $post, $product;
         if( is_a( $product, 'WC_Product' ) ){
 
@@ -1022,7 +1022,7 @@ if( class_exists('WooCommerce') ){
                 echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'shopxper' ) . '</span>', $post, $product );
             }else{
                 $out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
-                $out_of_stock_text = apply_filters( 'smartshop_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
+                $out_of_stock_text = apply_filters( 'shopxpert_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
                 if ( 'outofstock' === $out_of_stock ) {
                     echo '<span class="outofstock onsale">'.esc_html( $out_of_stock_text ).'</span>';
                 }
@@ -1034,7 +1034,7 @@ if( class_exists('WooCommerce') ){
     }
 
     /* Sale badge */
-    function smartshop_sale_flash( $offertype = 'default', $echo = true, $outofstocktxt = '' ){
+    function shopxpert_sale_flash( $offertype = 'default', $echo = true, $outofstocktxt = '' ){
         global $product;
         if( $echo == false ){ ob_start(); }
         if( $product->is_on_sale() && $product->is_in_stock() ){
@@ -1065,12 +1065,12 @@ if( class_exists('WooCommerce') ){
                 }else{ echo ' '; }
 
             }else{
-                $sale_badge_text = apply_filters( 'smartshop_sale_badge_text', esc_html__( 'Sale!', 'shopxper' ) );
+                $sale_badge_text = apply_filters( 'shopxpert_sale_badge_text', esc_html__( 'Sale!', 'shopxper' ) );
                 echo '<span class="ht-product-label ht-product-label-right">'.esc_html( $sale_badge_text ).'</span>';
             }
         }else{
             $out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
-            $out_of_stock_text = !empty( $outofstocktxt ) ? esc_html( $outofstocktxt ) : apply_filters( 'smartshop_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
+            $out_of_stock_text = !empty( $outofstocktxt ) ? esc_html( $outofstocktxt ) : apply_filters( 'shopxpert_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
             if ( 'outofstock' === $out_of_stock ) {
                 echo '<span class="ht-stockout ht-product-label ht-product-label-right">'.esc_html( $out_of_stock_text ).'</span>';
             }
@@ -1080,7 +1080,7 @@ if( class_exists('WooCommerce') ){
     }
 
     // Shop page header result count
-    function smartshop_product_result_count( $total, $perpage, $paged ){
+    function shopxpert_product_result_count( $total, $perpage, $paged ){
         wc_set_loop_prop( 'total', $total );
         wc_set_loop_prop( 'per_page', $perpage );
         wc_set_loop_prop( 'current_page', $paged );
@@ -1093,7 +1093,7 @@ if( class_exists('WooCommerce') ){
     }
 
     // product shorting
-    function smartshop_product_shorting( $getorderby ){
+    function shopxpert_product_shorting( $getorderby ){
         ?>
             <form class="woocommerce-ordering" method="get">
                 <select name="orderby" class="orderby">
@@ -1130,7 +1130,7 @@ if( class_exists('WooCommerce') ){
     }
 
     // Custom page pagination
-    function smartshop_custom_pagination( $totalpage ){
+    function shopxpert_custom_pagination( $totalpage ){
         echo '<div class="ht-row woocommerce"><div class="ht-col-xs-12"><nav class="woocommerce-pagination">';
             echo wp_kses_post(paginate_links( apply_filters(
                     'woocommerce_pagination_args', array(
@@ -1150,18 +1150,18 @@ if( class_exists('WooCommerce') ){
     }
 
     // Change Product Per page
-    if( smartshop_get_option( 'enablecustomlayout', 'smartshop_woo_template_tabs', 'on' ) == 'on' ){
-        function smartshop_custom_number_of_posts() {
-            $limit = smartshop_get_option( 'shoppageproductlimit', 'smartshop_woo_template_tabs', 2 );
+    if( shopxpert_get_option( 'enablecustomlayout', 'shopxpert_woo_template_tabs', 'on' ) == 'on' ){
+        function shopxpert_custom_number_of_posts() {
+            $limit = shopxpert_get_option( 'shoppageproductlimit', 'shopxpert_woo_template_tabs', 2 );
             $postsperpage = apply_filters( 'product_custom_limit', $limit );
             return $postsperpage;
         }
-        add_filter( 'loop_shop_per_page', 'smartshop_custom_number_of_posts' );
+        add_filter( 'loop_shop_per_page', 'shopxpert_custom_number_of_posts' );
     }
 
     // Customize rating html
-    if( !function_exists('smartshop_wc_get_rating_html') ){
-        function smartshop_wc_get_rating_html( $block = '' ){
+    if( !function_exists('shopxpert_wc_get_rating_html') ){
+        function shopxpert_wc_get_rating_html( $block = '' ){
             if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) { return; }
             global $product;
             $rating_count = $product->get_rating_count();
@@ -1214,24 +1214,24 @@ if( class_exists('WooCommerce') ){
     }
 
     // HTML Markup Render in footer
-    function smartshop_html_render_infooter(){
-        if ( true === apply_filters( 'smartshop_footer_content_visibility', true ) ) {
-            do_action( 'smartshop_footer_render_content' );
+    function shopxpert_html_render_infooter(){
+        if ( true === apply_filters( 'shopxpert_footer_content_visibility', true ) ) {
+            do_action( 'shopxpert_footer_render_content' );
         }
     }
-    add_action( 'wp_footer', 'smartshop_html_render_infooter' );
+    add_action( 'wp_footer', 'shopxpert_html_render_infooter' );
 
 
     
 
     /**
-     * [smartshop_stock_status]
+     * [shopxpert_stock_status]
      */
-    function smartshop_stock_status( $order_text, $available_text, $product_id ){
+    function shopxpert_stock_status( $order_text, $available_text, $product_id ){
 
         if ( get_post_meta( $product_id, '_manage_stock', true ) == 'yes' ) {
 
-            $total_stock = get_post_meta( $product_id, 'smartshop_total_stock_quantity', true );
+            $total_stock = get_post_meta( $product_id, 'shopxpert_total_stock_quantity', true );
 
             if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'shopxper' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'shopxper' ).'</a></div>'; return; } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
@@ -1241,7 +1241,7 @@ if( class_exists('WooCommerce') ){
             $percentage = $total_sold > 0 ? round( $total_sold / $total_stock * 100 ) : 0;
 
             if ( $current_stock > 0 ) {
-                echo '<div class="smartshop-stock-progress-bar">';
+                echo '<div class="shopxpert-stock-progress-bar">';
                     echo '<div class="wlstock-info">';
                         echo '<div class="wltotal-sold">' . esc_html__( $order_text, 'shopxper' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
                     echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'shopxper' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
@@ -1259,14 +1259,14 @@ if( class_exists('WooCommerce') ){
     }
 
     /**
-     * [smartshop_minmax_price_limit]
+     * [shopxpert_minmax_price_limit]
      * @return [array] Price Limit
      */
-    function smartshop_minmax_price_limit() {
+    function shopxpert_minmax_price_limit() {
         global $wpdb;
 
-        $value_min_cache_key  = 'smartshop_min_value_price';
-        $value_max_cache_key  = 'smartshop_max_value_price';
+        $value_min_cache_key  = 'shopxpert_min_value_price';
+        $value_max_cache_key  = 'shopxpert_max_value_price';
         $value_min = wp_cache_get( $value_min_cache_key );
         $value_max = wp_cache_get( $value_max_cache_key );
 
@@ -1289,10 +1289,10 @@ if( class_exists('WooCommerce') ){
 }
 
 /**
- * [smartshop_pro_get_taxonomies]
+ * [shopxpert_pro_get_taxonomies]
  * @return [array] product texonomies
  */
-function smartshop_get_taxonomies( $object = 'product', $skip_terms = false ) {
+function shopxpert_get_taxonomies( $object = 'product', $skip_terms = false ) {
     $all_taxonomies = get_object_taxonomies( $object );
     $taxonomies_list = [];
     foreach ( $all_taxonomies as $taxonomy_data ) {
@@ -1311,10 +1311,10 @@ function smartshop_get_taxonomies( $object = 'product', $skip_terms = false ) {
 }
 
 /**
- * [smartshop_order_by_opts]
+ * [shopxpert_order_by_opts]
  * @return [array] [description]
  */
-function smartshop_order_by_opts() {
+function shopxpert_order_by_opts() {
     $options = [
         'none'                  => esc_html__( 'None', 'shopxper' ),
         'ID'                    => esc_html__( 'ID', 'shopxper' ),
@@ -1328,15 +1328,15 @@ function smartshop_order_by_opts() {
         'total_sales'           => esc_html__( 'Top Seller', 'shopxper' ),
         '_wc_average_rating'    => esc_html__( 'Top Rated', 'shopxper' ),
     ];
-    return apply_filters( 'smartshop_order_by_opts', $options );
+    return apply_filters( 'shopxpert_order_by_opts', $options );
 
 }
 
 /**
- * [smartshop_exist_compare_plugin]
+ * [shopxpert_exist_compare_plugin]
  * @return [bool]
  */
-function smartshop_exist_compare_plugin(){
+function shopxpert_exist_compare_plugin(){
     if( class_exists('Ever_Compare') || class_exists('Smartshop_Ever_Compare') ){
         return true;
     }elseif( class_exists('YITH_Woocompare') ){
@@ -1350,14 +1350,14 @@ function smartshop_exist_compare_plugin(){
 * Usages: Compare button shortcode [yith_compare_button] From "YITH WooCommerce Compare" plugins.
 * Plugins URL: https://wordpress.org/plugins/yith-woocommerce-compare/
 * File Path: yith-woocommerce-compare/incs/class.yith-woocompare-frontend.php
-* The Function "smartshop_compare_button" Depends on YITH WooCommerce Compare plugins. If YITH WooCommerce Compare is installed and actived, then it will work.
+* The Function "shopxpert_compare_button" Depends on YITH WooCommerce Compare plugins. If YITH WooCommerce Compare is installed and actived, then it will work.
 */
-function smartshop_compare_button( $button_arg = array() ){
+function shopxpert_compare_button( $button_arg = array() ){
 
     global $product;
 
     if( $product === null ){
-        $product = function_exists('wc_get_product') ? wc_get_product( smartshop_get_last_product_id() ) : null;
+        $product = function_exists('wc_get_product') ? wc_get_product( shopxpert_get_last_product_id() ) : null;
     }
 
     $product_id = $product->get_id();
@@ -1371,13 +1371,13 @@ function smartshop_compare_button( $button_arg = array() ){
     if( class_exists('Ever_Compare') || class_exists('Smartshop_Ever_Compare') ){
 
         if( !empty( $button_arg['btn_text_type'] ) && $button_arg['btn_text_type'] === 'text'){
-            $button_text        = smartshop_get_option( 'button_text','ever_compare_settings_tabs', 'Compare' );
-            $button_added_text  = smartshop_get_option( 'added_button_text','ever_compare_settings_tabs', 'Added' );
+            $button_text        = shopxpert_get_option( 'button_text','ever_compare_settings_tabs', 'Compare' );
+            $button_added_text  = shopxpert_get_option( 'added_button_text','ever_compare_settings_tabs', 'Added' );
             $button_title       = $button_text;
         }
 
         $comp_link = \EverCompare\Frontend\Manage_Compare::instance()->get_compare_page_url();
-        echo '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn smartshop-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'" aria-label="'.esc_attr__('Compare','smartshop-pro').'" rel="nofollow">'.$button_text.'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn shopxpert-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'" aria-label="'.esc_attr__('Compare','shopxpert-pro').'" rel="nofollow">'.$button_text.'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     }elseif( class_exists('YITH_Woocompare') ){
         $comp_link = home_url() . '?action=yith-woocompare-add-product';
@@ -1388,7 +1388,7 @@ function smartshop_compare_button( $button_arg = array() ){
                 echo do_shortcode('[yith_compare_button]');
             }
         }else{
-            echo '<a title="'. esc_attr__('Add to Compare', 'shopxper') .'" href="'. esc_url( $comp_link ) .'" class="smartshop-compare compare" data-product_id="'. esc_attr( $product_id ) .'" aria-label="'.esc_attr__('Compare','smartshop-pro').'" rel="nofollow">'.esc_html__( 'Compare', 'shopxper' ).'</a>';
+            echo '<a title="'. esc_attr__('Add to Compare', 'shopxper') .'" href="'. esc_url( $comp_link ) .'" class="shopxpert-compare compare" data-product_id="'. esc_attr( $product_id ) .'" aria-label="'.esc_attr__('Compare','shopxpert-pro').'" rel="nofollow">'.esc_html__( 'Compare', 'shopxper' ).'</a>';
         }
     }else{
         return 0;
@@ -1399,10 +1399,10 @@ function smartshop_compare_button( $button_arg = array() ){
 
 
 /**
- * [smartshop_has_wishlist_plugin]
+ * [shopxpert_has_wishlist_plugin]
  * @return [bool]
  */
-function smartshop_has_wishlist_plugin(){
+function shopxpert_has_wishlist_plugin(){
     if( class_exists('WooWishSuite_Base') || class_exists('Smartshop_WooWishSuite_Base') ){
         return true;
     }elseif( class_exists('YITH_WCWL') ){
@@ -1410,22 +1410,22 @@ function smartshop_has_wishlist_plugin(){
     }elseif( class_exists('TInvWL_Public_AddToWishlist') ){
         return true;
     }else{
-        return apply_filters('smartshop_has_wishlist_plugin', false);
+        return apply_filters('shopxpert_has_wishlist_plugin', false);
     }
 }
 
 /**
-* Usages: "smartshop_add_to_wishlist_button()" function is used  to modify the wishlist button from "YITH WooCommerce Wishlist" plugins.
+* Usages: "shopxpert_add_to_wishlist_button()" function is used  to modify the wishlist button from "YITH WooCommerce Wishlist" plugins.
 * Plugins URL: https://wordpress.org/plugins/yith-woocommerce-wishlist/
 * File Path: yith-woocommerce-wishlist/templates/add-to-wishlist.php
 * The below Function depends on YITH WooCommerce Wishlist plugins. If YITH WooCommerce Wishlist is installed and actived, then it will work.
 */
 
-function smartshop_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-o"></i>', $addedicon = '<i class="fa fa-heart"></i>', $tooltip = 'no' ) {
+function shopxpert_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-o"></i>', $addedicon = '<i class="fa fa-heart"></i>', $tooltip = 'no' ) {
     global $product;
 
     if( $product === null ){
-        $product = function_exists('wc_get_product') ? wc_get_product( smartshop_get_last_product_id() ) : null;
+        $product = function_exists('wc_get_product') ? wc_get_product( shopxpert_get_last_product_id() ) : null;
     }
 
     $output = '';
@@ -1469,19 +1469,19 @@ function smartshop_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
             $output  .= '<div class="'.( $tooltip == 'yes' ? '' : 'tooltip_no' ).' wishlist button-default yith-wcwl-add-to-wishlist add-to-wishlist-' . esc_attr( $product->get_id() ) . '">';
                 $output .= '<div class="yith-wcwl-add-button';
                     $output .= $exists ? ' hide" style="display:none;"' : ' show"';
-                    $output .= '><a href="' . esc_url( htmlspecialchars( YITH_WCWL()->get_wishlist_url() ) ) . '" data-product-id="' . esc_attr( $product->get_id() ) . '" data-product-type="' . esc_attr( $product_type ) . '" ' . $classes . ' aria-label="'.esc_attr__('Wishlist','smartshop-pro').'" rel="nofollow">'.$normalicon.'<span class="ht-product-action-tooltip">'.esc_html( $add ).'</span></a>';
+                    $output .= '><a href="' . esc_url( htmlspecialchars( YITH_WCWL()->get_wishlist_url() ) ) . '" data-product-id="' . esc_attr( $product->get_id() ) . '" data-product-type="' . esc_attr( $product_type ) . '" ' . $classes . ' aria-label="'.esc_attr__('Wishlist','shopxpert-pro').'" rel="nofollow">'.$normalicon.'<span class="ht-product-action-tooltip">'.esc_html( $add ).'</span></a>';
                     $output .= '<i class="fa fa-spinner fa-pulse ajax-loading" style="visibility:hidden"></i>';
                 $output .= '</div>';
 
-                $output .= '<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;"><a class="" href="' . esc_url( $url ) . '" aria-label="'.esc_attr__('Wishlist','smartshop-pro').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $browse ).'</span></a></div>';
-                $output .= '<div class="yith-wcwl-wishlistexistsbrowse ' . ( $exists ? 'show' : 'hide' ) . '" style="display:' . ( $exists ? 'block' : 'none' ) . '"><a href="' . esc_url( $url ) . '" class="" aria-label="'.esc_attr__('Wishlist','smartshop-pro').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $added ).'</span></a></div>';
+                $output .= '<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;"><a class="" href="' . esc_url( $url ) . '" aria-label="'.esc_attr__('Wishlist','shopxpert-pro').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $browse ).'</span></a></div>';
+                $output .= '<div class="yith-wcwl-wishlistexistsbrowse ' . ( $exists ? 'show' : 'hide' ) . '" style="display:' . ( $exists ? 'block' : 'none' ) . '"><a href="' . esc_url( $url ) . '" class="" aria-label="'.esc_attr__('Wishlist','shopxpert-pro').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $added ).'</span></a></div>';
             $output .= '</div>';
 
             return $output;
         }
 
     }else{
-        return apply_filters('smartshop_add_to_wishlist_output', 0 ,$normalicon , $addedicon , $tooltip);
+        return apply_filters('shopxpert_add_to_wishlist_output', 0 ,$normalicon , $addedicon , $tooltip);
     }
 
 
@@ -1491,26 +1491,26 @@ function smartshop_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
 /*
  * Ajax login Action
  */
-// function smartshop_ajax_login_init() {
+// function shopxpert_ajax_login_init() {
 //     // Ensure global $user is checked after WordPress has initialized it
 //     global $user;
     
 //     // Log the function call for debugging purposes
-//     error_log('smartshop_ajax_login_init called.');
+//     error_log('shopxpert_ajax_login_init called.');
 
 //     // Check if the user is not logged in before adding the action
 //     if ( empty( $user->ID ) ) {
-//         add_action( 'wp_ajax_nopriv_smartshop_ajax_login', 'smartshop_ajax_login' );
+//         add_action( 'wp_ajax_nopriv_shopxpert_ajax_login', 'shopxpert_ajax_login' );
 //     }
 // }
 
 // // Hook into the 'init' action to register the ajax login functionality
-// add_action('init', 'smartshop_ajax_login_init');
+// add_action('init', 'shopxpert_ajax_login_init');
 
 /*
  * Ajax login callback function
  */
-function smartshop_ajax_login(){
+function shopxpert_ajax_login(){
     // Process the login request using WooCommerce's login handler
     $message = WC_Form_Handler::process_login();
 
@@ -1533,7 +1533,7 @@ function smartshop_ajax_login(){
 /**
  * Get Image Sizes
  */
-function smartshop_get_image_size() {
+function shopxpert_get_image_size() {
     $sizes = get_intermediate_image_sizes();
     $filter = array('full' => 'Full');
     foreach ( $sizes as $value ) {
@@ -1547,7 +1547,7 @@ function smartshop_get_image_size() {
  *
  * @return boolean
  */
-function smartshop_get_theme_byname( $name ){
+function shopxpert_get_theme_byname( $name ){
     $current_theme = wp_get_theme( $name );
     return $current_theme->exists();
 }
@@ -1556,7 +1556,7 @@ function smartshop_get_theme_byname( $name ){
  * 
  * @return // The directory name of the theme's "stylesheet" files, inside the theme root.
  */
-function smartshop_get_current_theme_directory(){
+function shopxpert_get_current_theme_directory(){
     $current_theme_dir  = '';
     $current_theme      = wp_get_theme();
     if( $current_theme->exists() && $current_theme->parent() ){
@@ -1575,15 +1575,15 @@ function smartshop_get_current_theme_directory(){
 /*
  * Products not found content.
  */
-function smartshop_products_not_found_content(){
+function shopxpert_products_not_found_content(){
     return '<div class="products-not-found"><p class="woocommerce-info">' . esc_html__( 'No products were found matching your selection.','shopxper' ) . '</p></div>';
 }
 
 /**
  * Get countries
  */
-if( !function_exists('smartshop_get_countries') ){
-    function smartshop_get_countries(){
+if( !function_exists('shopxpert_get_countries') ){
+    function shopxpert_get_countries(){
         $output = array();
 
         if( class_exists('WC_Countries') ){
@@ -1605,8 +1605,8 @@ if( !function_exists('smartshop_get_countries') ){
 /**
  * Get users
  */
-if( !function_exists('smartshop_get_users') ){
-    function smartshop_get_users(){
+if( !function_exists('shopxpert_get_users') ){
+    function shopxpert_get_users(){
         $options = array();
 
         $query = new WP_User_Query( array( 'fields' => array( 'display_name', 'ID' ) ) );
@@ -1623,8 +1623,8 @@ if( !function_exists('smartshop_get_users') ){
 /**
  * Get user roles
  */
-if( !function_exists('smartshop_get_user_roles') ){
-    function smartshop_get_user_roles(){
+if( !function_exists('shopxpert_get_user_roles') ){
+    function shopxpert_get_user_roles(){
         global $wp_roles;
         $options = array();
 
@@ -1648,8 +1648,8 @@ if( !function_exists('smartshop_get_user_roles') ){
  * @param [type] $current_url
  * @return array
  */
-if( !function_exists('smartshop_block_filter_generate_term_link') ){
-    function smartshop_block_filter_generate_term_link( $filter_type, $term, $current_url ) {
+if( !function_exists('shopxpert_block_filter_generate_term_link') ){
+    function shopxpert_block_filter_generate_term_link( $filter_type, $term, $current_url ) {
 
         $filter_name = $filter_type;
         $str = substr( $filter_type, 0, 3 );

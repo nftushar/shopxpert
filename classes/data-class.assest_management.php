@@ -1,6 +1,6 @@
 <?php 
 
-namespace SmartShop;
+namespace ShopXpert ;
  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -103,7 +103,7 @@ class Assets_Management{
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'jquery' ]
             // ],
-            // 'smartshop-accordion-min' => [
+            // 'shopxpert-accordion-min' => [
             //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/js/accordion.min.js',
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'jquery' ]
@@ -138,7 +138,7 @@ class Assets_Management{
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'jquery','slick','wc-add-to-cart-variation' ]
             // ],
-            // 'smartshop-ajax-search' => [
+            // 'shopxpert-ajax-search' => [
             //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/addons/ajax-search/js/ajax-search.js',
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'shopxper-widgets-scripts' ]
@@ -148,13 +148,13 @@ class Assets_Management{
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'jquery' ]
             // ],
-            // 'smartshop-flash-sale-Feature' => [
+            // 'shopxpert-flash-sale-Feature' => [
             //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/features/flash-sale/assets/js/flash-sale.js',
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'jquery', 'countdown-min' ]
             // ],
 
-            // 'smartshop-jquery-interdependencies' => [
+            // 'shopxpert-jquery-interdependencies' => [
             //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/jquery-interdependencies.min.js', 
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'jquery' ],
@@ -173,11 +173,11 @@ class Assets_Management{
             ],
 
 
-            // 'smartshop-sweetalert' => [
+            // 'shopxpert-sweetalert' => [
             //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/sweetalert2.min.js',
             //     'version' => SHOPXPERT_VERSION
             // ],
-            // 'smartshop-modernizr' => [
+            // 'shopxpert-modernizr' => [
             //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/modernizr.custom.63321.js',
             //     'version' => SHOPXPERT_VERSION,
             //     'deps'    => [ 'jquery' ]
@@ -265,7 +265,7 @@ if (is_admin()) {
         ],
         'option_data' => [],
     );
-    wp_localize_script('shopxper-admin-main', 'SMARTSHOP_ADMIN', $datalocalize);
+    wp_localize_script('shopxper-admin-main', 'SHOPXPERT_ADMIN', $datalocalize);
     
     // Localize additional scripts as needed
     $current_user = wp_get_current_user();
@@ -277,7 +277,7 @@ if (is_admin()) {
         'version'          => SHOPXPERT_VERSION,
         'pluginURL'        => plugin_dir_url(__FILE__),
         'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
-        'prolink'          => 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=library',
+        'prolink'          => 'https://shopxpert.com/pricing/?utm_source=admin&utm_medium=library',
         'prolabel'         => esc_html__('Pro', 'shopxper'),
         'loadingimg'       => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
         'message'          => [

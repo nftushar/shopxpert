@@ -1,11 +1,11 @@
 {
-    "name": "user/smartshop",
+    "name": "user/shopxpert",
     "version": "1.0.1",
     "autoload": {
         "psr-4": {
-            "SmartShop\\": "incs/",
-            "Smartshop\\Incs\\Admin\\Inc\\": "incs/admin/inc/",
-            "Smartshop\\Incs\\Admin\\Templates\\": "incs/admin/templates/"
+            "ShopXpert \\": "incs/",
+            "Shopxpert\\Incs\\Admin\\Inc\\": "incs/admin/inc/",
+            "Shopxpert\\Incs\\Admin\\Templates\\": "incs/admin/templates/"
         }
     }, 
     "authors": [

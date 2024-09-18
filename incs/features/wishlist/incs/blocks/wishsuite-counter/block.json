@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-    "name": "smartshop/wishsuite-counter",
-    "category": "smartshop-blocks",
+    "name": "shopxpert/wishsuite-counter",
+    "category": "shopxpert-blocks",
     "title": "WL: WooWooWishSuite Counter",
     "description":"Display Wishlist Counter.",
-    "keywords": ["smartshop","wishlist","count","wishsuite","wishlist counter"],
+    "keywords": ["shopxpert","wishlist","count","wishsuite","wishlist counter"],
     "render": "file:./index.php",
     "attributes": {
         "blockUniqId":{

@@ -22,17 +22,17 @@ class Smartshop_Extension_Manager{
     // Menu for Extension
     public function admin_menu() {
         add_submenu_page(
-            'smartshop_page', 
+            'shopxpert_page', 
             esc_html__( 'Extension', 'shopxper' ),
             esc_html__( 'Extension', 'shopxper' ), 
             'manage_options', 
-            'smartshop_extension', 
+            'shopxpert_extension', 
             [ $this, 'render_html' ] 
         );
     }
 
     public function scripts( $hook ) {
-        if( 'smartshop_page_smartshop_extension' == $hook ){
+        if( 'shopxpert_page_shopxpert_extension' == $hook ){
         	
         	//JS
             wp_enqueue_script( 'shopxper-install-manager' );
@@ -115,10 +115,10 @@ class Smartshop_Extension_Manager{
 
     		?>
     			<style>
-    				.smartshop-admin-tab-pane{
+    				.shopxpert-admin-tab-pane{
 					  display: none;
 					}
-					.smartshop-admin-tab-pane.wlactive{
+					.shopxpert-admin-tab-pane.wlactive{
 					  display: block;
 					}
 					.extension-admin-tab-area .filter-links li>a:focus, .extension-admin-tab-area .filter-links li>a:hover {
@@ -132,14 +132,14 @@ class Smartshop_Extension_Manager{
 					}
     			</style>
     			<div class="extension-admin-tab-area wp-filter">
-	                <ul class="smartshop-admin-tabs filter-links">
+	                <ul class="shopxpert-admin-tabs filter-links">
 	                    <li class="wlactive"><a href="#free-extension" class="wlactive"><?php echo esc_html__( 'Free extension', 'shopxper' ); ?></a></li>
 	                    <li><a href="#pro-extension"><?php echo esc_html__( 'Pro extension', 'shopxper' ); ?></a></li>
 	                </ul>
 	            </div>
 
-	            <div id="pro-extension" class="smartshop-admin-tab-pane">
-					<div class="smartshop-admin-extensions smartshop-extension-col-3">
+	            <div id="pro-extension" class="shopxpert-admin-tab-pane">
+					<div class="shopxpert-admin-extensions shopxpert-extension-col-3">
 						<?php
 							foreach ( $plugins_list['pro'] as $key => $plugin ) {
 
@@ -173,18 +173,18 @@ class Smartshop_Extension_Manager{
 									?>
 
 									<!-- Extension Start -->
-									<div class="smartshop-admin-extension htwptemplata-plugin-<?php echo esc_attr($data['slug']); ?>">
-										<div class="smartshop-admin-extension-top">
-											<div class="smartshop-admin-extension-image">
+									<div class="shopxpert-admin-extension htwptemplata-plugin-<?php echo esc_attr($data['slug']); ?>">
+										<div class="shopxpert-admin-extension-top">
+											<div class="shopxpert-admin-extension-image">
 												<img src="<?php echo esc_url($data['image']); ?>" alt="<?php echo esc_attr($plugin['name']); ?>">
 											</div>
-											<div class="smartshop-admin-extension-content">
-												<h4 class="smartshop-admin-extension-title"><?php echo esc_html($plugin['name']); ?></h4>
-												<p class="smartshop-admin-extension-text"><?php echo esc_html(wp_trim_words( $plugin['description'], 23, '....')); ?></p>
+											<div class="shopxpert-admin-extension-content">
+												<h4 class="shopxpert-admin-extension-title"><?php echo esc_html($plugin['name']); ?></h4>
+												<p class="shopxpert-admin-extension-text"><?php echo esc_html(wp_trim_words( $plugin['description'], 23, '....')); ?></p>
 											</div>
 										</div>
-										<div class="smartshop-admin-extension-bottom">
-											<p class="smartshop-admin-extension-info"><a href="<?php echo esc_url( $plugin['link'] ); ?>" target="_blank"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
+										<div class="shopxpert-admin-extension-bottom">
+											<p class="shopxpert-admin-extension-info"><a href="<?php echo esc_url( $plugin['link'] ); ?>" target="_blank"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
 											<?php
 												if (! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 													echo '<a class="hover-effect-1 button button-primary" href="'.esc_url( $plugin['link'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxper' ).'</a>';
@@ -207,7 +207,7 @@ class Smartshop_Extension_Manager{
 
     		<?php
 
-	    	echo '<div id="free-extension" class="smartshop-admin-tab-pane wlactive"><div class="smartshop-admin-extensions smartshop-extension-col-3">';
+	    	echo '<div id="free-extension" class="shopxpert-admin-tab-pane wlactive"><div class="shopxpert-admin-extensions shopxpert-extension-col-3">';
 
 		    	foreach ( $plugins_list['free'] as $key => $plugin ) {
 
@@ -241,18 +241,18 @@ class Smartshop_Extension_Manager{
 
 			                ?>
 								<!-- Extension Start -->
-								<div class="smartshop-admin-extension htwptemplata-plugin-<?php echo esc_attr($data['slug']); ?>">
-									<div class="smartshop-admin-extension-top">
-										<div class="smartshop-admin-extension-image">
+								<div class="shopxpert-admin-extension htwptemplata-plugin-<?php echo esc_attr($data['slug']); ?>">
+									<div class="shopxpert-admin-extension-top">
+										<div class="shopxpert-admin-extension-image">
 											<img src="<?php echo esc_url($prepare_plugin[$data['slug']]['icons']['1x']); ?>" alt="<?php echo esc_attr($prepare_plugin[$data['slug']]['name']); ?>">
 										</div>
-										<div class="smartshop-admin-extension-content">
-											<h4 class="smartshop-admin-extension-title"><?php echo esc_html($prepare_plugin[$data['slug']]['name']); ?></h4>
-											<p class="smartshop-admin-extension-text"><?php echo esc_html(wp_trim_words( $prepare_plugin[$data['slug']]['description'], 23, '....')); ?></p>
+										<div class="shopxpert-admin-extension-content">
+											<h4 class="shopxpert-admin-extension-title"><?php echo esc_html($prepare_plugin[$data['slug']]['name']); ?></h4>
+											<p class="shopxpert-admin-extension-text"><?php echo esc_html(wp_trim_words( $prepare_plugin[$data['slug']]['description'], 23, '....')); ?></p>
 										</div>
 									</div>
-									<div class="smartshop-admin-extension-bottom">
-										<p class="smartshop-admin-extension-info"><i class="wli wli-info"></i><?php printf( esc_html__( '%s Active Installations', 'shopxper' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) ); ?> <a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo esc_attr($data['slug']); ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
+									<div class="shopxpert-admin-extension-bottom">
+										<p class="shopxpert-admin-extension-info"><i class="wli wli-info"></i><?php printf( esc_html__( '%s Active Installations', 'shopxper' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) ); ?> <a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo esc_attr($data['slug']); ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
 										<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
 									</div>
 								</div>
@@ -296,7 +296,7 @@ class Smartshop_Extension_Manager{
 
     /* Get Plugins list from wp.prg */
     public function get_plugins( $username = 'htplugins' ){
-    	$transient_var = 'smartshop_htplugins_list_'.$username;
+    	$transient_var = 'shopxpert_htplugins_list_'.$username;
     	$org_plugins_list = get_transient( $transient_var );
     	if ( false === $org_plugins_list ) {
     		$plugins_list_by_authoir = plugins_api( 'query_plugins', array( 'author' => $username, 'per_page'=>100 ) );

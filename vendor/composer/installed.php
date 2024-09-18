@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'user/smartshop',
+        'name' => 'user/shopxpert',
         'pretty_version' => '1.0.1',
         'version' => '1.0.1.0',
         'reference' => null,
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'user/smartshop' => array(
+        'user/shopxpert' => array(
             'pretty_version' => '1.0.1',
             'version' => '1.0.1.0',
             'reference' => null,

@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-categories",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-categories",
+  "category": "shopxpert-single-product",
   "title": "WL: Product Categories",
   "description": "Display product categories in product details page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product",
     "single",
     "categories",
@@ -48,13 +48,13 @@
     "categoriesFontSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info{ font-size:{{categoriesFontSize}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info{ font-size:{{categoriesFontSize}}; }"
       }
     },
     "categoriesContentAlignment": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info{ text-align:{{categoriesContentAlignment}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info{ text-align:{{categoriesContentAlignment}}; }"
       }
     },
     "categoriesTitleHide": {
@@ -73,25 +73,25 @@
             }
           ]
         ],
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .categories-title{ color:{{categoriesTitleColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info .categories-title{ color:{{categoriesTitleColor}}; }"
       }
     },
     "categoriesValueColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in, .woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in a{ color:{{categoriesValueColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info .posted_in, .woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info .posted_in a{ color:{{categoriesValueColor}}; }"
       }
     },
     "categoriesValueHoverColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in a:hover{ color:{{categoriesValueHoverColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info .posted_in a:hover{ color:{{categoriesValueHoverColor}}; }"
       }
     },
     "categoriesSpecing": {
       "type": "number",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info .posted_in{ margin-left:{{categoriesSpecing}}px; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info .posted_in{ margin-left:{{categoriesSpecing}}px; }"
       }
     },
     "categoryMargin": {
@@ -105,7 +105,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop_product_categories_info{ margin:{{categoryMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert_product_categories_info{ margin:{{categoryMargin}}; }"
       }
     }
   }

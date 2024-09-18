@@ -1,12 +1,12 @@
 <?php
 
-namespace Smartshop\Incs\Admin\Inc;
+namespace Shopxpert\Incs\Admin\Inc;
 
 
-use Smartshop\Incs;
+use Shopxpert\Incs;
 // Ensure the correct function is available
-use function Smartshop\smartshop_taxonomy_list;
-use function Smartshop\smartshop_post_name;
+use function Shopxpert\shopxpert_taxonomy_list;
+use function Shopxpert\shopxpert_post_name;
  
 
 if (!defined('ABSPATH')) exit; 
@@ -32,7 +32,7 @@ class Smartshop_Admin_Fields {
     public function fields(){
 
         $settings_fields = array(
-            'smartshop_gutenberg_tabs' => array(
+            'shopxpert_gutenberg_tabs' => array(
 
                 'settings' => array(
 
@@ -68,7 +68,7 @@ class Smartshop_Admin_Fields {
                         'name'      => 'general_blocks_heading',
                         'headding'  => esc_html__( 'zz General', 'shopxper' ),
                         'type'      => 'title',
-                        'class'     => 'smartshop_heading_style_two'
+                        'class'     => 'shopxpert_heading_style_two'
                     ),
 
                     array(
@@ -174,7 +174,7 @@ class Smartshop_Admin_Fields {
                         'name'      => 'shop_blocks_heading',
                         'headding'  => esc_html__( 'Shop / Archive', 'shopxper' ),
                         'type'      => 'title',
-                        'class'     => 'smartshop_heading_style_two'
+                        'class'     => 'shopxpert_heading_style_two'
                     ),
 
                     array(
@@ -212,7 +212,7 @@ class Smartshop_Admin_Fields {
                         'name'      => 'single_blocks_heading',
                         'headding'  => esc_html__( 'Single Product', 'shopxper' ),
                         'type'      => 'title',
-                        'class'     => 'smartshop_heading_style_two'
+                        'class'     => 'shopxpert_heading_style_two'
                     ),
 
                     array(
@@ -403,7 +403,7 @@ class Smartshop_Admin_Fields {
                         'name'      => 'cart_blocks_heading',
                         'headding'  => esc_html__( 'Cart', 'shopxper' ),
                         'type'      => 'title',
-                        'class'     => 'smartshop_heading_style_two'
+                        'class'     => 'shopxpert_heading_style_two'
                     ),
                     array(
                         'name'  => 'cart_table',
@@ -452,7 +452,7 @@ class Smartshop_Admin_Fields {
                         'name'      => 'checkout_blocks_heading',
                         'headding'  => esc_html__( 'Checkout', 'shopxper' ),
                         'type'      => 'title',
-                        'class'     => 'smartshop_heading_style_two'
+                        'class'     => 'shopxpert_heading_style_two'
                     ),
                     array(
                         'name'  => 'checkout_billing_form',
@@ -515,7 +515,7 @@ class Smartshop_Admin_Fields {
                         'name'      => 'myaccount_blocks_heading',
                         'headding'  => esc_html__( 'My Account', 'shopxper' ),
                         'type'      => 'title',
-                        'class'     => 'smartshop_heading_style_two'
+                        'class'     => 'shopxpert_heading_style_two'
                     ),
                     array(
                         'name'  => 'my_account',
@@ -606,7 +606,7 @@ class Smartshop_Admin_Fields {
                         'name'      => 'thankyou_blocks_heading',
                         'headding'  => esc_html__( 'Thank You', 'shopxper' ),
                         'type'      => 'title',
-                        'class'     => 'smartshop_heading_style_two'
+                        'class'     => 'shopxpert_heading_style_two'
                     ),
                     array(
                         'name'  => 'thankyou_order',
@@ -634,7 +634,7 @@ class Smartshop_Admin_Fields {
 
             ),
 
-            'smartshop_others_tabs' => array(
+            'shopxpert_others_tabs' => array(
 
                 'features' => array( 
                     array(
@@ -642,10 +642,10 @@ class Smartshop_Admin_Fields {
                         'label'    => esc_html__( 'Change Label', 'shopxper' ),
                         'type'     => 'Feature',
                         'default'  => 'off',
-                        'section'  => 'smartshop_rename_label_tabs',
+                        'section'  => 'shopxpert_rename_label_tabs',
                         'option_id'=> 'enablerenamelabel',
                         'require_settings'=> true,
-                        'documentation' => esc_url('https://smartshop.com/doc/change-woocommerce-text/'),
+                        'documentation' => esc_url('https://shopxpert.com/doc/change-woocommerce-text/'),
                         'setting_fields' => array(
                             
                             array(
@@ -654,7 +654,7 @@ class Smartshop_Admin_Fields {
                                 'desc'  => esc_html__( 'You can enable / disable change Label from here.', 'shopxper' ),
                                 'type'  => 'checkbox',
                                 'default' => 'off',
-                                'class'   =>'enablerenamelabel smartshop-action-field-left',
+                                'class'   =>'enablerenamelabel shopxpert-action-field-left',
                             ),
             
                             array(
@@ -670,7 +670,7 @@ class Smartshop_Admin_Fields {
                                 'desc'        => esc_html__( 'Change the Add to Cart button text for the Shop page.', 'shopxper' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Add to Cart', 'shopxper' ),
-                                'class'       => 'depend_enable_rename_label smartshop-action-field-left',
+                                'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
                             ),
             
                             array(
@@ -686,7 +686,7 @@ class Smartshop_Admin_Fields {
                                 'desc'        => esc_html__( 'Change the Add to Cart button text for the Product details page.', 'shopxper' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Add to Cart', 'shopxper' ),
-                                'class'       => 'depend_enable_rename_label smartshop-action-field-left',
+                                'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
                             ),
             
                             array(
@@ -695,7 +695,7 @@ class Smartshop_Admin_Fields {
                                 'desc'        => esc_html__( 'Change the tab title for the product description.', 'shopxper' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Description', 'shopxper' ),
-                                'class'       => 'depend_enable_rename_label smartshop-action-field-left',
+                                'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
                             ),
                             
                             array(
@@ -704,7 +704,7 @@ class Smartshop_Admin_Fields {
                                 'desc'        => esc_html__( 'Change the tab title for the product additional information', 'shopxper' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Additional information', 'shopxper' ),
-                                'class'       => 'depend_enable_rename_label smartshop-action-field-left',
+                                'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
                             ),
                             
                             array(
@@ -713,7 +713,7 @@ class Smartshop_Admin_Fields {
                                 'desc'        => esc_html__( 'Change the tab title for the product review', 'shopxper' ),
                                 'type'        => 'text',
                                 'placeholder' => __( 'Reviews', 'shopxper' ),
-                                'class'       =>'depend_enable_rename_label smartshop-action-field-left',
+                                'class'       =>'depend_enable_rename_label shopxpert-action-field-left',
                             ),
             
                             array(
@@ -729,20 +729,20 @@ class Smartshop_Admin_Fields {
                                 'desc'        => esc_html__( 'Change the label for the Place order field.', 'shopxper' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Place order', 'shopxper' ),
-                                'class'       => 'depend_enable_rename_label smartshop-action-field-left',
+                                'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
                             ),
 
                         )
                     ),
                     array(
-                        'name'     => 'smartshop_backorder_settings',
+                        'name'     => 'shopxpert_backorder_settings',
                         'label'    => esc_html__( 'xx Pending Stock', 'shopxper' ),
                         'type'     => 'Feature',
                         'default'  => 'off',
-                        'section'  => 'smartshop_backorder_settings',
+                        'section'  => 'shopxpert_backorder_settings',
                         'option_id'=> 'enable',
                         'require_settings'  => true,
-                        'documentation' => esc_url('https://smartshop.com/doc/how-to-enable-woocommerce-backorder/'),
+                        'documentation' => esc_url('https://shopxpert.com/doc/how-to-enable-woocommerce-backorder/'),
                         'setting_fields' => array(
                         
                             array(
@@ -751,7 +751,7 @@ class Smartshop_Admin_Fields {
                                 'desc'  => esc_html__( 'You can enable / disable backorder Feature from here.', 'shopxper' ),
                                 'type'  => 'checkbox',
                                 'default' => 'off',
-                                'class' => 'smartshop-action-field-left'
+                                'class' => 'shopxpert-action-field-left'
                             ),
 
                             array(
@@ -759,14 +759,14 @@ class Smartshop_Admin_Fields {
                                 'label'   => esc_html__( 'Pending Stock Limit', 'shopxper' ),
                                 'desc'    => esc_html__( 'Set "Pending Stock Limit" on all "Pending Stock" products across the entire website. You can also set limits for each product individually from the "Inventory" tab.', 'shopxper' ),
                                 'type'    => 'number',
-                                'class'   => 'smartshop-action-field-left'
+                                'class'   => 'shopxpert-action-field-left'
                             ),
 
                             array(
                                 'name'    => 'backorder_availability_date',
                                 'label'   => esc_html__( 'Availability Date', 'shopxper' ),
                                 'type'    => 'date',
-                                'class'   => 'smartshop-action-field-left'
+                                'class'   => 'shopxpert-action-field-left'
                             ),
                         
                             array(
@@ -775,7 +775,7 @@ class Smartshop_Admin_Fields {
                                 'desc'        => esc_html__( 'Manage how you want the "Message" to appear. Use this {availability_date} placeholder to display the date you set. ', 'shopxper' ),
                                 'type'        => 'text',
                                 'default'     => esc_html__( 'On Pending Stock: Will be available on {availability_date}', 'shopxper' ),
-                                'class'       => 'smartshop-action-field-left',
+                                'class'       => 'shopxpert-action-field-left',
                             ),
                             
                         )
@@ -786,7 +786,7 @@ class Smartshop_Admin_Fields {
                         'label'    => esc_html__( 's Wishlist', 'shopxper' ),
                         'type'     => 'element',
                         'default'  => 'off',
-                        'documentation' => esc_url('https://smartshop.com/doc/wishlist-for-woocommerce/')
+                        'documentation' => esc_url('https://shopxpert.com/doc/wishlist-for-woocommerce/')
                     ), 
                     array(
                         'name'    => 'ajaxsearch',
@@ -794,7 +794,7 @@ class Smartshop_Admin_Fields {
                         'desc'    => esc_html__( 'Dynamic Search Widget', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'off',
-                        'documentation' => esc_url('https://smartshop.com/doc/how-to-use-woocommerce-ajax-search/')
+                        'documentation' => esc_url('https://shopxpert.com/doc/how-to-use-woocommerce-ajax-search/')
                     ),
                 ),
 
@@ -819,7 +819,7 @@ class Smartshop_Admin_Fields {
         );
  
     
-        return apply_filters( 'smartshop_admin_fields', $settings_fields );
+        return apply_filters( 'shopxpert_admin_fields', $settings_fields );
 
     }
 
@@ -833,55 +833,55 @@ class Smartshop_Admin_Fields {
         $sections = array(
 
             array(
-                'id'    => 'smartshop_general_tabs',
+                'id'    => 'shopxpert_general_tabs',
                 'title' => esc_html__( 'x General', 'shopxper' ),
                 'icon'  => 'dashicons-admin-home'
             ),
 
             array(
-                'id'    => 'smartshop_woo_template_tabs',
+                'id'    => 'shopxpert_woo_template_tabs',
                 'title' => esc_html__( 'WooCommerce Template', 'shopxper' ),
                 'icon'  => 'wli-store'
             ),
 
             array(
-                'id'    => 'smartshop_gutenberg_tabs',
+                'id'    => 'shopxpert_gutenberg_tabs',
                 'title' => esc_html__( 'Gutenberg', 'shopxper' ),
                 'icon'  => 'wli-cog'
             ),
 
             array(
-                'id'    => 'smartshop_elements_tabs',
+                'id'    => 'shopxpert_elements_tabs',
                 'title' => esc_html__( 'Elements', 'shopxper' ),
                 'icon'  => 'wli-images'
             ),
 
             array(
-                'id'    => 'smartshop_others_tabs',
+                'id'    => 'shopxpert_others_tabs',
                 'title' => esc_html__( 'Features', 'shopxper' ),
                 'icon'  => 'wli-grid'
             ),
 
             array(
-                'id'    => 'smartshop_style_tabs',
+                'id'    => 'shopxpert_style_tabs',
                 'title' => esc_html__( 'Style', 'shopxper' ),
                 'icon'  => 'wli-tag'
             ),
 
             array(
-                'id'    => 'smartshop_extension_tabs',
+                'id'    => 'shopxpert_extension_tabs',
                 'title' => esc_html__( 'Extensions', 'shopxper' ),
                 'icon'  => 'wli-masonry'
             ),
 
             array(
-                'id'    => 'smartshop_freevspro_tabs',
+                'id'    => 'shopxpert_freevspro_tabs',
                 'title' => esc_html__( 'Free VS Pro', 'shopxper' ),
                 'class' => 'freevspro'
             ),
 
         );
-        return apply_filters( 'smartshop_admin_fields_sections', $sections );
+        return apply_filters( 'shopxpert_admin_fields_sections', $sections );
 
     }
 }

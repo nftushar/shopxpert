@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks;
+namespace ShopXpertBlocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -120,7 +120,7 @@ class Manage_Styles {
 			$params 	= $request->get_params();
 			$post_id 	= sanitize_text_field( $params['post_id'] );
 			
-			if ( $post_id == 'smartshop-widget' && $params['has_block'] ) {
+			if ( $post_id == 'shopxpert-widget' && $params['has_block'] ) {
 				update_option( $post_id, $params['block_css'] );
 				return [
 					'success' => true, 
@@ -128,12 +128,12 @@ class Manage_Styles {
 				];
 			}
 
-			$filename 		= "smartshop-css-{$post_id}.css";
+			$filename 		= "shopxpert-css-{$post_id}.css";
 			$upload_dir_url = wp_upload_dir();
-			$dirname 		= trailingslashit( $upload_dir_url['basedir'] ) . 'smartshop-addons/';
+			$dirname 		= trailingslashit( $upload_dir_url['basedir'] ) . 'shopxpert-addons/';
 
 			if ( $params['has_block'] ) {
-				update_post_meta( $post_id, '_smartshop_active', 'yes' );
+				update_post_meta( $post_id, '_shopxpert_active', 'yes' );
 				$all_block_css = $params['block_css'];
 
 				WP_Filesystem( false, $upload_dir_url['basedir'], true );
@@ -141,23 +141,23 @@ class Manage_Styles {
 					$wp_filesystem->mkdir( $dirname );
 				}
 
-				update_post_meta( $post_id, '_smartshop_css', $all_block_css );
+				update_post_meta( $post_id, '_shopxpert_css', $all_block_css );
 				if ( ! $wp_filesystem->put_contents( $dirname . $filename, $all_block_css ) ) {
 					throw new \Exception( __('You are not permitted to save CSS.', 'shopxper' ) ); 
 				}
 				return [
 					'success' => true,
-					'message' =>__('SmartShop Blocks css file update.', 'shopxper' )
+					'message' =>__('ShopXpert  Blocks css file update.', 'shopxper' )
 				];
 			} else {
-				delete_post_meta( $post_id, '_smartshop_active' );
+				delete_post_meta( $post_id, '_shopxpert_active' );
 				if ( file_exists( $dirname.$filename ) ) {
 					wp_delete_file( $dirname.$filename );
 				}
-				delete_post_meta( $post_id, '_smartshop_css' );
+				delete_post_meta( $post_id, '_shopxpert_css' );
 				return [
 					'success' => true,
-					'message' => __('SmartShop Blocks CSS Delete.', 'shopxper' )
+					'message' => __('ShopXpert  Blocks CSS Delete.', 'shopxper' )
 				];
 			}
 		} catch( \Exception $e ){
@@ -184,16 +184,16 @@ class Manage_Styles {
 
 		if( $post_id ){
 
-			$filename = "smartshop-css-{$post_id}.css";
-			$dirname  = trailingslashit( wp_upload_dir()['basedir'] ).'smartshop-addons/';
+			$filename = "shopxpert-css-{$post_id}.css";
+			$dirname  = trailingslashit( wp_upload_dir()['basedir'] ).'shopxpert-addons/';
 			
 			WP_Filesystem( false, $upload_dir_url['basedir'], true );
 			if( ! $wp_filesystem->is_dir( $dirname ) ) {
 				$wp_filesystem->mkdir( $dirname );
 			}
 			
-			update_post_meta( $post_id, '_smartshop_css', $css );
-			update_post_meta( $post_id, '_smartshop_active', 'yes' );
+			update_post_meta( $post_id, '_shopxpert_css', $css );
+			update_post_meta( $post_id, '_shopxpert_active', 'yes' );
 			
 			if ( ! $wp_filesystem->put_contents( $dirname . $filename, $css ) ) {
 				throw new \Exception( esc_html__('You are not permitted to save CSS.', 'shopxper' ) );
@@ -220,7 +220,7 @@ class Manage_Styles {
 	 * @return void
 	 */
 	public function manage_block_css(){
-		$css_adding_system = smartshopBlocks_get_option( 'css_add_via', 'smartshop_gutenberg_tabs', 'internal' );
+		$css_adding_system = shopxpertBlocks_get_option( 'css_add_via', 'shopxpert_gutenberg_tabs', 'internal' );
 		if ( $css_adding_system === 'internal' ) {
 			add_action( 'wp_head', [ $this, 'block_inline_css' ], 100 );
 		} else {
@@ -234,7 +234,7 @@ class Manage_Styles {
      * @return void
      */
     public function block_inline_css(){
-		$this->generate_inline_css( smartshopBlocks_get_ID() );
+		$this->generate_inline_css( shopxpertBlocks_get_ID() );
     }
 
 	/**
@@ -243,7 +243,7 @@ class Manage_Styles {
      * @return void
      */
 	public function block_css_file(){
-		$this->enqueue_block_css( smartshopBlocks_get_ID() );
+		$this->enqueue_block_css( shopxpertBlocks_get_ID() );
 	}
 
 	/**
@@ -262,26 +262,26 @@ class Manage_Styles {
 
 			$upload_dir_url 	= wp_get_upload_dir();
             $upload_css_dir_url = trailingslashit( $upload_dir_url['basedir'] );
-			$css_file_path 		= $upload_css_dir_url."smartshop-addons/smartshop-css-{$post_id}.css";
+			$css_file_path 		= $upload_css_dir_url."shopxpert-addons/shopxpert-css-{$post_id}.css";
 
 			WP_Filesystem( false, $upload_dir_url['basedir'], true );
 
 			// Reusable Block CSS
 			$reusable_block_css = '';
-			$reusable_id = smartshopBlocks_reusable_id( $post_id );
+			$reusable_id = shopxpertBlocks_reusable_id( $post_id );
 			foreach ( $reusable_id as $id ) {
-				$reusable_dir_path = $upload_css_dir_url."smartshop-addons/smartshop-css-{$id}.css";
+				$reusable_dir_path = $upload_css_dir_url."shopxpert-addons/shopxpert-css-{$id}.css";
 				if (file_exists( $reusable_dir_path )) {
 					$reusable_block_css .= $wp_filesystem->get_contents( $reusable_dir_path );
 				}else{
-					$reusable_block_css .= get_post_meta($id, '_smartshop_css', true);
+					$reusable_block_css .= get_post_meta($id, '_shopxpert_css', true);
 				}
 			}
 
 			if ( file_exists( $css_file_path ) ) {
 				echo '<style type="text/css">'.$wp_filesystem->get_contents( $css_file_path ).$reusable_block_css.'</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
-				$css = get_post_meta( $post_id, '_smartshop_css', true );
+				$css = get_post_meta( $post_id, '_shopxpert_css', true );
 				if( $css ) {
 					echo '<style type="text/css">'.$css.$reusable_block_css.'</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
@@ -299,7 +299,7 @@ class Manage_Styles {
 		if( $post_id ){
 			$upload_dir_url 	= wp_get_upload_dir();
             $upload_css_dir_url = trailingslashit( $upload_dir_url['basedir'] );
-			$css_file_path 		= $upload_css_dir_url."smartshop-addons/smartshop-css-{$post_id}.css";
+			$css_file_path 		= $upload_css_dir_url."shopxpert-addons/shopxpert-css-{$post_id}.css";
 
             $css_dir_url = trailingslashit( $upload_dir_url['baseurl'] );
             if ( is_ssl() ) {
@@ -307,27 +307,27 @@ class Manage_Styles {
             }
 
             // Reusable Block CSS
-			$reusable_id = smartshopBlocks_reusable_id( $post_id );
+			$reusable_id = shopxpertBlocks_reusable_id( $post_id );
 			foreach ( $reusable_id as $id ) {
-				$reusable_dir_path = $upload_css_dir_url."smartshop-addons/smartshop-css-{$id}.css";
+				$reusable_dir_path = $upload_css_dir_url."shopxpert-addons/shopxpert-css-{$id}.css";
 				if (file_exists( $reusable_dir_path )) {
-                    $css_file_url = $css_dir_url . "smartshop-addons/smartshop-css-{$id}.css";
-				    wp_enqueue_style( "smartshop-post-{$id}", $css_file_url, [], SHOPXPERT_VERSION, 'all' );
+                    $css_file_url = $css_dir_url . "shopxpert-addons/shopxpert-css-{$id}.css";
+				    wp_enqueue_style( "shopxpert-post-{$id}", $css_file_url, [], SHOPXPERT_VERSION, 'all' );
 				}else{
-					$css = get_post_meta( $id, '_smartshop_css', true );
+					$css = get_post_meta( $id, '_shopxpert_css', true );
                     if( $css ) {
-                        wp_enqueue_style( "smartshop-post-{$id}", $css, [], SHOPXPERT_VERSION );
+                        wp_enqueue_style( "shopxpert-post-{$id}", $css, [], SHOPXPERT_VERSION );
                     }
 				}
             }
 
 			if ( file_exists( $css_file_path ) ) {
-				$css_file_url = $css_dir_url . "smartshop-addons/smartshop-css-{$post_id}.css";
-				wp_enqueue_style( "smartshop-post-{$post_id}", $css_file_url, [], SHOPXPERT_VERSION, 'all' );
+				$css_file_url = $css_dir_url . "shopxpert-addons/shopxpert-css-{$post_id}.css";
+				wp_enqueue_style( "shopxpert-post-{$post_id}", $css_file_url, [], SHOPXPERT_VERSION, 'all' );
 			} else {
-				$css = get_post_meta( $post_id, '_smartshop_css', true );
+				$css = get_post_meta( $post_id, '_shopxpert_css', true );
 				if( $css ) {
-					wp_enqueue_style( "smartshop-post-{$post_id}", $css, [], SHOPXPERT_VERSION );
+					wp_enqueue_style( "shopxpert-post-{$post_id}", $css, [], SHOPXPERT_VERSION );
 				}
 			}
 		}

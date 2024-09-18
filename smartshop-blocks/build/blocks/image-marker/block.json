@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/image-marker",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/image-marker",
+  "category": "shopxpert-blocks",
   "title": "WL : Image Marker",
   "description": "Display image marker.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "shop idicator",
     "image indicator",
     "marker",

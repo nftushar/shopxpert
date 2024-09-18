@@ -4,17 +4,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
+	$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
 	$classes 	 = array( $uniqClass, 'ht-brand-wrap' );
-	$areaClasses = array( 'smartshop-brand-area' );
+	$areaClasses = array( 'shopxpert-brand-area' );
 
 	!empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 	!empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 
-	!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'smartshop-grid-columns-'.$settings['columns']['desktop'] : 'smartshop-grid-columns-4';
-	!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'smartshop-grid-columns-laptop-'.$settings['columns']['laptop'] : 'smartshop-grid-columns-laptop-3';
-	!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-grid-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-grid-columns-tablet-2';
-	!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-grid-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-grid-columns-mobile-1';
+	!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-'.$settings['columns']['desktop'] : 'shopxpert-grid-columns-4';
+	!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-laptop-'.$settings['columns']['laptop'] : 'shopxpert-grid-columns-laptop-3';
+	!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'shopxpert-grid-columns-tablet-'.$settings['columns']['tablet'] : 'shopxpert-grid-columns-tablet-2';
+	!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'shopxpert-grid-columns-mobile-'.$settings['columns']['mobile'] : 'shopxpert-grid-columns-mobile-1';
 
 	$default_img = '<img src="'.SMARTSHOP_BLOCK_URL.'/assets/images/brand.png'.'" alt="'.esc_html__('Brand Logo','shopxper').'">';
 	$brands = $settings['brandLogoList'];
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if( $settings['slider'] === true ){
 					echo '<div id="'.esc_attr("product-slider-" . $settings['blockUniqId']).'" dir="'.esc_attr($direction).'" class="product-slider" data-settings=\'' . wp_json_encode( $slider_settings ) . '\' style="display:none">';
 				}else{
-					echo '<div class="smartshop-grid '.( $settings['noGutter'] === true ? 'smartshop-no-gutters' : '' ).'">';
+					echo '<div class="shopxpert-grid '.( $settings['noGutter'] === true ? 'shopxpert-no-gutters' : '' ).'">';
 				}
 					foreach ( $brands as $key => $brand ) {
 	
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$logo  = !empty( $brand['link'] ) ? sprintf('<a href="%s" target="_blank">%s</a>',esc_url( $brand['link'] ), $image ) : $image;
 	
 						?>
-							<div class="smartshop-grid-column">
+							<div class="shopxpert-grid-column">
 								<div class="wl-single-brand">
 									<?php echo wp_kses_post( $logo ); ?>
 								</div>

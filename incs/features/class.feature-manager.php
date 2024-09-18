@@ -1,6 +1,6 @@
 <?php
 
-use function Smartshop\incs\smartshop_get_option;
+use function Shopxpert\incs\shopxpert_get_option;
  
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -43,7 +43,7 @@ class Smartshop_Feature_Manager {
 
         // Post Duplicator
         if ( !is_plugin_active('ht-mega-for-elementor/htmega_addons_elementor.php') ) {
-            if ( smartshop_get_option( 'postduplicator', 'smartshop_others_tabs', 'off' ) === 'on' ) {
+            if ( shopxpert_get_option( 'postduplicator', 'shopxpert_others_tabs', 'off' ) === 'on' ) {
                 require_once ( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/post-duplicator/class.post-duplicator.php' );
             }
         }
@@ -56,23 +56,23 @@ class Smartshop_Feature_Manager {
     public function include_file() {
 
         // Change Label
-        if ( !is_admin() && smartshop_get_option( 'enablerenamelabel', 'smartshop_rename_label_tabs', 'off' ) == 'on' ) {
+        if ( !is_admin() && shopxpert_get_option( 'enablerenamelabel', 'shopxpert_rename_label_tabs', 'off' ) == 'on' ) {
             require( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/rename-label/rename_label.php' );
         }  
 
         // Search
-        if( smartshop_get_option( 'ajaxsearch', 'smartshop_others_tabs', 'off' ) == 'on' ){
+        if( shopxpert_get_option( 'ajaxsearch', 'shopxpert_others_tabs', 'off' ) == 'on' ){
             require( SHOPXPERT_ADDONS_PL_PATH. 'incs/features/ajax-search/main.php' );
         }
         
 
         // Pending Stock
-        if( smartshop_get_option( 'enable', 'smartshop_backorder_settings', 'off' ) == 'on' ){
+        if( shopxpert_get_option( 'enable', 'shopxpert_backorder_settings', 'off' ) == 'on' ){
             require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/backorder/class.backorder.php' );
         }
 
         // Wishlist
-        if( smartshop_get_option( 'wishlist', 'smartshop_others_tabs', 'off' ) == 'on' ){
+        if( shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ) == 'on' ){
             // $this->deactivate( 'wishsuite/wishsuite.php' );
             if( ! class_exists('WooWishSuite_Base') ){
                 require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/wishlist/init.php' );
@@ -80,10 +80,10 @@ class Smartshop_Feature_Manager {
         }
 
         // Pro-Features
-        if ( is_plugin_active('smartshop-addons-pro/smartshop_addons_pro.php') && defined( "SHOPXPERT_ADDONS_PL_PATH_PRO" ) ) {
+        if ( is_plugin_active('shopxpert-addons-pro/shopxpert_addons_pro.php') && defined( "SHOPXPERT_ADDONS_PL_PATH_PRO" ) ) {
 
             // Partial payment
-            if ( ( smartshop_get_option( 'enable', 'smartshop_partial_payment_settings', 'off' ) == 'on' ) ) {
+            if ( ( shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' ) == 'on' ) ) {
                 require_once( SHOPXPERT_ADDONS_PL_PATH_PRO . 'incs/features/partial-payment/partial-payment.php' );
             }
         }
@@ -97,10 +97,10 @@ class Smartshop_Feature_Manager {
         if ( file_exists( SHOPXPERT_ADDONS_PL_PATH_PRO . 'incs/features/product-filter/product-filter.php' ) ) {
             require_once( SHOPXPERT_ADDONS_PL_PATH_PRO . 'incs/features/product-filter/product-filter.php' );
 
-            if ( smartshop_get_option( 'enable', 'smartshop_product_filter_settings', 'off' ) == 'on' ) {
-                smartshop_product_filter( true );
+            if ( shopxpert_get_option( 'enable', 'shopxpert_product_filter_settings', 'off' ) == 'on' ) {
+                shopxpert_product_filter( true );
             } else {
-                smartshop_product_filter( false );
+                shopxpert_product_filter( false );
             }
         }
     }

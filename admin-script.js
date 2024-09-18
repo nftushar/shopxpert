@@ -14,7 +14,7 @@ console.log("shopxpert-form");
         }
 
         $.ajax({
-            url: smartshop_ajax.ajax_url,
+            url: shopxpert_ajax.ajax_url,
             type: 'POST',
             data: {
                 action: 'save_shopxpert_settings',

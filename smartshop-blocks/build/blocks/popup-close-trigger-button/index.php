@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'smartshop-popup-close-button-area' );
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array( $uniqClass, 'shopxpert-popup-close-button-area' );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 
@@ -24,5 +24,5 @@ $short_code_attributes = [
 ];
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
-	echo smartshop_do_shortcode( 'wlpb_trigger_button', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo shopxpert_do_shortcode( 'wlpb_trigger_button', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '</div>';

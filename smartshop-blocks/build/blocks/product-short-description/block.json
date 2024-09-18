@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-short-description",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-short-description",
+  "category": "shopxpert-single-product",
   "title": "WL : Short Description",
   "description": "Display product short description.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product description",
     "short description",
     "description"

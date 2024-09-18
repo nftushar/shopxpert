@@ -6,7 +6,7 @@
  */
 
 
- use function  Smartshop\incs\smartshop_get_option;
+ use function  Shopxpert\incs\shopxpert_get_option;
 
 
 function woowishsuite_get_post_list( $post_type = 'page' ){
@@ -72,7 +72,7 @@ function woowishsuite_get_template( $tmp_name, $args = null, $echo = true ) {
  * @return [URL]
  */
 function woowishsuite_get_page_url() {
-    $page_id = smartshop_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' );
+    $page_id = shopxpert_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' );
     return get_permalink( $page_id );
 }
 
@@ -111,7 +111,7 @@ function woowishsuite_get_default_fields(){
  * @return [array]
  */
 function woowishsuite_table_active_heading(){
-    $active_heading = !empty( smartshop_get_option( 'show_fields', 'wishsuite_table_settings_tabs' ) ) ? smartshop_get_option( 'show_fields', 'wishsuite_table_settings_tabs' ) : array();
+    $active_heading = !empty( shopxpert_get_option( 'show_fields', 'wishsuite_table_settings_tabs' ) ) ? shopxpert_get_option( 'show_fields', 'wishsuite_table_settings_tabs' ) : array();
     return $active_heading;
 }
 
@@ -168,7 +168,7 @@ function woowishsuite_get_available_attributes() {
  * @return [String | Bool]
  */
 function woowishsuite_dimensions( $key, $tab, $css_attr ){
-    $dimensions = !empty( smartshop_get_option( $key, $tab ) ) ? smartshop_get_option( $key, $tab ) : array();
+    $dimensions = !empty( shopxpert_get_option( $key, $tab ) ) ? shopxpert_get_option( $key, $tab ) : array();
     if( !empty( $dimensions['top'] ) || !empty( $dimensions['right'] ) || !empty( $dimensions['bottom'] ) || !empty( $dimensions['left'] ) ){
         $unit = empty( $dimensions['unit'] ) ? 'px' : $dimensions['unit'];
         $css_attr .= ":{$dimensions['top']}{$unit} {$dimensions['right']}{$unit} {$dimensions['bottom']}{$unit} {$dimensions['left']}{$unit}";
@@ -183,7 +183,7 @@ function woowishsuite_dimensions( $key, $tab, $css_attr ){
  * @return [String | Bool]
  */
 function woowishsuite_generate_css( $key, $tab, $css_attr ){
-    $field_value = !empty( smartshop_get_option( $key, $tab ) ) ? smartshop_get_option( $key, $tab ) : '';
+    $field_value = !empty( shopxpert_get_option( $key, $tab ) ) ? shopxpert_get_option( $key, $tab ) : '';
 
     if( !empty( $field_value ) ){
         $css_attr .= ":{$field_value}";

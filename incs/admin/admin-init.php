@@ -1,22 +1,22 @@
 <?php
-namespace Smartshop\Incs\Admin;
+namespace Shopxpert\Incs\Admin;
 
-use Smartshop\Incs;
-use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
-use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields;
+use Shopxpert\Incs;
+use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
+use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields;
 
-use function  Smartshop\incs\smartshop_clean;
+use function  Shopxpert\incs\shopxpert_clean;
 
  
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 
-class SmartShop_Admin_Init {
+class ShopXpert_Admin_Init {
  
     /**
      * Parent Menu Page Slug
      */
-    const MENU_PAGE_SLUG = 'smartshop_page';
+    const MENU_PAGE_SLUG = 'shopxpert_page';
 
     /**
      * Menu capability
@@ -37,7 +37,7 @@ class SmartShop_Admin_Init {
 
     /**
      * Initializes a singleton instance
-     * @return SmartShop_Admin_Init
+     * @return ShopXpert_Admin_Init
      */
     public static function instance() {
         if (is_null(self::$_instance)) {
@@ -65,9 +65,9 @@ class SmartShop_Admin_Init {
             add_action('admin_footer', [ $this, 'print_Feature_setting_popup' ], 99);
 
  
-            add_action('wp_ajax_smartshop_save_opt_data', array($this, 'save_data'));
+            add_action('wp_ajax_shopxpert_save_opt_data', array($this, 'save_data'));
 
-             add_action('wp_ajax_smartshop_Feature_data', array($this, 'Feature_data'));
+             add_action('wp_ajax_shopxpert_Feature_data', array($this, 'Feature_data'));
     }
 
  
@@ -91,8 +91,8 @@ class SmartShop_Admin_Init {
     public function add_menu() {
         // Add the main menu page
         self::$parent_menu_hook = add_menu_page(
-            esc_html__('SmartShop', 'samrtshop'), // Page title
-            esc_html__('SmartShop', 'samrtshop'), // Menu title
+            esc_html__('ShopXpert ', 'samrtshop'), // Page title
+            esc_html__('ShopXpert ', 'samrtshop'), // Menu title
             self::MENU_CAPABILITY,                // Capability
             self::MENU_PAGE_SLUG,                // Menu slug
             [$this, 'main_menu_page_content'],    // Callback function for the menu page
@@ -117,13 +117,13 @@ class SmartShop_Admin_Init {
     public function main_menu_page_content() {
         ?>
         <div class="wrap">
-            <h1><?php esc_html_e('Welcome to SmartShop', 'samrtshop'); ?></h1>
-            <p><?php esc_html_e('This is the main page for the SmartShop plugin. You can customize settings and manage your shop here.', 'samrtshop'); ?></p>
+            <h1><?php esc_html_e('Welcome to ShopXpert ', 'samrtshop'); ?></h1>
+            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'samrtshop'); ?></p>
 
             
             <?php 
               // Retrieve and display the option
-              $section = 'smartshop_others_tabs'; // Replace with your section key
+              $section = 'shopxpert_others_tabs'; // Replace with your section key
               $options = get_option($section);
               
               echo '<div class="wrap">';
@@ -135,13 +135,13 @@ class SmartShop_Admin_Init {
              
         </div>
         <div class="wrap">
-            <h1><?php esc_html_e('Welcome to SmartShop', 'samrtshop'); ?></h1>
-            <p><?php esc_html_e('This is the main page for the SmartShop plugin. You can customize settings and manage your shop here.', 'samrtshop'); ?></p>
+            <h1><?php esc_html_e('Welcome to ShopXpert ', 'samrtshop'); ?></h1>
+            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'samrtshop'); ?></p>
 
             
             <?php 
               // Retrieve and display the option
-              $section = 'smartshop_backorder_settings'; // Replace with your section key
+              $section = 'shopxpert_backorder_settings'; // Replace with your section key
               $options = get_option($section);
               
               echo '<div class="wrap">';
@@ -174,7 +174,7 @@ class SmartShop_Admin_Init {
      */
     public function plugin_page() {
         ?>
-        <div class="wrap smartshop-admin-wrapper">
+        <div class="wrap shopxpert-admin-wrapper">
             <div class="shopxper-admin-main-content">
                 <?php self::load_template('navs'); ?>
                 <div class="shopxper-admin-main-body"> 
@@ -195,8 +195,8 @@ class SmartShop_Admin_Init {
      */
     public function print_Feature_setting_popup() {
         $screen = get_current_screen();
-        if ( 'smartshop_page_samrtshop' == $screen->base ) {
-            // error_log("smartshop print_Feature_setting_popup 2");
+        if ( 'shopxpert_page_samrtshop' == $screen->base ) {
+            // error_log("shopxpert print_Feature_setting_popup 2");
             self::load_template('Feature-setting-popup');
         }
     }
@@ -209,7 +209,7 @@ class SmartShop_Admin_Init {
 public function remove_all_notices() {
 add_action('in_admin_header', function (){
     $screen = get_current_screen();
-    if ( 'smartshop_page_samrtshop' == $screen->base ) {
+    if ( 'shopxpert_page_samrtshop' == $screen->base ) {
         remove_all_actions('admin_notices'); 
         remove_all_actions('all_admin_notices');
     }
@@ -218,7 +218,7 @@ add_action('in_admin_header', function (){
 
  
 /**
- * [smartshop_save_opt_data] WP Ajax Callback
+ * [shopxpert_save_opt_data] WP Ajax Callback
  * @return [JSON|Null]
  */
 
@@ -231,11 +231,11 @@ add_action('in_admin_header', function (){
     check_ajax_referer( 'shopxper_nonce_action', 'nonce' );
 
   
-    error_log("Smartshop hello  save data");
+    error_log("Shopxpert hello  save data");
 
 
     // Fetch and clean the input data
-    $data     = isset($_POST['data']) ? smartshop_clean($_POST['data']) : [];
+    $data     = isset($_POST['data']) ? shopxpert_clean($_POST['data']) : [];
     $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
     $fields = isset($_POST['fields']) ? $_POST['fields'] : [];
 
@@ -349,7 +349,7 @@ public function update_option($section, $option_key, $new_value) {
         }
     
         // Fetch Feature fields based on section or fieldname
-        $Feature_fields = Smartshop_Admin_Fields::instance()->fields()['smartshop_others_tabs']['features']; 
+        $Feature_fields = Smartshop_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features']; 
         $section_fields = [];
         foreach ($Feature_fields as $Feature) {
             if (isset($Feature['section']) && $Feature['section'] === $section) {
@@ -391,12 +391,12 @@ public function update_option($section, $option_key, $new_value) {
      */
         public function enqueue_scripts( $hook  ) {
             
-            if( $hook === 'smartshop_page_smartshop' || $hook === 'smartshop_page_smartshop_templates' || $hook === 'smartshop_page_smartshop_extension'){
-                  wp_enqueue_style('smartshop-sweetalert');
+            if( $hook === 'shopxpert_page_shopxpert' || $hook === 'shopxpert_page_shopxpert_templates' || $hook === 'shopxpert_page_shopxpert_extension'){
+                  wp_enqueue_style('shopxpert-sweetalert');
             }
         }
 }
 
 // Initialize the admin class
-SmartShop_Admin_Init::instance();
+ShopXpert_Admin_Init::instance();
  

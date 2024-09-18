@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-curvy",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/product-curvy",
+  "category": "shopxpert-blocks",
   "title": "WL : Product Curvy",
   "description": "Product Curvy.",
   "keywords": [
-    "SmartShop",
+    "ShopXpert ",
     "product",
     "curvy",
     "woocommerce",
@@ -89,7 +89,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-grid:not(.smartshop-no-gutters) { column-gap: {{itemSpace}}px; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-grid:not(.shopxpert-no-gutters) { column-gap: {{itemSpace}}px; }"
       }
     },
     "productFilterType": {
@@ -146,7 +146,7 @@
       "type": "number",
       "default": 15,
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-grid{ row-gap: {{itemMarginBottom}}px; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-grid{ row-gap: {{itemMarginBottom}}px; }"
       }
     },
     "titleSize": {
@@ -260,7 +260,7 @@
     "actionBtnColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .product-content .action li a,{{SMARTSHOP_WRAPPER}} .product-content .action li .smartshop-compare.compare::before{ color: {{actionBtnColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .product-content .action li a,{{SMARTSHOP_WRAPPER}} .product-content .action li .shopxpert-compare.compare::before{ color: {{actionBtnColor}}!important; }"
       }
     },
     "actionBtnBGColor": {
@@ -286,7 +286,7 @@
     "actionBtnHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .product-content .action li a:hover,{{SMARTSHOP_WRAPPER}} .product-content .action li .smartshop-compare.compare:hover::before{ color: {{actionBtnHoverColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .product-content .action li a:hover,{{SMARTSHOP_WRAPPER}} .product-content .action li .shopxpert-compare.compare:hover::before{ color: {{actionBtnHoverColor}}!important; }"
       }
     },
     "actionBtnBgHoverColor": {

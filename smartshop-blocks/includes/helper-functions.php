@@ -3,7 +3,7 @@
  * Plugisn Options value
  * return on/off
  */
-function smartshopBlocks_get_option( $option, $section, $default = '' ){
+function shopxpertBlocks_get_option( $option, $section, $default = '' ){
     $options = get_option( $section );
     if ( isset( $options[$option] ) ) {
         return $options[$option];
@@ -14,10 +14,10 @@ function smartshopBlocks_get_option( $option, $section, $default = '' ){
 /**
 * Woocommerce Product last product id return
 */
-function smartshopBlocks_get_last_product_id(){
+function shopxpertBlocks_get_last_product_id(){
     global $wpdb;
 
-    $cache_key  = 'smartshop_last_product_id';
+    $cache_key  = 'shopxpert_last_product_id';
     $results    = wp_cache_get( $cache_key );
 
     // Getting last Product ID (max value)
@@ -33,7 +33,7 @@ function smartshopBlocks_get_last_product_id(){
 /**
 * Woocommerce Product last order id return
 */
-function smartshopBlocks_get_last_order_id(){
+function shopxpertBlocks_get_last_order_id(){
     if( function_exists('wc_get_orders') ){
         $orders = wc_get_orders( array(
             'limit' => 1,  // Limit the query to one order
@@ -54,10 +54,10 @@ function smartshopBlocks_get_last_order_id(){
 /**
 * Template Editor Mode
 */
-function smartshopBlocks_edit_mode(){
+function shopxpertBlocks_edit_mode(){
     if( !empty( $_GET['post'] ) && $_GET['action'] === 'edit' ){
         $post_obj = get_post( $_GET['post'] );
-        if( $post_obj->post_type === 'smartshop-template' ) {
+        if( $post_obj->post_type === 'shopxpert-template' ) {
             return true;
         }else{
             return false;
@@ -70,7 +70,7 @@ function smartshopBlocks_edit_mode(){
 /**
 * Checked Current theme is FSE
 */
-function smartshopBlocks_current_theme_is_fse() {
+function shopxpertBlocks_current_theme_is_fse() {
 	if ( function_exists( 'wp_is_block_theme' ) ) {
 		return (bool) wp_is_block_theme();
 	}
@@ -90,7 +90,7 @@ function smartshopBlocks_current_theme_is_fse() {
  * @param string $unit
  * @param string $important
  */
-function smartshopBlocks_generate_css( $settings, $attribute, $css_attr, $unit = '', $important = '' ){
+function shopxpertBlocks_generate_css( $settings, $attribute, $css_attr, $unit = '', $important = '' ){
 
     $value = !empty( $settings[$attribute] ) ? $settings[$attribute] : '';
 
@@ -111,7 +111,7 @@ function smartshopBlocks_generate_css( $settings, $attribute, $css_attr, $unit =
  * @param [string] $css_attr
  * @param string $important
  */
-function smartshopBlocks_Dimention_Control( $settings, $attribute, $css_attr, $important = '' ){
+function shopxpertBlocks_Dimention_Control( $settings, $attribute, $css_attr, $important = '' ){
     $dimensions = !empty( $settings[$attribute] ) ? $settings[$attribute] : array();
 
     if( array_key_exists( 'device', $dimensions ) ){
@@ -120,11 +120,11 @@ function smartshopBlocks_Dimention_Control( $settings, $attribute, $css_attr, $i
             if( $key === 'device' ){
                 continue;
             }
-            $generate_dimension[$key] = smartshopBlocks_Dimention_Value( $dimension, $css_attr, $important );
+            $generate_dimension[$key] = shopxpertBlocks_Dimention_Value( $dimension, $css_attr, $important );
         }
         return $generate_dimension;
     }else{
-        return smartshopBlocks_Dimention_Value( $dimensions, $css_attr, $important );
+        return shopxpertBlocks_Dimention_Value( $dimensions, $css_attr, $important );
     }
 
 }
@@ -136,7 +136,7 @@ function smartshopBlocks_Dimention_Control( $settings, $attribute, $css_attr, $i
  * @param [string] $css_attr
  * @param [string] $important
  */
-function smartshopBlocks_Dimention_Value( $dimensions, $css_attr, $important ){
+function shopxpertBlocks_Dimention_Value( $dimensions, $css_attr, $important ){
     if( isset( $dimensions['top'] ) || isset( $dimensions['right'] ) || isset( $dimensions['bottom'] ) || isset( $dimensions['left'] ) ){
         $unit = empty( $dimensions['unit'] ) ? 'px' : $dimensions['unit'];
 
@@ -157,7 +157,7 @@ function smartshopBlocks_Dimention_Value( $dimensions, $css_attr, $important ){
  * @param [array] $settings
  * @param [string] $attribute
  */
-function smartshopBlocks_Background_Control( $settings, $attribute ){
+function shopxpertBlocks_Background_Control( $settings, $attribute ){
     $background_property = !empty( $settings[$attribute] ) ? $settings[$attribute] : array();
     
     if( !empty( $background_property['imageId'] ) ){
@@ -188,7 +188,7 @@ function smartshopBlocks_Background_Control( $settings, $attribute ){
 /**
  * Check Gutenberg editor page
  */
-function smartshopBlocks_is_gutenberg_page() {
+function shopxpertBlocks_is_gutenberg_page() {
 
     if ( !function_exists( 'get_current_screen' ) ) {
         require_once( ABSPATH . 'wp-admin/includes/screen.php' );
@@ -210,9 +210,9 @@ function smartshopBlocks_is_gutenberg_page() {
 }
 
 /**
- * Check Gutenberg Edit Screen if dose not work 'smartshopBlocks_is_gutenberg_page' this function then we will use it.
+ * Check Gutenberg Edit Screen if dose not work 'shopxpertBlocks_is_gutenberg_page' this function then we will use it.
  */
-function smartshopBlocks_gutenberg_edit_screen(){
+function shopxpertBlocks_gutenberg_edit_screen(){
     if( isset( $_SERVER['QUERY_STRING'] ) ){
         parse_str( $_SERVER['QUERY_STRING'], $query_arr );
     } else {
@@ -235,7 +235,7 @@ function smartshopBlocks_gutenberg_edit_screen(){
 /**
  * current page blocks
  */
-function smartshopBlocks_check_inner_blocks( $block ) {
+function shopxpertBlocks_check_inner_blocks( $block ) {
     static $currentBlocks = [];
     
     $current = $block;
@@ -248,7 +248,7 @@ function smartshopBlocks_check_inner_blocks( $block ) {
         array_push( $currentBlocks, $current );
         if( count( $current['innerBlocks'] ) > 0 ){
             foreach( $current['innerBlocks'] as $innerBlock ) {
-                smartshopBlocks_check_inner_blocks( $innerBlock );
+                shopxpertBlocks_check_inner_blocks( $innerBlock );
             }
         }
     }
@@ -258,13 +258,13 @@ function smartshopBlocks_check_inner_blocks( $block ) {
 /**
  * Get All Current page blocks
  */
-function smartshopBlocks_get_blocks( $id = '' ){
+function shopxpertBlocks_get_blocks( $id = '' ){
     $get_blocks = [];
 
     $posts_array = !empty($id) ? get_post($id) : get_post();
     if( $posts_array ){
         foreach( parse_blocks( $posts_array->post_content ) as $block){
-            $get_blocks = smartshopBlocks_check_inner_blocks( $block );
+            $get_blocks = shopxpertBlocks_check_inner_blocks( $block );
         }
     }
 
@@ -275,8 +275,8 @@ function smartshopBlocks_get_blocks( $id = '' ){
 /**
  * Get Block Setting by block name.
  */
-function smartshopBlocks_get_settings_by_blockName( $id, $block_name ){
-    $blocks_data = smartshopBlocks_get_blocks( $id );
+function shopxpertBlocks_get_settings_by_blockName( $id, $block_name ){
+    $blocks_data = shopxpertBlocks_get_blocks( $id );
 
     $blocks_data = array_filter( $blocks_data, function( $block ) use ( $block_name ){
         return $block_name === $block['blockName'];
@@ -288,44 +288,44 @@ function smartshopBlocks_get_settings_by_blockName( $id, $block_name ){
 /**
  * Get Post ID
  */
-function smartshopBlocks_get_ID(){
+function shopxpertBlocks_get_ID(){
     if( class_exists('\Smartshop_Manage_WC_Template') ){
         $post_id = \Smartshop_Manage_WC_Template::instance()->get_builder_template_id();
     }else{
         $post_id = '';
     }
-    return $post_id != '' ? $post_id : smartshopBlocks_Current_Template_Id();
+    return $post_id != '' ? $post_id : shopxpertBlocks_Current_Template_Id();
 }
 
 /**
  * Get Current FSE Template ID OR Post id.
  */
-function smartshopBlocks_Current_Template_Id(){
+function shopxpertBlocks_Current_Template_Id(){
     global $_wp_current_template_id, $_wp_current_template_content, $wp_embed, $wp_query;
     if( empty( $_wp_current_template_id ) ){
         return get_the_ID();
     }
     $template_slug = explode( '//', $_wp_current_template_id );
-    return (smartshopBlocks_current_theme_is_fse() && isset($template_slug[1]) && $template_slug[1] != 'page') ? $template_slug[1] : get_the_ID();
+    return (shopxpertBlocks_current_theme_is_fse() && isset($template_slug[1]) && $template_slug[1] != 'page') ? $template_slug[1] : get_the_ID();
 }
 
 /**
- * Check has SmartShop blocks
+ * Check has ShopXpert  blocks
  *
  * @return bool
  */
-function smartshopBlocks_Has_Blocks( $id ){
+function shopxpertBlocks_Has_Blocks( $id ){
     $content = get_the_content( null, false, $id );
     $blocks  = parse_blocks( $content );
-    return smartshopBlocks_Search_Wl_block( $blocks );
+    return shopxpertBlocks_Search_Wl_block( $blocks );
 }
 
 /**
- * Check has SmartShop block
+ * Check has ShopXpert  block
  *
  * @return bool
  */
-function smartshopBlocks_Search_Wl_block( $blocks ) {
+function shopxpertBlocks_Search_Wl_block( $blocks ) {
     $has_block  = false;
     foreach ( $blocks as $value ) {
         if( isset( $value['blockName'] ) ) {
@@ -337,7 +337,7 @@ function smartshopBlocks_Search_Wl_block( $blocks ) {
         }
         // Check InnerBlocks
         if( !empty( $value['innerBlocks'] ) ){
-            $has_block = smartshopBlocks_Search_Wl_block( $value['innerBlocks'] );
+            $has_block = shopxpertBlocks_Search_Wl_block( $value['innerBlocks'] );
         }
     }
     return $has_block;
@@ -348,7 +348,7 @@ function smartshopBlocks_Search_Wl_block( $blocks ) {
  *
  * @return array
  */
-function smartshopBlocks_reusable_id( $post_id ){
+function shopxpertBlocks_reusable_id( $post_id ){
     global $_wp_current_template_content;
     $reusable_id = [];
     if( $post_id ){
@@ -369,7 +369,7 @@ function smartshopBlocks_reusable_id( $post_id ){
 /**
  * Get Image Sizes
  */
-function smartshopBlocks_get_image_size() {
+function shopxpertBlocks_get_image_size() {
     $sizes = get_intermediate_image_sizes();
     $filter = [ 'full' => __( 'Full','shopxper') ];
     foreach ( $sizes as $value ) {
@@ -386,7 +386,7 @@ function smartshopBlocks_get_image_size() {
  * @param string $order
  * @param string $type
  */
-function smartshopBlocks_taxnomy_data( $taxnomySlug = '', $number = 20, $order = 'asc', $type = '' ){
+function shopxpertBlocks_taxnomy_data( $taxnomySlug = '', $number = 20, $order = 'asc', $type = '' ){
     
     $data = array();
 
@@ -419,7 +419,7 @@ function smartshopBlocks_taxnomy_data( $taxnomySlug = '', $number = 20, $order =
             
             // Images
             if( $thumbnail_id ){
-                $image_sizes    = smartshopBlocks_get_image_size();
+                $image_sizes    = shopxpertBlocks_get_image_size();
                 $image_src      = array();
                 foreach ( $image_sizes as $key => $size ) {
                     $image_src[$key] = [
@@ -444,7 +444,7 @@ function smartshopBlocks_taxnomy_data( $taxnomySlug = '', $number = 20, $order =
  *
  * @param string $type
  */
-function smartshopBlocks_Product_type( $type ) {
+function shopxpertBlocks_Product_type( $type ) {
     switch ( $type ) {
 
         case 'recent':
@@ -479,7 +479,7 @@ function smartshopBlocks_Product_type( $type ) {
  *
  * @param array $params
  */
-function smartshopBlocks_Product_Query( $params ){
+function shopxpertBlocks_Product_Query( $params ){
     
     $meta_query = $tax_query = array();
     
@@ -574,7 +574,7 @@ function smartshopBlocks_Product_Query( $params ){
         $query_args['order'] = $params['order'];
     }
 
-    $query_args['wpnonce'] = wp_create_nonce( 'smartshopblock-nonce' );
+    $query_args['wpnonce'] = wp_create_nonce( 'shopxpertblock-nonce' );
 
     return $query_args;
 }
@@ -584,7 +584,7 @@ function smartshopBlocks_Product_Query( $params ){
  *
  * @param array $button_arg
  */
-function smartshopBlocks_compare_button( $button_arg = array() ){
+function shopxpertBlocks_compare_button( $button_arg = array() ){
 
     global $product;
     $product_id = $product->get_id();
@@ -600,7 +600,7 @@ function smartshopBlocks_compare_button( $button_arg = array() ){
         $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','shopxper' );
 
         $comp_link = \EverCompare\Frontend\Manage_Compare::instance()->get_compare_page_url();
-        $output = '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn smartshop-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'">'.$button_text.'</a>';
+        $output = '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn shopxpert-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'">'.$button_text.'</a>';
         return $output;
 
     }elseif( class_exists('YITH_Woocompare') ){
@@ -612,7 +612,7 @@ function smartshopBlocks_compare_button( $button_arg = array() ){
                 $output = do_shortcode('[yith_compare_button]');
             }
         }else{
-            $output = '<a title="'. esc_attr__('Add to Compare', 'shopxper') .'" href="'. esc_url( $comp_link ) .'" class="smartshop-compare compare" data-product_id="'. esc_attr( $product_id ) .'" rel="nofollow">'.esc_html__( 'Compare', 'shopxper' ).'</a>';
+            $output = '<a title="'. esc_attr__('Add to Compare', 'shopxper') .'" href="'. esc_url( $comp_link ) .'" class="shopxpert-compare compare" data-product_id="'. esc_attr( $product_id ) .'" rel="nofollow">'.esc_html__( 'Compare', 'shopxper' ).'</a>';
         }
         return $output;
     }else{
@@ -626,7 +626,7 @@ function smartshopBlocks_compare_button( $button_arg = array() ){
  *
  * @param int $ratting_num
  */
-function smartshopBlocks_ratting( $ratting_num ){
+function shopxpertBlocks_ratting( $ratting_num ){
     if( !empty( $ratting_num ) ){
         $rating = $ratting_num;
         $rating_whole = floor( $ratting_num );

@@ -1,7 +1,7 @@
 <?php
 namespace WooWooWishSuite\Admin;
 
-use function  Smartshop\incs\smartshop_get_option;
+use function  Shopxpert\incs\shopxpert_get_option;
 
 /**
  * Dashboard handlers class
@@ -64,7 +64,7 @@ class Dashboard {
     public function add_menu(){
 
         self::$admin_menu_hook = add_submenu_page(
-            'smartshop_page',
+            'shopxpert_page',
             esc_html__( 'Wishlist', 'shopxper' ),
             esc_html__( 'Wishlist', 'shopxper' ),
             'manage_options',
@@ -111,7 +111,7 @@ class Dashboard {
      * @param WP_Post $post  The current post object.
      */
     public function add_display_post_states( $post_states, $post ){
-        if ( (int)smartshop_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' ) === $post->ID ) {
+        if ( (int)shopxpert_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' ) === $post->ID ) {
             $post_states['wishsuite_page_for_wishlist_table'] = __( 'WooWooWishSuite', 'wishsuite' );
         }
         return $post_states;

@@ -4,13 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array('smartshop-store-feature-area');
-$classes = array( $uniqClass, 'smartshop-blocks ht-feature-wrap' );
+$uniqClass = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array('shopxpert-store-feature-area');
+$classes = array( $uniqClass, 'shopxpert-blocks ht-feature-wrap' );
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 !empty( $settings['className'] ) ? $classes[] = esc_attr( $settings['className'] ) : '';
 !empty( $settings['layout'] ) ? $classes[] = 'ht-feature-style-'.$settings['layout'] : 'ht-feature-style-1';
-!empty( $settings['textAlignment'] ) ? $classes[] = 'smartshop-text-align-'.$settings['textAlignment'] : 'smartshop-text-align-center';
+!empty( $settings['textAlignment'] ) ? $classes[] = 'shopxpert-text-align-'.$settings['textAlignment'] : 'shopxpert-text-align-center';
 
 $store_image = !empty( $settings['featureImage']['id'] ) ? wp_get_attachment_image( $settings['featureImage']['id'], 'full' ) : '';
 

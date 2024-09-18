@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/brand-logo",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/brand-logo",
+  "category": "shopxpert-blocks",
   "title": "WL : Brand Logo",
   "description": "Display brand logo.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "logo",
     "brand",
     "brand logo"
@@ -69,7 +69,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-grid:not(.smartshop-no-gutters) { column-gap: {{itemSpace}}px; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-grid:not(.shopxpert-no-gutters) { column-gap: {{itemSpace}}px; }"
       }
     },
     "slider": {

@@ -32,4 +32,4 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 // Required File
 require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/main.php';
 // Load the plugin's base functionality
-\SmartShop\shopxpert();
+\ShopXpert\shopxpert();

@@ -1,9 +1,9 @@
 <?php
 
-error_log('zxxxSmartShop_Ajax_Search_Basexxxxxz');
+error_log('zxxxShopXpert_Ajax_Search_Basexxxxxz');
 
 
-class SmartShop_Ajax_Search_Base{
+class ShopXpert_Ajax_Search_Base{
 
 	private static $instance = null;
     public static function instance() {
@@ -31,7 +31,7 @@ class SmartShop_Ajax_Search_Base{
 	 */
 	function register_widget(){
 		require ( __DIR__ . '/widget-product-search-ajax.php' );
-		register_widget( 'SmartShop_Product_Search_Ajax_Widget' );
+		register_widget( 'ShopXpert_Product_Search_Ajax_Widget' );
 		// Enqueue Style
 		if( !is_admin() ){
 			wp_enqueue_style( 'samartshop-ajax-search' );
@@ -185,4 +185,4 @@ class SmartShop_Ajax_Search_Base{
 
 }
 
-SmartShop_Ajax_Search_Base::instance();
+ShopXpert_Ajax_Search_Base::instance();

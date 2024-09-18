@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-    "name": "smartshop/wishsuite-table",
-    "category": "smartshop-blocks",
+    "name": "shopxpert/wishsuite-table",
+    "category": "shopxpert-blocks",
     "title": "WL: WooWooWishSuite Table",
     "description":"Display Wishlist Table.",
-    "keywords": ["smartshop","wishlist","table","wishsuite"],
+    "keywords": ["shopxpert","wishlist","table","wishsuite"],
     "render": "file:./index.php",
     "attributes": {
         "blockUniqId":{

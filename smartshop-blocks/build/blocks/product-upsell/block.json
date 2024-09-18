@@ -1,6 +1,6 @@
 {
-  "name": "smartshop/product-upsell",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-upsell",
+  "category": "shopxpert-single-product",
   "title": "Product Upsell",
   "attributes": {
     "blockUniqId": {

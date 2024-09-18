@@ -59,7 +59,7 @@ class Installer {
                 '<!-- wp:shortcode -->[wishsuite_table]<!-- /wp:shortcode -->'
             );
             if( $create_page_id ){
-                smartshop_update_option( 'wishsuite_table_settings_tabs','wishlist_page', $create_page_id );
+                shopxpert_update_option( 'wishsuite_table_settings_tabs','wishlist_page', $create_page_id );
             }
         }
     }

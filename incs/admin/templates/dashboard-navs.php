@@ -1,14 +1,14 @@
 <?php
 
- namespace Smartshop\Incs\Admin\Templates;
+ namespace Shopxpert\Incs\Admin\Templates;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields;
+use Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields;
 
 
 // Test if the class exists
-if (class_exists('Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields')) {
+if (class_exists('Shopxpert\Incs\Admin\Inc\Smartshop_Admin_Fields')) {
     $navs = Smartshop_Admin_Fields::instance()->field_sections();;
 
 } else {

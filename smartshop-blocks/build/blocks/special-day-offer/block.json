@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/special-day-offer",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/special-day-offer",
+  "category": "shopxpert-blocks",
   "title": "WL : Special Day Offer",
   "description": "Display special day offer banner.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "shop banner",
     "banner",
     "special day",

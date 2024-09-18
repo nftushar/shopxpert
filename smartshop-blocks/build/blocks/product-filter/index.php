@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
@@ -26,7 +26,7 @@ if ( '' == get_option('permalink_structure' ) ) {
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	?>
-	<div class="smartshop-filter-wrap" style="<?php if( 'price_by' === $filter_type ){ echo 'overflow: visible;'; } ?>">
+	<div class="shopxpert-filter-wrap" style="<?php if( 'price_by' === $filter_type ){ echo 'overflow: visible;'; } ?>">
 
 		<?php
 
@@ -80,7 +80,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 				$step = 1;
 				// Find min and max price in current result set.
-				$prices    = function_exists('smartshop_minmax_price_limit') ? smartshop_minmax_price_limit() : array('min' => 10,'max' => 20);
+				$prices    = function_exists('shopxpert_minmax_price_limit') ? shopxpert_minmax_price_limit() : array('min' => 10,'max' => 20);
 
 				$min_price = $prices['min'];
 				$max_price = $prices['max'];
@@ -89,7 +89,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 				$tax_display_mode = get_option( 'woocommerce_tax_display_shop' );
 
 				if ( wc_tax_enabled() && ! wc_prices_include_tax() && 'incl' === $tax_display_mode ) {
-					$tax_class = apply_filters( 'smartshop_price_filter_tax_class', '' ); // Uses standard tax class.
+					$tax_class = apply_filters( 'shopxpert_price_filter_tax_class', '' ); // Uses standard tax class.
 					$tax_rates = \WC_Tax::get_rates( $tax_class );
 
 					if ( $tax_rates ) {
@@ -102,8 +102,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 					$max_price = 100;
 				}
 
-				$min_price = apply_filters( 'smartshop_price_filter_min_amount', floor( $min_price / $step ) * $step );
-				$max_price = apply_filters( 'smartshop_price_filter_max_amount', ceil( $max_price / $step ) * $step );
+				$min_price = apply_filters( 'shopxpert_price_filter_min_amount', floor( $min_price / $step ) * $step );
+				$max_price = apply_filters( 'shopxpert_price_filter_max_amount', ceil( $max_price / $step ) * $step );
 
 				$current_min_price = isset( $_GET['min_price'] ) ? floor( floatval( wp_unslash( $_GET['min_price'] ) ) / $step ) * $step : $min_price; // WPCS: input var ok, CSRF ok.
 				$current_max_price = isset( $_GET['max_price'] ) ? ceil( floatval( wp_unslash( $_GET['max_price'] ) ) / $step ) * $step : $max_price; // WPCS: input var ok, CSRF ok.
@@ -112,13 +112,13 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 			<div class="wl_price_filter">
 				<form method="get" action="<?php echo esc_url( $current_url ); ?>">
-					<div class="smartshop_slider_range" style="display: none;"></div>
+					<div class="shopxpert_slider_range" style="display: none;"></div>
 					<input type="hidden" name="wlfilter" value="1">
 					<input type="text" id="min_price-<?php echo esc_attr($id); ?>" name="min_price" value="<?php echo esc_attr( $current_min_price ); ?>" data-min="<?php echo esc_attr( $min_price ); ?>" placeholder="<?php echo esc_attr__( 'Min price', 'shopxper' ); ?>" />
 					<input type="text" id="max_price-<?php echo esc_attr($id); ?>" name="max_price" value="<?php echo esc_attr( $current_max_price ); ?>" data-max="<?php echo esc_attr( $max_price ); ?>" placeholder="<?php echo esc_attr__( 'Max price', 'shopxper' ); ?>" />
 					<div class="wl_button_price">
 						<button type="submit" aria-label="<?php echo esc_attr__( 'Filter','shopxper' );?>"><?php echo esc_html__( 'Filter', 'shopxper' ); ?></button>
-						<div class="smartshop_price_label" style="display: none;">
+						<div class="shopxpert_price_label" style="display: none;">
 							<?php echo esc_html__( 'Price:', 'shopxper' ); ?>
 							<span id="from-<?php echo esc_attr($id); ?>"></span> &mdash; <span id="to-<?php echo esc_attr($id); ?>"></span>
 						</div>
@@ -133,7 +133,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 					var id = '<?php echo esc_js($id); ?>';
 
 					$( 'input#min_price-'+id+', input#max_price-'+id ).hide();
-					$( '.smartshop_slider_range, .smartshop_price_label' ).show();
+					$( '.shopxpert_slider_range, .shopxpert_price_label' ).show();
 
 					var min_price = parseInt( '<?php echo esc_js($min_price); ?>' ),
 						max_price = parseInt( '<?php echo esc_js($max_price); ?>' ),
@@ -142,7 +142,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 						currency_pos_left = '<?php echo esc_js($currency_pos_left); ?>',
 						currency_symbol = '<?php echo esc_js($final_currency_symbol); ?>';
 
-					$( ".smartshop_slider_range" ).slider({
+					$( ".shopxpert_slider_range" ).slider({
 						range: true,
 						min: min_price,
 						max: max_price,
@@ -150,21 +150,21 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 						slide: function( event, ui ) {
 							$( 'input#min_price-'+id ).val( ui.values[0] );
 							$( 'input#max_price-'+id ).val( ui.values[1] );
-							( currency_pos_left ) ? $( ".smartshop_price_label span#from-"+id ).html( currency_symbol + ui.values[0] ) : $( ".smartshop_price_label span#from-"+id ).html(  ui.values[0] + currency_symbol );
-							( currency_pos_left ) ? $( ".smartshop_price_label span#to-"+id ).html( currency_symbol + ui.values[1] ) : $( ".smartshop_price_label span#to-"+id ).html( ui.values[1] + currency_symbol );
+							( currency_pos_left ) ? $( ".shopxpert_price_label span#from-"+id ).html( currency_symbol + ui.values[0] ) : $( ".shopxpert_price_label span#from-"+id ).html(  ui.values[0] + currency_symbol );
+							( currency_pos_left ) ? $( ".shopxpert_price_label span#to-"+id ).html( currency_symbol + ui.values[1] ) : $( ".shopxpert_price_label span#to-"+id ).html( ui.values[1] + currency_symbol );
 						},
 
 					});
 
-					$( "#min_price-"+id ).val(  $( ".smartshop_slider_range" ).slider( "values", 0 ) );
-					$( "#max_price-"+id ).val(  $( ".smartshop_slider_range" ).slider( "values", 1 ) );
+					$( "#min_price-"+id ).val(  $( ".shopxpert_slider_range" ).slider( "values", 0 ) );
+					$( "#max_price-"+id ).val(  $( ".shopxpert_slider_range" ).slider( "values", 1 ) );
 
 					if( currency_pos_left ){
-						$( ".smartshop_price_label span#from-"+id ).html(  currency_symbol + $( ".smartshop_slider_range" ).slider( "values", 0 ) );
-						$( ".smartshop_price_label span#to-"+id ).html(  currency_symbol + $( ".smartshop_slider_range" ).slider( "values", 1 ) );
+						$( ".shopxpert_price_label span#from-"+id ).html(  currency_symbol + $( ".shopxpert_slider_range" ).slider( "values", 0 ) );
+						$( ".shopxpert_price_label span#to-"+id ).html(  currency_symbol + $( ".shopxpert_slider_range" ).slider( "values", 1 ) );
 					}else{
-						$( ".smartshop_price_label span#from-"+id ).html( $( ".smartshop_slider_range" ).slider( "values", 0 ) + currency_symbol );
-						$( ".smartshop_price_label span#to-"+id ).html( $( ".smartshop_slider_range" ).slider( "values", 1 ) + currency_symbol );
+						$( ".shopxpert_price_label span#from-"+id ).html( $( ".shopxpert_slider_range" ).slider( "values", 0 ) + currency_symbol );
+						$( ".shopxpert_price_label span#to-"+id ).html( $( ".shopxpert_slider_range" ).slider( "values", 1 ) + currency_symbol );
 					}
 
 				});
@@ -189,7 +189,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 				<div class="wl_order_by_filter">
 					<select name="wl_order_by_sort">
 						<?php
-							foreach ( smartshop_order_by_opts() as $key => $opt_data ) {
+							foreach ( shopxpert_order_by_opts() as $key => $opt_data ) {
 								echo '<option value="&wlorder_by='.esc_attr( $key ).'" '.selected( $key, $wlorder_by, false ).'>'.esc_html__( $opt_data, 'shopxper' ).'</option>';
 							}
 						?>
@@ -204,7 +204,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 					if ( !empty( $terms ) && !is_wp_error( $terms )){
 						echo '<ul>';
 							foreach ( $terms as $term ){
-								$link = smartshop_block_filter_generate_term_link( $filter_type, $term, $current_url );
+								$link = shopxpert_block_filter_generate_term_link( $filter_type, $term, $current_url );
 								echo '<li class="'.esc_attr($link['class']).'">';
 									echo sprintf('%1$s<a href="%2$s">%3$s <span>(%4$s)</span></a>', $list_icon, esc_url($link['link']), $term->name, $term->count ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
@@ -212,7 +212,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 									if( !empty( $loterms ) && !is_wp_error( $loterms ) ){
 										echo '<ul class="wlchildren">';
 											foreach( $loterms as $key => $loterm ){
-												$clink = smartshop_block_filter_generate_term_link( $filter_type, $loterm, $current_url );
+												$clink = shopxpert_block_filter_generate_term_link( $filter_type, $loterm, $current_url );
 												echo sprintf('<li class="%5$s">%1$s<a href="%2$s">%3$s <span>(%4$s)</span></a></li>', $list_icon, $clink['link'], $loterm->name, $loterm->count, $clink['class'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 											}
 										echo '</ul>';
@@ -227,7 +227,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 					if ( !empty( $terms ) && !is_wp_error( $terms ) ){
 						echo '<ul>';
 							foreach ( $terms as $term ){
-								$link = smartshop_block_filter_generate_term_link( $filter_type, $term, $current_url );
+								$link = shopxpert_block_filter_generate_term_link( $filter_type, $term, $current_url );
 								echo sprintf('<li class="%5$s">%4$s<a href="%1$s">%2$s <span>(%3$s)</span></a></li>', esc_url($link['link']), $term->name, $term->count, $list_icon, esc_attr($link['class']) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							}
 						echo '</ul>';

@@ -2,7 +2,7 @@
 ;( function ( $ ) {
 	"use strict";
 
-    $.fn.smartshop_conditions = function() {
+    $.fn.shopxpert_conditions = function() {
         return this.each( function() {
     
             var $this   = $(this),
@@ -10,7 +10,7 @@
     
             if( $fields.length ) {
     
-                var condition_ruleset = $.smartshop_deps.createRuleset(),
+                var condition_ruleset = $.shopxpert_deps.createRuleset(),
                     all_conditions = [];
     
                 $fields.each( function() {
@@ -37,7 +37,7 @@
                 });
     
                 if ( all_conditions.length ) {
-                    $.smartshop_deps.enable($this, condition_ruleset, all_conditions);
+                    $.shopxpert_deps.enable($this, condition_ruleset, all_conditions);
                 }
     
             }

@@ -9,22 +9,22 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Smartshop\\Incs\\Admin\\Templates\\' => 31,
-            'Smartshop\\Incs\\Admin\\Inc\\' => 25,
-            'SmartShop\\' => 10,
+            'Shopxpert\\Incs\\Admin\\Templates\\' => 31,
+            'Shopxpert\\Incs\\Admin\\Inc\\' => 25,
+            'ShopXpert \\' => 11,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Smartshop\\Incs\\Admin\\Templates\\' => 
+        'Shopxpert\\Incs\\Admin\\Templates\\' => 
         array (
             0 => __DIR__ . '/../..' . '/incs/admin/templates',
         ),
-        'Smartshop\\Incs\\Admin\\Inc\\' => 
+        'Shopxpert\\Incs\\Admin\\Inc\\' => 
         array (
             0 => __DIR__ . '/../..' . '/incs/admin/inc',
         ),
-        'SmartShop\\' => 
+        'ShopXpert \\' => 
         array (
             0 => __DIR__ . '/../..' . '/incs',
         ),

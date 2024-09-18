@@ -4,14 +4,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass );
 $classes 	 = array( 'wlspcial-banner' );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 
-!empty( $settings['contentPosition'] ) ? $classes[] = 'smartshop-banner-content-pos-'.$settings['contentPosition'] : '';
+!empty( $settings['contentPosition'] ) ? $classes[] = 'shopxpert-banner-content-pos-'.$settings['contentPosition'] : '';
 
 $default_img_url = SMARTSHOP_BLOCK_URL . '/assets/images/banner-image.svg';
 $banner_url 	= !empty( $settings['bannerLink'] ) ? $settings['bannerLink'] : '#';

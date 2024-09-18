@@ -30,7 +30,7 @@ class Widgets_And_Blocks {
     public function __construct() {
 
         // Guttenberg Block
-        add_filter('smartshop_block_list', [ $this, 'block_list' ] );
+        add_filter('shopxpert_block_list', [ $this, 'block_list' ] );
 
     }
 
@@ -41,7 +41,7 @@ class Widgets_And_Blocks {
 
         $block_list['wishsuite_table'] = [
             'label'  => __('WooWooWishSuite Table','shopxper'),
-            'name'   => 'smartshop/wishsuite-table',
+            'name'   => 'shopxpert/wishsuite-table',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
@@ -51,7 +51,7 @@ class Widgets_And_Blocks {
 
         $block_list['wishsuite_counter'] = [
             'label'  => __('WooWooWishSuite Counter','shopxper'),
-            'name'   => 'smartshop/wishsuite-counter',
+            'name'   => 'shopxpert/wishsuite-counter',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,

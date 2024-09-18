@@ -1,7 +1,7 @@
 <?php  
-namespace Smartshop\Incs\Admin\Inc;
+namespace Shopxpert\Incs\Admin\Inc;
 
-use Smartshop\Incs\Admin\Inc\Smartshop_Template_CPT;
+use Shopxpert\Incs\Admin\Inc\Smartshop_Template_CPT;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // require( SHOPXPERT_ADDONS_PL_PATH. 'incs/admin/inc/class.template_cpt.php' );
@@ -9,8 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Smartshop_Template_Manager{
 
-    const CPTTYPE = 'smartshop-template';
-	const CPT_META = 'smartshop_template_meta';
+    const CPTTYPE = 'shopxpert-template';
+	const CPT_META = 'shopxpert_template_meta';
 	public static $language_code = '';
 
     private static $_instance = null;
@@ -25,7 +25,7 @@ class Smartshop_Template_Manager{
 		Smartshop_Template_CPT::instance();
 
 		add_action('wp_loaded', function(){
-			self::$language_code = apply_filters('smartshop_current_language_code', 'en');
+			self::$language_code = apply_filters('shopxpert_current_language_code', 'en');
 		} );
 
         //Add Menu
@@ -53,16 +53,16 @@ class Smartshop_Template_Manager{
 		add_filter('theme_'.self::CPTTYPE.'_templates', [ $this, 'add_page_templates' ], 999, 4 );
 
         // Template store ajax action
-		add_action( 'wp_ajax_smartshop_template_store', [ $this, 'template_store_request' ] );
+		add_action( 'wp_ajax_shopxpert_template_store', [ $this, 'template_store_request' ] );
 
 		// Get template data Ajax action
-		add_action( 'wp_ajax_smartshop_get_template', [ $this, 'get_post_By_id' ] );
+		add_action( 'wp_ajax_shopxpert_get_template', [ $this, 'get_post_By_id' ] );
 
 		// Manage Template Default Status
-		add_action( 'wp_ajax_smartshop_manage_default_template', [ $this, 'manage_template_status' ] );
+		add_action( 'wp_ajax_shopxpert_manage_default_template', [ $this, 'manage_template_status' ] );
 
 		// Template Import
-		add_action( 'wp_ajax_smartshop_import_template', [ $this, 'template_import' ] );
+		add_action( 'wp_ajax_shopxpert_import_template', [ $this, 'template_import' ] );
 		
     }
 
@@ -74,7 +74,7 @@ class Smartshop_Template_Manager{
     public function admin_menu(){
         $link_custom_post = 'edit.php?post_type=' . self::CPTTYPE;
 		add_submenu_page(
-			'smartshop_page',
+			'shopxpert_page',
 			esc_html__('Template Builder', 'shopxper'),
 			esc_html__('Template Builder', 'shopxper'),
 			'manage_options',
@@ -113,7 +113,7 @@ class Smartshop_Template_Manager{
 	 * @return void
 	 */
 	public function columns_content( $column_name, $post_id ) {
-		$tmpType = get_post_meta( $post_id, 'smartshop_template_meta_type', true );
+		$tmpType = get_post_meta( $post_id, 'shopxpert_template_meta_type', true );
 
 		if( !array_key_exists( $tmpType, self::get_template_type() ) ){
 			return;
@@ -138,7 +138,7 @@ class Smartshop_Template_Manager{
 			$value = $this->get_template_id( self::get_template_type()[$tmpType]['optionkey'] );
 			$checked = checked( $value, $post_id, false );
 
-			echo '<label class="smartshop-default-tmp-status-switch" id="smartshop-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="smartshop-status-'.esc_attr( $tmpType ).'" id="smartshop-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','shopxper').'</span><span>'.esc_html__('YES','shopxper').'</span></span><a>&nbsp;</a></label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<label class="shopxpert-default-tmp-status-switch" id="shopxpert-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="shopxpert-status-'.esc_attr( $tmpType ).'" id="shopxpert-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','shopxper').'</span><span>'.esc_html__('YES','shopxper').'</span></span><a>&nbsp;</a></label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
 
@@ -168,8 +168,8 @@ class Smartshop_Template_Manager{
 		if( isset( $_GET['template_type'] ) && $_GET['template_type'] != '' && $_GET['template_type'] != 'all') {
 			$type = isset( $_GET['template_type'] ) ? sanitize_key( $_GET['template_type'] ) : '';
 
-			if ( ( 'emails' === $type ) && ( 'on' == smartshop_get_option( 'enable', 'smartshop_email_customizer_settings', 'off' ) ) ) {
-				$emails = smartshop_wc_get_emails( 'id' );
+			if ( ( 'emails' === $type ) && ( 'on' == shopxpert_get_option( 'enable', 'shopxpert_email_customizer_settings', 'off' ) ) ) {
+				$emails = shopxpert_wc_get_emails( 'id' );
 				$emails = array_map( function ( $id ) { return 'email_' . $id; }, $emails );
 
 				$meta_query = [
@@ -191,10 +191,10 @@ class Smartshop_Template_Manager{
 				$query->query_vars['meta_compare'] = '=';
 			}
 		} else {
-			// Meta query to fetch only the posts that doest not containt the meta key '_smartshop_order_bump'
+			// Meta query to fetch only the posts that doest not containt the meta key '_shopxpert_order_bump'
 			$query->query_vars['meta_query'] = [
 				[
-					'key'     => '_smartshop_order_bump',
+					'key'     => '_shopxpert_order_bump',
 					'compare' => 'NOT EXISTS',	
 				],
 			];
@@ -212,7 +212,7 @@ class Smartshop_Template_Manager{
         if ( $post->post_type == self::CPTTYPE ) {
 
 			if( $this->edit_with_gutenberg( $post->ID ) ) {
-				$actions['smartshop_edit_with_gutenberg'] = '<a href="'.get_edit_post_link($post->ID).'">'.esc_html__('Edit With Gutenberg', 'shopxper').'</a>';
+				$actions['shopxpert_edit_with_gutenberg'] = '<a href="'.get_edit_post_link($post->ID).'">'.esc_html__('Edit With Gutenberg', 'shopxper').'</a>';
 			}
 
         }
@@ -234,8 +234,8 @@ class Smartshop_Template_Manager{
 	public function add_page_templates( $page_templates, $wp_theme, $post ){
 		unset( $page_templates['elementor_theme'] );
 
-		$page_templates['smartshop_canvas']    = esc_html__('SmartShop Canvas', 'shopxper');
-		$page_templates['smartshop_fullwidth'] = esc_html__('SmartShop Full width', 'shopxper');
+		$page_templates['shopxpert_canvas']    = esc_html__('ShopXpert  Canvas', 'shopxper');
+		$page_templates['shopxpert_fullwidth'] = esc_html__('ShopXpert  Full width', 'shopxper');
 
 		return $page_templates;
 	}
@@ -247,7 +247,7 @@ class Smartshop_Template_Manager{
 	 * @return boolean
 	 */
 	public function edit_with_gutenberg( $id ){
-		$editor = get_post_meta( $id, 'smartshop_template_meta_editor', true );
+		$editor = get_post_meta( $id, 'shopxpert_template_meta_editor', true );
 		if( ! empty( $editor ) && $editor === 'gutenberg' ){
 			return true;
 		}else{
@@ -273,7 +273,7 @@ class Smartshop_Template_Manager{
 				'label' => __('Single','shopxper')
 			],
 		];
-		return apply_filters( 'smartshop_template_menu_tabs', $tabs );
+		return apply_filters( 'shopxpert_template_menu_tabs', $tabs );
 
 	}
 
@@ -298,7 +298,7 @@ class Smartshop_Template_Manager{
 				'optionkey' => 'singleproductpage'
 			],
 		];
-		return apply_filters( 'smartshop_template_types', $template_type );
+		return apply_filters( 'shopxpert_template_types', $template_type );
 
 	}
 
@@ -310,9 +310,9 @@ class Smartshop_Template_Manager{
 	public function get_template_library(){
 
 		// Delete transient data
-		if ( get_option( 'smartshop_do_activation_library_cache', FALSE ) ) {
-            delete_transient( 'smartshop_template_info' );
-			delete_option('smartshop_do_activation_library_cache');
+		if ( get_option( 'shopxpert_do_activation_library_cache', FALSE ) ) {
+            delete_transient( 'shopxpert_template_info' );
+			delete_option('shopxpert_do_activation_library_cache');
         }
 
 		$elementor_template = Smartshop_Template_Library_Manager::get_templates_info();
@@ -323,7 +323,7 @@ class Smartshop_Template_Manager{
 		if( !empty( $get_data ) ){
 			foreach( $get_data as $template ){
 
-				if( $template['post_type'] === 'smartshop-template' ){
+				if( $template['post_type'] === 'shopxpert-template' ){
 					$data[$template['type']][] = $template;
 					if( $template['shareId'] == 'Shop' ){
 						$data['archive'][] = $template;
@@ -354,7 +354,7 @@ class Smartshop_Template_Manager{
 	 * @return void
 	 */
 	public function print_popup() {
-		if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'smartshop-template' ){
+		if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'shopxpert-template' ){
 			include_once( SHOPXPERT_ADDONS_PL_PATH. 'incs/admin/templates/template_edit_popup.php' );
 		}
     }
@@ -373,8 +373,8 @@ class Smartshop_Template_Manager{
 			$current_type = sanitize_key( $_GET['tabs'] );
 		}
         ?>
-            <div id="smartshop-template-tabs-wrapper" class="nav-tab-wrapper">
-				<div class="smartshop-menu-area">
+            <div id="shopxpert-template-tabs-wrapper" class="nav-tab-wrapper">
+				<div class="shopxpert-menu-area">
 					<a class="nav-tab <?php echo esc_attr($active_class); ?>" href="edit.php?post_type=<?php echo esc_attr(self::CPTTYPE); ?>"><?php echo esc_html__('All','shopxper');?></a>
 					<?php
 						foreach( self::get_tabs() as $tabkey => $tab ){
@@ -383,29 +383,29 @@ class Smartshop_Template_Manager{
 						}
 					?>
 				</div>
-				<div class="smartshop-template-importer">
+				<div class="shopxpert-template-importer">
 					<button type="button" class="button button-primary">
 						<span class="dashicons dashicons-download"></span>
-						<span class="smartshop-template-importer-btn-text"><?php esc_html_e('Import Previously Assigned Templates','shopxper');?></span>
+						<span class="shopxpert-template-importer-btn-text"><?php esc_html_e('Import Previously Assigned Templates','shopxper');?></span>
 					</button>
 				</div>
             </div>
 			<?php 
 				if( !empty( $current_type ) && isset( self::get_tabs()[$current_type]['submenu'] ) ){
 
-					$sub_tab_active_class = 'smartshop-sub-tab-active'; 
+					$sub_tab_active_class = 'shopxpert-sub-tab-active'; 
 					$current_sub_tab = '';
 					if( isset( $_GET['tab'] ) ){
 						$sub_tab_active_class = '';
 						$current_sub_tab = sanitize_key( $_GET['tab'] );
 					}
 
-					echo '<div class="smartshop-template-subtabs"><ul>';
-						echo '<li><a class="smartshop-sub-tab '.esc_attr($sub_tab_active_class).'" href="edit.php?post_type='.esc_attr(self::CPTTYPE).'&template_type='.esc_attr($current_type).'&tabs='.esc_attr($current_type).'">'.esc_html(self::get_tabs()[$current_type]['label']).'</a></li>';
+					echo '<div class="shopxpert-template-subtabs"><ul>';
+						echo '<li><a class="shopxpert-sub-tab '.esc_attr($sub_tab_active_class).'" href="edit.php?post_type='.esc_attr(self::CPTTYPE).'&template_type='.esc_attr($current_type).'&tabs='.esc_attr($current_type).'">'.esc_html(self::get_tabs()[$current_type]['label']).'</a></li>';
 
 						foreach( self::get_tabs()[$current_type]['submenu'] as $subtabkey => $subtab ){
-							$sub_tab_active_class = ( $current_sub_tab == $subtabkey ? 'smartshop-sub-tab-active' : '' );
-							echo '<li><a class="smartshop-sub-tab '.esc_attr($sub_tab_active_class).'" href="edit.php?post_type='.esc_attr(self::CPTTYPE).'&template_type='.esc_attr($subtabkey).'&tabs='.esc_attr($current_type).'&tab='.esc_attr($subtabkey).'">'.esc_html($subtab['label']).'</a></li>';
+							$sub_tab_active_class = ( $current_sub_tab == $subtabkey ? 'shopxpert-sub-tab-active' : '' );
+							echo '<li><a class="shopxpert-sub-tab '.esc_attr($sub_tab_active_class).'" href="edit.php?post_type='.esc_attr(self::CPTTYPE).'&template_type='.esc_attr($subtabkey).'&tabs='.esc_attr($current_type).'&tab='.esc_attr($subtabkey).'">'.esc_html($subtab['label']).'</a></li>';
 						}
 
 					echo '</ul></div>';
@@ -424,22 +424,22 @@ class Smartshop_Template_Manager{
 	 */
     public function enqueue_scripts( $hook ){
 
-        if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'smartshop-template' ){
+        if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'shopxpert-template' ){
 
 			// CSS
-            wp_enqueue_style( 'smartshop-template-edit-manager', SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/css/template_edit_manager.css', [], SHOPXPERT_VERSION );
-			wp_enqueue_style('smartshop-sweetalert');
+            wp_enqueue_style( 'shopxpert-template-edit-manager', SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/css/template_edit_manager.css', [], SHOPXPERT_VERSION );
+			wp_enqueue_style('shopxpert-sweetalert');
 			wp_enqueue_style('slick', SHOPXPERT_ADDONS_PL_URL . 'assets/css/slick.css', [], SHOPXPERT_VERSION );
 			
 			// JS
-			wp_enqueue_script('smartshop-sweetalert');
+			wp_enqueue_script('shopxpert-sweetalert');
 			wp_enqueue_script('slick', SHOPXPERT_ADDONS_PL_URL . 'assets/js/slick.min.js', array('jquery'), SHOPXPERT_VERSION, true );
-            wp_enqueue_script( 'smartshop-template-edit-manager', SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/template_edit_manager.js', array('jquery', 'wp-util'), SHOPXPERT_VERSION, true );
+            wp_enqueue_script( 'shopxpert-template-edit-manager', SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/template_edit_manager.js', array('jquery', 'wp-util'), SHOPXPERT_VERSION, true );
 
 			$localize_data = [
                 'ajaxurl' 	=> admin_url( 'admin-ajax.php' ),
-				'prostatus'	=> is_admin() ? is_plugin_active('smartshop-addons-pro/smartshop_addons_pro.php') : false,
-				'nonce' 	=> wp_create_nonce('smartshop_tmp_nonce'),
+				'prostatus'	=> is_admin() ? is_plugin_active('shopxpert-addons-pro/shopxpert_addons_pro.php') : false,
+				'nonce' 	=> wp_create_nonce('shopxpert_tmp_nonce'),
 				'templatetype' => self::get_template_type(),
 				'haselementor' => shopxpert_is_elementor_editor() ? 'yes' : 'no',
 				'editor' => [
@@ -495,7 +495,7 @@ class Smartshop_Template_Manager{
 					]
 				]
             ];
-			wp_localize_script( 'smartshop-template-edit-manager', 'WLTMCPT', $localize_data );
+			wp_localize_script( 'shopxpert-template-edit-manager', 'WLTMCPT', $localize_data );
 
         }
 
@@ -509,7 +509,7 @@ class Smartshop_Template_Manager{
 	public function template_store_request(){
 		if ( isset( $_POST ) ) {
 
-			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'smartshop_tmp_nonce' ) ){
+			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'shopxpert_tmp_nonce' ) ){
 				$errormessage = array(
 					'message'  => __('Nonce Varification Faild !','shopxper')
 				);
@@ -581,8 +581,8 @@ class Smartshop_Template_Manager{
 			);
 
 			// Meta data
-			$template_slug 			= ( $data['tmpeditor'] === 'elementor' ) ? 'elementor_header_footer' : 'smartshop_fullwidth';
-			$default_page_template 	= apply_filters( 'smartshop_default_page_template', $template_slug, $data['tmptype'] );
+			$template_slug 			= ( $data['tmpeditor'] === 'elementor' ) ? 'elementor_header_footer' : 'shopxpert_fullwidth';
+			$default_page_template 	= apply_filters( 'shopxpert_default_page_template', $template_slug, $data['tmptype'] );
 
 			update_post_meta( $new_post_id, self::CPT_META . '_type', $data['tmptype'] );
 			update_post_meta( $new_post_id, self::CPT_META . '_editor', $data['tmpeditor'] );
@@ -598,7 +598,7 @@ class Smartshop_Template_Manager{
 			// Update Default template if user is set default
 			if( $data['setdefaullt'] == 'yes' ) {
 				$data['id'] = $new_post_id;
-				$this->update_option( 'smartshop_woo_template_tabs', self::get_template_type()[$data['tmptype']]['optionkey'], $new_post_id, $data );
+				$this->update_option( 'shopxpert_woo_template_tabs', self::get_template_type()[$data['tmptype']]['optionkey'], $new_post_id, $data );
 			}
 
 			wp_send_json_success( $return );
@@ -634,9 +634,9 @@ class Smartshop_Template_Manager{
 
 		// Update Default template if user is set default
 		if( $data['setdefaullt'] == 'yes' ) {
-			$this->update_option( 'smartshop_woo_template_tabs', self::get_template_type()[$data['tmptype']]['optionkey'], $data['id'], $data );
+			$this->update_option( 'shopxpert_woo_template_tabs', self::get_template_type()[$data['tmptype']]['optionkey'], $data['id'], $data );
 		}else{
-			$this->update_option( 'smartshop_woo_template_tabs', self::get_template_type()[$data['tmptype']]['optionkey'], '0', $data );
+			$this->update_option( 'shopxpert_woo_template_tabs', self::get_template_type()[$data['tmptype']]['optionkey'], '0', $data );
 		}
 
 		$return = array(
@@ -699,7 +699,7 @@ class Smartshop_Template_Manager{
 			}
 
 			$nonce = $_POST['nonce'];
-			if ( ! wp_verify_nonce( $nonce, 'smartshop_tmp_nonce' ) ) {
+			if ( ! wp_verify_nonce( $nonce, 'shopxpert_tmp_nonce' ) ) {
 				$errormessage = array(
 					'message'  => __('Nonce Varification Faild !','shopxper')
 				);
@@ -744,7 +744,7 @@ class Smartshop_Template_Manager{
 			}
 
 			$nonce = $_POST['nonce'];
-			if ( ! wp_verify_nonce( $nonce, 'smartshop_tmp_nonce' ) ) {
+			if ( ! wp_verify_nonce( $nonce, 'shopxpert_tmp_nonce' ) ) {
 				$errormessage = array(
 					'message'  => __('Nonce Varification Faild !','shopxper')
 				);
@@ -760,7 +760,7 @@ class Smartshop_Template_Manager{
 				'setdefaullt'	=> ( $tmpid == '0' ) ? 'no' : 'yes',
 			];
 
-			$this->update_option( 'smartshop_woo_template_tabs', self::get_template_type()[$tmpType]['optionkey'], $tmpid, $data );
+			$this->update_option( 'shopxpert_woo_template_tabs', self::get_template_type()[$tmpType]['optionkey'], $tmpid, $data );
 
 			$return = array(
 				'message'  => __('Template has been updated','shopxper'),
@@ -812,7 +812,7 @@ class Smartshop_Template_Manager{
 	 * @return [int]
 	 */
 	public function get_template_id( $template_key, $callback = false ){
-		$option_value = ( $callback && is_callable( $callback ) ) ? $callback( $template_key, 'smartshop_woo_template_tabs', '0' ) : smartshop_get_option( $template_key, 'smartshop_woo_template_tabs', '0' );
+		$option_value = ( $callback && is_callable( $callback ) ) ? $callback( $template_key, 'shopxpert_woo_template_tabs', '0' ) : shopxpert_get_option( $template_key, 'shopxpert_woo_template_tabs', '0' );
 		$option_value = maybe_unserialize( $option_value );
 		$template_id = 0;
 		if( is_array( $option_value ) && array_key_exists( self::$language_code, $option_value['lang'] ) ){
@@ -860,7 +860,7 @@ class Smartshop_Template_Manager{
 			}
 			
 			$nonce = $_POST['nonce'];
-			if ( ! wp_verify_nonce( $nonce, 'smartshop_tmp_nonce' ) ) {
+			if ( ! wp_verify_nonce( $nonce, 'shopxpert_tmp_nonce' ) ) {
 				$errormessage = array(
 					'message'  => __('Nonce Varification Faild !','shopxper')
 				);

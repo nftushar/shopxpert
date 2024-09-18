@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-addtocart",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-addtocart",
+  "category": "shopxpert-single-product",
   "title": "WL : Add To Cart",
   "description": "Display product cart button.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product add to cart",
     "cart button",
     "add to cart"
@@ -352,7 +352,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .wl-addto-cart[class*='wl-style-'] form.cart :is( span.wishsuite-btn-text,.htcompare-btn.smartshop-compare ){ margin-left: {{buttonsSpaceBetween}}px !important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .wl-addto-cart[class*='wl-style-'] form.cart :is( span.wishsuite-btn-text,.htcompare-btn.shopxpert-compare ){ margin-left: {{buttonsSpaceBetween}}px !important; }"
       }
     },
     "buttonsHoverColor": {

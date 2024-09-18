@@ -1,12 +1,12 @@
 {
   "apiVersion": 2,
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "name": "smartshop/product-thumbnails-zoom-image",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-thumbnails-zoom-image",
+  "category": "shopxpert-single-product",
   "title": "WL: Product Image With Zoom",
   "description": "Display Product Image with zoom for product details page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product",
     "single",
     "zoom",

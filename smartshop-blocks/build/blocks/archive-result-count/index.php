@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'smartshop-archive-result-count-area', 'smartshop_archive_result_count' );
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array( $uniqClass, 'shopxpert-archive-result-count-area', 'shopxpert_archive_result_count' );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 
@@ -23,6 +23,6 @@ if( $block['is_editor'] ){
 	$par_page = !empty( $settings['productPerPage'] ) ? $settings['productPerPage'] : wc_get_loop_prop('per_page');
 	echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 		$page = absint( empty( $_GET['product-page'] ) ? 1 : $_GET['product-page'] );
-		smartshop_product_result_count( $total, $par_page, $page );
+		shopxpert_product_result_count( $total, $par_page, $page );
 	echo '</div>';
 }

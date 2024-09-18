@@ -1,10 +1,10 @@
 <?php
-if ( ! class_exists( 'SmartShopBlocks' ) ) :
+if ( ! class_exists( 'ShopXpertBlocks' ) ) :
 
 	/**
-	 * Main SmartShopBlocks Class
+	 * Main ShopXpertBlocks Class
 	 */
-	final class SmartShopBlocks{
+	final class ShopXpertBlocks{
 
 		/**
 		 * [$pattern_info]
@@ -92,12 +92,12 @@ if ( ! class_exists( 'SmartShopBlocks' ) ) :
 		 * @return void
 		 */
 		private function dependency_class_instance() {
-			SmartShopBlocks\Scripts::instance();
-			SmartShopBlocks\Manage_Styles::instance();
-			SmartShopBlocks\Actions::instance();
-			SmartShopBlocks\Blocks_init::instance();
-			if( class_exists('\SmartShopBlocks\Block_Patterns_init') ){
-				\SmartShopBlocks\Block_Patterns_init::instance();
+			ShopXpertBlocks\Scripts::instance();
+			ShopXpertBlocks\Manage_Styles::instance();
+			ShopXpertBlocks\Actions::instance();
+			ShopXpertBlocks\Blocks_init::instance();
+			if( class_exists('\ShopXpertBlocks\Block_Patterns_init') ){
+				\ShopXpertBlocks\Block_Patterns_init::instance();
 			}
 		}
 
@@ -107,16 +107,16 @@ if ( ! class_exists( 'SmartShopBlocks' ) ) :
 endif;
 
 /**
- * The main function for that returns smartshopblocks
+ * The main function for that returns shopxpertblocks
  *
  */
-function smartshopblocks() {
+function shopxpertblocks() {
 	if ( ! empty( $_REQUEST['action'] ) && 'elementor' === $_REQUEST['action'] ) {
 		return;
 	}elseif( class_exists( 'Classic_Editor' ) ){
 		return;
 	}else{
-		return SmartShopBlocks::instance();
+		return ShopXpertBlocks::instance();
 	}
 }
-smartshopblocks();
+shopxpertblocks();

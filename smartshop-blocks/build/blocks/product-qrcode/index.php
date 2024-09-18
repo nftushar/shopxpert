@@ -4,13 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'smartshop-qrcode' );
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array( $uniqClass, 'shopxpert-qrcode' );
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 
 $product = wc_get_product();
 if( empty( $product ) ){
-	$product = wc_get_product( smartshop_get_last_product_id() );
+	$product = wc_get_product( shopxpert_get_last_product_id() );
 }
 
 $product_id = $product->get_id();

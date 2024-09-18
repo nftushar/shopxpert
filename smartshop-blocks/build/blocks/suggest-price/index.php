@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $is_editor = ( isset( $_GET['is_editor_mode'] ) && $_GET['is_editor_mode'] == 'yes' ) ? true : false;
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
@@ -14,7 +14,7 @@ $areaClasses = array( $uniqClass );
 
 global $post;
 if( $is_editor ){
-	$product = wc_get_product(smartshop_get_last_product_id());
+	$product = wc_get_product(shopxpert_get_last_product_id());
 } else{
 	$product = wc_get_product();
 }
@@ -32,7 +32,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 		<?php
 			if( isset( $_REQUEST['wlsubmit-'.$id] ) ){
 
-				if ( ! isset( $_POST['smartshop_suggest_price_nonce_field'] ) || ! wp_verify_nonce( $_POST['smartshop_suggest_price_nonce_field'], 'smartshop_suggest_price_action' ) ){
+				if ( ! isset( $_POST['shopxpert_suggest_price_nonce_field'] ) || ! wp_verify_nonce( $_POST['shopxpert_suggest_price_nonce_field'], 'shopxpert_suggest_price_action' ) ){
 					echo '<p class="wlsendmessage">'.esc_html__('Sorry, your nonce verification fail.','shopxper').'</p>';
 				}else{
 					$name     = $_POST['wlname'];
@@ -71,7 +71,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			<div class="wl-suggest-form-input">
 				<input type="submit" name="<?php echo esc_attr( 'wlsubmit-' .$id );?>" id="<?php echo esc_attr( 'wlsubmit-' .$id );?>" value="<?php echo esc_attr($settings['submitButtonText']);?>" />
 			</div>
-			<?php wp_nonce_field( 'smartshop_suggest_price_action', 'smartshop_suggest_price_nonce_field' ); ?>
+			<?php wp_nonce_field( 'shopxpert_suggest_price_action', 'shopxpert_suggest_price_nonce_field' ); ?>
 		</form>
 
 	</div>

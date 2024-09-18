@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/archive-catalog-ordering",
-  "category": "smartshop-shop",
+  "name": "shopxpert/archive-catalog-ordering",
+  "category": "shopxpert-shop",
   "title": "WL: Archive Catalog Ordering",
   "description": "Display archive catalog ordering menu for shop and Archive page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "archive",
     "ordering",
     "shorting",
@@ -47,32 +47,32 @@
     "orderingSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ font-size:{{orderingSize}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_catalog_ordering .woocommerce-ordering select{ font-size:{{orderingSize}}!important; }"
       }
     },
     "orderingColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ color:{{orderingColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_catalog_ordering .woocommerce-ordering select{ color:{{orderingColor}}!important; }"
       }
     },
     "orderingBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ background-color:{{orderingBGColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_catalog_ordering .woocommerce-ordering select{ background-color:{{orderingBGColor}}!important; }"
       }
     },
     "orderingHeight": {
       "type": "number",
       "default": 40,
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ height:{{orderingHeight}}px!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_catalog_ordering .woocommerce-ordering select{ height:{{orderingHeight}}px!important; }"
       }
     },
     "orderingBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_catalog_ordering .woocommerce-ordering select"
       }
     },
     "orderingBorderRadius": {
@@ -86,7 +86,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering .woocommerce-ordering select{ border-radius:{{orderingBorderRadius}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_catalog_ordering .woocommerce-ordering select{ border-radius:{{orderingBorderRadius}}!important; }"
       }
     },
     "orderingMargin": {
@@ -100,7 +100,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_catalog_ordering{ margin:{{orderingMargin}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_catalog_ordering{ margin:{{orderingMargin}}!important; }"
       }
     }
   }

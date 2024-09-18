@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks;
+namespace ShopXpertBlocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -76,15 +76,15 @@ class Block_Patterns_init {
 			return;
 		}
 
-        if( !is_array( \SmartShopBlocks::$pattern_info ) && empty( \SmartShopBlocks::$pattern_info ) ){
+        if( !is_array( \ShopXpertBlocks::$pattern_info ) && empty( \ShopXpertBlocks::$pattern_info ) ){
             return;
         }
 
-        if( !isset( \SmartShopBlocks::$pattern_info['patterns']) ){
+        if( !isset( \ShopXpertBlocks::$pattern_info['patterns']) ){
             return;
         }
 
-        $pattern_list = \SmartShopBlocks::$pattern_info['patterns'];
+        $pattern_list = \ShopXpertBlocks::$pattern_info['patterns'];
 
         foreach ( $pattern_list as $pattern ){
             $this->register_pattern( $pattern );
@@ -100,7 +100,7 @@ class Block_Patterns_init {
     public function prepare_pattern_data( $pattern ){
 
         $pattern_slug  = str_replace(' ', '-', trim(preg_replace(self::REGEX_DOT_FINDER, '', strtolower( $pattern['title'] ) ) ) );
-        $pattern_slug = "smartshop-blocks/" . $pattern_slug.$pattern['id'];
+        $pattern_slug = "shopxpert-blocks/" . $pattern_slug.$pattern['id'];
 
         $pattern_info = [
             'slug'          => $pattern_slug,

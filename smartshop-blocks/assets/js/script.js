@@ -1,21 +1,21 @@
 (function ($, window) {
   "use strict";
 
-  var SmartShopBlocks = {
+  var ShopXpertBlocks = {
     /**
      * [init]
      * @return {[void]} Initial Function
      */
     init: function () {
       this.TabsMenu($(".ht-tab-menus"), ".ht-tab-pane");
-      this.TabsMenu($(".smartshop-product-video-tabs"), ".video-cus-tab-pane");
-      if ($("[class*='smartshopblock-'] .ht-product-image-slider").length > 0) {
+      this.TabsMenu($(".shopxpert-product-video-tabs"), ".video-cus-tab-pane");
+      if ($("[class*='shopxpertblock-'] .ht-product-image-slider").length > 0) {
         this.productImageThumbnailsSlider($(".ht-product-image-slider"));
       }
       this.thumbnailsimagescontroller();
       this.ThumbNailsTabs(
-        ".smartshop-thumbanis-image",
-        ".smartshop-advance-product-image-area"
+        ".shopxpert-thumbanis-image",
+        ".shopxpert-advance-product-image-area"
       );
     },
 
@@ -137,13 +137,13 @@
      * @param {*} $sliderwrap
      */
     initSlickNavForAsSlider: function ($sliderwrap) {
-      $($sliderwrap).find(".smartshop-learg-img").css("display", "block");
-      $($sliderwrap).find(".smartshop-thumbnails").css("display", "block");
+      $($sliderwrap).find(".shopxpert-learg-img").css("display", "block");
+      $($sliderwrap).find(".shopxpert-thumbnails").css("display", "block");
       var settings = $($sliderwrap).data("settings");
 
       if (settings) {
         $($sliderwrap)
-          .find(".smartshop-learg-img")
+          .find(".shopxpert-learg-img")
           .not(".slick-initialized")
           .slick({
             slidesToShow: 1,
@@ -151,28 +151,28 @@
             dots: settings["mainslider"].dots,
             arrows: settings["mainslider"].arrows,
             fade: false,
-            asNavFor: ".smartshop-thumbnails",
+            asNavFor: ".shopxpert-thumbnails",
             prevArrow:
-              '<button class="smartshop-slick-large-prev"><i class="sli sli-arrow-left"></i></button>',
+              '<button class="shopxpert-slick-large-prev"><i class="sli sli-arrow-left"></i></button>',
             nextArrow:
-              '<button class="smartshop-slick-large-next"><i class="sli sli-arrow-right"></i></button>',
+              '<button class="shopxpert-slick-large-next"><i class="sli sli-arrow-right"></i></button>',
           });
         $($sliderwrap)
-          .find(".smartshop-thumbnails")
+          .find(".shopxpert-thumbnails")
           .not(".slick-initialized")
           .slick({
             slidesToShow: settings["thumbnailslider"].slider_items,
             slidesToScroll: 1,
-            asNavFor: ".smartshop-learg-img",
+            asNavFor: ".shopxpert-learg-img",
             centerMode: false,
             dots: false,
             arrows: settings["thumbnailslider"].arrows,
             vertical: settings["thumbnailslider"].slidertype,
             focusOnSelect: true,
             prevArrow:
-              '<button class="smartshop-slick-prev"><i class="sli sli-arrow-left"></i></button>',
+              '<button class="shopxpert-slick-prev"><i class="sli sli-arrow-left"></i></button>',
             nextArrow:
-              '<button class="smartshop-slick-next"><i class="sli sli-arrow-right"></i></button>',
+              '<button class="shopxpert-slick-next"><i class="sli sli-arrow-right"></i></button>',
           });
       }
     },
@@ -187,9 +187,9 @@
         new Accordion("#" + $id, {
           duration: 500,
           showItem: settings.showitem,
-          elementClass: "htsmartshop-faq-card",
-          questionClass: "htsmartshop-faq-head",
-          answerClass: "htsmartshop-faq-body",
+          elementClass: "htshopxpert-faq-card",
+          questionClass: "htshopxpert-faq-head",
+          answerClass: "htshopxpert-faq-body",
         });
       }
     },
@@ -197,32 +197,32 @@
     /*
      * Tool Tip
      */
-    smartshopToolTips: function (element, content) {
+    shopxpertToolTips: function (element, content) {
       if (content == "html") {
         var tipText = element.html();
       } else {
         var tipText = element.attr("title");
       }
       element.on("mouseover", function () {
-        if ($(".smartshop-tip").length == 0) {
-          element.before('<span class="smartshop-tip">' + tipText + "</span>");
-          $(".smartshop-tip").css("transition", "all 0.5s ease 0s");
-          $(".smartshop-tip").css("margin-left", 0);
+        if ($(".shopxpert-tip").length == 0) {
+          element.before('<span class="shopxpert-tip">' + tipText + "</span>");
+          $(".shopxpert-tip").css("transition", "all 0.5s ease 0s");
+          $(".shopxpert-tip").css("margin-left", 0);
         }
       });
       element.on("mouseleave", function () {
-        $(".smartshop-tip").remove();
+        $(".shopxpert-tip").remove();
       });
     },
 
-    smartshopToolTipHandler: function () {
-      $("a.smartshop-compare").each(function () {
-        SmartShopBlocks.smartshopToolTips($(this), "title");
+    shopxpertToolTipHandler: function () {
+      $("a.shopxpert-compare").each(function () {
+        ShopXpertBlocks.shopxpertToolTips($(this), "title");
       });
       $(
-        ".smartshop-cart a.add_to_cart_button,.smartshop-cart a.added_to_cart,.smartshop-cart a.button"
+        ".shopxpert-cart a.add_to_cart_button,.shopxpert-cart a.added_to_cart,.shopxpert-cart a.button"
       ).each(function () {
-        SmartShopBlocks.smartshopToolTips($(this), "html");
+        ShopXpertBlocks.shopxpertToolTips($(this), "html");
       });
     },
 
@@ -315,7 +315,7 @@
 
     CartTableHandler: function () {
       // Product Details Slide Toggle
-      $('body').on("click", '.smartshop-cart-product-details-toggle', function (e) {
+      $('body').on("click", '.shopxpert-cart-product-details-toggle', function (e) {
           e.preventDefault();
           
           const $target = $(this).data('target');
@@ -330,33 +330,33 @@
   };
 
   $(document).ready(function () {
-    SmartShopBlocks.init();
-    SmartShopBlocks.CartTableHandler();
+    ShopXpertBlocks.init();
+    ShopXpertBlocks.CartTableHandler();
 
-    $("[class*='smartshopblock-'] .product-slider").each(function () {
-      SmartShopBlocks.initSlickSlider($(this));
+    $("[class*='shopxpertblock-'] .product-slider").each(function () {
+      ShopXpertBlocks.initSlickSlider($(this));
     });
 
-    $("[class*='smartshopblock-'].smartshop-block-slider-navforas").each(
+    $("[class*='shopxpertblock-'].shopxpert-block-slider-navforas").each(
       function () {
-        SmartShopBlocks.initSlickNavForAsSlider($(this));
+        ShopXpertBlocks.initSlickNavForAsSlider($(this));
       }
     );
 
-    $("[class*='smartshopblock-'] .htsmartshop-faq").each(function () {
-      SmartShopBlocks.initAccordion($(this));
+    $("[class*='shopxpertblock-'] .htshopxpert-faq").each(function () {
+      ShopXpertBlocks.initAccordion($(this));
     });
 
-    $("[class*='smartshopblock-'].smartshop-product-addtocart").each(
+    $("[class*='shopxpertblock-'].shopxpert-product-addtocart").each(
       function () {
-        SmartShopBlocks.quantityIncreaseDescrease($(this));
+        ShopXpertBlocks.quantityIncreaseDescrease($(this));
       }
     );
 
     /**
      * Tooltip Manager
      */
-    SmartShopBlocks.smartshopToolTipHandler();
+    ShopXpertBlocks.shopxpertToolTipHandler();
   });
 
   // For Editor Mode Slider
@@ -371,13 +371,13 @@
                 .contents()
                 .find("body.block-editor-iframe__body")
                 .find(
-                  `.smartshopblock-editor-${event.detail.uniqid} .product-slider`
+                  `.shopxpertblock-editor-${event.detail.uniqid} .product-slider`
                 )
             : editorMainArea.find(
-                `.smartshopblock-editor-${event.detail.uniqid} .product-slider`
+                `.shopxpertblock-editor-${event.detail.uniqid} .product-slider`
               );
       window.setTimeout(
-        SmartShopBlocks.initSlickSlider(productSliderDiv),
+        ShopXpertBlocks.initSlickSlider(productSliderDiv),
         1000
       );
     },
@@ -396,13 +396,13 @@
                 .contents()
                 .find("body.block-editor-iframe__body")
                 .find(
-                  `.smartshopblock-editor-${event.detail.uniqid} .smartshop-block-slider-navforas`
+                  `.shopxpertblock-editor-${event.detail.uniqid} .shopxpert-block-slider-navforas`
                 )
             : editorMainArea.find(
-                `.smartshopblock-editor-${event.detail.uniqid} .smartshop-block-slider-navforas`
+                `.shopxpertblock-editor-${event.detail.uniqid} .shopxpert-block-slider-navforas`
               );
       window.setTimeout(
-        SmartShopBlocks.initSlickNavForAsSlider(navForAsSliderDiv),
+        ShopXpertBlocks.initSlickNavForAsSlider(navForAsSliderDiv),
         1000
       );
     },

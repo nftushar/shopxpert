@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/promo-banner",
-  "category": "smartshop-blocks",
+  "name": "shopxpert/promo-banner",
+  "category": "shopxpert-blocks",
   "title": "WL : Promo Banner",
   "description": "Display promo banner.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product banner",
     "woocommerce promo",
     "promo banner"
@@ -32,7 +32,7 @@
       "type": "string",
       "default": "",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner{ background-color: {{areaBackground}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner{ background-color: {{areaBackground}}; }"
       }
     },
     "areaPadding": {
@@ -46,7 +46,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner { padding: {{areaPadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner { padding: {{areaPadding}}; }"
       }
     },
     "areaMargin": {
@@ -60,7 +60,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner { margin: {{areaMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner { margin: {{areaMargin}}; }"
       }
     },
     "title": {
@@ -102,13 +102,13 @@
     "titleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_title { color: {{titleColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_title { color: {{titleColor}}; }"
       }
     },
     "titleSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_title { font-size: {{titleSize}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_title { font-size: {{titleSize}}; }"
       }
     },
     "titlePadding": {
@@ -122,7 +122,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_title { padding: {{titlePadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_title { padding: {{titlePadding}}; }"
       }
     },
     "titleMargin": {
@@ -136,19 +136,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_title { margin: {{titleMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_title { margin: {{titleMargin}}; }"
       }
     },
     "subTitleColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_subtitle { color: {{subTitleColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_subtitle { color: {{subTitleColor}}; }"
       }
     },
     "subTitleSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_subtitle { font-size: {{subTitleSize}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_subtitle { font-size: {{subTitleSize}}; }"
       }
     },
     "subTitlePadding": {
@@ -162,7 +162,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_subtitle { padding: {{subTitlePadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_subtitle { padding: {{subTitlePadding}}; }"
       }
     },
     "subTitleMargin": {
@@ -176,19 +176,19 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_subtitle { margin: {{subTitleMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_subtitle { margin: {{subTitleMargin}}; }"
       }
     },
     "buttonColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_button{ color: {{buttonColor}}; border-color: {{buttonColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_button{ color: {{buttonColor}}; border-color: {{buttonColor}}; }"
       }
     },
     "buttonSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_button{ font-size: {{buttonSize}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_button{ font-size: {{buttonSize}}; }"
       }
     },
     "buttonPadding": {
@@ -202,7 +202,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_button { padding: {{buttonPadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_button { padding: {{buttonPadding}}; }"
       }
     },
     "buttonMargin": {
@@ -216,13 +216,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner .banner_button { margin: {{buttonMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner .banner_button { margin: {{buttonMargin}}; }"
       }
     },
     "imageBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-img img"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-img img"
       }
     },
     "imageBorderRadius": {
@@ -236,7 +236,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-img img{ border-radius: {{imageBorderRadius}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-img img{ border-radius: {{imageBorderRadius}}; }"
       }
     },
     "contentAreaWidth": {
@@ -251,7 +251,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-layout-2 .smartshop-content{ width: {{contentAreaWidth}}px; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-layout-2 .shopxpert-content{ width: {{contentAreaWidth}}px; }"
       }
     },
     "contentAreaBGColor": {
@@ -266,7 +266,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-layout-2 .smartshop-content{ background-color: {{contentAreaBGColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-layout-2 .shopxpert-content{ background-color: {{contentAreaBGColor}}; }"
       }
     },
     "contentAreaPadding": {
@@ -289,7 +289,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-layout-2 .smartshop-content{ padding: {{contentAreaPadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-layout-2 .shopxpert-content{ padding: {{contentAreaPadding}}; }"
       }
     },
     "contentAreaMargin": {
@@ -312,7 +312,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-layout-2 .smartshop-content { margin: {{contentAreaMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-layout-2 .shopxpert-content { margin: {{contentAreaMargin}}; }"
       }
     },
     "contentAreaBorder": {
@@ -327,7 +327,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-layout-2 .smartshop-content"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-layout-2 .shopxpert-content"
       }
     },
     "contentBorderRadius": {
@@ -350,7 +350,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-banner-layout-2 .smartshop-content{ border-radius: {{contentBorderRadius}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-banner-layout-2 .shopxpert-content{ border-radius: {{contentBorderRadius}}; }"
       }
     }
   }

@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
@@ -28,19 +28,19 @@ $filter_btton_icon = !empty( $settings['filterButtonIcon'] ) ? '<i class="'.esc_
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 ?>
-	<div class="smartshop-horizontal-filter-wrap">
+	<div class="shopxpert-horizontal-filter-wrap">
 		<!-- Heaer Box Area Start -->
-		<div class="smartshop-heaer-box-area">
+		<div class="shopxpert-heaer-box-area">
 
-			<div class="smartshop-filter-header-top-area">
-				<div class="smartshop-header-left-side">
+			<div class="shopxpert-filter-header-top-area">
+				<div class="shopxpert-header-left-side">
 					<?php
 						if( !empty( $settings['filterAreaTitle'] ) ){
 							echo '<h2 class="wl_hoz_filter_title">'.esc_html($settings['filterAreaTitle']).'</h2>';
 						}
 					?>
 				</div>
-				<div class="smartshop-header-right-side">
+				<div class="shopxpert-header-right-side">
 					<?php 
 					if( $settings['showSearchForm'] === true ):
 
@@ -59,8 +59,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 						}
 
 					?>
-						<form class="smartshop-header-search-form" role="search" method="get" action="<?php echo esc_url( $form_action ); ?>">
-							<div class="smartshop-search-input-box">
+						<form class="shopxpert-header-search-form" role="search" method="get" action="<?php echo esc_url( $form_action ); ?>">
+							<div class="shopxpert-search-input-box">
 								<input class="input-box" type="search" placeholder="<?php echo esc_attr_x( $settings['searchFormPlaceholder'], 'placeholder', 'shopxper' ); ?>" value="<?php echo esc_attr( $search_value ); ?>" name="q" title="<?php echo esc_attr_x( 'Search for:', 'label', 'shopxper' ); ?>" />
 								<button class="input-inner-btn" type="submit" aria-label="<?php echo esc_attr__( 'Search', 'shopxper' );?>"><?php echo $submit_btton_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
 							</div>
@@ -68,7 +68,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 					<?php endif; ?>
 
 					<?php if( $settings['showFilterButton'] == true ): ?>
-						<div class="smartshop-search-filter-custom">
+						<div class="shopxpert-search-filter-custom">
 							<a href="#" id="filter-toggle-<?php echo esc_attr($id); ?>" class="filter-icon"><?php echo $filter_btton_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 						</div>
 					<?php endif; ?>
@@ -76,8 +76,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			</div>
 
 			<div id="filter-item-<?php echo esc_attr($id); ?>" class="filter-item">
-				<div class="smartshop-filter-field-area">
-					<div class="smartshop-filter-field-wrap">
+				<div class="shopxpert-filter-field-area">
+					<div class="shopxpert-filter-field-wrap">
 						<?php 
 							if( isset( $filter_list ) ){
 								$styleIndividual_Item = '';
@@ -88,7 +88,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 									$filter_label = '';
 									if( true === $settings['showFilterLabel'] ){
-										$filter_label = '<label for="smartshop-field-for-'.esc_attr($itemUniqId).'">'.esc_html($filter_item['filterTitle']).'</label>';
+										$filter_label = '<label for="shopxpert-field-for-'.esc_attr($itemUniqId).'">'.esc_html($filter_item['filterTitle']).'</label>';
 									}
 
 									if( 'sort_by' === $filter_item['filterType'] ){
@@ -96,9 +96,9 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 										$sort_by_asc_lavel = isset( $filter_item['sortByAscLavel'] ) ? $filter_item['sortByAscLavel'] : 'ASC';
 										$sort_by_desc_lavel = isset( $filter_item['sortByDescLavel'] ) ? $filter_item['sortByDescLavel'] : 'DESC';
 									?>
-										<div class="smartshop-filter-single-item smartshop-states-input-auto">
+										<div class="shopxpert-filter-single-item shopxpert-states-input-auto">
 											<?php echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-											<select name="wl_sort" id="smartshop-field-for-<?php echo esc_attr($itemUniqId); ?>" class="smartshop-onchange-single-item smartshop-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" data-placeholder="<?php echo esc_attr($filter_item['filterPlaceholder']); ?>">
+											<select name="wl_sort" id="shopxpert-field-for-<?php echo esc_attr($itemUniqId); ?>" class="shopxpert-onchange-single-item shopxpert-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" data-placeholder="<?php echo esc_attr($filter_item['filterPlaceholder']); ?>">
 												<?php
 													if( !empty( $filter_item['filterPlaceholder'] ) && !$block['is_editor'] ){echo '<option></option>';}
 												?>
@@ -111,13 +111,13 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 									}elseif( 'order_by' === $filter_item['filterType'] ){
 										$wlorder_by = ( isset( $_GET['wlorder_by'] ) && !empty( $_GET['wlorder_by'] ) ) ? $_GET['wlorder_by'] : '';
 										?>
-										<div class="smartshop-filter-single-item smartshop-states-input-auto smartshop-repeater-item-<?php echo esc_attr($itemUniqId); ?>">
+										<div class="shopxpert-filter-single-item shopxpert-states-input-auto shopxpert-repeater-item-<?php echo esc_attr($itemUniqId); ?>">
 											<?php echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-											<select name="wl_order_by_sort" id="smartshop-field-for-<?php echo esc_attr($itemUniqId); ?>" class="smartshop-onchange-single-item smartshop-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" data-placeholder="<?php echo esc_attr($filter_item['filterPlaceholder']); ?>">
+											<select name="wl_order_by_sort" id="shopxpert-field-for-<?php echo esc_attr($itemUniqId); ?>" class="shopxpert-onchange-single-item shopxpert-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" data-placeholder="<?php echo esc_attr($filter_item['filterPlaceholder']); ?>">
 												<?php
 													if( !empty( $filter_item['filterPlaceholder'] ) && !$block['is_editor'] ){echo '<option></option>';}
 												
-													foreach ( smartshop_order_by_opts() as $key => $opt_data ) {
+													foreach ( shopxpert_order_by_opts() as $key => $opt_data ) {
 														echo '<option value="&wlorder_by='.esc_attr( $key ).'" '.selected( $key, $wlorder_by, false ).'>'.esc_html__( $opt_data, 'shopxper' ).'</option>';
 													}
 												?>
@@ -162,9 +162,9 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 										
 										if( isset( $price_range_list ) ):
 											?>
-											<div class="smartshop-filter-single-item smartshop-states-input-auto smartshop-repeater-item-<?php echo esc_attr($itemUniqId); ?>">
+											<div class="shopxpert-filter-single-item shopxpert-states-input-auto shopxpert-repeater-item-<?php echo esc_attr($itemUniqId); ?>">
 												<?php echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-												<select id="smartshop-field-for-<?php echo esc_attr($itemUniqId); ?>" class="smartshop-onchange-single-item smartshop-price-filter smartshop-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" <?php echo $psl_placeholder; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> >
+												<select id="shopxpert-field-for-<?php echo esc_attr($itemUniqId); ?>" class="shopxpert-onchange-single-item shopxpert-price-filter shopxpert-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" <?php echo $psl_placeholder; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> >
 													<?php
 														if( !empty( $filter_item['filterPlaceholder'] ) && empty( $cmin_price ) && !$block['is_editor']){echo '<option></option>';}
 
@@ -219,12 +219,12 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 											$multiple_select = $block['is_editor'] ? '' : 'multiple="multiple"';
 
-											echo '<div class="smartshop-filter-single-item smartshop-states-input-auto smartshop-repeater-item-'.esc_attr($itemUniqId).'">';
+											echo '<div class="shopxpert-filter-single-item shopxpert-states-input-auto shopxpert-repeater-item-'.esc_attr($itemUniqId).'">';
 											echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-											echo '<select name="wltaxonomies['.$filter_item['filterType'].'][]" class="smartshop-onchange-multiple-item smartshop-multiple-select-'.esc_attr($id).'" '.$sl_placeholder.' '.$multiple_select.'>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											echo '<select name="wltaxonomies['.$filter_item['filterType'].'][]" class="shopxpert-onchange-multiple-item shopxpert-multiple-select-'.esc_attr($id).'" '.$sl_placeholder.' '.$multiple_select.'>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 												foreach ( $terms as $term ){
-													$link = smartshop_block_filter_generate_term_link( $filter_item['filterType'], $term, null );
+													$link = shopxpert_block_filter_generate_term_link( $filter_item['filterType'], $term, null );
 
 													$selected = 0;
 													if( in_array( $term->slug, $selected_taxonomies ) ) {
@@ -242,12 +242,12 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 									// Individual Style
 									if (!empty($filter_item['filterMinWidth'])) {
-										$styleIndividual_Item .= ".smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap .smartshop-states-input-auto.smartshop-repeater-item-$itemUniqId .select2-container{
+										$styleIndividual_Item .= ".shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap .shopxpert-states-input-auto.shopxpert-repeater-item-$itemUniqId .select2-container{
 											min-width: {$filter_item['filterMinWidth']}px;
 										}";
 									}
 									if (!empty($filter_item['filterWidth'])) {
-										$styleIndividual_Item .= ".smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap .smartshop-states-input-auto.smartshop-repeater-item-$itemUniqId .select2-container{
+										$styleIndividual_Item .= ".shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap .shopxpert-states-input-auto.shopxpert-repeater-item-$itemUniqId .select2-container{
 											max-width: {$filter_item['filterWidth']}px;
 										}";
 									}
@@ -257,8 +257,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 						?>
 					</div>
-					<div class="smartshop-select-drop smartshop-single-select-drop-<?php echo esc_attr($id); ?>"></div>
-					<div class="smartshop-select-drop smartshop-multiple-select-drop-<?php echo esc_attr($id); ?>"></div>
+					<div class="shopxpert-select-drop shopxpert-single-select-drop-<?php echo esc_attr($id); ?>"></div>
+					<div class="shopxpert-select-drop shopxpert-multiple-select-drop-<?php echo esc_attr($id); ?>"></div>
 				</div>
 			</div>
 		</div>
@@ -287,17 +287,17 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			})
 
 
-			$('.smartshop-single-select-'+id).select2({
-				dropdownParent: $('.smartshop-single-select-drop-'+id),
+			$('.shopxpert-single-select-'+id).select2({
+				dropdownParent: $('.shopxpert-single-select-drop-'+id),
 			});
-			$('.smartshop-multiple-select-'+id).select2({
+			$('.shopxpert-multiple-select-'+id).select2({
 				// closeOnSelect : false,
 				allowHtml: true,
 				allowClear: true,
-				dropdownParent: $('.smartshop-multiple-select-drop-'+id),
+				dropdownParent: $('.shopxpert-multiple-select-drop-'+id),
 			});
 
-			$('.smartshop-filter-single-item select').on('change', function (e) {
+			$('.shopxpert-filter-single-item select').on('change', function (e) {
 				var output = $(this).siblings('span.select2').find('ul');
 				var total = e.currentTarget.length;
 				var count = output.find('li').length - 0;
@@ -308,7 +308,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 			// Filter product
 			var current_url = '<?php echo esc_js($current_url).'?wlfilter=1'; ?>';
-			$('.smartshop-filter-single-item select.smartshop-onchange-single-item').on('change', function () {
+			$('.shopxpert-filter-single-item select.shopxpert-onchange-single-item').on('change', function () {
 				var sort_key = $(this).val();
 				if ( sort_key && ( isEditorMode != true ) ) {
 					window.location = current_url + sort_key;
@@ -317,7 +317,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			});
 
 			// Price Filter
-			$('.smartshop-filter-single-item select.smartshop-price-filter').on( 'change', function(){
+			$('.shopxpert-filter-single-item select.shopxpert-price-filter').on( 'change', function(){
 				var selected = $(this).find('option:selected'),
 					min_price = selected.data('min_price'),
 					max_price = selected.data('max_price'),
@@ -331,7 +331,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 			// Texanomies Filter
 			var previouslySelected = [];
-			$('.smartshop-filter-single-item select.smartshop-onchange-multiple-item').on('change', function () {
+			$('.shopxpert-filter-single-item select.shopxpert-onchange-multiple-item').on('change', function () {
 				// Get newly selected elements
 				var currentlySelected = $(this).val();
 				if( currentlySelected != null ){

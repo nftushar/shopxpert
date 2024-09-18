@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $settings = $attributes;
 $is_editor = ( isset( $_GET['is_editor_mode'] ) && $_GET['is_editor_mode'] == 'yes' ) ? true : false;
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass, 'wlpro-product-videothumbnails' );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
@@ -13,7 +13,7 @@ $areaClasses = array( $uniqClass, 'wlpro-product-videothumbnails' );
 
 global $post;
 if( $is_editor ){
-	$product = wc_get_product(smartshop_get_last_product_id());
+	$product = wc_get_product(shopxpert_get_last_product_id());
 } else{
 	$product = wc_get_product();
 }
@@ -33,13 +33,13 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	<div class="wl-thumbnails-image-area">
 
 		<?php if( $settings['tabThumbnailsPosition'] == 'left' || $settings['tabThumbnailsPosition'] == 'top' ): ?>
-			<ul class="smartshop-product-video-tabs">
+			<ul class="shopxpert-product-video-tabs">
 				<?php
 					$j=0;
 					foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
 						$j++;
 						if( $j == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-						$video_url = get_post_meta( $gallery_attachment_id, 'smartshop_video_url', true );
+						$video_url = get_post_meta( $gallery_attachment_id, 'shopxpert_video_url', true );
 						?>
 						<li class="<?php if( !empty( $video_url ) ){ echo 'wlvideothumb'; }?>">
 							<a class="<?php echo esc_attr($tabactive); ?>" href="#wlvideo-<?php echo esc_attr($j); ?>">
@@ -59,25 +59,25 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			</ul>
 		<?php endif; ?>
 
-		<div class="smartshop-product-gallery-video">
+		<div class="shopxpert-product-gallery-video">
 			<?php
 				if( $is_editor ){
 					if ( $product->is_on_sale() ) { 
-						echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'smartshop-pro' ) . '</span>', $post, $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'shopxpert-pro' ) . '</span>', $post, $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 				}else{
-					smartshop_show_product_sale_flash();
+					shopxpert_show_product_sale_flash();
 				}
 
-				if(function_exists('smartshop_custom_product_badge')){
-					smartshop_custom_product_badge();
+				if(function_exists('shopxpert_custom_product_badge')){
+					shopxpert_custom_product_badge();
 				}
 
 				$i = 0;
 				foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
 					$i++;
 					if( $i == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-					$video_url = get_post_meta( $gallery_attachment_id, 'smartshop_video_url', true );
+					$video_url = get_post_meta( $gallery_attachment_id, 'shopxpert_video_url', true );
 					?>
 					<div class="video-cus-tab-pane <?php echo esc_attr($tabactive); ?>" id="wlvideo-<?php echo esc_attr($i); ?>">
 						<?php
@@ -99,13 +99,13 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 		<?php if( $settings['tabThumbnailsPosition'] == 'right' || $settings['tabThumbnailsPosition'] == 'bottom' ): ?>
 
-			<ul class="smartshop-product-video-tabs">
+			<ul class="shopxpert-product-video-tabs">
 				<?php
 					$j=0;
 					foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
 						$j++;
 						if( $j == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-						$video_url = get_post_meta( $gallery_attachment_id, 'smartshop_video_url', true );
+						$video_url = get_post_meta( $gallery_attachment_id, 'shopxpert_video_url', true );
 						?>
 						<li class="<?php if( !empty( $video_url ) ){ echo 'wlvideothumb'; }?>">
 							<a class="<?php echo esc_attr($tabactive); ?>" href="#wlvideo-<?php echo esc_attr($j); ?>">
@@ -143,18 +143,18 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 				// Get First image data
 				if( $default_data.src.length === 0 ){
-					$default_data.srcfull = $('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').attr('src');
-					$default_data.src = $('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').attr('src');
-					$default_data.srcset = $('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').attr('srcset');
+					$default_data.srcfull = $('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').attr('src');
+					$default_data.src = $('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').attr('src');
+					$default_data.srcset = $('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').attr('srcset');
 				}
 
-				$('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('src',variation.image.full_src);
-				$('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('srcset',variation.image.srcset);
-				$('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('src',variation.image.src);
+				$('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('src',variation.image.full_src);
+				$('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('srcset',variation.image.srcset);
+				$('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('src',variation.image.src);
 
 				$('.variations').find('.reset_variations').on('click', function(e){
-					$('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('src', $default_data.srcfull );
-					$('.smartshop-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('srcset', $default_data.srcset );
+					$('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('src', $default_data.srcfull );
+					$('.shopxpert-product-gallery-video').find('.video-cus-tab-pane.htactive img').wc_set_variation_attr('srcset', $default_data.srcset );
 				});
 
 			});

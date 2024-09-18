@@ -7,7 +7,7 @@
     $tabuniqid = $settings['blockUniqId'];
 
     // Calculate Column
-    $collumval = ( $settings['layoutStyle'] == 'slider' ) ? 'ht-product mb-30 product smartshop-slider-item' : 'ht-product mb-30 product';
+    $collumval = ( $settings['layoutStyle'] == 'slider' ) ? 'ht-product mb-30 product shopxpert-slider-item' : 'ht-product mb-30 product';
     
     // Action Button Style
     if( $settings['actionButtonStyle'] == 2 ){
@@ -75,7 +75,7 @@
         $data_customlavel['secondstxt'] = $settings['showCountdownCustomLabel'] == true && ! empty( $settings['CountdownCustomLabel']['seconds'] ) ? $settings['CountdownCustomLabel']['seconds'] : 'Sec';
     }
 
-    $title_html_tag = smartshop_validate_html_tag( $settings['titleHtmlTag'] );
+    $title_html_tag = shopxpert_validate_html_tag( $settings['titleHtmlTag'] );
 
     // Sale Schedule
     $offer_start_date_timestamp = get_post_meta( get_the_ID(), '_sale_price_dates_from', true );
@@ -97,8 +97,8 @@
             <div class="ht-product-image-wrap">
                 <?php
                     if( class_exists('WooCommerce') ){
-                        smartshop_custom_product_badge(); 
-                        smartshop_sale_flash();
+                        shopxpert_custom_product_badge(); 
+                        shopxpert_sale_flash();
                     }
                 ?>
                 <div class="ht-product-image">
@@ -153,24 +153,24 @@
 
                 <?php if( $settings['showActionButton'] == true ){ if( $settings['actionButtonPosition'] != 'contentbottom' ): ?>
                     <div class="ht-product-action">
-                        <ul class="smartshop-action-btn-area">
-                            <?php if( true === smartshop_has_quickview() ): ?>
+                        <ul class="shopxpert-action-btn-area">
+                            <?php if( true === shopxpert_has_quickview() ): ?>
                                 <li>
-                                    <a href="#" class="smartshopquickview" data-product_id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                                    <a href="#" class="shopxpertquickview" data-product_id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                         <i class="sli sli-magnifier"></i>
                                         <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','shopxper'); ?></span>
                                     </a>
                                 </li>
                             <?php endif; ?>
                             <?php
-                                if( true === smartshop_has_wishlist_plugin() ){
-                                    echo '<li>'.smartshop_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                if( true === shopxpert_has_wishlist_plugin() ){
+                                    echo '<li>'.shopxpert_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             ?>
                             <?php
-                                if( function_exists('smartshop_compare_button') && true === smartshop_exist_compare_plugin() ){
+                                if( function_exists('shopxpert_compare_button') && true === shopxpert_exist_compare_plugin() ){
                                     echo '<li>';
-                                        smartshop_compare_button(
+                                        shopxpert_compare_button(
                                             array(
                                                 'style'=>2,
                                                 'btn_text'=>'<i class="sli sli-refresh"></i>',
@@ -180,7 +180,7 @@
                                     echo '</li>';
                                 }
                             ?>
-                            <li class="smartshop-cart"><?php woocommerce_template_loop_add_to_cart(); ?></li>
+                            <li class="shopxpert-cart"><?php woocommerce_template_loop_add_to_cart(); ?></li>
                         </ul>
                     </div>
                 <?php endif; }?>
@@ -190,36 +190,36 @@
             <div class="ht-product-content">
                 <div class="ht-product-content-inner">
                     <?php if ( $settings['hideCategory'] != true ) : ?>
-                        <div class="ht-product-categories <?php if ( $settings['hideCategoryBeforeBorder'] == true ) {echo 'hide-category-before';} ?>"><?php smartshop_get_product_category_list(); ?></div>
+                        <div class="ht-product-categories <?php if ( $settings['hideCategoryBeforeBorder'] == true ) {echo 'hide-category-before';} ?>"><?php shopxpert_get_product_category_list(); ?></div>
                     <?php endif; ?>
                     <?php if ( $settings['hideTitle'] != true ) { echo sprintf( "<%s class='ht-product-title'><a href='%s'>%s</a></%s>", $title_html_tag, get_the_permalink(), get_the_title(), $title_html_tag ); } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php if ( $settings['hidePrice'] != true ) : ?>
                         <div class="ht-product-price"><?php woocommerce_template_loop_price();?></div>
                     <?php endif; ?>
                     <?php if ( $settings['hideRating'] != true ) : ?>
-                        <div class="ht-product-ratting-wrap"><?php echo smartshop_wc_get_rating_html('yes'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+                        <div class="ht-product-ratting-wrap"><?php echo shopxpert_wc_get_rating_html('yes'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
                     <?php endif; ?>
 
                     <?php if( $settings['showActionButton'] == true ){ if( $settings['actionButtonPosition'] == 'contentbottom' ): ?>
                         <div class="ht-product-action">
-                            <ul class="smartshop-action-btn-area">
-                                <?php if( true === smartshop_has_quickview() ): ?>
+                            <ul class="shopxpert-action-btn-area">
+                                <?php if( true === shopxpert_has_quickview() ): ?>
                                     <li>
-                                        <a href="#" class="smartshopquickview" data-product_id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+                                        <a href="#" class="shopxpertquickview" data-product_id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                             <i class="sli sli-magnifier"></i>
                                             <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','shopxper'); ?></span>
                                         </a>
                                     </li>
                                 <?php endif; ?>
                                 <?php
-                                    if( true === smartshop_has_wishlist_plugin() ){
-                                        echo '<li>'.smartshop_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                    if( true === shopxpert_has_wishlist_plugin() ){
+                                        echo '<li>'.shopxpert_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>
                                 <?php
-                                    if( function_exists('smartshop_compare_button') && true === smartshop_exist_compare_plugin() ){
+                                    if( function_exists('shopxpert_compare_button') && true === shopxpert_exist_compare_plugin() ){
                                         echo '<li>';
-                                            smartshop_compare_button(
+                                            shopxpert_compare_button(
                                                 array(
                                                     'style'=>2,
                                                     'btn_text'=>'<i class="sli sli-refresh"></i>',
@@ -229,7 +229,7 @@
                                         echo '</li>';
                                     }
                                 ?>
-                                <li class="smartshop-cart"><?php woocommerce_template_loop_add_to_cart(); ?></li>
+                                <li class="shopxpert-cart"><?php woocommerce_template_loop_add_to_cart(); ?></li>
                             </ul>
                         </div>
                     <?php endif; } ?>

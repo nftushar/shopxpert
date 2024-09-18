@@ -1,12 +1,12 @@
 {
   "apiVersion": 2,
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "name": "smartshop/product-tags",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-tags",
+  "category": "shopxpert-single-product",
   "title": "WL: Product Tags",
   "description": "Display product tags for single product page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product",
     "single",
     "tags",
@@ -72,31 +72,31 @@
     "contentSize": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_tags_info{ font-size:{{contentSize}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_tags_info{ font-size:{{contentSize}}; }"
       }
     },
     "titleColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_tags_info .tags-title{ color:{{titleColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_tags_info .tags-title{ color:{{titleColor}}; }"
       }
     },
     "valueColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_tags_info .tagged_as,.woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_tags_info .tagged_as a{ color:{{valueColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_tags_info .tagged_as,.woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_tags_info .tagged_as a{ color:{{valueColor}}; }"
       }
     },
     "valueHoverColor": {
       "type": "string",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_tags_info .tagged_as a:hover{ color:{{valueHoverColor}}; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_tags_info .tagged_as a:hover{ color:{{valueHoverColor}}; }"
       }
     },
     "tagSpacing": {
       "type": "number",
       "style": {
-        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .smartshop_product_tags_info .tagged_as a:first-child{ margin-left:{{tagSpacing}}px; }"
+        "selector": ".woocommerce {{SMARTSHOP_WRAPPER}} .shopxpert_product_tags_info .tagged_as a:first-child{ margin-left:{{tagSpacing}}px; }"
       }
     }
   },

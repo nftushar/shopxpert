@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-horizontal-filter",
-  "category": "smartshop-shop",
+  "name": "shopxpert/product-horizontal-filter",
+  "category": "shopxpert-shop",
   "title": "WL: Horizontal Product Filter",
   "description": "Display horizontal product filter for archive and shop page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "filter",
     "product",
     "archive filter",
@@ -106,7 +106,7 @@
     "filterAreaBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-heaer-box-area"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-heaer-box-area"
       }
     },
     "filterAreaBorderRadius": {
@@ -120,7 +120,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-heaer-box-area{ border-radius:{{filterAreaBorderRadius}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-heaer-box-area{ border-radius:{{filterAreaBorderRadius}}; }"
       }
     },
     "filterAreaPadding": {
@@ -134,7 +134,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-heaer-box-area{ padding:{{filterAreaPadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-heaer-box-area{ padding:{{filterAreaPadding}}; }"
       }
     },
     "filterAreaMargin": {
@@ -148,13 +148,13 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-heaer-box-area{ margin:{{filterAreaMargin}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-heaer-box-area{ margin:{{filterAreaMargin}}; }"
       }
     },
     "filterAreaBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-heaer-box-area{ background-color:{{filterAreaBGColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-heaer-box-area{ background-color:{{filterAreaBGColor}}; }"
       }
     },
     "titleColor": {
@@ -260,7 +260,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap .smartshop-filter-single-item label{ color:{{labelColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap .shopxpert-filter-single-item label{ color:{{labelColor}}; }"
       }
     },
     "labelSize": {
@@ -275,7 +275,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap .smartshop-filter-single-item label{ font-size:{{labelSize}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap .shopxpert-filter-single-item label{ font-size:{{labelSize}}; }"
       }
     },
     "labelBorder": {
@@ -290,7 +290,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap .smartshop-filter-single-item label"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap .shopxpert-filter-single-item label"
       }
     },
     "labelPadding": {
@@ -313,7 +313,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap .smartshop-filter-single-item label{ padding:{{labelPadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap .shopxpert-filter-single-item label{ padding:{{labelPadding}}; }"
       }
     },
     "labelMargin": {
@@ -336,7 +336,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap .smartshop-filter-single-item label{ margin:{{labelMargin}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap .shopxpert-filter-single-item label{ margin:{{labelMargin}}!important; }"
       }
     },
     "inputBoxColor": {
@@ -351,7 +351,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-box{ color:{{inputBoxColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-box{ color:{{inputBoxColor}}!important; }"
       }
     },
     "inputBoxBGColor": {
@@ -366,7 +366,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-box{ background-color:{{inputBoxBGColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-box{ background-color:{{inputBoxBGColor}}!important; }"
       }
     },
     "inputBoxSize": {
@@ -381,7 +381,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-box{ font-size:{{inputBoxSize}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-box{ font-size:{{inputBoxSize}}!important; }"
       }
     },
     "inputBoxBorder": {
@@ -396,7 +396,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-box"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-box"
       }
     },
     "inputBoxPadding": {
@@ -419,7 +419,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-box{ padding:{{inputBoxPadding}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-box{ padding:{{inputBoxPadding}}; }"
       }
     },
     "submitButtonColor": {
@@ -434,7 +434,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-inner-btn{ color:{{submitButtonColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-inner-btn{ color:{{submitButtonColor}}!important; }"
       }
     },
     "submitButtonBGColor": {
@@ -449,7 +449,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-inner-btn{ background-color:{{submitButtonBGColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-inner-btn{ background-color:{{submitButtonBGColor}}!important; }"
       }
     },
     "submitButtonIconSize": {
@@ -464,7 +464,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-inner-btn{ font-size:{{submitButtonIconSize}}px!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-inner-btn{ font-size:{{submitButtonIconSize}}px!important; }"
       }
     },
     "submitButtonBorder": {
@@ -479,7 +479,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-inner-btn"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-inner-btn"
       }
     },
     "submitButtonHoverColor": {
@@ -494,7 +494,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-inner-btn:hover{ color:{{submitButtonHoverColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-inner-btn:hover{ color:{{submitButtonHoverColor}}!important; }"
       }
     },
     "submitButtonHoverBGColor": {
@@ -509,7 +509,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-inner-btn:hover{ background-color:{{submitButtonHoverBGColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-inner-btn:hover{ background-color:{{submitButtonHoverBGColor}}!important; }"
       }
     },
     "submitButtonHoverBorder": {
@@ -524,19 +524,19 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-header-top-area .smartshop-search-input-box .input-inner-btn:hover"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-header-top-area .shopxpert-search-input-box .input-inner-btn:hover"
       }
     },
     "filteMenuPlaceholderColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-filter-single-item .select2-container--default .select2-selection--single .select2-selection__placeholder,{{SMARTSHOP_WRAPPER}} .smartshop-filter-single-item .select2-container .select2-search--inline .select2-search__field::-webkit-input-placeholder,{{SMARTSHOP_WRAPPER}} .smartshop-filter-single-item .select2-container .select2-search--inline .select2-search__field::-moz-placeholder,{{SMARTSHOP_WRAPPER}} .smartshop-filter-single-item .select2-container .select2-search--inline .select2-search__field:-ms-input-placeholder{ color:{{filteMenuPlaceholderColor}}; opacity:1; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-filter-single-item .select2-container--default .select2-selection--single .select2-selection__placeholder,{{SMARTSHOP_WRAPPER}} .shopxpert-filter-single-item .select2-container .select2-search--inline .select2-search__field::-webkit-input-placeholder,{{SMARTSHOP_WRAPPER}} .shopxpert-filter-single-item .select2-container .select2-search--inline .select2-search__field::-moz-placeholder,{{SMARTSHOP_WRAPPER}} .shopxpert-filter-single-item .select2-container .select2-search--inline .select2-search__field:-ms-input-placeholder{ color:{{filteMenuPlaceholderColor}}; opacity:1; }"
       }
     },
     "filteMenuBorder": {
       "type": "object",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .select2-container .select2-selection--single,{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .select2-container .select2-selection--multiple"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .select2-container .select2-selection--single,{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .select2-container .select2-selection--multiple"
       }
     },
     "filteMenuBorderRadius": {
@@ -550,32 +550,32 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .select2-container .select2-selection--single,{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .select2-container .select2-selection--multiple{ border-radius:{{filteMenuBorderRadius}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .select2-container .select2-selection--single,{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .select2-container .select2-selection--multiple{ border-radius:{{filteMenuBorderRadius}}!important; }"
       }
     },
     "filteMenuLabelColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-select-drop .select2-results__option{ color:{{filteMenuLabelColor}}; } {{SMARTSHOP_WRAPPER}} .smartshop-select-drop .select2-results__option::before{ border-color:{{filteMenuLabelColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-select-drop .select2-results__option{ color:{{filteMenuLabelColor}}; } {{SMARTSHOP_WRAPPER}} .shopxpert-select-drop .select2-results__option::before{ border-color:{{filteMenuLabelColor}}; }"
       }
     },
     "filteMenuLabelHoverColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-select-drop .select2-container--default .select2-results__option--highlighted[aria-selected='true']{ color:{{filteMenuLabelHoverColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-select-drop .select2-container--default .select2-results__option--highlighted[aria-selected='true']{ color:{{filteMenuLabelHoverColor}}; }"
       }
     },
     "filteMenuLabelHoverBGColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-select-drop .select2-container--default .select2-results__option--highlighted[aria-selected='true']{ background-color:{{filteMenuLabelHoverBGColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-select-drop .select2-container--default .select2-results__option--highlighted[aria-selected='true']{ background-color:{{filteMenuLabelHoverBGColor}}; }"
       }
     },
     "filteMenuAlignment": {
       "type": "string",
       "default": "center",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-filter-field-wrap{ justify-content:{{filteMenuAlignment}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-filter-field-wrap{ justify-content:{{filteMenuAlignment}}; }"
       }
     },
     "filteButtonColor": {
@@ -590,7 +590,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-search-filter-custom .filter-icon{ color:{{filteButtonColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-search-filter-custom .filter-icon{ color:{{filteButtonColor}}; }"
       }
     },
     "filteButtonSize": {
@@ -605,7 +605,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-search-filter-custom .filter-icon{ font-size:{{filteButtonSize}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-search-filter-custom .filter-icon{ font-size:{{filteButtonSize}}; }"
       }
     },
     "filteButtonBGColor": {
@@ -620,7 +620,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-search-filter-custom .filter-icon{ background-color:{{filteButtonBGColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-search-filter-custom .filter-icon{ background-color:{{filteButtonBGColor}}; }"
       }
     },
     "filteButtonHoverColor": {
@@ -635,7 +635,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-search-filter-custom .filter-icon:hover{ color:{{filteButtonHoverColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-search-filter-custom .filter-icon:hover{ color:{{filteButtonHoverColor}}; }"
       }
     },
     "filteButtonHoverBGColor": {
@@ -650,7 +650,7 @@
             }
           ]
         ],
-        "selector": "{{SMARTSHOP_WRAPPER}} .smartshop-horizontal-filter-wrap .smartshop-search-filter-custom .filter-icon:hover{ background-color:{{filteButtonHoverBGColor}}; }"
+        "selector": "{{SMARTSHOP_WRAPPER}} .shopxpert-horizontal-filter-wrap .shopxpert-search-filter-custom .filter-icon:hover{ background-color:{{filteButtonHoverBGColor}}; }"
       }
     }
   }

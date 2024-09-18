@@ -4,19 +4,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'smartshop_block_product_reviews', 'woocommerce woocommerce-page single-product woocommerce-js' );
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array( $uniqClass, 'shopxpert_block_product_reviews', 'woocommerce woocommerce-page single-product woocommerce-js' );
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 
 $is_editor = ( $block['is_editor'] == 'yes' ) ? true : false;
 
 global $product;
-$product = $is_editor ? \SmartShop_Default_Data::instance()->get_product('') : wc_get_product();
+$product = $is_editor ? \ShopXpert_Default_Data::instance()->get_product('') : wc_get_product();
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
     ?>
-        <div class="smartshop-product-review">
+        <div class="shopxpert-product-review">
             <?php if( $is_editor ): ?>
                 <div id="review_form_wrapper">
                     <div id="review_form">

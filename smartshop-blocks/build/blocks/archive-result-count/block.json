@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/archive-result-count",
-  "category": "smartshop-shop",
+  "name": "shopxpert/archive-result-count",
+  "category": "shopxpert-shop",
   "title": "WL: Archive Result Count",
   "description": "Display archive result count in shop and archive page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "archive",
     "result",
     "count",
@@ -50,13 +50,13 @@
     "resultCountSize": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_result_count .woocommerce-result-count{ font-size:{{resultCountSize}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_result_count .woocommerce-result-count{ font-size:{{resultCountSize}}!important; }"
       }
     },
     "resultCountColor": {
       "type": "string",
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_result_count .woocommerce-result-count{ color:{{resultCountColor}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_result_count .woocommerce-result-count{ color:{{resultCountColor}}!important; }"
       }
     },
     "contentAlignment": {
@@ -76,7 +76,7 @@
         "link": "yes"
       },
       "style": {
-        "selector": "{{SMARTSHOP_WRAPPER}}.smartshop_archive_result_count{ margin:{{resultCountMargin}}!important; }"
+        "selector": "{{SMARTSHOP_WRAPPER}}.shopxpert_archive_result_count{ margin:{{resultCountMargin}}!important; }"
       }
     }
   }

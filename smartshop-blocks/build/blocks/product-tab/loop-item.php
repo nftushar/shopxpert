@@ -18,8 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             </a>
             <?php
                 if( $settings['style'] == 1){
-                    if( true === smartshop_has_wishlist_plugin() ){
-                        echo smartshop_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    if( true === shopxpert_has_wishlist_plugin() ){
+                        echo shopxpert_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     }
                 }
             ?>
@@ -63,8 +63,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="actions style_two">
                         <?php
                             woocommerce_template_loop_add_to_cart();
-                            if( true === smartshop_has_wishlist_plugin() ){
-                                echo smartshop_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            if( true === shopxpert_has_wishlist_plugin() ){
+                                echo shopxpert_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
                         ?>
                     </div>
@@ -81,14 +81,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php
                         if( $settings['style'] == 2){
                             woocommerce_template_loop_add_to_cart();
-                            if( true === smartshop_has_wishlist_plugin() ){
-                                echo smartshop_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            if( true === shopxpert_has_wishlist_plugin() ){
+                                echo shopxpert_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
                         }else{
                             woocommerce_template_loop_add_to_cart(); 
 
-                            if( function_exists('smartshop_compare_button') && true === smartshop_exist_compare_plugin() ){
-                                smartshop_compare_button();
+                            if( function_exists('shopxpert_compare_button') && true === shopxpert_exist_compare_plugin() ){
+                                shopxpert_compare_button();
                             }
 
                         }

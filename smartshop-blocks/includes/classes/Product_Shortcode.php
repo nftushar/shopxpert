@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks;
+namespace ShopXpertBlocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -135,10 +135,10 @@ if( class_exists('WC_Shortcode_Products') ){
 
             wc_set_loop_prop( 'loop', 0 );
 
-            $grid_col = apply_filters( 'smartshop_block_woocommerce_loop_product_grid', 'columns-'. esc_attr( wc_get_loop_prop( 'columns' ) ) );
+            $grid_col = apply_filters( 'shopxpert_block_woocommerce_loop_product_grid', 'columns-'. esc_attr( wc_get_loop_prop( 'columns' ) ) );
 
             if( $layout === "content" ){
-                echo '<ul class="smartshop_current_theme_layout products '.esc_attr($grid_col).'">';
+                echo '<ul class="shopxpert_current_theme_layout products '.esc_attr($grid_col).'">';
             }else{
                 echo $this->grid_row_attr( $grid_col ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
@@ -197,7 +197,7 @@ if( class_exists('WC_Shortcode_Products') ){
 
             }
 
-            return '<div class="smartshop-grid smartshop-block-products '.$loop_col.'  '.( $slider === true ? 'product-slider' : '' ).' " data-settings='.wp_json_encode( $slider_settings ).'>';
+            return '<div class="shopxpert-grid shopxpert-block-products '.$loop_col.'  '.( $slider === true ? 'product-slider' : '' ).' " data-settings='.wp_json_encode( $slider_settings ).'>';
 
 
         }
@@ -267,7 +267,7 @@ if( class_exists('WC_Shortcode_Products') ){
 
                 // Fire standard shop loop hooks when paginating results so we can show result counts and so on.
                 if ( wc_string_to_bool( $this->attributes['paginate'] ) ) {
-                    echo '<div class="smartshop-before-shop">';
+                    echo '<div class="shopxpert-before-shop">';
                         do_action( 'woocommerce_before_shop_loop' );
                     echo '</div>';
                 }

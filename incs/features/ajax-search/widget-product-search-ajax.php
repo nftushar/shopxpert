@@ -3,19 +3,19 @@
 *  Class Dynamic Search Widgets
 */
  
-error_log('SmartShop_Product_Search_Ajax_Widget');
+error_log('ShopXpert_Product_Search_Ajax_Widget');
 
 
-class SmartShop_Product_Search_Ajax_Widget extends WP_Widget{
+class ShopXpert_Product_Search_Ajax_Widget extends WP_Widget{
         
     /**
     * Default Constructor
     */
     public function __construct() {
         $widget_options = array(
-            'description' => esc_html__('SmartShop Ajax Product Search Widget', 'samartshop')
+            'description' => esc_html__('ShopXpert  Ajax Product Search Widget', 'samartshop')
         );
-        parent::__construct( 'samartshop_widget_psa', __('SmartShop: Product Search Ajax', 'samartshop'), $widget_options );
+        parent::__construct( 'samartshop_widget_psa', __('ShopXpert : Product Search Ajax', 'samartshop'), $widget_options );
     }
 
     /**

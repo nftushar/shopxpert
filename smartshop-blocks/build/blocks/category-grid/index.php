@@ -4,19 +4,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-    $uniqClass   = 'smartshopblock-'.$settings['blockUniqId'];
+    $uniqClass   = 'shopxpertblock-'.$settings['blockUniqId'];
     $areaClasses = array( $uniqClass, );
-    $rowClasses  = $settings['sliderOn'] === true ? array( 'smartshop-grid-slider' ) : array( 'smartshop-grid' );
+    $rowClasses  = $settings['sliderOn'] === true ? array( 'shopxpert-grid-slider' ) : array( 'shopxpert-grid' );
 
     !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
-    !empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'smartshop-grid-columns-'.$settings['columns']['desktop'] : 'smartshop-grid-columns-4';
-    !empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'smartshop-grid-columns-laptop-'.$settings['columns']['laptop'] : 'smartshop-grid-columns-laptop-3';
-    !empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-grid-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-grid-columns-tablet-2';
-    !empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-grid-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-grid-columns-mobile-1';
+    !empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-'.$settings['columns']['desktop'] : 'shopxpert-grid-columns-4';
+    !empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-laptop-'.$settings['columns']['laptop'] : 'shopxpert-grid-columns-laptop-3';
+    !empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'shopxpert-grid-columns-tablet-'.$settings['columns']['tablet'] : 'shopxpert-grid-columns-tablet-2';
+    !empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'shopxpert-grid-columns-mobile-'.$settings['columns']['mobile'] : 'shopxpert-grid-columns-mobile-1';
 
     !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 
-    $settings['noGutter'] === true ? $rowClasses[] = 'smartshop-no-gutters' : '';
+    $settings['noGutter'] === true ? $rowClasses[] = 'shopxpert-no-gutters' : '';
 
     $display_type = $settings['displayType'];
     $order = ! empty( $settings['order'] ) ? $settings['order'] : '';
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $layout  = $settings['style'];
     $column = !empty( $settings['columns']['desktop'] ) ? $settings['columns']['desktop'] : '4';
 
-    $collumval = 'smartshop-grid-column';
+    $collumval = 'shopxpert-grid-column';
 
     $catargs = array(
         'orderby'    => 'name',
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         $catargs['number'] = false;
     }
 
-    $prod_categories = smartshopBlocks_taxnomy_data( $catargs['slug'], $catargs['number'], $catargs['order'] );
+    $prod_categories = shopxpertBlocks_taxnomy_data( $catargs['slug'], $catargs['number'], $catargs['order'] );
 
     $image_size = $settings['imageSize'] ? $settings['imageSize'] : 'full';
 
@@ -203,7 +203,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php
                 if( $bgc == 4 ){ $bgc = 0; }
                 if( $counter >= $column ){
-                    $topSpace = ' smartshop_margin_top';
+                    $topSpace = ' shopxpert_margin_top';
                 }
             endforeach;
         ?>

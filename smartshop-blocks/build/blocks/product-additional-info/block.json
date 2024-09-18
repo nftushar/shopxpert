@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-additional-info",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-additional-info",
+  "category": "shopxpert-single-product",
   "title": "WL : Product Additional Info",
   "description": "Display product additional information.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "additional info",
     "information",
     "product information"

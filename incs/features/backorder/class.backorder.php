@@ -1,7 +1,7 @@
 <?php  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-use function  Smartshop\incs\smartshop_get_option;
+use function  Shopxpert\incs\shopxpert_get_option;
 
 
 class Smartshop_Pending_Stock extends WC_Product{
@@ -64,7 +64,7 @@ class Smartshop_Pending_Stock extends WC_Product{
      */
     public function enqueue_scripts(){
         if( is_cart() || is_checkout()){
-            wp_enqueue_style( 'smartshop-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], SMARTSHOPSHOPXPERT_VERSION, 'all' );
+            wp_enqueue_style( 'shopxpert-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], SMARTSHOPSHOPXPERT_VERSION, 'all' );
         }
     }
 
@@ -75,8 +75,8 @@ class Smartshop_Pending_Stock extends WC_Product{
         global $typenow;
 
         if( $typenow == 'product' ){
-            wp_enqueue_style( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/css/backorder-admin.css', [], SHOPXPERT_VERSION, 'all' );
-            wp_enqueue_script( 'smartshop-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/js/backorder-admin.js', array('jquery'), SHOPXPERT_VERSION, true );
+            wp_enqueue_style( 'shopxpert-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/css/backorder-admin.css', [], SHOPXPERT_VERSION, 'all' );
+            wp_enqueue_script( 'shopxpert-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/js/backorder-admin.js', array('jquery'), SHOPXPERT_VERSION, true );
         }
     }
 
@@ -89,7 +89,7 @@ class Smartshop_Pending_Stock extends WC_Product{
 
         if( $product->is_on_backorder($values['quantity']) ){
             $backorder_qty = $values['quantity'] - max( 0, $product->get_stock_quantity() );
-            $item->add_meta_data( 'smartshop_backordered', $backorder_qty, true );
+            $item->add_meta_data( 'shopxpert_backordered', $backorder_qty, true );
         }
     }
 
@@ -103,7 +103,7 @@ class Smartshop_Pending_Stock extends WC_Product{
     public function item_get_formatted_meta_data( $formatted_meta, $item ) {
 
 		foreach ( $formatted_meta as $key => $meta ) {
-			if ( $meta->key == 'smartshop_backordered' ) {
+			if ( $meta->key == 'shopxpert_backordered' ) {
                 $meta->display_key  = esc_html__('Pending Stocked','shopxper');
 			}
 		}
@@ -139,7 +139,7 @@ class Smartshop_Pending_Stock extends WC_Product{
                 if( $limit_status ){
                     $can_buy_max = ((int) $limit_status['backorder_limit'] + (int) $limit_status['stock_qty']) - (int) $limit_status['qty_already_backordered'];
 
-                    $error->add( 'smartshop_out_of_backorder_limit', sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit. Orders can be placed for up to <b>%s</b> units.', 'shopxper' ), $product_data->get_name(), $can_buy_max ) );
+                    $error->add( 'shopxpert_out_of_backorder_limit', sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit. Orders can be placed for up to <b>%s</b> units.', 'shopxper' ), $product_data->get_name(), $can_buy_max ) );
 
                     $result = $error;
                 }
@@ -316,9 +316,9 @@ class Smartshop_Pending_Stock extends WC_Product{
 
                 if( $p_id == $item_p_id ){
 
-                    // check if this line item is under smartshop backorder
-                    if($item->meta_exists('smartshop_backordered') && $item->get_meta('smartshop_backordered')){
-                        $backorder_qty = (int) $item->get_meta('smartshop_backordered');
+                    // check if this line item is under shopxpert backorder
+                    if($item->meta_exists('shopxpert_backordered') && $item->get_meta('shopxpert_backordered')){
+                        $backorder_qty = (int) $item->get_meta('shopxpert_backordered');
                         $qty_already_backordered += $backorder_qty;
                         break;
                     }
@@ -352,16 +352,16 @@ class Smartshop_Pending_Stock extends WC_Product{
         error_log("Pending Stock Limit: " . $backorder_limit);
     
         // Retrieve the availability message
-        $availability_message = smartshop_get_option('backorder_availability_message', 'smartshop_backorder_settings');
+        $availability_message = shopxpert_get_option('backorder_availability_message', 'shopxpert_backorder_settings');
         error_log("Initial Availability Message: " . $availability_message);
     
         // Log the placeholder before replacement
         $placeholder = '{availability_date}';
         error_log("Placeholder: " . $placeholder);
-        error_log("Availability Message with Placeholder: " . str_replace($placeholder, '<span class="smartshop-backorder-availability">'.$availability_date.'</span>', $availability_message));
+        error_log("Availability Message with Placeholder: " . str_replace($placeholder, '<span class="shopxpert-backorder-availability">'.$availability_date.'</span>', $availability_message));
     
         // Replace placeholder with actual availability date
-        $availability_message = str_replace($placeholder, '<span class="smartshop-backorder-availability">'.$availability_date.'</span>', $availability_message);
+        $availability_message = str_replace($placeholder, '<span class="shopxpert-backorder-availability">'.$availability_date.'</span>', $availability_message);
         error_log("Availability Message after Replacement: " . $availability_message);
     
         // Default message if no availability message is set
@@ -411,7 +411,7 @@ class Smartshop_Pending_Stock extends WC_Product{
     //     }
 
     //     if( $product_data->is_on_backorder() ){
-    //         echo '<p class="smartshop-backorder-notification backorder_notification">';
+    //         echo '<p class="shopxpert-backorder-notification backorder_notification">';
     //         echo wp_kses_post($this->get_availability_message( $product_id ));
     //         echo '</p>';
     //     }
@@ -429,9 +429,9 @@ class Smartshop_Pending_Stock extends WC_Product{
 
         if( $product_data->is_on_backorder() ){
             $item_data[] = array(
-                'name'      => 'smartshop_cart_backorder_availability',
-                'display'   => '<p class="smartshop-backorder-notification backorder_notification">'.wp_kses_post($this->get_availability_message( $product_id )).'</p>',
-                'value'     => 'wc_smartshop_back_order_content',
+                'name'      => 'shopxpert_cart_backorder_availability',
+                'display'   => '<p class="shopxpert-backorder-notification backorder_notification">'.wp_kses_post($this->get_availability_message( $product_id )).'</p>',
+                'value'     => 'wc_shopxpert_back_order_content',
             );
         }
 
@@ -459,7 +459,7 @@ class Smartshop_Pending_Stock extends WC_Product{
         }
 
         if( $product_data->is_on_backorder() ){
-            echo '<p class="smartshop-backorder-notification backorder_notification">';
+            echo '<p class="shopxpert-backorder-notification backorder_notification">';
             echo wp_kses_post($this->get_availability_message( $product_id ));
             echo '</p>';
         }
@@ -481,7 +481,7 @@ class Smartshop_Pending_Stock extends WC_Product{
             $product_id = $product_data->get_parent_id();
         }
 
-        $global_settings_value =  smartshop_get_option( $option_name, 'smartshop_backorder_settings');
+        $global_settings_value =  shopxpert_get_option( $option_name, 'shopxpert_backorder_settings');
         $meta_value            = get_post_meta( $product_id, '_shopxpert_'. $option_name, true );
 
         if( $meta_value ){
@@ -498,14 +498,14 @@ class Smartshop_Pending_Stock extends WC_Product{
         $product_id = get_the_id();
         $product    = wc_get_product($product_id);
 
-        $backorder_limit_global = smartshop_get_option('backorder_limit', 'smartshop_backorder_settings');
-        $backorder_limit_global = $backorder_limit_global ? __( "Store-wide backorder limit ($backorder_limit_global)", "smartshop") : '';
+        $backorder_limit_global = shopxpert_get_option('backorder_limit', 'shopxpert_backorder_settings');
+        $backorder_limit_global = $backorder_limit_global ? __( "Store-wide backorder limit ($backorder_limit_global)", "shopxpert") : '';
 
-        $availability_date_global = smartshop_get_option('backorder_availability_date', 'smartshop_backorder_settings');
-        $availability_date_global = $availability_date_global ? __( "Store-wide availability ($availability_date_global)", "smartshop") : '';
+        $availability_date_global = shopxpert_get_option('backorder_availability_date', 'shopxpert_backorder_settings');
+        $availability_date_global = $availability_date_global ? __( "Store-wide availability ($availability_date_global)", "shopxpert") : '';
 
-        $backorder_limit        = get_post_meta( $product_id, '_smartshop_backorder_limit', true );
-        $backorder_availability = get_post_meta( $product_id, '_smartshop_backorder_availability_date', true );
+        $backorder_limit        = get_post_meta( $product_id, '_shopxpert_backorder_limit', true );
+        $backorder_availability = get_post_meta( $product_id, '_shopxpert_backorder_availability_date', true );
 
         // Stock status
         $manage_stock = get_post_meta($product_id, '_manage_stock', true);
@@ -513,12 +513,12 @@ class Smartshop_Pending_Stock extends WC_Product{
         $allow_backorder = get_post_meta($product_id, '_backorders', true);
         ?>
 
-        <div class="smartshop-backorder-fields show_if_simple show_if_variable wl_manage_stock--<?php echo esc_attr($manage_stock); ?> wl_stock_status--<?php echo esc_attr($stock_status); ?>  wl_allow_backorder--<?php echo esc_attr($allow_backorder); ?>">
+        <div class="shopxpert-backorder-fields show_if_simple show_if_variable wl_manage_stock--<?php echo esc_attr($manage_stock); ?> wl_stock_status--<?php echo esc_attr($stock_status); ?>  wl_allow_backorder--<?php echo esc_attr($allow_backorder); ?>">
 
         <?php
         woocommerce_wp_text_input(
             array(
-                'id'                => '_smartshop_backorder_limit',
+                'id'                => '_shopxpert_backorder_limit',
                 'value'             =>  $backorder_limit,
                 'label'             => __( 'Pending Stock Limit', 'shopxper' ),
                 'placeholder'       => $backorder_limit_global,
@@ -533,11 +533,11 @@ class Smartshop_Pending_Stock extends WC_Product{
         );
         ?>
             <p class="form-field">
-                <label for="_smartshop_backorder_availability_date"><?php echo esc_html__('Pending Stock Availability', 'shopxper') ?></label>
+                <label for="_shopxpert_backorder_availability_date"><?php echo esc_html__('Pending Stock Availability', 'shopxper') ?></label>
                 <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the Feature settings.', 'shopxper') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                <input type="date" class="short hasDatepicker" name="_smartshop_backorder_availability_date" id="_smartshop_backorder_availability_date" value="<?php echo esc_attr($backorder_availability); ?>" placeholder="<?php echo esc_attr($availability_date_global); ?>">
+                <input type="date" class="short hasDatepicker" name="_shopxpert_backorder_availability_date" id="_shopxpert_backorder_availability_date" value="<?php echo esc_attr($backorder_availability); ?>" placeholder="<?php echo esc_attr($availability_date_global); ?>">
             </p>
-        </div> <!-- .smartshop-backorder-fields -->
+        </div> <!-- .shopxpert-backorder-fields -->
         <?php
     }
 
@@ -546,15 +546,15 @@ class Smartshop_Pending_Stock extends WC_Product{
      */
     public function save_product_metabox( $post_id, $post ){
         $posted_data     = wp_unslash( $_REQUEST );
-        $backorder_limit = $posted_data['_smartshop_backorder_limit'];
-        $backorder_availability = $posted_data['_smartshop_backorder_availability_date'];
+        $backorder_limit = $posted_data['_shopxpert_backorder_limit'];
+        $backorder_availability = $posted_data['_shopxpert_backorder_availability_date'];
         
-        if( isset($posted_data['_smartshop_backorder_limit']) ){
-            update_post_meta( $post_id, '_smartshop_backorder_limit', $backorder_limit );
+        if( isset($posted_data['_shopxpert_backorder_limit']) ){
+            update_post_meta( $post_id, '_shopxpert_backorder_limit', $backorder_limit );
         }
 
-        if( isset($posted_data['_smartshop_backorder_availability_date']) ){
-            update_post_meta( $post_id, '_smartshop_backorder_availability_date', $backorder_availability );
+        if( isset($posted_data['_shopxpert_backorder_availability_date']) ){
+            update_post_meta( $post_id, '_shopxpert_backorder_availability_date', $backorder_availability );
         }
     }
 }

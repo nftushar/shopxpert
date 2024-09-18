@@ -4,16 +4,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = [ $uniqClass, 'smartshop-testimonial-area' ];
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = [ $uniqClass, 'shopxpert-testimonial-area' ];
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 
-!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'smartshop-grid-columns-'.$settings['columns']['desktop'] : 'smartshop-grid-columns-4';
-!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'smartshop-grid-columns-laptop-'.$settings['columns']['laptop'] : 'smartshop-grid-columns-laptop-3';
-!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-grid-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-grid-columns-tablet-2';
-!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-grid-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-grid-columns-mobile-1';
+!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-'.$settings['columns']['desktop'] : 'shopxpert-grid-columns-4';
+!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'shopxpert-grid-columns-laptop-'.$settings['columns']['laptop'] : 'shopxpert-grid-columns-laptop-3';
+!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'shopxpert-grid-columns-tablet-'.$settings['columns']['tablet'] : 'shopxpert-grid-columns-tablet-2';
+!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'shopxpert-grid-columns-mobile-'.$settings['columns']['mobile'] : 'shopxpert-grid-columns-mobile-1';
 
 !empty( $settings['testimonialStyle'] ) ? $areaClasses[] = 'wlb-testimonial-style-'.$settings['testimonialStyle'] : 'wlb-testimonial-style-1';
 
@@ -34,16 +34,16 @@ if( $settings['testimonialType'] === 'custom' ){
 }
 
 
-$rowClass = [ 'smartshop-grid' ];
+$rowClass = [ 'shopxpert-grid' ];
 if( $settings['noGutter'] ){
-    $rowClass[] = 'smartshop-no-gutters';
+    $rowClass[] = 'shopxpert-no-gutters';
 }
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	echo '<div class="'.esc_attr(implode(' ', $rowClass )).'">';
 		foreach ( $testimonial_list as $testimonial ){
 			?>
-				<div class="smartshop-grid-item">
+				<div class="shopxpert-grid-item">
 					<div class="ht-single-testimonial-wrap">
 
 						<?php if( $settings['testimonialStyle'] === '1' ): ?>
@@ -52,7 +52,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 									?>
 										<div class="ht-client-content ht-client-content-border">
 											<p><?php echo esc_html__( $testimonial['message'],'shopxper' ); ?></p>
-											<div class="ht-client-rating"><?php smartshopBlocks_ratting( $testimonial['ratting'] );?></div>
+											<div class="ht-client-rating"><?php shopxpertBlocks_ratting( $testimonial['ratting'] );?></div>
 										</div>
 									<?php
 								}
@@ -87,7 +87,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 										}
 										if( !empty( $testimonial['ratting'] ) ){
 											echo '<div class="ht-client-rating">';
-												smartshopBlocks_ratting( $testimonial['ratting'] );
+												shopxpertBlocks_ratting( $testimonial['ratting'] );
 											echo '</div>';
 										}
 									?>
@@ -118,7 +118,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 										if( !empty( $testimonial['ratting'] ) ){
 											echo '<div class="ht-client-rating">';
-												smartshopBlocks_ratting( $testimonial['ratting'] );
+												shopxpertBlocks_ratting( $testimonial['ratting'] );
 											echo '</div>';
 										}
 									?>
@@ -145,7 +145,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 										if( !empty( $testimonial['ratting'] ) ){
 											echo '<div class="ht-client-rating">';
-												smartshopBlocks_ratting( $testimonial['ratting'] );
+												shopxpertBlocks_ratting( $testimonial['ratting'] );
 											echo '</div>';
 										}
 									?>

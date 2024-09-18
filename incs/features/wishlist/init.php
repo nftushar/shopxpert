@@ -1,7 +1,7 @@
 <?php
 
-use function  Smartshop\incs\smartshop_clean;
-use function  Smartshop\incs\smartshop_get_option;
+use function  Shopxpert\incs\shopxpert_clean;
+use function  Shopxpert\incs\shopxpert_get_option;
 
 
 
@@ -35,9 +35,9 @@ final class Smartshop_WooWishSuite_Base{
     private function __construct(){
         $this->define_constants();
         $this->incs();
-        if( get_option('smartshop_wishsuite_status', 'no') === 'no' ){
+        if( get_option('shopxpert_wishsuite_status', 'no') === 'no' ){
             add_action( 'wp_loaded',[ $this, 'activate' ] );
-            update_option( 'smartshop_wishsuite_status','yes' );
+            update_option( 'shopxpert_wishsuite_status','yes' );
         }
         $this->init_plugin();
     }
@@ -116,9 +116,9 @@ final class Smartshop_WooWishSuite_Base{
      */
     public function set_image_size(){
 
-        $image_dimention = smartshop_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
+        $image_dimention = shopxpert_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
-            $hard_crop = !empty( smartshop_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
+            $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
             add_image_size( 'wishsuite-image', absint( $image_dimention['width'] ), absint( $image_dimention['height'] ), $hard_crop );
         }
 
@@ -130,8 +130,8 @@ final class Smartshop_WooWishSuite_Base{
      */
     public function wc_image_filter_size(){
 
-        $image_dimention = smartshop_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
-        $hard_crop = !empty( smartshop_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
+        $image_dimention = shopxpert_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
+        $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
 
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
             return array(

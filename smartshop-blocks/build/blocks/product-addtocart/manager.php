@@ -1,5 +1,5 @@
 <?php
-    namespace SmartShopBlocks;
+    namespace ShopXpertBlocks;
     // Exit if accessed directly.
     if ( ! defined( 'ABSPATH' ) ) {
         exit;
@@ -35,8 +35,8 @@
                         echo '</div>';
                         echo '<div class="wl-cart-wrap '.esc_attr($settings['buttonsPosition']).'">';
                             if( '5' !== $settings['layoutStyle']){
-                                if( true === smartshop_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                                    echo '<span class="wl-cart-icon wishlist">'.smartshop_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                if( true === shopxpert_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
+                                    echo '<span class="wl-cart-icon wishlist">'.shopxpert_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             }
                     } );
@@ -53,8 +53,8 @@
                     add_action( 'woocommerce_before_add_to_cart_button', function() use ($settings) {
                         echo '<div class="wl-cart-wrap '.esc_attr($settings['buttonsPosition']).'">';
                         if( '5' !== $settings['layoutStyle']){
-                            if( true === smartshop_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                                echo '<span class="wl-cart-icon wishlist">'.smartshop_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            if( true === shopxpert_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
+                                echo '<span class="wl-cart-icon wishlist">'.shopxpert_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
                         }
                     });
@@ -63,13 +63,13 @@
                 add_action( 'woocommerce_after_add_to_cart_button', function() use ($settings, $porduct_type) {
                     if( 'simple' == $porduct_type || 'grouped' == $porduct_type || 'variable' == $porduct_type){
                         if( '5' === $settings['layoutStyle']){
-                            if( true === smartshop_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                                echo '<span class="wl-cart-icon wishlist">'.smartshop_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            if( true === shopxpert_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
+                                echo '<span class="wl-cart-icon wishlist">'.shopxpert_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
                         }
-                        if( function_exists('smartshop_compare_button') && true === smartshop_exist_compare_plugin() && true !== $settings['hideCompareButton'] ){
+                        if( function_exists('shopxpert_compare_button') && true === shopxpert_exist_compare_plugin() && true !== $settings['hideCompareButton'] ){
                             echo '<span class="wl-cart-icon compare">';
-                                smartshop_compare_button(
+                                shopxpert_compare_button(
                                     array(
                                         'style'=> 2,
                                         'btn_text'=> '<i class="sli sli-refresh"></i>',
@@ -80,12 +80,12 @@
                         }
                         echo "</div>";
                     }elseif ('external' == $porduct_type) {
-                        if( true === smartshop_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                            echo '<span class="wl-cart-icon wishlist">'.smartshop_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        if( true === shopxpert_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
+                            echo '<span class="wl-cart-icon wishlist">'.shopxpert_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }
-                        if( function_exists('smartshop_compare_button') && true === smartshop_exist_compare_plugin() && true !== $settings['hideCompareButton'] ){
+                        if( function_exists('shopxpert_compare_button') && true === shopxpert_exist_compare_plugin() && true !== $settings['hideCompareButton'] ){
                             echo '<span class="wl-cart-icon compare">';
-                                smartshop_compare_button(
+                                shopxpert_compare_button(
                                     array(
                                         'style'=> 2,
                                         'btn_text'=> '<i class="sli sli-refresh"></i>',
@@ -97,18 +97,18 @@
                     }
                     ?>
                     <ul class="wl-wishlist-compare-txt">
-                        <?php if( true === smartshop_has_wishlist_plugin() ): ?>
+                        <?php if( true === shopxpert_has_wishlist_plugin() ): ?>
                             <li>
                                 <?php if( true !== $settings['hideWishlistButton'] ): ?>
-                                    <?php echo smartshop_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <?php echo shopxpert_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>
-                        <?php if( function_exists('smartshop_compare_button') && true === smartshop_exist_compare_plugin() ): ?>
+                        <?php if( function_exists('shopxpert_compare_button') && true === shopxpert_exist_compare_plugin() ): ?>
                             <li>
                                 <?php if( true !== $settings['hideCompareButton'] ): ?>
                                     <span><i class="sli sli-refresh"></i></span>
-                                    <?php smartshop_compare_button(
+                                    <?php shopxpert_compare_button(
                                             array(
                                                 'style'=> 2,
                                                 'btn_text_type'=> 'text',

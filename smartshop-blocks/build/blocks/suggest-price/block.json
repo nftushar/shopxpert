@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/suggest-price",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/suggest-price",
+  "category": "shopxpert-single-product",
   "title": "WL: Suggest Price",
   "description": "Display suggest price form for single product page.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product",
     "single",
     "suggest",

@@ -5,25 +5,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if( $block['is_editor'] ){
-	\SmartShop_Default_Data::instance()->theme_hooks('smartshop-product-archive-addons');
+	\ShopXpert_Default_Data::instance()->theme_hooks('shopxpert-product-archive-addons');
 }
 
-$uniqClass 	 = 'smartshopblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'smartshop_block_archive_default' );
+$uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
+$areaClasses = array( $uniqClass, 'shopxpert_block_archive_default' );
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
-!empty( $settings['contentAlignment'] ) ? $areaClasses[] = 'smartshop-content-align-'.$settings['contentAlignment'] : '';
+!empty( $settings['contentAlignment'] ) ? $areaClasses[] = 'shopxpert-content-align-'.$settings['contentAlignment'] : '';
 
 if( isset( $settings['saleTagShow'] ) && $settings['saleTagShow'] === false){
-	$areaClasses[] = 'smartshop-archive-sale-badge-hide';
+	$areaClasses[] = 'shopxpert-archive-sale-badge-hide';
 }else{
-	!empty( $settings['saleTagPosition'] ) ? $areaClasses[] = 'smartshop-archive-sale-badge-'.$settings['saleTagPosition'] : '';
+	!empty( $settings['saleTagPosition'] ) ? $areaClasses[] = 'shopxpert-archive-sale-badge-'.$settings['saleTagPosition'] : '';
 }
 // Manage Column
-!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'smartshop-products-columns-'.$settings['columns']['desktop'] : 'smartshop-products-columns-4';
-!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'smartshop-products-columns-laptop-'.$settings['columns']['laptop'] : 'smartshop-products-columns-laptop-3';
-!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-products-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-products-columns-tablet-2';
-!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-products-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-products-columns-mobile-1';
+!empty( $settings['columns']['desktop'] ) ? $areaClasses[] = 'shopxpert-products-columns-'.$settings['columns']['desktop'] : 'shopxpert-products-columns-4';
+!empty( $settings['columns']['laptop'] ) ? $areaClasses[] = 'shopxpert-products-columns-laptop-'.$settings['columns']['laptop'] : 'shopxpert-products-columns-laptop-3';
+!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'shopxpert-products-columns-tablet-'.$settings['columns']['tablet'] : 'shopxpert-products-columns-tablet-2';
+!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'shopxpert-products-columns-mobile-'.$settings['columns']['mobile'] : 'shopxpert-products-columns-mobile-1';
 
 //Product Filter Feature
 $contentClasses = array();
@@ -32,7 +32,7 @@ $filterable = ( isset( $settings['filterable'] ) ? rest_sanitize_boolean( $setti
 if ( true === $filterable ) {
 	$areaClasses[] = 'wl-filterable-products-wrap';
 	$contentClasses[] = 'wl-filterable-products-content';
-	$areaAttributes[] = 'data-wl-widget-name="smartshop-product-archive-addons"';
+	$areaAttributes[] = 'data-wl-widget-name="shopxpert-product-archive-addons"';
 	$areaAttributes[] = 'data-wl-widget-settings="' . esc_attr( htmlspecialchars( wp_json_encode( $settings ) ) ) . '"';
 }
 
@@ -63,7 +63,7 @@ if( !empty( $settings['paginate'] ) ){
 
 $shortcode 	= new \Archive_Products_Render( $options, 'products', $filterable );
 $content 	= $shortcode->get_content();
-$not_found_content = smartshop_products_not_found_content();
+$not_found_content = shopxpert_products_not_found_content();
 
 echo '<div class="'.esc_attr( implode(' ', $areaClasses ) ).'" '.implode(' ', $areaAttributes ).'>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo ( ( true === $filterable ) ? '<div class="'.esc_attr(implode(' ', $contentClasses )).'">' : '' );

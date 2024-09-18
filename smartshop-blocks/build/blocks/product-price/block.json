@@ -1,10 +1,10 @@
 {
-  "name": "smartshop/product-price",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-price",
+  "category": "shopxpert-single-product",
   "title": "WL : Product Price",
   "description": "Display product price.",
   "keywords": [
-    "smartshop",
+    "shopxpert",
     "product",
     "price",
     "product price"

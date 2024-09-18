@@ -6,7 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Smartshop\\Incs\\Admin\\Templates\\' => array($baseDir . '/incs/admin/templates'),
-    'Smartshop\\Incs\\Admin\\Inc\\' => array($baseDir . '/incs/admin/inc'),
-    'SmartShop\\' => array($baseDir . '/incs'),
+    'Shopxpert\\Incs\\Admin\\Templates\\' => array($baseDir . '/incs/admin/templates'),
+    'Shopxpert\\Incs\\Admin\\Inc\\' => array($baseDir . '/incs/admin/inc'),
+    'ShopXpert \\' => array($baseDir . '/incs'),
 );

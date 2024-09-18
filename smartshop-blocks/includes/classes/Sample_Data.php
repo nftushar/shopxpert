@@ -1,5 +1,5 @@
 <?php
-namespace SmartShopBlocks;
+namespace ShopXpertBlocks;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -44,7 +44,7 @@ class Sample_Data {
     public static function remote_request( $force_update, $route_url ){
         global $wp_version;
 
-        $request_url = get_rest_url( null, 'smartshop/v1/'.$route_url );
+        $request_url = get_rest_url( null, 'shopxpert/v1/'.$route_url );
 
         $timeout = ( $force_update ) ? 25 : 8;
         $request = wp_remote_get(

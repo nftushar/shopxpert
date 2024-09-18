@@ -1,6 +1,6 @@
 {
-  "name": "smartshop/product-stock",
-  "category": "smartshop-single-product",
+  "name": "shopxpert/product-stock",
+  "category": "shopxpert-single-product",
   "title": "Product Stock",
   "attributes": {
     "blockUniqId": {
