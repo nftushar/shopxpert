@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'smartshop-grid-columns-tablet-'.$settings['columns']['tablet'] : 'smartshop-grid-columns-tablet-2';
 	!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'smartshop-grid-columns-mobile-'.$settings['columns']['mobile'] : 'smartshop-grid-columns-mobile-1';
 
-	$default_img = '<img src="'.SMARTSHOP_BLOCK_URL.'/assets/images/brand.png'.'" alt="'.esc_html__('Brand Logo','smartshop').'">';
+	$default_img = '<img src="'.SMARTSHOP_BLOCK_URL.'/assets/images/brand.png'.'" alt="'.esc_html__('Brand Logo','shopxper').'">';
 	$brands = $settings['brandLogoList'];
 
 	// Slider Options

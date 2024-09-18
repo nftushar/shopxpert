@@ -38,20 +38,20 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'    => 'css_add_via',
-                        'label'   => esc_html__( 'zzzz Add CSS through', 'smartshop' ),
-                        'desc'    => esc_html__( 'Choose how you want to add the newly generated CSS.', 'smartshop' ),
+                        'label'   => esc_html__( 'zzzz Add CSS through', 'shopxper' ),
+                        'desc'    => esc_html__( 'Choose how you want to add the newly generated CSS.', 'shopxper' ),
                         'type'    => 'select',
                         'default' => 'internal',
                         'options' => array(
-                            'internal' => esc_html__('Internal','smartshop'),
-                            'external' => esc_html__('External','smartshop'),
+                            'internal' => esc_html__('Internal','shopxper'),
+                            'external' => esc_html__('External','shopxper'),
                         )
                     ),
 
                     array(
                         'name'  => 'container_width',
-                        'label' => esc_html__( 'xxxx Container Width', 'smartshop' ),
-                        'desc'  => esc_html__( 'You can set the container width from here.', 'smartshop' ),
+                        'label' => esc_html__( 'xxxx Container Width', 'shopxper' ),
+                        'desc'  => esc_html__( 'You can set the container width from here.', 'shopxper' ),
                         'min'               => 1,
                         'max'               => 10000,
                         'step'              => '1',
@@ -66,97 +66,97 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'      => 'general_blocks_heading',
-                        'headding'  => esc_html__( 'zz General', 'smartshop' ),
+                        'headding'  => esc_html__( 'zz General', 'shopxper' ),
                         'type'      => 'title',
                         'class'     => 'smartshop_heading_style_two'
                     ),
 
                     array(
                         'name'    => 'product_tab',
-                        'label'   => esc_html__( 'xxxxProduct Tab', 'smartshop' ),
+                        'label'   => esc_html__( 'xxxxProduct Tab', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'promo_banner',
-                        'label'   => esc_html__( 'Promo Banner', 'smartshop' ),
+                        'label'   => esc_html__( 'Promo Banner', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'special_day_offer',
-                        'label'   => esc_html__( 'Special Day Offer', 'smartshop' ),
+                        'label'   => esc_html__( 'Special Day Offer', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'image_marker',
-                        'label'   => esc_html__( 'Image Marker', 'smartshop' ),
+                        'label'   => esc_html__( 'Image Marker', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'store_feature',
-                        'label'   => esc_html__( 'Store Feature', 'smartshop' ),
+                        'label'   => esc_html__( 'Store Feature', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'brand_logo',
-                        'label'   => esc_html__( 'Brand Logo', 'smartshop' ),
+                        'label'   => esc_html__( 'Brand Logo', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'category_grid',
-                        'label'   => esc_html__( 'Category Grid', 'smartshop' ),
+                        'label'   => esc_html__( 'Category Grid', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'faq',
-                        'label'   => esc_html__( 'FAQ', 'smartshop' ),
+                        'label'   => esc_html__( 'FAQ', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_curvy',
-                        'label'   => esc_html__( 'Product Curvy', 'smartshop' ),
+                        'label'   => esc_html__( 'Product Curvy', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'archive_title',
-                        'label'   => esc_html__( 'Archive Title', 'smartshop' ),
+                        'label'   => esc_html__( 'Archive Title', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'breadcrumbs',
-                        'label'   => esc_html__( 'Breadcrumbs', 'smartshop' ),
+                        'label'   => esc_html__( 'Breadcrumbs', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'recently_viewed_products',
-                        'label'   => esc_html__( 'Recently Viewed Products', 'smartshop' ),
+                        'label'   => esc_html__( 'Recently Viewed Products', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_grid',
-                        'label'   => esc_html__( 'Product Grid', 'smartshop' ),
+                        'label'   => esc_html__( 'Product Grid', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro'  => true,
@@ -164,7 +164,7 @@ class Smartshop_Admin_Fields {
     
                     array(
                         'name'    => 'customer_review',
-                        'label'   => esc_html__( 'Customer Review', 'smartshop' ),
+                        'label'   => esc_html__( 'Customer Review', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro'  => true,
@@ -172,213 +172,213 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'      => 'shop_blocks_heading',
-                        'headding'  => esc_html__( 'Shop / Archive', 'smartshop' ),
+                        'headding'  => esc_html__( 'Shop / Archive', 'shopxper' ),
                         'type'      => 'title',
                         'class'     => 'smartshop_heading_style_two'
                     ),
 
                     array(
                         'name'    => 'shop_archive_product',
-                        'label'   => esc_html__( 'Product Archive (Default)', 'smartshop' ),
+                        'label'   => esc_html__( 'Product Archive (Default)', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'product_filter',
-                        'label'   => esc_html__( 'Product Filter', 'smartshop' ),
+                        'label'   => esc_html__( 'Product Filter', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'product_horizontal_filter',
-                        'label'   => esc_html__( 'Product Horizontal Filter', 'smartshop' ),
+                        'label'   => esc_html__( 'Product Horizontal Filter', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'archive_result_count',
-                        'label'   => esc_html__( 'Archive Result Count', 'smartshop' ),
+                        'label'   => esc_html__( 'Archive Result Count', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'archive_catalog_ordering',
-                        'label'   => esc_html__( 'Archive Catalog Ordering', 'smartshop' ),
+                        'label'   => esc_html__( 'Archive Catalog Ordering', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'      => 'single_blocks_heading',
-                        'headding'  => esc_html__( 'Single Product', 'smartshop' ),
+                        'headding'  => esc_html__( 'Single Product', 'shopxper' ),
                         'type'      => 'title',
                         'class'     => 'smartshop_heading_style_two'
                     ),
 
                     array(
                         'name'   => 'product_title',
-                        'label'  => esc_html__('Product Title','smartshop'),
+                        'label'  => esc_html__('Product Title','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_price',
-                        'label'   => esc_html__('Product Price','smartshop'),
+                        'label'   => esc_html__('Product Price','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'   => 'product_addtocart',
-                        'label'  => esc_html__('Product Add To Cart','smartshop'),
+                        'label'  => esc_html__('Product Add To Cart','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_short_description',
-                        'label'   => esc_html__('Product Short Description','smartshop'),
+                        'label'   => esc_html__('Product Short Description','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_description',
-                        'label'   => esc_html__('Product Description','smartshop'),
+                        'label'   => esc_html__('Product Description','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_rating',
-                        'label'   => esc_html__('Product Rating','smartshop'),
+                        'label'   => esc_html__('Product Rating','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_image',
-                        'label'   => esc_html__('Product Image','smartshop'),
+                        'label'   => esc_html__('Product Image','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'product_video_gallery',
-                        'label'   => esc_html__('Product Video Gallery','smartshop'),
+                        'label'   => esc_html__('Product Video Gallery','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_meta',
-                        'label'   => esc_html__('Product Meta','smartshop'),
+                        'label'   => esc_html__('Product Meta','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_additional_info',
-                        'label'   => esc_html__('Product Additional Info','smartshop'),
+                        'label'   => esc_html__('Product Additional Info','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_tabs',
-                        'label'   => esc_html__('Product Tabs','smartshop'),
+                        'label'   => esc_html__('Product Tabs','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_stock',
-                        'label'   => esc_html__('Product Stock','smartshop'),
+                        'label'   => esc_html__('Product Stock','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_qrcode',
-                        'label'   => esc_html__('Product QR Code','smartshop'),
+                        'label'   => esc_html__('Product QR Code','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_related',
-                        'label'   => esc_html__('Product Related','smartshop'),
+                        'label'   => esc_html__('Product Related','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_upsell',
-                        'label'   => esc_html__('Product Upsell','smartshop'),
+                        'label'   => esc_html__('Product Upsell','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
 
                     array(
                         'name'    => 'product_reviews',
-                        'label'   => esc_html__('Product Reviews','smartshop'),
+                        'label'   => esc_html__('Product Reviews','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'product_categories',
-                        'label'   => esc_html__('Product Categories','smartshop'),
+                        'label'   => esc_html__('Product Categories','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'product_tags',
-                        'label'   => esc_html__('Product Tags','smartshop'),
+                        'label'   => esc_html__('Product Tags','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'product_sku',
-                        'label'   => esc_html__('Product SKU','smartshop'),
+                        'label'   => esc_html__('Product SKU','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'call_for_price',
-                        'label'   => esc_html__('Call for Price','smartshop'),
+                        'label'   => esc_html__('Call for Price','shopxper'),
                         'type'    => 'element',
                         'default' => 'on'
                     ),
                     array(
                         'name'    => 'suggest_price',
-                        'label'   => esc_html__('Suggest Price','smartshop'),
+                        'label'   => esc_html__('Suggest Price','shopxper'),
                         'type'    => 'element',
                         'default' => 'on',
                     ),
                     array(
                         'name'    => 'product_social_share',
-                        'label'   => esc_html__('Product Social Share','smartshop'),
+                        'label'   => esc_html__('Product Social Share','shopxper'),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'    => 'product_stock_progressbar',
-                        'label'   => esc_html__('Stock Progressbar','smartshop'),
+                        'label'   => esc_html__('Stock Progressbar','shopxper'),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'    => 'product_sale_schedule',
-                        'label'   => esc_html__('Product Sale Schedule','smartshop'),
+                        'label'   => esc_html__('Product Sale Schedule','shopxper'),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'    => 'product_navigation',
-                        'label'   => esc_html__('Product Navigation','smartshop'),
+                        'label'   => esc_html__('Product Navigation','shopxper'),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro' => true,
@@ -386,14 +386,14 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'    => 'product_advance_image',
-                        'label'   => esc_html__('Advance Product Image','smartshop'),
+                        'label'   => esc_html__('Advance Product Image','shopxper'),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'    => 'product_thumbnails_zoom_image',
-                        'label'   => esc_html__('Product Image With Zoom','smartshop'),
+                        'label'   => esc_html__('Product Image With Zoom','shopxper'),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro' => true,
@@ -401,48 +401,48 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'      => 'cart_blocks_heading',
-                        'headding'  => esc_html__( 'Cart', 'smartshop' ),
+                        'headding'  => esc_html__( 'Cart', 'shopxper' ),
                         'type'      => 'title',
                         'class'     => 'smartshop_heading_style_two'
                     ),
                     array(
                         'name'  => 'cart_table',
-                        'label' => esc_html__( 'Product Cart Table', 'smartshop' ),
+                        'label' => esc_html__( 'Product Cart Table', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'cart_table_list',
-                        'label' => esc_html__( 'Product Cart Table (List Style)', 'smartshop' ),
+                        'label' => esc_html__( 'Product Cart Table (List Style)', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'cart_total',
-                        'label' => esc_html__( 'Product Cart Total', 'smartshop' ),
+                        'label' => esc_html__( 'Product Cart Total', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'corss_sell',
-                        'label' => esc_html__( 'Product Cross Sell', 'smartshop' ),
+                        'label' => esc_html__( 'Product Cross Sell', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'return_to_shop',
-                        'label' => esc_html__( 'Return To Shop Button', 'smartshop' ),
+                        'label' => esc_html__( 'Return To Shop Button', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'cart_empty_message',
-                        'label' => esc_html__( 'Empty Cart Message', 'smartshop' ),
+                        'label' => esc_html__( 'Empty Cart Message', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
@@ -450,62 +450,62 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'      => 'checkout_blocks_heading',
-                        'headding'  => esc_html__( 'Checkout', 'smartshop' ),
+                        'headding'  => esc_html__( 'Checkout', 'shopxper' ),
                         'type'      => 'title',
                         'class'     => 'smartshop_heading_style_two'
                     ),
                     array(
                         'name'  => 'checkout_billing_form',
-                        'label' => esc_html__( 'Checkout Billing Form', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Billing Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'checkout_shipping_form',
-                        'label' => esc_html__( 'Checkout Shipping Form', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Shipping Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'checkout_additional_form',
-                        'label' => esc_html__( 'Checkout Additional..', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Additional..', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'checkout_coupon_form',
-                        'label' => esc_html__( 'Checkout Coupon Form', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Coupon Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'checkout_payment',
-                        'label' => esc_html__( 'Checkout Payment Method', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Payment Method', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'checkout_shipping_method',
-                        'label' => esc_html__( 'Checkout Shipping Method', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Shipping Method', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'checkout_order_review',
-                        'label' => esc_html__( 'Checkout Order Review', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Order Review', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'checkout_login_form',
-                        'label' => esc_html__( 'Checkout Login Form', 'smartshop' ),
+                        'label' => esc_html__( 'Checkout Login Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
@@ -513,90 +513,90 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'      => 'myaccount_blocks_heading',
-                        'headding'  => esc_html__( 'My Account', 'smartshop' ),
+                        'headding'  => esc_html__( 'My Account', 'shopxper' ),
                         'type'      => 'title',
                         'class'     => 'smartshop_heading_style_two'
                     ),
                     array(
                         'name'  => 'my_account',
-                        'label' => esc_html__( 'My Account', 'smartshop' ),
+                        'label' => esc_html__( 'My Account', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_navigation',
-                        'label' => esc_html__( 'My Account Navigation', 'smartshop' ),
+                        'label' => esc_html__( 'My Account Navigation', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_dashboard',
-                        'label' => esc_html__( 'My Account Dashboard', 'smartshop' ),
+                        'label' => esc_html__( 'My Account Dashboard', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_download',
-                        'label' => esc_html__( 'My Account Download', 'smartshop' ),
+                        'label' => esc_html__( 'My Account Download', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_edit',
-                        'label' => esc_html__( 'My Account Edit', 'smartshop' ),
+                        'label' => esc_html__( 'My Account Edit', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_address',
-                        'label' => esc_html__( 'My Account Address', 'smartshop' ),
+                        'label' => esc_html__( 'My Account Address', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_order',
-                        'label' => esc_html__( 'My Account Order', 'smartshop' ),
+                        'label' => esc_html__( 'My Account Order', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_logout',
-                        'label' => esc_html__( 'My Account Logout', 'smartshop' ),
+                        'label' => esc_html__( 'My Account Logout', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_login_form',
-                        'label' => esc_html__( 'Login Form', 'smartshop' ),
+                        'label' => esc_html__( 'Login Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_registration_form',
-                        'label' => esc_html__( 'Registration Form', 'smartshop' ),
+                        'label' => esc_html__( 'Registration Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_lost_password',
-                        'label' => esc_html__( 'Lost Password Form', 'smartshop' ),
+                        'label' => esc_html__( 'Lost Password Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'my_account_reset_password',
-                        'label' => esc_html__( 'Reset Password Form', 'smartshop' ),
+                        'label' => esc_html__( 'Reset Password Form', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
@@ -604,27 +604,27 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'      => 'thankyou_blocks_heading',
-                        'headding'  => esc_html__( 'Thank You', 'smartshop' ),
+                        'headding'  => esc_html__( 'Thank You', 'shopxper' ),
                         'type'      => 'title',
                         'class'     => 'smartshop_heading_style_two'
                     ),
                     array(
                         'name'  => 'thankyou_order',
-                        'label' => esc_html__( 'Thank You Order', 'smartshop' ),
+                        'label' => esc_html__( 'Thank You Order', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'thankyou_address_details',
-                        'label' => esc_html__( 'Thank You Address', 'smartshop' ),
+                        'label' => esc_html__( 'Thank You Address', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
                     ),
                     array(
                         'name'  => 'thankyou_order_details',
-                        'label' => esc_html__( 'Thank You Order Details', 'smartshop' ),
+                        'label' => esc_html__( 'Thank You Order Details', 'shopxper' ),
                         'type'  => 'element',
                         'default' => 'off',
                         'is_pro' => true,
@@ -639,7 +639,7 @@ class Smartshop_Admin_Fields {
                 'features' => array( 
                     array(
                         'name'     => 'rename_label_settings',
-                        'label'    => esc_html__( 'Change Label', 'smartshop' ),
+                        'label'    => esc_html__( 'Change Label', 'shopxper' ),
                         'type'     => 'Feature',
                         'default'  => 'off',
                         'section'  => 'smartshop_rename_label_tabs',
@@ -650,8 +650,8 @@ class Smartshop_Admin_Fields {
                             
                             array(
                                 'name'  => 'enablerenamelabel',
-                                'label' => esc_html__( 'Enable / Disable', 'smartshop' ),
-                                'desc'  => esc_html__( 'You can enable / disable change Label from here.', 'smartshop' ),
+                                'label' => esc_html__( 'Enable / Disable', 'shopxper' ),
+                                'desc'  => esc_html__( 'You can enable / disable change Label from here.', 'shopxper' ),
                                 'type'  => 'checkbox',
                                 'default' => 'off',
                                 'class'   =>'enablerenamelabel smartshop-action-field-left',
@@ -659,76 +659,76 @@ class Smartshop_Admin_Fields {
             
                             array(
                                 'name'      => 'shop_page_heading',
-                                'headding'  => esc_html__( 'Shop Page', 'smartshop' ),
+                                'headding'  => esc_html__( 'Shop Page', 'shopxper' ),
                                 'type'      => 'title',
                                 'class'     => 'depend_enable_rename_label',
                             ),
                             
                             array(
                                 'name'        => 'wl_shop_add_to_cart_txt',
-                                'label'       => esc_html__( 'Add to Cart Button Text', 'smartshop' ),
-                                'desc'        => esc_html__( 'Change the Add to Cart button text for the Shop page.', 'smartshop' ),
+                                'label'       => esc_html__( 'Add to Cart Button Text', 'shopxper' ),
+                                'desc'        => esc_html__( 'Change the Add to Cart button text for the Shop page.', 'shopxper' ),
                                 'type'        => 'text',
-                                'placeholder' => esc_html__( 'Add to Cart', 'smartshop' ),
+                                'placeholder' => esc_html__( 'Add to Cart', 'shopxper' ),
                                 'class'       => 'depend_enable_rename_label smartshop-action-field-left',
                             ),
             
                             array(
                                 'name'      => 'product_details_page_heading',
-                                'headding'  => esc_html__( 'Product Details Page', 'smartshop' ),
+                                'headding'  => esc_html__( 'Product Details Page', 'shopxper' ),
                                 'type'      => 'title',
                                 'class'     => 'depend_enable_rename_label',
                             ),
             
                             array(
                                 'name'        => 'wl_add_to_cart_txt',
-                                'label'       => esc_html__( 'Add to Cart Button Text', 'smartshop' ),
-                                'desc'        => esc_html__( 'Change the Add to Cart button text for the Product details page.', 'smartshop' ),
+                                'label'       => esc_html__( 'Add to Cart Button Text', 'shopxper' ),
+                                'desc'        => esc_html__( 'Change the Add to Cart button text for the Product details page.', 'shopxper' ),
                                 'type'        => 'text',
-                                'placeholder' => esc_html__( 'Add to Cart', 'smartshop' ),
+                                'placeholder' => esc_html__( 'Add to Cart', 'shopxper' ),
                                 'class'       => 'depend_enable_rename_label smartshop-action-field-left',
                             ),
             
                             array(
                                 'name'        => 'wl_description_tab_menu_title',
-                                'label'       => esc_html__( 'Description', 'smartshop' ),
-                                'desc'        => esc_html__( 'Change the tab title for the product description.', 'smartshop' ),
+                                'label'       => esc_html__( 'Description', 'shopxper' ),
+                                'desc'        => esc_html__( 'Change the tab title for the product description.', 'shopxper' ),
                                 'type'        => 'text',
-                                'placeholder' => esc_html__( 'Description', 'smartshop' ),
+                                'placeholder' => esc_html__( 'Description', 'shopxper' ),
                                 'class'       => 'depend_enable_rename_label smartshop-action-field-left',
                             ),
                             
                             array(
                                 'name'        => 'wl_additional_information_tab_menu_title',
-                                'label'       => esc_html__( 'Additional Information', 'smartshop' ),
-                                'desc'        => esc_html__( 'Change the tab title for the product additional information', 'smartshop' ),
+                                'label'       => esc_html__( 'Additional Information', 'shopxper' ),
+                                'desc'        => esc_html__( 'Change the tab title for the product additional information', 'shopxper' ),
                                 'type'        => 'text',
-                                'placeholder' => esc_html__( 'Additional information', 'smartshop' ),
+                                'placeholder' => esc_html__( 'Additional information', 'shopxper' ),
                                 'class'       => 'depend_enable_rename_label smartshop-action-field-left',
                             ),
                             
                             array(
                                 'name'        => 'wl_reviews_tab_menu_title',
-                                'label'       => esc_html__( 'Reviews', 'smartshop' ),
-                                'desc'        => esc_html__( 'Change the tab title for the product review', 'smartshop' ),
+                                'label'       => esc_html__( 'Reviews', 'shopxper' ),
+                                'desc'        => esc_html__( 'Change the tab title for the product review', 'shopxper' ),
                                 'type'        => 'text',
-                                'placeholder' => __( 'Reviews', 'smartshop' ),
+                                'placeholder' => __( 'Reviews', 'shopxper' ),
                                 'class'       =>'depend_enable_rename_label smartshop-action-field-left',
                             ),
             
                             array(
                                 'name'      => 'checkout_page_heading',
-                                'headding'  => esc_html__( 'Checkout Page', 'smartshop' ),
+                                'headding'  => esc_html__( 'Checkout Page', 'shopxper' ),
                                 'type'      => 'title',
                                 'class'     => 'depend_enable_rename_label',
                             ),
             
                             array(
                                 'name'        => 'wl_checkout_placeorder_btn_txt',
-                                'label'       => esc_html__( 'Place order', 'smartshop' ),
-                                'desc'        => esc_html__( 'Change the label for the Place order field.', 'smartshop' ),
+                                'label'       => esc_html__( 'Place order', 'shopxper' ),
+                                'desc'        => esc_html__( 'Change the label for the Place order field.', 'shopxper' ),
                                 'type'        => 'text',
-                                'placeholder' => esc_html__( 'Place order', 'smartshop' ),
+                                'placeholder' => esc_html__( 'Place order', 'shopxper' ),
                                 'class'       => 'depend_enable_rename_label smartshop-action-field-left',
                             ),
 
@@ -736,7 +736,7 @@ class Smartshop_Admin_Fields {
                     ),
                     array(
                         'name'     => 'smartshop_backorder_settings',
-                        'label'    => esc_html__( 'xx Pending Stock', 'smartshop' ),
+                        'label'    => esc_html__( 'xx Pending Stock', 'shopxper' ),
                         'type'     => 'Feature',
                         'default'  => 'off',
                         'section'  => 'smartshop_backorder_settings',
@@ -747,8 +747,8 @@ class Smartshop_Admin_Fields {
                         
                             array(
                                 'name'  => 'enable',
-                                'label' => esc_html__( 'Enable / Disable', 'smartshop' ),
-                                'desc'  => esc_html__( 'You can enable / disable backorder Feature from here.', 'smartshop' ),
+                                'label' => esc_html__( 'Enable / Disable', 'shopxper' ),
+                                'desc'  => esc_html__( 'You can enable / disable backorder Feature from here.', 'shopxper' ),
                                 'type'  => 'checkbox',
                                 'default' => 'off',
                                 'class' => 'smartshop-action-field-left'
@@ -756,25 +756,25 @@ class Smartshop_Admin_Fields {
 
                             array(
                                 'name'    => 'backorder_limit',
-                                'label'   => esc_html__( 'Pending Stock Limit', 'smartshop' ),
-                                'desc'    => esc_html__( 'Set "Pending Stock Limit" on all "Pending Stock" products across the entire website. You can also set limits for each product individually from the "Inventory" tab.', 'smartshop' ),
+                                'label'   => esc_html__( 'Pending Stock Limit', 'shopxper' ),
+                                'desc'    => esc_html__( 'Set "Pending Stock Limit" on all "Pending Stock" products across the entire website. You can also set limits for each product individually from the "Inventory" tab.', 'shopxper' ),
                                 'type'    => 'number',
                                 'class'   => 'smartshop-action-field-left'
                             ),
 
                             array(
                                 'name'    => 'backorder_availability_date',
-                                'label'   => esc_html__( 'Availability Date', 'smartshop' ),
+                                'label'   => esc_html__( 'Availability Date', 'shopxper' ),
                                 'type'    => 'date',
                                 'class'   => 'smartshop-action-field-left'
                             ),
                         
                             array(
                                 'name'        => 'backorder_availability_message',
-                                'label'       => esc_html__( 'Availability Message', 'smartshop' ),
-                                'desc'        => esc_html__( 'Manage how you want the "Message" to appear. Use this {availability_date} placeholder to display the date you set. ', 'smartshop' ),
+                                'label'       => esc_html__( 'Availability Message', 'shopxper' ),
+                                'desc'        => esc_html__( 'Manage how you want the "Message" to appear. Use this {availability_date} placeholder to display the date you set. ', 'shopxper' ),
                                 'type'        => 'text',
-                                'default'     => esc_html__( 'On Pending Stock: Will be available on {availability_date}', 'smartshop' ),
+                                'default'     => esc_html__( 'On Pending Stock: Will be available on {availability_date}', 'shopxper' ),
                                 'class'       => 'smartshop-action-field-left',
                             ),
                             
@@ -783,15 +783,15 @@ class Smartshop_Admin_Fields {
                     ),
                     array(
                         'name'     => 'wishlist',
-                        'label'    => esc_html__( 's Wishlist', 'smartshop' ),
+                        'label'    => esc_html__( 's Wishlist', 'shopxper' ),
                         'type'     => 'element',
                         'default'  => 'off',
                         'documentation' => esc_url('https://smartshop.com/doc/wishlist-for-woocommerce/')
                     ), 
                     array(
                         'name'    => 'ajaxsearch',
-                        'label'   => esc_html__( 'Dynamic Search Widget', 'smartshop' ),
-                        'desc'    => esc_html__( 'Dynamic Search Widget', 'smartshop' ),
+                        'label'   => esc_html__( 'Dynamic Search Widget', 'shopxper' ),
+                        'desc'    => esc_html__( 'Dynamic Search Widget', 'shopxper' ),
                         'type'    => 'element',
                         'default' => 'off',
                         'documentation' => esc_url('https://smartshop.com/doc/how-to-use-woocommerce-ajax-search/')
@@ -802,8 +802,8 @@ class Smartshop_Admin_Fields {
 
                     array(
                         'name'  => 'loadproductlimit',
-                        'label' => esc_html__( 'Load Products in Elementor Addons', 'smartshop' ),
-                        'desc'  => esc_html__( 'Set the number of products to load in Elementor Addons', 'smartshop' ),
+                        'label' => esc_html__( 'Load Products in Elementor Addons', 'shopxper' ),
+                        'desc'  => esc_html__( 'Set the number of products to load in Elementor Addons', 'shopxper' ),
                         'min'               => 1,
                         'max'               => 100,
                         'step'              => '1',
@@ -834,49 +834,49 @@ class Smartshop_Admin_Fields {
 
             array(
                 'id'    => 'smartshop_general_tabs',
-                'title' => esc_html__( 'x General', 'smartshop' ),
+                'title' => esc_html__( 'x General', 'shopxper' ),
                 'icon'  => 'dashicons-admin-home'
             ),
 
             array(
                 'id'    => 'smartshop_woo_template_tabs',
-                'title' => esc_html__( 'WooCommerce Template', 'smartshop' ),
+                'title' => esc_html__( 'WooCommerce Template', 'shopxper' ),
                 'icon'  => 'wli-store'
             ),
 
             array(
                 'id'    => 'smartshop_gutenberg_tabs',
-                'title' => esc_html__( 'Gutenberg', 'smartshop' ),
+                'title' => esc_html__( 'Gutenberg', 'shopxper' ),
                 'icon'  => 'wli-cog'
             ),
 
             array(
                 'id'    => 'smartshop_elements_tabs',
-                'title' => esc_html__( 'Elements', 'smartshop' ),
+                'title' => esc_html__( 'Elements', 'shopxper' ),
                 'icon'  => 'wli-images'
             ),
 
             array(
                 'id'    => 'smartshop_others_tabs',
-                'title' => esc_html__( 'Features', 'smartshop' ),
+                'title' => esc_html__( 'Features', 'shopxper' ),
                 'icon'  => 'wli-grid'
             ),
 
             array(
                 'id'    => 'smartshop_style_tabs',
-                'title' => esc_html__( 'Style', 'smartshop' ),
+                'title' => esc_html__( 'Style', 'shopxper' ),
                 'icon'  => 'wli-tag'
             ),
 
             array(
                 'id'    => 'smartshop_extension_tabs',
-                'title' => esc_html__( 'Extensions', 'smartshop' ),
+                'title' => esc_html__( 'Extensions', 'shopxper' ),
                 'icon'  => 'wli-masonry'
             ),
 
             array(
                 'id'    => 'smartshop_freevspro_tabs',
-                'title' => esc_html__( 'Free VS Pro', 'smartshop' ),
+                'title' => esc_html__( 'Free VS Pro', 'shopxper' ),
                 'class' => 'freevspro'
             ),
 

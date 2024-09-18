@@ -97,12 +97,12 @@ class Manage_Styles {
 			return [
 				'success' => true, 
 				'data' 	  => get_post( $params['post_id'] )->post_content, 
-				'message' => __('Post Data found.', 'smartshop' )
+				'message' => __('Post Data found.', 'shopxper' )
 			];
 		} else {
 			return [
 				'success' => false, 
-				'message' => __('Post Data not found.', 'smartshop' )
+				'message' => __('Post Data not found.', 'shopxper' )
 			];
 		}
 	}
@@ -124,7 +124,7 @@ class Manage_Styles {
 				update_option( $post_id, $params['block_css'] );
 				return [
 					'success' => true, 
-					'message' => __('Widget CSS Saved.', 'smartshop')
+					'message' => __('Widget CSS Saved.', 'shopxper')
 				];
 			}
 
@@ -143,11 +143,11 @@ class Manage_Styles {
 
 				update_post_meta( $post_id, '_smartshop_css', $all_block_css );
 				if ( ! $wp_filesystem->put_contents( $dirname . $filename, $all_block_css ) ) {
-					throw new \Exception( __('You are not permitted to save CSS.', 'smartshop' ) ); 
+					throw new \Exception( __('You are not permitted to save CSS.', 'shopxper' ) ); 
 				}
 				return [
 					'success' => true,
-					'message' =>__('SmartShop Blocks css file update.', 'smartshop' )
+					'message' =>__('SmartShop Blocks css file update.', 'shopxper' )
 				];
 			} else {
 				delete_post_meta( $post_id, '_smartshop_active' );
@@ -157,7 +157,7 @@ class Manage_Styles {
 				delete_post_meta( $post_id, '_smartshop_css' );
 				return [
 					'success' => true,
-					'message' => __('SmartShop Blocks CSS Delete.', 'smartshop' )
+					'message' => __('SmartShop Blocks CSS Delete.', 'shopxper' )
 				];
 			}
 		} catch( \Exception $e ){
@@ -196,20 +196,20 @@ class Manage_Styles {
 			update_post_meta( $post_id, '_smartshop_active', 'yes' );
 			
 			if ( ! $wp_filesystem->put_contents( $dirname . $filename, $css ) ) {
-				throw new \Exception( esc_html__('You are not permitted to save CSS.', 'smartshop' ) );
+				throw new \Exception( esc_html__('You are not permitted to save CSS.', 'shopxper' ) );
 			}
 
 			wp_send_json_success(
 				[
 					'success' => true, 
-					'message' => esc_html__('Data fetch', 'smartshop' )
+					'message' => esc_html__('Data fetch', 'shopxper' )
 				]
 			);
 
 		} else {
 			return [ 
 				'success' => false, 
-				'message' => esc_html__('Data not found.', 'smartshop' )
+				'message' => esc_html__('Data not found.', 'shopxper' )
 			];
 		}
 

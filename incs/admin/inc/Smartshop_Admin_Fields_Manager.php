@@ -133,7 +133,7 @@ class Smartshop_Admin_Fields_Manager {
         if ( ! empty( $args['name'] ) ) {
             $probadge = '';
             if( $args['additional_info']['is_pro'] === true ){
-                $probadge = '<span class="smartshop-admin-switch-block-badge">'.esc_html__( 'Pro', 'smartshop' ).'</span>';
+                $probadge = '<span class="smartshop-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxper' ).'</span>';
             }
             $desc = sprintf( '<h6 class="smartshop-admin-option-title">%s%s</h6>', $args['name'], $probadge );
         } else {
@@ -291,9 +291,9 @@ class Smartshop_Admin_Fields_Manager {
             $data_atr = esc_attr( 'data-smartshop-pro=disabled' );
         }
 
-        $label        = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose Image','smartshop' );
+        $label        = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose Image','shopxper' );
         $remove_label = isset( $args['options']['button_remove_label'] ) ? $args['options']['button_remove_label'] : __( 'Remove' );
-        $save_file    = ( $value != '' ) ? '<img src="'.esc_url( $value ).'" alt="'.esc_attr__( $label, 'smartshop' ).'">' : '';
+        $save_file    = ( $value != '' ) ? '<img src="'.esc_url( $value ).'" alt="'.esc_attr__( $label, 'shopxper' ).'">' : '';
 
         $html  = '<div class="smartshop-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
             $html  .= '<div class="smartshop-admin-option-content">';
@@ -335,7 +335,7 @@ class Smartshop_Admin_Fields_Manager {
         
         $probadge = $data_atr = '';
         if( $args['additional_info']['is_pro'] === true ){
-            $probadge = '<span class="smartshop-admin-switch-block-badge">'.esc_html__( 'Pro', 'smartshop' ).'</span>';
+            $probadge = '<span class="smartshop-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxper' ).'</span>';
             $data_atr = esc_attr( 'data-smartshop-pro=disabled' );
         }
 
@@ -352,8 +352,8 @@ class Smartshop_Admin_Fields_Manager {
             $html .= '<div class="smartshop-admin-switch-block-content">';
                 $html  .= sprintf('<h6 class="smartshop-admin-switch-block-title">%1$s</h6>', $args['name'] );
                 $html  .= '<div class="smartshop-admin-switch-block-info">';
-                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-smartshop-tooltip="'.esc_attr__('Preview','smartshop').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
-                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-smartshop-tooltip="'.esc_attr__('Documentation','smartshop').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-smartshop-tooltip="'.esc_attr__('Preview','shopxper').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-smartshop-tooltip="'.esc_attr__('Documentation','shopxper').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
                     $html .= $probadge;
                 $html  .= '</div>';
             $html  .= '</div>';
@@ -451,7 +451,7 @@ class Smartshop_Admin_Fields_Manager {
             </div>
         <?php
         echo '</div>';
-        echo '<button type="button" class="smartshop-repeater-item-add smartshop-admin-btn-primary" '.$add_limit.'><span class="dashicon dashicons dashicons-plus-alt2"></span>'.esc_html__('Add Item','smartshop').'</button>'.$custom_button_html.'</div>';
+        echo '<button type="button" class="smartshop-repeater-item-add smartshop-admin-btn-primary" '.$add_limit.'><span class="dashicon dashicons dashicons-plus-alt2"></span>'.esc_html__('Add Item','shopxper').'</button>'.$custom_button_html.'</div>';
 
 
     }
@@ -468,7 +468,7 @@ class Smartshop_Admin_Fields_Manager {
         $switch_id = esc_attr('data-switch-id=element');
         $probadge = $data_atr = '';
         if( $args['additional_info']['is_pro'] === true ){
-            $probadge = '<span class="smartshop-admin-switch-block-badge">'.esc_html__( 'Pro', 'smartshop' ).'</span>';
+            $probadge = '<span class="smartshop-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxper' ).'</span>';
             $checked = esc_attr('disabled=true');
             $data_atr = esc_attr( 'data-smartshop-pro=disabled' );
             $switch_id = '';
@@ -487,8 +487,8 @@ class Smartshop_Admin_Fields_Manager {
             $html .= '<div class="smartshop-admin-switch-block-content">';
                 $html  .= sprintf('<h6 class="smartshop-admin-switch-block-title">%1$s</h6>', $args['name'] );
                 $html  .= '<div class="smartshop-admin-switch-block-info">';
-                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-smartshop-tooltip="'.esc_attr__('Preview','smartshop').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
-                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-smartshop-tooltip="'.esc_attr__('Documentation','smartshop').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-smartshop-tooltip="'.esc_attr__('Preview','shopxper').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-smartshop-tooltip="'.esc_attr__('Documentation','shopxper').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
                     $html .= $probadge;
                 $html  .= '</div>';
             $html  .= '</div>';
@@ -897,11 +897,11 @@ class Smartshop_Admin_Fields_Manager {
                 // $('.wp-color-picker-field').wpColorPicker({
 
                 //     change: function (event, ui) {
-                //         $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
+                //         $(this).closest('.shopxper-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
                 //     },
 
                 //     clear: function (event) {
-                //         $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
+                //         $(this).closest('.shopxper-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SMARTSHOP_ADMIN.message.btntxt );
                 //     }
                     
                 // });

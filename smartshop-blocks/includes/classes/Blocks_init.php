@@ -61,7 +61,7 @@ class Blocks_init {
         if ( isset( $block['location'] ) ) {
             $block_dir = trailingslashit( $block['location'] );
         } else {
-            $block_dir = ( isset($block['is_pro']) && $block['is_pro'] == true && defined( "SMARTSHOP_ADDONS_PL_PATH_PRO" ) ) ? SMARTSHOP_ADDONS_PL_PATH_PRO . 'blocks/' : SMARTSHOP_BLOCK_PATH . '/build/blocks/';
+            $block_dir = ( isset($block['is_pro']) && $block['is_pro'] == true && defined( "SHOPXPERT_ADDONS_PL_PATH_PRO" ) ) ? SHOPXPERT_ADDONS_PL_PATH_PRO . 'blocks/' : SMARTSHOP_BLOCK_PATH . '/build/blocks/';
         }
 
         $block_name  = str_replace('smartshop/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));

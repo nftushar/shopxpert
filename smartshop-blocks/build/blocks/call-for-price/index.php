@@ -13,7 +13,7 @@ $areaClasses = array( $uniqClass );
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	?>
 		<div class="wl-call-forprice">
-			<a href="tel:<?php echo esc_attr($settings['buttonPhoneNumber']); ?>" ><?php echo esc_html__( $settings['buttonText'], 'smartshop' ); ?></a>
+			<a href="tel:<?php echo esc_attr($settings['buttonPhoneNumber']); ?>" ><?php echo esc_html__( $settings['buttonText'], 'shopxper' ); ?></a>
 		</div>
 	<?php
 echo '</div>';

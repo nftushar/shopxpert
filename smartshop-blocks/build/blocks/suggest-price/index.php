@@ -33,7 +33,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			if( isset( $_REQUEST['wlsubmit-'.$id] ) ){
 
 				if ( ! isset( $_POST['smartshop_suggest_price_nonce_field'] ) || ! wp_verify_nonce( $_POST['smartshop_suggest_price_nonce_field'], 'smartshop_suggest_price_action' ) ){
-					echo '<p class="wlsendmessage">'.esc_html__('Sorry, your nonce verification fail.','smartshop').'</p>';
+					echo '<p class="wlsendmessage">'.esc_html__('Sorry, your nonce verification fail.','shopxper').'</p>';
 				}else{
 					$name     = $_POST['wlname'];
 					$email    = $_POST['wlemail'];
@@ -41,8 +41,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 					//php mailer variables
 					$sentto  = $settings['sendToMail'];
-					$subject = esc_html__("Suggest Price For - ".$product->get_title(), 'smartshop');
-					$headers = esc_html__('From: ','smartshop'). esc_html( $email ) . "\r\n" . esc_html__('Reply-To: ', 'smartshop') . esc_html( $email ) . "\r\n";
+					$subject = esc_html__("Suggest Price For - ".$product->get_title(), 'shopxper');
+					$headers = esc_html__('From: ','shopxper'). esc_html( $email ) . "\r\n" . esc_html__('Reply-To: ', 'shopxper') . esc_html( $email ) . "\r\n";
 
 					//Here put your Validation and send mail
 					$sent = wp_mail( $sentto, $subject, wp_strip_all_tags($message), $headers );
@@ -56,8 +56,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 				}
 			}
 		?>
-		<button id="wlopenform-<?php echo esc_attr( $id ); ?>" class="wlsugget-button wlopen"><?php echo esc_html__( $settings['openButtonText'], 'smartshop' ); ?></button>
-		<button id="wlcloseform-<?php echo esc_attr( $id ); ?>" class="wlsugget-button wlclose" style="display: none;"><?php echo esc_html__( $settings['closeButtonText'], 'smartshop' ); ?></button>
+		<button id="wlopenform-<?php echo esc_attr( $id ); ?>" class="wlsugget-button wlopen"><?php echo esc_html__( $settings['openButtonText'], 'shopxper' ); ?></button>
+		<button id="wlcloseform-<?php echo esc_attr( $id ); ?>" class="wlsugget-button wlclose" style="display: none;"><?php echo esc_html__( $settings['closeButtonText'], 'shopxper' ); ?></button>
 		<form id="wlsuggestform-<?php echo esc_attr( $id ); ?>" action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" method="post">
 			<div class="wl-suggest-form-input">
 				<input type="text" name="wlname" id="<?php echo esc_attr( 'wlname-' .$id );?>" placeholder="<?php echo esc_attr($settings['namePlaceholderText']);?>" />

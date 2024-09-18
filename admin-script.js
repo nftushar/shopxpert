@@ -1,23 +1,23 @@
 jQuery(document).ready(function($) {
-    $('#smartshop-form').on('submit', function(e) {
+    $('#shopxpert-form').on('submit', function(e) {
         e.preventDefault();
         
-console.log("smartshop-form");
+console.log("shopxpert-form");
 
         // Serialize form data
         var formData = $(this).serialize();
 
         // Ensure checkbox is handled explicitly
-        var checkbox = $('input[name="smartshop_checkbox"]');
+        var checkbox = $('input[name="shopxpert_checkbox"]');
         if (checkbox.length > 0 && !checkbox.is(':checked')) {
-            formData += '&smartshop_checkbox=0';
+            formData += '&shopxpert_checkbox=0';
         }
 
         $.ajax({
             url: smartshop_ajax.ajax_url,
             type: 'POST',
             data: {
-                action: 'save_smartshop_settings',
+                action: 'save_shopxpert_settings',
                 nonce: $('#nonce').val(),
                 settings: formData,
             },

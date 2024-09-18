@@ -62,7 +62,7 @@ class Assets_Management{
     public function body_classes( $classes ){
 
         $current_theme = wp_get_theme();
-        $classes[] = 'smartshop_current_theme_'.$current_theme->get( 'TextDomain' );
+        $classes[] = 'shopxpert_current_theme_'.$current_theme->get( 'TextDomain' );
 
         return $classes;
     }
@@ -75,9 +75,9 @@ class Assets_Management{
  
         $style_list = [
            
-            'smartshop-admin' => [  
+            'shopxpert-admin' => [  
 
-                'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/css/smartshop-admin.css',
+                'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/css/shopxpert-admin.css',
                 'version' => SHOPXPERT_VERSION
             ],
         ];
@@ -94,15 +94,15 @@ class Assets_Management{
 
         $script_list = [
           
-            'smartshop-condition' => [
-                'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/smartshop-condition.js', 
+            'shopxpert-condition' => [
+                'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/shopxpert-condition.js', 
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery'],
             ],
 
 
-            'smartshop-admin-main' =>[
-                'src'     => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/smartshop-admin.js',
+            'shopxpert-admin-main' =>[
+                'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/shopxpert-admin.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery', 'wp-util', 'serializejson' ]
             ],
@@ -138,66 +138,66 @@ class Assets_Management{
         
         // Localize Scripts
         $localizeargs = array(
-            'smartshopajaxurl' => admin_url('admin-ajax.php'),
+            'shopxpertajaxurl' => admin_url('admin-ajax.php'),
             'ajax_nonce'       => 
-            ('smartshop_nonce_action'),
+            ('shopxper_nonce_action'),
         );
-        wp_localize_script('smartshop-widgets-scripts', 'smartshop_addons', $localizeargs);
+        wp_localize_script('shopxper-widgets-scripts', 'shopxper_addons', $localizeargs);
     
         // For Admin
         if (is_admin()) {
             $datalocalize = array(
-                'nonce' => wp_create_nonce('smartshop_nonce_action'),
+                'nonce' => wp_create_nonce('shopxper_nonce_action'),
                 'ajaxurl' => admin_url('admin-ajax.php'),
                 'message' => [
-                    'btntxt'  => esc_html__('Save Changes', 'smartshop'),
-                    'loading' => esc_html__('Saving...', 'smartshop'),
-                    'success' => esc_html__('XX Saved success Data', 'smartshop'),
-                    'yes'     => esc_html__('Yes', 'smartshop'),
-                    'cancel'  => esc_html__('Cancel', 'smartshop'),
-                    'sure'    => esc_html__('Are you sure?', 'smartshop'),
-                    'reseting'=> esc_html__('Resetting...', 'smartshop'),
-                    'reseted' => esc_html__('Reset All Settings', 'smartshop'),
+                    'btntxt'  => esc_html__('Save Changes', 'shopxper'),
+                    'loading' => esc_html__('Saving...', 'shopxper'),
+                    'success' => esc_html__('XX Saved success Data', 'shopxper'),
+                    'yes'     => esc_html__('Yes', 'shopxper'),
+                    'cancel'  => esc_html__('Cancel', 'shopxper'),
+                    'sure'    => esc_html__('Are you sure?', 'shopxper'),
+                    'reseting'=> esc_html__('Resetting...', 'shopxper'),
+                    'reseted' => esc_html__('Reset All Settings', 'shopxper'),
                 ],
                 'option_data' => [],
             );
-            wp_localize_script('smartshop-admin-main', 'SMARTSHOP_ADMIN', $datalocalize);
+            wp_localize_script('shopxpert-admin-main', 'SMARTSHOP_ADMIN', $datalocalize);
     
             // Localize Scripts For template Library
             $current_user = wp_get_current_user();
             $localize_data = [
                 'ajaxurl'          => admin_url('admin-ajax.php'),
-                'nonce'            => wp_create_nonce('smartshop_nonce_action'),
+                'nonce'            => wp_create_nonce('shopxper_nonce_action'),
                 'adminURL'         => admin_url(),
                 'elementorURL'     => admin_url('edit.php?post_type=elementor_library'),
                 'version'          => SHOPXPERT_VERSION,
                 'pluginURL'        => plugin_dir_url(__FILE__),
                 'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
                 'prolink'          => 'https://smartshop.com/pricing/?utm_source=admin&utm_medium=library',
-                'prolabel'         => esc_html__('Pro', 'smartshop'),
-                'loadingimg'       => SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
+                'prolabel'         => esc_html__('Pro', 'shopxper'),
+                'loadingimg'       => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
                 'message'          => [
-                    'packagedesc'=> esc_html__('in this package', 'smartshop'),
-                    'allload'    => esc_html__('All Items have been Loaded', 'smartshop'),
-                    'notfound'   => esc_html__('Nothing Found', 'smartshop'),
+                    'packagedesc'=> esc_html__('in this package', 'shopxper'),
+                    'allload'    => esc_html__('All Items have been Loaded', 'shopxper'),
+                    'notfound'   => esc_html__('Nothing Found', 'shopxper'),
                 ],
                 'buttontxt'      => [
-                    'tmplibrary' => esc_html__('Import to Library', 'smartshop'),
-                    'tmppage'    => esc_html__('Import to Page', 'smartshop'),
-                    'tmpbuilder' => esc_html__('Import to Builder', 'smartshop'),
-                    'import'     => esc_html__('Import', 'smartshop'),
-                    'buynow'     => esc_html__('Buy Now', 'smartshop'),
-                    'preview'    => esc_html__('Preview', 'smartshop'),
-                    'installing' => esc_html__('Installing..', 'smartshop'),
-                    'activating' => esc_html__('Activating..', 'smartshop'),
-                    'active'     => esc_html__('Active', 'smartshop'),
+                    'tmplibrary' => esc_html__('Import to Library', 'shopxper'),
+                    'tmppage'    => esc_html__('Import to Page', 'shopxper'),
+                    'tmpbuilder' => esc_html__('Import to Builder', 'shopxper'),
+                    'import'     => esc_html__('Import', 'shopxper'),
+                    'buynow'     => esc_html__('Buy Now', 'shopxper'),
+                    'preview'    => esc_html__('Preview', 'shopxper'),
+                    'installing' => esc_html__('Installing..', 'shopxper'),
+                    'activating' => esc_html__('Activating..', 'shopxper'),
+                    'active'     => esc_html__('Active', 'shopxper'),
                 ],
                 'user'           => [
                     'email' => $current_user->user_email,
                 ],
             ];
-            wp_localize_script('smartshop-templates', 'WLTM', $localize_data);
-            wp_localize_script('smartshop-install-manager', 'WLIM', $localize_data);
+            wp_localize_script('shopxper-templates', 'WLTM', $localize_data);
+            wp_localize_script('shopxper-install-manager', 'WLIM', $localize_data);
         }
     }
     
@@ -222,11 +222,11 @@ class Assets_Management{
         wp_enqueue_style( 'simple-line-icons-wl' );
         wp_enqueue_style( 'htflexboxgrid' );
         wp_enqueue_style( 'slick' );
-        wp_enqueue_style( 'smartshop-widgets' );
+        wp_enqueue_style( 'shopxper-widgets' );
         
         // If RTL
         if ( is_rtl() ) {
-            wp_enqueue_style(  'smartshop-widgets-rtl' );
+            wp_enqueue_style(  'shopxper-widgets-rtl' );
         }
     }
 

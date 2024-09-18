@@ -221,7 +221,7 @@ span.smartshop-reset-btn:hover {
   line-height: 1;
   border-radius: 0;
 }
-[class*="smartshopblock-checkout"] .smartshop-form-title {
+[class*="smartshopblock-checkout"] .shopxpert-form-title {
   margin: 0;
 }
 .woocommerce [class*="smartshopblock-checkout"] form .form-row .required {

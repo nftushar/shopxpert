@@ -34,7 +34,7 @@ class Sample_Data {
      * [generate_hash_key] Generate hash key
      */
     private function generate_hash_key( $string ) {
-        $string = str_replace( '/','smartshop', $string );
+        $string = str_replace( '/','shopxper', $string );
 		return $string . md5( $string );
 	}
 

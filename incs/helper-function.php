@@ -8,18 +8,18 @@ if( ! defined( 'ABSPATH' ) ) exit();
 
 
 /**
- * [smartshop_is_woocommerce]
+ * [shopxpert_is_woocommerce]
  * @return [boolean]
  */
-function smartshop_is_woocommerce() {
+function shopxpert_is_woocommerce() {
     return class_exists( 'WooCommerce' );
 }
 
 /**
- * [smartshop_is_pro]
+ * [shopxpert_is_pro]
  * @return [boolean]
  */
-function smartshop_is_pro() {
+function shopxpert_is_pro() {
     return class_exists( '\SmartShopPro\Base' );
 }
 
@@ -27,7 +27,7 @@ function smartshop_is_pro() {
  * Smartshop Templates List
  * return array
  */
-function smartshop_wltemplate_list( $type = [] ){
+function shopxpert_wltemplate_list( $type = [] ){
    
 
     $template_lists = [];
@@ -63,7 +63,7 @@ function smartshop_wltemplate_list( $type = [] ){
 * Elementor Version check
 * @return [boolean]
 */
-function smartshop_is_elementor_version( $operator = '<', $version = '2.6.0' ) {
+function shopxpert_is_elementor_version( $operator = '<', $version = '2.6.0' ) {
     return defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, $version, $operator );
 }
 
@@ -71,7 +71,7 @@ function smartshop_is_elementor_version( $operator = '<', $version = '2.6.0' ) {
  * Get elementor instance
  * @return [\Elementor\Plugin]
  */
-function smartshop_elementor() {
+function shopxpert_elementor() {
 	return \Elementor\Plugin::instance();
 }
 
@@ -79,7 +79,7 @@ function smartshop_elementor() {
 * Is Elementor check
 * @return [boolean]
 */
-function smartshop_is_elementor_editor(){
+function shopxpert_is_elementor_editor(){
     return class_exists('\Elementor\Plugin') ? true : false;
 }
 
@@ -87,8 +87,8 @@ function smartshop_is_elementor_editor(){
 * Elementor editor mode
 * @return [boolean]
 */
-function smartshop_is_elementor_editor_mode(){
-    if( smartshop_is_elementor_editor() && \Elementor\Plugin::instance()->editor->is_edit_mode() ){
+function shopxpert_is_elementor_editor_mode(){
+    if( shopxpert_is_elementor_editor() && \Elementor\Plugin::instance()->editor->is_edit_mode() ){
         return true;
     }else{
         return false;
@@ -99,8 +99,8 @@ function smartshop_is_elementor_editor_mode(){
 * Template Preview mode
 * @return boolean
 */
-function smartshop_is_preview_mode(){
-    if( smartshop_is_elementor_editor_mode() || get_post_type() === 'smartshop-template' ){
+function shopxpert_is_preview_mode(){
+    if( shopxpert_is_elementor_editor_mode() || get_post_type() === 'smartshop-template' ){
         return true;
     }else{
         return false;
@@ -155,7 +155,7 @@ function smartshop_render_icon( $settings = [], $new_icon = 'selected_icon', $ol
     $attributes['aria-hidden'] = 'true';
     $output = '';
 
-    if ( smartshop_is_elementor_version( '>=', '2.6.0' ) && ( $is_new || $migrated ) ) {
+    if ( shopxpert_is_elementor_version( '>=', '2.6.0' ) && ( $is_new || $migrated ) ) {
 
         if ( empty( $settings[$new_icon]['library'] ) ) {
             return false;
@@ -209,7 +209,7 @@ function smartshop_render_icon( $settings = [], $new_icon = 'selected_icon', $ol
  * @return [string] 
  */
 function smartshop_get_cookie_name( $name ) {
-    $name = 'smartshop_'.$name;
+    $name = 'shopxpert_'.$name;
     if ( is_multisite() ){
         $name .= '_' . get_current_blog_id();
     }
@@ -480,7 +480,7 @@ function smartshop_get_post_types( $args = [] ) {
  */
 function smartshop_post_name( $post_type = 'post', $args = [] ){
     $options = array();
-    $options['0'] = __('Select','smartshop');
+    $options['0'] = __('Select','shopxper');
     $perpage = !empty( $args['limit'] ) ? $args['limit'] : smartshop_get_option( 'loadproductlimit', 'smartshop_others_tabs', '20' );
     $all_post = array( 'posts_per_page' => $perpage, 'post_type'=> $post_type );
     $post_terms = get_posts( $all_post );
@@ -496,16 +496,16 @@ function smartshop_post_name( $post_type = 'post', $args = [] ){
  * Elementor Templates List
  * return array
  */
-function smartshop_elementor_template() {
+function shopxpert_elementor_template() {
     $templates = '';
     if( class_exists('\Elementor\Plugin') ){
         $templates = \Elementor\Plugin::instance()->templates_manager->get_source( 'local' )->get_items();
     }
     $types = array();
     if ( empty( $templates ) ) {
-        $template_lists = [ '0' => __( 'No saved templates found.', 'smartshop' ) ];
+        $template_lists = [ '0' => __( 'No saved templates found.', 'shopxper' ) ];
     } else {
-        $template_lists = [ '0' => __( 'Select Template', 'smartshop' ) ];
+        $template_lists = [ '0' => __( 'Select Template', 'shopxper' ) ];
         foreach ( $templates as $template ) {
             $template_lists[ $template['template_id'] ] = $template['title'] . ' (' . $template['type'] . ')';
         }
@@ -661,15 +661,15 @@ function smartshop_get_last_product_id(){
  */
 function smartshop_html_tag_lists() {
     $html_tag_list = [
-        'h1'   => __( 'H1', 'smartshop' ),
-        'h2'   => __( 'H2', 'smartshop' ),
-        'h3'   => __( 'H3', 'smartshop' ),
-        'h4'   => __( 'H4', 'smartshop' ),
-        'h5'   => __( 'H5', 'smartshop' ),
-        'h6'   => __( 'H6', 'smartshop' ),
-        'p'    => __( 'p', 'smartshop' ),
-        'div'  => __( 'div', 'smartshop' ),
-        'span' => __( 'span', 'smartshop' ),
+        'h1'   => __( 'H1', 'shopxper' ),
+        'h2'   => __( 'H2', 'shopxper' ),
+        'h3'   => __( 'H3', 'shopxper' ),
+        'h4'   => __( 'H4', 'shopxper' ),
+        'h5'   => __( 'H5', 'shopxper' ),
+        'h6'   => __( 'H6', 'shopxper' ),
+        'p'    => __( 'p', 'shopxper' ),
+        'div'  => __( 'div', 'shopxper' ),
+        'span' => __( 'span', 'shopxper' ),
     ];
     return $html_tag_list;
 }
@@ -1019,10 +1019,10 @@ if( class_exists('WooCommerce') ){
             if( $echo == false ){ ob_start(); }
 
             if( $product->is_on_sale() && $product->is_in_stock() ){
-                echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'smartshop' ) . '</span>', $post, $product );
+                echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'shopxper' ) . '</span>', $post, $product );
             }else{
                 $out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
-                $out_of_stock_text = apply_filters( 'smartshop_shop_out_of_stock_text', __( 'Out of stock', 'smartshop' ) );
+                $out_of_stock_text = apply_filters( 'smartshop_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
                 if ( 'outofstock' === $out_of_stock ) {
                     echo '<span class="outofstock onsale">'.esc_html( $out_of_stock_text ).'</span>';
                 }
@@ -1065,12 +1065,12 @@ if( class_exists('WooCommerce') ){
                 }else{ echo ' '; }
 
             }else{
-                $sale_badge_text = apply_filters( 'smartshop_sale_badge_text', esc_html__( 'Sale!', 'smartshop' ) );
+                $sale_badge_text = apply_filters( 'smartshop_sale_badge_text', esc_html__( 'Sale!', 'shopxper' ) );
                 echo '<span class="ht-product-label ht-product-label-right">'.esc_html( $sale_badge_text ).'</span>';
             }
         }else{
             $out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
-            $out_of_stock_text = !empty( $outofstocktxt ) ? esc_html( $outofstocktxt ) : apply_filters( 'smartshop_shop_out_of_stock_text', __( 'Out of stock', 'smartshop' ) );
+            $out_of_stock_text = !empty( $outofstocktxt ) ? esc_html( $outofstocktxt ) : apply_filters( 'smartshop_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
             if ( 'outofstock' === $out_of_stock ) {
                 echo '<span class="ht-stockout ht-product-label ht-product-label-right">'.esc_html( $out_of_stock_text ).'</span>';
             }
@@ -1099,12 +1099,12 @@ if( class_exists('WooCommerce') ){
                 <select name="orderby" class="orderby">
                     <?php
                         $catalog_orderby = apply_filters( 'woocommerce_catalog_orderby', array(
-                            'menu_order' => __( 'Default sorting', 'smartshop' ),
-                            'popularity' => __( 'Sort by popularity', 'smartshop' ),
-                            'rating'     => __( 'Sort by average rating', 'smartshop' ),
-                            'date'       => __( 'Sort by latest', 'smartshop' ),
-                            'price'      => __( 'Sort by price: low to high', 'smartshop' ),
-                            'price-desc' => __( 'Sort by price: high to low', 'smartshop' ),
+                            'menu_order' => __( 'Default sorting', 'shopxper' ),
+                            'popularity' => __( 'Sort by popularity', 'shopxper' ),
+                            'rating'     => __( 'Sort by average rating', 'shopxper' ),
+                            'date'       => __( 'Sort by latest', 'shopxper' ),
+                            'price'      => __( 'Sort by price: low to high', 'shopxper' ),
+                            'price-desc' => __( 'Sort by price: high to low', 'shopxper' ),
                         ) );
                         foreach ( $catalog_orderby as $id => $name ){
                             echo '<option value="' . esc_attr( $id ) . '" ' . selected( $getorderby, $id, false ) . '>' . esc_attr( $name ) . '</option>';
@@ -1233,7 +1233,7 @@ if( class_exists('WooCommerce') ){
 
             $total_stock = get_post_meta( $product_id, 'smartshop_total_stock_quantity', true );
 
-            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'smartshop' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'smartshop' ).'</a></div>'; return; } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'shopxper' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'shopxper' ).'</a></div>'; return; } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
             $current_stock = round( get_post_meta( $product_id, '_stock', true ) );
 
@@ -1243,15 +1243,15 @@ if( class_exists('WooCommerce') ){
             if ( $current_stock > 0 ) {
                 echo '<div class="smartshop-stock-progress-bar">';
                     echo '<div class="wlstock-info">';
-                        echo '<div class="wltotal-sold">' . esc_html__( $order_text, 'smartshop' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
-                    echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'smartshop' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
+                        echo '<div class="wltotal-sold">' . esc_html__( $order_text, 'shopxper' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
+                    echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'shopxper' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
                     echo '</div>';
-                    echo '<div class="wlprogress-area" title="' . esc_html__( 'Sold', 'smartshop' ) . ' ' . esc_attr( $percentage ) . '%">';
+                    echo '<div class="wlprogress-area" title="' . esc_html__( 'Sold', 'shopxper' ) . ' ' . esc_attr( $percentage ) . '%">';
                         echo '<div class="wlprogress-bar"style="width:' . esc_attr( $percentage ) . '%;"></div>';
                     echo '</div>';
                 echo '</div>';
             }else{
-                echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'smartshop' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'smartshop' ).'</a></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'shopxper' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'shopxper' ).'</a></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
 
         }
@@ -1316,17 +1316,17 @@ function smartshop_get_taxonomies( $object = 'product', $skip_terms = false ) {
  */
 function smartshop_order_by_opts() {
     $options = [
-        'none'                  => esc_html__( 'None', 'smartshop' ),
-        'ID'                    => esc_html__( 'ID', 'smartshop' ),
-        'date'                  => esc_html__( 'Date', 'smartshop' ),
-        'name'                  => esc_html__( 'Name', 'smartshop' ),
-        'title'                 => esc_html__( 'Title', 'smartshop' ),
-        'comment_count'         => esc_html__( 'Comment count', 'smartshop' ),
-        'rand'                  => esc_html__( 'Random', 'smartshop' ),
-        'featured'              => esc_html__( 'Featured', 'smartshop' ),
-        '_price'                => esc_html__( 'Product Price', 'smartshop' ),
-        'total_sales'           => esc_html__( 'Top Seller', 'smartshop' ),
-        '_wc_average_rating'    => esc_html__( 'Top Rated', 'smartshop' ),
+        'none'                  => esc_html__( 'None', 'shopxper' ),
+        'ID'                    => esc_html__( 'ID', 'shopxper' ),
+        'date'                  => esc_html__( 'Date', 'shopxper' ),
+        'name'                  => esc_html__( 'Name', 'shopxper' ),
+        'title'                 => esc_html__( 'Title', 'shopxper' ),
+        'comment_count'         => esc_html__( 'Comment count', 'shopxper' ),
+        'rand'                  => esc_html__( 'Random', 'shopxper' ),
+        'featured'              => esc_html__( 'Featured', 'shopxper' ),
+        '_price'                => esc_html__( 'Product Price', 'shopxper' ),
+        'total_sales'           => esc_html__( 'Top Seller', 'shopxper' ),
+        '_wc_average_rating'    => esc_html__( 'Top Rated', 'shopxper' ),
     ];
     return apply_filters( 'smartshop_order_by_opts', $options );
 
@@ -1364,9 +1364,9 @@ function smartshop_compare_button( $button_arg = array() ){
 
     $button_style       = !empty( $button_arg['style'] ) ? $button_arg['style'] : 1;
     
-    $button_title       = !empty( $button_arg['title'] ) ? $button_arg['title'] : esc_html__('Add to Compare','smartshop');
-    $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','smartshop');
-    $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','smartshop' );
+    $button_title       = !empty( $button_arg['title'] ) ? $button_arg['title'] : esc_html__('Add to Compare','shopxper');
+    $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','shopxper');
+    $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','shopxper' );
 
     if( class_exists('Ever_Compare') || class_exists('Smartshop_Ever_Compare') ){
 
@@ -1388,7 +1388,7 @@ function smartshop_compare_button( $button_arg = array() ){
                 echo do_shortcode('[yith_compare_button]');
             }
         }else{
-            echo '<a title="'. esc_attr__('Add to Compare', 'smartshop') .'" href="'. esc_url( $comp_link ) .'" class="smartshop-compare compare" data-product_id="'. esc_attr( $product_id ) .'" aria-label="'.esc_attr__('Compare','smartshop-pro').'" rel="nofollow">'.esc_html__( 'Compare', 'smartshop' ).'</a>';
+            echo '<a title="'. esc_attr__('Add to Compare', 'shopxper') .'" href="'. esc_url( $comp_link ) .'" class="smartshop-compare compare" data-product_id="'. esc_attr( $product_id ) .'" aria-label="'.esc_attr__('Compare','smartshop-pro').'" rel="nofollow">'.esc_html__( 'Compare', 'shopxper' ).'</a>';
         }
     }else{
         return 0;
@@ -1576,7 +1576,7 @@ function smartshop_get_current_theme_directory(){
  * Products not found content.
  */
 function smartshop_products_not_found_content(){
-    return '<div class="products-not-found"><p class="woocommerce-info">' . esc_html__( 'No products were found matching your selection.','smartshop' ) . '</p></div>';
+    return '<div class="products-not-found"><p class="woocommerce-info">' . esc_html__( 'No products were found matching your selection.','shopxper' ) . '</p></div>';
 }
 
 /**
@@ -1658,7 +1658,7 @@ if( !function_exists('smartshop_block_filter_generate_term_link') ){
         }
 
         if( $filter_name === 'product_cat' || $filter_name === 'product_tag' ){
-            $filter_name = 'smartshop_'.$filter_name;
+            $filter_name = 'shopxpert_'.$filter_name;
         }
 
         $current_filter = isset( $_GET[ $filter_name ] ) ? explode( ',', wc_clean( wp_unslash( $_GET[ $filter_name ] ) ) ) : array();

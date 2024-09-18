@@ -15,7 +15,7 @@ $classes 	 = array( 'wlspcial-banner' );
 
 $default_img_url = SMARTSHOP_BLOCK_URL . '/assets/images/banner-image.svg';
 $banner_url 	= !empty( $settings['bannerLink'] ) ? $settings['bannerLink'] : '#';
-$banner_image 	= !empty( $settings['bannerImage']['id'] ) ? wp_get_attachment_image( $settings['bannerImage']['id'], 'full' ) : '<img src="'.esc_url($default_img_url).'" alt="'.esc_attr__("Banner Default image",'smartshop').'" />';
+$banner_image 	= !empty( $settings['bannerImage']['id'] ) ? wp_get_attachment_image( $settings['bannerImage']['id'], 'full' ) : '<img src="'.esc_url($default_img_url).'" alt="'.esc_attr__("Banner Default image",'shopxper').'" />';
 $badge_image 	= !empty( $settings['badgeImage']['id'] ) ? wp_get_attachment_image( $settings['badgeImage']['id'], 'full' ) : '';
 
 ?>
@@ -50,7 +50,7 @@ $badge_image 	= !empty( $settings['badgeImage']['id'] ) ? wp_get_attachment_imag
 				}
 
 				if( !empty( $settings['buttonText'] ) ){
-					echo '<a href="'.esc_url( $banner_url ).'">'.esc_html__( $settings['buttonText'],'smartshop' ).'</a>';
+					echo '<a href="'.esc_url( $banner_url ).'">'.esc_html__( $settings['buttonText'],'shopxper' ).'</a>';
 				}
 			?>
 		</div>

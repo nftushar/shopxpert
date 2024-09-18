@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             ?>
                             <ul>
                                 <?php
-                                    echo '<li class="attribute_label">'.wc_attribute_label( $attribute->get_name() ).esc_html__(':','smartshop').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                    echo '<li class="attribute_label">'.wc_attribute_label( $attribute->get_name() ).esc_html__(':','shopxper').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     if ( $attribute->is_taxonomy() ) {
                                         global $wc_product_attributes;
                                         $product_terms = wc_get_product_terms( $product->get_id(), $name, array( 'fields' => 'all' ) );

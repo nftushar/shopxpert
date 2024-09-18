@@ -65,8 +65,8 @@ class Dashboard {
 
         self::$admin_menu_hook = add_submenu_page(
             'smartshop_page',
-            esc_html__( 'Wishlist', 'smartshop' ),
-            esc_html__( 'Wishlist', 'smartshop' ),
+            esc_html__( 'Wishlist', 'shopxper' ),
+            esc_html__( 'Wishlist', 'shopxper' ),
             'manage_options',
             self::MENU_PAGE_SLUG,
             [ $this,'dashboard' ]

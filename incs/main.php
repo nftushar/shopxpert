@@ -29,7 +29,7 @@ final class Base {
         add_action('plugins_loaded', [$this, 'init']);
 
         // Startshop Template CPT Manager
-        require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/inc/Smartshop_Template_Manager.php';
+        require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/Smartshop_Template_Manager.php';
     }
 
     /**
@@ -44,23 +44,23 @@ final class Base {
 
     public function included_files() {
     
-        require SMARTSHOP_ADDONS_PL_PATH . 'incs/helper-function.php';
-        require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.assest_management.php';
-        // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.widgets_control.php';
-        // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.default_data.php';
-        // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.quickview_manage.php';
-        // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.icon_list.php';
-        // require SMARTSHOP_ADDONS_PL_PATH . 'classes/class.multi_language.php';
-        //    require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popups.php'; 
+        require SHOPXPERT_ADDONS_PL_PATH . 'incs/helper-function.php';
+        require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.assest_management.php';
+        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.widgets_control.php';
+        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.default_data.php';
+        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.quickview_manage.php';
+        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.icon_list.php';
+        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.multi_language.php';
+        //    require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popups.php'; 
 
         // Admin Setting file
         if (is_admin()) {
-            // require SMARTSHOP_ADDONS_PL_PATH . 'incs/custom-metabox.php';
-            require SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/admin-init.php';
+            // require SHOPXPERT_ADDONS_PL_PATH . 'incs/custom-metabox.php';
+            require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/admin-init.php';
         }
 
         // features Manager
-        require( SMARTSHOP_ADDONS_PL_PATH. 'incs/features/class.feature-manager.php' );
+        require( SHOPXPERT_ADDONS_PL_PATH. 'incs/features/class.feature-manager.php' );
     } 
 }
 
@@ -69,6 +69,6 @@ final class Base {
  *
  * @return Base
  */
-function smartshop() {
+function shopxpert() {
     return Base::instance();
 } 

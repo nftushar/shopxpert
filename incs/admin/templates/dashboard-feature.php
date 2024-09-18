@@ -28,17 +28,17 @@ if (!is_array($other_fields)) {
    echo "no other_fields";
 }
 ?>
-<div id="smartshop_others_tabs" class="smartshop-admin-main-tab-pane">
-    <div class="smartshop-admin-main-tab-pane-inner"> 
+<div id="smartshop_others_tabs" class="shopxper-admin-main-tab-pane">
+    <div class="shopxper-admin-main-tab-pane-inner"> 
         <!-- Header Start -->
         <div class="smartshop-admin-header">
             <div class="smartshop-admin-header-content">
-                <h6 class="smartshop-admin-header-title"><?php echo esc_html__('SmartShop Feature','smartshop'); ?></h6>
-                <p class="smartshop-admin-header-text"><?php echo esc_html__('You can activate or deactivate all options with a single click','smartshop'); ?></p>
+                <h6 class="smartshop-admin-header-title"><?php echo esc_html__('SmartShop Feature','shopxper'); ?></h6>
+                <p class="smartshop-admin-header-text"><?php echo esc_html__('You can activate or deactivate all options with a single click','shopxper'); ?></p>
             </div>
             <div class="smartshop-admin-header-actions">
-                <button class="smartshop-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','smartshop'); ?></button>
-                <button class="smartshop-admin-btn disable" data-switch-toggle="disable" data-switch-target="element"><?php echo esc_html__('Disable all','smartshop'); ?></button>
+                <button class="smartshop-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','shopxper'); ?></button>
+                <button class="smartshop-admin-btn disable" data-switch-toggle="disable" data-switch-target="element"><?php echo esc_html__('Disable all','shopxper'); ?></button>
             </div>
         </div>
         <!-- Header End -->
@@ -65,7 +65,7 @@ if (!is_array($other_fields)) {
 
             <!-- Footer Start -->
             <div class="smartshop-admin-footer">
-                <button class="smartshop-admin-btn-save smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1" disabled="disabled"><?php echo esc_html__('1st Save Changes','smartshop');?></button>
+                <button class="smartshop-admin-btn-save smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1" disabled="disabled"><?php echo esc_html__('1st Save Changes','shopxper');?></button>
             </div>
             <!-- Footer End -->
         </form>

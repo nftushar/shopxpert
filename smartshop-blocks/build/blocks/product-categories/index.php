@@ -23,7 +23,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			echo '<div class="smartshop_product_categories_info">';
 				?>
 					<?php if( $settings['categoriesTitleHide'] !== true): ?>
-						<span class="categories-title"><?php echo sprintf( esc_html__( _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'smartshop' ) ) ); ?></span>
+						<span class="categories-title"><?php echo sprintf( esc_html__( _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'shopxper' ) ) ); ?></span>
 					<?php endif; ?>
 					<?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<?php

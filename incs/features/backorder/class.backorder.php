@@ -104,7 +104,7 @@ class Smartshop_Pending_Stock extends WC_Product{
 
 		foreach ( $formatted_meta as $key => $meta ) {
 			if ( $meta->key == 'smartshop_backordered' ) {
-                $meta->display_key  = esc_html__('Pending Stocked','smartshop');
+                $meta->display_key  = esc_html__('Pending Stocked','shopxper');
 			}
 		}
 
@@ -139,7 +139,7 @@ class Smartshop_Pending_Stock extends WC_Product{
                 if( $limit_status ){
                     $can_buy_max = ((int) $limit_status['backorder_limit'] + (int) $limit_status['stock_qty']) - (int) $limit_status['qty_already_backordered'];
 
-                    $error->add( 'smartshop_out_of_backorder_limit', sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit. Orders can be placed for up to <b>%s</b> units.', 'smartshop' ), $product_data->get_name(), $can_buy_max ) );
+                    $error->add( 'smartshop_out_of_backorder_limit', sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit. Orders can be placed for up to <b>%s</b> units.', 'shopxper' ), $product_data->get_name(), $can_buy_max ) );
 
                     $result = $error;
                 }
@@ -195,15 +195,15 @@ class Smartshop_Pending_Stock extends WC_Product{
                     $message = sprintf(
                         '<a href="%s" class="button wc-forward">%s</a> %s',
                         wc_get_cart_url(),
-                        __( 'View cart', 'smartshop' ),
+                        __( 'View cart', 'shopxper' ),
                         /* translators: 1: quantity in stock 2: current quantity */
-                        sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit — (%s available). You already have %s in your cart.', 'smartshop' ), $product_data->get_name(), $can_add_to_cart_max, $qty_already_on_cart )
+                        sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit — (%s available). You already have %s in your cart.', 'shopxper' ), $product_data->get_name(), $can_add_to_cart_max, $qty_already_on_cart )
                     );
 
                     $message = apply_filters( 'wlbackorder_cart_product_not_enough_stock_already_in_cart_message', $message, $product_data, $can_add_to_cart_max, $qty_already_on_cart );
 
                 } else {
-                    $message = sprintf( __( 'Sorry, "%s" was not added to cart because it has reached the maximum backorder limit. (%s available).', 'smartshop' ), $product_data->get_name(), $can_add_to_cart_max );
+                    $message = sprintf( __( 'Sorry, "%s" was not added to cart because it has reached the maximum backorder limit. (%s available).', 'shopxper' ), $product_data->get_name(), $can_add_to_cart_max );
 
                     $message = apply_filters( 'wlbackorder_cart_product_not_enough_stock_message', $message, $product_data, $can_add_to_cart_max );
                 }
@@ -366,7 +366,7 @@ class Smartshop_Pending_Stock extends WC_Product{
     
         // Default message if no availability message is set
         if($backorder_limit && $availability_date && empty($availability_message)){
-            $availability_message = __('On Pending Stock. Will be available on: '. $availability_date, 'smartshop');
+            $availability_message = __('On Pending Stock. Will be available on: '. $availability_date, 'shopxper');
         }
         error_log("Final Availability Message: " . $availability_message);
     
@@ -482,7 +482,7 @@ class Smartshop_Pending_Stock extends WC_Product{
         }
 
         $global_settings_value =  smartshop_get_option( $option_name, 'smartshop_backorder_settings');
-        $meta_value            = get_post_meta( $product_id, '_smartshop_'. $option_name, true );
+        $meta_value            = get_post_meta( $product_id, '_shopxpert_'. $option_name, true );
 
         if( $meta_value ){
             $global_settings_value = $meta_value;
@@ -520,11 +520,11 @@ class Smartshop_Pending_Stock extends WC_Product{
             array(
                 'id'                => '_smartshop_backorder_limit',
                 'value'             =>  $backorder_limit,
-                'label'             => __( 'Pending Stock Limit', 'smartshop' ),
+                'label'             => __( 'Pending Stock Limit', 'shopxper' ),
                 'placeholder'       => $backorder_limit_global,
                 'wrapper_class'     => '',
                 'desc_tip'          => true,
-                'description'       => __( 'Pending Stock limit. If this is a variable product this value will be used to control backorder limit for all variations, unless you define backorder limit at variation level.', 'smartshop' ),
+                'description'       => __( 'Pending Stock limit. If this is a variable product this value will be used to control backorder limit for all variations, unless you define backorder limit at variation level.', 'shopxper' ),
                 'type'              => 'number',
                 'custom_attributes' => array(
                     'step' => 'any',
@@ -533,8 +533,8 @@ class Smartshop_Pending_Stock extends WC_Product{
         );
         ?>
             <p class="form-field">
-                <label for="_smartshop_backorder_availability_date"><?php echo esc_html__('Pending Stock Availability', 'smartshop') ?></label>
-                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the Feature settings.', 'smartshop') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <label for="_smartshop_backorder_availability_date"><?php echo esc_html__('Pending Stock Availability', 'shopxper') ?></label>
+                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the Feature settings.', 'shopxper') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 <input type="date" class="short hasDatepicker" name="_smartshop_backorder_availability_date" id="_smartshop_backorder_availability_date" value="<?php echo esc_attr($backorder_availability); ?>" placeholder="<?php echo esc_attr($availability_date_global); ?>">
             </p>
         </div> <!-- .smartshop-backorder-fields -->

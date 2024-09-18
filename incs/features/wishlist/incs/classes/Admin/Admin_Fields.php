@@ -25,7 +25,7 @@ class Admin_Fields {
     }
 
     function __construct() {
-        require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/admin/inc/settings_field_manager_default.php' );
+        require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/admin/inc/settings_field_manager_default.php' );
         $this->settings_api = new \SmartShop_Settings_Field_Manager_Default();
         add_action( 'admin_init', [ $this, 'admin_init' ] );
     }

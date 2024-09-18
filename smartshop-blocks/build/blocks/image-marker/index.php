@@ -28,10 +28,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="wlb_pointer_box">
 						<?php
 							if( !empty( $item['title'] ) ){
-								echo '<h4>'.esc_html__( $item['title'], 'smartshop' ).'</h4>';
+								echo '<h4>'.esc_html__( $item['title'], 'shopxper' ).'</h4>';
 							}
 							if( !empty( $item['content'] ) ){
-								echo '<p>'.esc_html__( $item['content'], 'smartshop' ).'</p>';
+								echo '<p>'.esc_html__( $item['content'], 'shopxper' ).'</p>';
 							}
 						?>
 					</div>

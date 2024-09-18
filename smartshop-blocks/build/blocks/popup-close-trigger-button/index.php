@@ -15,7 +15,7 @@ if( !empty( $settings['buttonIcon'] ) ){
 }
 
 $short_code_attributes = [
-	'button_text' 	=> !empty( $settings['buttonText'] ) ? $settings['buttonText'] : __( 'Close', 'smartshop' ),
+	'button_text' 	=> !empty( $settings['buttonText'] ) ? $settings['buttonText'] : __( 'Close', 'shopxper' ),
 	'button_icon' 	=> htmlentities( $button_icon ),
 	'icon_position' => !empty( $settings['iconPosition'] ) ? $settings['iconPosition'] : 'left',
 	'button_align' 	=> !empty( $settings['alignment'] ) ? $settings['alignment'] : 'center',

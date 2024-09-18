@@ -119,10 +119,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php endif; ?>
 
                             <div class="ht-category-content">
-                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'smartshop' ); ?></a></h3>
+                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'shopxper' ); ?></a></h3>
                                 <?php 
                                     if( $settings['showCount'] === true ){
-                                        echo '<span>'.esc_html__( $prod_cat['count'], 'smartshop' ).'</span>';
+                                        echo '<span>'.esc_html__( $prod_cat['count'], 'shopxper' ).'</span>';
                                     }
                                 ?>
                             </div>
@@ -131,7 +131,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php elseif( '2' === $layout ):?>
                         <div class="ht-category-wrap-2">
                             <div class="ht-category-content-2 <?php echo ( $settings['titleAfterBorder'] === true ? "" : esc_attr("hide-title-after") ); ?>">
-                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'smartshop' ); ?></a></h3>
+                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'shopxper' ); ?></a></h3>
                             </div>
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image-2">
@@ -158,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 </div>
                             <?php endif; ?>
                             <div class="ht-category-content-3 ht-category-content-3-bg<?php echo esc_attr($bgc); ?>">
-                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'smartshop' ); ?></a></h3>
+                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'shopxper' ); ?></a></h3>
                             </div>
                         </div>
 
@@ -173,10 +173,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php endif; ?>
                             <div class="ht-category-content-4">
                                 <h3>
-                                    <a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'smartshop' ); ?></a>
+                                    <a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'shopxper' ); ?></a>
                                     <?php 
                                         if( $settings['showCount'] === true ){
-                                            echo '<span>('.esc_html__( $prod_cat['count'], 'smartshop' ).')</span>';
+                                            echo '<span>('.esc_html__( $prod_cat['count'], 'shopxper' ).')</span>';
                                         }
                                     ?>
                                 </h3>
@@ -193,7 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </div>
                             <?php endif; ?>
                             <div class="ht-category-content-5">
-                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'smartshop' ); ?></a></h3>
+                                <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'shopxper' ); ?></a></h3>
                             </div>
                         </div>
 

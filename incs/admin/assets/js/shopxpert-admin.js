@@ -21,10 +21,10 @@
       smartshop_admin_tabs( $(".smartshop-admin-tabs"), '.smartshop-admin-tab-pane' );
 
     // Navigation Tabs
-    $('.smartshop-admin-main-nav').on('click', '.smartshop-admin-main-nav-btn', function (e) {
+    $('.shopxper-admin-main-nav').on('click', '.shopxper-admin-main-nav-btn', function (e) {
         e.preventDefault()
         const $this = $(this),
-            $siblingsBtn = $this.closest('li').siblings().find('.smartshop-admin-main-nav-btn'),
+            $siblingsBtn = $this.closest('li').siblings().find('.shopxper-admin-main-nav-btn'),
             $target = $this.attr('href')
         localStorage.setItem("wlActiveTab", $target);
         if (!$this.hasClass('wlactive')) {
@@ -36,9 +36,9 @@
     if (localStorage.wlActiveTab !== undefined && localStorage.wlActiveTab !== null) {
         const $wlActiveTab = localStorage.getItem('wlActiveTab');
         let hasActiveElement = false;
-        $('.smartshop-admin-main-nav-btn').each(function () {
+        $('.shopxper-admin-main-nav-btn').each(function () {
             const $this = $(this),
-                $siblingsBtn = $this.closest('li').siblings().find('.smartshop-admin-main-nav-btn')
+                $siblingsBtn = $this.closest('li').siblings().find('.shopxper-admin-main-nav-btn')
             if ($this.attr('href') === $wlActiveTab) {
                 $this.addClass('wlactive');
                 $siblingsBtn.removeClass('wlactive');
@@ -49,18 +49,18 @@
         if (hasActiveElement) {
             $($wlActiveTab).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
         } else {
-            var $defaultIndex = $('.smartshop-admin-main-nav-btn').length;
+            var $defaultIndex = $('.shopxper-admin-main-nav-btn').length;
             if ($defaultIndex > 0) {
-                const $firstTab = $('.smartshop-admin-main-nav-btn')[$defaultIndex - 1],
+                const $firstTab = $('.shopxper-admin-main-nav-btn')[$defaultIndex - 1],
                     $target = $firstTab.hash;
                 $firstTab.classList.add('wlactive');
                 $($target).addClass('wlactive').show().siblings().removeClass('wlactive').hide();
             }
         }
     } else {
-        var $defaultIndex = $('.smartshop-admin-main-nav-btn').length;
+        var $defaultIndex = $('.shopxper-admin-main-nav-btn').length;
         if ($defaultIndex > 0) {
-            const $firstTab = $('.smartshop-admin-main-nav-btn')[$defaultIndex - 1],
+            const $firstTab = $('.shopxper-admin-main-nav-btn')[$defaultIndex - 1],
                 $target = $firstTab.hash
             $firstTab.classList.add('wlactive')
             $($target).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
@@ -80,7 +80,7 @@
     });
 
     // Footer Sticky Save Button
-    var $adminHeaderArea = $('.smartshop-admin-main-nav'),
+    var $adminHeaderArea = $('.shopxper-admin-main-nav'),
         $stickyFooterArea = $('.smartshop-admin-footer,.smartshop-sticky-condition');
 
     if ($stickyFooterArea.length <= 0 || $adminHeaderArea.length <= 0) return;
@@ -180,7 +180,7 @@ console.log("JS Switch Enable/Disable Function");
     $('.smartshop-admin-btn-save').on('click', function (event) {
         event.preventDefault();
 
-        var $option_form = $(this).closest('.smartshop-admin-main-tab-pane').find('form.smartshop-dashboard'),
+        var $option_form = $(this).closest('.shopxper-admin-main-tab-pane').find('form.smartshop-dashboard'),
             $savebtn = $(this),
             $section = $option_form.data('section'),
             $field_keys = $option_form.data('fields');
@@ -219,19 +219,19 @@ console.log("JS Switch Enable/Disable Function");
  
 
     // Save Button Enable
-    $('.smartshop-admin-main-tab-pane .smartshop-dashboard').on('click', 'input,select,textarea,.smartshop-admin-number-btn', function () { $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+    $('.shopxper-admin-main-tab-pane .smartshop-dashboard').on('click', 'input,select,textarea,.smartshop-admin-number-btn', function () { $(this).closest('.shopxper-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
     });
 
-    $('.smartshop-admin-main-tab-pane .smartshop-dashboard').on('keyup', 'input', function () {
-        $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+    $('.shopxper-admin-main-tab-pane .smartshop-dashboard').on('keyup', 'input', function () {
+        $(this).closest('.shopxper-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
     });
 
     $('.smartshop-admin-header-actions .smartshop-admin-btn').on('click', function () {
-        $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+        $(this).closest('.shopxper-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
     });
 
-    $('.smartshop-admin-main-tab-pane .smartshop-dashboard').on('change', 'select.smartshop-admin-select', function () {
-        $(this).closest('.smartshop-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
+    $('.shopxper-admin-main-tab-pane .smartshop-dashboard').on('change', 'select.smartshop-admin-select', function () {
+        $(this).closest('.shopxper-admin-main-tab-pane').find('.smartshop-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SMARTSHOP_ADMIN.message.btntxt);
     });
 
 

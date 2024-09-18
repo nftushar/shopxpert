@@ -14,9 +14,9 @@
                     {{{ data.content }}}
                     <div class="smartshop-admin-footer {{ data.section !== 'smartshop_others_tabs' ? 'has-reset' : '' }}">
                         <# if( data.section != 'smartshop_others_tabs' ){ #>
-                            <button class="smartshop-admin-Feature-reset smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1"><?php echo esc_html__('Reset To Default','smartshop');?></button>
+                            <button class="smartshop-admin-Feature-reset smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1"><?php echo esc_html__('Reset To Default','shopxper');?></button>
                         <# } #>
-                        <button class="smartshop-admin-Feature-save smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1" disabled="disabled"><?php echo esc_html__('Save Changes','smartshop');?></button>
+                        <button class="smartshop-admin-Feature-save smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1" disabled="disabled"><?php echo esc_html__('Save Changes','shopxper');?></button>
                     </div>
                 </form>
             </div>

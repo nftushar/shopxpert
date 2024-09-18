@@ -23,8 +23,8 @@ class Smartshop_Extension_Manager{
     public function admin_menu() {
         add_submenu_page(
             'smartshop_page', 
-            esc_html__( 'Extension', 'smartshop' ),
-            esc_html__( 'Extension', 'smartshop' ), 
+            esc_html__( 'Extension', 'shopxper' ),
+            esc_html__( 'Extension', 'shopxper' ), 
             'manage_options', 
             'smartshop_extension', 
             [ $this, 'render_html' ] 
@@ -35,8 +35,8 @@ class Smartshop_Extension_Manager{
         if( 'smartshop_page_smartshop_extension' == $hook ){
         	
         	//JS
-            wp_enqueue_script( 'smartshop-install-manager' );
-            wp_enqueue_script( 'smartshop-admin-main' );
+            wp_enqueue_script( 'shopxper-install-manager' );
+            wp_enqueue_script( 'shopxper-admin-main' );
 
         }
     }
@@ -64,17 +64,17 @@ class Smartshop_Extension_Manager{
 	    		array(
 	    			'slug'		=> 'whols',
 	    			'location'	=> 'whols.php',
-	    			'name'		=> esc_html__( 'Whols', 'smartshop' )
+	    			'name'		=> esc_html__( 'Whols', 'shopxper' )
 	    		),
 	    		array(
 	    			'slug'		=> 'just-tables',
 	    			'location'	=> 'just-tables.php',
-	    			'name'		=> esc_html__( 'JustTables', 'smartshop' )
+	    			'name'		=> esc_html__( 'JustTables', 'shopxper' )
 	    		),
 	    		array(
 	    			'slug'		=> 'wc-multi-currency',
 	    			'location'	=> 'wcmilticurrency.php',
-	    			'name'		=> esc_html__( 'Multi Currency', 'smartshop' )
+	    			'name'		=> esc_html__( 'Multi Currency', 'shopxper' )
 	    		)
 
     		),
@@ -84,28 +84,28 @@ class Smartshop_Extension_Manager{
     			array(
 	    			'slug'		=> 'just-tables-pro',
 	    			'location'	=> 'just-tables-pro.php',
-	    			'name'		=> esc_html__( 'JustTables Pro', 'smartshop' ),
+	    			'name'		=> esc_html__( 'JustTables Pro', 'shopxper' ),
 	    			'link'		=> 'https://hasthemes.com/wp/justtables/',
 	    			'author_link'=> 'https://hasthemes.com/',
-	    			'description'=> esc_html__( 'JustTables is an incredible WordPress plugin that lets you showcase all your WooCommerce products in a sortable and filterable table view. It allows your customers to easily navigate through different attributes of the products and compare them on a single page. This plugin will be of great help if you are looking for an easy solution that increases the chances of landing a sale on your online store.', 'smartshop' ),
+	    			'description'=> esc_html__( 'JustTables is an incredible WordPress plugin that lets you showcase all your WooCommerce products in a sortable and filterable table view. It allows your customers to easily navigate through different attributes of the products and compare them on a single page. This plugin will be of great help if you are looking for an easy solution that increases the chances of landing a sale on your online store.', 'shopxper' ),
 	    		),
 
     			array(
 	    			'slug'		=> 'whols-pro',
 	    			'location'	=> 'whols-pro.php',
-	    			'name'		=> esc_html__( 'Whols Pro – WooCommerce Wholesale Prices', 'smartshop' ),
+	    			'name'		=> esc_html__( 'Whols Pro – WooCommerce Wholesale Prices', 'shopxper' ),
 	    			'link'		=> 'https://hasthemes.com/plugins/whols-woocommerce-wholesale-prices/',
 	    			'author_link'=> 'https://hasthemes.com/',
-	    			'description'=> esc_html__( 'Whols is an outstanding WordPress plugin for WooCommerce that allows store owners to set wholesale prices for the products of their online stores. This plugin enables you to show special wholesale prices to the wholesaler. Users can easily request to become a wholesale customer by filling out a simple online registration form. Once the registration is complete, the owner of the store will be able to review the request and approve the request either manually or automatically.', 'smartshop' ),
+	    			'description'=> esc_html__( 'Whols is an outstanding WordPress plugin for WooCommerce that allows store owners to set wholesale prices for the products of their online stores. This plugin enables you to show special wholesale prices to the wholesaler. Users can easily request to become a wholesale customer by filling out a simple online registration form. Once the registration is complete, the owner of the store will be able to review the request and approve the request either manually or automatically.', 'shopxper' ),
 	    		),
 
     			array(
 	    			'slug'		=> 'multicurrencypro',
 	    			'location'	=> 'multicurrencypro.php',
-	    			'name'		=> esc_html__( 'Multi Currency Pro for WooCommerce', 'smartshop' ),
+	    			'name'		=> esc_html__( 'Multi Currency Pro for WooCommerce', 'shopxper' ),
 	    			'link'		=> 'https://hasthemes.com/plugins/multi-currency-pro-for-woocommerce/',
 	    			'author_link'=> 'https://hasthemes.com/',
-	    			'description'=> esc_html__( 'Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin for WooCommerce. This plugin allows your website or online store visitors to switch to their preferred currency or their country’s currency.', 'smartshop' ),
+	    			'description'=> esc_html__( 'Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin for WooCommerce. This plugin allows your website or online store visitors to switch to their preferred currency or their country’s currency.', 'shopxper' ),
 	    		)
 
     		),
@@ -133,8 +133,8 @@ class Smartshop_Extension_Manager{
     			</style>
     			<div class="extension-admin-tab-area wp-filter">
 	                <ul class="smartshop-admin-tabs filter-links">
-	                    <li class="wlactive"><a href="#free-extension" class="wlactive"><?php echo esc_html__( 'Free extension', 'smartshop' ); ?></a></li>
-	                    <li><a href="#pro-extension"><?php echo esc_html__( 'Pro extension', 'smartshop' ); ?></a></li>
+	                    <li class="wlactive"><a href="#free-extension" class="wlactive"><?php echo esc_html__( 'Free extension', 'shopxper' ); ?></a></li>
+	                    <li><a href="#pro-extension"><?php echo esc_html__( 'Pro extension', 'shopxper' ); ?></a></li>
 	                </ul>
 	            </div>
 
@@ -147,7 +147,7 @@ class Smartshop_Extension_Manager{
 									'slug'      => isset( $plugin['slug'] ) ? $plugin['slug'] : '',
 									'location'  => isset( $plugin['location'] ) ? $plugin['slug'].'/'.$plugin['location'] : '',
 									'name'      => isset( $plugin['name'] ) ? $plugin['name'] : '',
-									'image'     => isset( $plugin['icon'] ) ? $plugin['icon'] : SMARTSHOP_ADDONS_PL_URL.'/incs/admin/assets/images/extension/'.$plugin['slug'].'.png',
+									'image'     => isset( $plugin['icon'] ) ? $plugin['icon'] : SHOPXPERT_ADDONS_PL_URL.'/incs/admin/assets/images/extension/'.$plugin['slug'].'.png',
 								);
 
 								if ( ! is_wp_error( $data ) ) {
@@ -156,18 +156,18 @@ class Smartshop_Extension_Manager{
 									if ( file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && is_plugin_inactive( $data['location'] ) ) {
 
 										$button_classes = 'button activate-now button-primary';
-										$button_text    = esc_html__( 'Activate', 'smartshop' );
+										$button_text    = esc_html__( 'Activate', 'shopxper' );
 
 									// Not Installed.
 									} elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 
 										$button_classes = 'button install-now';
-										$button_text    = esc_html__( 'Install Now', 'smartshop' );
+										$button_text    = esc_html__( 'Install Now', 'shopxper' );
 
 									// Active.
 									} else {
 										$button_classes = 'button disabled';
-										$button_text    = esc_html__( 'Activated', 'smartshop' );
+										$button_text    = esc_html__( 'Activated', 'shopxper' );
 									}
 
 									?>
@@ -184,10 +184,10 @@ class Smartshop_Extension_Manager{
 											</div>
 										</div>
 										<div class="smartshop-admin-extension-bottom">
-											<p class="smartshop-admin-extension-info"><a href="<?php echo esc_url( $plugin['link'] ); ?>" target="_blank"><?php echo esc_html__( 'More Details', 'smartshop' ); ?></a></p>
+											<p class="smartshop-admin-extension-info"><a href="<?php echo esc_url( $plugin['link'] ); ?>" target="_blank"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
 											<?php
 												if (! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
-													echo '<a class="hover-effect-1 button button-primary" href="'.esc_url( $plugin['link'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'smartshop' ).'</a>';
+													echo '<a class="hover-effect-1 button button-primary" href="'.esc_url( $plugin['link'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxper' ).'</a>';
 												}else{
 											?>
 												<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
@@ -223,18 +223,18 @@ class Smartshop_Extension_Manager{
 		                if ( file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && is_plugin_inactive( $data['location'] ) ) {
 
 		                    $button_classes = 'button activate-now button-primary';
-		                    $button_text    = esc_html__( 'Activate', 'smartshop' );
+		                    $button_text    = esc_html__( 'Activate', 'shopxper' );
 
 		                // Not Installed.
 		                } elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 
 		                    $button_classes = 'button install-now';
-		                    $button_text    = esc_html__( 'Install Now', 'smartshop' );
+		                    $button_text    = esc_html__( 'Install Now', 'shopxper' );
 
 		                // Active.
 		                } else {
 		                    $button_classes = 'button disabled';
-		                    $button_text    = esc_html__( 'Activated', 'smartshop' );
+		                    $button_text    = esc_html__( 'Activated', 'shopxper' );
 		                }
 
 		                if( !empty( $data['slug'] ) && isset( $prepare_plugin[$data['slug']] ) ){
@@ -252,7 +252,7 @@ class Smartshop_Extension_Manager{
 										</div>
 									</div>
 									<div class="smartshop-admin-extension-bottom">
-										<p class="smartshop-admin-extension-info"><i class="wli wli-info"></i><?php printf( esc_html__( '%s Active Installations', 'smartshop' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) ); ?> <a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo esc_attr($data['slug']); ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'smartshop' ); ?></a></p>
+										<p class="smartshop-admin-extension-info"><i class="wli wli-info"></i><?php printf( esc_html__( '%s Active Installations', 'shopxper' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) ); ?> <a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo esc_attr($data['slug']); ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
 										<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
 									</div>
 								</div>

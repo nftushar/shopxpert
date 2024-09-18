@@ -15,12 +15,12 @@ use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
     $all_fields   = array_merge( $settings_fields, $blocks_fields );
     $element_keys = Smartshop_Admin_Fields_Manager::instance()->get_field_key( $all_fields, 'name' );
 ?>
-<div id="smartshop_gutenberg_tabs" class="smartshop-admin-main-tab-pane">
-    <div class="smartshop-admin-main-tab-pane-inner">
+<div id="smartshop_gutenberg_tabs" class="shopxper-admin-main-tab-pane">
+    <div class="shopxper-admin-main-tab-pane-inner">
         <div class="smartshop-nested-tabs-area">
             <ul class="smartshop-nested-tabs">
-                <li><a href="#blocks-settings" class="wlactive"><?php echo esc_html__('Blocks','smartshop');?></a></li>
-                <li><a href="#general-settings"><?php echo esc_html__('Settings','smartshop');?></a></li>
+                <li><a href="#blocks-settings" class="wlactive"><?php echo esc_html__('Blocks','shopxper');?></a></li>
+                <li><a href="#general-settings"><?php echo esc_html__('Settings','shopxper');?></a></li>
             </ul>
         </div>
         
@@ -33,12 +33,12 @@ use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
                     <!-- Header Start -->
                     <div class="smartshop-admin-header smartshop-admin-header-two">
                         <div class="smartshop-admin-header-content">
-                            <h6 class="smartshop-admin-header-title"><?php echo esc_html__('SmartShop Blocks','smartshop');?></h6>
-                            <p class="smartshop-admin-header-text"><?php echo esc_html__('You can enable or disable all blocks by one click.','smartshop');?></p>
+                            <h6 class="smartshop-admin-header-title"><?php echo esc_html__('SmartShop Blocks','shopxper');?></h6>
+                            <p class="smartshop-admin-header-text"><?php echo esc_html__('You can enable or disable all blocks by one click.','shopxper');?></p>
                         </div>
                         <div class="smartshop-admin-header-actions">
-                            <button class="smartshop-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','smartshop'); ?></button>
-                            <button class="smartshop-admin-btn disable" data-switch-toggle="disable" data-switch-target="element"><?php echo esc_html__('Disable all','smartshop'); ?></button>
+                            <button class="smartshop-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','shopxper'); ?></button>
+                            <button class="smartshop-admin-btn disable" data-switch-toggle="disable" data-switch-target="element"><?php echo esc_html__('Disable all','shopxper'); ?></button>
                         </div>
                     </div>
                     <!-- Header End -->
@@ -65,7 +65,7 @@ use Smartshop\Incs\Admin\Inc\Smartshop_Admin_Fields_Manager;
                 <!-- Settings End -->
 
                 <div class="smartshop-admin-footer">
-                    <button class="smartshop-admin-btn-save smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1" style="margin-left:auto;" disabled="disabled"><?php echo esc_html__('DG Save Changes','smartshop');?></button>
+                    <button class="smartshop-admin-btn-save smartshop-admin-btn smartshop-admin-btn-primary hover-effect-1" style="margin-left:auto;" disabled="disabled"><?php echo esc_html__('DG Save Changes','shopxper');?></button>
                 </div>
 
             </div>

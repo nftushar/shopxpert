@@ -89,7 +89,7 @@ class Scripts {
 			wp_enqueue_style( 'htflexboxgrid' );
 			wp_enqueue_style( 'simple-line-icons-wl' );
 			wp_enqueue_style( 'slick' );
-			wp_enqueue_style( 'smartshop-widgets' );
+			wp_enqueue_style( 'shopxper-widgets' );
 
 			// Third-Party Scripts
 			$this->load_extra_scripts();
@@ -124,7 +124,7 @@ class Scripts {
 
 			// My Account MenuList
 			if( (get_post_type() === 'smartshop-template') || (basename( $_SERVER['PHP_SELF'] ) === 'site-editor.php') ){
-				$editor_localize_data['myaccountmenu'] = function_exists('wc_get_account_menu_items') ? ( wc_get_account_menu_items() + ['customadd' => esc_html__( 'Custom', 'smartshop' )] ) : [];
+				$editor_localize_data['myaccountmenu'] = function_exists('wc_get_account_menu_items') ? ( wc_get_account_menu_items() + ['customadd' => esc_html__( 'Custom', 'shopxper' )] ) : [];
 			}
 
 			wp_localize_script( 'smartshop-blocks', 'smartshopData', $editor_localize_data );

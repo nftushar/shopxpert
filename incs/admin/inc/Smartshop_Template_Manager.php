@@ -4,8 +4,8 @@ namespace Smartshop\Incs\Admin\Inc;
 use Smartshop\Incs\Admin\Inc\Smartshop_Template_CPT;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-// require( SMARTSHOP_ADDONS_PL_PATH. 'incs/admin/inc/class.template_cpt.php' );
-// require( SMARTSHOP_ADDONS_PL_PATH. 'incs/admin/inc/template-library/manager.php' );
+// require( SHOPXPERT_ADDONS_PL_PATH. 'incs/admin/inc/class.template_cpt.php' );
+// require( SHOPXPERT_ADDONS_PL_PATH. 'incs/admin/inc/template-library/manager.php' );
 
 class Smartshop_Template_Manager{
 
@@ -75,8 +75,8 @@ class Smartshop_Template_Manager{
         $link_custom_post = 'edit.php?post_type=' . self::CPTTYPE;
 		add_submenu_page(
 			'smartshop_page',
-			esc_html__('Template Builder', 'smartshop'),
-			esc_html__('Template Builder', 'smartshop'),
+			esc_html__('Template Builder', 'shopxper'),
+			esc_html__('Template Builder', 'shopxper'),
 			'manage_options',
 			$link_custom_post,
             NULL
@@ -97,8 +97,8 @@ class Smartshop_Template_Manager{
 		unset( $columns['date'] );
 		unset( $columns['author'] );
 
-		$columns['type'] 		= esc_html__('Type', 'smartshop');
-		$columns['setdefault'] 	= esc_html__('Default', 'smartshop');
+		$columns['type'] 		= esc_html__('Type', 'shopxper');
+		$columns['setdefault'] 	= esc_html__('Default', 'shopxper');
 		$columns['author'] 		= esc_html( $column_author );
 		$columns['date'] 		= esc_html( $column_date );
 
@@ -138,7 +138,7 @@ class Smartshop_Template_Manager{
 			$value = $this->get_template_id( self::get_template_type()[$tmpType]['optionkey'] );
 			$checked = checked( $value, $post_id, false );
 
-			echo '<label class="smartshop-default-tmp-status-switch" id="smartshop-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="smartshop-status-'.esc_attr( $tmpType ).'" id="smartshop-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','smartshop').'</span><span>'.esc_html__('YES','smartshop').'</span></span><a>&nbsp;</a></label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<label class="smartshop-default-tmp-status-switch" id="smartshop-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="smartshop-status-'.esc_attr( $tmpType ).'" id="smartshop-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','shopxper').'</span><span>'.esc_html__('YES','shopxper').'</span></span><a>&nbsp;</a></label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
 
@@ -212,7 +212,7 @@ class Smartshop_Template_Manager{
         if ( $post->post_type == self::CPTTYPE ) {
 
 			if( $this->edit_with_gutenberg( $post->ID ) ) {
-				$actions['smartshop_edit_with_gutenberg'] = '<a href="'.get_edit_post_link($post->ID).'">'.esc_html__('Edit With Gutenberg', 'smartshop').'</a>';
+				$actions['smartshop_edit_with_gutenberg'] = '<a href="'.get_edit_post_link($post->ID).'">'.esc_html__('Edit With Gutenberg', 'shopxper').'</a>';
 			}
 
         }
@@ -234,8 +234,8 @@ class Smartshop_Template_Manager{
 	public function add_page_templates( $page_templates, $wp_theme, $post ){
 		unset( $page_templates['elementor_theme'] );
 
-		$page_templates['smartshop_canvas']    = esc_html__('SmartShop Canvas', 'smartshop');
-		$page_templates['smartshop_fullwidth'] = esc_html__('SmartShop Full width', 'smartshop');
+		$page_templates['smartshop_canvas']    = esc_html__('SmartShop Canvas', 'shopxper');
+		$page_templates['smartshop_fullwidth'] = esc_html__('SmartShop Full width', 'shopxper');
 
 		return $page_templates;
 	}
@@ -264,13 +264,13 @@ class Smartshop_Template_Manager{
 
 		$tabs = [
 			'shop' => [
-				'label' =>__('Shop','smartshop')
+				'label' =>__('Shop','shopxper')
 			],
 			'archive' => [
-				'label' =>__('Archive','smartshop')
+				'label' =>__('Archive','shopxper')
 			],
 			'single' => [
-				'label' => __('Single','smartshop')
+				'label' => __('Single','shopxper')
 			],
 		];
 		return apply_filters( 'smartshop_template_menu_tabs', $tabs );
@@ -286,15 +286,15 @@ class Smartshop_Template_Manager{
 
 		$template_type = [
 			'shop' 	=> [
-				'label'		=>__('Shop','smartshop'),
+				'label'		=>__('Shop','shopxper'),
 				'optionkey'	=> 'productarchivepage'
 			],
 			'archive' => [
-				'label'		=>__('Archive','smartshop'),
+				'label'		=>__('Archive','shopxper'),
 				'optionkey'	=>'productallarchivepage'
 			],
 			'single' => [
-				'label' 	=> __('Single','smartshop'),
+				'label' 	=> __('Single','shopxper'),
 				'optionkey' => 'singleproductpage'
 			],
 		];
@@ -355,7 +355,7 @@ class Smartshop_Template_Manager{
 	 */
 	public function print_popup() {
 		if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'smartshop-template' ){
-			include_once( SMARTSHOP_ADDONS_PL_PATH. 'incs/admin/templates/template_edit_popup.php' );
+			include_once( SHOPXPERT_ADDONS_PL_PATH. 'incs/admin/templates/template_edit_popup.php' );
 		}
     }
 
@@ -375,7 +375,7 @@ class Smartshop_Template_Manager{
         ?>
             <div id="smartshop-template-tabs-wrapper" class="nav-tab-wrapper">
 				<div class="smartshop-menu-area">
-					<a class="nav-tab <?php echo esc_attr($active_class); ?>" href="edit.php?post_type=<?php echo esc_attr(self::CPTTYPE); ?>"><?php echo esc_html__('All','smartshop');?></a>
+					<a class="nav-tab <?php echo esc_attr($active_class); ?>" href="edit.php?post_type=<?php echo esc_attr(self::CPTTYPE); ?>"><?php echo esc_html__('All','shopxper');?></a>
 					<?php
 						foreach( self::get_tabs() as $tabkey => $tab ){
 							$active_class = ( $current_type == $tabkey ? 'nav-tab-active' : '' );
@@ -386,7 +386,7 @@ class Smartshop_Template_Manager{
 				<div class="smartshop-template-importer">
 					<button type="button" class="button button-primary">
 						<span class="dashicons dashicons-download"></span>
-						<span class="smartshop-template-importer-btn-text"><?php esc_html_e('Import Previously Assigned Templates','smartshop');?></span>
+						<span class="smartshop-template-importer-btn-text"><?php esc_html_e('Import Previously Assigned Templates','shopxper');?></span>
 					</button>
 				</div>
             </div>
@@ -427,70 +427,70 @@ class Smartshop_Template_Manager{
         if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'smartshop-template' ){
 
 			// CSS
-            wp_enqueue_style( 'smartshop-template-edit-manager', SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/css/template_edit_manager.css', [], SHOPXPERT_VERSION );
+            wp_enqueue_style( 'smartshop-template-edit-manager', SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/css/template_edit_manager.css', [], SHOPXPERT_VERSION );
 			wp_enqueue_style('smartshop-sweetalert');
-			wp_enqueue_style('slick', SMARTSHOP_ADDONS_PL_URL . 'assets/css/slick.css', [], SHOPXPERT_VERSION );
+			wp_enqueue_style('slick', SHOPXPERT_ADDONS_PL_URL . 'assets/css/slick.css', [], SHOPXPERT_VERSION );
 			
 			// JS
 			wp_enqueue_script('smartshop-sweetalert');
-			wp_enqueue_script('slick', SMARTSHOP_ADDONS_PL_URL . 'assets/js/slick.min.js', array('jquery'), SHOPXPERT_VERSION, true );
-            wp_enqueue_script( 'smartshop-template-edit-manager', SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/js/template_edit_manager.js', array('jquery', 'wp-util'), SHOPXPERT_VERSION, true );
+			wp_enqueue_script('slick', SHOPXPERT_ADDONS_PL_URL . 'assets/js/slick.min.js', array('jquery'), SHOPXPERT_VERSION, true );
+            wp_enqueue_script( 'smartshop-template-edit-manager', SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/template_edit_manager.js', array('jquery', 'wp-util'), SHOPXPERT_VERSION, true );
 
 			$localize_data = [
                 'ajaxurl' 	=> admin_url( 'admin-ajax.php' ),
 				'prostatus'	=> is_admin() ? is_plugin_active('smartshop-addons-pro/smartshop_addons_pro.php') : false,
 				'nonce' 	=> wp_create_nonce('smartshop_tmp_nonce'),
 				'templatetype' => self::get_template_type(),
-				'haselementor' => smartshop_is_elementor_editor() ? 'yes' : 'no',
+				'haselementor' => shopxpert_is_elementor_editor() ? 'yes' : 'no',
 				'editor' => [
-					'elementor' => __('Elementor','smartshop'),
-					'gutenberg' => __('Gutenberg','smartshop')
+					'elementor' => __('Elementor','shopxper'),
+					'gutenberg' => __('Gutenberg','shopxper')
 				],
 				'templatelist' => $this->get_template_library(),
 				'adminURL'	=> admin_url(),
 				'labels' => [
 					'fields'=>[
 						'name'	=> [
-							'title' 	  => __('Name','smartshop'),
-							'placeholder' => __('Enter a template name','smartshop')
+							'title' 	  => __('Name','shopxper'),
+							'placeholder' => __('Enter a template name','shopxper')
 						],
-						'type'		 => __('Type','smartshop'),
-						'editor' 	 => __('Select Editor','smartshop'),
-						'setdefault' => __('Set Default','smartshop'),
+						'type'		 => __('Type','shopxper'),
+						'editor' 	 => __('Select Editor','shopxper'),
+						'setdefault' => __('Set Default','shopxper'),
 					],
-					'head' => __('Template Settings','smartshop'),
+					'head' => __('Template Settings','shopxper'),
 					'buttons' => [
 						'elementor' => [
-							'label' => __('Edit With Elementor','smartshop'),
+							'label' => __('Edit With Elementor','shopxper'),
 							'link' 	=> '#'
 						],
 						'gutenberg' => [
-							'label' => __('Edit With Gutenberg','smartshop'),
+							'label' => __('Edit With Gutenberg','shopxper'),
 							'link' 	=> '#'
 						],
 						'save' => [
-							'label'  => __('Save Settings','smartshop'),
-							'saving' => __('Saving...','smartshop'),
-							'saved'  => __('All Data Saved','smartshop'),
+							'label'  => __('Save Settings','shopxper'),
+							'saving' => __('Saving...','shopxper'),
+							'saved'  => __('All Data Saved','shopxper'),
 							'link' 	 => '#'
 						]
 					],
 					'sampledata' => [
-						'visibility' => __('Sample Design','smartshop'),
-						'elementor'  => __('Elementor','smartshop'),
-						'gutenberg'  => __('Gutenberg','smartshop'),
-						'pro' 		 => __('Pro','smartshop'),
+						'visibility' => __('Sample Design','shopxper'),
+						'elementor'  => __('Elementor','shopxper'),
+						'gutenberg'  => __('Gutenberg','shopxper'),
+						'pro' 		 => __('Pro','shopxper'),
 					],
 					'importer' =>[
 						'button' => [
-							'importing' => __('Assigned Template Importing..','smartshop'),
-							'imported'  => __('All Assigned Template has been imported','smartshop'),
+							'importing' => __('Assigned Template Importing..','shopxper'),
+							'imported'  => __('All Assigned Template has been imported','shopxper'),
 						],
 						'message' =>[
-							'title' 	=> __( 'Are you sure?','smartshop' ),
-							'message' 	=> __( 'It will import those templates that were created from the "Templates" menu of Elementor and assigned to corresponding WooCommerce pages.','smartshop' ) ,
-							'yesbtn' 	=> __('Yes','smartshop'),
-							'cancelbtn' => __('Cancel','smartshop') 
+							'title' 	=> __( 'Are you sure?','shopxper' ),
+							'message' 	=> __( 'It will import those templates that were created from the "Templates" menu of Elementor and assigned to corresponding WooCommerce pages.','shopxper' ) ,
+							'yesbtn' 	=> __('Yes','shopxper'),
+							'cancelbtn' => __('Cancel','shopxper') 
 						]
 					]
 				]
@@ -511,19 +511,19 @@ class Smartshop_Template_Manager{
 
 			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'smartshop_tmp_nonce' ) ){
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','smartshop')
+					'message'  => __('Nonce Varification Faild !','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
 
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','smartshop')
+					'message'  => __('You are unauthorize to adding template!','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
 
-			$title 		= !empty( $_POST['title'] ) ? sanitize_text_field( $_POST['title'] ) : esc_html__( 'SMARTSHOP template '.time(), 'smartshop' );
+			$title 		= !empty( $_POST['title'] ) ? sanitize_text_field( $_POST['title'] ) : esc_html__( 'SMARTSHOP template '.time(), 'shopxper' );
 			$tmpid 		= !empty( $_POST['tmpId'] ) ? sanitize_text_field( $_POST['tmpId'] ) : '';
 			$tmpType 	= !empty( $_POST['tmpType'] ) ? sanitize_text_field( $_POST['tmpType'] ) : 'single';
 			$tmpEditor 	= !empty( $_POST['tmpEditor'] ) ? sanitize_text_field( $_POST['tmpEditor'] ) : 'gutenberg';
@@ -552,7 +552,7 @@ class Smartshop_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Post request dose not found','smartshop')
+				'message'  => __('Post request dose not found','shopxper')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -576,7 +576,7 @@ class Smartshop_Template_Manager{
 
 		if( $new_post_id ){
 			$return = array(
-				'message'  => __('Template has been inserted','smartshop'),
+				'message'  => __('Template has been inserted','shopxper'),
 				'id'       => $new_post_id,
 			);
 
@@ -605,7 +605,7 @@ class Smartshop_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','smartshop')
+				'message'  => __('Some thing is worng !','shopxper')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -640,7 +640,7 @@ class Smartshop_Template_Manager{
 		}
 
 		$return = array(
-			'message'  => __('Template has been updated','smartshop'),
+			'message'  => __('Template has been updated','shopxper'),
 			'id'       => $data['id']
 		);
 		wp_send_json_success( $return );
@@ -693,7 +693,7 @@ class Smartshop_Template_Manager{
 
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','smartshop')
+					'message'  => __('You are unauthorize to adding template!','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -701,7 +701,7 @@ class Smartshop_Template_Manager{
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'smartshop_tmp_nonce' ) ) {
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','smartshop')
+					'message'  => __('Nonce Varification Faild !','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -720,7 +720,7 @@ class Smartshop_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','smartshop')
+				'message'  => __('Some thing is worng !','shopxper')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -738,7 +738,7 @@ class Smartshop_Template_Manager{
 
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','smartshop')
+					'message'  => __('You are unauthorize to adding template!','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -746,7 +746,7 @@ class Smartshop_Template_Manager{
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'smartshop_tmp_nonce' ) ) {
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','smartshop')
+					'message'  => __('Nonce Varification Faild !','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -763,7 +763,7 @@ class Smartshop_Template_Manager{
 			$this->update_option( 'smartshop_woo_template_tabs', self::get_template_type()[$tmpType]['optionkey'], $tmpid, $data );
 
 			$return = array(
-				'message'  => __('Template has been updated','smartshop'),
+				'message'  => __('Template has been updated','shopxper'),
 				'id'       => $tmpid
 			);
 
@@ -771,7 +771,7 @@ class Smartshop_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','smartshop')
+				'message'  => __('Some thing is worng !','shopxper')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -854,7 +854,7 @@ class Smartshop_Template_Manager{
 			
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','smartshop')
+					'message'  => __('You are unauthorize to adding template!','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -862,7 +862,7 @@ class Smartshop_Template_Manager{
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'smartshop_tmp_nonce' ) ) {
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','smartshop')
+					'message'  => __('Nonce Varification Faild !','shopxper')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -895,14 +895,14 @@ class Smartshop_Template_Manager{
 			}
 
 			$return = array(
-				'message'  => __('Template has been imported','smartshop'),
+				'message'  => __('Template has been imported','shopxper'),
 			);
 
 			wp_send_json_success( $return );
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','smartshop')
+				'message'  => __('Some thing is worng !','shopxper')
 			);
 			wp_send_json_error( $errormessage );
 		}

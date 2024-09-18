@@ -76,7 +76,7 @@ class SmartShop_Admin_Init {
      * @return [void]
      */
     public function include(){
-        // require_once( SMARTSHOP_ADDONS_PL_PATH .'incs/api.php');
+        // require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/api.php');
         // require_once('inc/diagnostic-data.php');
         require_once('inc/Smartshop_Admin_Fields_Manager.php');
         require_once('inc/Smartshop_Admin_Fields.php');
@@ -96,7 +96,7 @@ class SmartShop_Admin_Init {
             self::MENU_CAPABILITY,                // Capability
             self::MENU_PAGE_SLUG,                // Menu slug
             [$this, 'main_menu_page_content'],    // Callback function for the menu page
-            SMARTSHOP_ADDONS_PL_URL . 'incs/admin/assets/images/icons/menu-bar_20x20.png', // Icon URL
+            SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/icons/menu-bar_20x20.png', // Icon URL
             57                                  // Position (right after Appearance)
         );
 
@@ -161,7 +161,7 @@ class SmartShop_Admin_Init {
      * @return [void]
      */
     private static function load_template( $template ) {
-        $tmp_file = SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-' . $template . '.php';
+        $tmp_file = SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-' . $template . '.php';
   
         if ( file_exists( $tmp_file ) ) {
             include_once( $tmp_file );
@@ -175,9 +175,9 @@ class SmartShop_Admin_Init {
     public function plugin_page() {
         ?>
         <div class="wrap smartshop-admin-wrapper">
-            <div class="smartshop-admin-main-content">
+            <div class="shopxper-admin-main-content">
                 <?php self::load_template('navs'); ?>
-                <div class="smartshop-admin-main-body"> 
+                <div class="shopxper-admin-main-body"> 
                 <?php self::load_template('gutenberg'); ?>
 
                 <?php self::load_template('welcome'); ?>
@@ -228,7 +228,7 @@ add_action('in_admin_header', function (){
         return;
     }
 
-    check_ajax_referer( 'smartshop_nonce_action', 'nonce' );
+    check_ajax_referer( 'shopxper_nonce_action', 'nonce' );
 
   
     error_log("Smartshop hello  save data");
@@ -270,7 +270,7 @@ add_action('in_admin_header', function (){
     }
 
     wp_send_json_success([
-        'message' => esc_html__('Data saved successfully!', 'smartshop'),
+        'message' => esc_html__('Data saved successfully!', 'shopxper'),
         'data'    => $data
     ]);
 }
@@ -310,13 +310,13 @@ public function update_option($section, $option_key, $new_value) {
             error_log('User does not have the required capability.');
             return;
         }
-        check_ajax_referer( 'smartshop_nonce_action', 'nonce' );
+        check_ajax_referer( 'shopxper_nonce_action', 'nonce' );
 
         // Debug log nonce
         // error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
     
         // Verify nonce for security
-        if (!wp_verify_nonce($_POST['nonce'], 'smartshop_nonce_action')) {
+        if (!wp_verify_nonce($_POST['nonce'], 'shopxper_nonce_action')) {
             error_log('Nonce verification failed!');
             wp_send_json_error('Invalid nonce');
             return;
@@ -368,7 +368,7 @@ public function update_option($section, $option_key, $new_value) {
                 Smartshop_Admin_Fields_Manager::instance()->add_field($field, $section);
                 $field_html .= ob_get_clean();
             }
-            $message = esc_html__('Data Fetch successfully!', 'smartshop');
+            $message = esc_html__('Data Fetch successfully!', 'shopxper');
             $response_content = $field_html;
         }
     

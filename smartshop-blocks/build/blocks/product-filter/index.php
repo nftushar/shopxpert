@@ -52,8 +52,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 			?>
 				<form class="wl_product_search_form" role="search" method="get" action="<?php echo esc_url( $form_action ); ?>">
-					<input type="search" placeholder="<?php echo esc_attr_x( 'Search Products&hellip;', 'placeholder', 'smartshop' ); ?>" value="<?php echo esc_attr( $search_value ); ?>" name="q" title="<?php echo esc_attr_x( 'Search for:', 'label', 'smartshop' ); ?>" />
-					<button type="submit" aria-label="<?php echo esc_attr__( 'Search', 'smartshop' );?>"><i class="fa fa-search"></i></button>
+					<input type="search" placeholder="<?php echo esc_attr_x( 'Search Products&hellip;', 'placeholder', 'shopxper' ); ?>" value="<?php echo esc_attr( $search_value ); ?>" name="q" title="<?php echo esc_attr_x( 'Search for:', 'label', 'shopxper' ); ?>" />
+					<button type="submit" aria-label="<?php echo esc_attr__( 'Search', 'shopxper' );?>"><i class="fa fa-search"></i></button>
 				</form>
 
 			<?php elseif( 'price_by' === $filter_type ):
@@ -114,12 +114,12 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 				<form method="get" action="<?php echo esc_url( $current_url ); ?>">
 					<div class="smartshop_slider_range" style="display: none;"></div>
 					<input type="hidden" name="wlfilter" value="1">
-					<input type="text" id="min_price-<?php echo esc_attr($id); ?>" name="min_price" value="<?php echo esc_attr( $current_min_price ); ?>" data-min="<?php echo esc_attr( $min_price ); ?>" placeholder="<?php echo esc_attr__( 'Min price', 'smartshop' ); ?>" />
-					<input type="text" id="max_price-<?php echo esc_attr($id); ?>" name="max_price" value="<?php echo esc_attr( $current_max_price ); ?>" data-max="<?php echo esc_attr( $max_price ); ?>" placeholder="<?php echo esc_attr__( 'Max price', 'smartshop' ); ?>" />
+					<input type="text" id="min_price-<?php echo esc_attr($id); ?>" name="min_price" value="<?php echo esc_attr( $current_min_price ); ?>" data-min="<?php echo esc_attr( $min_price ); ?>" placeholder="<?php echo esc_attr__( 'Min price', 'shopxper' ); ?>" />
+					<input type="text" id="max_price-<?php echo esc_attr($id); ?>" name="max_price" value="<?php echo esc_attr( $current_max_price ); ?>" data-max="<?php echo esc_attr( $max_price ); ?>" placeholder="<?php echo esc_attr__( 'Max price', 'shopxper' ); ?>" />
 					<div class="wl_button_price">
-						<button type="submit" aria-label="<?php echo esc_attr__( 'Filter','smartshop' );?>"><?php echo esc_html__( 'Filter', 'smartshop' ); ?></button>
+						<button type="submit" aria-label="<?php echo esc_attr__( 'Filter','shopxper' );?>"><?php echo esc_html__( 'Filter', 'shopxper' ); ?></button>
 						<div class="smartshop_price_label" style="display: none;">
-							<?php echo esc_html__( 'Price:', 'smartshop' ); ?>
+							<?php echo esc_html__( 'Price:', 'shopxper' ); ?>
 							<span id="from-<?php echo esc_attr($id); ?>"></span> &mdash; <span id="to-<?php echo esc_attr($id); ?>"></span>
 						</div>
 					</div>
@@ -178,9 +178,9 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			?>
 				<div class="wl_sort_by_filter">
 					<select name="wl_sort">
-						<option value="&wlsort=none"><?php echo esc_html__( $sort_by_none_lavel, 'smartshop' ); ?></option>
-						<option value="&wlsort=ASC" <?php selected( 'ASC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_asc_lavel, 'smartshop' ); ?></option>
-						<option value="&wlsort=DESC" <?php selected( 'DESC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_desc_lavel, 'smartshop' ); ?></option>
+						<option value="&wlsort=none"><?php echo esc_html__( $sort_by_none_lavel, 'shopxper' ); ?></option>
+						<option value="&wlsort=ASC" <?php selected( 'ASC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_asc_lavel, 'shopxper' ); ?></option>
+						<option value="&wlsort=DESC" <?php selected( 'DESC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_desc_lavel, 'shopxper' ); ?></option>
 					</select>
 				</div>
 			<?php elseif( 'order_by' === $filter_type ):
@@ -190,7 +190,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 					<select name="wl_order_by_sort">
 						<?php
 							foreach ( smartshop_order_by_opts() as $key => $opt_data ) {
-								echo '<option value="&wlorder_by='.esc_attr( $key ).'" '.selected( $key, $wlorder_by, false ).'>'.esc_html__( $opt_data, 'smartshop' ).'</option>';
+								echo '<option value="&wlorder_by='.esc_attr( $key ).'" '.selected( $key, $wlorder_by, false ).'>'.esc_html__( $opt_data, 'shopxper' ).'</option>';
 							}
 						?>
 					</select>
@@ -237,7 +237,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			?>
 			<?php endif;?>
 
-		<?php else: echo '<p>'.esc_html__( 'Please Select Filter Type', 'smartshop' ).'</p>'; ?>
+		<?php else: echo '<p>'.esc_html__( 'Please Select Filter Type', 'shopxper' ).'</p>'; ?>
 			
 		<?php endif; ?>
 

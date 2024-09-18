@@ -31,8 +31,8 @@ class Smartshop_Template_Library{
     public function admin_menu() {
         add_submenu_page(
             'smartshop_page', 
-            esc_html__( 'Template Library', 'smartshop' ),
-            esc_html__( 'Template Library', 'smartshop' ), 
+            esc_html__( 'Template Library', 'shopxper' ),
+            esc_html__( 'Template Library', 'shopxper' ), 
             'manage_options', 
             'smartshop_templates', 
             [ $this, 'library_render_html' ] 
@@ -40,8 +40,8 @@ class Smartshop_Template_Library{
     }
 
     public function library_render_html(){
-        require_once SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/inc/template-library/templates_list.php';
-        require_once SMARTSHOP_ADDONS_PL_PATH . 'incs/admin/inc/template-library/popup-template.php';
+        require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/template-library/templates_list.php';
+        require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/template-library/popup-template.php';
     }
 
     /**
@@ -60,8 +60,8 @@ class Smartshop_Template_Library{
             wp_enqueue_script( 'jquery-selectric' );
             wp_enqueue_script( 'jquery-ScrollMagic' );
             wp_enqueue_script( 'babel-min' );
-            wp_enqueue_script( 'smartshop-templates' );
-            wp_enqueue_script( 'smartshop-install-manager' );
+            wp_enqueue_script( 'shopxper-templates' );
+            wp_enqueue_script( 'shopxper-install-manager' );
 
         }
 
@@ -75,7 +75,7 @@ class Smartshop_Template_Library{
         if ( ! current_user_can( 'manage_options') ) {
             echo wp_json_encode(
                 array(
-                    'message' => esc_html__( 'You are not permitted to import the template.', 'smartshop' )
+                    'message' => esc_html__( 'You are not permitted to import the template.', 'shopxper' )
                 )
             );
         }else{
@@ -83,7 +83,7 @@ class Smartshop_Template_Library{
 
                 if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'smartshop_template_nonce' ) ) {
                     $errormessage = array(
-                        'message'  => __('Are you cheating?','smartshop')
+                        'message'  => __('Are you cheating?','shopxper')
                     );
                     wp_send_json_error( $errormessage );
                 }
@@ -132,7 +132,7 @@ class Smartshop_Template_Library{
                 echo wp_json_encode(
                     array( 
                         'id'      => $new_post_id,
-                        'edittxt' => !empty( $page_title ) ? esc_html__( 'Edit Page', 'smartshop' ) : esc_html__( 'Edit Template', 'smartshop' )
+                        'edittxt' => !empty( $page_title ) ? esc_html__( 'Edit Page', 'shopxper' ) : esc_html__( 'Edit Template', 'shopxper' )
                     )
                 );
             }
@@ -151,7 +151,7 @@ class Smartshop_Template_Library{
                 wp_send_json_error(
                     array(
                         'success' => false,
-                        'message' => esc_html__( 'Nonce Varification Faild !', 'smartshop' ),
+                        'message' => esc_html__( 'Nonce Varification Faild !', 'shopxper' ),
                     )
                 );
             }
@@ -186,19 +186,19 @@ class Smartshop_Template_Library{
                 if ( file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && is_plugin_inactive( $data['location'] ) ) {
 
                     $button_classes = 'button activate-now button-primary';
-                    $button_text    = esc_html__( 'Activate', 'smartshop' );
+                    $button_text    = esc_html__( 'Activate', 'shopxper' );
 
                 // Not Installed.
                 } elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 
                     $button_classes = 'button install-now';
-                    $button_text    = esc_html__( 'Install Now', 'smartshop' );
+                    $button_text    = esc_html__( 'Install Now', 'shopxper' );
 
                 // Active.
                 } else {
                     $li_classes = '';
                     $button_classes = 'button disabled';
-                    $button_text    = esc_html__( 'Activated', 'smartshop' );
+                    $button_text    = esc_html__( 'Activated', 'shopxper' );
                 }
 
                 ?>
@@ -206,7 +206,7 @@ class Smartshop_Template_Library{
                         <h3><?php echo esc_html($data['name']); ?></h3>
                         <?php
                             if ( $type == 'pro' && ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
-                                echo '<a class="button" href="'.esc_url( $data['pllink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'smartshop' ).'</a>';
+                                echo '<a class="button" href="'.esc_url( $data['pllink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxper' ).'</a>';
                             }else{
                         ?>
                             <button class="<?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
@@ -239,18 +239,18 @@ class Smartshop_Template_Library{
                 if ( file_exists( get_theme_root(). '/' . $data['slug'] . '/functions.php' ) && ( $theme->stylesheet != $data['slug'] ) ) {
 
                     $button_classes = 'button themeactivate-now button-primary';
-                    $button_text    = esc_html__( 'Activate', 'smartshop' );
+                    $button_text    = esc_html__( 'Activate', 'shopxper' );
 
                 // Not Installed.
                 } elseif ( ! file_exists( get_theme_root(). '/' . $data['slug'] . '/functions.php' ) ) {
 
                     $button_classes = 'button themeinstall-now';
-                    $button_text    = esc_html__( 'Install Now', 'smartshop' );
+                    $button_text    = esc_html__( 'Install Now', 'shopxper' );
 
                 // Active.
                 } else {
                     $button_classes = 'button disabled';
-                    $button_text    = esc_html__( 'Activated', 'smartshop' );
+                    $button_text    = esc_html__( 'Activated', 'shopxper' );
                 }
 
                 ?>
@@ -258,7 +258,7 @@ class Smartshop_Template_Library{
                         <h3><?php echo esc_html($data['name']); ?></h3>
                         <?php
                             if ( !empty( $data['prolink'] ) ) {
-                                echo '<a class="button" href="'.esc_url( $data['prolink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'smartshop' ).'</a>';
+                                echo '<a class="button" href="'.esc_url( $data['prolink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxper' ).'</a>';
                             }else{
                         ?>
                             <button class="<?php echo esc_attr($button_classes); ?>" data-themeopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
@@ -281,7 +281,7 @@ class Smartshop_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Nonce Varification Faild !', 'smartshop' ),
+                    'message' => esc_html__( 'Nonce Varification Faild !', 'shopxper' ),
                 )
             );
         }
@@ -290,7 +290,7 @@ class Smartshop_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Plugin Not Found', 'smartshop' ),
+                    'message' => esc_html__( 'Plugin Not Found', 'shopxper' ),
                 )
             );
         }
@@ -310,7 +310,7 @@ class Smartshop_Template_Library{
         wp_send_json_success(
             array(
                 'success' => true,
-                'message' => esc_html__( 'Plugin Successfully Activated', 'smartshop' ),
+                'message' => esc_html__( 'Plugin Successfully Activated', 'shopxper' ),
             )
         );
 
@@ -325,7 +325,7 @@ class Smartshop_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Nonce Varification Faild !', 'smartshop' ),
+                    'message' => esc_html__( 'Nonce Varification Faild !', 'shopxper' ),
                 )
             );
         }
@@ -334,7 +334,7 @@ class Smartshop_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Sorry, you are not allowed to install themes on this site.', 'smartshop' ),
+                    'message' => esc_html__( 'Sorry, you are not allowed to install themes on this site.', 'shopxper' ),
                 )
             );
         }
@@ -345,7 +345,7 @@ class Smartshop_Template_Library{
         wp_send_json_success(
             array(
                 'success' => true,
-                'message' => __( 'Theme Activated', 'smartshop' ),
+                'message' => __( 'Theme Activated', 'shopxper' ),
             )
         );
     }

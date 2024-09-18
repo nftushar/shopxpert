@@ -715,11 +715,11 @@
     content: "\e910";
   }
   
-  .smartshop-admin-main-nav {
+  .shopxper-admin-main-nav {
     overflow: hidden;
     border-bottom: 2px solid #ff23b7;
   }
-  .smartshop-admin-main-nav-ul {
+  .shopxper-admin-main-nav-ul {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
@@ -728,32 +728,32 @@
     list-style: none;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-main-nav-ul {
+    .shopxper-admin-main-nav-ul {
       margin: -1px;
     }
   }
-  .smartshop-admin-main-nav-li {
+  .shopxper-admin-main-nav-li {
     display: flex;
     margin: 0 8px 0 0;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-main-nav-li {
+    .shopxper-admin-main-nav-li {
       width: 25%;
       margin: 0;
       border: 1px solid transparent;
     }
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
-    .smartshop-admin-main-nav-li {
+    .shopxper-admin-main-nav-li {
       width: 50%;
     }
   }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .smartshop-admin-main-nav-li {
+    .shopxper-admin-main-nav-li {
       width: 33.3333%;
     }
   }
-  .smartshop-admin-main-nav-btn {
+  .shopxper-admin-main-nav-btn {
     font-size: 14px;
     line-height: 20px;
     position: relative;
@@ -767,13 +767,13 @@
     background-color: #FFFFFF;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-main-nav-btn {
+    .shopxper-admin-main-nav-btn {
       width: 100%;
       padding: 15px;
       border-radius: 5px;
     }
   }
-  .smartshop-admin-main-nav-btn svg {
+  .shopxper-admin-main-nav-btn svg {
     position: absolute;
     bottom: 0;
     width: 8px;
@@ -782,20 +782,20 @@
     opacity: 0;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-main-nav-btn svg {
+    .shopxper-admin-main-nav-btn svg {
       display: none;
     }
   }
-  .smartshop-admin-main-nav-btn svg path {
+  .shopxper-admin-main-nav-btn svg path {
     fill: #ff23b7;
   }
-  .smartshop-admin-main-nav-btn svg.left {
+  .shopxper-admin-main-nav-btn svg.left {
     right: 100%;
   }
-  .smartshop-admin-main-nav-btn svg.right {
+  .shopxper-admin-main-nav-btn svg.right {
     left: 100%;
   }
-  .smartshop-admin-main-nav-btn i {
+  .shopxper-admin-main-nav-btn i {
     font-size: 16px;
     line-height: 1;
     display: block;
@@ -803,29 +803,29 @@
     transition: all 0.15s ease 0s;
     opacity: 0.75;
   }
-  .smartshop-admin-main-nav-btn i.dashicons{
+  .shopxper-admin-main-nav-btn i.dashicons{
     font-size: 18px;
     margin-right: 5px;
   }
-  .smartshop-admin-main-nav-btn.wlactive, .smartshop-admin-main-nav-btn:hover {
+  .shopxper-admin-main-nav-btn.wlactive, .shopxper-admin-main-nav-btn:hover {
     color: #FFFFFF;
     background-color: #ff23b7;
   }
-  .smartshop-admin-main-nav-btn.wlactive i, .smartshop-admin-main-nav-btn:hover i {
+  .shopxper-admin-main-nav-btn.wlactive i, .shopxper-admin-main-nav-btn:hover i {
     opacity: 1;
   }
-  .smartshop-admin-main-nav-btn.wlactive svg, .smartshop-admin-main-nav-btn:hover svg {
+  .shopxper-admin-main-nav-btn.wlactive svg, .shopxper-admin-main-nav-btn:hover svg {
     opacity: 1;
   }
-  .smartshop-admin-main-nav-btn.wlactive:focus {
+  .shopxper-admin-main-nav-btn.wlactive:focus {
     color: #FFFFFF;
   }
-  .smartshop-admin-main-nav-btn:focus {
+  .shopxper-admin-main-nav-btn:focus {
     color: #ff23b7;
   }
 
   /* Nested Tab */
-  #smartshop_gutenberg_tabs .smartshop-admin-main-tab-pane-inner {
+  #smartshop_gutenberg_tabs .shopxper-admin-main-tab-pane-inner {
     padding-top: 10px;
   }
   .smartshop-nested-tabs-area {
@@ -881,46 +881,46 @@
     margin-bottom: -30px;
   }
   
-  .smartshop-admin-main-content {
+  .shopxper-admin-main-content {
     display: block;
     width: calc(100% - 425px);
     margin-right: auto;
     margin-bottom: 30px;
   }
   @media only screen and (min-width: 1200px) and (max-width: 1549px) {
-    .smartshop-admin-main-content {
+    .shopxper-admin-main-content {
       width: calc(100% - 350px);
     }
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .smartshop-admin-main-content {
+    .shopxper-admin-main-content {
       width: calc(100% - 310px);
     }
   }
   @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-main-content {
+    .shopxper-admin-main-content {
       width: 100%;
     }
   }
   
-  .smartshop-admin-main-body {
+  .shopxper-admin-main-body {
     background-color: #FFFFFF;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   }
   
-  .smartshop-admin-main-tab-pane:not(.wlactive),.smartshop-admin-nested-tab-pane:not(.wlactive) {
+  .shopxper-admin-main-tab-pane:not(.wlactive),.smartshop-admin-nested-tab-pane:not(.wlactive) {
     display: none;
   }
-  .smartshop-admin-main-tab-pane-inner {
+  .shopxper-admin-main-tab-pane-inner {
     padding: 40px;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .smartshop-admin-main-tab-pane-inner {
+    .shopxper-admin-main-tab-pane-inner {
       padding: 30px;
     }
   }
   @media only screen and (max-width: 575px) {
-    .smartshop-admin-main-tab-pane-inner {
+    .shopxper-admin-main-tab-pane-inner {
       padding: 20px;
     }
   }
@@ -1257,16 +1257,16 @@
   .smartshop-extension-col-3 .smartshop-admin-extension{
     width: calc(33.333% - 30px);
   }
-  .smartshop-admin-main-tab-pane-inner .smartshop-extension-col-3 .smartshop-admin-extension{
+  .shopxper-admin-main-tab-pane-inner .smartshop-extension-col-3 .smartshop-admin-extension{
     width: calc(50% - 30px);
   }
-  .smartshop-admin-main-tab-pane-inner .wrap{
+  .shopxper-admin-main-tab-pane-inner .wrap{
     margin: 0;
   }
-  .smartshop-admin-main-tab-pane-inner .wrap > h2{
+  .shopxper-admin-main-tab-pane-inner .wrap > h2{
     display: none;
   }
-  .smartshop-admin-main-tab-pane-inner .extension-admin-tab-area{
+  .shopxper-admin-main-tab-pane-inner .extension-admin-tab-area{
     margin-top: 0;
   }
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
@@ -2174,10 +2174,10 @@
 }
 
 /* Free VS Pro Tabs */
-.freevspro .smartshop-admin-main-nav-btn{
+.freevspro .shopxper-admin-main-nav-btn{
   color: #f56640;
 }
-.freevspro .smartshop-admin-main-nav-btn:hover,.freevspro .smartshop-admin-main-nav-btn.wlactive{
+.freevspro .shopxper-admin-main-nav-btn:hover,.freevspro .shopxper-admin-main-nav-btn.wlactive{
   color: #ffffff;
 }
 #smartshop_freevspro_tabs .smartshop-admin-header .smartshop-admin-btn.enable{
