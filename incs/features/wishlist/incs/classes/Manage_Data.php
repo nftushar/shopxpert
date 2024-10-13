@@ -184,13 +184,13 @@ class Manage_Data {
     public function read_single_item( $user_id, $product_id ) {
         global $wpdb;
 
-        $product = wp_cache_get( 'wishsuite-product-' . $user_id.$product_id, 'shopxpert' );
+        $product = wp_cache_get( 'sxwishlist-product-' . $user_id.$product_id, 'shopxpert' );
 
         if ( false === $product ) {
             $product = $wpdb->get_row(
                 $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}wishsuite_list WHERE user_id = %d AND product_id = %d", $user_id, $product_id )
             );
-            wp_cache_set( 'wishsuite-product-' . $user_id.$product_id, $product, 'shopxpert' );
+            wp_cache_set( 'sxwishlist-product-' . $user_id.$product_id, $product, 'shopxpert' );
         }
 
         return $product;
@@ -228,7 +228,7 @@ class Manage_Data {
         $group = 'shopxpert';
 
         if ( $user_id ) {
-            wp_cache_delete( 'wishsuite-product-' . $user_id, $group );
+            wp_cache_delete( 'sxwishlist-product-' . $user_id, $group );
         }
 
         wp_cache_delete( 'count', $group );

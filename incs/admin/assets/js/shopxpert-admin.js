@@ -68,13 +68,15 @@
     }
 
     /* Number Input */
-    $('.shopxpert-admin-number-btn').on('click', function (e) {
+    $('.shopxpert-admin-number-btn').on('click', function(e){
+        console.log("hello");
+        
         e.preventDefault()
         const $this = $(this),
             $input = $this.parent('.shopxpert-admin-number').find('input[type="number"]')[0]
-        if ($this.hasClass('increase')) {
+        if($this.hasClass('increase')) {
             $input.value = Number($input.value) + 1
-        } else if ($this.hasClass('decrease') && Number($input.value) > 1) {
+        } else if($this.hasClass('decrease') && Number($input.value) > 1) {
             $input.value = Number($input.value) - 1
         }
     });
@@ -404,13 +406,13 @@ console.log("shopxpert Feature_data");
                 success: function (response) {
                     $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SHOPXPERT_ADMIN.message.success); // Update the button state
 
-                    console.log('xxx AJAX Success Response:', response); // Log the response
-                    alert('Feature additional setting saved'); // Alert success message
+                    alert('xxx Feature additional setting saved'); // Alert success message
                 },
                 complete: function (response) {
                     console.log('AJAX Complete Response:', response); // Log the response
                     $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SHOPXPERT_ADMIN.message.success); // Finalize the button state
                 },
+
                 error: function (errorThrown) {
                     console.error('AJAX Error:', errorThrown); // Log any errors
                 }

@@ -127,9 +127,9 @@ span.shopxpert-reset-btn:hover {
 /* Product grid */
 
 /* Builder block style */
-.wp-block-shopxpert-shop-archive-default .wishsuite-button,
-.wp-block-shopxpert-product-related .wishsuite-button,
-.wp-block-shopxpert-product-upsell .wishsuite-button {
+.wp-block-shopxpert-shop-archive-default .sxwishlist-button,
+.wp-block-shopxpert-product-related .sxwishlist-button,
+.wp-block-shopxpert-product-upsell .sxwishlist-button {
   width: 100%;
 }
 .woocommerce-page .wp-block-shopxpert-cart-table table.cart {
@@ -880,12 +880,12 @@ button.components-button.shopxpert-icon-control-icon-button.is-secondary {
   color: #fff !important;
 }
 /* Universal Product */
-[class*="shopxpertblock-"].ht-products .wishsuite-button.wishlist {
+[class*="shopxpertblock-"].ht-products .sxwishlist-button.wishlist {
   line-height: 35px;
 }
 [class*="shopxpertblock-"].ht-products
-  .wishsuite-button.wishlist
-  span.wishsuite-btn-text {
+  .sxwishlist-button.wishlist
+  span.sxwishlist-btn-text {
   position: absolute;
   left: 100%;
   top: 50%;
@@ -909,8 +909,8 @@ button.components-button.shopxpert-icon-control-icon-button.is-secondary {
   z-index: 99;
 }
 [class*="shopxpertblock-"].ht-products
-  .wishsuite-button.wishlist
-  span.wishsuite-btn-text {
+  .sxwishlist-button.wishlist
+  span.sxwishlist-btn-text {
   margin-right: -10px;
   -webkit-transform: translateY(-65%);
   -ms-transform: translateY(-65%);

@@ -1414,12 +1414,6 @@ function shopxpert_has_wishlist_plugin(){
     }
 }
 
-/**
-* Usages: "shopxpert_add_to_wishlist_button()" function is used  to modify the wishlist button from "YITH WooCommerce Wishlist" plugins.
-* Plugins URL: https://wordpress.org/plugins/yith-woocommerce-wishlist/
-* File Path: yith-woocommerce-wishlist/templates/add-to-wishlist.php
-* The below Function depends on YITH WooCommerce Wishlist plugins. If YITH WooCommerce Wishlist is installed and actived, then it will work.
-*/
 
 function shopxpert_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-o"></i>', $addedicon = '<i class="fa fa-heart"></i>', $tooltip = 'no' ) {
     global $product;
@@ -1496,7 +1490,7 @@ function shopxpert_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
 //     global $user;
     
 //     // Log the function call for debugging purposes
-//     error_log('shopxpert_ajax_login_init called.');
+//     // error_log('shopxpert_ajax_login_init called.');
 
 //     // Check if the user is not logged in before adding the action
 //     if ( empty( $user->ID ) ) {

@@ -219,7 +219,7 @@ class Manage_Wishlist {
      */
     public function button_html( $atts ) {
         $button_attr = apply_filters( 'wishsuite_button_arg', $atts );
-        return woowishsuite_get_template( 'wishsuite-button-'.$atts['template_name'].'.php', $button_attr, false );
+        return woowishsuite_get_template( 'sxwishlist-button-'.$atts['template_name'].'.php', $button_attr, false );
     }
 
     /**
@@ -228,7 +228,7 @@ class Manage_Wishlist {
      */
     public function table_html( $atts ) {
         $table_attr = apply_filters( 'wishsuite_table_arg', $atts );
-        return woowishsuite_get_template( 'wishsuite-table.php', $table_attr, false );
+        return woowishsuite_get_template( 'sxwishlist-table.php', $table_attr, false );
     }
 
     /**
@@ -237,7 +237,7 @@ class Manage_Wishlist {
      */
     public function count_html( $atts ) {
         $count_attr = apply_filters( 'wishsuite_count_arg', $atts );
-        return woowishsuite_get_template( 'wishsuite-count.php', $count_attr, false );
+        return woowishsuite_get_template( 'sxwishlist-count.php', $count_attr, false );
     }
 
     /**
@@ -357,7 +357,7 @@ class Manage_Wishlist {
             $products_data[ $product->get_id() ] = array(
                 'id'            => $product->get_id(),
                 'remove'        => $product->get_id(),
-                'image'         => $product->get_image() ? $product->get_image('wishsuite-image') : $data_none,
+                'image'         => $product->get_image() ? $product->get_image('sxwishlist-image') : $data_none,
                 'title'         => $product->get_title() ? $product->get_title() : $data_none,
                 'image_id'      => $product->get_image_id(),
                 'permalink'     => $product->get_permalink(),
@@ -451,7 +451,7 @@ class Manage_Wishlist {
         switch ( $type ) {
             case 'remove':
                 ?>
-                    <a href="#" class="wishsuite-remove" data-product_id="<?php echo esc_attr( $product['id'] ); ?>">&nbsp;</a>
+                    <a href="#" class="sxwishlist-remove" data-product_id="<?php echo esc_attr( $product['id'] ); ?>">&nbsp;</a>
                 <?php
                 break;
 
@@ -474,7 +474,7 @@ class Manage_Wishlist {
                 break;
 
             case 'ratting':
-                echo '<span class="wishsuite-product-ratting">'.wp_kses_post( $product[ $field_id ] ).'</span>';
+                echo '<span class="sxwishlist-product-ratting">'.wp_kses_post( $product[ $field_id ] ).'</span>';
                 break;
 
             case 'add_to_cart':
@@ -538,7 +538,7 @@ class Manage_Wishlist {
     public function add_to_cart_html( $product, $quentity ) {
         if ( ! $product ) return;
 
-        $btn_class = 'wishsuite-addtocart button product_type_' . $product->get_type();
+        $btn_class = 'sxwishlist-addtocart button product_type_' . $product->get_type();
 
         $btn_class .= $product->is_purchasable() && $product->is_in_stock() ? ' add_to_cart_button' : '';
 
@@ -550,11 +550,11 @@ class Manage_Wishlist {
 
         if( 'variable' === $product->get_type() ):
         ?>
-            <div class="wishsuite-quick-cart-area">
-                <div class="wishsuite-quick-cart-close">
+            <div class="sxwishlist-quick-cart-area">
+                <div class="sxwishlist-quick-cart-close">
                     <span>&#10005;</span>
                 </div>
-                <div class="wishsuite-quick-cart-form"></div>
+                <div class="sxwishlist-quick-cart-form"></div>
             </div>
         <?php endif; ?>
             <a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" data-quantity="<?php echo esc_attr( $quentity ); ?>" class="<?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>"><?php echo esc_html( $cart_btn );?></a>
@@ -607,7 +607,7 @@ class Manage_Wishlist {
             'products_ids' => $ids,
         ];
         $social_share_attr = apply_filters( 'wishsuite_social_share_arg', $atts );
-        woowishsuite_get_template( 'wishsuite-social-share.php', $social_share_attr, true );
+        woowishsuite_get_template( 'sxwishlist-social-share.php', $social_share_attr, true );
         
     }
 
@@ -623,8 +623,9 @@ class Manage_Wishlist {
         $args = array(
             'base' => str_replace( $total_pages, '%#%', esc_url( get_pagenum_link( $total_pages ) ) ),
             'format' => '?paged=%#%',
-            'prev_text' => __('&laquo;'),
-            'next_text' => __('&raquo;'),
+            'prev_text' => __('&laquo;', 'shopxpert'),  
+            'next_text' => __('&raquo;', 'shopxpert'),  
+
             'total' => $total_pages,
             'current' => $current_page,
             'show_all' => false,
@@ -634,7 +635,7 @@ class Manage_Wishlist {
             'add_args' => true,
             'add_fragment' => ''
         );
-        echo '<nav class="wishsuite-pagination">' .wp_kses_post(paginate_links($args)). '</nav>';
+        echo '<nav class="sxwishlist-pagination">' .wp_kses_post(paginate_links($args)). '</nav>';
     }
 
 

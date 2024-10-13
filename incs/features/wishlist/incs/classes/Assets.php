@@ -40,12 +40,12 @@ class Assets {
      */
     public function get_scripts() {
         return [
-            'wishsuite-admin' => [
+            'sxwishlist-admin' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/js/admin.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery' ]
             ],
-            'wishsuite-frontend' => [
+            'sxwishlist-frontend' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/js/frontend.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery', 'wc-add-to-cart-variation' ]
@@ -60,11 +60,11 @@ class Assets {
      */
     public function get_styles() {
         return [
-            'wishsuite-admin' => [
+            'sxwishlist-admin' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/css/admin.css',
                 'version' => SHOPXPERT_VERSION,
             ],
-            'wishsuite-frontend' => [
+            'sxwishlist-frontend' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/css/frontend.css',
                 'version' => SHOPXPERT_VERSION,
             ],
@@ -91,7 +91,7 @@ class Assets {
         }
 
         // Inline CSS
-        wp_add_inline_style( 'wishsuite-frontend', $this->inline_style() );
+        wp_add_inline_style( 'sxwishlist-frontend', $this->inline_style() );
         
         // Frontend Localize data
         $option_data = array(
@@ -131,12 +131,12 @@ class Assets {
             'option_data'=> $admin_option_data,
         );
 
-        wp_localize_script( 'wishsuite-frontend', 'WooWooWishSuite', $localize_data );
-        wp_localize_script( 'wishsuite-admin', 'WooWooWishSuite', $admin_localize_data );
+        wp_localize_script( 'sxwishlist-frontend', 'WooWooWishSuite', $localize_data );
+        wp_localize_script( 'sxwishlist-admin', 'WooWooWishSuite', $admin_localize_data );
 
         if( class_exists( '\Elementor\Plugin' ) && ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) ){
-            wp_enqueue_style( 'wishsuite-frontend' );
-            wp_enqueue_script( 'wishsuite-frontend' );
+            wp_enqueue_style( 'sxwishlist-frontend' );
+            wp_enqueue_script( 'sxwishlist-frontend' );
         }
         
     }
@@ -164,14 +164,14 @@ class Assets {
             $btn_hover_bg_color = woowishsuite_generate_css('hover_background_color','wishsuite_style_settings_tabs','background-color');
 
             $button_custom_css = "
-                .wishsuite-button{
+                .sxwishlist-button{
                     {$btn_padding}
                     {$btn_margin}
                     {$btn_color}
                     {$btn_bg_color}
                     {$btn_border_radius}
                 }
-                .wishsuite-button:hover{
+                .sxwishlist-button:hover{
                     {$btn_hover_color}
                     {$btn_hover_bg_color}
                 }
@@ -194,21 +194,21 @@ class Assets {
             $button_hover_bg_color = woowishsuite_generate_css('table_cart_button_hover_bg_color','wishsuite_style_settings_tabs','background-color');
 
             $table_custom_css = "
-                .wishsuite-table-content table thead > tr{
+                .sxwishlist-table-content table thead > tr{
                     {$heading_border_color}
                 }
-                .wishsuite-table-content table thead > tr th{
+                .sxwishlist-table-content table thead > tr th{
                     {$heading_color}
                     {$heading_bg_color}
                 }
-                .wishsuite-table-content table,.wishsuite-table-content table tbody > tr{
+                .sxwishlist-table-content table,.sxwishlist-table-content table tbody > tr{
                     {$border_color}
                 }
             ";
 
             if( $button_color || $button_bg_color ){
                 $table_custom_css .= "
-                    .wishsuite-table-content table .wishsuite-addtocart{
+                    .sxwishlist-table-content table .sxwishlist-addtocart{
                         {$button_color}
                         {$button_bg_color}
                     }
@@ -216,7 +216,7 @@ class Assets {
             }
             if( $button_hover_color || $button_hover_bg_color ){
                 $table_custom_css .= "
-                    .wishsuite-table-content table .wishsuite-addtocart:hover{
+                    .sxwishlist-table-content table .sxwishlist-addtocart:hover{
                         {$button_hover_color}
                         {$button_hover_bg_color}
                     }

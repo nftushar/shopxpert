@@ -172,31 +172,18 @@ class ShopXpert_Settings_Field_Manager_Default {
      * Get Title for display
      *
      * @param array $args settings field args
-     */
-    public function callback_title( $args ) {
-        $headding    = isset( $args['headding'] ) ? $args['headding'] : '';
-        $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $html        = sprintf( '<h2 class="element_section_title %1$s-title">%2$s</h2>', $size, $headding );
-        echo $html;
-    }
-
-    /**
-     * Displays a text field for a settings field
-     *
-     * @param array   $args settings field args
-     */
+     */ 
     function callback_text( $args ) {
 
         $value       = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
         $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
         $type        = isset( $args['type'] ) ? $args['type'] : 'text';
         $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
-
         $html        = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder );
         $html       .= $this->get_field_description( $args );
-
         echo $html;
     }
+
 
     /**
      * Displays a multitextbox for a settings field
@@ -448,7 +435,7 @@ class ShopXpert_Settings_Field_Manager_Default {
         $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
         $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
         $id    = $args['section']  . '[' . $args['id'] . ']';
-        $label = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose File' );
+        $label = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose File', 'shopxpert' );
 
         $html  = sprintf( '<input type="text" class="%1$s-text htoption-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
         $html  .= '<input type="button" class="button htoption-browse" value="' . $label . '" />';
@@ -467,8 +454,8 @@ class ShopXpert_Settings_Field_Manager_Default {
         $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
         $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
         $id    = $args['section']  . '[' . $args['id'] . ']';
-        $label = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose File' );
-        $remove_label = isset( $args['options']['button_remove_label'] ) ? $args['options']['button_remove_label'] : __( 'Remove' );
+        $label = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose File', 'shopxpert' );
+        $remove_label = isset( $args['options']['button_remove_label'] ) ? $args['options']['button_remove_label'] : __( 'Remove', 'shopxpert' );
 
         $save_file = ( $value != '' ) ? '<div class="htoption_seleted_image"><img src="'.esc_url( $value ).'" alt="'.esc_attr( $label ).'" /></div>' : '';
         

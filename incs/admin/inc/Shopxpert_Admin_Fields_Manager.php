@@ -162,15 +162,14 @@ class Shopxpert_Admin_Fields_Manager {
      * @param array $args settings field args
      */
     public function callback_html( $args ) {
-        $html  = isset( $args['html'] ) ? $args['html'] : '';
-        // Escape the HTML output
-        $html  = wp_kses_post( $html ); 
-        // Use `esc_attr()` or `esc_html()` for attributes as needed
+        $html  = isset( $args['html'] ) ? $args['html'] : ''; 
+        $html  = wp_kses_post( $html );  
         $class = esc_attr( $args['class'] );
         $depend = isset( $args['depend'] ) ? esc_attr( $args['depend']) : '';
         
-        $html  = sprintf( '<div class="shopxpert-admin-option %s" %s>%s</div>', $class, $depend, $html );
-        echo $html;
+        // Escape the entire output for safety
+        $output = sprintf( '<div class="shopxpert-admin-option %s" %s>%s</div>', $class, $depend, $html ); 
+        echo wp_kses_post( $output ); // Use wp_kses_post to escape the final output
     }
     
 
@@ -183,43 +182,59 @@ class Shopxpert_Admin_Fields_Manager {
         $button_html  = isset( $args['html'] ) ? $args['html'] : '';
         
         $data_atr = $disabled = '';
-        if( $args['additional_info']['is_pro'] === true ){
+        if( !empty($args['additional_info']['is_pro']) && $args['additional_info']['is_pro'] === true ) {
             $disabled = esc_attr('disabled=true');
             $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
         }
-
-        $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
+    
+        // Begin building the HTML output
+        $html  = '<div class="shopxpert-admin-option '. esc_attr( $args['class'] ) .'" '. esc_attr( $args['depend'] ) .'>';
             $html  .= '<div class="shopxpert-admin-option-content">';
                 $html  .= $this->get_field_title( $args );
                 $html  .= $this->get_field_description( $args );
             $html  .= '</div>';
-           // Assuming $data_atr is defined earlier and contains data attributes that need to be escaped
-            $data_atr = esc_attr( $data_atr ); // Escape data attributes
-
-            $html .= sprintf( '<div class="shopxpert-admin-option-action" %s>', $data_atr ); // Use sprintf for safer concatenation
-            // Don't forget to escape the closing tag, if necessary
-            $html .= '</div>'; // If you're appending more HTML here, ensure it's also properly escaped
-
-                $html  .= '<div class="shopxpert-admin-button-type">';
-                    $html  .= $button_html;
-                $html  .= '</div>';
+            
+            // Escape data attributes
+            $data_atr = esc_attr( $data_atr ); 
+    
+            $html .= sprintf( '<div class="shopxpert-admin-option-action" %s>', $data_atr ); 
+            $html .= '</div>'; // Closing the action div
+    
+            $html  .= '<div class="shopxpert-admin-button-type">';
+                $html  .= wp_kses_post( $button_html ); // Escape button HTML
             $html  .= '</div>';
-        $html  .= '</div>';
-
-        echo $html;
-
+        $html  .= '</div>'; // Closing the option div
+        $html  .= '</div>'; // Closing the main div
+    
+        echo wp_kses_post( $html ); // Escape the final output
     }
+    
 
     /**
      * Get Title for display
      * @param array $args settings field args
      */
     public function callback_title( $args ) {
-        $headding  = isset( $args['headding'] ) ? $args['headding'] : '';
-        $size      = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $html      = sprintf( '<div class="shopxpert-admin-option-heading %3$s" %4$s><h4 class="shopxpert-admin-option-heading-title %1$s-title">%2$s</h4></div>', $size, $headding, $args['class'], $args['depend'] );
-        echo $html;
+        $heading  = isset( $args['headding'] ) ? $args['headding'] : ''; // Corrected 'headding' to 'heading'
+        $size     = isset( $args['size'] ) && !is_null( $args['size'] ) ? esc_attr( $args['size'] ) : 'regular'; // Escape size
+        $class    = isset( $args['class'] ) ? esc_attr( $args['class'] ) : ''; // Escape class
+        $depend   = isset( $args['depend'] ) ? esc_attr( $args['depend'] ) : ''; // Escape depend
+    
+        // Escape the heading to prevent XSS vulnerabilities
+        $heading  = esc_html( $heading ); 
+    
+        // Create the HTML output
+        $html = sprintf( 
+            '<div class="shopxpert-admin-option-heading %3$s" %4$s><h4 class="shopxpert-admin-option-heading-title %1$s-title">%2$s</h4></div>', 
+            $size, 
+            $heading, 
+            $class, 
+            $depend 
+        );
+    
+        echo wp_kses_post( $html ); // Escape the final output
     }
+    
 
     /**
      * Displays a text field for a settings field
@@ -304,7 +319,7 @@ class Shopxpert_Admin_Fields_Manager {
         }
 
         $label        = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose Image','shopxpert' );
-        $remove_label = isset( $args['options']['button_remove_label'] ) ? $args['options']['button_remove_label'] : __( 'Remove' );
+        $remove_label = isset( $args['options']['button_remove_label'] ) ? $args['options']['button_remove_label'] : __( 'Remove', 'shopxpert' );
         $save_file = ( $value != '' ) ? '<img src="' . esc_url( $value ) . '" alt="' . esc_attr( $label ) . '">' : '';
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
             $html  .= '<div class="shopxpert-admin-option-content">';
@@ -523,7 +538,8 @@ class Shopxpert_Admin_Fields_Manager {
     public function callback_number( $args ) {
         $value = ( isset( $args['value'] ) && !empty ( $args['value'] ) ) ? esc_attr( $args['value'] ) : esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
         $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $type = sprintf( esc_html__( 'SHOPXPERT template %s', 'shopxpert' ), time() );
+        // $type = sprintf( esc_html__( 'SHOPXPERT template %s', 'shopxpert' ), time() );
+        $type        = isset( $args['type'] ) ? $args['type'] : 'number';
         $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
         $min         = ( $args['min'] == '' ) ? '' : ' min="' . $args['min'] . '"';
         $max         = ( $args['max'] == '' ) ? '' : ' max="' . $args['max'] . '"';

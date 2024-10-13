@@ -41,7 +41,7 @@ class Widgets_And_Blocks {
 
         $block_list['wishsuite_table'] = [
             'label'  => __('WooWooWishSuite Table','shopxpert'),
-            'name'   => 'shopxpert/wishsuite-table',
+            'name'   => 'shopxpert/sxwishlist-table',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
@@ -51,7 +51,7 @@ class Widgets_And_Blocks {
 
         $block_list['wishsuite_counter'] = [
             'label'  => __('WooWooWishSuite Counter','shopxpert'),
-            'name'   => 'shopxpert/wishsuite-counter',
+            'name'   => 'shopxpert/sxwishlist-counter',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,

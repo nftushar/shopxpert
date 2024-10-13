@@ -122,15 +122,21 @@ class ShopXpert_Admin_Init {
 
             
             <?php 
-              // Retrieve and display the option
-              $section = 'shopxpert_others_tabs'; // Replace with your section key
-              $options = get_option($section);
-              
-              echo '<div class="wrap">';
-              echo '<h1>xxOptions Display</h1>';
-              echo '<pre>' . print_r($options, true) . '</pre>';
-              echo '</div>';
-            ?> 
+                // Retrieve and display the option
+                $section = 'shopxpert_others_tabs'; // Replace with your section key
+                $options = get_option($section);
+
+                echo '<div class="wrap">';
+                echo '<h1>' . esc_html__('Options Display', 'shopxpert') . '</h1>';
+
+                if ( ! empty( $options ) && is_array( $options ) ) {
+                    echo '<pre>' . esc_html( print_r( $options, true ) ) . '</pre>';
+                } else {
+                    echo '<p>' . esc_html__('No options found.', 'shopxpert') . '</p>';
+                }
+
+                echo '</div>';
+                ?>
              <hr>
              
         </div>
@@ -140,15 +146,17 @@ class ShopXpert_Admin_Init {
 
             
             <?php 
-              // Retrieve and display the option
-              $section = 'shopxpert_backorder_settings'; // Replace with your section key
-              $options = get_option($section);
-              
-              echo '<div class="wrap">';
-              echo '<h1>ZZ ptions Display</h1>';
-              echo '<pre>' . print_r($options, true) . '</pre>';
-              echo '</div>';
-            ?> 
+                // Retrieve and display the option
+                $section = 'shopxpert_backorder_settings'; // Replace with your section key
+                $options = get_option($section);
+
+                echo '<div class="wrap">';
+                echo '<h1>ZZ Options Display</h1>';
+
+                // Use esc_html and var_export to safely output the options array without debugging functions.
+                echo '<pre>' . esc_html(var_export($options, true)) . '</pre>';
+                echo '</div>';
+                ?>
              <hr>
              
         </div>
@@ -196,7 +204,7 @@ class ShopXpert_Admin_Init {
     public function print_Feature_setting_popup() {
         $screen = get_current_screen();
         if ( 'shopxpert_page_shopxpert' == $screen->base ) {
-            // error_log("shopxpert print_Feature_setting_popup 2");
+            // // error_log("shopxpert print_Feature_setting_popup 2");
             self::load_template('Feature-setting-popup');
         }
     }
@@ -223,28 +231,30 @@ add_action('in_admin_header', function (){
  */
 
  public function save_data() {
-    if (!current_user_can(self::MENU_CAPABILITY)) {
+    if ( ! current_user_can( self::MENU_CAPABILITY ) ) {
         error_log('User does not have the required capability.');
         return;
     }
 
-    check_ajax_referer('shopxper_nonce_action', 'nonce');
+    check_ajax_referer( 'shopxper_nonce_action', 'nonce' );
 
-    error_log("Shopxpert hello save data");
+  
+    error_log("Shopxpert hello  save data");
 
-    // Fetch and unslash the input data
-    $data = isset($_POST['data']) ? shopxpert_clean(wp_unslash($_POST['data'])) : [];
-    $section = isset($_POST['section']) ? sanitize_text_field(wp_unslash($_POST['section'])) : '';
-    $fields = isset($_POST['fields']) ? wp_unslash($_POST['fields']) : [];
-    $fields = array_map('sanitize_text_field', (array)$fields);
+
+    // Fetch and clean the input data
+    $data     = isset($_POST['data']) ? shopxpert_clean($_POST['data']) : [];
+    $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
+    $fields = isset($_POST['fields']) ? $_POST['fields'] : [];
 
     // Ensure $fields is an array and process it accordingly
     if (!is_array($fields)) {
         $fields = json_decode(stripslashes($fields), true);
     }
-
+    
     // Error log for debugging
-    error_log("Fields after processing: " . print_r($data, true));
+    error_log("sssFields after processing: " . print_r($data, true));
+    
 
     if (empty($section) || empty($fields)) {
         error_log('Section or fields data is missing.');
@@ -263,12 +273,12 @@ add_action('in_admin_header', function (){
     // Update the options
     foreach ($fields as $field) {
         $value = isset($data[$field]) ? $data[$field] : null;
-        error_log("Updating Option: $field with Value: " . print_r($value, true));
+        error_log("zzzUpdating Option: $field with Value: " . print_r($value, true));
         $this->update_option($section, $field, $value);
     }
 
     wp_send_json_success([
-        'message' => esc_html__('Data saved successfully!', 'shopxpert'),
+        'message' => esc_html__('Data saved successfully!', 'shopxper'),
         'data'    => $data
     ]);
 }
@@ -292,7 +302,7 @@ public function update_option($section, $option_key, $new_value) {
     $options_data[$option_key] = $new_value;
 
     // Save the updated options back to the database
-    // error_log("Saving Option Data: " . print_r($options_data, true));
+    // // error_log("Saving Option Data: " . print_r($options_data, true));
     update_option($section, $options_data);
 }
  
@@ -303,7 +313,7 @@ public function update_option($section, $option_key, $new_value) {
      */
     public function Feature_data() {
         if (!current_user_can(self::MENU_CAPABILITY)) {
-            error_log('User does not have the required capability.');
+            // error_log('User does not have the required capability.');
             return;
         }
         
@@ -315,7 +325,7 @@ public function update_option($section, $option_key, $new_value) {
         $fields = isset($_POST['fields']) ? (is_array($_POST['fields']) ? $_POST['fields'] : json_decode(wp_unslash($_POST['fields']), true)) : [];
         $fieldname = isset($_POST['fieldname']) ? sanitize_text_field(wp_unslash($_POST['fieldname'])) : '';
     
-        error_log(print_r($fields, true)); // Log the fields array
+        // // error_log(print_r($fields, true)); // Log the fields array
     
         // Handle Feature data reset
         if ($subaction === 'reset_data' && !empty($section)) {

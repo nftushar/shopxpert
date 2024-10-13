@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-error_log('gutenburg fiel');
+// error_log('gutenburg fiel');
 
 $uniqClass 	 = 'shopxpertblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass, 'shopxpert-archive-catalog-ordering-area', 'shopxpert_archive_catalog_ordering' );

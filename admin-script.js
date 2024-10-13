@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
     $('#shopxpert-form').on('submit', function(e) {
         e.preventDefault();
         
-console.log("shopxpert-form");
+console.log("shopxpert form");
 
         // Serialize form data
         var formData = $(this).serialize();

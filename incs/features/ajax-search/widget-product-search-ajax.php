@@ -3,7 +3,7 @@
 *  Class Dynamic Search Widgets
 */
  
-error_log('ShopXpert_Product_Search_Ajax_Widget');
+// error_log('ShopXpert_Product_Search_Ajax_Widget');
 
 
 class ShopXpert_Product_Search_Ajax_Widget extends WP_Widget{

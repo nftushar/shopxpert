@@ -139,19 +139,19 @@ class Assets_Management{
         // Localize Scripts
         $localizeargs = array(
             'shopxpertajaxurl' => admin_url('admin-ajax.php'),
-            'ajax_nonce'       => 
-            ('shopxper_nonce_action'),
+            'ajax_nonce' => ('shopxper_nonce_action'),
         );
         wp_localize_script('shopxpert-widgets-scripts', 'shopxper_addons', $localizeargs);
     
         // For Admin
         if (is_admin()) {
             $datalocalize = array(
+                
                 'nonce' => wp_create_nonce('shopxper_nonce_action'),
                 'ajaxurl' => admin_url('admin-ajax.php'),
                 'message' => [
                     'btntxt'  => esc_html__('Save Changes', 'shopxpert'),
-                    'loading' => esc_html__('Saving...', 'shopxpert'),
+                    'loading' => esc_html__('xx Saving...', 'shopxpert'),
                     'success' => esc_html__('XX Saved success Data', 'shopxpert'),
                     'yes'     => esc_html__('Yes', 'shopxpert'),
                     'cancel'  => esc_html__('Cancel', 'shopxpert'),

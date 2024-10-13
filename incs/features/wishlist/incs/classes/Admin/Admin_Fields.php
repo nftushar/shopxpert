@@ -209,8 +209,8 @@ class Admin_Fields {
                     'label'       => __( 'Button Text', 'shopxpert' ),
                     'desc'        => __( 'Enter your wishlist button text.', 'shopxpert' ),
                     'type'        => 'text',
-                    'default'     => __( 'Wishlist', 'shopxpert' ),
-                    'placeholder' => __( 'Wishlist', 'shopxpert' ),
+                    'default'     => __( 'x Wishlist', 'shopxpert' ),
+                    'placeholder' => __( 'y Wishlist', 'shopxpert' ),
                 ),
 
                 array(

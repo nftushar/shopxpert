@@ -323,13 +323,13 @@ body .wp-block-group.is-layout-flex.is-content-justification-space-between {
 }
 
 /* Universal Product */
-[class*="shopxpertblock-"] .ht-products .wishsuite-button.wishlist {
+[class*="shopxpertblock-"] .ht-products .sxwishlist-button.wishlist {
   line-height: 35px;
 }
 [class*="shopxpertblock-"]
   .ht-products
-  .wishsuite-button.wishlist
-  span.wishsuite-btn-text {
+  .sxwishlist-button.wishlist
+  span.sxwishlist-btn-text {
   position: absolute;
   left: 100%;
   top: 50%;
@@ -354,8 +354,8 @@ body .wp-block-group.is-layout-flex.is-content-justification-space-between {
 }
 [class*="shopxpertblock-"]
   .ht-products
-  .wishsuite-button.wishlist
-  span.wishsuite-btn-text {
+  .sxwishlist-button.wishlist
+  span.sxwishlist-btn-text {
   margin-right: -10px;
   -webkit-transform: translateY(-65%);
   -ms-transform: translateY(-65%);
@@ -414,10 +414,10 @@ body .wp-block-group.is-layout-flex.is-content-justification-space-between {
   .star-rating {
   display: inline-block;
 }
-.shopxpert-content-align-center .wishsuite-button {
+.shopxpert-content-align-center .sxwishlist-button {
   justify-content: center;
 }
-.shopxpert-content-align-right .wishsuite-button {
+.shopxpert-content-align-right .sxwishlist-button {
   justify-content: flex-end;
 }
 

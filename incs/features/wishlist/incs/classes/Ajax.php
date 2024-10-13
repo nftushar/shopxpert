@@ -49,7 +49,7 @@ class Ajax {
      * [add_to_wishlist] Product add ajax callback
      */
     public function add_to_wishlist(){
-        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wishSuite_nonce' ) ){
+            if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ), 'wishSuite_nonce' ) ) {
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );
@@ -75,7 +75,7 @@ class Ajax {
      * @return [void]
      */
     public function remove_wishlist(){
-        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wishSuite_nonce' ) ){
+        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishSuite_nonce' ) ){
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );
@@ -104,7 +104,7 @@ class Ajax {
      */
     public function variation_form_html( $id = false ){
 
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wishSuite_nonce' ) ){
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishSuite_nonce' ) ){
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );
@@ -144,7 +144,7 @@ class Ajax {
      */
     public function insert_to_cart(){
 
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wishSuite_nonce' ) ){
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishSuite_nonce' ) ){
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );

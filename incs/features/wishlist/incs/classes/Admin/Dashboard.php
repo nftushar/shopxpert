@@ -16,7 +16,7 @@ class Dashboard {
     /**
      * Parent Menu Page Slug
      */
-    const MENU_PAGE_SLUG = 'shopxpert';
+    const MENU_PAGE_SLUG = 'sxwishlist';
 
     /**
      * [$admin_menu_hook] Parent Menu Hook
@@ -66,15 +66,13 @@ class Dashboard {
         self::$admin_menu_hook = add_submenu_page(
             'shopxpert_page',
             esc_html__( 'Wishlist', 'shopxpert' ),
-            esc_html__( 'Wishlist', 'shopxpert' ),
+            esc_html__( 'r Wishlist', 'shopxpert' ),
             'manage_options',
             self::MENU_PAGE_SLUG,
             [ $this,'dashboard' ]
         );
 
         add_action( 'load-' . self::$admin_menu_hook, [ $this, 'init_hooks'] );
-        
-
     }
 
     /**
@@ -92,8 +90,8 @@ class Dashboard {
      * @return [void]
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'wishsuite-admin' );
-        wp_enqueue_script( 'wishsuite-admin' );
+        wp_enqueue_style( 'sxwishlist-admin' );
+        wp_enqueue_script( 'sxwishlist-admin' );
     }
 
     /**

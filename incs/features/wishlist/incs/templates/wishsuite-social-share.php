@@ -67,15 +67,16 @@
 
 ?>
 
-<div class="wishsuite-social-share">
-	<span class="wishsuite-social-title"><?php esc_html_e( $button_text, 'shopxpert' ); ?></span>
+<div class="sxwishlist-social-share"> 
+	<span class="sxwishlist-social-title"><?php echo esc_html__( $button_text, 'shopxpert' ); ?></span>
+
 	<ul>
 		<?php
 			foreach ( $button_list as $buttonkey => $button ) {
 				?>
 				<li>
 					<a rel="nofollow" href="<?php echo esc_url( $social_button_list[$buttonkey]['url'] ); ?>" <?php echo ( $buttonkey === 'email' ? '' : 'target="_blank"' ) ?>>
-						<span class="wishsuite-social-icon">
+						<span class="sxwishlist-social-icon">
 							<?php echo woowishsuite_icon_list( $buttonkey ); ?>
 						</span>
 					</a>

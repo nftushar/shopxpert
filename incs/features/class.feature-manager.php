@@ -73,7 +73,7 @@ class Shopxpert_Feature_Manager {
 
         // Wishlist
         if( shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ) == 'on' ){
-            // $this->deactivate( 'wishsuite/wishsuite.php' );
+            // $this->deactivate( 'sxwishlist/sxwishlist.php' );
             if( ! class_exists('WooWishSuite_Base') ){
                 require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/wishlist/init.php' );
             }

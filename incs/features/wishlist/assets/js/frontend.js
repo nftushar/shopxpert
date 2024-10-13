@@ -5,7 +5,7 @@
 
     // Add product in wishlist table
     if( 'on' !== WooWooWishSuite.option_data['btn_limit_login_off'] ){
-        $body.on('click', 'a.wishsuite-btn', function (e) {
+        $body.on('click', 'a.sxwishlist-btn', function (e) {
             var $this = $(this),
                 id = $this.data('product_id'),
                 addedText = $this.data('added-text');
@@ -25,10 +25,10 @@
                 method: 'GET',
                 success: function ( response ) {
                     if ( response ) {
-                        $this.removeClass('wishsuite-btn');
+                        $this.removeClass('sxwishlist-btn');
                         $this.removeClass('loading').addClass('added');
                         $this.html( addedText );
-                        $body.find('.wishsuite-counter').html( response.data.item_count );
+                        $body.find('.sxwishlist-counter').html( response.data.item_count );
                     } else {
                         console.log( 'Something wrong loading compare data' );
                     }
@@ -37,7 +37,7 @@
                     console.log('Something wrong with AJAX response.', response );
                 },
                 complete: function () {
-                    $this.removeClass('wishsuite-btn');
+                    $this.removeClass('sxwishlist-btn');
                     $this.removeClass('loading').addClass('added');
                     $this.html( addedText );
                 },
@@ -76,13 +76,13 @@
                         var target_row = $this.closest('tr');
                         target_row.hide(400, function() {
                             $(this).remove();
-                            var table_row = $('.wishsuite-table-content table tbody tr').length;
+                            var table_row = $('.sxwishlist-table-content table tbody tr').length;
                             if( table_row == 1 ){
-                                $('.wishsuite-table-content table tbody tr.wishsuite-empty-tr').show();
+                                $('.sxwishlist-table-content table tbody tr.sxwishlist-empty-tr').show();
                             }
                         });
                     }
-                    $body.find('.wishsuite-counter').html( response.data.item_count );
+                    $body.find('.sxwishlist-counter').html( response.data.item_count );
 
                     window.history.pushState('page', 'Title', newUrl);
                     wishSuiteDataRegenarate(newUrl);
@@ -102,8 +102,8 @@
     }
 
     // Remove data from wishlist table
-    $body.on('click', 'a.wishsuite-remove', function (e) {
-        var $table = $('.wishsuite-table-content');
+    $body.on('click', 'a.sxwishlist-remove', function (e) {
+        var $table = $('.sxwishlist-table-content');
 
         e.preventDefault();
         var $this = $(this),
@@ -116,7 +116,7 @@
     /**
      * Ajax Pagination
      */
-    $body.on("click",'.wishsuite-table-content .wishsuite-pagination ul li a',function(e){
+    $body.on("click",'.sxwishlist-table-content .sxwishlist-pagination ul li a',function(e){
         e.preventDefault();
         let $this = $(this);
         let requestUrl = $this.attr("href");
@@ -129,15 +129,15 @@
      * Regenerate Wishlist table data from URL
      */
     const wishSuiteDataRegenarate = (requestUrl)=>{
-        $('body .wishsuite-table-content').addClass('loading');
+        $('body .sxwishlist-table-content').addClass('loading');
         $.ajax({
             url: requestUrl,
             context: document.body
         }).success(function(data) {
             const allHtml = document.createRange().createContextualFragment(data);
-            const tableContent = allHtml.querySelector(".wishsuite-table-content");
-            $('body .wishsuite-table-content').removeClass('loading');
-            $('body .wishsuite-table-content').html(tableContent);
+            const tableContent = allHtml.querySelector(".sxwishlist-table-content");
+            $('body .sxwishlist-table-content').removeClass('loading');
+            $('body .sxwishlist-table-content').html(tableContent);
         });
     }
     /**
@@ -152,7 +152,7 @@
     }
 
     // Quentity
-    $("div.wishsuite-table-content").on("change", "input.qty", function() {
+    $("div.sxwishlist-table-content").on("change", "input.qty", function() {
         $(this).closest('tr').find( "[data-quantity]" ).attr( "data-quantity", this.value );
     });
 
@@ -160,7 +160,7 @@
     $(document).on('added_to_cart',function( e, fragments, carthash, button ){
         if( 'on' === WooWooWishSuite.option_data['after_added_to_cart'] ){
 
-            let $table = $('.wishsuite-table-content');
+            let $table = $('.sxwishlist-table-content');
             let product_id = button.data('product_id');
             wishSuiteItemRemove(button, $table, product_id);
 
@@ -168,14 +168,14 @@
     });
 
     /**
-     * Variation Product Add to cart from wishsuite page
+     * Variation Product Add to cart from sxwishlist page
      */
     $(document).on( 'click', '.wishsuite_table .product_type_variable.add_to_cart_button', function (e) {
         e.preventDefault();
 
         var $this = $(this),
-            $product = $this.parents('.wishsuite-product-add_to_cart').first(),
-            $content = $product.find('.wishsuite-quick-cart-form'),
+            $product = $this.parents('.sxwishlist-product-add_to_cart').first(),
+            $content = $product.find('.sxwishlist-quick-cart-form'),
             id = $this.data('product_id'),
             btn_loading_class = 'loading';
 
@@ -218,17 +218,17 @@
 
     });
 
-    $(document).on('click', '.wishsuite-quick-cart-close', function () {
+    $(document).on('click', '.sxwishlist-quick-cart-close', function () {
         var $this = $(this),
-            $product = $this.parents('.wishsuite-product-add_to_cart');
+            $product = $this.parents('.sxwishlist-product-add_to_cart');
         $product.removeClass('quick-cart-open');
     });
 
     $(document.body).on('added_to_cart', function ( e, fragments, carthash, button ) {
 
         var target_row = button.closest('tr');
-        target_row.find('.wishsuite-addtocart').addClass('added');
-        $('.wishsuite-product-add_to_cart').removeClass('quick-cart-open');
+        target_row.find('.sxwishlist-addtocart').addClass('added');
+        $('.sxwishlist-product-add_to_cart').removeClass('quick-cart-open');
 
     });
 
@@ -248,7 +248,7 @@
      */
     function wishsuite_inser_to_cart(){
 
-        $(document).on( 'click', '.wishsuite-quick-cart-form .single_add_to_cart_button:not(.disabled)', function (e) {
+        $(document).on( 'click', '.sxwishlist-quick-cart-form .single_add_to_cart_button:not(.disabled)', function (e) {
             e.preventDefault();
 
             var $this = $(this),
@@ -337,12 +337,12 @@
 
         // Get First image data
         if( typeof wishsuite_default_data.price_html !== 'undefined' && wishsuite_default_data.price_html.length === 0 ){
-            wishsuite_default_data.price_html = $(target_row).find('.wishsuite-product-price').html();
-            wishsuite_default_data.image_html = $(target_row).find('.wishsuite-product-image').html();
+            wishsuite_default_data.price_html = $(target_row).find('.sxwishlist-product-price').html();
+            wishsuite_default_data.image_html = $(target_row).find('.sxwishlist-product-image').html();
         }
 
         // Set variation data
-        $(target_row).find('.wishsuite-product-price').html( attributes.price_html );
+        $(target_row).find('.sxwishlist-product-price').html( attributes.price_html );
         wishsuite_variation_image_set( target_row, attributes.image );
 
         // reset data
@@ -353,16 +353,16 @@
     // Reset data
     function wishsuite_variation_data_reset( target_row, default_data ){
         $( target_row ).find('.reset_variations').on('click', function(e){
-            $(target_row).find('.wishsuite-product-price').html( default_data.price_html );
-            $(target_row).find('.wishsuite-product-image').html( default_data.image_html );
+            $(target_row).find('.sxwishlist-product-price').html( default_data.price_html );
+            $(target_row).find('.sxwishlist-product-image').html( default_data.image_html );
         });
     }
 
     // variation image set
     function wishsuite_variation_image_set( target_row, image ){
-        $(target_row).find('.wishsuite-product-image img').wc_set_variation_attr('src',image.full_src);
-        $(target_row).find('.wishsuite-product-image img').wc_set_variation_attr('srcset',image.srcset);
-        $(target_row).find('.wishsuite-product-image img').wc_set_variation_attr('sizes',image.sizes);
+        $(target_row).find('.sxwishlist-product-image img').wc_set_variation_attr('src',image.full_src);
+        $(target_row).find('.sxwishlist-product-image img').wc_set_variation_attr('srcset',image.srcset);
+        $(target_row).find('.sxwishlist-product-image img').wc_set_variation_attr('sizes',image.sizes);
     }
 
 

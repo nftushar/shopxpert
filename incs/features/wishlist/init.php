@@ -6,7 +6,7 @@ use function  Shopxpert\incs\shopxpert_get_option;
 
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-error_log('file xxxxx Shopxpert_WooWishSuite_Base');
+// error_log('file xxxxx Shopxpert_WooWishSuite_Base');
 /**
  * Plugin Main Class
  */
@@ -119,7 +119,7 @@ final class Shopxpert_WooWishSuite_Base{
         $image_dimention = shopxpert_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
             $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
-            add_image_size( 'wishsuite-image', absint( $image_dimention['width'] ), absint( $image_dimention['height'] ), $hard_crop );
+            add_image_size( 'sxwishlist-image', absint( $image_dimention['width'] ), absint( $image_dimention['height'] ), $hard_crop );
         }
 
     }

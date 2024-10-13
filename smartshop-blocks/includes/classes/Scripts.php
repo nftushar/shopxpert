@@ -144,7 +144,7 @@ class Scripts {
 				wp_enqueue_script('wc-add-to-cart-variation', \WC()->plugin_url() . '/assets/js/frontend/add-to-cart-variation.js', array( 'jquery', 'wp-util', 'jquery-blockui' ), \Automattic\Jetpack\Constants::get_constant('WC_VERSION'), 'all' );
 			}
 		}
-		wp_enqueue_style('wishsuite-frontend');
+		wp_enqueue_style('sxwishlist-frontend');
 		wp_enqueue_style('evercompare-frontend');
 		if( defined('\Shopxpert\Features\CurrencySwitcher\FEATURE_ASSETS') ){
 			wp_enqueue_style('shopxpert-currency-switcher', \Shopxpert\Features\CurrencySwitcher\FEATURE_ASSETS . '/css/frontend.css', [], SHOPXPERT_VERSION );

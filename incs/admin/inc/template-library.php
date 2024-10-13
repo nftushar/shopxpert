@@ -79,14 +79,15 @@ class Shopxpert_Template_Library{
                 )
             );
         }else{
-            if ( isset( $_REQUEST ) ) {
+            if ( isset( $_REQUEST ) ) { 
 
-                if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'shopxpert_template_nonce' ) ) {
+                if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_REQUEST['nonce'] ), 'shopxpert_template_nonce' ) ) {
                     $errormessage = array(
-                        'message'  => __('Are you cheating?','shopxpert')
+                        'message' => __( 'Are you cheating?', 'shopxpert' )
                     );
                     wp_send_json_error( $errormessage );
                 }
+                
 
                 $template_id        = sanitize_text_field( $_REQUEST['httemplateid'] );
                 $template_parentid  = sanitize_text_field( $_REQUEST['htparentid'] );

@@ -1,6 +1,6 @@
 <?php
 
-error_log('zxxxShopXpert_Ajax_Search_Basexxxxxz');
+// error_log('zxxxShopXpert_Ajax_Search_Basexxxxxz');
 
 
 class ShopXpert_Ajax_Search_Base{
@@ -42,60 +42,71 @@ class ShopXpert_Ajax_Search_Base{
 	/**
 	 * Ajax Callback method
 	 */
-	public function ajax_search_callback(){
+	public function ajax_search_callback() {
+		// Verify the nonce
 		check_ajax_referer('samartshop_psa_nonce', 'nonce');
-		$s 		  = isset( $_REQUEST['s'] ) ? sanitize_text_field( $_REQUEST['s'] ) : '';
-		$limit 	  = isset( $_REQUEST['limit'] ) ? intval( $_REQUEST['limit'] ) : 10;
-		$category = isset( $_REQUEST['category'] ) ? $_REQUEST['category'] : '';
-
+	    
+		// Unsplash the input before sanitization
+		$s = isset($_REQUEST['s']) ? wp_unslash($_REQUEST['s']) : '';
+		$s = sanitize_text_field($s); // Now sanitize the unslashed input
+	    
+		$limit = isset($_REQUEST['limit']) ? intval($_REQUEST['limit']) : 10;
+	    
+		// Unsplash category input and sanitize
+		$category = isset($_REQUEST['category']) ? wp_unslash($_REQUEST['category']) : '';
+		
 		$args = array(
 		    'post_type'     => 'product',
-			'post_status'   => 'publish',
+		    'post_status'   => 'publish',
 		    'posts_per_page'=> $limit,
-		    's' 			=> $s
+		    's'             => $s,
 		);
-
-		if( !empty( $category )  ) {
-
-			$categories  = explode(',', trim( $category, ',' ) );
-			$clean_data  = array_map( function ( $item ){ return intval( $item ); }, $categories );
-	
-			$args['tax_query'] = array(
-				array(
-					'taxonomy'  => 'product_cat',
-					'field'     => 'term_id',
-					'terms'     => $clean_data,
-					'operator'  => 'IN'
-				)
-			);
+	    
+		if (!empty($category)) {
+		    $categories = explode(',', trim($category, ','));
+		    // Sanitize each category ID
+		    $clean_data = array_map(function ($item) {
+			return intval($item);
+		    }, $categories);
+		    
+		    $args['tax_query'] = array(
+			array(
+			    'taxonomy'  => 'product_cat',
+			    'field'     => 'term_id',
+			    'terms'     => $clean_data,
+			    'operator'  => 'IN'
+			)
+		    );
 		}
-
-		// Exclude Hidden Product
+	    
+		// Exclude Hidden Products
 		$args['tax_query'][] = array(
-			'taxonomy' 	=> 'product_visibility',
-			'field' 	=> 'name',
-			'terms' 	=> 'exclude-from-catalog',
-			'operator' 	=> 'NOT IN',
+		    'taxonomy' => 'product_visibility',
+		    'field'    => 'name',
+		    'terms'    => 'exclude-from-catalog',
+		    'operator' => 'NOT IN',
 		);
-
-		$query = new WP_Query( $args );
-
+	    
+		$query = new WP_Query($args);
+	    
 		ob_start();
 		echo '<div class="samartshop_psa_inner_wrapper">';
-
-			if( $query->have_posts() ):
-				while( $query->have_posts() ): $query->the_post();
-					echo $this->search_item(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			    endwhile; // main loop
-			    wp_reset_query(); wp_reset_postdata();
-			else:
-				echo '<p class="text-center samartshop_psa_wrapper samartshop_no_result">'. esc_html__( 'No Results Found', 'shopxpert' ) .'</p>';
-			endif; // have posts
-
+	    
+		if ($query->have_posts()):
+		    while ($query->have_posts()): $query->the_post();
+			echo $this->search_item(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		    endwhile; // main loop
+		    wp_reset_query();
+		    wp_reset_postdata();
+		else:
+		    echo '<p class="text-center samartshop_psa_wrapper samartshop_no_result">'. esc_html__('No Results Found', 'shopxpert') .'</p>';
+		endif; // have posts
+	    
 		echo '</div>';
 		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		wp_die();
-	}
+	    }
+	    
 
 	/**
 	 * Render Search Item.
