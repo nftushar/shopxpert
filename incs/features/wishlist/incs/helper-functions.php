@@ -11,7 +11,7 @@
 
 function woowishsuite_get_post_list( $post_type = 'page' ){
     $options = array();
-    $options['0'] = __('Select','wishsuite');
+    $options['0'] = __('Select','shopxpert');
     $perpage = -1;
     $all_post = array( 'posts_per_page' => $perpage, 'post_type'=> $post_type );
     $post_terms = get_posts( $all_post );
@@ -91,17 +91,17 @@ function woowishsuite_add_to_cart( $product, $quentity ){
  */
 function woowishsuite_get_default_fields(){
     $fields = array(
-        'remove'      => esc_html__( 'Remove', 'wishsuite' ),
-        'image'       => esc_html__( 'Image', 'wishsuite' ),
-        'title'       => esc_html__( 'Title', 'wishsuite' ),
-        'price'       => esc_html__( 'Price', 'wishsuite' ),
-        'quantity'    => esc_html__( 'Quantity', 'wishsuite' ),
-        'add_to_cart' => esc_html__( 'Add To Cart', 'wishsuite' ),
-        'description' => esc_html__( 'Description', 'wishsuite' ),
-        'availability'=> esc_html__( 'Availability', 'wishsuite' ),
-        'sku'         => esc_html__( 'Sku', 'wishsuite' ),
-        'weight'      => esc_html__( 'Weight', 'wishsuite' ),
-        'dimensions'  => esc_html__( 'Dimensions', 'wishsuite' ),
+        'remove'      => esc_html__( 'Remove', 'shopxpert' ),
+        'image'       => esc_html__( 'Image', 'shopxpert' ),
+        'title'       => esc_html__( 'Title', 'shopxpert' ),
+        'price'       => esc_html__( 'Price', 'shopxpert' ),
+        'quantity'    => esc_html__( 'Quantity', 'shopxpert' ),
+        'add_to_cart' => esc_html__( 'Add To Cart', 'shopxpert' ),
+        'description' => esc_html__( 'Description', 'shopxpert' ),
+        'availability'=> esc_html__( 'Availability', 'shopxpert' ),
+        'sku'         => esc_html__( 'Sku', 'shopxpert' ),
+        'weight'      => esc_html__( 'Weight', 'shopxpert' ),
+        'dimensions'  => esc_html__( 'Dimensions', 'shopxpert' ),
     );
     return apply_filters( 'wishsuite_default_fields', $fields );
 }
@@ -123,12 +123,12 @@ function woowishsuite_table_heading(){
     $new_list = array();
 
     $active_default_fields = array(
-        'remove'      => esc_html__( 'Remove', 'wishsuite' ),
-        'image'       => esc_html__( 'Image', 'wishsuite' ),
-        'title'       => esc_html__( 'Title', 'wishsuite' ),
-        'price'       => esc_html__( 'Price', 'wishsuite' ),
-        'quantity'    => esc_html__( 'Quantity', 'wishsuite' ),
-        'add_to_cart' => esc_html__( 'Add To Cart', 'wishsuite' ),
+        'remove'      => esc_html__( 'Remove', 'shopxpert' ),
+        'image'       => esc_html__( 'Image', 'shopxpert' ),
+        'title'       => esc_html__( 'Title', 'shopxpert' ),
+        'price'       => esc_html__( 'Price', 'shopxpert' ),
+        'quantity'    => esc_html__( 'Quantity', 'shopxpert' ),
+        'add_to_cart' => esc_html__( 'Add To Cart', 'shopxpert' ),
     );
 
     $field_list = count( woowishsuite_table_active_heading() ) > 0 ? woowishsuite_table_active_heading() : $active_default_fields;

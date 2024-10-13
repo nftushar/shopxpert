@@ -21,10 +21,10 @@
       shopxpert_admin_tabs( $(".shopxpert-admin-tabs"), '.shopxpert-admin-tab-pane' );
 
     // Navigation Tabs
-    $('.shopxper-admin-main-nav').on('click', '.shopxper-admin-main-nav-btn', function (e) {
+    $('.shopxpert-admin-main-nav').on('click', '.shopxpert-admin-main-nav-btn', function (e) {
         e.preventDefault()
         const $this = $(this),
-            $siblingsBtn = $this.closest('li').siblings().find('.shopxper-admin-main-nav-btn'),
+            $siblingsBtn = $this.closest('li').siblings().find('.shopxpert-admin-main-nav-btn'),
             $target = $this.attr('href')
         localStorage.setItem("wlActiveTab", $target);
         if (!$this.hasClass('wlactive')) {
@@ -36,9 +36,9 @@
     if (localStorage.wlActiveTab !== undefined && localStorage.wlActiveTab !== null) {
         const $wlActiveTab = localStorage.getItem('wlActiveTab');
         let hasActiveElement = false;
-        $('.shopxper-admin-main-nav-btn').each(function () {
+        $('.shopxpert-admin-main-nav-btn').each(function () {
             const $this = $(this),
-                $siblingsBtn = $this.closest('li').siblings().find('.shopxper-admin-main-nav-btn')
+                $siblingsBtn = $this.closest('li').siblings().find('.shopxpert-admin-main-nav-btn')
             if ($this.attr('href') === $wlActiveTab) {
                 $this.addClass('wlactive');
                 $siblingsBtn.removeClass('wlactive');
@@ -49,18 +49,18 @@
         if (hasActiveElement) {
             $($wlActiveTab).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
         } else {
-            var $defaultIndex = $('.shopxper-admin-main-nav-btn').length;
+            var $defaultIndex = $('.shopxpert-admin-main-nav-btn').length;
             if ($defaultIndex > 0) {
-                const $firstTab = $('.shopxper-admin-main-nav-btn')[$defaultIndex - 1],
+                const $firstTab = $('.shopxpert-admin-main-nav-btn')[$defaultIndex - 1],
                     $target = $firstTab.hash;
                 $firstTab.classList.add('wlactive');
                 $($target).addClass('wlactive').show().siblings().removeClass('wlactive').hide();
             }
         }
     } else {
-        var $defaultIndex = $('.shopxper-admin-main-nav-btn').length;
+        var $defaultIndex = $('.shopxpert-admin-main-nav-btn').length;
         if ($defaultIndex > 0) {
-            const $firstTab = $('.shopxper-admin-main-nav-btn')[$defaultIndex - 1],
+            const $firstTab = $('.shopxpert-admin-main-nav-btn')[$defaultIndex - 1],
                 $target = $firstTab.hash
             $firstTab.classList.add('wlactive')
             $($target).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
@@ -80,7 +80,7 @@
     });
 
     // Footer Sticky Save Button
-    var $adminHeaderArea = $('.shopxper-admin-main-nav'),
+    var $adminHeaderArea = $('.shopxpert-admin-main-nav'),
         $stickyFooterArea = $('.shopxpert-admin-footer,.shopxpert-sticky-condition');
 
     if ($stickyFooterArea.length <= 0 || $adminHeaderArea.length <= 0) return;
@@ -132,7 +132,7 @@ console.log("JS Switch Enable/Disable Function");
 
         $switches.each(function () {
             const $switch = $(this)
-            if ($switch.data('shopxpert-pro') !== 'disabled') {
+            if ($switch.data('shopxpert') !== 'disabled') {
                 const $input = $switch.find('input[type="checkbox"');
                 var actionBtn = $switch.closest('.shopxpert-admin-switch-block-actions').find('.shopxpert-admin-switch-block-setting');
                 if ($type === 'enable' && $input.is(":visible")) {
@@ -180,7 +180,7 @@ console.log("JS Switch Enable/Disable Function");
     $('.shopxpert-admin-btn-save').on('click', function (event) {
         event.preventDefault();
 
-        var $option_form = $(this).closest('.shopxper-admin-main-tab-pane').find('form.shopxpert-dashboard'),
+        var $option_form = $(this).closest('.shopxpert-admin-main-tab-pane').find('form.shopxpert-dashboard'),
             $savebtn = $(this),
             $section = $option_form.data('section'),
             $field_keys = $option_form.data('fields');
@@ -219,19 +219,19 @@ console.log("JS Switch Enable/Disable Function");
  
 
     // Save Button Enable
-    $('.shopxper-admin-main-tab-pane .shopxpert-dashboard').on('click', 'input,select,textarea,.shopxpert-admin-number-btn', function () { $(this).closest('.shopxper-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
+    $('.shopxpert-admin-main-tab-pane .shopxpert-dashboard').on('click', 'input,select,textarea,.shopxpert-admin-number-btn', function () { $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
     });
 
-    $('.shopxper-admin-main-tab-pane .shopxpert-dashboard').on('keyup', 'input', function () {
-        $(this).closest('.shopxper-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
+    $('.shopxpert-admin-main-tab-pane .shopxpert-dashboard').on('keyup', 'input', function () {
+        $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
     });
 
     $('.shopxpert-admin-header-actions .shopxpert-admin-btn').on('click', function () {
-        $(this).closest('.shopxper-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
+        $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
     });
 
-    $('.shopxper-admin-main-tab-pane .shopxpert-dashboard').on('change', 'select.shopxpert-admin-select', function () {
-        $(this).closest('.shopxper-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
+    $('.shopxpert-admin-main-tab-pane .shopxpert-dashboard').on('change', 'select.shopxpert-admin-select', function () {
+        $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
     });
 
 

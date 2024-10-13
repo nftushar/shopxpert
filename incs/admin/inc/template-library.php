@@ -31,8 +31,8 @@ class Shopxpert_Template_Library{
     public function admin_menu() {
         add_submenu_page(
             'shopxpert_page', 
-            esc_html__( 'Template Library', 'shopxper' ),
-            esc_html__( 'Template Library', 'shopxper' ), 
+            esc_html__( 'Template Library', 'shopxpert' ),
+            esc_html__( 'Template Library', 'shopxpert' ), 
             'manage_options', 
             'shopxpert_templates', 
             [ $this, 'library_render_html' ] 
@@ -60,8 +60,8 @@ class Shopxpert_Template_Library{
             wp_enqueue_script( 'jquery-selectric' );
             wp_enqueue_script( 'jquery-ScrollMagic' );
             wp_enqueue_script( 'babel-min' );
-            wp_enqueue_script( 'shopxper-templates' );
-            wp_enqueue_script( 'shopxper-install-manager' );
+            wp_enqueue_script( 'shopxpert-templates' );
+            wp_enqueue_script( 'shopxpert-install-manager' );
 
         }
 
@@ -75,7 +75,7 @@ class Shopxpert_Template_Library{
         if ( ! current_user_can( 'manage_options') ) {
             echo wp_json_encode(
                 array(
-                    'message' => esc_html__( 'You are not permitted to import the template.', 'shopxper' )
+                    'message' => esc_html__( 'You are not permitted to import the template.', 'shopxpert' )
                 )
             );
         }else{
@@ -83,7 +83,7 @@ class Shopxpert_Template_Library{
 
                 if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'shopxpert_template_nonce' ) ) {
                     $errormessage = array(
-                        'message'  => __('Are you cheating?','shopxper')
+                        'message'  => __('Are you cheating?','shopxpert')
                     );
                     wp_send_json_error( $errormessage );
                 }
@@ -132,7 +132,7 @@ class Shopxpert_Template_Library{
                 echo wp_json_encode(
                     array( 
                         'id'      => $new_post_id,
-                        'edittxt' => !empty( $page_title ) ? esc_html__( 'Edit Page', 'shopxper' ) : esc_html__( 'Edit Template', 'shopxper' )
+                        'edittxt' => !empty( $page_title ) ? esc_html__( 'Edit Page', 'shopxpert' ) : esc_html__( 'Edit Template', 'shopxpert' )
                     )
                 );
             }
@@ -151,7 +151,7 @@ class Shopxpert_Template_Library{
                 wp_send_json_error(
                     array(
                         'success' => false,
-                        'message' => esc_html__( 'Nonce Varification Faild !', 'shopxper' ),
+                        'message' => esc_html__( 'Nonce Varification Faild !', 'shopxpert' ),
                     )
                 );
             }
@@ -186,19 +186,19 @@ class Shopxpert_Template_Library{
                 if ( file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && is_plugin_inactive( $data['location'] ) ) {
 
                     $button_classes = 'button activate-now button-primary';
-                    $button_text    = esc_html__( 'Activate', 'shopxper' );
+                    $button_text    = esc_html__( 'Activate', 'shopxpert' );
 
                 // Not Installed.
                 } elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 
                     $button_classes = 'button install-now';
-                    $button_text    = esc_html__( 'Install Now', 'shopxper' );
+                    $button_text    = esc_html__( 'Install Now', 'shopxpert' );
 
                 // Active.
                 } else {
                     $li_classes = '';
                     $button_classes = 'button disabled';
-                    $button_text    = esc_html__( 'Activated', 'shopxper' );
+                    $button_text    = esc_html__( 'Activated', 'shopxpert' );
                 }
 
                 ?>
@@ -206,7 +206,7 @@ class Shopxpert_Template_Library{
                         <h3><?php echo esc_html($data['name']); ?></h3>
                         <?php
                             if ( $type == 'pro' && ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
-                                echo '<a class="button" href="'.esc_url( $data['pllink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxper' ).'</a>';
+                                echo '<a class="button" href="'.esc_url( $data['pllink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxpert' ).'</a>';
                             }else{
                         ?>
                             <button class="<?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
@@ -239,18 +239,18 @@ class Shopxpert_Template_Library{
                 if ( file_exists( get_theme_root(). '/' . $data['slug'] . '/functions.php' ) && ( $theme->stylesheet != $data['slug'] ) ) {
 
                     $button_classes = 'button themeactivate-now button-primary';
-                    $button_text    = esc_html__( 'Activate', 'shopxper' );
+                    $button_text    = esc_html__( 'Activate', 'shopxpert' );
 
                 // Not Installed.
                 } elseif ( ! file_exists( get_theme_root(). '/' . $data['slug'] . '/functions.php' ) ) {
 
                     $button_classes = 'button themeinstall-now';
-                    $button_text    = esc_html__( 'Install Now', 'shopxper' );
+                    $button_text    = esc_html__( 'Install Now', 'shopxpert' );
 
                 // Active.
                 } else {
                     $button_classes = 'button disabled';
-                    $button_text    = esc_html__( 'Activated', 'shopxper' );
+                    $button_text    = esc_html__( 'Activated', 'shopxpert' );
                 }
 
                 ?>
@@ -258,7 +258,7 @@ class Shopxpert_Template_Library{
                         <h3><?php echo esc_html($data['name']); ?></h3>
                         <?php
                             if ( !empty( $data['prolink'] ) ) {
-                                echo '<a class="button" href="'.esc_url( $data['prolink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxper' ).'</a>';
+                                echo '<a class="button" href="'.esc_url( $data['prolink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxpert' ).'</a>';
                             }else{
                         ?>
                             <button class="<?php echo esc_attr($button_classes); ?>" data-themeopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
@@ -281,7 +281,7 @@ class Shopxpert_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Nonce Varification Faild !', 'shopxper' ),
+                    'message' => esc_html__( 'Nonce Varification Faild !', 'shopxpert' ),
                 )
             );
         }
@@ -290,7 +290,7 @@ class Shopxpert_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Plugin Not Found', 'shopxper' ),
+                    'message' => esc_html__( 'Plugin Not Found', 'shopxpert' ),
                 )
             );
         }
@@ -310,7 +310,7 @@ class Shopxpert_Template_Library{
         wp_send_json_success(
             array(
                 'success' => true,
-                'message' => esc_html__( 'Plugin Successfully Activated', 'shopxper' ),
+                'message' => esc_html__( 'Plugin Successfully Activated', 'shopxpert' ),
             )
         );
 
@@ -325,7 +325,7 @@ class Shopxpert_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Nonce Varification Faild !', 'shopxper' ),
+                    'message' => esc_html__( 'Nonce Varification Faild !', 'shopxpert' ),
                 )
             );
         }
@@ -334,7 +334,7 @@ class Shopxpert_Template_Library{
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Sorry, you are not allowed to install themes on this site.', 'shopxper' ),
+                    'message' => esc_html__( 'Sorry, you are not allowed to install themes on this site.', 'shopxpert' ),
                 )
             );
         }
@@ -345,7 +345,7 @@ class Shopxpert_Template_Library{
         wp_send_json_success(
             array(
                 'success' => true,
-                'message' => __( 'Theme Activated', 'shopxper' ),
+                'message' => __( 'Theme Activated', 'shopxpert' ),
             )
         );
     }

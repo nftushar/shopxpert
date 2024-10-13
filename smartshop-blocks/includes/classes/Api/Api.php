@@ -255,7 +255,7 @@ class Api
                 $cart_btn_class .= $product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock() ? ' ajax_add_to_cart' : '';
                 $item['addtocart'] = [
                     'link' => $product->add_to_cart_url(),
-                    'text' => __('Add To Cart', 'shopxper'),
+                    'text' => __('Add To Cart', 'shopxpert'),
                     'class' => $cart_btn_class,
                 ];
                 $item['wishlist'] = [
@@ -482,7 +482,7 @@ class Api
                 $i++;
                 $item = [];
                 $item['id'] = $i;
-                $item['title'] = !empty( $dataItem['title'] ) ? $dataItem['title'] : __( 'Unnamed Deal', 'shopxper' );
+                $item['title'] = !empty( $dataItem['title'] ) ? $dataItem['title'] : __( 'Unnamed Deal', 'shopxpert' );
                 $data[] = $item;
             }
         }

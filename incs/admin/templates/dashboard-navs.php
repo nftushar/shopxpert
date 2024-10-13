@@ -18,12 +18,12 @@ if (class_exists('Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields')) {
 ?>
 
 <!-- Nav Start -->
-<div class="shopxper-admin-main-nav">
-    <ul class="shopxper-admin-main-nav-ul">
+<div class="shopxpert-admin-main-nav">
+    <ul class="shopxpert-admin-main-nav-ul">
        
         <?php
             foreach( $navs as $key => $nav ){
-                $classes = ['shopxper-admin-main-nav-li'];
+                $classes = ['shopxpert-admin-main-nav-li'];
                 if( isset( $nav['class'] ) ){
                     $classes[] = $nav['class'];
                 }
@@ -40,7 +40,7 @@ if (class_exists('Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields')) {
                 }
             ?>
                 <li class="<?php echo esc_attr( $classes ); ?>">
-                    <a href="#<?php echo esc_attr( $nav['id'] ); ?>" class="shopxper-admin-main-nav-btn">
+                    <a href="#<?php echo esc_attr( $nav['id'] ); ?>" class="shopxpert-admin-main-nav-btn">
                         <svg class="left" width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 8H0L0.152774 7.97004C4.16091 7.18414 7.27643 4.01985 8 0V8Z" fill="currentColor" />
                         </svg>

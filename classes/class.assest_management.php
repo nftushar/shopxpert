@@ -142,7 +142,7 @@ class Assets_Management{
             'ajax_nonce'       => 
             ('shopxper_nonce_action'),
         );
-        wp_localize_script('shopxper-widgets-scripts', 'shopxper_addons', $localizeargs);
+        wp_localize_script('shopxpert-widgets-scripts', 'shopxper_addons', $localizeargs);
     
         // For Admin
         if (is_admin()) {
@@ -150,14 +150,14 @@ class Assets_Management{
                 'nonce' => wp_create_nonce('shopxper_nonce_action'),
                 'ajaxurl' => admin_url('admin-ajax.php'),
                 'message' => [
-                    'btntxt'  => esc_html__('Save Changes', 'shopxper'),
-                    'loading' => esc_html__('Saving...', 'shopxper'),
-                    'success' => esc_html__('XX Saved success Data', 'shopxper'),
-                    'yes'     => esc_html__('Yes', 'shopxper'),
-                    'cancel'  => esc_html__('Cancel', 'shopxper'),
-                    'sure'    => esc_html__('Are you sure?', 'shopxper'),
-                    'reseting'=> esc_html__('Resetting...', 'shopxper'),
-                    'reseted' => esc_html__('Reset All Settings', 'shopxper'),
+                    'btntxt'  => esc_html__('Save Changes', 'shopxpert'),
+                    'loading' => esc_html__('Saving...', 'shopxpert'),
+                    'success' => esc_html__('XX Saved success Data', 'shopxpert'),
+                    'yes'     => esc_html__('Yes', 'shopxpert'),
+                    'cancel'  => esc_html__('Cancel', 'shopxpert'),
+                    'sure'    => esc_html__('Are you sure?', 'shopxpert'),
+                    'reseting'=> esc_html__('Resetting...', 'shopxpert'),
+                    'reseted' => esc_html__('Reset All Settings', 'shopxpert'),
                 ],
                 'option_data' => [],
             );
@@ -174,30 +174,30 @@ class Assets_Management{
                 'pluginURL'        => plugin_dir_url(__FILE__),
                 'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
                 'prolink'          => 'https:// shopxpert .com/pricing/?utm_source=admin&utm_medium=library',
-                'prolabel'         => esc_html__('Pro', 'shopxper'),
+                'prolabel'         => esc_html__('Pro', 'shopxpert'),
                 'loadingimg'       => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
                 'message'          => [
-                    'packagedesc'=> esc_html__('in this package', 'shopxper'),
-                    'allload'    => esc_html__('All Items have been Loaded', 'shopxper'),
-                    'notfound'   => esc_html__('Nothing Found', 'shopxper'),
+                    'packagedesc'=> esc_html__('in this package', 'shopxpert'),
+                    'allload'    => esc_html__('All Items have been Loaded', 'shopxpert'),
+                    'notfound'   => esc_html__('Nothing Found', 'shopxpert'),
                 ],
                 'buttontxt'      => [
-                    'tmplibrary' => esc_html__('Import to Library', 'shopxper'),
-                    'tmppage'    => esc_html__('Import to Page', 'shopxper'),
-                    'tmpbuilder' => esc_html__('Import to Builder', 'shopxper'),
-                    'import'     => esc_html__('Import', 'shopxper'),
-                    'buynow'     => esc_html__('Buy Now', 'shopxper'),
-                    'preview'    => esc_html__('Preview', 'shopxper'),
-                    'installing' => esc_html__('Installing..', 'shopxper'),
-                    'activating' => esc_html__('Activating..', 'shopxper'),
-                    'active'     => esc_html__('Active', 'shopxper'),
+                    'tmplibrary' => esc_html__('Import to Library', 'shopxpert'),
+                    'tmppage'    => esc_html__('Import to Page', 'shopxpert'),
+                    'tmpbuilder' => esc_html__('Import to Builder', 'shopxpert'),
+                    'import'     => esc_html__('Import', 'shopxpert'),
+                    'buynow'     => esc_html__('Buy Now', 'shopxpert'),
+                    'preview'    => esc_html__('Preview', 'shopxpert'),
+                    'installing' => esc_html__('Installing..', 'shopxpert'),
+                    'activating' => esc_html__('Activating..', 'shopxpert'),
+                    'active'     => esc_html__('Active', 'shopxpert'),
                 ],
                 'user'           => [
                     'email' => $current_user->user_email,
                 ],
             ];
-            wp_localize_script('shopxper-templates', 'WLTM', $localize_data);
-            wp_localize_script('shopxper-install-manager', 'WLIM', $localize_data);
+            wp_localize_script('shopxpert-templates', 'WLTM', $localize_data);
+            wp_localize_script('shopxpert-install-manager', 'WLIM', $localize_data);
         }
     }
     
@@ -222,11 +222,11 @@ class Assets_Management{
         wp_enqueue_style( 'simple-line-icons-wl' );
         wp_enqueue_style( 'htflexboxgrid' );
         wp_enqueue_style( 'slick' );
-        wp_enqueue_style( 'shopxper-widgets' );
+        wp_enqueue_style( 'shopxpert-widgets' );
         
         // If RTL
         if ( is_rtl() ) {
-            wp_enqueue_style(  'shopxper-widgets-rtl' );
+            wp_enqueue_style(  'shopxpert-widgets-rtl' );
         }
     }
 

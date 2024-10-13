@@ -112,8 +112,8 @@
                                             array(
                                                 'style'=> 2,
                                                 'btn_text_type'=> 'text',
-                                                'btn_text'=> esc_html__('Compare','shopxper'),
-                                                'btn_added_txt'=> esc_html__('Already Compared','shopxper')
+                                                'btn_text'=> esc_html__('Compare','shopxpert'),
+                                                'btn_added_txt'=> esc_html__('Already Compared','shopxpert')
                                             )
                                         ); 
                                     ?>

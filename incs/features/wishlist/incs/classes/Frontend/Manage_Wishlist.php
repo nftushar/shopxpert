@@ -400,12 +400,12 @@ class Manage_Wishlist {
     public function get_all_fields() {
         
         $default_show = array(
-            'remove'        => esc_html__( 'Remove', 'wishsuite' ),
-            'image'         => esc_html__( 'Image', 'wishsuite' ),
-            'title'         => esc_html__( 'Title', 'wishsuite' ),
-            'price'         => esc_html__( 'Price', 'wishsuite' ),
-            'quantity'      => esc_html__( 'Quantity', 'wishsuite' ),
-            'add_to_cart'   => esc_html__( 'Add To Cart', 'wishsuite' ),
+            'remove'        => esc_html__( 'Remove', 'shopxpert' ),
+            'image'         => esc_html__( 'Image', 'shopxpert' ),
+            'title'         => esc_html__( 'Title', 'shopxpert' ),
+            'price'         => esc_html__( 'Price', 'shopxpert' ),
+            'quantity'      => esc_html__( 'Quantity', 'shopxpert' ),
+            'add_to_cart'   => esc_html__( 'Add To Cart', 'shopxpert' ),
         );
 
         $fields_settings = shopxpert_get_option( 'show_fields', 'wishsuite_table_settings_tabs' );
@@ -573,7 +573,7 @@ class Manage_Wishlist {
         $availability = $product->get_availability();
 
         if( empty( $availability['availability'] ) ) {
-            $availability['availability'] = __( 'In stock', 'woocommerce' );
+            $availability['availability'] = __( 'In stock','shopxpert' );
         }
 
         if ( ! empty( $availability['availability'] ) ) {

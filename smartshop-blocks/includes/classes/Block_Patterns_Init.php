@@ -52,7 +52,7 @@ class Block_Patterns_init {
      * @return void
      */
     public function register_patterns_category(){
-        register_block_pattern_category( 'shoplentor', [ 'label' => __( 'ShopLentor', 'shopxper' ) ] );
+        register_block_pattern_category( 'shopXpert', [ 'label' => __( 'ShopXpert', 'shopxpert' ) ] );
     }
 
     /**
@@ -105,7 +105,7 @@ class Block_Patterns_init {
         $pattern_info = [
             'slug'          => $pattern_slug,
             'title'         => $pattern['title'],
-            'categories'    => 'shoplentor',
+            'categories'    => 'shopXpert',
             'keywords'      => $pattern['keywords'],
             'content'       => !empty( $pattern['content'] ) ? $pattern['content'] : '',
             'description'   => '',
@@ -118,7 +118,7 @@ class Block_Patterns_init {
         if ( empty( $pattern_info['slug'] ) ) {
             _doing_it_wrong(
                 'register_block_patterns',
-                esc_html( sprintf( __( 'The block pattern fails to register because the "Slug" field is missing in this pattern "%s"', 'shopxper' ), $pattern_info['title'] ) ),
+                esc_html( sprintf( __( 'The block pattern fails to register because the "Slug" field is missing in this pattern "%s"', 'shopxpert' ), $pattern_info['title'] ) ),
                 '6.0.0'
             );
             return;
@@ -133,7 +133,7 @@ class Block_Patterns_init {
         if ( empty( $pattern_info['title'] ) ) {
             _doing_it_wrong(
                 'register_block_patterns',
-                esc_html( sprintf( __( 'The block pattern fails to register because the "Title" field is missing in this pattern "%s"', 'shopxper' ), $pattern_info['title']) ),
+                esc_html( sprintf( __( 'The block pattern fails to register because the "Title" field is missing in this pattern "%s"', 'shopxpert' ), $pattern_info['title']) ),
                 '6.0.0'
             );
             return;

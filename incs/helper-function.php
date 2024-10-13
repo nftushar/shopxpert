@@ -480,7 +480,7 @@ function shopxpert_get_post_types( $args = [] ) {
  */
 function shopxpert_post_name( $post_type = 'post', $args = [] ){
     $options = array();
-    $options['0'] = __('Select','shopxper');
+    $options['0'] = __('Select','shopxpert');
     $perpage = !empty( $args['limit'] ) ? $args['limit'] : shopxpert_get_option( 'loadproductlimit', 'shopxpert_others_tabs', '20' );
     $all_post = array( 'posts_per_page' => $perpage, 'post_type'=> $post_type );
     $post_terms = get_posts( $all_post );
@@ -503,9 +503,9 @@ function shopxpert_elementor_template() {
     }
     $types = array();
     if ( empty( $templates ) ) {
-        $template_lists = [ '0' => __( 'No saved templates found.', 'shopxper' ) ];
+        $template_lists = [ '0' => __( 'No saved templates found.', 'shopxpert' ) ];
     } else {
-        $template_lists = [ '0' => __( 'Select Template', 'shopxper' ) ];
+        $template_lists = [ '0' => __( 'Select Template', 'shopxpert' ) ];
         foreach ( $templates as $template ) {
             $template_lists[ $template['template_id'] ] = $template['title'] . ' (' . $template['type'] . ')';
         }
@@ -661,15 +661,15 @@ function shopxpert_get_last_product_id(){
  */
 function shopxpert_html_tag_lists() {
     $html_tag_list = [
-        'h1'   => __( 'H1', 'shopxper' ),
-        'h2'   => __( 'H2', 'shopxper' ),
-        'h3'   => __( 'H3', 'shopxper' ),
-        'h4'   => __( 'H4', 'shopxper' ),
-        'h5'   => __( 'H5', 'shopxper' ),
-        'h6'   => __( 'H6', 'shopxper' ),
-        'p'    => __( 'p', 'shopxper' ),
-        'div'  => __( 'div', 'shopxper' ),
-        'span' => __( 'span', 'shopxper' ),
+        'h1'   => __( 'H1', 'shopxpert' ),
+        'h2'   => __( 'H2', 'shopxpert' ),
+        'h3'   => __( 'H3', 'shopxpert' ),
+        'h4'   => __( 'H4', 'shopxpert' ),
+        'h5'   => __( 'H5', 'shopxpert' ),
+        'h6'   => __( 'H6', 'shopxpert' ),
+        'p'    => __( 'p', 'shopxpert' ),
+        'div'  => __( 'div', 'shopxpert' ),
+        'span' => __( 'span', 'shopxpert' ),
     ];
     return $html_tag_list;
 }
@@ -1019,10 +1019,10 @@ if( class_exists('WooCommerce') ){
             if( $echo == false ){ ob_start(); }
 
             if( $product->is_on_sale() && $product->is_in_stock() ){
-                echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'shopxper' ) . '</span>', $post, $product );
+                echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'shopxpert' ) . '</span>', $post, $product );
             }else{
                 $out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
-                $out_of_stock_text = apply_filters( 'shopxpert_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
+                $out_of_stock_text = apply_filters( 'shopxpert_shop_out_of_stock_text', __( 'Out of stock', 'shopxpert' ) );
                 if ( 'outofstock' === $out_of_stock ) {
                     echo '<span class="outofstock onsale">'.esc_html( $out_of_stock_text ).'</span>';
                 }
@@ -1065,12 +1065,12 @@ if( class_exists('WooCommerce') ){
                 }else{ echo ' '; }
 
             }else{
-                $sale_badge_text = apply_filters( 'shopxpert_sale_badge_text', esc_html__( 'Sale!', 'shopxper' ) );
+                $sale_badge_text = apply_filters( 'shopxpert_sale_badge_text', esc_html__( 'Sale!', 'shopxpert' ) );
                 echo '<span class="ht-product-label ht-product-label-right">'.esc_html( $sale_badge_text ).'</span>';
             }
         }else{
             $out_of_stock = get_post_meta( get_the_ID(), '_stock_status', true );
-            $out_of_stock_text = !empty( $outofstocktxt ) ? esc_html( $outofstocktxt ) : apply_filters( 'shopxpert_shop_out_of_stock_text', __( 'Out of stock', 'shopxper' ) );
+            $out_of_stock_text = !empty( $outofstocktxt ) ? esc_html( $outofstocktxt ) : apply_filters( 'shopxpert_shop_out_of_stock_text', __( 'Out of stock', 'shopxpert' ) );
             if ( 'outofstock' === $out_of_stock ) {
                 echo '<span class="ht-stockout ht-product-label ht-product-label-right">'.esc_html( $out_of_stock_text ).'</span>';
             }
@@ -1099,12 +1099,12 @@ if( class_exists('WooCommerce') ){
                 <select name="orderby" class="orderby">
                     <?php
                         $catalog_orderby = apply_filters( 'woocommerce_catalog_orderby', array(
-                            'menu_order' => __( 'Default sorting', 'shopxper' ),
-                            'popularity' => __( 'Sort by popularity', 'shopxper' ),
-                            'rating'     => __( 'Sort by average rating', 'shopxper' ),
-                            'date'       => __( 'Sort by latest', 'shopxper' ),
-                            'price'      => __( 'Sort by price: low to high', 'shopxper' ),
-                            'price-desc' => __( 'Sort by price: high to low', 'shopxper' ),
+                            'menu_order' => __( 'Default sorting', 'shopxpert' ),
+                            'popularity' => __( 'Sort by popularity', 'shopxpert' ),
+                            'rating'     => __( 'Sort by average rating', 'shopxpert' ),
+                            'date'       => __( 'Sort by latest', 'shopxpert' ),
+                            'price'      => __( 'Sort by price: low to high', 'shopxpert' ),
+                            'price-desc' => __( 'Sort by price: high to low', 'shopxpert' ),
                         ) );
                         foreach ( $catalog_orderby as $id => $name ){
                             echo '<option value="' . esc_attr( $id ) . '" ' . selected( $getorderby, $id, false ) . '>' . esc_attr( $name ) . '</option>';
@@ -1233,7 +1233,7 @@ if( class_exists('WooCommerce') ){
 
             $total_stock = get_post_meta( $product_id, 'shopxpert_total_stock_quantity', true );
 
-            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'shopxper' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'shopxper' ).'</a></div>'; return; } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'shopxpert' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'shopxpert' ).'</a></div>'; return; } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
             $current_stock = round( get_post_meta( $product_id, '_stock', true ) );
 
@@ -1243,15 +1243,15 @@ if( class_exists('WooCommerce') ){
             if ( $current_stock > 0 ) {
                 echo '<div class="shopxpert-stock-progress-bar">';
                     echo '<div class="wlstock-info">';
-                        echo '<div class="wltotal-sold">' . esc_html__( $order_text, 'shopxper' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
-                    echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'shopxper' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
+                        echo '<div class="wltotal-sold">' . esc_html__( $order_text, 'shopxpert' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
+                    echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'shopxpert' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
                     echo '</div>';
-                    echo '<div class="wlprogress-area" title="' . esc_html__( 'Sold', 'shopxper' ) . ' ' . esc_attr( $percentage ) . '%">';
+                    echo '<div class="wlprogress-area" title="' . esc_html__( 'Sold', 'shopxpert' ) . ' ' . esc_attr( $percentage ) . '%">';
                         echo '<div class="wlprogress-bar"style="width:' . esc_attr( $percentage ) . '%;"></div>';
                     echo '</div>';
                 echo '</div>';
             }else{
-                echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'shopxper' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'shopxper' ).'</a></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'shopxpert' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'shopxpert' ).'</a></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
 
         }
@@ -1316,17 +1316,17 @@ function shopxpert_get_taxonomies( $object = 'product', $skip_terms = false ) {
  */
 function shopxpert_order_by_opts() {
     $options = [
-        'none'                  => esc_html__( 'None', 'shopxper' ),
-        'ID'                    => esc_html__( 'ID', 'shopxper' ),
-        'date'                  => esc_html__( 'Date', 'shopxper' ),
-        'name'                  => esc_html__( 'Name', 'shopxper' ),
-        'title'                 => esc_html__( 'Title', 'shopxper' ),
-        'comment_count'         => esc_html__( 'Comment count', 'shopxper' ),
-        'rand'                  => esc_html__( 'Random', 'shopxper' ),
-        'featured'              => esc_html__( 'Featured', 'shopxper' ),
-        '_price'                => esc_html__( 'Product Price', 'shopxper' ),
-        'total_sales'           => esc_html__( 'Top Seller', 'shopxper' ),
-        '_wc_average_rating'    => esc_html__( 'Top Rated', 'shopxper' ),
+        'none'                  => esc_html__( 'None', 'shopxpert' ),
+        'ID'                    => esc_html__( 'ID', 'shopxpert' ),
+        'date'                  => esc_html__( 'Date', 'shopxpert' ),
+        'name'                  => esc_html__( 'Name', 'shopxpert' ),
+        'title'                 => esc_html__( 'Title', 'shopxpert' ),
+        'comment_count'         => esc_html__( 'Comment count', 'shopxpert' ),
+        'rand'                  => esc_html__( 'Random', 'shopxpert' ),
+        'featured'              => esc_html__( 'Featured', 'shopxpert' ),
+        '_price'                => esc_html__( 'Product Price', 'shopxpert' ),
+        'total_sales'           => esc_html__( 'Top Seller', 'shopxpert' ),
+        '_wc_average_rating'    => esc_html__( 'Top Rated', 'shopxpert' ),
     ];
     return apply_filters( 'shopxpert_order_by_opts', $options );
 
@@ -1364,9 +1364,9 @@ function shopxpert_compare_button( $button_arg = array() ){
 
     $button_style       = !empty( $button_arg['style'] ) ? $button_arg['style'] : 1;
     
-    $button_title       = !empty( $button_arg['title'] ) ? $button_arg['title'] : esc_html__('Add to Compare','shopxper');
-    $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','shopxper');
-    $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','shopxper' );
+    $button_title       = !empty( $button_arg['title'] ) ? $button_arg['title'] : esc_html__('Add to Compare','shopxpert');
+    $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','shopxpert');
+    $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','shopxpert' );
 
     if( class_exists('Ever_Compare') || class_exists('Shopxpert_Ever_Compare') ){
 
@@ -1377,7 +1377,7 @@ function shopxpert_compare_button( $button_arg = array() ){
         }
 
         $comp_link = \EverCompare\Frontend\Manage_Compare::instance()->get_compare_page_url();
-        echo '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn shopxpert-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'" aria-label="'.esc_attr__('Compare','shopxpert-pro').'" rel="nofollow">'.$button_text.'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn shopxpert-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'" aria-label="'.esc_attr__('Compare','shopxpert').'" rel="nofollow">'.$button_text.'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     }elseif( class_exists('YITH_Woocompare') ){
         $comp_link = home_url() . '?action=yith-woocompare-add-product';
@@ -1388,7 +1388,7 @@ function shopxpert_compare_button( $button_arg = array() ){
                 echo do_shortcode('[yith_compare_button]');
             }
         }else{
-            echo '<a title="'. esc_attr__('Add to Compare', 'shopxper') .'" href="'. esc_url( $comp_link ) .'" class="shopxpert-compare compare" data-product_id="'. esc_attr( $product_id ) .'" aria-label="'.esc_attr__('Compare','shopxpert-pro').'" rel="nofollow">'.esc_html__( 'Compare', 'shopxper' ).'</a>';
+            echo '<a title="'. esc_attr__('Add to Compare', 'shopxpert') .'" href="'. esc_url( $comp_link ) .'" class="shopxpert-compare compare" data-product_id="'. esc_attr( $product_id ) .'" aria-label="'.esc_attr__('Compare','shopxpert').'" rel="nofollow">'.esc_html__( 'Compare', 'shopxpert' ).'</a>';
         }
     }else{
         return 0;
@@ -1469,12 +1469,12 @@ function shopxpert_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
             $output  .= '<div class="'.( $tooltip == 'yes' ? '' : 'tooltip_no' ).' wishlist button-default yith-wcwl-add-to-wishlist add-to-wishlist-' . esc_attr( $product->get_id() ) . '">';
                 $output .= '<div class="yith-wcwl-add-button';
                     $output .= $exists ? ' hide" style="display:none;"' : ' show"';
-                    $output .= '><a href="' . esc_url( htmlspecialchars( YITH_WCWL()->get_wishlist_url() ) ) . '" data-product-id="' . esc_attr( $product->get_id() ) . '" data-product-type="' . esc_attr( $product_type ) . '" ' . $classes . ' aria-label="'.esc_attr__('Wishlist','shopxpert-pro').'" rel="nofollow">'.$normalicon.'<span class="ht-product-action-tooltip">'.esc_html( $add ).'</span></a>';
+                    $output .= '><a href="' . esc_url( htmlspecialchars( YITH_WCWL()->get_wishlist_url() ) ) . '" data-product-id="' . esc_attr( $product->get_id() ) . '" data-product-type="' . esc_attr( $product_type ) . '" ' . $classes . ' aria-label="'.esc_attr__('Wishlist','shopxpert').'" rel="nofollow">'.$normalicon.'<span class="ht-product-action-tooltip">'.esc_html( $add ).'</span></a>';
                     $output .= '<i class="fa fa-spinner fa-pulse ajax-loading" style="visibility:hidden"></i>';
                 $output .= '</div>';
 
-                $output .= '<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;"><a class="" href="' . esc_url( $url ) . '" aria-label="'.esc_attr__('Wishlist','shopxpert-pro').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $browse ).'</span></a></div>';
-                $output .= '<div class="yith-wcwl-wishlistexistsbrowse ' . ( $exists ? 'show' : 'hide' ) . '" style="display:' . ( $exists ? 'block' : 'none' ) . '"><a href="' . esc_url( $url ) . '" class="" aria-label="'.esc_attr__('Wishlist','shopxpert-pro').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $added ).'</span></a></div>';
+                $output .= '<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;"><a class="" href="' . esc_url( $url ) . '" aria-label="'.esc_attr__('Wishlist','shopxpert').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $browse ).'</span></a></div>';
+                $output .= '<div class="yith-wcwl-wishlistexistsbrowse ' . ( $exists ? 'show' : 'hide' ) . '" style="display:' . ( $exists ? 'block' : 'none' ) . '"><a href="' . esc_url( $url ) . '" class="" aria-label="'.esc_attr__('Wishlist','shopxpert').'" rel="nofollow">'.$addedicon.'<span class="ht-product-action-tooltip">'.esc_html( $added ).'</span></a></div>';
             $output .= '</div>';
 
             return $output;
@@ -1576,7 +1576,7 @@ function shopxpert_get_current_theme_directory(){
  * Products not found content.
  */
 function shopxpert_products_not_found_content(){
-    return '<div class="products-not-found"><p class="woocommerce-info">' . esc_html__( 'No products were found matching your selection.','shopxper' ) . '</p></div>';
+    return '<div class="products-not-found"><p class="woocommerce-info">' . esc_html__( 'No products were found matching your selection.','shopxpert' ) . '</p></div>';
 }
 
 /**

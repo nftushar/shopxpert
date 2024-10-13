@@ -61,8 +61,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 					?>
 						<form class="shopxpert-header-search-form" role="search" method="get" action="<?php echo esc_url( $form_action ); ?>">
 							<div class="shopxpert-search-input-box">
-								<input class="input-box" type="search" placeholder="<?php echo esc_attr_x( $settings['searchFormPlaceholder'], 'placeholder', 'shopxper' ); ?>" value="<?php echo esc_attr( $search_value ); ?>" name="q" title="<?php echo esc_attr_x( 'Search for:', 'label', 'shopxper' ); ?>" />
-								<button class="input-inner-btn" type="submit" aria-label="<?php echo esc_attr__( 'Search', 'shopxper' );?>"><?php echo $submit_btton_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
+								<input class="input-box" type="search" placeholder="<?php echo esc_attr_x( $settings['searchFormPlaceholder'], 'placeholder', 'shopxpert' ); ?>" value="<?php echo esc_attr( $search_value ); ?>" name="q" title="<?php echo esc_attr_x( 'Search for:', 'label', 'shopxpert' ); ?>" />
+								<button class="input-inner-btn" type="submit" aria-label="<?php echo esc_attr__( 'Search', 'shopxpert' );?>"><?php echo $submit_btton_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
 							</div>
 						</form>
 					<?php endif; ?>
@@ -102,8 +102,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 												<?php
 													if( !empty( $filter_item['filterPlaceholder'] ) && !$block['is_editor'] ){echo '<option></option>';}
 												?>
-												<option value="&wlsort=ASC" <?php selected( 'ASC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_asc_lavel, 'shopxper' ); ?></option>
-												<option value="&wlsort=DESC" <?php selected( 'DESC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_desc_lavel, 'shopxper' ); ?></option>
+												<option value="&wlsort=ASC" <?php selected( 'ASC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_asc_lavel, 'shopxpert' ); ?></option>
+												<option value="&wlsort=DESC" <?php selected( 'DESC', $wlsort, true ); ?> ><?php echo esc_html__( $sort_by_desc_lavel, 'shopxpert' ); ?></option>
 											</select>
 										</div>
 									<?php
@@ -118,7 +118,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 													if( !empty( $filter_item['filterPlaceholder'] ) && !$block['is_editor'] ){echo '<option></option>';}
 												
 													foreach ( shopxpert_order_by_opts() as $key => $opt_data ) {
-														echo '<option value="&wlorder_by='.esc_attr( $key ).'" '.selected( $key, $wlorder_by, false ).'>'.esc_html__( $opt_data, 'shopxper' ).'</option>';
+														echo '<option value="&wlorder_by='.esc_attr( $key ).'" '.selected( $key, $wlorder_by, false ).'>'.esc_html__( $opt_data, 'shopxpert' ).'</option>';
 													}
 												?>
 											</select>
@@ -277,8 +277,8 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 				isEditorMode = '<?php echo esc_js($block['is_editor']); ?>';
 
 			// Localize Text
-			var selectTxt = '<?php echo esc_html__( 'select', 'shopxper' ); ?>',
-				ofTxt = '<?php echo esc_html__( 'of', 'shopxper' ); ?>';
+			var selectTxt = '<?php echo esc_html__( 'select', 'shopxpert' ); ?>',
+				ofTxt = '<?php echo esc_html__( 'of', 'shopxpert' ); ?>';
 
 			// Filter Toggle
 			$('#filter-toggle-'+id).on('click', function(e){

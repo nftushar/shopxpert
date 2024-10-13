@@ -13,9 +13,9 @@ class ShopXpert_Product_Search_Ajax_Widget extends WP_Widget{
     */
     public function __construct() {
         $widget_options = array(
-            'description' => esc_html__('ShopXpert  Ajax Product Search Widget', 'samartshop')
+            'description' => esc_html__('ShopXpert  Ajax Product Search Widget', 'shopxpert')
         );
-        parent::__construct( 'samartshop_widget_psa', __('ShopXpert : Product Search Ajax', 'samartshop'), $widget_options );
+        parent::__construct( 'samartshop_widget_psa', __('ShopXpert : Product Search Ajax', 'shopxpert'), $widget_options );
     }
 
     /**
@@ -42,16 +42,16 @@ class ShopXpert_Product_Search_Ajax_Widget extends WP_Widget{
         $show_category = ! empty( $instance['show_category'] ) ? (bool) $instance['show_category'] : false;
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php echo esc_html__( 'Title:', 'samartshop' ) ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php echo esc_html__( 'Title:', 'shopxpert' ) ?></label>
             <input type="text" class="widefat" id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'title' )); ?>" value="<?php echo esc_attr( $title ); ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id( 'limit' )); ?>"><?php echo esc_html__( 'Show Number of Product:', 'samartshop' ) ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id( 'limit' )); ?>"><?php echo esc_html__( 'Show Number of Product:', 'shopxpert' ) ?></label>
             <input type="number" class="widefat" id="<?php echo esc_attr($this->get_field_id( 'limit' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'limit' )); ?>" value="<?php echo esc_attr( $limit ); ?>" />
         </p>
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $show_category ); ?> id="<?php echo esc_attr($this->get_field_id( 'show_category' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'show_category' )); ?>" value="1" />
-            <label for="<?php echo esc_attr($this->get_field_id( 'show_category' )); ?>"><?php echo esc_html__( 'Show Category Dropdown','samartshop' ); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id( 'show_category' )); ?>"><?php echo esc_html__( 'Show Category Dropdown','shopxpert' ); ?></label>
         </p>
         <?php
     }

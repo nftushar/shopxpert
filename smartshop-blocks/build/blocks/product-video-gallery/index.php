@@ -63,7 +63,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			<?php
 				if( $is_editor ){
 					if ( $product->is_on_sale() ) { 
-						echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'shopxpert-pro' ) . '</span>', $post, $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!','shopxpert' ) . '</span>', $post, $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 				}else{
 					shopxpert_show_product_sale_flash();

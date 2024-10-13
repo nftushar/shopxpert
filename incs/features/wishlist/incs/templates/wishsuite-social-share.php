@@ -11,54 +11,54 @@
 
 	$social_button_list = [
 		'facebook' => [
-			'title' => esc_html__( 'Facebook', 'wishsuite' ),
+			'title' => esc_html__( 'Facebook', 'shopxpert' ),
 			'url' 	=> 'https://www.facebook.com/sharer/sharer.php?u='.$share_link,
 		],
 		'twitter' => [
-			'title' => esc_html__( 'Twitter', 'wishsuite' ),
+			'title' => esc_html__( 'Twitter', 'shopxpert' ),
 			'url' 	=> 'https://twitter.com/share?url=' . $share_link.'&amp;text='.$share_title,
 		],
 		'pinterest' => [
-			'title' => esc_html__( 'Pinterest', 'wishsuite' ),
+			'title' => esc_html__( 'Pinterest', 'shopxpert' ),
 			'url' 	=> 'https://pinterest.com/pin/create/button/?url='.$share_link.'&media='.$thumb_url[0],
 		],
 		'linkedin' => [
-			'title' => esc_html__( 'Linkedin', 'wishsuite' ),
+			'title' => esc_html__( 'Linkedin', 'shopxpert' ),
 			'url' 	=> 'https://www.linkedin.com/shareArticle?mini=true&url='.$share_link.'&amp;title='.$share_title,
 		],
 		'email' => [
-			'title' => esc_html__( 'Email', 'wishsuite' ),
-			'url' 	=> 'mailto:?subject='.esc_html__('Whislist&body=My whislist:', 'wishsuite') . $share_link,
+			'title' => esc_html__( 'Email', 'shopxpert' ),
+			'url' 	=> 'mailto:?subject='.esc_html__('Whislist&body=My whislist:', 'shopxpert') . $share_link,
 		],
 		'reddit' => [
-			'title' => esc_html__( 'Reddit', 'wishsuite' ),
+			'title' => esc_html__( 'Reddit', 'shopxpert' ),
 			'url' 	=> 'http://reddit.com/submit?url='.$share_link.'&amp;title='.$share_title,
 		],
 		'telegram' => [
-			'title' => esc_html__( 'Telegram', 'wishsuite' ),
+			'title' => esc_html__( 'Telegram', 'shopxpert' ),
 			'url' 	=> 'https://telegram.me/share/url?url=' . $share_link,
 		],
 		'odnoklassniki' => [
-			'title' => esc_html__( 'Odnoklassniki', 'wishsuite' ),
+			'title' => esc_html__( 'Odnoklassniki', 'shopxpert' ),
 			'url' 	=> 'https://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=' . $share_link,
 		],
 		'whatsapp' => [
-			'title' => esc_html__( 'WhatsApp', 'wishsuite' ),
+			'title' => esc_html__( 'WhatsApp', 'shopxpert' ),
 			'url' 	=> 'https://wa.me/?text=' . $share_link,
 		],
 		'vk' => [
-			'title' => esc_html__( 'VK', 'wishsuite' ),
+			'title' => esc_html__( 'VK', 'shopxpert' ),
 			'url' 	=> 'https://vk.com/share.php?url=' . $share_link,
 		],
 	];
 
 
 	$default_buttons = [
-        'facebook'   => esc_html__( 'Facebook', 'wishsuite' ),
-        'twitter'    => esc_html__( 'Twitter', 'wishsuite' ),
-        'pinterest'  => esc_html__( 'Pinterest', 'wishsuite' ),
-        'linkedin'   => esc_html__( 'Linkedin', 'wishsuite' ),
-        'telegram'   => esc_html__( 'Telegram', 'wishsuite' ),
+        'facebook'   => esc_html__( 'Facebook', 'shopxpert' ),
+        'twitter'    => esc_html__( 'Twitter', 'shopxpert' ),
+        'pinterest'  => esc_html__( 'Pinterest', 'shopxpert' ),
+        'linkedin'   => esc_html__( 'Linkedin', 'shopxpert' ),
+        'telegram'   => esc_html__( 'Telegram', 'shopxpert' ),
     ];
 	$button_list = shopxpert_get_option( 'social_share_buttons','wishsuite_table_settings_tabs', $default_buttons );
 	$button_text = shopxpert_get_option( 'social_share_button_title','wishsuite_table_settings_tabs', 'Share:' );
@@ -68,7 +68,7 @@
 ?>
 
 <div class="wishsuite-social-share">
-	<span class="wishsuite-social-title"><?php esc_html_e( $button_text, 'wishsuite' ); ?></span>
+	<span class="wishsuite-social-title"><?php esc_html_e( $button_text, 'shopxpert' ); ?></span>
 	<ul>
 		<?php
 			foreach ( $button_list as $buttonkey => $button ) {

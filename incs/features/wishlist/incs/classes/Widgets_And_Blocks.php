@@ -40,7 +40,7 @@ class Widgets_And_Blocks {
     public function block_list( $block_list = [] ){
 
         $block_list['wishsuite_table'] = [
-            'label'  => __('WooWooWishSuite Table','shopxper'),
+            'label'  => __('WooWooWishSuite Table','shopxpert'),
             'name'   => 'shopxpert/wishsuite-table',
             'server_side_render' => true,
             'type'   => 'common',
@@ -50,7 +50,7 @@ class Widgets_And_Blocks {
         ];
 
         $block_list['wishsuite_counter'] = [
-            'label'  => __('WooWooWishSuite Counter','shopxper'),
+            'label'  => __('WooWooWishSuite Counter','shopxpert'),
             'name'   => 'shopxpert/wishsuite-counter',
             'server_side_render' => true,
             'type'   => 'common',

@@ -51,7 +51,7 @@ class Ajax {
     public function add_to_wishlist(){
         if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wishSuite_nonce' ) ){
             $errormessage = array(
-                'message'  => __('Nonce Varification Faild !','shopxper')
+                'message'  => __('Nonce Varification Faild !','shopxpert')
             );
             wp_send_json_error( $errormessage );
         }
@@ -59,12 +59,12 @@ class Ajax {
         $inserted = \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->add_product( $id );
         if ( ! $inserted ) {
             wp_send_json_success([
-                'message' => __( 'The product does not add!', 'wishsuite' )
+                'message' => __( 'The product does not add!', 'shopxpert' )
             ]);
         }else{
             wp_send_json_success([
                 'item_count' => count( \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
-                'message' => __( 'Product successfully added!', 'wishsuite' )
+                'message' => __( 'Product successfully added!', 'shopxpert' )
             ]);
         }
 
@@ -77,7 +77,7 @@ class Ajax {
     public function remove_wishlist(){
         if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wishSuite_nonce' ) ){
             $errormessage = array(
-                'message'  => __('Nonce Varification Faild !','shopxper')
+                'message'  => __('Nonce Varification Faild !','shopxpert')
             );
             wp_send_json_error( $errormessage );
         }
@@ -85,13 +85,13 @@ class Ajax {
         $deleted = \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->remove_product( $id );
         if ( ! $deleted ) {
             wp_send_json_success([
-                'message' => __( 'The product does not delete!', 'wishsuite' )
+                'message' => __( 'The product does not delete!', 'shopxpert' )
             ]);
         }else{
             wp_send_json_success([
                 'item_count' => count( \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
                 'per_page' => (int)shopxpert_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 ),
-                'message' => __( 'Product successfully deleted!', 'wishsuite' )
+                'message' => __( 'Product successfully deleted!', 'shopxpert' )
             ]);
         }
 
@@ -106,7 +106,7 @@ class Ajax {
 
         if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wishSuite_nonce' ) ){
             $errormessage = array(
-                'message'  => __('Nonce Varification Faild !','shopxper')
+                'message'  => __('Nonce Varification Faild !','shopxpert')
             );
             wp_send_json_error( $errormessage );
         }
@@ -146,7 +146,7 @@ class Ajax {
 
         if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wishSuite_nonce' ) ){
             $errormessage = array(
-                'message'  => __('Nonce Varification Faild !','shopxper')
+                'message'  => __('Nonce Varification Faild !','shopxpert')
             );
             wp_send_json_error( $errormessage );
         }

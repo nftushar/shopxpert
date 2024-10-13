@@ -14,9 +14,9 @@
                     {{{ data.content }}}
                     <div class="shopxpert-admin-footer {{ data.section !== 'shopxpert_others_tabs' ? 'has-reset' : '' }}">
                         <# if( data.section != 'shopxpert_others_tabs' ){ #>
-                            <button class="shopxpert-admin-Feature-reset shopxpert-admin-btn shopxpert-admin-btn-primary hover-effect-1"><?php echo esc_html__('Reset To Default','shopxper');?></button>
+                            <button class="shopxpert-admin-Feature-reset shopxpert-admin-btn shopxpert-admin-btn-primary hover-effect-1"><?php echo esc_html__('Reset To Default','shopxpert');?></button>
                         <# } #>
-                        <button class="shopxpert-admin-Feature-save shopxpert-admin-btn shopxpert-admin-btn-primary hover-effect-1" disabled="disabled"><?php echo esc_html__('Save Changes','shopxper');?></button>
+                        <button class="shopxpert-admin-Feature-save shopxpert-admin-btn shopxpert-admin-btn-primary hover-effect-1" disabled="disabled"><?php echo esc_html__('Save Changes','shopxpert');?></button>
                     </div>
                 </form>
             </div>

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	!empty( $settings['columns']['tablet'] ) ? $areaClasses[] = 'shopxpert-grid-columns-tablet-'.$settings['columns']['tablet'] : 'shopxpert-grid-columns-tablet-2';
 	!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'shopxpert-grid-columns-mobile-'.$settings['columns']['mobile'] : 'shopxpert-grid-columns-mobile-1';
 
-	$default_img = '<img src="'.SHOPXPERT_BLOCK_URL.'/assets/images/brand.png'.'" alt="'.esc_html__('Brand Logo','shopxper').'">';
+	$default_img = '<img src="'.SHOPXPERT_BLOCK_URL.'/assets/images/brand.png'.'" alt="'.esc_html__('Brand Logo','shopxpert').'">';
 	$brands = $settings['brandLogoList'];
 
 	// Slider Options

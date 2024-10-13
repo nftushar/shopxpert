@@ -75,8 +75,8 @@ class Shopxpert_Template_Manager{
         $link_custom_post = 'edit.php?post_type=' . self::CPTTYPE;
 		add_submenu_page(
 			'shopxpert_page',
-			esc_html__('Template Builder', 'shopxper'),
-			esc_html__('Template Builder', 'shopxper'),
+			esc_html__('Template Builder', 'shopxpert'),
+			esc_html__('Template Builder', 'shopxpert'),
 			'manage_options',
 			$link_custom_post,
             NULL
@@ -97,8 +97,8 @@ class Shopxpert_Template_Manager{
 		unset( $columns['date'] );
 		unset( $columns['author'] );
 
-		$columns['type'] 		= esc_html__('Type', 'shopxper');
-		$columns['setdefault'] 	= esc_html__('Default', 'shopxper');
+		$columns['type'] 		= esc_html__('Type', 'shopxpert');
+		$columns['setdefault'] 	= esc_html__('Default', 'shopxpert');
 		$columns['author'] 		= esc_html( $column_author );
 		$columns['date'] 		= esc_html( $column_date );
 
@@ -138,7 +138,7 @@ class Shopxpert_Template_Manager{
 			$value = $this->get_template_id( self::get_template_type()[$tmpType]['optionkey'] );
 			$checked = checked( $value, $post_id, false );
 
-			echo '<label class="shopxpert-default-tmp-status-switch" id="shopxpert-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="shopxpert-status-'.esc_attr( $tmpType ).'" id="shopxpert-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','shopxper').'</span><span>'.esc_html__('YES','shopxper').'</span></span><a>&nbsp;</a></label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<label class="shopxpert-default-tmp-status-switch" id="shopxpert-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="shopxpert-status-'.esc_attr( $tmpType ).'" id="shopxpert-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','shopxpert').'</span><span>'.esc_html__('YES','shopxpert').'</span></span><a>&nbsp;</a></label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
 
@@ -212,7 +212,7 @@ class Shopxpert_Template_Manager{
         if ( $post->post_type == self::CPTTYPE ) {
 
 			if( $this->edit_with_gutenberg( $post->ID ) ) {
-				$actions['shopxpert_edit_with_gutenberg'] = '<a href="'.get_edit_post_link($post->ID).'">'.esc_html__('Edit With Gutenberg', 'shopxper').'</a>';
+				$actions['shopxpert_edit_with_gutenberg'] = '<a href="'.get_edit_post_link($post->ID).'">'.esc_html__('Edit With Gutenberg', 'shopxpert').'</a>';
 			}
 
         }
@@ -234,8 +234,8 @@ class Shopxpert_Template_Manager{
 	public function add_page_templates( $page_templates, $wp_theme, $post ){
 		unset( $page_templates['elementor_theme'] );
 
-		$page_templates['shopxpert_canvas']    = esc_html__('ShopXpert  Canvas', 'shopxper');
-		$page_templates['shopxpert_fullwidth'] = esc_html__('ShopXpert  Full width', 'shopxper');
+		$page_templates['shopxpert_canvas']    = esc_html__('ShopXpert  Canvas', 'shopxpert');
+		$page_templates['shopxpert_fullwidth'] = esc_html__('ShopXpert  Full width', 'shopxpert');
 
 		return $page_templates;
 	}
@@ -264,13 +264,13 @@ class Shopxpert_Template_Manager{
 
 		$tabs = [
 			'shop' => [
-				'label' =>__('Shop','shopxper')
+				'label' =>__('Shop','shopxpert')
 			],
 			'archive' => [
-				'label' =>__('Archive','shopxper')
+				'label' =>__('Archive','shopxpert')
 			],
 			'single' => [
-				'label' => __('Single','shopxper')
+				'label' => __('Single','shopxpert')
 			],
 		];
 		return apply_filters( 'shopxpert_template_menu_tabs', $tabs );
@@ -286,15 +286,15 @@ class Shopxpert_Template_Manager{
 
 		$template_type = [
 			'shop' 	=> [
-				'label'		=>__('Shop','shopxper'),
+				'label'		=>__('Shop','shopxpert'),
 				'optionkey'	=> 'productarchivepage'
 			],
 			'archive' => [
-				'label'		=>__('Archive','shopxper'),
+				'label'		=>__('Archive','shopxpert'),
 				'optionkey'	=>'productallarchivepage'
 			],
 			'single' => [
-				'label' 	=> __('Single','shopxper'),
+				'label' 	=> __('Single','shopxpert'),
 				'optionkey' => 'singleproductpage'
 			],
 		];
@@ -375,7 +375,7 @@ class Shopxpert_Template_Manager{
         ?>
             <div id="shopxpert-template-tabs-wrapper" class="nav-tab-wrapper">
 				<div class="shopxpert-menu-area">
-					<a class="nav-tab <?php echo esc_attr($active_class); ?>" href="edit.php?post_type=<?php echo esc_attr(self::CPTTYPE); ?>"><?php echo esc_html__('All','shopxper');?></a>
+					<a class="nav-tab <?php echo esc_attr($active_class); ?>" href="edit.php?post_type=<?php echo esc_attr(self::CPTTYPE); ?>"><?php echo esc_html__('All','shopxpert');?></a>
 					<?php
 						foreach( self::get_tabs() as $tabkey => $tab ){
 							$active_class = ( $current_type == $tabkey ? 'nav-tab-active' : '' );
@@ -386,7 +386,7 @@ class Shopxpert_Template_Manager{
 				<div class="shopxpert-template-importer">
 					<button type="button" class="button button-primary">
 						<span class="dashicons dashicons-download"></span>
-						<span class="shopxpert-template-importer-btn-text"><?php esc_html_e('Import Previously Assigned Templates','shopxper');?></span>
+						<span class="shopxpert-template-importer-btn-text"><?php esc_html_e('Import Previously Assigned Templates','shopxpert');?></span>
 					</button>
 				</div>
             </div>
@@ -443,54 +443,54 @@ class Shopxpert_Template_Manager{
 				'templatetype' => self::get_template_type(),
 				'haselementor' => shopxpert_is_elementor_editor() ? 'yes' : 'no',
 				'editor' => [
-					'elementor' => __('Elementor','shopxper'),
-					'gutenberg' => __('Gutenberg','shopxper')
+					'elementor' => __('Elementor','shopxpert'),
+					'gutenberg' => __('Gutenberg','shopxpert')
 				],
 				'templatelist' => $this->get_template_library(),
 				'adminURL'	=> admin_url(),
 				'labels' => [
 					'fields'=>[
 						'name'	=> [
-							'title' 	  => __('Name','shopxper'),
-							'placeholder' => __('Enter a template name','shopxper')
+							'title' 	  => __('Name','shopxpert'),
+							'placeholder' => __('Enter a template name','shopxpert')
 						],
-						'type'		 => __('Type','shopxper'),
-						'editor' 	 => __('Select Editor','shopxper'),
-						'setdefault' => __('Set Default','shopxper'),
+						'type'		 => __('Type','shopxpert'),
+						'editor' 	 => __('Select Editor','shopxpert'),
+						'setdefault' => __('Set Default','shopxpert'),
 					],
-					'head' => __('Template Settings','shopxper'),
+					'head' => __('Template Settings','shopxpert'),
 					'buttons' => [
 						'elementor' => [
-							'label' => __('Edit With Elementor','shopxper'),
+							'label' => __('Edit With Elementor','shopxpert'),
 							'link' 	=> '#'
 						],
 						'gutenberg' => [
-							'label' => __('Edit With Gutenberg','shopxper'),
+							'label' => __('Edit With Gutenberg','shopxpert'),
 							'link' 	=> '#'
 						],
 						'save' => [
-							'label'  => __('Save Settings','shopxper'),
-							'saving' => __('Saving...','shopxper'),
-							'saved'  => __('All Data Saved','shopxper'),
+							'label'  => __('Save Settings','shopxpert'),
+							'saving' => __('Saving...','shopxpert'),
+							'saved'  => __('All Data Saved','shopxpert'),
 							'link' 	 => '#'
 						]
 					],
 					'sampledata' => [
-						'visibility' => __('Sample Design','shopxper'),
-						'elementor'  => __('Elementor','shopxper'),
-						'gutenberg'  => __('Gutenberg','shopxper'),
-						'pro' 		 => __('Pro','shopxper'),
+						'visibility' => __('Sample Design','shopxpert'),
+						'elementor'  => __('Elementor','shopxpert'),
+						'gutenberg'  => __('Gutenberg','shopxpert'),
+						'pro' 		 => __('Pro','shopxpert'),
 					],
 					'importer' =>[
 						'button' => [
-							'importing' => __('Assigned Template Importing..','shopxper'),
-							'imported'  => __('All Assigned Template has been imported','shopxper'),
+							'importing' => __('Assigned Template Importing..','shopxpert'),
+							'imported'  => __('All Assigned Template has been imported','shopxpert'),
 						],
 						'message' =>[
-							'title' 	=> __( 'Are you sure?','shopxper' ),
-							'message' 	=> __( 'It will import those templates that were created from the "Templates" menu of Elementor and assigned to corresponding WooCommerce pages.','shopxper' ) ,
-							'yesbtn' 	=> __('Yes','shopxper'),
-							'cancelbtn' => __('Cancel','shopxper') 
+							'title' 	=> __( 'Are you sure?','shopxpert' ),
+							'message' 	=> __( 'It will import those templates that were created from the "Templates" menu of Elementor and assigned to corresponding WooCommerce pages.','shopxpert' ) ,
+							'yesbtn' 	=> __('Yes','shopxpert'),
+							'cancelbtn' => __('Cancel','shopxpert') 
 						]
 					]
 				]
@@ -511,19 +511,19 @@ class Shopxpert_Template_Manager{
 
 			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'shopxpert_tmp_nonce' ) ){
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','shopxper')
+					'message'  => __('Nonce Varification Faild !','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
 
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','shopxper')
+					'message'  => __('You are unauthorize to adding template!','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
 
-			$title 		= !empty( $_POST['title'] ) ? sanitize_text_field( $_POST['title'] ) : esc_html__( 'SHOPXPERT template '.time(), 'shopxper' );
+			$title 		= !empty( $_POST['title'] ) ? sanitize_text_field( $_POST['title'] ) : esc_html__( 'SHOPXPERT template '.time(), 'shopxpert' );
 			$tmpid 		= !empty( $_POST['tmpId'] ) ? sanitize_text_field( $_POST['tmpId'] ) : '';
 			$tmpType 	= !empty( $_POST['tmpType'] ) ? sanitize_text_field( $_POST['tmpType'] ) : 'single';
 			$tmpEditor 	= !empty( $_POST['tmpEditor'] ) ? sanitize_text_field( $_POST['tmpEditor'] ) : 'gutenberg';
@@ -552,7 +552,7 @@ class Shopxpert_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Post request dose not found','shopxper')
+				'message'  => __('Post request dose not found','shopxpert')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -576,7 +576,7 @@ class Shopxpert_Template_Manager{
 
 		if( $new_post_id ){
 			$return = array(
-				'message'  => __('Template has been inserted','shopxper'),
+				'message'  => __('Template has been inserted','shopxpert'),
 				'id'       => $new_post_id,
 			);
 
@@ -605,7 +605,7 @@ class Shopxpert_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','shopxper')
+				'message'  => __('Some thing is worng !','shopxpert')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -640,7 +640,7 @@ class Shopxpert_Template_Manager{
 		}
 
 		$return = array(
-			'message'  => __('Template has been updated','shopxper'),
+			'message'  => __('Template has been updated','shopxpert'),
 			'id'       => $data['id']
 		);
 		wp_send_json_success( $return );
@@ -693,7 +693,7 @@ class Shopxpert_Template_Manager{
 
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','shopxper')
+					'message'  => __('You are unauthorize to adding template!','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -701,7 +701,7 @@ class Shopxpert_Template_Manager{
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'shopxpert_tmp_nonce' ) ) {
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','shopxper')
+					'message'  => __('Nonce Varification Faild !','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -720,7 +720,7 @@ class Shopxpert_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','shopxper')
+				'message'  => __('Some thing is worng !','shopxpert')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -738,7 +738,7 @@ class Shopxpert_Template_Manager{
 
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','shopxper')
+					'message'  => __('You are unauthorize to adding template!','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -746,7 +746,7 @@ class Shopxpert_Template_Manager{
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'shopxpert_tmp_nonce' ) ) {
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','shopxper')
+					'message'  => __('Nonce Varification Faild !','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -763,7 +763,7 @@ class Shopxpert_Template_Manager{
 			$this->update_option( 'shopxpert_woo_template_tabs', self::get_template_type()[$tmpType]['optionkey'], $tmpid, $data );
 
 			$return = array(
-				'message'  => __('Template has been updated','shopxper'),
+				'message'  => __('Template has been updated','shopxpert'),
 				'id'       => $tmpid
 			);
 
@@ -771,7 +771,7 @@ class Shopxpert_Template_Manager{
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','shopxper')
+				'message'  => __('Some thing is worng !','shopxpert')
 			);
 			wp_send_json_error( $errormessage );
 		}
@@ -854,7 +854,7 @@ class Shopxpert_Template_Manager{
 			
 			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','shopxper')
+					'message'  => __('You are unauthorize to adding template!','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -862,7 +862,7 @@ class Shopxpert_Template_Manager{
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'shopxpert_tmp_nonce' ) ) {
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','shopxper')
+					'message'  => __('Nonce Varification Faild !','shopxpert')
 				);
 				wp_send_json_error( $errormessage );
 			}
@@ -895,14 +895,14 @@ class Shopxpert_Template_Manager{
 			}
 
 			$return = array(
-				'message'  => __('Template has been imported','shopxper'),
+				'message'  => __('Template has been imported','shopxpert'),
 			);
 
 			wp_send_json_success( $return );
 
 		}else{
 			$errormessage = array(
-				'message'  => __('Some thing is worng !','shopxper')
+				'message'  => __('Some thing is worng !','shopxpert')
 			);
 			wp_send_json_error( $errormessage );
 		}

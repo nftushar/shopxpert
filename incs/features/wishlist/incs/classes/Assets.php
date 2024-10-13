@@ -112,7 +112,7 @@ class Assets {
 
         // Admin Localize data
         $setting_page = 0;
-        if( isset( $_GET['page'] ) && $_GET['page'] == 'wishsuite' ){
+        if( isset( $_GET['page'] ) && $_GET['page'] == 'shopxpert' ){
             $setting_page = 1;
         }
         $admin_option_data = array(

@@ -16,7 +16,7 @@ class Dashboard {
     /**
      * Parent Menu Page Slug
      */
-    const MENU_PAGE_SLUG = 'wishsuite';
+    const MENU_PAGE_SLUG = 'shopxpert';
 
     /**
      * [$admin_menu_hook] Parent Menu Hook
@@ -65,8 +65,8 @@ class Dashboard {
 
         self::$admin_menu_hook = add_submenu_page(
             'shopxpert_page',
-            esc_html__( 'Wishlist', 'shopxper' ),
-            esc_html__( 'Wishlist', 'shopxper' ),
+            esc_html__( 'Wishlist', 'shopxpert' ),
+            esc_html__( 'Wishlist', 'shopxpert' ),
             'manage_options',
             self::MENU_PAGE_SLUG,
             [ $this,'dashboard' ]
@@ -112,7 +112,7 @@ class Dashboard {
      */
     public function add_display_post_states( $post_states, $post ){
         if ( (int)shopxpert_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' ) === $post->ID ) {
-            $post_states['wishsuite_page_for_wishlist_table'] = __( 'WooWooWishSuite', 'wishsuite' );
+            $post_states['wishsuite_page_for_wishlist_table'] = __( 'WooWooWishSuite', 'shopxpert' );
         }
         return $post_states;
     }

@@ -15,12 +15,12 @@ use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
     $all_fields   = array_merge( $settings_fields, $blocks_fields );
     $element_keys = Shopxpert_Admin_Fields_Manager::instance()->get_field_key( $all_fields, 'name' );
 ?>
-<div id="shopxpert_gutenberg_tabs" class="shopxper-admin-main-tab-pane">
-    <div class="shopxper-admin-main-tab-pane-inner">
+<div id="shopxpert_gutenberg_tabs" class="shopxpert-admin-main-tab-pane">
+    <div class="shopxpert-admin-main-tab-pane-inner">
         <div class="shopxpert-nested-tabs-area">
             <ul class="shopxpert-nested-tabs">
-                <li><a href="#blocks-settings" class="wlactive"><?php echo esc_html__('Blocks','shopxper');?></a></li>
-                <li><a href="#general-settings"><?php echo esc_html__('Settings','shopxper');?></a></li>
+                <li><a href="#blocks-settings" class="wlactive"><?php echo esc_html__('Blocks','shopxpert');?></a></li>
+                <li><a href="#general-settings"><?php echo esc_html__('Settings','shopxpert');?></a></li>
             </ul>
         </div>
         
@@ -33,12 +33,12 @@ use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
                     <!-- Header Start -->
                     <div class="shopxpert-admin-header shopxpert-admin-header-two">
                         <div class="shopxpert-admin-header-content">
-                            <h6 class="shopxpert-admin-header-title"><?php echo esc_html__('ShopXpert  Blocks','shopxper');?></h6>
-                            <p class="shopxpert-admin-header-text"><?php echo esc_html__('You can enable or disable all blocks by one click.','shopxper');?></p>
+                            <h6 class="shopxpert-admin-header-title"><?php echo esc_html__('ShopXpert  Blocks','shopxpert');?></h6>
+                            <p class="shopxpert-admin-header-text"><?php echo esc_html__('You can enable or disable all blocks by one click.','shopxpert');?></p>
                         </div>
                         <div class="shopxpert-admin-header-actions">
-                            <button class="shopxpert-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','shopxper'); ?></button>
-                            <button class="shopxpert-admin-btn disable" data-switch-toggle="disable" data-switch-target="element"><?php echo esc_html__('Disable all','shopxper'); ?></button>
+                            <button class="shopxpert-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','shopxpert'); ?></button>
+                            <button class="shopxpert-admin-btn disable" data-switch-toggle="disable" data-switch-target="element"><?php echo esc_html__('Disable all','shopxpert'); ?></button>
                         </div>
                     </div>
                     <!-- Header End -->
@@ -65,7 +65,7 @@ use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
                 <!-- Settings End -->
 
                 <div class="shopxpert-admin-footer">
-                    <button class="shopxpert-admin-btn-save shopxpert-admin-btn shopxpert-admin-btn-primary hover-effect-1" style="margin-left:auto;" disabled="disabled"><?php echo esc_html__('DG Save Changes','shopxper');?></button>
+                    <button class="shopxpert-admin-btn-save shopxpert-admin-btn shopxpert-admin-btn-primary hover-effect-1" style="margin-left:auto;" disabled="disabled"><?php echo esc_html__('DG Save Changes','shopxpert');?></button>
                 </div>
 
             </div>

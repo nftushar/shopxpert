@@ -330,7 +330,7 @@ function shopxpertBlocks_Search_Wl_block( $blocks ) {
     foreach ( $blocks as $value ) {
         if( isset( $value['blockName'] ) ) {
             $block_name = explode( '/', $value['blockName'] );
-            if( $block_name[0] === 'shopxper' ){
+            if( $block_name[0] === 'shopxpert' ){
                 $has_block = true;
                 break;
             }
@@ -371,7 +371,7 @@ function shopxpertBlocks_reusable_id( $post_id ){
  */
 function shopxpertBlocks_get_image_size() {
     $sizes = get_intermediate_image_sizes();
-    $filter = [ 'full' => __( 'Full','shopxper') ];
+    $filter = [ 'full' => __( 'Full','shopxpert') ];
     foreach ( $sizes as $value ) {
         $filter[$value] = ucwords( str_replace( array('_', '-'), array(' ', ' '), $value ) );
     }
@@ -595,9 +595,9 @@ function shopxpertBlocks_compare_button( $button_arg = array() ){
 
     if( class_exists('Ever_Compare') || class_exists('Shopxpert_Ever_Compare') ){
 
-        $button_title       = !empty( $button_arg['title'] ) ? $button_arg['title'] : esc_html__('Add to Compare','shopxper');
-        $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','shopxper');
-        $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','shopxper' );
+        $button_title       = !empty( $button_arg['title'] ) ? $button_arg['title'] : esc_html__('Add to Compare','shopxpert');
+        $button_text        = !empty( $button_arg['btn_text'] ) ? $button_arg['btn_text'] : esc_html__('Add to Compare','shopxpert');
+        $button_added_text  = !empty( $button_arg['btn_added_txt'] ) ? $button_arg['btn_added_txt'] : esc_html__( 'Product Added','shopxpert' );
 
         $comp_link = \EverCompare\Frontend\Manage_Compare::instance()->get_compare_page_url();
         $output = '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn shopxpert-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'">'.$button_text.'</a>';
@@ -612,7 +612,7 @@ function shopxpertBlocks_compare_button( $button_arg = array() ){
                 $output = do_shortcode('[yith_compare_button]');
             }
         }else{
-            $output = '<a title="'. esc_attr__('Add to Compare', 'shopxper') .'" href="'. esc_url( $comp_link ) .'" class="shopxpert-compare compare" data-product_id="'. esc_attr( $product_id ) .'" rel="nofollow">'.esc_html__( 'Compare', 'shopxper' ).'</a>';
+            $output = '<a title="'. esc_attr__('Add to Compare', 'shopxpert') .'" href="'. esc_url( $comp_link ) .'" class="shopxpert-compare compare" data-product_id="'. esc_attr( $product_id ) .'" rel="nofollow">'.esc_html__( 'Compare', 'shopxpert' ).'</a>';
         }
         return $output;
     }else{

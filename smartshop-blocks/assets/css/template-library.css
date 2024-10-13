@@ -101,7 +101,7 @@ ul.shopxpert-template-filter-menu {
 	color: #fff;
 	border-color: #ec5858;
 }
-.shopxper-templates-library-wrapper {
+.shopxpert-templates-library-wrapper {
     display: flex;
     flex-flow: row wrap;
 }
@@ -109,7 +109,7 @@ ul.shopxpert-template-filter-menu {
     padding-bottom: 0;
     padding-right: 10px;
 }
-.shopxper-templates-library-single-template {
+.shopxpert-templates-library-single-template {
 	position: relative;
 	background: #fff;
 	width: calc(25% - 30px);
@@ -135,7 +135,7 @@ ul.shopxpert-template-filter-menu {
 	display: block;
 	padding-top: 100%;
 }
-.shopxper-templates-library-single-template:hover .template-image-wrapper{
+.shopxpert-templates-library-single-template:hover .template-image-wrapper{
 	background-position: center 100%;
 }
 /* .shopxpert-template-image .template-image-wrapper.template-no-image {
@@ -155,14 +155,14 @@ ul.shopxpert-template-filter-menu {
     justify-content: center;
     align-items: center;
 }
-.shopxper-templates-library-single-template .shopxpert-template-info {
+.shopxpert-templates-library-single-template .shopxpert-template-info {
 	background: #ffffff;
 	border-radius: 0 0 10px 10px;
 	position: relative;
 	min-height: 50px;
 	border-top: 1px solid #E5E8F3;
 }
-.shopxper-templates-library-single-template .shopxpert-template-title {
+.shopxpert-templates-library-single-template .shopxpert-template-title {
 	margin: 0;
 	color: #363B4E;
 	font-weight: 400;
@@ -176,7 +176,7 @@ ul.shopxpert-template-filter-menu {
 	justify-content: center;
 	transition: all 0.3s ease;
 }
-.shopxper-templates-library-single-template .shopxpert-template-action-button {
+.shopxpert-templates-library-single-template .shopxpert-template-action-button {
 	display: flex;
 	flex-flow: row;
 	align-items: center;
@@ -192,11 +192,11 @@ ul.shopxpert-template-filter-menu {
 	visibility: hidden;
 	transition: all 0.3s ease;
 }
-.shopxper-templates-library-single-template:not(.shopxpert-not-clickable):hover .shopxpert-template-action-button {
+.shopxpert-templates-library-single-template:not(.shopxpert-not-clickable):hover .shopxpert-template-action-button {
 	opacity: 1;
 	visibility: visible;
 }
-.shopxper-templates-library-single-template .shopxpert-template-button {
+.shopxpert-templates-library-single-template .shopxpert-template-button {
     min-width: inherit;
     margin: 0 5px;
     font-weight: 500;
@@ -213,7 +213,7 @@ ul.shopxpert-template-filter-menu {
 	cursor: pointer;
     text-decoration: none;
 }
-.shopxper-templates-library-single-template .shopxpert-template-button:hover{
+.shopxpert-templates-library-single-template .shopxpert-template-button:hover{
     background-color: #ca4646;
 }
 .shopxpert-data-importer-spinner .dashicons-lock:before {

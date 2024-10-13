@@ -20,7 +20,7 @@ $title_html_tag = shopxpert_validate_html_tag( $settings['titleTag'] );
 $products_list = shopxpert_get_track_user_data();
 
 if( $block['is_editor'] && empty( $products_list ) ){
-    echo '<div class="elementor-panel" style="margin-bottom:10px;"><div class="elementor-panel-alert elementor-panel-alert-warning">'. esc_html__( 'You haven\'t viewed at any of the products yet. Below are demo product for the editing mode.', 'shopxper' ) . '</div></div>';
+    echo '<div class="elementor-panel" style="margin-bottom:10px;"><div class="elementor-panel-alert elementor-panel-alert-warning">'. esc_html__( 'You haven\'t viewed at any of the products yet. Below are demo product for the editing mode.', 'shopxpert' ) . '</div></div>';
 }else{
     if ( empty( $products_list ) ) {
         if( $settings['showEmptyMessage'] ){

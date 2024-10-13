@@ -89,7 +89,7 @@ class ShopXpert_Ajax_Search_Base{
 			    endwhile; // main loop
 			    wp_reset_query(); wp_reset_postdata();
 			else:
-				echo '<p class="text-center samartshop_psa_wrapper samartshop_no_result">'. esc_html__( 'No Results Found', 'samartshop' ) .'</p>';
+				echo '<p class="text-center samartshop_psa_wrapper samartshop_no_result">'. esc_html__( 'No Results Found', 'shopxpert' ) .'</p>';
 			endif; // have posts
 
 		echo '</div>';
@@ -132,9 +132,9 @@ class ShopXpert_Ajax_Search_Base{
 		
 		extract( shortcode_atts( array(
 			'limit' 	  	=> 10,
-			'placeholder' 	=> esc_html__( 'Search Products', 'samartshop' ),
+			'placeholder' 	=> esc_html__( 'Search Products', 'shopxpert' ),
 			'show_category' => false,
-			'all_category_text' => esc_html__('All Categories','samartshop')
+			'all_category_text' => esc_html__('All Categories','shopxpert')
 		), $atts, 'samartshopsearch' ) );
 
 		$data_settings = array(
@@ -166,12 +166,12 @@ class ShopXpert_Ajax_Search_Base{
 						</div>
 						<?php endif; ?>
 						<div class="samartshop_widget_psa_input_field">
-							<input type="search" placeholder="<?php echo esc_attr__( $placeholder, 'samartshop' ); ?>" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
+						<input type="search" placeholder="<?php echo esc_attr__('Search...', 'shopxpert'); ?>" value="<?php echo get_search_query(); ?>" name="s" autocomplete="off" />
 							<input type="hidden" name="post_type" value="product" />
 							<span class="samartshop_widget_psa_clear_icon"><i class="sli sli-close"></i></span>
 							<span class="samartshop_widget_psa_loading_icon"><i class="sli sli-refresh"></i></span>
 						</div>
-						<button type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'samartshop' ); ?>" aria-label="<?php echo esc_attr__( 'Search', 'samartshop' );?>">
+						<button type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'shopxpert' ); ?>" aria-label="<?php echo esc_attr__( 'Search', 'shopxpert' );?>">
 							<i class="sli sli-magnifier"></i>
 						</button>
 					</div>

@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: working on SHOPXPERT
-Plugin URI:
+Plugin URI:https://github.com/tushar/shopxpert
 Description: Demo of Plugin Options Page
-Version: 1.0.2
+Version: 1.0.1
 Author: NF Tushar
-Author URI: https://tushar.me
+Author URI: https://github.com/tushar
 License: GPLv2 or later
 Text Domain: shopxpert
 Domain Path: /languages/
@@ -26,8 +26,6 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
         require_once __DIR__ . '/vendor/autoload.php';
     }
     
- 
-
     
 // Required File
 require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/main.php';

@@ -158,7 +158,7 @@
                                 <li>
                                     <a href="#" class="shopxpertquickview" data-product_id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                         <i class="sli sli-magnifier"></i>
-                                        <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','shopxper'); ?></span>
+                                        <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','shopxpert'); ?></span>
                                     </a>
                                 </li>
                             <?php endif; ?>
@@ -207,7 +207,7 @@
                                     <li>
                                         <a href="#" class="shopxpertquickview" data-product_id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                             <i class="sli sli-magnifier"></i>
-                                            <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','shopxper'); ?></span>
+                                            <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','shopxpert'); ?></span>
                                         </a>
                                     </li>
                                 <?php endif; ?>

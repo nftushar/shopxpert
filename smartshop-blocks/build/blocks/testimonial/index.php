@@ -51,7 +51,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 								if( !empty( $testimonial['message'] ) ){
 									?>
 										<div class="ht-client-content ht-client-content-border">
-											<p><?php echo esc_html__( $testimonial['message'],'shopxper' ); ?></p>
+											<p><?php echo esc_html__( $testimonial['message'],'shopxpert' ); ?></p>
 											<div class="ht-client-rating"><?php shopxpertBlocks_ratting( $testimonial['ratting'] );?></div>
 										</div>
 									<?php

@@ -104,7 +104,7 @@ class Shopxpert_Pending_Stock extends WC_Product{
 
 		foreach ( $formatted_meta as $key => $meta ) {
 			if ( $meta->key == 'shopxpert_backordered' ) {
-                $meta->display_key  = esc_html__('Pending Stocked','shopxper');
+                $meta->display_key  = esc_html__('Pending Stocked','shopxpert');
 			}
 		}
 
@@ -139,8 +139,15 @@ class Shopxpert_Pending_Stock extends WC_Product{
                 if( $limit_status ){
                     $can_buy_max = ((int) $limit_status['backorder_limit'] + (int) $limit_status['stock_qty']) - (int) $limit_status['qty_already_backordered'];
 
-                    $error->add( 'shopxpert_out_of_backorder_limit', sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit. Orders can be placed for up to <b>%s</b> units.', 'shopxper' ), $product_data->get_name(), $can_buy_max ) );
-
+                /* translators: 1: Product name, 2: Maximum backorder limit */
+                $error->add(
+                    'shopxpert_out_of_backorder_limit',
+                    sprintf(
+                        esc_html__( 'Sorry, "%1$s" has reached its maximum backorder limit. Orders can be placed for up to <b>%2$s</b> units.', 'shopxpert' ),
+                        $product_data->get_name(),
+                        $can_buy_max
+                    )
+                ); 
                     $result = $error;
                 }
             }
@@ -195,23 +202,20 @@ class Shopxpert_Pending_Stock extends WC_Product{
                     $message = sprintf(
                         '<a href="%s" class="button wc-forward">%s</a> %s',
                         wc_get_cart_url(),
-                        __( 'View cart', 'shopxper' ),
+                        __( 'View cart', 'shopxpert' ),
                         /* translators: 1: quantity in stock 2: current quantity */
-                        sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit — (%s available). You already have %s in your cart.', 'shopxper' ), $product_data->get_name(), $can_add_to_cart_max, $qty_already_on_cart )
+                        sprintf( __( 'Sorry, "%s" has reached its maximum backorder limit — (%s available). You already have %s in your cart.', 'shopxpert' ), $product_data->get_name(), $can_add_to_cart_max, $qty_already_on_cart )
                     );
 
                     $message = apply_filters( 'wlbackorder_cart_product_not_enough_stock_already_in_cart_message', $message, $product_data, $can_add_to_cart_max, $qty_already_on_cart );
 
                 } else {
-                    $message = sprintf( __( 'Sorry, "%s" was not added to cart because it has reached the maximum backorder limit. (%s available).', 'shopxper' ), $product_data->get_name(), $can_add_to_cart_max );
+                    $message = sprintf( __( 'Sorry, "%s" was not added to cart because it has reached the maximum backorder limit. (%s available).', 'shopxpert' ), $product_data->get_name(), $can_add_to_cart_max );
 
                     $message = apply_filters( 'wlbackorder_cart_product_not_enough_stock_message', $message, $product_data, $can_add_to_cart_max );
                 }
-                
-
                 throw new Exception( $message ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }  
-
         }
 
         return $cart_item_data;
@@ -366,7 +370,7 @@ class Shopxpert_Pending_Stock extends WC_Product{
     
         // Default message if no availability message is set
         if($backorder_limit && $availability_date && empty($availability_message)){
-            $availability_message = __('On Pending Stock. Will be available on: '. $availability_date, 'shopxper');
+            $availability_message = __('On Pending Stock. Will be available on: '. $availability_date, 'shopxpert');
         }
         error_log("Final Availability Message: " . $availability_message);
     
@@ -520,11 +524,11 @@ class Shopxpert_Pending_Stock extends WC_Product{
             array(
                 'id'                => '_shopxpert_backorder_limit',
                 'value'             =>  $backorder_limit,
-                'label'             => __( 'Pending Stock Limit', 'shopxper' ),
+                'label'             => __( 'Pending Stock Limit', 'shopxpert' ),
                 'placeholder'       => $backorder_limit_global,
                 'wrapper_class'     => '',
                 'desc_tip'          => true,
-                'description'       => __( 'Pending Stock limit. If this is a variable product this value will be used to control backorder limit for all variations, unless you define backorder limit at variation level.', 'shopxper' ),
+                'description'       => __( 'Pending Stock limit. If this is a variable product this value will be used to control backorder limit for all variations, unless you define backorder limit at variation level.', 'shopxpert' ),
                 'type'              => 'number',
                 'custom_attributes' => array(
                     'step' => 'any',
@@ -533,8 +537,8 @@ class Shopxpert_Pending_Stock extends WC_Product{
         );
         ?>
             <p class="form-field">
-                <label for="_shopxpert_backorder_availability_date"><?php echo esc_html__('Pending Stock Availability', 'shopxper') ?></label>
-                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the Feature settings.', 'shopxper') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <label for="_shopxpert_backorder_availability_date"><?php echo esc_html__('Pending Stock Availability', 'shopxpert') ?></label>
+                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the Feature settings.', 'shopxpert') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 <input type="date" class="short hasDatepicker" name="_shopxpert_backorder_availability_date" id="_shopxpert_backorder_availability_date" value="<?php echo esc_attr($backorder_availability); ?>" placeholder="<?php echo esc_attr($availability_date_global); ?>">
             </p>
         </div> <!-- .shopxpert-backorder-fields -->

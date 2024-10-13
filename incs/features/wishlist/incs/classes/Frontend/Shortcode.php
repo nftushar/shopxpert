@@ -152,7 +152,7 @@ class Shortcode {
         $enable_login_limit = shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' );
 
         $default_atts = array(
-            'wishsuite'    => Manage_Wishlist::instance(),
+            'shopxpert'    => Manage_Wishlist::instance(),
             'products'     => $products,
             'fields'       => $fields,
             'heading_txt'  => $custom_heading,

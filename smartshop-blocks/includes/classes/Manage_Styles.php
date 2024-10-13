@@ -97,12 +97,12 @@ class Manage_Styles {
 			return [
 				'success' => true, 
 				'data' 	  => get_post( $params['post_id'] )->post_content, 
-				'message' => __('Post Data found.', 'shopxper' )
+				'message' => __('Post Data found.', 'shopxpert' )
 			];
 		} else {
 			return [
 				'success' => false, 
-				'message' => __('Post Data not found.', 'shopxper' )
+				'message' => __('Post Data not found.', 'shopxpert' )
 			];
 		}
 	}
@@ -124,7 +124,7 @@ class Manage_Styles {
 				update_option( $post_id, $params['block_css'] );
 				return [
 					'success' => true, 
-					'message' => __('Widget CSS Saved.', 'shopxper')
+					'message' => __('Widget CSS Saved.', 'shopxpert')
 				];
 			}
 
@@ -143,11 +143,11 @@ class Manage_Styles {
 
 				update_post_meta( $post_id, '_shopxpert_css', $all_block_css );
 				if ( ! $wp_filesystem->put_contents( $dirname . $filename, $all_block_css ) ) {
-					throw new \Exception( __('You are not permitted to save CSS.', 'shopxper' ) ); 
+					throw new \Exception( __('You are not permitted to save CSS.', 'shopxpert' ) ); 
 				}
 				return [
 					'success' => true,
-					'message' =>__('ShopXpert  Blocks css file update.', 'shopxper' )
+					'message' =>__('ShopXpert  Blocks css file update.', 'shopxpert' )
 				];
 			} else {
 				delete_post_meta( $post_id, '_shopxpert_active' );
@@ -157,7 +157,7 @@ class Manage_Styles {
 				delete_post_meta( $post_id, '_shopxpert_css' );
 				return [
 					'success' => true,
-					'message' => __('ShopXpert  Blocks CSS Delete.', 'shopxper' )
+					'message' => __('ShopXpert  Blocks CSS Delete.', 'shopxpert' )
 				];
 			}
 		} catch( \Exception $e ){
@@ -196,20 +196,20 @@ class Manage_Styles {
 			update_post_meta( $post_id, '_shopxpert_active', 'yes' );
 			
 			if ( ! $wp_filesystem->put_contents( $dirname . $filename, $css ) ) {
-				throw new \Exception( esc_html__('You are not permitted to save CSS.', 'shopxper' ) );
+				throw new \Exception( esc_html__('You are not permitted to save CSS.', 'shopxpert' ) );
 			}
 
 			wp_send_json_success(
 				[
 					'success' => true, 
-					'message' => esc_html__('Data fetch', 'shopxper' )
+					'message' => esc_html__('Data fetch', 'shopxpert' )
 				]
 			);
 
 		} else {
 			return [ 
 				'success' => false, 
-				'message' => esc_html__('Data not found.', 'shopxper' )
+				'message' => esc_html__('Data not found.', 'shopxpert' )
 			];
 		}
 

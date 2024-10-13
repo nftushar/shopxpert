@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $uniqClass     = 'shopxpertblock-'.$settings['blockUniqId'];
-$areaClasses   = array( $uniqClass, 'woocommerce', 'shopxpert-product-curvy' );
+$areaClasses   = array( $uniqClass,'shopxpert', 'shopxpert-product-curvy' );
 
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
@@ -95,7 +95,7 @@ if( isset( $settings['layout'] ) ){
 									</div>
 									<ul class="action">
 										<li class="wl_cart">
-											<a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( '<i class="fa fa-shopping-cart"></i>', 'shopxper' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
+											<a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( '<i class="fa fa-shopping-cart"></i>', 'shopxpert' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 										</li>
 										<?php
 											if( true === shopxpert_has_wishlist_plugin() ){

@@ -91,8 +91,8 @@ class ShopXpert_Admin_Init {
     public function add_menu() {
         // Add the main menu page
         self::$parent_menu_hook = add_menu_page(
-            esc_html__('ShopXpert ', 'samrtshop'), // Page title
-            esc_html__('ShopXpert ', 'samrtshop'), // Menu title
+            esc_html__('ShopXpert ', 'shopxpert'), // Page title
+            esc_html__('ShopXpert ', 'shopxpert'), // Menu title
             self::MENU_CAPABILITY,                // Capability
             self::MENU_PAGE_SLUG,                // Menu slug
             [$this, 'main_menu_page_content'],    // Callback function for the menu page
@@ -103,10 +103,10 @@ class ShopXpert_Admin_Init {
         // Add submenu page
         add_submenu_page(
             self::MENU_PAGE_SLUG,                // Parent slug
-            esc_html__('Settings', 'samrtshop'),  // Page title
-            esc_html__('Settings', 'samrtshop'),  // Menu title
+            esc_html__('Settings', 'shopxpert'),  // Page title
+            esc_html__('Settings', 'shopxpert'),  // Menu title
             self::MENU_CAPABILITY,                // Capability
-            'samrtshop',                          // Menu slug
+            'shopxpert',                          // Menu slug
             [$this, 'plugin_page']                // Callback function
         );
     }
@@ -117,8 +117,8 @@ class ShopXpert_Admin_Init {
     public function main_menu_page_content() {
         ?>
         <div class="wrap">
-            <h1><?php esc_html_e('Welcome to ShopXpert ', 'samrtshop'); ?></h1>
-            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'samrtshop'); ?></p>
+            <h1><?php esc_html_e('Welcome to ShopXpert ', 'shopxpert'); ?></h1>
+            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'shopxpert'); ?></p>
 
             
             <?php 
@@ -135,8 +135,8 @@ class ShopXpert_Admin_Init {
              
         </div>
         <div class="wrap">
-            <h1><?php esc_html_e('Welcome to ShopXpert ', 'samrtshop'); ?></h1>
-            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'samrtshop'); ?></p>
+            <h1><?php esc_html_e('Welcome to ShopXpert ', 'shopxpert'); ?></h1>
+            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'shopxpert'); ?></p>
 
             
             <?php 
@@ -175,9 +175,9 @@ class ShopXpert_Admin_Init {
     public function plugin_page() {
         ?>
         <div class="wrap shopxpert-admin-wrapper">
-            <div class="shopxper-admin-main-content">
+            <div class="shopxpert-admin-main-content">
                 <?php self::load_template('navs'); ?>
-                <div class="shopxper-admin-main-body"> 
+                <div class="shopxpert-admin-main-body"> 
                 <?php self::load_template('gutenberg'); ?>
 
                 <?php self::load_template('welcome'); ?>
@@ -195,7 +195,7 @@ class ShopXpert_Admin_Init {
      */
     public function print_Feature_setting_popup() {
         $screen = get_current_screen();
-        if ( 'shopxpert_page_samrtshop' == $screen->base ) {
+        if ( 'shopxpert_page_shopxpert' == $screen->base ) {
             // error_log("shopxpert print_Feature_setting_popup 2");
             self::load_template('Feature-setting-popup');
         }
@@ -209,7 +209,7 @@ class ShopXpert_Admin_Init {
 public function remove_all_notices() {
 add_action('in_admin_header', function (){
     $screen = get_current_screen();
-    if ( 'shopxpert_page_samrtshop' == $screen->base ) {
+    if ( 'shopxpert_page_shopxpert' == $screen->base ) {
         remove_all_actions('admin_notices'); 
         remove_all_actions('all_admin_notices');
     }
@@ -223,30 +223,28 @@ add_action('in_admin_header', function (){
  */
 
  public function save_data() {
-    if ( ! current_user_can( self::MENU_CAPABILITY ) ) {
+    if (!current_user_can(self::MENU_CAPABILITY)) {
         error_log('User does not have the required capability.');
         return;
     }
 
-    check_ajax_referer( 'shopxper_nonce_action', 'nonce' );
+    check_ajax_referer('shopxper_nonce_action', 'nonce');
 
-  
-    error_log("Shopxpert hello  save data");
+    error_log("Shopxpert hello save data");
 
-
-    // Fetch and clean the input data
-    $data     = isset($_POST['data']) ? shopxpert_clean($_POST['data']) : [];
-    $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-    $fields = isset($_POST['fields']) ? $_POST['fields'] : [];
+    // Fetch and unslash the input data
+    $data = isset($_POST['data']) ? shopxpert_clean(wp_unslash($_POST['data'])) : [];
+    $section = isset($_POST['section']) ? sanitize_text_field(wp_unslash($_POST['section'])) : '';
+    $fields = isset($_POST['fields']) ? wp_unslash($_POST['fields']) : [];
+    $fields = array_map('sanitize_text_field', (array)$fields);
 
     // Ensure $fields is an array and process it accordingly
     if (!is_array($fields)) {
         $fields = json_decode(stripslashes($fields), true);
     }
-    
+
     // Error log for debugging
-    error_log("sssFields after processing: " . print_r($data, true));
-    
+    error_log("Fields after processing: " . print_r($data, true));
 
     if (empty($section) || empty($fields)) {
         error_log('Section or fields data is missing.');
@@ -265,12 +263,12 @@ add_action('in_admin_header', function (){
     // Update the options
     foreach ($fields as $field) {
         $value = isset($data[$field]) ? $data[$field] : null;
-        error_log("zzzUpdating Option: $field with Value: " . print_r($value, true));
+        error_log("Updating Option: $field with Value: " . print_r($value, true));
         $this->update_option($section, $field, $value);
     }
 
     wp_send_json_success([
-        'message' => esc_html__('Data saved successfully!', 'shopxper'),
+        'message' => esc_html__('Data saved successfully!', 'shopxpert'),
         'data'    => $data
     ]);
 }
@@ -304,42 +302,25 @@ public function update_option($section, $option_key, $new_value) {
      * @return [JSON|Null]
      */
     public function Feature_data() {
-      
-        // Check if the user has the required capability
         if (!current_user_can(self::MENU_CAPABILITY)) {
             error_log('User does not have the required capability.');
             return;
         }
-        check_ajax_referer( 'shopxper_nonce_action', 'nonce' );
-
-        // Debug log nonce
-        // error_log('Nonce received: ' . (isset($_POST['nonce']) ? $_POST['nonce'] : 'Not Set'));
-    
-        // Verify nonce for security
-        if (!wp_verify_nonce($_POST['nonce'], 'shopxper_nonce_action')) {
-            error_log('Nonce verification failed!');
-            wp_send_json_error('Invalid nonce');
-            return;
-        } else {
-            error_log('Nonce verification Done!');
-        }
+        
+        check_ajax_referer('shopxper_nonce_action', 'nonce');
     
         // Retrieve and sanitize POST data
-        $subaction  = !empty($_POST['subaction']) ? sanitize_text_field($_POST['subaction']) : '';
-        $section    = !empty($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
-        $fields = !empty($_POST['fields']) ? (is_array($_POST['fields']) ? $_POST['fields'] : json_decode(stripslashes_deep($_POST['fields']), true)) : [];
-        $fieldname  = !empty($_POST['fieldname']) ? sanitize_text_field($_POST['fieldname']) : '';
-        
-        error_log(print_r($fields, true)); // Log the fields array
-        
+        $subaction = isset($_POST['subaction']) ? sanitize_text_field(wp_unslash($_POST['subaction'])) : '';
+        $section = isset($_POST['section']) ? sanitize_text_field(wp_unslash($_POST['section'])) : '';
+        $fields = isset($_POST['fields']) ? (is_array($_POST['fields']) ? $_POST['fields'] : json_decode(wp_unslash($_POST['fields']), true)) : [];
+        $fieldname = isset($_POST['fieldname']) ? sanitize_text_field(wp_unslash($_POST['fieldname'])) : '';
     
-
+        error_log(print_r($fields, true)); // Log the fields array
+    
         // Handle Feature data reset
-        if ($subaction === 'reset_data') {
-            if (!empty($section)) {
-                delete_option($section);
-                wp_send_json_success(['message' => 'Data reset successfully']);
-            }
+        if ($subaction === 'reset_data' && !empty($section)) {
+            delete_option($section);
+            wp_send_json_success(['message' => 'Data reset successfully']);
         }
     
         // Get Feature data only if section and fields are provided
@@ -349,13 +330,13 @@ public function update_option($section, $option_key, $new_value) {
         }
     
         // Fetch Feature fields based on section or fieldname
-        $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features']; 
+        $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
         $section_fields = [];
         foreach ($Feature_fields as $Feature) {
             if (isset($Feature['section']) && $Feature['section'] === $section) {
                 $section_fields = $Feature['setting_fields'];
                 break;
-            } else if (isset($Feature['name']) && $Feature['name'] === $fieldname) {
+            } elseif (isset($Feature['name']) && $Feature['name'] === $fieldname) {
                 $section_fields = $Feature['setting_fields'];
                 break;
             }
@@ -368,7 +349,7 @@ public function update_option($section, $option_key, $new_value) {
                 Shopxpert_Admin_Fields_Manager::instance()->add_field($field, $section);
                 $field_html .= ob_get_clean();
             }
-            $message = esc_html__('Data Fetch successfully!', 'shopxper');
+            $message = esc_html__('Data Fetch successfully!', 'shopxpert');
             $response_content = $field_html;
         }
     
@@ -378,6 +359,7 @@ public function update_option($section, $option_key, $new_value) {
             'fields'  => wp_json_encode($fields)
         ]);
     }
+    
     
     
      

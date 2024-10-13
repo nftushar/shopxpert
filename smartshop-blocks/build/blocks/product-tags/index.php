@@ -21,7 +21,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	if( has_term( '', 'product_tag', $product->get_id() ) ) {
 		echo '<div class="shopxpert_product_tags_info">';
 			?>
-				<?php if($settings['showTitle'] === true ): ?><span class="tags-title"><?php echo sprintf( esc_html( _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'shopxper' ) ) ); ?></span> <?php endif; ?>
+				<?php if($settings['showTitle'] === true ): ?><span class="tags-title"><?php echo sprintf( esc_html( _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'shopxpert' ) ) ); ?></span> <?php endif; ?>
 				<?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<?php
 			do_action( 'woocommerce_product_meta_end' );

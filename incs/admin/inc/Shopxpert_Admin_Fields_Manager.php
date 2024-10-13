@@ -133,7 +133,7 @@ class Shopxpert_Admin_Fields_Manager {
         if ( ! empty( $args['name'] ) ) {
             $probadge = '';
             if( $args['additional_info']['is_pro'] === true ){
-                $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxper' ).'</span>';
+                $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxpert' ).'</span>';
             }
             $desc = sprintf( '<h6 class="shopxpert-admin-option-title">%s%s</h6>', $args['name'], $probadge );
         } else {
@@ -163,9 +163,16 @@ class Shopxpert_Admin_Fields_Manager {
      */
     public function callback_html( $args ) {
         $html  = isset( $args['html'] ) ? $args['html'] : '';
-        $html  = sprintf( '<div class="shopxpert-admin-option %2$s" %3$s>%1$s</div>', $html, $args['class'], $args['depend'] );
+        // Escape the HTML output
+        $html  = wp_kses_post( $html ); 
+        // Use `esc_attr()` or `esc_html()` for attributes as needed
+        $class = esc_attr( $args['class'] );
+        $depend = isset( $args['depend'] ) ? esc_attr( $args['depend']) : '';
+        
+        $html  = sprintf( '<div class="shopxpert-admin-option %s" %s>%s</div>', $class, $depend, $html );
         echo $html;
     }
+    
 
     /**
      * Get Title for display
@@ -186,7 +193,13 @@ class Shopxpert_Admin_Fields_Manager {
                 $html  .= $this->get_field_title( $args );
                 $html  .= $this->get_field_description( $args );
             $html  .= '</div>';
-            $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
+           // Assuming $data_atr is defined earlier and contains data attributes that need to be escaped
+            $data_atr = esc_attr( $data_atr ); // Escape data attributes
+
+            $html .= sprintf( '<div class="shopxpert-admin-option-action" %s>', $data_atr ); // Use sprintf for safer concatenation
+            // Don't forget to escape the closing tag, if necessary
+            $html .= '</div>'; // If you're appending more HTML here, ensure it's also properly escaped
+
                 $html  .= '<div class="shopxpert-admin-button-type">';
                     $html  .= $button_html;
                 $html  .= '</div>';
@@ -199,7 +212,6 @@ class Shopxpert_Admin_Fields_Manager {
 
     /**
      * Get Title for display
-     *
      * @param array $args settings field args
      */
     public function callback_title( $args ) {
@@ -291,10 +303,9 @@ class Shopxpert_Admin_Fields_Manager {
             $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
         }
 
-        $label        = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose Image','shopxper' );
+        $label        = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose Image','shopxpert' );
         $remove_label = isset( $args['options']['button_remove_label'] ) ? $args['options']['button_remove_label'] : __( 'Remove' );
-        $save_file    = ( $value != '' ) ? '<img src="'.esc_url( $value ).'" alt="'.esc_attr__( $label, 'shopxper' ).'">' : '';
-
+        $save_file = ( $value != '' ) ? '<img src="' . esc_url( $value ) . '" alt="' . esc_attr( $label ) . '">' : '';
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
             $html  .= '<div class="shopxpert-admin-option-content">';
                 $html  .= $this->get_field_title( $args );
@@ -335,7 +346,7 @@ class Shopxpert_Admin_Fields_Manager {
         
         $probadge = $data_atr = '';
         if( $args['additional_info']['is_pro'] === true ){
-            $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxper' ).'</span>';
+            $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxpert' ).'</span>';
             $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
         }
 
@@ -352,8 +363,8 @@ class Shopxpert_Admin_Fields_Manager {
             $html .= '<div class="shopxpert-admin-switch-block-content">';
                 $html  .= sprintf('<h6 class="shopxpert-admin-switch-block-title">%1$s</h6>', $args['name'] );
                 $html  .= '<div class="shopxpert-admin-switch-block-info">';
-                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-shopxpert-tooltip="'.esc_attr__('Preview','shopxper').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
-                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-shopxpert-tooltip="'.esc_attr__('Documentation','shopxper').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-shopxpert-tooltip="'.esc_attr__('Preview','shopxpert').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-shopxpert-tooltip="'.esc_attr__('Documentation','shopxpert').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
                     $html .= $probadge;
                 $html  .= '</div>';
             $html  .= '</div>';
@@ -451,7 +462,7 @@ class Shopxpert_Admin_Fields_Manager {
             </div>
         <?php
         echo '</div>';
-        echo '<button type="button" class="shopxpert-repeater-item-add shopxpert-admin-btn-primary" '.$add_limit.'><span class="dashicon dashicons dashicons-plus-alt2"></span>'.esc_html__('Add Item','shopxper').'</button>'.$custom_button_html.'</div>';
+        echo '<button type="button" class="shopxpert-repeater-item-add shopxpert-admin-btn-primary" '.$add_limit.'><span class="dashicon dashicons dashicons-plus-alt2"></span>'.esc_html__('Add Item','shopxpert').'</button>'.$custom_button_html.'</div>';
 
 
     }
@@ -468,7 +479,7 @@ class Shopxpert_Admin_Fields_Manager {
         $switch_id = esc_attr('data-switch-id=element');
         $probadge = $data_atr = '';
         if( $args['additional_info']['is_pro'] === true ){
-            $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxper' ).'</span>';
+            $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxpert' ).'</span>';
             $checked = esc_attr('disabled=true');
             $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
             $switch_id = '';
@@ -487,8 +498,8 @@ class Shopxpert_Admin_Fields_Manager {
             $html .= '<div class="shopxpert-admin-switch-block-content">';
                 $html  .= sprintf('<h6 class="shopxpert-admin-switch-block-title">%1$s</h6>', $args['name'] );
                 $html  .= '<div class="shopxpert-admin-switch-block-info">';
-                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-shopxpert-tooltip="'.esc_attr__('Preview','shopxper').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
-                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-shopxpert-tooltip="'.esc_attr__('Documentation','shopxper').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-shopxpert-tooltip="'.esc_attr__('Preview','shopxpert').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
+                    $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-shopxpert-tooltip="'.esc_attr__('Documentation','shopxpert').'" target="_blank"><i class="wli wli-question"></i></a>' : '';
                     $html .= $probadge;
                 $html  .= '</div>';
             $html  .= '</div>';
@@ -510,11 +521,9 @@ class Shopxpert_Admin_Fields_Manager {
      * @param array $args settings field args
      */
     public function callback_number( $args ) {
-
         $value = ( isset( $args['value'] ) && !empty ( $args['value'] ) ) ? esc_attr( $args['value'] ) : esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-
         $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $type        = isset( $args['type'] ) ? $args['type'] : 'number';
+        $type = sprintf( esc_html__( 'SHOPXPERT template %s', 'shopxpert' ), time() );
         $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
         $min         = ( $args['min'] == '' ) ? '' : ' min="' . $args['min'] . '"';
         $max         = ( $args['max'] == '' ) ? '' : ' max="' . $args['max'] . '"';
@@ -897,11 +906,11 @@ class Shopxpert_Admin_Fields_Manager {
                 // $('.wp-color-picker-field').wpColorPicker({
 
                 //     change: function (event, ui) {
-                //         $(this).closest('.shopxper-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SHOPXPERT_ADMIN.message.btntxt );
+                //         $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SHOPXPERT_ADMIN.message.btntxt );
                 //     },
 
                 //     clear: function (event) {
-                //         $(this).closest('.shopxper-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SHOPXPERT_ADMIN.message.btntxt );
+                //         $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text( SHOPXPERT_ADMIN.message.btntxt );
                 //     }
                     
                 // });

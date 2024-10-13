@@ -1,4 +1,4 @@
-w<?php
+<?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 class Shopxpert_Extension_Manager{
@@ -23,8 +23,8 @@ class Shopxpert_Extension_Manager{
     public function admin_menu() {
         add_submenu_page(
             'shopxpert_page', 
-            esc_html__( 'Extension', 'shopxper' ),
-            esc_html__( 'Extension', 'shopxper' ), 
+            esc_html__( 'Extension', 'shopxpert' ),
+            esc_html__( 'Extension', 'shopxpert' ), 
             'manage_options', 
             'shopxpert_extension', 
             [ $this, 'render_html' ] 
@@ -35,8 +35,8 @@ class Shopxpert_Extension_Manager{
         if( 'shopxpert_page_shopxpert_extension' == $hook ){
         	
         	//JS
-            wp_enqueue_script( 'shopxper-install-manager' );
-            wp_enqueue_script( 'shopxper-admin-main' );
+            wp_enqueue_script( 'shopxpert-install-manager' );
+            wp_enqueue_script( 'shopxpert-admin-main' );
 
         }
     }
@@ -64,17 +64,17 @@ class Shopxpert_Extension_Manager{
 	    		array(
 	    			'slug'		=> 'whols',
 	    			'location'	=> 'whols.php',
-	    			'name'		=> esc_html__( 'Whols', 'shopxper' )
+	    			'name'		=> esc_html__( 'Whols', 'shopxpert' )
 	    		),
 	    		array(
 	    			'slug'		=> 'just-tables',
 	    			'location'	=> 'just-tables.php',
-	    			'name'		=> esc_html__( 'JustTables', 'shopxper' )
+	    			'name'		=> esc_html__( 'JustTables', 'shopxpert' )
 	    		),
 	    		array(
 	    			'slug'		=> 'wc-multi-currency',
 	    			'location'	=> 'wcmilticurrency.php',
-	    			'name'		=> esc_html__( 'Multi Currency', 'shopxper' )
+	    			'name'		=> esc_html__( 'Multi Currency', 'shopxpert' )
 	    		)
 
     		),
@@ -84,28 +84,28 @@ class Shopxpert_Extension_Manager{
     			array(
 	    			'slug'		=> 'just-tables-pro',
 	    			'location'	=> 'just-tables-pro.php',
-	    			'name'		=> esc_html__( 'JustTables Pro', 'shopxper' ),
+	    			'name'		=> esc_html__( 'JustTables Pro', 'shopxpert' ),
 	    			'link'		=> 'https://hasthemes.com/wp/justtables/',
 	    			'author_link'=> 'https://hasthemes.com/',
-	    			'description'=> esc_html__( 'JustTables is an incredible WordPress plugin that lets you showcase all your WooCommerce products in a sortable and filterable table view. It allows your customers to easily navigate through different attributes of the products and compare them on a single page. This plugin will be of great help if you are looking for an easy solution that increases the chances of landing a sale on your online store.', 'shopxper' ),
+	    			'description'=> esc_html__( 'JustTables is an incredible WordPress plugin that lets you showcase all your WooCommerce products in a sortable and filterable table view. It allows your customers to easily navigate through different attributes of the products and compare them on a single page. This plugin will be of great help if you are looking for an easy solution that increases the chances of landing a sale on your online store.', 'shopxpert' ),
 	    		),
 
     			array(
 	    			'slug'		=> 'whols-pro',
 	    			'location'	=> 'whols-pro.php',
-	    			'name'		=> esc_html__( 'Whols Pro – WooCommerce Wholesale Prices', 'shopxper' ),
+	    			'name'		=> esc_html__( 'Whols Pro – WooCommerce Wholesale Prices', 'shopxpert' ),
 	    			'link'		=> 'https://hasthemes.com/plugins/whols-woocommerce-wholesale-prices/',
 	    			'author_link'=> 'https://hasthemes.com/',
-	    			'description'=> esc_html__( 'Whols is an outstanding WordPress plugin for WooCommerce that allows store owners to set wholesale prices for the products of their online stores. This plugin enables you to show special wholesale prices to the wholesaler. Users can easily request to become a wholesale customer by filling out a simple online registration form. Once the registration is complete, the owner of the store will be able to review the request and approve the request either manually or automatically.', 'shopxper' ),
+	    			'description'=> esc_html__( 'Whols is an outstanding WordPress plugin for WooCommerce that allows store owners to set wholesale prices for the products of their online stores. This plugin enables you to show special wholesale prices to the wholesaler. Users can easily request to become a wholesale customer by filling out a simple online registration form. Once the registration is complete, the owner of the store will be able to review the request and approve the request either manually or automatically.', 'shopxpert' ),
 	    		),
 
     			array(
 	    			'slug'		=> 'multicurrencypro',
 	    			'location'	=> 'multicurrencypro.php',
-	    			'name'		=> esc_html__( 'Multi Currency Pro for WooCommerce', 'shopxper' ),
+	    			'name'		=> esc_html__( 'Multi Currency Pro for WooCommerce', 'shopxpert' ),
 	    			'link'		=> 'https://hasthemes.com/plugins/multi-currency-pro-for-woocommerce/',
 	    			'author_link'=> 'https://hasthemes.com/',
-	    			'description'=> esc_html__( 'Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin for WooCommerce. This plugin allows your website or online store visitors to switch to their preferred currency or their country’s currency.', 'shopxper' ),
+	    			'description'=> esc_html__( 'Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin for WooCommerce. This plugin allows your website or online store visitors to switch to their preferred currency or their country’s currency.', 'shopxpert' ),
 	    		)
 
     		),
@@ -133,8 +133,8 @@ class Shopxpert_Extension_Manager{
     			</style>
     			<div class="extension-admin-tab-area wp-filter">
 	                <ul class="shopxpert-admin-tabs filter-links">
-	                    <li class="wlactive"><a href="#free-extension" class="wlactive"><?php echo esc_html__( 'Free extension', 'shopxper' ); ?></a></li>
-	                    <li><a href="#pro-extension"><?php echo esc_html__( 'Pro extension', 'shopxper' ); ?></a></li>
+	                    <li class="wlactive"><a href="#free-extension" class="wlactive"><?php echo esc_html__( 'Free extension', 'shopxpert' ); ?></a></li>
+	                    <li><a href="#pro-extension"><?php echo esc_html__( 'Pro extension', 'shopxpert' ); ?></a></li>
 	                </ul>
 	            </div>
 
@@ -156,18 +156,18 @@ class Shopxpert_Extension_Manager{
 									if ( file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && is_plugin_inactive( $data['location'] ) ) {
 
 										$button_classes = 'button activate-now button-primary';
-										$button_text    = esc_html__( 'Activate', 'shopxper' );
+										$button_text    = esc_html__( 'Activate', 'shopxpert' );
 
 									// Not Installed.
 									} elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 
 										$button_classes = 'button install-now';
-										$button_text    = esc_html__( 'Install Now', 'shopxper' );
+										$button_text    = esc_html__( 'Install Now', 'shopxpert' );
 
 									// Active.
 									} else {
 										$button_classes = 'button disabled';
-										$button_text    = esc_html__( 'Activated', 'shopxper' );
+										$button_text    = esc_html__( 'Activated', 'shopxpert' );
 									}
 
 									?>
@@ -184,10 +184,10 @@ class Shopxpert_Extension_Manager{
 											</div>
 										</div>
 										<div class="shopxpert-admin-extension-bottom">
-											<p class="shopxpert-admin-extension-info"><a href="<?php echo esc_url( $plugin['link'] ); ?>" target="_blank"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
+											<p class="shopxpert-admin-extension-info"><a href="<?php echo esc_url( $plugin['link'] ); ?>" target="_blank"><?php echo esc_html__( 'More Details', 'shopxpert' ); ?></a></p>
 											<?php
 												if (! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
-													echo '<a class="hover-effect-1 button button-primary" href="'.esc_url( $plugin['link'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxper' ).'</a>';
+													echo '<a class="hover-effect-1 button button-primary" href="'.esc_url( $plugin['link'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'shopxpert' ).'</a>';
 												}else{
 											?>
 												<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
@@ -223,18 +223,18 @@ class Shopxpert_Extension_Manager{
 		                if ( file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && is_plugin_inactive( $data['location'] ) ) {
 
 		                    $button_classes = 'button activate-now button-primary';
-		                    $button_text    = esc_html__( 'Activate', 'shopxper' );
+		                    $button_text    = esc_html__( 'Activate', 'shopxpert' );
 
 		                // Not Installed.
 		                } elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 
 		                    $button_classes = 'button install-now';
-		                    $button_text    = esc_html__( 'Install Now', 'shopxper' );
+		                    $button_text    = esc_html__( 'Install Now', 'shopxpert' );
 
 		                // Active.
 		                } else {
 		                    $button_classes = 'button disabled';
-		                    $button_text    = esc_html__( 'Activated', 'shopxper' );
+		                    $button_text    = esc_html__( 'Activated', 'shopxpert' );
 		                }
 
 		                if( !empty( $data['slug'] ) && isset( $prepare_plugin[$data['slug']] ) ){
@@ -242,20 +242,30 @@ class Shopxpert_Extension_Manager{
 			                ?>
 								<!-- Extension Start -->
 								<div class="shopxpert-admin-extension htwptemplata-plugin-<?php echo esc_attr($data['slug']); ?>">
-									<div class="shopxpert-admin-extension-top">
-										<div class="shopxpert-admin-extension-image">
-											<img src="<?php echo esc_url($prepare_plugin[$data['slug']]['icons']['1x']); ?>" alt="<?php echo esc_attr($prepare_plugin[$data['slug']]['name']); ?>">
-										</div>
-										<div class="shopxpert-admin-extension-content">
-											<h4 class="shopxpert-admin-extension-title"><?php echo esc_html($prepare_plugin[$data['slug']]['name']); ?></h4>
-											<p class="shopxpert-admin-extension-text"><?php echo esc_html(wp_trim_words( $prepare_plugin[$data['slug']]['description'], 23, '....')); ?></p>
-										</div>
+								<div class="shopxpert-admin-extension-top">
+									<div class="shopxpert-admin-extension-image">
+									<img src="<?php echo esc_url($prepare_plugin[$data['slug']]['icons']['1x']); ?>" alt="<?php echo esc_attr($prepare_plugin[$data['slug']]['name']); ?>">
 									</div>
-									<div class="shopxpert-admin-extension-bottom">
-										<p class="shopxpert-admin-extension-info"><i class="wli wli-info"></i><?php printf( esc_html__( '%s Active Installations', 'shopxper' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) ); ?> <a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo esc_attr($data['slug']); ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'shopxper' ); ?></a></p>
-										<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
+									<div class="shopxpert-admin-extension-content">
+									<h4 class="shopxpert-admin-extension-title"><?php echo esc_html($prepare_plugin[$data['slug']]['name']); ?></h4>
+									<p class="shopxpert-admin-extension-text"><?php echo esc_html(wp_trim_words( $prepare_plugin[$data['slug']]['description'], 23, '....')); ?></p>
 									</div>
 								</div>
+								<div class="shopxpert-admin-extension-bottom">
+									<p class="shopxpert-admin-extension-info"><i class="wli wli-info"></i>
+									
+									<?php 
+									// Translators: %s is the number of active installations
+									printf(  esc_html__( '%s Active Installations', 'shopxpert' ), 
+									esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) 
+									); 
+									?>
+
+									<a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo esc_attr($data['slug']); ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'shopxpert' ); ?></a></p>
+									<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
+								</div>
+								</div>
+
 								<!-- Extension End -->
 			                <?php
 			            }
@@ -278,15 +288,15 @@ class Shopxpert_Extension_Manager{
      */
     public function active_install_count( $active_installs ){
 
-        if ( $active_installs >= 1000000 ) {
-            $active_installs_millions = floor( $active_installs / 1000000 );
-            $active_installs_text     = sprintf(
-                /* translators: %s: Number of millions. */
-                _nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations' ),
-                number_format_i18n( $active_installs_millions )
-            );
-        } elseif ( 0 === $active_installs ) {
-            $active_installs_text = _x( 'Less Than 10', 'Active plugin installations' );
+	if ( $active_installs >= 1000000 ) {
+		$active_installs_millions = floor( $active_installs / 1000000 );
+		$active_installs_text     = sprintf(
+		    /* translators: %s: Number of millions. */
+		    _nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations', 'shopxpert' ),
+		    number_format_i18n( $active_installs_millions )
+		);
+	    } elseif ( 0 === $active_installs ) {
+            $active_installs_text = _x( 'Less Than 10', 'Active plugin installations', 'shopxpert');
         } else {
             $active_installs_text = number_format_i18n( $active_installs ) . '+';
         }

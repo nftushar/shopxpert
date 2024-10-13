@@ -53,9 +53,9 @@ class Installer {
                 require_once WC_ABSPATH . '/incs/admin/wc-admin-functions.php';
             }
             $create_page_id = wc_create_page(
-                sanitize_title_with_dashes( _x( 'wishsuite', 'page_slug', 'wishsuite' ) ),
+                sanitize_title_with_dashes( _x( 'shopxpert', 'page_slug', 'shopxpert' ) ),
                 '',
-                __( 'WooWooWishSuite', 'wishsuite' ),
+                __( 'WooWooWishSuite', 'shopxpert' ),
                 '<!-- wp:shortcode -->[wishsuite_table]<!-- /wp:shortcode -->'
             );
             if( $create_page_id ){

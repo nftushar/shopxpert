@@ -137,12 +137,14 @@ class Blocks_init {
         
         // Enqueue style.
         if( $block['enqueue_style'] ) {
-            wp_enqueue_style( $handle, $block['enqueue_style'], [], false, 'all' );
+            // Set a version for the stylesheet, e.g., the plugin version or a timestamp
+            wp_enqueue_style( $handle, $block['enqueue_style'], [], SHOPXPERT_VERSION, 'all' );
         }
+        
         
         // Enqueue script.
         if( $block['enqueue_script'] ) {
-            wp_enqueue_script( $handle, $block['enqueue_script'], [], false, true );
+            wp_enqueue_script( $handle, $block['enqueue_script'], [], SHOPXPERT_VERSION, true );
         }
         
         // Enqueue assets callback.
@@ -166,35 +168,46 @@ class Blocks_init {
      *
      * @return void
      */
-    public function register_blocks(){
+    public function register_blocks() {
 
-        if( isset( $_SERVER['QUERY_STRING'] ) ){
-            parse_str( $_SERVER['QUERY_STRING'], $query_arr );
-        } else {
-            $query_arr = [];
+        // Initialize the query array
+        $query_arr = [];
+        
+        // Check and unslash the query string
+        if ( isset( $_SERVER['QUERY_STRING'] ) ) {
+            // Unsplash the query string
+            $query_string = wp_unslash( $_SERVER['QUERY_STRING'] );
+            // Parse the unslashed query string
+            parse_str( $query_string, $query_arr );
         }
-
-        $basename = basename( $_SERVER['PHP_SELF'] );
-        $post_add_new_screen = ( $basename === 'post-new.php' || $basename === 'site-editor.php' ) ? true : false;
-        if( $post_add_new_screen === false ){
-            if( is_admin() && empty( $query_arr['action'] ) && !$this->is_fire_quickview_ajax() ){
-                return;
+    
+        // Check and unslash PHP_SELF
+        if ( isset( $_SERVER['PHP_SELF'] ) ) {
+            $php_self = wp_unslash( $_SERVER['PHP_SELF'] ); // Unsplash before using
+            $basename = basename( $php_self ); // Safely extract the basename
+            $post_add_new_screen = ( $basename === 'post-new.php' || $basename === 'site-editor.php' );
+    
+            if ( ! $post_add_new_screen ) {
+                if ( is_admin() && empty( $query_arr['action'] ) && ! $this->is_fire_quickview_ajax() ) {
+                    return;
+                }
             }
         }
-
+    
+        // Get the block list
         $block_list = Blocks_List::get_block_list();
-
+    
         foreach ( $block_list as $block_key => $block ) {
-            if( is_array( $block ) ){
+            if ( is_array( $block ) ) {
                 $block_name = str_replace('shopxpert/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));
-                if( $block['active'] === true && shopxpertBlocks_get_option( $block_key, 'shopxpert_gutenberg_tabs', 'on' ) === 'on' ){
+                if ( $block['active'] === true && shopxpertBlocks_get_option( $block_key, 'shopxpert_gutenberg_tabs', 'on' ) === 'on' ) {
                     $this->register_block( $block );
                     self::$blocksList[$block['type']][] = $block_name;
                 }
             }
         }
-
     }
+    
 
     /**
      * Manage Template type
