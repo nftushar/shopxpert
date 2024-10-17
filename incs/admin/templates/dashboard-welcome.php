@@ -60,13 +60,7 @@
         <!-- Infoboxes End -->
 
         <!-- Subscribe Banner Start -->
-        <div class="shopxpert-admin-subscribe">
-            <div class="shopxpert-admin-subscribe-content">
-                <h3 class="shopxpert-admin-subscribe-title"><?php echo esc_html__('Subscribe and Get Offers','shopxpert'); ?></h3>
-                <p class="shopxpert-admin-subscribe-text"><?php echo esc_html__('Sign up for our email list to get discounts, exclusive offers, the latest items, and news in your inbox.','shopxpert');?></p>
-            </div>
-            <a href="https://hasthemes.com/subscribe-and-get-offers/" class="shopxpert-admin-btn shopxpert-admin-btn-primary" target="_blank"><?php echo esc_html__('Subscribe','shopxpert'); ?></a>
-        </div>
+    
         <!-- Subscribe Banner End -->
     </div>
 </div>

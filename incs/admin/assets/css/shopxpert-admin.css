@@ -266,9 +266,11 @@
     margin: 0;
     z-index: 99;
 }
-  .shopxpert-admin-switch input:checked + label {
-    background-color: #ff23b7;
-  }
+
+ .shopxpert-admin-switch input:checked + label {
+    background-color: #ec1a4b;
+  } 
+
   .shopxpert-admin-switch input:checked + label .shopxpert-admin-switch-label.on {
     visibility: visible;
     opacity: 1;
@@ -284,20 +286,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 48px;
-    height: 20px;
+    width: 55px;
+    height: 26px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
     border-radius: 100px;
-    background: #A8CBFF;
+    background: #00e705;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
   }
   .shopxpert-admin-switch-label {
     font-size: 12px;
     font-weight: 600;
-    line-height: 1;
+    line-height: 1.2;
     position: absolute;
-    top: 4px;
+    top: 5px;
     display: flex;
     transition: all 0.3s ease 0s;
     text-transform: uppercase;
@@ -313,7 +315,7 @@
   }
   .shopxpert-admin-switch-indicator {
     position: absolute;
-    top: 3px;
+    top: 6px;
     left: 3px;
     display: flex;
     width: 14px;
@@ -874,24 +876,26 @@
     color: #000000;
     font-weight: 700;
   }
-  
+  /* NF Tushar */
   .shopxpert-admin-wrapper {
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     margin-bottom: -30px;
   }
   
   .shopxpert-admin-main-content {
     display: block;
-    width: calc(100% - 425px);
+    /* width: calc(100% - 425px); */
     margin-right: auto;
     margin-bottom: 30px;
   }
-  @media only screen and (min-width: 1200px) and (max-width: 1549px) {
+
+  /* NF Tushar */
+  /* @media only screen and (min-width: 1200px) and (max-width: 1549px) {
     .shopxpert-admin-main-content {
       width: calc(100% - 350px);
     }
-  }
+  } */
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .shopxpert-admin-main-content {
       width: calc(100% - 310px);
@@ -1023,6 +1027,7 @@
     margin: 0 -15px -20px;
   }
   .shopxpert-admin-switch-block {
+    background-color: aliceblue;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -1030,13 +1035,15 @@
     margin: 0 15px 20px;
     padding: 15px 20px;
     border: 1px solid #DCDCDC;
-    border-radius: 8px;
+    border-radius: 32px;
   }
-  @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 768px) and (max-width: 991px) {
+
+  /* NF Tushar */
+  /* @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 768px) and (max-width: 991px) {
     .shopxpert-admin-switch-block {
       width: calc(50% - 30px);
     }
-  }
+  } */
   @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
     .shopxpert-admin-switch-block {
       width: calc(100% - 30px);
