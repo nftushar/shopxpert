@@ -1,0 +1,60 @@
+.shopxpert-pre-order-area {
+    margin-bottom: 20px;
+}
+span.shopxpert-pre-order-price-area {
+    overflow: hidden;
+    display: block;
+}
+.shopxpert-pre-order-countdown{
+    max-width: 275px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.shopxpert-countdown-single{
+    -webkit-box-flex: 1;
+  -webkit-flex: 1 0 25%;
+      -ms-flex: 1 0 25%;
+          flex: 1 0 25%;
+  max-width: 25%;
+  margin-right: 7px;
+}
+.shopxpert-countdown-single:last-child{
+    margin-right: 0;
+}
+.shopxpert-countdown-single-inner{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    border-radius: 5px;
+}
+.shopxpert-countdown-single-inner h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 2px;
+    color: #ffffff;
+}
+  
+.shopxpert-countdown-single-inner p {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0 !important;
+}
+.shopxpert-availability-date-inner {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 2px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.shopxpert-pre-order-availability-date-cart {
+    color: #ec5858;
+}
+dt.variation-shopxpert_cart_availability{
+    display: none !important;
+}
+.woocommerce td.product-name .wc-item-meta{
+    margin: 0;
+}

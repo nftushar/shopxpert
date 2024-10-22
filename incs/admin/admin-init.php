@@ -130,7 +130,7 @@ class ShopXpert_Admin_Init {
                 echo '<h1>' . esc_html__('Options Display', 'shopxpert') . '</h1>';
 
                 if ( ! empty( $options ) && is_array( $options ) ) {
-                    echo '<pre>' . esc_html( print_r( $options, true ) ) . '</pre>';
+                    echo '<pre>' . esc_html( print_r($options[wishlist], true ) ) . '</pre>';
                 } else {
                     echo '<p>' . esc_html__('No options found.', 'shopxpert') . '</p>';
                 }

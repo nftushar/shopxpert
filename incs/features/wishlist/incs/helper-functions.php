@@ -82,7 +82,7 @@ function woowishsuite_get_page_url() {
  * @return [HTML]
  */
 function woowishsuite_add_to_cart( $product, $quentity ){
-    return \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->add_to_cart_html( $product, $quentity );
+    return \WooWishSuite\Frontend\Manage_Wishlist::instance()->add_to_cart_html( $product, $quentity );
 }
 
 /**
@@ -133,7 +133,7 @@ function woowishsuite_table_heading(){
 
     $field_list = count( woowishsuite_table_active_heading() ) > 0 ? woowishsuite_table_active_heading() : $active_default_fields;
     foreach ( $field_list as $key => $value ) {
-        $new_list[$key] = \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->field_name( $key );
+        $new_list[$key] = \WooWishSuite\Frontend\Manage_Wishlist::instance()->field_name( $key );
     }
     return $new_list;
 }

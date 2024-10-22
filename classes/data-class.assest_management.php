@@ -15,7 +15,7 @@ class Assets_Management{
      */
     private static $instance = null;
 
-    /**
+    /** 
      * [instance] Initializes a singleton instance
      * @return [Assets_Management]
      */
@@ -335,6 +335,25 @@ if (is_admin()) {
         }
     }
 
+    /**
+     * Elementor Editor Panenl Script
+     *
+     * @return void
+     */
+    public function enqueue_elementor_editor(){
+        wp_enqueue_style('shopxert-elementor-editor', SHOPXPERT_ADDONS_PL_URL . 'assets/css/shopxert-elementor-editor.css',['elementor-editor'], SHOPXPERT_VERSION );
+        wp_enqueue_script( 'shopxert-elementor-editor', SHOPXPERT_ADDONS_PL_URL . 'assets/js/shopxert-elementor-editor.js', ['elementor-editor', 'jquery'], SHOPXPERT_VERSION, true );
+
+        // Localized data for elementor editor
+        wp_localize_script(
+            'shopxert-elementor-editor',
+            'shopxertSetting',
+            array(
+                'hasPro'     => is_plugin_active('shopxert-addons-pro/shopxert_addons_pro.php') ? true : false,
+                'proWidgets' => Widgets_Control::promotional_widget_list(),
+            )
+        );
+    }
     
 
 }

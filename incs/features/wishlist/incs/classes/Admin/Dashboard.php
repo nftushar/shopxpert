@@ -1,5 +1,5 @@
 <?php
-namespace WooWooWishSuite\Admin;
+namespace WooWishSuite\Admin;
 
 use function  Shopxpert\incs\shopxpert_get_option;
 
@@ -16,7 +16,7 @@ class Dashboard {
     /**
      * Parent Menu Page Slug
      */
-    const MENU_PAGE_SLUG = 'sxwishlist';
+    const MENU_PAGE_SLUG = 'wishlist';
 
     /**
      * [$admin_menu_hook] Parent Menu Hook
@@ -53,7 +53,7 @@ class Dashboard {
 
         add_action( 'admin_menu', [ $this, 'add_menu' ], 225 );
 
-        // Add a post display state for special WooWooWishSuite page.
+        // Add a post display state for special WooWishSuite page.
         add_filter( 'display_post_states', [ $this, 'add_display_post_states' ], 10, 2 );
 
     }
@@ -90,8 +90,8 @@ class Dashboard {
      * @return [void]
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'sxwishlist-admin' );
-        wp_enqueue_script( 'sxwishlist-admin' );
+        wp_enqueue_style( 'wishlist-admin' );
+        wp_enqueue_script( 'wishlist-admin' );
     }
 
     /**
@@ -103,14 +103,14 @@ class Dashboard {
     }
 
     /**
-     * Add a post display state for special WooWooWishSuite page in the page list table.
+     * Add a post display state for special WooWishSuite page in the page list table.
      *
      * @param array   $post_states An array of post display states.
      * @param WP_Post $post  The current post object.
      */
     public function add_display_post_states( $post_states, $post ){
         if ( (int)shopxpert_get_option( 'wishlist_page', 'wishsuite_table_settings_tabs' ) === $post->ID ) {
-            $post_states['wishsuite_page_for_wishlist_table'] = __( 'WooWooWishSuite', 'shopxpert' );
+            $post_states['wishsuite_page_for_wishlist_table'] = __( 'WooWishSuite', 'shopxpert' );
         }
         return $post_states;
     }

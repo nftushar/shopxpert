@@ -1,5 +1,5 @@
 <?php
-namespace WooWooWishSuite\Frontend;
+namespace WooWishSuite\Frontend;
 
 use function  Shopxpert\incs\shopxpert_get_option;
 
@@ -42,8 +42,8 @@ class Shortcode {
      * @return [HTML] 
      */
     public function button_shortcode( $atts, $content = '' ){
-        wp_enqueue_style( 'sxwishlist-frontend' );
-        wp_enqueue_script( 'sxwishlist-frontend' );
+        wp_enqueue_style( 'wishlist-frontend' );
+        wp_enqueue_script( 'wishlist-frontend' );
 
         global $product;
         $product_id = '';
@@ -82,17 +82,17 @@ class Shortcode {
         }
 
         $button_class = array(
-            'sxwishlist-btn',
-            'sxwishlist-button',
-            'sxwishlist-shop-'.$shop_page_btn_position,
-            'sxwishlist-product-'.$product_page_btn_position,
+            'wishlist-btn',
+            'wishlist-button',
+            'wishlist-shop-'.$shop_page_btn_position,
+            'wishlist-product-'.$product_page_btn_position,
         );
 
         if( $button_style === 'themestyle' ){
             $button_class[] = 'button';
         }
 
-        if ( $has_product === true && ( $key = array_search( 'sxwishlist-btn', $button_class ) ) !== false ) {
+        if ( $has_product === true && ( $key = array_search( 'wishlist-btn', $button_class ) ) !== false ) {
             unset( $button_class[$key] );
         }
 
@@ -101,15 +101,15 @@ class Shortcode {
         $added_button_icon  = $this->icon_generate('added');
         
         if( !empty( $button_text ) ){
-            $button_text = '<span class="sxwishlist-btn-text">'.$button_text.'</span>';
+            $button_text = '<span class="wishlist-btn-text">'.$button_text.'</span>';
         }
         
         if( !empty( $button_exist_text ) ){
-            $button_exist_text = '<span class="sxwishlist-btn-text">'.$button_exist_text.'</span>';
+            $button_exist_text = '<span class="wishlist-btn-text">'.$button_exist_text.'</span>';
         }
 
         if( !empty( $button_added_text ) ){
-            $button_added_text = '<span class="sxwishlist-btn-text">'.$button_added_text.'</span>';
+            $button_added_text = '<span class="wishlist-btn-text">'.$button_added_text.'</span>';
         }
 
         // Shortcode atts
@@ -135,8 +135,8 @@ class Shortcode {
      * @return [HTML] 
      */
     public function table_shortcode( $atts, $content = '' ){
-        wp_enqueue_style( 'sxwishlist-frontend' );
-        wp_enqueue_script( 'sxwishlist-frontend' );
+        wp_enqueue_style( 'wishlist-frontend' );
+        wp_enqueue_script( 'wishlist-frontend' );
 
         /* Fetch From option data */
         $empty_text = shopxpert_get_option( 'empty_table_text', 'wishsuite_table_settings_tabs' );
@@ -175,7 +175,7 @@ class Shortcode {
      * @return void
      */
     public function counter_shortcode( $atts, $content = '' ){
-        wp_enqueue_style( 'sxwishlist-frontend' );
+        wp_enqueue_style( 'wishlist-frontend' );
 
         $enable_login_limit = shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' );
         $myaccount_url      =  get_permalink( get_option('woocommerce_myaccount_page_id') );
@@ -210,7 +210,7 @@ class Shortcode {
     public function icon_generate( $type = '' ){
 
         $default_icon   = woowishsuite_icon_list('default');
-        $default_loader = '<span class="sxwishlist-loader">'.woowishsuite_icon_list('loading').'</span>';
+        $default_loader = '<span class="wishlist-loader">'.woowishsuite_icon_list('loading').'</span>';
         
         $button_icon = '';
         $button_text = ( $type === 'added' ) ? shopxpert_get_option( 'added_button_text','wishsuite_settings_tabs', 'Wishlist' ) : shopxpert_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );

@@ -1,8 +1,8 @@
 <?php
-namespace WooWooWishSuite;
+namespace WooWishSuite;
 use function  Shopxpert\incs\shopxpert_get_option;
 
-
+error_log("hello WishSuite");
 /**
  * Assets handlers class
  */
@@ -40,17 +40,19 @@ class Assets {
      */
     public function get_scripts() {
         return [
-            'sxwishlist-admin' => [
+            'wishlist-admin' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/js/admin.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery' ]
             ],
-            'sxwishlist-frontend' => [
+            'wishlist-frontend' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/js/frontend.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery', 'wc-add-to-cart-variation' ]
             ],
         ];
+        
+        error_log( 'zzz: ' . WOOWISHSUITE_ASSETS . '/js/admin.js' );
     }
 
     /**
@@ -60,11 +62,11 @@ class Assets {
      */
     public function get_styles() {
         return [
-            'sxwishlist-admin' => [
+            'wishlist-admin' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/css/admin.css',
                 'version' => SHOPXPERT_VERSION,
             ],
-            'sxwishlist-frontend' => [
+            'wishlist-frontend' => [
                 'src'     => WOOWISHSUITE_ASSETS . '/css/frontend.css',
                 'version' => SHOPXPERT_VERSION,
             ],
@@ -91,7 +93,7 @@ class Assets {
         }
 
         // Inline CSS
-        wp_add_inline_style( 'sxwishlist-frontend', $this->inline_style() );
+        wp_add_inline_style( 'wishlist-frontend', $this->inline_style() );
         
         // Frontend Localize data
         $option_data = array(
@@ -131,12 +133,12 @@ class Assets {
             'option_data'=> $admin_option_data,
         );
 
-        wp_localize_script( 'sxwishlist-frontend', 'WooWooWishSuite', $localize_data );
-        wp_localize_script( 'sxwishlist-admin', 'WooWooWishSuite', $admin_localize_data );
+        wp_localize_script( 'wishlist-frontend', 'WooWishSuite', $localize_data );
+        wp_localize_script( 'wishlist-admin', 'WooWishSuite', $admin_localize_data );
 
         if( class_exists( '\Elementor\Plugin' ) && ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) ){
-            wp_enqueue_style( 'sxwishlist-frontend' );
-            wp_enqueue_script( 'sxwishlist-frontend' );
+            wp_enqueue_style( 'wishlist-frontend' );
+            wp_enqueue_script( 'wishlist-frontend' );
         }
         
     }
@@ -164,14 +166,14 @@ class Assets {
             $btn_hover_bg_color = woowishsuite_generate_css('hover_background_color','wishsuite_style_settings_tabs','background-color');
 
             $button_custom_css = "
-                .sxwishlist-button{
+                .wishlist-button{
                     {$btn_padding}
                     {$btn_margin}
                     {$btn_color}
                     {$btn_bg_color}
                     {$btn_border_radius}
                 }
-                .sxwishlist-button:hover{
+                .wishlist-button:hover{
                     {$btn_hover_color}
                     {$btn_hover_bg_color}
                 }
@@ -194,21 +196,21 @@ class Assets {
             $button_hover_bg_color = woowishsuite_generate_css('table_cart_button_hover_bg_color','wishsuite_style_settings_tabs','background-color');
 
             $table_custom_css = "
-                .sxwishlist-table-content table thead > tr{
+                .wishlist-table-content table thead > tr{
                     {$heading_border_color}
                 }
-                .sxwishlist-table-content table thead > tr th{
+                .wishlist-table-content table thead > tr th{
                     {$heading_color}
                     {$heading_bg_color}
                 }
-                .sxwishlist-table-content table,.sxwishlist-table-content table tbody > tr{
+                .wishlist-table-content table,.wishlist-table-content table tbody > tr{
                     {$border_color}
                 }
             ";
 
             if( $button_color || $button_bg_color ){
                 $table_custom_css .= "
-                    .sxwishlist-table-content table .sxwishlist-addtocart{
+                    .wishlist-table-content table .wishlist-addtocart{
                         {$button_color}
                         {$button_bg_color}
                     }
@@ -216,7 +218,7 @@ class Assets {
             }
             if( $button_hover_color || $button_hover_bg_color ){
                 $table_custom_css .= "
-                    .sxwishlist-table-content table .sxwishlist-addtocart:hover{
+                    .wishlist-table-content table .wishlist-addtocart:hover{
                         {$button_hover_color}
                         {$button_hover_bg_color}
                     }

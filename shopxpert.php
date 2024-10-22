@@ -19,6 +19,7 @@ define('SHOPXPERT_ADDONS_PL_ROOT', __FILE__);
 define('SHOPXPERT_ADDONS_PL_URL', plugins_url('/', SHOPXPERT_ADDONS_PL_ROOT));
 define('SHOPXPERT_ADDONS_PL_PATH', plugin_dir_path(SHOPXPERT_ADDONS_PL_ROOT));
 
+
 // Include the Composer autoloader (if using Composer)
 // require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 

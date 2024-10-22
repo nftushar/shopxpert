@@ -67,8 +67,8 @@
 
 ?>
 
-<div class="sxwishlist-social-share"> 
-	<span class="sxwishlist-social-title"><?php echo esc_html__( $button_text, 'shopxpert' ); ?></span>
+<div class="wishlist-social-share"> 
+	<span class="wishlist-social-title"><?php echo esc_html__( $button_text, 'shopxpert' ); ?></span>
 
 	<ul>
 		<?php
@@ -76,7 +76,7 @@
 				?>
 				<li>
 					<a rel="nofollow" href="<?php echo esc_url( $social_button_list[$buttonkey]['url'] ); ?>" <?php echo ( $buttonkey === 'email' ? '' : 'target="_blank"' ) ?>>
-						<span class="sxwishlist-social-icon">
+						<span class="wishlist-social-icon">
 							<?php echo woowishsuite_icon_list( $buttonkey ); ?>
 						</span>
 					</a>

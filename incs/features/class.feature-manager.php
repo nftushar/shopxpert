@@ -5,6 +5,10 @@ use function Shopxpert\incs\shopxpert_get_option;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+// error_log('Widgets Control');
+
+
+
 class Shopxpert_Feature_Manager {
 
     private static $_instance = null;
@@ -60,6 +64,11 @@ class Shopxpert_Feature_Manager {
             require( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/rename-label/rename_label.php' );
         }  
 
+        // pre-orders
+        if ( !is_admin() && shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' ) == 'on' ) {
+            require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/pre-orders/pre-orders.php' );
+        }  
+
         // Search
         if( shopxpert_get_option( 'ajaxsearch', 'shopxpert_others_tabs', 'off' ) == 'on' ){
             require( SHOPXPERT_ADDONS_PL_PATH. 'incs/features/ajax-search/main.php' );
@@ -71,9 +80,12 @@ class Shopxpert_Feature_Manager {
             require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/backorder/class.backorder.php' );
         }
 
+
+
+
         // Wishlist
         if( shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ) == 'on' ){
-            // $this->deactivate( 'sxwishlist/sxwishlist.php' );
+            // $this->deactivate( 'wishlist/wishlist.php' );
             if( ! class_exists('WooWishSuite_Base') ){
                 require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/wishlist/init.php' );
             }

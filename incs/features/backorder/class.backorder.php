@@ -364,6 +364,13 @@ class Shopxpert_Pending_Stock extends WC_Product{
         // Retrieve the availability message
         $availability_message = shopxpert_get_option('backorder_availability_message', 'shopxpert_backorder_settings');
         // error_log("Initial Availability Message: " . $availability_message);
+
+
+        // Retrieve the availability message
+        // $availability_message = shopxpert_get_option('backorder_availability_message', 'shopxpert_backorder_settings');
+        // error_log("Initial Availability Message: " . $availability_message);
+
+
     
         // Log the placeholder before replacement
         $placeholder = '{availability_date}';
@@ -509,10 +516,7 @@ class Shopxpert_Pending_Stock extends WC_Product{
         $product    = wc_get_product($product_id);
 
         $backorder_limit_global = shopxpert_get_option('backorder_limit', 'shopxpert_backorder_settings');
-        $backorder_limit_global = $backorder_limit_global ? __( "Store-wide backorder limit ($backorder_limit_global)", "shopxpert") : '';
-
-        $availability_date_global = shopxpert_get_option('backorder_availability_date', 'shopxpert_backorder_settings');
-        $availability_date_global = $availability_date_global ? __( "Store-wide availability ($availability_date_global)", "shopxpert") : '';
+        $backorder_limit_global = $backorder_limit_global ? __( "Store-wide backorder limit ($backorder_limit_global)", "shopxpert") : ''; 
 
         $backorder_limit        = get_post_meta( $product_id, '_shopxpert_backorder_limit', true );
         $backorder_availability = get_post_meta( $product_id, '_shopxpert_backorder_availability_date', true );

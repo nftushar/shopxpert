@@ -55,6 +55,8 @@ final class Shopxpert_WooWishSuite_Base{
         define( 'WOOWISHSUITE_ASSETS', WOOWISHSUITE_URL . '/assets' );
         define( 'WOOWISHSUITE_BASE', plugin_basename( WOOWISHSUITE_FILE ) );
         define( 'WOOWISHSUITE_BLOCKS_PATH', WOOWISHSUITE_FEATURE_PATH. "/incs/blocks" );
+
+
     }
 
     /**
@@ -71,7 +73,12 @@ final class Shopxpert_WooWishSuite_Base{
         require_once(__DIR__ . '/incs/classes/Ajax.php');
         require_once(__DIR__ . '/incs/classes/Widgets_And_Blocks.php');
 
+
+
     }
+ 
+
+
 
     /**
      * Initialize the plugin
@@ -80,17 +87,17 @@ final class Shopxpert_WooWishSuite_Base{
      */
     public function init_plugin() {
 
-        WooWooWishSuite\Assets::instance();
+        WooWishSuite\Assets::instance();
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            WooWooWishSuite\Ajax::instance();
+            WooWishSuite\Ajax::instance();
         }
 
         if ( is_admin() ) {
-            WooWooWishSuite\Admin::instance();
+            WooWishSuite\Admin::instance();
         }
-        WooWooWishSuite\Frontend::instance();
-        WooWooWishSuite\Widgets_And_Blocks::instance();
+        WooWishSuite\Frontend::instance();
+        WooWishSuite\Widgets_And_Blocks::instance();
 
         // add image size
         $this->set_image_size();
@@ -107,7 +114,7 @@ final class Shopxpert_WooWishSuite_Base{
      * @return void
      */
     public function activate() {
-        $installer = new WooWooWishSuite\Installer();
+        $installer = new WooWishSuite\Installer();
         $installer->run();
     }
 
@@ -119,7 +126,7 @@ final class Shopxpert_WooWishSuite_Base{
         $image_dimention = shopxpert_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
             $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
-            add_image_size( 'sxwishlist-image', absint( $image_dimention['width'] ), absint( $image_dimention['height'] ), $hard_crop );
+            add_image_size( 'wishlist-image', absint( $image_dimention['width'] ), absint( $image_dimention['height'] ), $hard_crop );
         }
 
     }

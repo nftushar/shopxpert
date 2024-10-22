@@ -1,6 +1,6 @@
-<a href="<?php echo esc_url( $page_url );?>" class="sxwishlist-counter-area <?php echo !empty( $text ) ? 'sxwishlist-has-text' : '' ?>">
-    <?php if( !empty( $text ) ){  echo '<span class="sxwishlist-counter">'.esc_html( $item_count ).'</span>';} ?>
-    <span class="sxwishlist-counter-icon">
+<a href="<?php echo esc_url( $page_url );?>" class="wishlist-counter-area <?php echo !empty( $text ) ? 'wishlist-has-text' : '' ?>">
+    <?php if( !empty( $text ) ){  echo '<span class="wishlist-counter">'.esc_html( $item_count ).'</span>';} ?>
+    <span class="wishlist-counter-icon">
         <svg height="20px" width="20px" viewBox="0 0 471.701 471.701">
             <path class="heart" d="M433.601,67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7,13.6-92.4,38.3l-12.9,12.9l-13.1-13.1
                     c-24.7-24.7-57.6-38.4-92.5-38.4c-34.8,0-67.6,13.6-92.2,38.2c-24.7,24.7-38.3,57.5-38.2,92.4c0,34.9,13.7,67.6,38.4,92.3
@@ -13,9 +13,9 @@
     </span>
     <?php
         if( !empty( $text ) ){
-            echo '<span class="sxwishlist-text">'.esc_html( $text ).'</span>';
+            echo '<span class="wishlist-text">'.esc_html( $text ).'</span>';
         }else{
-            echo '<span class="sxwishlist-counter">'.esc_html( $item_count ).'</span>';
+            echo '<span class="wishlist-counter">'.esc_html( $item_count ).'</span>';
         }
     ?>
 </a>

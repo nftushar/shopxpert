@@ -526,6 +526,7 @@ function shopxpert_get_option( $option, $section, $default = '' ){
     return $default;
 }
 
+
 function shopxpert_get_option_label_text( $option, $section, $default = '' ){
     $options = get_option( $section );
     if ( isset( $options[$option] ) ) {
@@ -1150,14 +1151,14 @@ if( class_exists('WooCommerce') ){
     }
 
     // Change Product Per page
-    if( shopxpert_get_option( 'enablecustomlayout', 'shopxpert_woo_template_tabs', 'on' ) == 'on' ){
-        function shopxpert_custom_number_of_posts() {
-            $limit = shopxpert_get_option( 'shoppageproductlimit', 'shopxpert_woo_template_tabs', 2 );
-            $postsperpage = apply_filters( 'product_custom_limit', $limit );
-            return $postsperpage;
-        }
-        add_filter( 'loop_shop_per_page', 'shopxpert_custom_number_of_posts' );
-    }
+    // if( shopxpert_get_option( 'enablecustomlayout', 'shopxpert_woo_template_tabs', 'on' ) == 'on' ){
+    //     function shopxpert_custom_number_of_posts() {
+    //         $limit = shopxpert_get_option( 'shoppageproductlimit', 'shopxpert_woo_template_tabs', 2 );
+    //         $postsperpage = apply_filters( 'product_custom_limit', $limit );
+    //         return $postsperpage;
+    //     }
+    //     add_filter( 'loop_shop_per_page', 'shopxpert_custom_number_of_posts' );
+    // }
 
     // Customize rating html
     if( !function_exists('shopxpert_wc_get_rating_html') ){
@@ -1208,18 +1209,17 @@ if( class_exists('WooCommerce') ){
                 } else {
                     $html  = '';
                 }
-
                 return $html;
         }
     }
 
     // HTML Markup Render in footer
-    function shopxpert_html_render_infooter(){
-        if ( true === apply_filters( 'shopxpert_footer_content_visibility', true ) ) {
-            do_action( 'shopxpert_footer_render_content' );
-        }
-    }
-    add_action( 'wp_footer', 'shopxpert_html_render_infooter' );
+    // function shopxpert_html_render_infooter(){
+    //     if ( true === apply_filters( 'shopxpert_footer_content_visibility', true ) ) {
+    //         do_action( 'shopxpert_footer_render_content' );
+    //     }
+    // }
+    // add_action( 'wp_footer', 'shopxpert_html_render_infooter' );
 
 
     

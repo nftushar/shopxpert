@@ -1,5 +1,5 @@
 <?php
-namespace WooWooWishSuite\Frontend;
+namespace WooWishSuite\Frontend;
 use function  Shopxpert\incs\shopxpert_get_option;
 
 
@@ -52,7 +52,7 @@ class Manage_Wishlist {
                 'user_id' => $user_id
             ];
 
-            $insert_id = \WooWooWishSuite\Manage_Data::instance()->create( $args );
+            $insert_id = \WooWishSuite\Manage_Data::instance()->create( $args );
             $add_status = $insert_id;
 
         }else{
@@ -86,7 +86,7 @@ class Manage_Wishlist {
         $delete_status = false;
 
         if( $user_id ){
-            $deleted = \WooWooWishSuite\Manage_Data::instance()->delete( $user_id, $id );
+            $deleted = \WooWishSuite\Manage_Data::instance()->delete( $user_id, $id );
             $delete_status = $deleted;
         }else{
 
@@ -219,7 +219,7 @@ class Manage_Wishlist {
      */
     public function button_html( $atts ) {
         $button_attr = apply_filters( 'wishsuite_button_arg', $atts );
-        return woowishsuite_get_template( 'sxwishlist-button-'.$atts['template_name'].'.php', $button_attr, false );
+        return woowishsuite_get_template( 'wishlist-button-'.$atts['template_name'].'.php', $button_attr, false );
     }
 
     /**
@@ -228,7 +228,7 @@ class Manage_Wishlist {
      */
     public function table_html( $atts ) {
         $table_attr = apply_filters( 'wishsuite_table_arg', $atts );
-        return woowishsuite_get_template( 'sxwishlist-table.php', $table_attr, false );
+        return woowishsuite_get_template( 'wishlist-table.php', $table_attr, false );
     }
 
     /**
@@ -237,7 +237,7 @@ class Manage_Wishlist {
      */
     public function count_html( $atts ) {
         $count_attr = apply_filters( 'wishsuite_count_arg', $atts );
-        return woowishsuite_get_template( 'sxwishlist-count.php', $count_attr, false );
+        return woowishsuite_get_template( 'wishlist-count.php', $count_attr, false );
     }
 
     /**
@@ -265,7 +265,7 @@ class Manage_Wishlist {
                 'number'  => $per_page,
                 'offset'  => $offset,
             ];
-            $items = \WooWooWishSuite\Manage_Data::instance()->read( $args );
+            $items = \WooWishSuite\Manage_Data::instance()->read( $args );
 
             $ids = array();
             foreach ( $items as $itemkey => $item ) {
@@ -342,7 +342,7 @@ class Manage_Wishlist {
             $rating_count   = $product->get_rating_count();
             $average        = $product->get_average_rating();
 
-            $get_row = \WooWooWishSuite\Manage_Data::instance()->read_single_item( get_current_user_id(), $product->get_id() );
+            $get_row = \WooWishSuite\Manage_Data::instance()->read_single_item( get_current_user_id(), $product->get_id() );
             if( is_object( $get_row ) && $get_row->quantity ){
                 $min_value = $get_row->quantity;
             }else{
@@ -357,7 +357,7 @@ class Manage_Wishlist {
             $products_data[ $product->get_id() ] = array(
                 'id'            => $product->get_id(),
                 'remove'        => $product->get_id(),
-                'image'         => $product->get_image() ? $product->get_image('sxwishlist-image') : $data_none,
+                'image'         => $product->get_image() ? $product->get_image('wishlist-image') : $data_none,
                 'title'         => $product->get_title() ? $product->get_title() : $data_none,
                 'image_id'      => $product->get_image_id(),
                 'permalink'     => $product->get_permalink(),
@@ -451,7 +451,7 @@ class Manage_Wishlist {
         switch ( $type ) {
             case 'remove':
                 ?>
-                    <a href="#" class="sxwishlist-remove" data-product_id="<?php echo esc_attr( $product['id'] ); ?>">&nbsp;</a>
+                    <a href="#" class="wishlist-remove" data-product_id="<?php echo esc_attr( $product['id'] ); ?>">&nbsp;</a>
                 <?php
                 break;
 
@@ -474,7 +474,7 @@ class Manage_Wishlist {
                 break;
 
             case 'ratting':
-                echo '<span class="sxwishlist-product-ratting">'.wp_kses_post( $product[ $field_id ] ).'</span>';
+                echo '<span class="wishlist-product-ratting">'.wp_kses_post( $product[ $field_id ] ).'</span>';
                 break;
 
             case 'add_to_cart':
@@ -538,7 +538,7 @@ class Manage_Wishlist {
     public function add_to_cart_html( $product, $quentity ) {
         if ( ! $product ) return;
 
-        $btn_class = 'sxwishlist-addtocart button product_type_' . $product->get_type();
+        $btn_class = 'wishlist-addtocart button product_type_' . $product->get_type();
 
         $btn_class .= $product->is_purchasable() && $product->is_in_stock() ? ' add_to_cart_button' : '';
 
@@ -550,11 +550,11 @@ class Manage_Wishlist {
 
         if( 'variable' === $product->get_type() ):
         ?>
-            <div class="sxwishlist-quick-cart-area">
-                <div class="sxwishlist-quick-cart-close">
+            <div class="wishlist-quick-cart-area">
+                <div class="wishlist-quick-cart-close">
                     <span>&#10005;</span>
                 </div>
-                <div class="sxwishlist-quick-cart-form"></div>
+                <div class="wishlist-quick-cart-form"></div>
             </div>
         <?php endif; ?>
             <a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" data-quantity="<?php echo esc_attr( $quentity ); ?>" class="<?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>"><?php echo esc_html( $cart_btn );?></a>
@@ -607,7 +607,7 @@ class Manage_Wishlist {
             'products_ids' => $ids,
         ];
         $social_share_attr = apply_filters( 'wishsuite_social_share_arg', $atts );
-        woowishsuite_get_template( 'sxwishlist-social-share.php', $social_share_attr, true );
+        woowishsuite_get_template( 'wishlist-social-share.php', $social_share_attr, true );
         
     }
 
@@ -617,7 +617,7 @@ class Manage_Wishlist {
      */
     public function pagination(){
         $current_page = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-        $total_items = count( \WooWooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() );
+        $total_items = count( \WooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() );
         $product_per_page = shopxpert_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 );
         $total_pages = ceil($total_items / $product_per_page);
         $args = array(
@@ -635,7 +635,7 @@ class Manage_Wishlist {
             'add_args' => true,
             'add_fragment' => ''
         );
-        echo '<nav class="sxwishlist-pagination">' .wp_kses_post(paginate_links($args)). '</nav>';
+        echo '<nav class="wishlist-pagination">' .wp_kses_post(paginate_links($args)). '</nav>';
     }
 
 

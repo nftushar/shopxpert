@@ -1,5 +1,5 @@
 <?php
-namespace WooWooWishSuite;
+namespace WooWishSuite;
 
 /**
  * Admin handlers class

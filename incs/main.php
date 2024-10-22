@@ -45,9 +45,10 @@ final class Base {
     public function included_files() {
     
         require SHOPXPERT_ADDONS_PL_PATH . 'incs/helper-function.php';
+        // require SHOPXPERT_ADDONS_PL_PATH . 'incs/addons/wb_wishsuite_table.php';
         require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.assest_management.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.widgets_control.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.default_data.php';
+          require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.widgets_control.php';
+        require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.default_data.php';
         // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.quickview_manage.php';
         // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.icon_list.php';
         // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.multi_language.php';
@@ -59,7 +60,7 @@ final class Base {
             require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/admin-init.php';
         }
 
-        // features Manager
+        // Features Manager
         require( SHOPXPERT_ADDONS_PL_PATH. 'incs/features/class.feature-manager.php' );
     } 
 }

@@ -627,7 +627,7 @@ class ShopXpert_Settings_Field_Manager_Default {
         $html = '<h2 class="nav-tab-wrapper">';
 
         $count = count( $this->settings_sections );
-
+ 
         // don't show the navigation if only one section exists
         if ( $count === 1 ) {
             return;

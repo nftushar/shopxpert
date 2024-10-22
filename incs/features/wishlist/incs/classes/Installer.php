@@ -1,5 +1,5 @@
 <?php
-namespace WooWooWishSuite;
+namespace WooWishSuite;
 /**
  * Installer class
  */
@@ -55,7 +55,7 @@ class Installer {
             $create_page_id = wc_create_page(
                 sanitize_title_with_dashes( _x( 'shopxpert', 'page_slug', 'shopxpert' ) ),
                 '',
-                __( 'WooWooWishSuite', 'shopxpert' ),
+                __( 'WooWishSuite', 'shopxpert' ),
                 '<!-- wp:shortcode -->[wishsuite_table]<!-- /wp:shortcode -->'
             );
             if( $create_page_id ){

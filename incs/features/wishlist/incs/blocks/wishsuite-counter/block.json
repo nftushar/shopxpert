@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-    "name": "shopxpert/sxwishlist-counter",
+    "name": "shopxpert/wishlist-counter",
     "category": "shopxpert-blocks",
-    "title": "WL: WooWooWishSuite Counter",
+    "title": "WL: WooWishSuite Counter",
     "description":"Display Wishlist Counter.",
-    "keywords": ["shopxpert","wishlist","count","sxwishlist","wishlist counter"],
+    "keywords": ["shopxpert","wishlist","count","wishlist","wishlist counter"],
     "render": "file:./index.php",
     "attributes": {
         "blockUniqId":{
@@ -53,31 +53,31 @@
         "counterColor":{
             "type":"string",
             "style" : {
-                "selector":"{{SHOPXPERT_WRAPPER}} .sxwishlist-counter-area span.sxwishlist-counter{ color:{{counterColor}}!important; }"
+                "selector":"{{SHOPXPERT_WRAPPER}} .wishlist-counter-area span.wishlist-counter{ color:{{counterColor}}!important; }"
             }
         },
         "counterBGColor":{
             "type":"string",
             "style" : {
-                "selector":"{{SHOPXPERT_WRAPPER}} .sxwishlist-counter-area span.sxwishlist-counter{ background-color:{{counterBGColor}}!important; }"
+                "selector":"{{SHOPXPERT_WRAPPER}} .wishlist-counter-area span.wishlist-counter{ background-color:{{counterBGColor}}!important; }"
             }
         },
         "counterPadding": {
             "type": "object",
             "style" : {
-                "selector":"{{SHOPXPERT_WRAPPER}} .sxwishlist-counter-area span.sxwishlist-counter{ padding: {{counterPadding}}; }"
+                "selector":"{{SHOPXPERT_WRAPPER}} .wishlist-counter-area span.wishlist-counter{ padding: {{counterPadding}}; }"
             }
         },
         "counterBorderRadius": {
             "type": "object",
             "style" : {
-                "selector":"{{SHOPXPERT_WRAPPER}} .sxwishlist-counter-area span.sxwishlist-counter{ border-radius: {{counterBorderRadius}}; }"
+                "selector":"{{SHOPXPERT_WRAPPER}} .wishlist-counter-area span.wishlist-counter{ border-radius: {{counterBorderRadius}}; }"
             }
         },
         "counterIconColor":{
             "type":"string",
             "style" : {
-                "selector":"{{SHOPXPERT_WRAPPER}} .sxwishlist-counter-area span.sxwishlist-counter-icon{ color:{{counterIconColor}}; }"
+                "selector":"{{SHOPXPERT_WRAPPER}} .wishlist-counter-area span.wishlist-counter-icon{ color:{{counterIconColor}}; }"
             }
         },
 
@@ -93,7 +93,7 @@
                         }
                     ]
                 ],
-                "selector":"{{SHOPXPERT_WRAPPER}} .sxwishlist-counter-area.sxwishlist-has-text{ color:{{counterTextColor}}; }"
+                "selector":"{{SHOPXPERT_WRAPPER}} .wishlist-counter-area.wishlist-has-text{ color:{{counterTextColor}}; }"
             }
         },
         "counterTextSize":{
@@ -108,7 +108,7 @@
                         }
                     ]
                 ],
-                "selector":"{{SHOPXPERT_WRAPPER}} .sxwishlist-counter-area.sxwishlist-has-text{ font-size:{{counterTextSize}}; }"
+                "selector":"{{SHOPXPERT_WRAPPER}} .wishlist-counter-area.wishlist-has-text{ font-size:{{counterTextSize}}; }"
             }
         }
 

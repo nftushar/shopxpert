@@ -1,5 +1,6 @@
 <?php
-namespace WooWooWishSuite;
+namespace WooWishSuite;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
@@ -40,8 +41,8 @@ class Widgets_And_Blocks {
     public function block_list( $block_list = [] ){
 
         $block_list['wishsuite_table'] = [
-            'label'  => __('WooWooWishSuite Table','shopxpert'),
-            'name'   => 'shopxpert/sxwishlist-table',
+            'label'  => __('WooWishSuite Table','shopxpert'),
+            'name'   => 'shopxpert/wishlist-table',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
@@ -50,8 +51,8 @@ class Widgets_And_Blocks {
         ];
 
         $block_list['wishsuite_counter'] = [
-            'label'  => __('WooWooWishSuite Counter','shopxpert'),
-            'name'   => 'shopxpert/sxwishlist-counter',
+            'label'  => __('WooWishSuite Counter','shopxpert'),
+            'name'   => 'shopxpert/wishlist-counter',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
