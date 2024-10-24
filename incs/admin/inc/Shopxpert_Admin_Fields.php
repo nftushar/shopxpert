@@ -97,7 +97,7 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'  => 'enablerenamelabel',
                                 'label' => esc_html__( 'Enable / Disable', 'shopxpert' ),
-                                'desc'  => esc_html__( 'You can enable / disable change Label from here.', 'shopxpert' ),
+                                'desc'  => esc_html__( 'You can enable or disable the label change feature from this section.', 'shopxpert' ),
                                 'type'  => 'checkbox',
                                 'default' => 'off',
                                 'class'   =>'enablerenamelabel shopxpert-action-field-left',
@@ -112,8 +112,8 @@ class Shopxpert_Admin_Fields {
                             
                             array(
                                 'name'        => 'wl_shop_add_to_cart_txt',
-                                'label'       => esc_html__( 'Add to Cart Button Text', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Change the Add to Cart button text for the Shop page.', 'shopxpert' ),
+                                'label'       => esc_html__( 'Add to Cart Button Label', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Change the Add to Cart Button Label for the Shop page.', 'shopxpert' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Add to Cart', 'shopxpert' ),
                                 'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
@@ -128,8 +128,8 @@ class Shopxpert_Admin_Fields {
             
                             array(
                                 'name'        => 'wl_add_to_cart_txt',
-                                'label'       => esc_html__( 'Add to Cart Button Text', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Change the Add to Cart button text for the Product details page.', 'shopxpert' ),
+                                'label'       => esc_html__( 'Add to Cart Button Label', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Change the Add to Cart Button Label for the Product details page.', 'shopxpert' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Add to Cart', 'shopxpert' ),
                                 'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
@@ -147,7 +147,7 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'        => 'wl_additional_information_tab_menu_title',
                                 'label'       => esc_html__( 'Additional Information', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Change the tab title for the product additional information', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Easily change the title of the "Additional Information" tab for products.', 'shopxpert' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Additional information', 'shopxpert' ),
                                 'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
@@ -156,7 +156,7 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'        => 'wl_reviews_tab_menu_title',
                                 'label'       => esc_html__( 'Reviews', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Change the tab title for the product review', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Update the product review tab title.', 'shopxpert' ),
                                 'type'        => 'text',
                                 'placeholder' => __( 'Reviews', 'shopxpert' ),
                                 'class'       =>'depend_enable_rename_label shopxpert-action-field-left',
@@ -172,7 +172,7 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'        => 'wl_checkout_placeorder_btn_txt',
                                 'label'       => esc_html__( 'Place order', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Change the label for the Place order field.', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Update or customize the text for the "Place Order" button.', 'shopxpert' ),
                                 'type'        => 'text',
                                 'placeholder' => esc_html__( 'Place order', 'shopxpert' ),
                                 'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
@@ -202,8 +202,8 @@ class Shopxpert_Admin_Fields {
     
                             array(
                                 'name'        => 'add_to_cart_btn_text',
-                                'label'       => esc_html__( 'Add to cart button text', 'shopxpert' ),
-                                'desc'        => esc_html__( 'You can change the add to cart button text for the products that allow pre order.', 'shopxpert' ),
+                                'label'       => esc_html__( 'Add to Cart Button Label', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Easily customize the "Add to Cart" button text for products that allow pre-orders.', 'shopxpert' ),
                                 'type'        => 'text',
                                 'default'     => esc_html__('Pre Order','shopxpert'),
                                 'placeholder' => esc_html__( 'Pre Order', 'shopxpert' ),
@@ -212,8 +212,8 @@ class Shopxpert_Admin_Fields {
     
                             array(
                                 'name'        => 'manage_price_lavel',
-                                'label'       => esc_html__( 'Manage Price Label', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Manage how you want the price labels to appear, or leave it blank to display only the pre-order price without any labels. Available placeholders: {original_price}, {preorder_price}', 'shopxpert' ),
+                                'label'       => esc_html__( 'Price Label Management', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Control how price labels are displayed. Leave it blank if you want to show only the pre-order price without any label. You can use the following placeholders: {original_price}, {preorder_price}.', 'shopxpert' ),
                                 'default'     => esc_html__( '{original_price} Pre order price: {preorder_price}', 'shopxpert' ),
                                 'type'        => 'text',
                                 'class'       => 'shopxpert-action-field-left',
@@ -222,7 +222,7 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'        => 'availability_date',
                                 'label'       => esc_html__( 'Availability date label', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Manage how you want the availability date labels to appear. Available placeholders: {availability_date}, {availability_time}', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Customize how the availability date appears. The following placeholders are available: {availability_date}, {availability_time}.', 'shopxpert' ),
                                 'type'        => 'text',
                                 'default'     => esc_html__( 'Available on: {availability_date} at {availability_time}', 'shopxpert' ),
                                 'class'       => 'shopxpert-action-field-left',
@@ -230,8 +230,8 @@ class Shopxpert_Admin_Fields {
     
                             array(
                                 'name'  => 'show_countdown',
-                                'label' => esc_html__( 'Show Countdown', 'shopxpert' ),
-                                'desc'  => esc_html__( 'You can enable / disable pre orders countdown from here.', 'shopxpert' ),
+                                'label' => esc_html__( 'Display Countdown', 'shopxpert' ),
+                                'desc'  => esc_html__( 'Enable or disable the countdown for pre-orders using this option.', 'shopxpert' ),
                                 'type'  => 'checkbox',
                                 'default' => 'on',
                                 'class' => 'shopxpert-action-field-left'
@@ -247,44 +247,21 @@ class Shopxpert_Admin_Fields {
                             ),
     
                             array(
-                                'name'        => 'customlabel_days',
-                                'label'       => esc_html__( 'Days', 'shopxpert' ),
-                                'type'        => 'text',
-                                'default'     => esc_html__( 'Days', 'shopxpert' ),
+                                'name'        => 'countdown_end_date',
+                                'label'       => esc_html__( 'Countdown End Date', 'shopxpert' ),
+                                'type'        => 'date',  // Change this to 'date' or 'datepicker'
+                                'default'     => '',
                                 'condition'   => array( 'show_countdown', '==', 'true' ),
-                                'class'       => 'shopxpert-action-field-left',
+                                'class'       => 'shopxpert-action-field-left datepicker',
                             ),
-                            array(
-                                'name'        => 'customlabel_hours',
-                                'label'       => esc_html__( 'Hours', 'shopxpert' ),
-                                'type'        => 'text',
-                                'default'     => esc_html__( 'Hours', 'shopxpert' ),
-                                'condition'   => array( 'show_countdown', '==', 'true' ),
-                                'class'       => 'shopxpert-action-field-left',
-                            ),
-                            array(
-                                'name'        => 'customlabel_minutes',
-                                'label'       => esc_html__( 'Minutes', 'shopxpert' ),
-                                'type'        => 'text',
-                                'default'     => esc_html__( 'Min', 'shopxpert' ),
-                                'condition'   => array( 'show_countdown', '==', 'true' ),
-                                'class'       => 'shopxpert-action-field-left',
-                            ),
-                            array(
-                                'name'        => 'customlabel_seconds',
-                                'label'       => esc_html__( 'Seconds', 'shopxpert' ),
-                                'type'        => 'text',
-                                'default'     => esc_html__( 'Sec', 'shopxpert' ),
-                                'condition'   => array( 'show_countdown', '==', 'true' ),
-                                'class'       => 'shopxpert-action-field-left',
-                            ),
+                            
     
                         ),
                     ),
        
                     array(
                         'name'     => 'shopxpert_backorder_settings',
-                        'label'    => esc_html__( 'xx Pending Stock', 'shopxpert' ),
+                        'label'    => esc_html__( 'Stock on Hold', 'shopxpert' ),
                         'type'     => 'Feature',
                         'default'  => 'off',
                         'section'  => 'shopxpert_backorder_settings',
@@ -305,7 +282,7 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'    => 'backorder_limit',
                                 'label'   => esc_html__( 'Pending Stock Limit', 'shopxpert' ),
-                                'desc'    => esc_html__( 'Set "Pending Stock Limit" on all "Pending Stock" products across the entire website. You can also set limits for each product individually from the "Inventory" tab.', 'shopxpert' ),
+                                'desc'    => esc_html__( 'You can set a "Pending Stock Limit" for all products on your website that are marked as "Pending Stock." Additionally, you can adjust the limit for each product individually in the "Inventory" tab.', 'shopxpert' ),
                                 'type'    => 'number',
                                 'class'   => 'shopxpert-action-field-left'
                             ),
@@ -320,7 +297,7 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'        => 'backorder_availability_message',
                                 'label'       => esc_html__( 'Availability Message', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Manage how you want the "Message" to appear. Use this {availability_date} placeholder to display the date you set. ', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Control how you want the message to look. Use the {availability_date} placeholder to show the date you choose. ', 'shopxpert' ),
                                 'type'        => 'text',
                                 'default'     => esc_html__( 'On Pending Stock: Will be available on {availability_date}', 'shopxpert' ),
                                 'class'       => 'shopxpert-action-field-left',
@@ -331,7 +308,7 @@ class Shopxpert_Admin_Fields {
 
                     array(
                         'name'     => 'wishlist',
-                        'label'    => esc_html__( 's Wishlist', 'shopxpert' ),
+                        'label'    => esc_html__( 'Wishlist', 'shopxpert' ),
                         'type'     => 'element',
                         'default'  => 'off',
                         'documentation' => esc_url('https://shopxpert.com/doc/wishlist-for-woocommerce/')
@@ -383,24 +360,14 @@ class Shopxpert_Admin_Fields {
 
             array(
                 'id'    => 'shopxpert_general_tabs',
-                'title' => esc_html__( 'x General', 'shopxpert' ),
+                'title' => esc_html__( 'General', 'shopxpert' ),
                 'icon'  => 'dashicons-admin-home'
             ), 
             array(
                 'id'    => 'shopxpert_others_tabs',
                 'title' => esc_html__( 'Features', 'shopxpert' ),
                 'icon'  => 'wli-grid'
-            ),
-            array(
-                'id'    => 'shopxpert_style_tabs',
-                'title' => esc_html__( 'Style', 'shopxpert' ),
-                'icon'  => 'wli-tag'
             ), 
-            array(
-                'id'    => 'shopxpert_gutenberg_tabs',
-                'title' => esc_html__( 'Gutenberg', 'shopxpert' ),
-                'icon'  => 'wli-cog'
-            ),
         );
         return apply_filters( 'shopxpert_admin_fields_sections', $sections );
 

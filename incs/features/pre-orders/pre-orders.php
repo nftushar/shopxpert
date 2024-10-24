@@ -1,4 +1,8 @@
 <?php  
+
+use function Shopxpert\incs\shopxpert_get_option;
+
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Shopxpert_Pre_Orders{
@@ -153,7 +157,7 @@ class Shopxpert_Pre_Orders{
 		$get_save_data = get_post_meta( $post_id, $meta_key, true );
 
 		if ( ! $get_save_data ) {
-			$get_save_data = shopxpert_get_option_pro( $option_key, 'shopxpert_pre_order_settings', $default );
+			$get_save_data = shopxpert_get_option( $option_key, 'shopxpert_pre_order_settings', $default );
 		}
 		return $get_save_data;
 	}

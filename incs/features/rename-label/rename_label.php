@@ -5,7 +5,7 @@
  
 use function  Shopxpert\incs\shopxpert_get_option_label_text;
 
-// Add to Cart Button Text
+// Add to Cart Button Label
 if ( ! function_exists('shopxpert_custom_add_cart_button_shop_page') ) {
     add_filter( 'woocommerce_product_add_to_cart_text', 'shopxpert_custom_add_cart_button_shop_page', 99, 2 );
     function shopxpert_custom_add_cart_button_shop_page( $label ) {
@@ -15,7 +15,7 @@ if ( ! function_exists('shopxpert_custom_add_cart_button_shop_page') ) {
     }
 }
 
-// Product Details Page - Add to Cart Button Text
+// Product Details Page - Add to Cart Button Label
 if ( ! function_exists( 'shopxpert_custom_add_cart_button_single_product' ) ) {
     add_filter( 'woocommerce_product_single_add_to_cart_text', 'shopxpert_custom_add_cart_button_single_product' );
     function shopxpert_custom_add_cart_button_single_product( $label ) {

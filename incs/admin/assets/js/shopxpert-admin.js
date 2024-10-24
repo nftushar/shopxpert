@@ -1,5 +1,13 @@
 // alert("hello");
 
+
+jQuery(document).ready(function($) {
+    $('.datepicker').datepicker({
+        dateFormat: 'yy-mm-dd' // Adjust the format as needed
+    });
+});
+
+
 ; (function ($) {
     "use strict";
 
@@ -404,9 +412,7 @@ console.log("shopxpert Feature_data");
                     $savebtn.text(SHOPXPERT_ADMIN.message.loading).addClass('updating-message');
                 },
                 success: function (response) {
-                    $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SHOPXPERT_ADMIN.message.success); // Update the button state
-
-                    alert('xxx Feature additional setting saved'); // Alert success message
+                    $savebtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SHOPXPERT_ADMIN.message.success); // Update the button state 
                 },
                 complete: function (response) {
                     console.log('AJAX Complete Response:', response); // Log the response
@@ -455,8 +461,7 @@ console.log('Feature Setting Reset ajax');
                             $resetbtn.removeClass('disabled').addClass('updating-message').text(SHOPXPERT_ADMIN.message.reseting);
                         },
 
-                        success: function (response) {
-                            alert('Feature Setting Reset ajax saved');
+                        success: function (response) { 
                             $resetbtn.removeClass('updating-message').addClass('disabled').attr('disabled', true).text(SHOPXPERT_ADMIN.message.reseted);
                         },
 
@@ -678,8 +683,7 @@ console.log('Feature Setting Reset ajax');
                     $FeatureSaveButton.removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
                 },
 
-                success: function (response) {
-                     alert('Repeater Custom Button saved');
+                success: function (response) { 
                     $this.removeClass('updating-message');
                     $(document).trigger('repeater_custom_action_start', [$data, $fieldsArea, response.data]);
                     // Save Feature Data

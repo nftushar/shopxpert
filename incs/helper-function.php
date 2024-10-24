@@ -16,12 +16,25 @@ function shopxpert_is_woocommerce() {
 }
 
 /**
- * [shopxpert_is_pro]
+ * [shopxpert]
  * @return [boolean]
  */
-function shopxpert_is_pro() {
-    return class_exists( '\ShopXpertPro\Base' );
+function shopxpert() {
+    return class_exists( '\ShopXpert\Main' );
 }
+
+/**
+* Options return
+*/
+function woolentor_get_option( $option, $section, $default = '' ){
+    $options = get_option( $section );
+    if ( isset( $options[$option] ) ) {
+        return $options[$option];
+    }
+    return $default;
+}
+
+
 
 /*
  * Shopxpert Templates List

@@ -4,10 +4,7 @@ use function Shopxpert\incs\shopxpert_get_option;
  
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-// error_log('Widgets Control');
-
-
+ 
 
 class Shopxpert_Feature_Manager {
 

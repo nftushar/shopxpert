@@ -1,9 +1,7 @@
 <?php  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-
-
-error_log('Widgets Control');
+ 
 
 class Shopxpert_Admin_Pre_Orders extends Shopxpert_Pre_Orders{
 

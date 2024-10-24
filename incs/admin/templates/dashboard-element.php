@@ -13,7 +13,7 @@
         <div class="shopxpert-admin-header">
             <div class="shopxpert-admin-header-content">
                 <h6 class="shopxpert-admin-header-title"><?php echo esc_html__('ShopXpert  Element','shopxpert');?></h6>
-                <p class="shopxpert-admin-header-text"><?php echo esc_html__('You can activate or deactivate all options with a single click','shopxpert');?></p>
+                <p class="shopxpert-admin-header-text"><?php echo esc_html__('You can activate or deactivate all options in One click','shopxpert');?></p>
             </div>
             <div class="shopxpert-admin-header-actions">
                 <button class="shopxpert-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','shopxpert'); ?></button>

@@ -52,6 +52,8 @@ class Assets_Management{
 
         add_filter( 'body_class', [ $this, 'body_classes' ] );
 
+        add_action('admin_enqueue_scripts',[ $this,  'shopxpert_enqueue_datepicker'] );
+
     }
 
     /**
@@ -84,6 +86,13 @@ class Assets_Management{
         return $style_list;
 
     }
+
+
+    function shopxpert_enqueue_datepicker() {
+        wp_enqueue_script('jquery-ui-datepicker');
+        wp_enqueue_style('jquery-ui', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+    }
+
 
     /**
      * All available scripts
@@ -151,8 +160,8 @@ class Assets_Management{
                 'ajaxurl' => admin_url('admin-ajax.php'),
                 'message' => [
                     'btntxt'  => esc_html__('Save Changes', 'shopxpert'),
-                    'loading' => esc_html__('xx Saving...', 'shopxpert'),
-                    'success' => esc_html__('XX Saved success Data', 'shopxpert'),
+                    'loading' => esc_html__('Saving...', 'shopxpert'),
+                    'success' => esc_html__('Saved success Data', 'shopxpert'),
                     'yes'     => esc_html__('Yes', 'shopxpert'),
                     'cancel'  => esc_html__('Cancel', 'shopxpert'),
                     'sure'    => esc_html__('Are you sure?', 'shopxpert'),
