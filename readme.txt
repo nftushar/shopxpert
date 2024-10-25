@@ -1,15 +1,17 @@
 === ShopXpert ===
-Contributors: nftushar
-Tags: WooCommerce, label customization, pre-orders, wishlist, stock on hold, dynamic search
+Contributors: nftushar, shopxpert
+Tags: WooCommerce label customization, pre-orders, wishlist, stock on hold, dynamic search
 Requires at least: 5.0
 Requires PHP: 7.0
 Tested up to: 6.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL-2.0-or-later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-== Description:== 
-<strong>ShopXpert</strong> is an all-in-one solution for WooCommerce store managers to enhance their store's functionality. With features like label customization/Change Label, pre-orders, stock management/Stock on Hold, wishlist, and dynamic search, ShopXpert is designed to boost customer engagement and streamline store management.
+Short Description: An all-in-one WooCommerce solution for label customization, pre-orders, and more.
+
+== Description ==
+<strong>ShopXpert</strong> is an all-in-one WooCommerce solution that enhances store functionality with features like label customization, pre-orders, stock management, wishlist, and dynamic search to boost customer engagement and streamline management.
 
 == Features ==
 ✏️ <strong>Change WooCommerce Labels</strong>
@@ -69,6 +71,19 @@ Yes, the plugin includes a Dynamic AJAX Search Widget that delivers real-time se
 ShopXpert is optimized for performance and designed to have minimal impact on your store's speed. However, it’s always good to test new plugins in a staging environment first.
 
 == Changelog ==
+= 1.0.2 =
+* **New Features:**
+  - Label Customization: Customize labels for various WooCommerce elements.
+  - Pre-Orders: Enable customers to pre-order out-of-stock items.
+  - Wishlist: Allow customers to save products for later.
+  - Stock on Hold: Manage stock allocation for pending orders.
+  - Dynamic Search: Show real-time search results as users type.
+
+* **Enhancements:**
+  - Improved compatibility with WooCommerce 6.0 for smoother functionality.
+  - Optimized loading times for enhanced performance.
+
+
 Version 1.0.1
 Minor updates and performance improvements.
 Version 1.0.0
