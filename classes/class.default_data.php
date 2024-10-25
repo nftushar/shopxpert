@@ -144,7 +144,7 @@ class ShopXpert_Default_Data{
      */
     public function theme_hook_reactive( $element, $section_id ){
         $is_editor_mode = \Elementor\Plugin::$instance->editor->is_edit_mode();
-        if( 'shopxpert-product-archive-addons' === $element->get_name() && $is_editor_mode) {
+        if( 'shopxpertduct-archive-addons' === $element->get_name() && $is_editor_mode) {
             $this->theme_hooks( $element->get_name() );
         }else if( 'wl-single-product-upsell' === $element->get_name() && $is_editor_mode ){
             $this->theme_hooks( $element->get_name() );
@@ -166,7 +166,7 @@ class ShopXpert_Default_Data{
         // For Astra Theme
         if( 'astra' === $current_theme->get( 'TextDomain' ) || 'hello-elementor' === $current_theme->get( 'TextDomain' ) || 'blocksy' === $current_theme->get( 'TextDomain' ) ){
 
-            if( $name === 'shopxpert-product-archive-addons' ){
+            if( $name === 'shopxpertduct-archive-addons' ){
 
                 if( has_action('woocommerce_before_shop_loop', 'woocommerce_result_count') === false ) {
                     add_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 10);

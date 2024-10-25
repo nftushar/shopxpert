@@ -278,7 +278,7 @@ add_action('in_admin_header', function (){
     }
 
     wp_send_json_success([
-        'message' => esc_html__('Data saved successfully!', 'shopxper'),
+        'message' => esc_html__('Data saved successfully!', 'shopxpert'),
         'data'    => $data
     ]);
 }
@@ -301,8 +301,7 @@ public function update_option($section, $option_key, $new_value) {
     // Update the specific option key with the new value
     $options_data[$option_key] = $new_value;
 
-    // Save the updated options back to the database
-    // // error_log("Saving Option Data: " . print_r($options_data, true));
+    // Save the updated options back to the database 
     update_option($section, $options_data);
 }
  

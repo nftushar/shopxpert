@@ -48,7 +48,7 @@ class Shopxpert_Admin_Pre_Orders extends Shopxpert_Pre_Orders{
 
         unset( $columns['date'], $columns['featured'] );
 
-        $columns['shopxpert_pre_order'] = esc_html__( 'Pre-ordering will end after', 'shopxpert-pro' );
+        $columns['shopxpert_pre_order'] = esc_html__( 'Pre-ordering will end after', 'shopxpert' );
         $columns['date']     = esc_html( $column_date );
         $columns['featured'] = $column_featured;
 
@@ -109,7 +109,7 @@ class Shopxpert_Admin_Pre_Orders extends Shopxpert_Pre_Orders{
 
         unset( $columns['order_total'] );
 
-        $columns['shopxpert_pre_order'] = esc_html__( 'Pre-order Product', 'shopxpert-pro' );
+        $columns['shopxpert_pre_order'] = esc_html__( 'Pre-order Product', 'shopxpert' );
         $columns['order_total'] = esc_html( $column_order_total );
 
 		return $columns;
@@ -199,7 +199,7 @@ class Shopxpert_Admin_Pre_Orders extends Shopxpert_Pre_Orders{
             $order_has_pre_order = $order->get_meta( 'shopxpert_pre_order' , true );
             $status = $this->has_pre_order_item( $product_id, $date_created->getTimestamp() );
             if ( $status === true && $order_has_pre_order === 'yes' ) {
-                echo __( apply_filters('shopxpert_text_pre_order_line_items', '<span style="background: #ec5858;border-radius: 3px;padding: 2px 8px;color: #fff;">Pre-Order</span> : Yes' ), 'shopxpert-pro' );
+                echo __( apply_filters('shopxpert_text_pre_order_line_items', '<span style="background: #ec5858;border-radius: 3px;padding: 2px 8px;color: #fff;">Pre-Order</span> : Yes' ), 'shopxpert' );
             }
 
 		}

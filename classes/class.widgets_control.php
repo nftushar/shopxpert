@@ -31,7 +31,6 @@ class Widgets_Control {
     }
 
     public function add_category( $elements_manager ) {
-        error_log('add_category called');
 
         $elements_manager->add_category(
             'shopxpert-addons',
@@ -44,7 +43,7 @@ class Widgets_Control {
         $elements_manager->add_category(
             'shopxpert-addons-pro',
             [
-                'title' => __( 'ShopXpert Addons Pro', 'shopxpert-pro' ),
+                'title' => __( 'ShopXpert Addons Pro', 'shopxpert' ),
                 'icon'  => 'fa fa-plug',
             ]
         );
@@ -103,8 +102,7 @@ class Widgets_Control {
 		$class_name = array_map( 'ucfirst', $class_name );
 		$class_name = implode( '_', $class_name );
 
-		return $class_name;
-        error_log($class_name);
+		return $class_name; 
 	}  
         /* Widget list generate */
         public function widget_list_manager( $tmpType ){

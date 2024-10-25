@@ -112,7 +112,7 @@ jQuery(document).ready(function($) {
 
     /* Pro Popup */
     /* Open */
-    $('[data-shopxpert-pro="disabled"]').on('click', function (e) {
+    $('[data-shopxpert="disabled"]').on('click', function (e) {
         e.preventDefault()
         const $popup = $('#shopxpert-admin-pro-popup')
         $popup.addClass('open')
@@ -320,7 +320,7 @@ console.log("shopxpert Feature_data");
         // });
 
         // WPColor Picker Button disable.
-        $('div[data-shopxpert-pro="disabled"] .wp-picker-container button').each(function () {
+        $('div[data-shopxpert="disabled"] .wp-picker-container button').each(function () {
             $(this).attr("disabled", true);
         });
 

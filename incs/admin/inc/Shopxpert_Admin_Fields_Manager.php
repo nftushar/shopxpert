@@ -184,7 +184,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( !empty($args['additional_info']['is_pro']) && $args['additional_info']['is_pro'] === true ) {
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
     
         // Begin building the HTML output
@@ -251,7 +251,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
@@ -283,7 +283,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
@@ -315,7 +315,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $label        = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose Image','shopxpert' );
@@ -362,7 +362,7 @@ class Shopxpert_Admin_Fields_Manager {
         $probadge = $data_atr = '';
         if( $args['additional_info']['is_pro'] === true ){
             $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxpert' ).'</span>';
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         if( $value === 'on' ){
@@ -496,7 +496,7 @@ class Shopxpert_Admin_Fields_Manager {
         if( $args['additional_info']['is_pro'] === true ){
             $probadge = '<span class="shopxpert-admin-switch-block-badge">'.esc_html__( 'Pro', 'shopxpert' ).'</span>';
             $checked = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
             $switch_id = '';
         }
 
@@ -548,7 +548,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $checked = '';
         if( $args['additional_info']['is_pro'] === true ){
             $checked = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
@@ -581,7 +581,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = '';
         if( $args['additional_info']['is_pro'] === true ){
             $checked = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
@@ -612,7 +612,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).' " '.$args['depend'].'>';
@@ -650,7 +650,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).' " '. $args['depend'] .'>';
@@ -686,7 +686,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).' " '.$args['depend'].'>';
@@ -731,7 +731,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).' " '.$args['depend'].'>';
             $html .= '<div class="shopxpert-admin-option-content">';
@@ -771,7 +771,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).' " '.$args['depend'].'>';
@@ -801,7 +801,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
         
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).' " '.$args['depend'].'>';
@@ -846,7 +846,7 @@ class Shopxpert_Admin_Fields_Manager {
         $data_atr = $disabled = '';
         if( $args['additional_info']['is_pro'] === true ){
             $disabled = esc_attr('disabled=true');
-            $data_atr = esc_attr( 'data-shopxpert-pro=disabled' );
+            $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
         $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
@@ -931,7 +931,7 @@ class Shopxpert_Admin_Fields_Manager {
                     
                 // });
 
-                $('div[data-shopxpert-pro="disabled"] .wp-picker-container button').each(function(){
+                $('div[data-shopxpert="disabled"] .wp-picker-container button').each(function(){
                     $(this).attr("disabled", true);
                 });
 

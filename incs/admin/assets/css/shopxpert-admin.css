@@ -76,12 +76,12 @@
   }
   
   /* Option Disable */
-  [data-shopxpert-pro=disabled] {
+  [data-shopxpert=disabled] {
     position: relative;
     z-index: 1;
     cursor: pointer;
   }
-  [data-shopxpert-pro=disabled]::before {
+  [data-shopxpert=disabled]::before {
     position: absolute;
     z-index: 9;
     top: 0;
@@ -92,7 +92,7 @@
     opacity: 0;
     background-color: transparent;
   }
-  [data-shopxpert-pro=disabled] .shopxpert-admin-switch input{
+  [data-shopxpert=disabled] .shopxpert-admin-switch input{
     z-index: inherit;
   }
   
@@ -1689,15 +1689,15 @@
   }
 
   /* Sidebar Pro-Banner */
-  .shopxpert-promo-banner {
+  .shopxpertmo-banner {
     margin-bottom: 30px;
     padding-top: 47px;
   }
-  .shopxpert-promo-banner a{
+  .shopxpertmo-banner a{
     display: block;
     line-height: 1;
   }
-  .shopxpert-pro-banner {
+  .shopxpert-banner {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -1705,37 +1705,37 @@
     background-color: #FFFFFF;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   }
-  .shopxpert-pro-banner-logo {
+  .shopxpert-banner-logo {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
   }
-  .shopxpert-pro-banner-logo img {
+  .shopxpert-banner-logo img {
     width: 90px;
     height: auto;
   }
-  .shopxpert-pro-banner-summary {
+  .shopxpert-banner-summary {
     font-size: 14px;
     margin-bottom: 35px;
     text-align: center;
   }
-  .shopxpert-pro-banner-options {
+  .shopxpert-banner-options {
     font-size: 14px;
     margin-bottom: 35px;
     padding: 0;
     list-style: none;
     text-align: left;
   }
-  .shopxpert-pro-banner-options li {
+  .shopxpert-banner-options li {
     padding-left: 30px;
     background-image: url(../images/icons/check.png);
     background-repeat: no-repeat;
     background-position: left 8px;
   }
-  .shopxpert-pro-banner-options li + li {
+  .shopxpert-banner-options li + li {
     margin-top: 15px;
   }
-  .shopxpert-pro-banner-btn {
+  .shopxpert-banner-btn {
     font-size: 14px;
     font-weight: 600;
     line-height: 24px;
@@ -1748,7 +1748,7 @@
     border-radius: 100px;
     background-color: #ff23b7;
   }
-  .shopxpert-pro-banner-btn .icon {
+  .shopxpert-banner-btn .icon {
     font-size: 22px;
     display: flex;
     align-items: center;
@@ -1761,7 +1761,7 @@
     border-radius: 50%;
     background-color: #FFFFFF;
   }
-  .shopxpert-pro-banner-btn:hover {
+  .shopxpert-banner-btn:hover {
     border-color: #0065cc;
     background-color: #0065cc;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);

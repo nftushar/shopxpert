@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: working on SHOPXPERT
+Plugin Name: ShopXpert
 Plugin URI:https://github.com/tushar/shopxpert
 Description: Demo of Plugin Options Page
 Version: 1.0.1
