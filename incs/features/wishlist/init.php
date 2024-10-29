@@ -70,13 +70,10 @@ final class Shopxpert_WooWishSuite_Base{
         require_once(__DIR__ . '/incs/classes/Admin.php');
         require_once(__DIR__ . '/incs/classes/Frontend.php');
         require_once(__DIR__ . '/incs/classes/Ajax.php');
-        require_once(__DIR__ . '/incs/classes/Widgets_And_Blocks.php');
-
-
+        require_once(__DIR__ . '/incs/classes/Widgets_And_Blocks.php'); 
 
     }
- 
-
+  
 
 
     /**

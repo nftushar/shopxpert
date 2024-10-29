@@ -7,6 +7,7 @@ use Shopxpert\Incs;
 // Ensure the correct function is available
 use function Shopxpert\shopxpert_taxonomy_list;
 use function Shopxpert\shopxpert_post_name;
+use function Shopxpert\Incs\shopxpert_get_post_types;
  
 
 if (!defined('ABSPATH')) exit; 
@@ -30,6 +31,7 @@ class Shopxpert_Admin_Fields {
      * @return [array] fields 
      */
     public function fields(){
+ 
 
         $settings_fields = array(
             'shopxpert_gutenberg_tabs' => array(
@@ -281,8 +283,8 @@ class Shopxpert_Admin_Fields {
 
                             array(
                                 'name'    => 'backorder_limit',
-                                'label'   => esc_html__( 'Pending Stock Limit', 'shopxpert' ),
-                                'desc'    => esc_html__( 'You can set a "Pending Stock Limit" for all products on your website that are marked as "Pending Stock." Additionally, you can adjust the limit for each product individually in the "Inventory" tab.', 'shopxpert' ),
+                                'label'   => esc_html__( 'Stock on Hold Limit', 'shopxpert' ),
+                                'desc'    => esc_html__( 'You can set a "Stock on Hold Limit" for all products marked as "Stock on Hold" across your website. If needed, you can also set a unique limit for each product in the "Inventory" tab.', 'shopxpert' ),
                                 'type'    => 'number',
                                 'class'   => 'shopxpert-action-field-left'
                             ),
@@ -297,9 +299,9 @@ class Shopxpert_Admin_Fields {
                             array(
                                 'name'        => 'backorder_availability_message',
                                 'label'       => esc_html__( 'Availability Message', 'shopxpert' ),
-                                'desc'        => esc_html__( 'Control how you want the message to look. Use the {availability_date} placeholder to show the date you choose. ', 'shopxpert' ),
+                                'desc'        => esc_html__( 'Customize how you want the message to appear. Use {availability_date} to display your selected date. ', 'shopxpert' ),
                                 'type'        => 'text',
-                                'default'     => esc_html__( 'On Pending Stock: Will be available on {availability_date}', 'shopxpert' ),
+                                'default'     => esc_html__( 'On Stock on Hold: Will be available on {availability_date}', 'shopxpert' ),
                                 'class'       => 'shopxpert-action-field-left',
                             ),
                             
@@ -322,6 +324,7 @@ class Shopxpert_Admin_Fields {
                         'default' => 'off',
                         'documentation' => esc_url('https://shopxpert.com/doc/how-to-use-woocommerce-ajax-search/')
                     ),
+                    
                 ),
 
                 'others' => array(
@@ -343,7 +346,39 @@ class Shopxpert_Admin_Fields {
             ),
  
         );
- 
+
+         // Post Duplicator Condition
+         if( !is_plugin_active('ht-mega-for-elementor/htmega_addons_elementor.php') ){
+
+            $post_types = shopxpert_get_post_types( array( 'defaultadd' => 'all' ) );
+            if ( did_action( 'elementor/loaded' ) && defined( 'ELEMENTOR_VERSION' ) ) {
+                $post_types['elementor_library'] = esc_html__( 'Templates', 'shopxpert' );
+            }
+
+            $settings_fields['shopxpert_others_tabs']['features'][] = [
+                'name'     => 'postduplicator',
+                'label'    => esc_html__( 'Page Duplicator', 'shopxpert' ),
+                'type'     => 'element',
+                'default'  => 'off',
+                'require_settings'  => true,
+                'documentation' => esc_url('https://shopxpert.com/doc/duplicate-woocommerce-product/'),
+                'setting_fields' => array(
+                    
+                    array(
+                        'name'    => 'postduplicate_condition',
+                        'label'   => esc_html__( 'Post Duplicator Condition', 'shopxpert' ),
+                        'desc'    => esc_html__( 'You can enable duplicator for individual post.', 'shopxpert' ),
+                        'type'    => 'multiselect',
+                        'default' => '',
+                        'options' => $post_types
+                    )
+
+                )
+            ];
+
+        }
+
+   
     
         return apply_filters( 'shopxpert_admin_fields', $settings_fields );
 

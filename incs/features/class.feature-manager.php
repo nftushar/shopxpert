@@ -72,7 +72,7 @@ class Shopxpert_Feature_Manager {
         }
         
 
-        // Pending Stock
+        // Stock on Hold
         if( shopxpert_get_option( 'enable', 'shopxpert_backorder_settings', 'off' ) == 'on' ){
             require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/backorder/class.backorder.php' );
         }

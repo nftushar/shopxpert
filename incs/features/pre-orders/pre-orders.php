@@ -55,7 +55,7 @@ class Shopxpert_Pre_Orders{
 
     public function admin_enqueue_scripts(){
         //Script
-        wp_enqueue_script( 'woolenor-admin-pre-order', plugin_dir_url( __FILE__ ) . 'assets/js/admin-pre-order.js', array('jquery'), SHOPXPERT_VERSION, 'all' );
+        wp_enqueue_script( 'shopxpert-admin-pre-order', plugin_dir_url( __FILE__ ) . 'assets/js/admin-pre-order.js', array('jquery'), SHOPXPERT_VERSION, 'all' );
     }
 
     /**
@@ -63,10 +63,10 @@ class Shopxpert_Pre_Orders{
      */
     public function enqueue_scripts(){
         // Styles
-        wp_enqueue_style( 'woolenor-pre-order', plugin_dir_url( __FILE__ ) . 'assets/css/pre-order.css', array(), SHOPXPERT_VERSION );
+        wp_enqueue_style( 'shopxpert-pre-order', plugin_dir_url( __FILE__ ) . 'assets/css/pre-order.css', array(), SHOPXPERT_VERSION );
         
         //Script
-        wp_enqueue_script( 'woolenor-pre-order', plugin_dir_url( __FILE__ ) . 'assets/js/pre-order.js', array('countdown-min'), SHOPXPERT_VERSION, 'all' );
+        wp_enqueue_script( 'shopxpert-pre-order', plugin_dir_url( __FILE__ ) . 'assets/js/pre-order.js', array('countdown-min'), SHOPXPERT_VERSION, 'all' );
     }
 
     /**

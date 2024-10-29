@@ -255,8 +255,7 @@ $('.shopxpert-admin-switch-block-setting').on('click', function(event) {
         $fieldname = $this.data('fieldname') ? $this.data('fieldname') : '',
         content = null,
         Featurewrapper = wp.template('shopxpertFeature');
-
-console.log("shopxpert Feature_data");
+ 
 
 
     $.ajax({
@@ -299,7 +298,6 @@ console.log("shopxpert Feature_data");
  
     // PopUp reactive JS
     function shopxpert_Feature_ajax_reactive() { 
-        // Select 2 Multiple selection
         $('.shopxpert-Feature-setting-popup').find('.shopxpert-admin-option:not(.shopxpert-repeater-field) .shopxpert-admin-select select[multiple="multiple"]').each(function () {
             const $this = $(this),
                 $parent = $this.parent();
@@ -320,9 +318,9 @@ console.log("shopxpert Feature_data");
         // });
 
         // WPColor Picker Button disable.
-        $('div[data-shopxpert="disabled"] .wp-picker-container button').each(function () {
-            $(this).attr("disabled", true);
-        });
+        // $('div[data-shopxpert="disabled"] .wp-picker-container button').each(function () {
+        //     $(this).attr("disabled", true);
+        // });
 
     //     /* Number Input */
         $('.shopxpert-admin-number-btn').on('click', function (e) {

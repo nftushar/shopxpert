@@ -12,7 +12,7 @@ if (class_exists('Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields')) {
     $navs = Shopxpert_Admin_Fields::instance()->field_sections();;
 
 } else {
-    echo "x Class not found!";
+    echo "Class not found!";
 } 
 
 ?>

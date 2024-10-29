@@ -2,8 +2,8 @@
 /*
 Plugin Name: ShopXpert
 Plugin URI:https://github.com/tushar/shopxpert
-Description: Demo of Plugin Options Page
-Version: 1.0.1
+Description: An all-in-one WooCommerce solution for label customization, pre-orders, and more.
+Version: 1.0.3
 Author: NF Tushar
 Author URI: https://github.com/tushar
 License: GPLv2 or later
@@ -14,7 +14,7 @@ Domain Path: /languages/
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-define('SHOPXPERT_VERSION', '1.0.2');
+define('SHOPXPERT_VERSION', '1.0.3');
 define('SHOPXPERT_ADDONS_PL_ROOT', __FILE__);
 define('SHOPXPERT_ADDONS_PL_URL', plugins_url('/', SHOPXPERT_ADDONS_PL_ROOT));
 define('SHOPXPERT_ADDONS_PL_PATH', plugin_dir_path(SHOPXPERT_ADDONS_PL_ROOT));

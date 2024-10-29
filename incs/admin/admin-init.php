@@ -5,11 +5,9 @@ use Shopxpert\Incs;
 use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
 use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields;
 
-use function  Shopxpert\incs\shopxpert_clean;
+use function Shopxpert\incs\shopxpert_clean;
 
- 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
-
 
 class ShopXpert_Admin_Init {
  
@@ -50,7 +48,6 @@ class ShopXpert_Admin_Init {
         $this->remove_all_notices();
         $this->include();
         $this->init(); 
-
     } 
 
     /**
@@ -58,32 +55,28 @@ class ShopXpert_Admin_Init {
      * @return [void]
      */
     public function init(){
-             // Add menu with priority 10 to ensure it appears in the correct order
-             add_action('admin_menu', [$this, 'add_menu'], 10);
-             add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-      
-            add_action('admin_footer', [ $this, 'print_Feature_setting_popup' ], 99);
-
- 
-            add_action('wp_ajax_shopxpert_save_opt_data', array($this, 'save_data'));
-
-             add_action('wp_ajax_shopxpert_Feature_data', array($this, 'Feature_data'));
+        add_action('admin_menu', [$this, 'add_menu'], 10);
+        add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
+        
+        // Use admin_footer to correctly get the screen object for popup loading
+        add_action('admin_footer', [$this, 'print_Feature_setting_popup']);
+        
+        add_action('wp_ajax_shopxpert_save_opt_data', [$this, 'save_data']);
+        add_action('wp_ajax_shopxpert_Feature_data', [$this, 'Feature_data']);
+        
+        // Redirect main menu to the Settings submenu page
+        add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
     }
 
- 
     /**
      * [include] Load Necessary file
      * @return [void]
      */
     public function include(){
-        // require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/api.php');
-        // require_once('inc/diagnostic-data.php');
         require_once('inc/Shopxpert_Admin_Fields_Manager.php');
         require_once('inc/Shopxpert_Admin_Fields.php');
         require_once('inc/template-library.php'); 
     }
-
-
 
     /**
      * [add_menu] Add admin menu and submenu pages
@@ -112,70 +105,29 @@ class ShopXpert_Admin_Init {
     }
 
     /**
-     * [main_menu_page_content] Callback for the main menu page
+     * [redirect_to_settings] Redirect the main menu page to the Settings submenu page
      */
-    public function main_menu_page_content() {
-        ?>
-        <div class="wrap">
-            <h1><?php esc_html_e('Welcome to ShopXpert ', 'shopxpert'); ?></h1>
-            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'shopxpert'); ?></p>
-
-            
-            <?php 
-                // Retrieve and display the option
-                $section = 'shopxpert_others_tabs'; // Replace with your section key
-                $options = get_option($section);
-
-                echo '<div class="wrap">';
-                echo '<h1>' . esc_html__('Options Display', 'shopxpert') . '</h1>';
-
-                if ( ! empty( $options ) && is_array( $options ) ) {
-                    echo '<pre>' . esc_html( print_r($options[wishlist], true ) ) . '</pre>';
-                } else {
-                    echo '<p>' . esc_html__('No options found.', 'shopxpert') . '</p>';
-                }
-
-                echo '</div>';
-                ?>
-             <hr>
-             
-        </div>
-        <div class="wrap">
-            <h1><?php esc_html_e('Welcome to ShopXpert ', 'shopxpert'); ?></h1>
-            <p><?php esc_html_e('This is the main page for the ShopXpert  plugin. You can customize settings and manage your shop here.', 'shopxpert'); ?></p>
-
-            
-            <?php 
-                // Retrieve and display the option
-                $section = 'shopxpert_backorder_settings'; // Replace with your section key
-                $options = get_option($section);
-
-                echo '<div class="wrap">';
-                echo '<h1>ZZ Options Display</h1>';
-
-                // Use esc_html and var_export to safely output the options array without debugging functions.
-                echo '<pre>' . esc_html(var_export($options, true)) . '</pre>';
-                echo '</div>';
-                ?>
-             <hr>
-             
-        </div>
-        <?php
+    public function redirect_to_settings() {
+        global $pagenow;
+        
+        if ($pagenow === 'admin.php' && isset($_GET['page']) && $_GET['page'] === self::MENU_PAGE_SLUG) {
+            wp_redirect(admin_url('admin.php?page=shopxpert'));
+            exit;
+        }
     }
+ 
 
     /**
      * [load_template] Template load
      * @param  [string] $template template suffix
      * @return [void]
      */
-    private static function load_template( $template ) {
+    private static function load_template($template) {
         $tmp_file = SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-' . $template . '.php';
-  
-        if ( file_exists( $tmp_file ) ) {
-            include_once( $tmp_file );
+        if (file_exists($tmp_file)) {
+            include_once($tmp_file);
         }
     }
-
 
     /** 
      * [plugin_page] Callback for the submenu page
@@ -185,44 +137,37 @@ class ShopXpert_Admin_Init {
         <div class="wrap shopxpert-admin-wrapper">
             <div class="shopxpert-admin-main-content">
                 <?php self::load_template('navs'); ?>
-                <div class="shopxpert-admin-main-body"> 
-                <?php self::load_template('gutenberg'); ?>
-
-                <?php self::load_template('welcome'); ?>
-                <?php self::load_template('Feature'); ?>
+                <div class="shopxpert-admin-main-body">  
+                    <?php self::load_template('welcome'); ?>
+                    <?php self::load_template('Feature'); ?>
                 </div>
             </div> 
         </div>
         <?php
     }
 
-
-        /**
-     * [print_Feature_setting_popup] addmin_footer Callback
-     * @return [void]
-     */
     public function print_Feature_setting_popup() {
         $screen = get_current_screen();
-        if ( 'shopxpert_page_shopxpert' == $screen->base ) {
-            // // error_log("shopxpert print_Feature_setting_popup 2");
+        
+        if ('shopxpert_page_shopxpert' === $screen->base) {  
             self::load_template('Feature-setting-popup');
         }
     }
+  
 
-
-/**
- * [remove_all_notices] remove admin notices
- * @return [void]
- */
-public function remove_all_notices() {
-add_action('in_admin_header', function (){
-    $screen = get_current_screen();
-    if ( 'shopxpert_page_shopxpert' == $screen->base ) {
-        remove_all_actions('admin_notices'); 
-        remove_all_actions('all_admin_notices');
-    }
-}, 1000); }
- 
+    /**
+     * [remove_all_notices] remove admin notices
+     * @return [void]
+     */
+    public function remove_all_notices() {
+    add_action('in_admin_header', function (){
+        $screen = get_current_screen();
+        if ( 'shopxpert_page_shopxpert' == $screen->base ) {
+            remove_all_actions('admin_notices'); 
+            remove_all_actions('all_admin_notices');
+        }
+    }, 1000); }
+    
 
  
 /**
@@ -236,11 +181,7 @@ add_action('in_admin_header', function (){
         return;
     }
 
-    check_ajax_referer( 'shopxper_nonce_action', 'nonce' );
-
-  
-    error_log("Shopxpert hello  save data");
-
+    check_ajax_referer( 'shopxper_nonce_action', 'nonce' );  
 
     // Fetch and clean the input data
     $data     = isset($_POST['data']) ? shopxpert_clean($_POST['data']) : [];
@@ -250,14 +191,10 @@ add_action('in_admin_header', function (){
     // Ensure $fields is an array and process it accordingly
     if (!is_array($fields)) {
         $fields = json_decode(stripslashes($fields), true);
-    }
-    
-    // Error log for debugging
-    error_log("sssFields after processing: " . print_r($data, true));
+    } 
     
 
-    if (empty($section) || empty($fields)) {
-        error_log('Section or fields data is missing.');
+    if (empty($section) || empty($fields)) { 
         return;
     }
 
@@ -272,8 +209,7 @@ add_action('in_admin_header', function (){
 
     // Update the options
     foreach ($fields as $field) {
-        $value = isset($data[$field]) ? $data[$field] : null;
-        error_log("zzzUpdating Option: $field with Value: " . print_r($value, true));
+        $value = isset($data[$field]) ? $data[$field] : null; 
         $this->update_option($section, $field, $value);
     }
 
@@ -384,6 +320,15 @@ public function update_option($section, $option_key, $new_value) {
             
             if( $hook === 'shopxpert_page_shopxpert' || $hook === 'shopxpert_page_shopxpert_templates' || $hook === 'shopxpert_page_shopxpert_extension'){
                   wp_enqueue_style('shopxpert-sweetalert');
+
+
+                  wp_enqueue_script( 
+                    'select2', 
+                    SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/select2.min.js', 
+                    array( 'jquery' ), 
+                    SHOPXPERT_VERSION, 
+                    TRUE
+                );
             }
         }
 }

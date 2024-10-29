@@ -28,7 +28,7 @@ class Shopxpert_Custom_Meta_Fields{
         // Custom Product tab
         add_filter( 'woocommerce_product_data_tabs', [ $this, 'product_shopxpert_tab' ], 10, 1 );
 		add_action( 'woocommerce_product_data_panels', [ $this, 'product_shopxpert_data_panel' ], 99 );
-		add_action( 'woocommerce_process_product_meta', [ $this, 'save_woolenor_product_meta' ] );
+		add_action( 'woocommerce_process_product_meta', [ $this, 'save_shopxpert_product_meta' ] );
 
         // Product category custom field
         add_action('product_cat_add_form_fields', [ $this, 'taxonomy_add_new_meta_field' ], 15, 1 );
@@ -239,11 +239,11 @@ class Shopxpert_Custom_Meta_Fields{
     }
 
     /**
-     * save_woolenor_product_meta custom tab data save
+     * save_shopxpert_product_meta custom tab data save
      *
      * @return void
      */
-    public function save_woolenor_product_meta( $post_id ){
+    public function save_shopxpert_product_meta( $post_id ){
 
         if( wp_verify_nonce( sanitize_key( $_POST['woocommerce_meta_nonce'] ), 'woocommerce_save_data' ) ){
 

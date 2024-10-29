@@ -109,7 +109,6 @@ class Assets_Management{
                 'deps'    => [ 'jquery'],
             ],
 
-
             'shopxpert-admin-main' =>[
                 'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/shopxpert-admin.js',
                 'version' => SHOPXPERT_VERSION,

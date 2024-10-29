@@ -1,8 +1,4 @@
-<?php
-
-// error_log('zxxxShopXpert_Ajax_Search_Basexxxxxz');
-
-
+<?php 
 class ShopXpert_Ajax_Search_Base{
 
 	private static $instance = null;

@@ -26,7 +26,7 @@ function shopxpert() {
 /**
 * Options return
 */
-function woolentor_get_option( $option, $section, $default = '' ){
+function shopxpert_get_option( $option, $section, $default = '' ){
     $options = get_option( $section );
     if ( isset( $options[$option] ) ) {
         return $options[$option];
@@ -34,6 +34,7 @@ function woolentor_get_option( $option, $section, $default = '' ){
     return $default;
 }
 
+ 
 
 
 /*
@@ -527,17 +528,6 @@ function shopxpert_elementor_template() {
 }
 
 
-/*
- * Plugisn Options value
- * return on/off
- */
-function shopxpert_get_option( $option, $section, $default = '' ){
-    $options = get_option( $section );
-    if ( isset( $options[$option] ) ) {
-        return $options[$option];
-    }
-    return $default;
-}
 
 
 function shopxpert_get_option_label_text( $option, $section, $default = '' ){

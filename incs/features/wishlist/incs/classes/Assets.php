@@ -1,8 +1,7 @@
 <?php
 namespace WooWishSuite;
 use function  Shopxpert\incs\shopxpert_get_option;
-
-error_log("hello WishSuite");
+ 
 /**
  * Assets handlers class
  */
