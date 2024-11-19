@@ -1,6 +1,6 @@
 <?php
 /**
-*  Class Dynamic Search Widgets
+*  Class Search Widgets
 */
  
 // error_log('ShopXpert_Product_Search_Ajax_Widget');

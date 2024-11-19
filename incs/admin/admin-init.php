@@ -65,7 +65,7 @@ class ShopXpert_Admin_Init {
         add_action('wp_ajax_shopxpert_Feature_data', [$this, 'Feature_data']);
         
         // Redirect main menu to the Settings submenu page
-        add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
+        // add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
     }
 
     /**
@@ -84,13 +84,12 @@ class ShopXpert_Admin_Init {
     public function add_menu() {
         // Add the main menu page
         self::$parent_menu_hook = add_menu_page(
-            esc_html__('ShopXpert ', 'shopxpert'), // Page title
-            esc_html__('ShopXpert ', 'shopxpert'), // Menu title
-            self::MENU_CAPABILITY,                // Capability
-            self::MENU_PAGE_SLUG,                // Menu slug
-            [$this, 'main_menu_page_content'],    // Callback function for the menu page
-            SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/icons/menu-bar_20x20.png', // Icon URL
-            57                                  // Position (right after Appearance)
+            esc_html__('ShopXpert ', 'shopxpert'), 
+            esc_html__('ShopXpert ', 'shopxpert'), 
+            self::MENU_CAPABILITY,              
+            self::MENU_PAGE_SLUG,                
+            [$this, 'main_menu_page_content'],    
+            SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/icons/menu-bar_20x20.png',57                                
         );
 
         // Add submenu page
@@ -107,14 +106,14 @@ class ShopXpert_Admin_Init {
     /**
      * [redirect_to_settings] Redirect the main menu page to the Settings submenu page
      */
-    public function redirect_to_settings() {
-        global $pagenow;
+    // public function redirect_to_settings() {
+    //     global $pagenow;
         
-        if ($pagenow === 'admin.php' && isset($_GET['page']) && $_GET['page'] === self::MENU_PAGE_SLUG) {
-            wp_redirect(admin_url('admin.php?page=shopxpert'));
-            exit;
-        }
-    }
+    //     if ($pagenow === 'admin.php' && isset($_GET['page']) && $_GET['page'] === self::MENU_PAGE_SLUG) {
+    //         wp_redirect(admin_url('admin.php?page=shopxpert'));
+    //         exit;
+    //     }
+    // }
  
 
     /**
@@ -129,9 +128,20 @@ class ShopXpert_Admin_Init {
         }
     }
 
-    /** 
-     * [plugin_page] Callback for the submenu page
-     */
+  
+    public function main_menu_page_content() {
+        ?>
+        <div class="wrap shopxpert-admin-wrapper">
+            <div class="shopxpert-admin-main-content"> 
+                <div class="shopxpert-admin-main-body">  
+                    <?php self::load_template('welcome'); ?> 
+                </div>
+            </div> 
+        </div>
+        <?php 
+     }
+
+
     public function plugin_page() {
         ?>
         <div class="wrap shopxpert-admin-wrapper">
@@ -148,7 +158,6 @@ class ShopXpert_Admin_Init {
 
     public function print_Feature_setting_popup() {
         $screen = get_current_screen();
-        
         if ('shopxpert_page_shopxpert' === $screen->base) {  
             self::load_template('Feature-setting-popup');
         }
@@ -157,16 +166,30 @@ class ShopXpert_Admin_Init {
 
     /**
      * [remove_all_notices] remove admin notices
-     * @return [void]
+     * @return [void] 
      */
+    public function xxremove_all_notices() {
+        add_action('admin_notices', function () {
+            $screen = get_current_screen();
+            if ('shopxpert_page_shopxpert' === $screen->base) {
+                remove_all_actions('admin_notices');
+                remove_all_actions('all_admin_notices');
+            }
+        }, 0);  
+    }   
+    
     public function remove_all_notices() {
-    add_action('in_admin_header', function (){
-        $screen = get_current_screen();
-        if ( 'shopxpert_page_shopxpert' == $screen->base ) {
-            remove_all_actions('admin_notices'); 
-            remove_all_actions('all_admin_notices');
-        }
-    }, 1000); }
+        add_action('admin_notices', function () {
+            $screen = get_current_screen();
+            
+            $current_url = $_SERVER['REQUEST_URI'];
+            if ('shopxpert_page_shopxpert' === $screen->base || strpos($current_url, 'admin.php?page=shopxpert_page') !== false) {
+                remove_all_actions('admin_notices');
+                remove_all_actions('all_admin_notices');
+            }
+        }, 0); // Ensure this runs early
+    }
+    
     
 
  

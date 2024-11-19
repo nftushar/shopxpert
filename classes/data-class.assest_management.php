@@ -277,7 +277,7 @@ if (is_admin()) {
         'version'          => SHOPXPERT_VERSION,
         'pluginURL'        => plugin_dir_url(__FILE__),
         'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
-        'prolink'          => 'https://shopxpert.com/pricing/?utm_source=admin&utm_medium=library',
+        'prolink'          => 'https://#/pricing/?utm_source=admin&utm_medium=library',
         'prolabel'         => esc_html__('Pro', 'shopxpert'),
         'loadingimg'       => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
         'message'          => [

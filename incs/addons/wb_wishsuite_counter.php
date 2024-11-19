@@ -22,7 +22,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
     }
 
     public function get_help_url() {
-        return 'https://shopxpert.com/documentation/';
+        return 'https://#/documentation/';
     }
 
     public function get_keywords(){

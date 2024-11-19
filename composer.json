@@ -5,7 +5,8 @@
         "psr-4": {
             "ShopXpert \\": "incs/",
             "Shopxpert\\Incs\\Admin\\Inc\\": "incs/admin/inc/",
-            "Shopxpert\\Incs\\Admin\\Templates\\": "incs/admin/templates/"
+            "Shopxpert\\Incs\\Admin\\Templates\\": "incs/admin/templates/",
+            "Shopxpert\\": "src/"
         }
     }, 
     "authors": [

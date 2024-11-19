@@ -1,0 +1,581 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+    "name": "shopxpert/side-mini-cart",
+    "category": "shopxpert-blocks",
+    "title": "WL: Mini Cart",
+    "description":"Display cart item for side mini cart.",
+    "keywords": ["shopxpert","cart","side mini cart","mini cart"],
+    "render": "file:./index.php",
+    "attributes": {
+        "blockUniqId":{
+            "type": "string",
+            "default": ""
+        },
+        "areaPadding": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} { padding: {{areaPadding}}; }"
+            }
+        },
+        "areaBGProperty":{
+            "type": "object",
+            "default": {
+                "imageId": null,
+                "imageUrl":"",
+                "position": "",
+                "attachment": "",
+                "repeat": "",
+                "size": ""
+            },
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}}"
+            }
+        },
+
+        "content_type":{
+            "type":"string",
+            "default":"header"
+        },
+
+        "header_title":{
+            "type":"string",
+            "default":"Your Cart"
+        },
+        "cross_icon":{
+            "type":"string",
+            "default":"fa fa-times"
+        },
+
+        "footer_sub_total":{
+            "type":"string",
+            "default":"Sub Total"
+        },
+        "cart_btn_txt":{
+            "type":"string",
+            "default":"View Cart"
+        },
+        "checkout_btn_txt":{
+            "type":"string",
+            "default":"Checkout"
+        },
+        "footer_empty_text":{
+            "type":"string",
+            "default":"Your Cart Is Empty"
+        },
+
+        "titleColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_header h2{ color:{{titleColor}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "header"
+                        }
+                    ]
+                ]
+            }
+        },
+        "titleSize":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_header h2{ font-size:{{titleSize}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "header"
+                        }
+                    ]
+                ]
+            }
+        },
+        "titleMargin": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_header h2{ margin:{{titleMargin}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "header"
+                        }
+                    ]
+                ]
+            }
+        },
+        "titleAreaPadding": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_header{ padding:{{titleAreaPadding}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "header"
+                        }
+                    ]
+                ]
+            }
+        },
+        "titleAreaBorder":{
+            "type":"object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_header",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "header"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "crossIconColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_close i{ color:{{crossIconColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "header"
+                        }
+                    ]
+                ]
+            }
+        },
+        "iconSize":{
+            "type": "number",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_close i{ font-size: {{iconSize}}px; },{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_close svg *{width:{{iconSize}}px; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "header"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "footerAreaPadding": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_footer{ padding:{{footerAreaPadding}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "footerAreaBorder": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_footer",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "subTotalColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_sub_total{ color:{{subTotalColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "subTitleSize":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_sub_total{ font-size:{{subTitleSize}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "subtotalAlignment":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_sub_total{ text-align:{{subtotalAlignment}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "buttonPadding": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button{ padding:{{buttonPadding}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "buttonMargin": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button{ margin:{{buttonMargin}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "buttonBorderRadius": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button,{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a::before{ border-radius:{{buttonBorderRadius}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "buttonColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button{ color:{{buttonColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "buttonBGColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button,.woocommerce {{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button{ background-color:{{buttonBGColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "buttonBorder": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "buttonHoverColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button:hover{ color:{{buttonHoverColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "buttonHoverBGColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a::before{ background-color:{{buttonHoverBGColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+        "buttonHoverBorder": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_button_area a.button:hover",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "footer"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "productTitleColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li a{ color:{{productTitleColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productTitleHoverColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li a:hover{ color:{{productTitleHoverColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productTitleSize":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_mini_title h3{ font-size:{{productTitleSize}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productTitleMargin": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_mini_title h3{ margin:{{productTitleMargin}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "productQtnPriceColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_mini_title span{ color:{{productQtnPriceColor}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productQtnPriceSize":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_mini_title span{ font-size:{{productQtnPriceSize}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "productImageBorder":{
+            "type":"object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_mini_cart_img img",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productImageBorderRadius": {
+            "type": "object",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_mini_cart_img img{ border-radius:{{productImageBorderRadius}}; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+
+        "productCrossIconColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_del{ color:{{productCrossIconColor}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productCrossIconHoverColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_del:hover{ color:{{productCrossIconHoverColor}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productCrossIconBGColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_del{ background-color:{{productCrossIconBGColor}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        },
+        "productCrossIconHoverBGColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{SHOPXPERT_WRAPPER}} .shopxpert_mini_cart_content ul li .shopxpert_del:hover{ background-color:{{productCrossIconHoverBGColor}}!important; }",
+                "dependency": [
+                    [
+                        {
+                            "key": "content_type", 
+                            "condition": "==", 
+                            "value": "bodycontent"
+                        }
+                    ]
+                ]
+            }
+        }
+
+    }
+}

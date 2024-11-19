@@ -64,22 +64,7 @@ class Shopxpert_Admin_Fields {
 
                 ),
 
-                'blocks' => array(
 
-                    array(
-                        'name'      => 'general_blocks_heading',
-                        'headding'  => esc_html__( 'zz General', 'shopxpert' ),
-                        'type'      => 'title',
-                        'class'     => 'shopxpert_heading_style_two'
-                    ),
-
-                    array(
-                        'name'    => 'product_tab',
-                        'label'   => esc_html__( 'xxxxProduct Tab', 'shopxpert' ),
-                        'type'    => 'element',
-                        'default' => 'on'
-                    ),
-                )
             ),
 
             'shopxpert_others_tabs' => array(
@@ -93,7 +78,7 @@ class Shopxpert_Admin_Fields {
                         'section'  => 'shopxpert_rename_label_tabs',
                         'option_id'=> 'enablerenamelabel',
                         'require_settings'=> true,
-                        'documentation' => esc_url('https://shopxpert.com/doc/change-woocommerce-text/'),
+                        'documentation' => esc_url('https://#/doc/change-woocommerce-text/'),
                         'setting_fields' => array(
                             
                             array(
@@ -190,7 +175,7 @@ class Shopxpert_Admin_Fields {
                         'section'  => 'shopxpert_pre_order_settings',
                         'option_id'=> 'enablerpreorder',
                         'require_settings'=> true,
-                        'documentation' => esc_url('https://shopxpert.com/doc/change-woocommerce-text/'),
+                        'documentation' => esc_url('https://#/doc/change-woocommerce-text/'),
                         'setting_fields' => array(
     
                             array(
@@ -269,7 +254,7 @@ class Shopxpert_Admin_Fields {
                         'section'  => 'shopxpert_backorder_settings',
                         'option_id'=> 'enable',
                         'require_settings'  => true,
-                        'documentation' => esc_url('https://shopxpert.com/doc/how-to-enable-woocommerce-backorder/'),
+                        'documentation' => esc_url('https://#/doc/how-to-enable-woocommerce-backorder/'),
                         'setting_fields' => array(
                         
                             array(
@@ -313,16 +298,16 @@ class Shopxpert_Admin_Fields {
                         'label'    => esc_html__( 'Wishlist', 'shopxpert' ),
                         'type'     => 'element',
                         'default'  => 'off',
-                        'documentation' => esc_url('https://shopxpert.com/doc/wishlist-for-woocommerce/')
+                        'documentation' => esc_url('https://#/doc/wishlist-for-woocommerce/')
                     ), 
                     
                     array(
                         'name'    => 'ajaxsearch',
-                        'label'   => esc_html__( 'Dynamic Search Widget', 'shopxpert' ),
-                        'desc'    => esc_html__( 'Dynamic Search Widget', 'shopxpert' ),
+                        'label'   => esc_html__( 'Search Widget', 'shopxpert' ),
+                        'desc'    => esc_html__( 'Search Widget', 'shopxpert' ),
                         'type'    => 'element',
                         'default' => 'off',
-                        'documentation' => esc_url('https://shopxpert.com/doc/how-to-use-woocommerce-ajax-search/')
+                        'documentation' => esc_url('https://#/doc/how-to-use-woocommerce-ajax-search/')
                     ),
                     
                 ),
@@ -357,11 +342,11 @@ class Shopxpert_Admin_Fields {
 
             $settings_fields['shopxpert_others_tabs']['features'][] = [
                 'name'     => 'postduplicator',
-                'label'    => esc_html__( 'Page Duplicator', 'shopxpert' ),
+                'label'    => esc_html__( 'Post Duplicator', 'shopxpert' ),
                 'type'     => 'element',
                 'default'  => 'off',
                 'require_settings'  => true,
-                'documentation' => esc_url('https://shopxpert.com/doc/duplicate-woocommerce-product/'),
+                'documentation' => esc_url('https://#/doc/duplicate-woocommerce-product/'),
                 'setting_fields' => array(
                     
                     array(
@@ -391,13 +376,7 @@ class Shopxpert_Admin_Fields {
 
     public function field_sections(){
 
-        $sections = array(
-
-            array(
-                'id'    => 'shopxpert_general_tabs',
-                'title' => esc_html__( 'General', 'shopxpert' ),
-                'icon'  => 'dashicons-admin-home'
-            ), 
+        $sections = array( 
             array(
                 'id'    => 'shopxpert_others_tabs',
                 'title' => esc_html__( 'Features', 'shopxpert' ),

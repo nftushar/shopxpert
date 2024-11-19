@@ -51,7 +51,6 @@ class Assets {
             ],
         ];
         
-        error_log( 'zzz: ' . WOOWISHSUITE_ASSETS . '/js/admin.js' );
     }
 
     /**

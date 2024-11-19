@@ -427,8 +427,6 @@ $('.shopxpert-admin-switch-block-setting').on('click', function(event) {
         $('.shopxpert-admin-Feature-reset').on('click', function (event) {
             event.preventDefault();
 
-console.log('Feature Setting Reset ajax');
-
             var $option_form = $(this).closest('.shopxpert-Feature-setting-popup-content').find('form.shopxpert-Feature-setting-data'),
                 $resetbtn = $(this),
                 $section = $option_form.data('section');
@@ -561,7 +559,7 @@ console.log('Feature Setting Reset ajax');
                     cancelButtonText: 'Not Now',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.open('https://shopxpert.com/pricing/?utm_source=admin&utm_medium=lockfeatures&utm_campaign=free', '_blank');
+                        window.open('https://#/pricing/?utm_source=admin&utm_medium=lockfeatures&utm_campaign=free', '_blank');
                     }
                 })
 

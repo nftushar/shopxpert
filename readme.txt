@@ -1,9 +1,9 @@
 === ShopXpert ===
 Contributors: nftushar, shopxpert  
-Tags: WooCommerce label customization, pre-orders, wishlist, stock on hold, dynamic search  
+Tags:label customization, pre-orders, wishlist, stock on hold, dynamic search  
 Requires at least: 5.0  
 Requires PHP: 7.0  
-Tested up to: 6.6.1  
+Tested up to: 6.7  
 Stable tag: 1.0.3  
 License: GPL-2.0-or-later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
@@ -41,7 +41,7 @@ Let customers create and manage a wishlist of products they love. This feature i
 🔍 <strong>Dynamic AJAX Search Widget</strong>  
 Enhance your store's search functionality with instant results. The AJAX-powered widget provides users with faster and more relevant search results as they type.  
 <strong>How to Use:</strong>
-- Add the Dynamic Search Widget to any widget area via Appearance > Widgets.
+- Add the Search Widget to any widget area via Appearance > Widgets.
 - Customize the search behavior in the ShopXpert settings panel.
 
 📄 <strong>Page Duplicator</strong>  
@@ -126,7 +126,7 @@ Yes, with the Page Duplicator feature, you can duplicate any page to create mult
    - Customers can add products to their wishlist, viewable on their account page.
 
 5. <strong>Dynamic AJAX Search Widget</strong>  
-   Improve search accuracy and speed with the Dynamic Search Widget.  
+   Improve search accuracy and speed with the Search Widget.  
    <strong>Steps:</strong>
    - Add the widget from Appearance > Widgets.
    - Customize the widget settings to enhance search functionality.
