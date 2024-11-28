@@ -1,5 +1,5 @@
 <?php
-namespace WooWishSuite;
+namespace WishList;
 /**
  * Ajax handlers class
  */
@@ -28,20 +28,20 @@ class Ajax {
     private function __construct() {
 
         // Add Ajax Callback
-        add_action( 'wp_ajax_wishsuite_add_to_list', [ $this, 'add_to_wishlist' ] );
-        add_action( 'wp_ajax_nopriv_wishsuite_add_to_list', [ $this, 'add_to_wishlist' ] );
+        add_action( 'wp_ajax_wishlist_add_to_list', [ $this, 'add_to_wishlist' ] );
+        add_action( 'wp_ajax_nopriv_wishlist_add_to_list', [ $this, 'add_to_wishlist' ] );
 
         // Remove Ajax Callback
-        add_action( 'wp_ajax_wishsuite_remove_from_list', [ $this, 'remove_wishlist' ] );
-        add_action( 'wp_ajax_nopriv_wishsuite_remove_from_list', [ $this, 'remove_wishlist' ] );
+        add_action( 'wp_ajax_wishlist_remove_from_list', [ $this, 'remove_wishlist' ] );
+        add_action( 'wp_ajax_nopriv_wishlist_remove_from_list', [ $this, 'remove_wishlist' ] );
 
         // Variation Quick cart Form Ajax Callback
-        add_action( 'wp_ajax_wishsuite_quick_variation_form', [ $this, 'variation_form_html' ] );
-        add_action( 'wp_ajax_nopriv_wishsuite_quick_variation_form', [ $this, 'variation_form_html' ] );
+        add_action( 'wp_ajax_wishlist_quick_variation_form', [ $this, 'variation_form_html' ] );
+        add_action( 'wp_ajax_nopriv_wishlist_quick_variation_form', [ $this, 'variation_form_html' ] );
 
         // For Add to cart
-        add_action( 'wp_ajax_wishsuite_insert_to_cart', [ $this, 'insert_to_cart' ] );
-        add_action( 'wp_ajax_nopriv_wishsuite_insert_to_cart', [ $this, 'insert_to_cart' ] );
+        add_action( 'wp_ajax_wishlist_insert_to_cart', [ $this, 'insert_to_cart' ] );
+        add_action( 'wp_ajax_nopriv_wishlist_insert_to_cart', [ $this, 'insert_to_cart' ] );
 
     }
 
@@ -49,21 +49,21 @@ class Ajax {
      * [add_to_wishlist] Product add ajax callback
      */
     public function add_to_wishlist(){
-            if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ), 'wishSuite_nonce' ) ) {
+            if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ), 'wishList_nonce' ) ) {
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );
             wp_send_json_error( $errormessage );
         }
         $id = sanitize_text_field( $_GET['id'] );
-        $inserted = \WooWishSuite\Frontend\Manage_Wishlist::instance()->add_product( $id );
+        $inserted = \WishList\Frontend\Manage_Wishlist::instance()->add_product( $id );
         if ( ! $inserted ) {
             wp_send_json_success([
                 'message' => __( 'The product does not add!', 'shopxpert' )
             ]);
         }else{
             wp_send_json_success([
-                'item_count' => count( \WooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
+                'item_count' => count( \WishList\Frontend\Manage_Wishlist::instance()->get_products_data() ),
                 'message' => __( 'Product successfully added!', 'shopxpert' )
             ]);
         }
@@ -75,22 +75,22 @@ class Ajax {
      * @return [void]
      */
     public function remove_wishlist(){
-        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishSuite_nonce' ) ){
+        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishList_nonce' ) ){
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );
             wp_send_json_error( $errormessage );
         }
         $id = sanitize_text_field( $_GET['id'] );
-        $deleted = \WooWishSuite\Frontend\Manage_Wishlist::instance()->remove_product( $id );
+        $deleted = \WishList\Frontend\Manage_Wishlist::instance()->remove_product( $id );
         if ( ! $deleted ) {
             wp_send_json_success([
                 'message' => __( 'The product does not delete!', 'shopxpert' )
             ]);
         }else{
             wp_send_json_success([
-                'item_count' => count( \WooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
-                'per_page' => (int)shopxpert_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 ),
+                'item_count' => count( \WishList\Frontend\Manage_Wishlist::instance()->get_products_data() ),
+                'per_page' => (int)shopxpert_get_option( 'wishlist_product_per_page', 'wishlist_table_settings_tabs', 20 ),
                 'message' => __( 'Product successfully deleted!', 'shopxpert' )
             ]);
         }
@@ -104,7 +104,7 @@ class Ajax {
      */
     public function variation_form_html( $id = false ){
 
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishSuite_nonce' ) ){
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishList_nonce' ) ){
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );
@@ -144,7 +144,7 @@ class Ajax {
      */
     public function insert_to_cart(){
 
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishSuite_nonce' ) ){
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishList_nonce' ) ){
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','shopxpert')
             );

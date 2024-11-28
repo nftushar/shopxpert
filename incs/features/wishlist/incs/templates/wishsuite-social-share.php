@@ -3,7 +3,7 @@
 
 	$idsString = is_array( $products_ids ) ? implode( ',',$products_ids ) : '';
 
-	$share_link = get_the_permalink() . '?wishsuitepids='.$idsString;
+	$share_link = get_the_permalink() . '?wishlistpids='.$idsString;
 	$share_title = get_the_title();
 
 	$thumb_id = get_post_thumbnail_id();
@@ -60,8 +60,8 @@
         'linkedin'   => esc_html__( 'Linkedin', 'shopxpert' ),
         'telegram'   => esc_html__( 'Telegram', 'shopxpert' ),
     ];
-	$button_list = shopxpert_get_option( 'social_share_buttons','wishsuite_table_settings_tabs', $default_buttons );
-	$button_text = shopxpert_get_option( 'social_share_button_title','wishsuite_table_settings_tabs', 'Share:' );
+	$button_list = shopxpert_get_option( 'social_share_buttons','wishlist_table_settings_tabs', $default_buttons );
+	$button_text = shopxpert_get_option( 'social_share_button_title','wishlist_table_settings_tabs', 'Share:' );
 
 	if( is_array($button_list) ){
 
@@ -77,7 +77,7 @@
 				<li>
 					<a rel="nofollow" href="<?php echo esc_url( $social_button_list[$buttonkey]['url'] ); ?>" <?php echo ( $buttonkey === 'email' ? '' : 'target="_blank"' ) ?>>
 						<span class="wishlist-social-icon">
-							<?php echo woowishsuite_icon_list( $buttonkey ); ?>
+							<?php echo WishList_icon_list( $buttonkey ); ?>
 						</span>
 					</a>
 				</li>

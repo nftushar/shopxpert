@@ -3,7 +3,7 @@
 	"apiVersion": 3,
     "name": "shopxpert/wishlist-table",
     "category": "shopxpert-blocks",
-    "title": "WL: WooWishSuite Table",
+    "title": "WL: WishList Table",
     "description":"Display Wishlist Table.",
     "keywords": ["shopxpert","wishlist","table","wishlist"],
     "render": "file:./index.php",

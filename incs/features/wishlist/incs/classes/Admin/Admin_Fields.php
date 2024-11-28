@@ -1,5 +1,5 @@
 <?php
-namespace WooWishSuite\Admin;
+namespace WishList\Admin;
 /**
  * Admin Page Fields handlers class
  */
@@ -45,22 +45,22 @@ class Admin_Fields {
         $sections = array(
 
             array(
-                'id'    => 'wishsuite_general_tabs',
+                'id'    => 'wishlist_general_tabs',
                 'title' => esc_html__( 'General Settings', 'shopxpert' )
             ),
 
             array(
-                'id'    => 'wishsuite_settings_tabs',
+                'id'    => 'wishlist_settings_tabs',
                 'title' => esc_html__( 'Button Settings', 'shopxpert' )
             ),
             
             array(
-                'id'    => 'wishsuite_table_settings_tabs',
+                'id'    => 'wishlist_table_settings_tabs',
                 'title' => esc_html__( 'Table Settings', 'shopxpert' )
             ),
             
             array(
-                'id'    => 'wishsuite_style_settings_tabs',
+                'id'    => 'wishlist_style_settings_tabs',
                 'title' => esc_html__( 'Style Settings', 'shopxpert' )
             ),
 
@@ -73,7 +73,7 @@ class Admin_Fields {
 
         $settings_fields = array(
 
-            'wishsuite_general_tabs' => array(
+            'wishlist_general_tabs' => array(
                 array(
                     'name'      => 'enable_login_limit',
                     'label'     => __( 'Limit Wishlist Use', 'shopxpert' ),
@@ -93,7 +93,7 @@ class Admin_Fields {
 
             ),
 
-            'wishsuite_settings_tabs' => array(
+            'wishlist_settings_tabs' => array(
 
                 array(
                     'name'  => 'btn_show_shoppage',
@@ -126,7 +126,7 @@ class Admin_Fields {
 
                 array(
                     'name'    => 'shop_use_shortcode_message',
-                    'headding'=> wp_kses_post('<code>[wishsuite_button]</code> Use this shortcode into your theme/child theme to place the wishlist button.'),
+                    'headding'=> wp_kses_post('<code>[wishlist_button]</code> Use this shortcode into your theme/child theme to place the wishlist button.'),
                     'type'    => 'title',
                     'size'    => 'margin_0 regular',
                     'class' => 'depend_shop_btn_position_use_shortcode element_section_title_area message-info',
@@ -174,7 +174,7 @@ class Admin_Fields {
 
                 array(
                     'name'    => 'product_use_shortcode_message',
-                    'headding'=> wp_kses_post('<code>[wishsuite_button]</code> Use this shortcode into your theme/child theme to place the wishlist button.'),
+                    'headding'=> wp_kses_post('<code>[wishlist_button]</code> Use this shortcode into your theme/child theme to place the wishlist button.'),
                     'type'    => 'title',
                     'size'    => 'margin_0 regular',
                     'class' => 'depend_product_btn_position_use_shortcode element_section_title_area message-info',
@@ -233,15 +233,15 @@ class Admin_Fields {
 
             ),
 
-            'wishsuite_table_settings_tabs' => array(
+            'wishlist_table_settings_tabs' => array(
 
                 array(
                     'name'    => 'wishlist_page',
                     'label'   => __( 'Wishlist page', 'shopxpert' ),
                     'type'    => 'select',
                     'default' => '0',
-                    'options' => woowishsuite_get_post_list(),
-                    'desc'    => wp_kses_post('Select a wishlist page for wishlist table. It should contain the shortcode <code>[wishsuite_table]</code>'),
+                    'options' => WishList_get_post_list(),
+                    'desc'    => wp_kses_post('Select a wishlist page for wishlist table. It should contain the shortcode <code>[wishlist_table]</code>'),
                 ),
 
                 array(
@@ -264,7 +264,7 @@ class Admin_Fields {
                     'label' => __('Show fields in table', 'shopxpert'),
                     'desc' => __('Choose which fields should be presented on the product compare page with table.', 'shopxpert'),
                     'type' => 'multicheckshort',
-                    'options' => woowishsuite_get_available_attributes(),
+                    'options' => WishList_get_available_attributes(),
                     'default' => [
                         'remove'        => esc_html__( 'Remove', 'shopxpert' ),
                         'image'         => esc_html__( 'Image', 'shopxpert' ),
@@ -280,7 +280,7 @@ class Admin_Fields {
                     'label'   => __( 'Table heading text', 'shopxpert' ),
                     'desc'    => __( 'You can change table heading text from here.', 'shopxpert' ),
                     'type'    => 'multitext',
-                    'options' => woowishsuite_table_heading()
+                    'options' => WishList_table_heading()
                 ),
 
                 array(
@@ -367,7 +367,7 @@ class Admin_Fields {
 
             ),
 
-            'wishsuite_style_settings_tabs' => array(
+            'wishlist_style_settings_tabs' => array(
 
                 array(
                     'name'    => 'button_style',

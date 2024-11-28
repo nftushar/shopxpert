@@ -1,5 +1,5 @@
 <?php
-namespace WooWishSuite;
+namespace WishList;
 /**
  * Installer class
  */
@@ -27,7 +27,7 @@ class Installer {
             $charset_collate = $wpdb->get_charset_collate();
         }
 
-        $schema = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}wishsuite_list` (
+        $schema = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}wishlist_list` (
           `id` bigint( 20 ) unsigned NOT NULL AUTO_INCREMENT,
           `user_id` bigint( 20 ) NULL DEFAULT NULL,
           `product_id` bigint(20) NULL DEFAULT NULL,
@@ -55,11 +55,11 @@ class Installer {
             $create_page_id = wc_create_page(
                 sanitize_title_with_dashes( _x( 'shopxpert', 'page_slug', 'shopxpert' ) ),
                 '',
-                __( 'WooWishSuite', 'shopxpert' ),
-                '<!-- wp:shortcode -->[wishsuite_table]<!-- /wp:shortcode -->'
+                __( 'WishList', 'shopxpert' ),
+                '<!-- wp:shortcode -->[wishlist_table]<!-- /wp:shortcode -->'
             );
             if( $create_page_id ){
-                shopxpert_update_option( 'wishsuite_table_settings_tabs','wishlist_page', $create_page_id );
+                shopxpert_update_option( 'wishlist_table_settings_tabs','wishlist_page', $create_page_id );
             }
         }
     }
@@ -71,7 +71,7 @@ class Installer {
     public static function drop_tables() {
         global $wpdb;
         $tables = [
-            "{$wpdb->prefix}wishsuite_list",
+            "{$wpdb->prefix}wishlist_list",
         ];
         foreach ( $tables as $table ) {
             $wpdb->query( $wpdb->prepare("DROP TABLE IF EXISTS %s", $table) );

@@ -1,5 +1,5 @@
 <?php
-namespace WooWishSuite;
+namespace WishList;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -40,24 +40,24 @@ class Widgets_And_Blocks {
      */
     public function block_list( $block_list = [] ){
 
-        $block_list['wishsuite_table'] = [
-            'label'  => __('WooWishSuite Table','shopxpert'),
+        $block_list['wishlist_table'] = [
+            'label'  => __('WishList Table','shopxpert'),
             'name'   => 'shopxpert/wishlist-table',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
             'is_pro' => false,
-            'location' => WOOWISHSUITE_BLOCKS_PATH,
+            'location' => WISHLIST_BLOCKS_PATH,
         ];
 
-        $block_list['wishsuite_counter'] = [
-            'label'  => __('WooWishSuite Counter','shopxpert'),
+        $block_list['wishlist_counter'] = [
+            'label'  => __('WishList Counter','shopxpert'),
             'name'   => 'shopxpert/wishlist-counter',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
             'is_pro' => false,
-            'location' => WOOWISHSUITE_BLOCKS_PATH,
+            'location' => WISHLIST_BLOCKS_PATH,
         ];
 
         return $block_list;

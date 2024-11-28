@@ -1,5 +1,5 @@
 <div class="wishlist-table-content">
-    <table class="wishsuite_table">
+    <table class="wishlist_table">
         <thead>
             <?php
                 $cell_count = 1;

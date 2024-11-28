@@ -1,15 +1,14 @@
 <?php
-
-use function  Shopxpert\incs\shopxpert_clean;
-use function  Shopxpert\incs\shopxpert_get_option;
-
-
-
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+ 
+ use function Shopxpert\incs\shopxpert_get_option;
+ 
+ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+ 
+ error_log("hello WishList init");
 /**
  * Plugin Main Class
  */
-final class Shopxpert_WooWishSuite_Base{
+final class Shopxpert_WishList_Base{
 
     /**
      * [$_instance]
@@ -28,15 +27,15 @@ final class Shopxpert_WooWishSuite_Base{
         return self::$_instance;
     }
     
-    /**p
+    /**
      * [__construct] Class Constructor
      */
     private function __construct(){
         $this->define_constants();
         $this->incs();
-        if( get_option('shopxpert_wishsuite_status', 'no') === 'no' ){
+        if( get_option('shopxpert_wishList_status', 'no') === 'no' ){
             add_action( 'wp_loaded',[ $this, 'activate' ] );
-            update_option( 'shopxpert_wishsuite_status','yes' );
+            update_option( 'shopxpert_wishList_status','yes' );
         }
         $this->init_plugin();
     }
@@ -47,15 +46,13 @@ final class Shopxpert_WooWishSuite_Base{
      * @return void
      */
     public function define_constants() {
-        define( 'WOOWISHSUITE_FILE', __FILE__ );
-        define( 'WOOWISHSUITE_FEATURE_PATH', __DIR__ );
-        define( 'WOOWISHSUITE_URL', plugins_url( '', WOOWISHSUITE_FILE ) );
-        define( 'WOOWISHSUITE_DIR', plugin_dir_path( WOOWISHSUITE_FILE ) );
-        define( 'WOOWISHSUITE_ASSETS', WOOWISHSUITE_URL . '/assets' );
-        define( 'WOOWISHSUITE_BASE', plugin_basename( WOOWISHSUITE_FILE ) );
-        define( 'WOOWISHSUITE_BLOCKS_PATH', WOOWISHSUITE_FEATURE_PATH. "/incs/blocks" );
-
-
+        define( 'WISHLIST_FILE', __FILE__ );
+        define( 'WISHLIST_MODULE_PATH', __DIR__ );
+        define( 'WISHLIST_URL', plugins_url( '', WISHLIST_FILE ) );
+        define( 'WISHLIST_DIR', plugin_dir_path( WISHLIST_FILE ) );
+        define( 'WISHLIST_ASSETS', WISHLIST_URL . '/assets' );
+        define( 'WISHLIST_BASE', plugin_basename( WISHLIST_FILE ) );
+        define( 'WISHLIST_BLOCKS_PATH', WISHLIST_MODULE_PATH. "/incs/blocks" );
     }
 
     /**
@@ -63,43 +60,40 @@ final class Shopxpert_WooWishSuite_Base{
      * @return [void]
      */
     public function incs(){
-        require_once(__DIR__ . '/incs/classes/Installer.php');
+        require_once(__DIR__ . '/incs/classes/Installer.php');  
         require_once(__DIR__ . '/incs/helper-functions.php');
         require_once( __DIR__. '/incs/classes/Manage_Data.php' );
         require_once(__DIR__ . '/incs/classes/Assets.php');
         require_once(__DIR__ . '/incs/classes/Admin.php');
         require_once(__DIR__ . '/incs/classes/Frontend.php');
         require_once(__DIR__ . '/incs/classes/Ajax.php');
-        require_once(__DIR__ . '/incs/classes/Widgets_And_Blocks.php'); 
+        require_once(__DIR__ . '/incs/classes/Widgets_And_Blocks.php');
 
     }
-  
-
 
     /**
      * Initialize the plugin
      *
      * @return void
      */
-    public function init_plugin() {
-
-        WooWishSuite\Assets::instance();
+    public function init_plugin() { 
+        WishList\Assets::instance();
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            WooWishSuite\Ajax::instance();
+            WishList\Ajax::instance();
         }
 
         if ( is_admin() ) {
-            WooWishSuite\Admin::instance();
+            WishList\Admin::instance();
         }
-        WooWishSuite\Frontend::instance();
-        WooWishSuite\Widgets_And_Blocks::instance();
+        WishList\Frontend::instance();
+        WishList\Widgets_And_Blocks::instance();
 
         // add image size
         $this->set_image_size();
 
         // let's filter the woocommerce image size
-        add_filter( 'woocommerce_get_image_size_wishsuite-image', [ $this, 'wc_image_filter_size' ], 10, 1 );
+        add_filter( 'woocommerce_get_image_size_wishlist-image', [ $this, 'wc_image_filter_size' ], 10, 1 );
         
 
     }
@@ -110,7 +104,7 @@ final class Shopxpert_WooWishSuite_Base{
      * @return void
      */
     public function activate() {
-        $installer = new WooWishSuite\Installer();
+        $installer = new WishList\Installer();
         $installer->run();
     }
 
@@ -119,9 +113,9 @@ final class Shopxpert_WooWishSuite_Base{
      */
     public function set_image_size(){
 
-        $image_dimention = shopxpert_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
+        $image_dimention = shopxpert_get_option( 'image_size', 'wishlist_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
-            $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
+            $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishlist_table_settings_tabs' ) ) ? true : false;
             add_image_size( 'wishlist-image', absint( $image_dimention['width'] ), absint( $image_dimention['height'] ), $hard_crop );
         }
 
@@ -133,8 +127,8 @@ final class Shopxpert_WooWishSuite_Base{
      */
     public function wc_image_filter_size(){
 
-        $image_dimention = shopxpert_get_option( 'image_size', 'wishsuite_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
-        $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishsuite_table_settings_tabs' ) ) ? true : false;
+        $image_dimention = shopxpert_get_option( 'image_size', 'wishlist_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
+        $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishlist_table_settings_tabs' ) ) ? true : false;
 
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
             return array(
@@ -151,9 +145,9 @@ final class Shopxpert_WooWishSuite_Base{
 /**
  * Initializes the main plugin
  *
- * @return Shopxpert_WooWishSuite_Base
+ * @return Shopxpert_WishList_Base
  */
-function Shopxpert_WooWishSuite() {
-    return Shopxpert_WooWishSuite_Base::instance();
+function Shopxpert_WishList() {
+    return Shopxpert_WishList_Base::instance();
 }
-Shopxpert_WooWishSuite();
+Shopxpert_WishList();

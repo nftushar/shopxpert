@@ -1406,7 +1406,7 @@ function shopxpert_compare_button( $button_arg = array() ){
  * @return [bool]
  */
 function shopxpert_has_wishlist_plugin(){
-    if( class_exists('WooWishSuite_Base') || class_exists('Shopxpert_WooWishSuite_Base') ){
+    if( class_exists('WooWishList_Base') || class_exists('Shopxpert_WooWishList_Base') ){
         return true;
     }elseif( class_exists('YITH_WCWL') ){
         return true;
@@ -1427,7 +1427,7 @@ function shopxpert_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
 
     $output = '';
 
-    if( class_exists('WooWishSuite_Base') || class_exists('Shopxpert_WooWishSuite_Base') ){
+    if( class_exists('WooWishList_Base') || class_exists('Shopxpert_WooWishList_Base') ){
 
         $button_class = ' wishlist'.( $tooltip == 'yes' ? '' : ' wltooltip_no' );
 
@@ -1435,14 +1435,14 @@ function shopxpert_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
             'btn_class' => $button_class
         ];
         
-        add_filter( 'wishsuite_button_arg', function( $button_arg ) use ( $button_args ) {
+        add_filter( 'wishlist_button_arg', function( $button_arg ) use ( $button_args ) {
             if( strpos( $button_arg['button_class'], 'wishlist' ) == false ){
                 $button_arg['button_class'] .= $button_args['btn_class'];
             }
             return $button_arg;
         }, 90, 1 );
 
-        $output .= do_shortcode('[wishsuite_button]');
+        $output .= do_shortcode('[wishlist_button]');
         return $output;
 
     }elseif( class_exists('TInvWL_Public_AddToWishlist') ){

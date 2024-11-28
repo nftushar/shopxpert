@@ -1,5 +1,5 @@
 <?php
-namespace WooWishSuite\Frontend;
+namespace WishList\Frontend;
 
 use function  Shopxpert\incs\shopxpert_get_option;
 
@@ -30,9 +30,9 @@ class Shortcode {
      * Initializes the class
      */
     function __construct() {
-        add_shortcode( 'wishsuite_button', [ $this, 'button_shortcode' ] );
-        add_shortcode( 'wishsuite_table', [ $this, 'table_shortcode' ] );
-        add_shortcode( 'wishsuite_counter', [ $this, 'counter_shortcode' ] );
+        add_shortcode( 'wishlist_button', [ $this, 'button_shortcode' ] );
+        add_shortcode( 'wishlist_table', [ $this, 'table_shortcode' ] );
+        add_shortcode( 'wishlist_counter', [ $this, 'counter_shortcode' ] );
     }
 
     /**
@@ -62,23 +62,25 @@ class Shortcode {
 
         //my account url
         $myaccount_url =  get_permalink( get_option('woocommerce_myaccount_page_id') );
+        error_log("hello WishList");
 
         // Fetch option data
-        $button_text        = shopxpert_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );
-        $button_added_text  = shopxpert_get_option( 'added_button_text','wishsuite_settings_tabs', 'Product Added' );
-        $button_exist_text  = shopxpert_get_option( 'exist_button_text','wishsuite_settings_tabs', 'Product already added' );
-        $shop_page_btn_position     = shopxpert_get_option( 'shop_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' );
-        $product_page_btn_position  = shopxpert_get_option( 'product_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' );
-        $button_style               = shopxpert_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' );
-        $enable_login_limit         = shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' );
+        $button_text        = shopxpert_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
+        error_log("wishlist btn text","$button_text");
+        $button_added_text  = shopxpert_get_option( 'added_button_text','wishlist_settings_tabs', 'Product Added' );
+        $button_exist_text  = shopxpert_get_option( 'exist_button_text','wishlist_settings_tabs', 'Product already added' );
+        $shop_page_btn_position     = shopxpert_get_option( 'shop_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
+        $product_page_btn_position  = shopxpert_get_option( 'product_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
+        $button_style               = shopxpert_get_option( 'button_style', 'wishlist_style_settings_tabs', 'default' );
+        $enable_login_limit         = shopxpert_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
 
         if ( !is_user_logged_in() && $enable_login_limit == 'on' ) {
-            $button_text   = shopxpert_get_option( 'logout_button','wishsuite_general_tabs', 'Please login' );
+            $button_text   = shopxpert_get_option( 'logout_button','wishlist_general_tabs', 'Please login' );
             $page_url      = $myaccount_url;
             $has_product   = false;
         }else{
-            $button_text = shopxpert_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );
-            $page_url = woowishsuite_get_page_url();
+            $button_text = shopxpert_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
+            $page_url = WishList_get_page_url();
         }
 
         $button_class = array(
@@ -139,17 +141,17 @@ class Shortcode {
         wp_enqueue_script( 'wishlist-frontend' );
 
         /* Fetch From option data */
-        $empty_text = shopxpert_get_option( 'empty_table_text', 'wishsuite_table_settings_tabs' );
+        $empty_text = shopxpert_get_option( 'empty_table_text', 'wishlist_table_settings_tabs' );
 
         $current_page = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-        $product_per_page = (int) shopxpert_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 );
+        $product_per_page = (int) shopxpert_get_option( 'wishlist_product_per_page', 'wishlist_table_settings_tabs', 20 );
 
         /* Product and Field */
         $products   = Manage_Wishlist::instance()->get_products_data( $product_per_page, $current_page );
         $fields     = Manage_Wishlist::instance()->get_all_fields();
 
-        $custom_heading = !empty( shopxpert_get_option( 'table_heading', 'wishsuite_table_settings_tabs' ) ) ? shopxpert_get_option( 'table_heading', 'wishsuite_table_settings_tabs' ) : array();
-        $enable_login_limit = shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' );
+        $custom_heading = !empty( shopxpert_get_option( 'table_heading', 'wishlist_table_settings_tabs' ) ) ? shopxpert_get_option( 'table_heading', 'wishlist_table_settings_tabs' ) : array();
+        $enable_login_limit = shopxpert_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
 
         $default_atts = array(
             'shopxpert'    => Manage_Wishlist::instance(),
@@ -177,17 +179,17 @@ class Shortcode {
     public function counter_shortcode( $atts, $content = '' ){
         wp_enqueue_style( 'wishlist-frontend' );
 
-        $enable_login_limit = shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' );
+        $enable_login_limit = shopxpert_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
         $myaccount_url      =  get_permalink( get_option('woocommerce_myaccount_page_id') );
 
         $products   = Manage_Wishlist::instance()->get_products_data();
         if ( !is_user_logged_in() && $enable_login_limit == 'on' ) {
-            $button_text   = shopxpert_get_option( 'logout_button','wishsuite_general_tabs', 'Please login' );
+            $button_text   = shopxpert_get_option( 'logout_button','wishlist_general_tabs', 'Please login' );
             $page_url      = $myaccount_url;
             $has_product   = false;
         }else{
-            $button_text = shopxpert_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );
-            $page_url = woowishsuite_get_page_url();
+            $button_text = shopxpert_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
+            $page_url = WishList_get_page_url();
         }
 
         $default_atts = array(
@@ -209,15 +211,15 @@ class Shortcode {
      */
     public function icon_generate( $type = '' ){
 
-        $default_icon   = woowishsuite_icon_list('default');
-        $default_loader = '<span class="wishlist-loader">'.woowishsuite_icon_list('loading').'</span>';
+        $default_icon   = WishList_icon_list('default');
+        $default_loader = '<span class="wishlist-loader">'.WishList_icon_list('loading').'</span>';
         
         $button_icon = '';
-        $button_text = ( $type === 'added' ) ? shopxpert_get_option( 'added_button_text','wishsuite_settings_tabs', 'Wishlist' ) : shopxpert_get_option( 'button_text','wishsuite_settings_tabs', 'Wishlist' );
-        $button_icon_type  = shopxpert_get_option( $type.'button_icon_type', 'wishsuite_style_settings_tabs', 'default' );
+        $button_text = ( $type === 'added' ) ? shopxpert_get_option( 'added_button_text','wishlist_settings_tabs', 'Wishlist' ) : shopxpert_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
+        $button_icon_type  = shopxpert_get_option( $type.'button_icon_type', 'wishlist_style_settings_tabs', 'default' );
 
         if( $button_icon_type === 'custom' ){
-            $button_icon = shopxpert_get_option( $type.'button_custom_icon','wishsuite_style_settings_tabs', '' );
+            $button_icon = shopxpert_get_option( $type.'button_custom_icon','wishlist_style_settings_tabs', '' );
         }else{
             if( $button_icon_type !== 'none' ){
                 return $default_icon;

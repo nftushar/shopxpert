@@ -45,7 +45,7 @@ final class Base {
     public function included_files() {
     
         require SHOPXPERT_ADDONS_PL_PATH . 'incs/helper-function.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'incs/addons/wb_wishsuite_table.php';
+        // require SHOPXPERT_ADDONS_PL_PATH . 'incs/addons/wb_wishlist_table.php';
         require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.assest_management.php';
         //   require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.widgets_control.php';
         // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.default_data.php';

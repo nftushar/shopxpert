@@ -1,7 +1,7 @@
 <?php
-namespace WooWishSuite\Frontend;
+namespace WishList\Frontend;
 use function  Shopxpert\incs\shopxpert_get_option;
-
+ 
 
 /**
  * Manage Wishlist class
@@ -52,7 +52,7 @@ class Manage_Wishlist {
                 'user_id' => $user_id
             ];
 
-            $insert_id = \WooWishSuite\Manage_Data::instance()->create( $args );
+            $insert_id = \WishList\Manage_Data::instance()->create( $args );
             $add_status = $insert_id;
 
         }else{
@@ -86,7 +86,7 @@ class Manage_Wishlist {
         $delete_status = false;
 
         if( $user_id ){
-            $deleted = \WooWishSuite\Manage_Data::instance()->delete( $user_id, $id );
+            $deleted = \WishList\Manage_Data::instance()->delete( $user_id, $id );
             $delete_status = $deleted;
         }else{
 
@@ -120,18 +120,9 @@ class Manage_Wishlist {
         return $delete_status;
     }
 
-    /**
-     * [remove_wishlist_after_add_to_cart]
-     * @param  [type] $cart_item_key
-     * @param  [type] $product_id
-     * @param  [type] $quantity
-     * @param  [type] $variation_id
-     * @param  [type] $variation
-     * @param  [type] $cart_item_data
-     * @return [type]
-     */
+
     public function remove_wishlist_after_add_to_cart( $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data ){
-        if( isset( $product_id ) && 'on' === shopxpert_get_option( 'after_added_to_cart', 'wishsuite_table_settings_tabs', 'on' ) ){
+        if( isset( $product_id ) && 'on' === shopxpert_get_option( 'after_added_to_cart', 'wishlist_table_settings_tabs', 'on' ) ){
             $this->remove_product( $product_id );
         }
     }
@@ -142,11 +133,11 @@ class Manage_Wishlist {
      */
     public function button_manager(){
 
-        $shop_page_btn_position     = shopxpert_get_option( 'shop_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' );
-        $product_page_btn_position  = shopxpert_get_option( 'product_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' );
+        $shop_page_btn_position     = shopxpert_get_option( 'shop_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
+        $product_page_btn_position  = shopxpert_get_option( 'product_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
 
-        $enable_btn         = shopxpert_get_option( 'btn_show_shoppage', 'wishsuite_settings_tabs', 'off' );
-        $product_enable_btn = shopxpert_get_option( 'btn_show_productpage', 'wishsuite_settings_tabs', 'on' );
+        $enable_btn         = shopxpert_get_option( 'btn_show_shoppage', 'wishlist_settings_tabs', 'off' );
+        $product_enable_btn = shopxpert_get_option( 'btn_show_productpage', 'wishlist_settings_tabs', 'on' );
         
         // Shop Button Position
         if( $shop_page_btn_position != 'use_shortcode' && $enable_btn == 'on' ){
@@ -160,8 +151,8 @@ class Manage_Wishlist {
                     break;
 
                 case 'custom_position':
-                    $hook_name = shopxpert_get_option( 'shop_custom_hook_name', 'wishsuite_settings_tabs', '' );
-                    $priority = shopxpert_get_option( 'shop_custom_hook_priority', 'wishsuite_settings_tabs', 10 );
+                    $hook_name = shopxpert_get_option( 'shop_custom_hook_name', 'wishlist_settings_tabs', '' );
+                    $priority = shopxpert_get_option( 'shop_custom_hook_priority', 'wishlist_settings_tabs', 10 );
                     if( !empty( $hook_name ) ){
                         add_action( $hook_name, [ $this, 'button_print' ], $priority );
                     }
@@ -189,8 +180,8 @@ class Manage_Wishlist {
                     break;
 
                 case 'custom_position':
-                    $hook_name = shopxpert_get_option( 'product_custom_hook_name', 'wishsuite_settings_tabs', '' );
-                    $priority = shopxpert_get_option( 'product_custom_hook_priority', 'wishsuite_settings_tabs', 10 );
+                    $hook_name = shopxpert_get_option( 'product_custom_hook_name', 'wishlist_settings_tabs', '' );
+                    $priority = shopxpert_get_option( 'product_custom_hook_priority', 'wishlist_settings_tabs', 10 );
                     if( !empty( $hook_name ) ){
                         add_action( $hook_name, [ $this, 'button_print' ], $priority );
                     }
@@ -209,7 +200,7 @@ class Manage_Wishlist {
      * @return [void]
      */
     public function button_print(){
-        echo do_shortcode( '[wishsuite_button]' );
+        echo do_shortcode( '[wishlist_button]' );
     }
 
     /**
@@ -218,8 +209,8 @@ class Manage_Wishlist {
      * @return [HTML]
      */
     public function button_html( $atts ) {
-        $button_attr = apply_filters( 'wishsuite_button_arg', $atts );
-        return woowishsuite_get_template( 'wishlist-button-'.$atts['template_name'].'.php', $button_attr, false );
+        $button_attr = apply_filters( 'wishlist_button_arg', $atts );
+        return WishList_get_template( 'wishlist-button-'.$atts['template_name'].'.php', $button_attr, false );
     }
 
     /**
@@ -227,8 +218,8 @@ class Manage_Wishlist {
      * @return [HTML]
      */
     public function table_html( $atts ) {
-        $table_attr = apply_filters( 'wishsuite_table_arg', $atts );
-        return woowishsuite_get_template( 'wishlist-table.php', $table_attr, false );
+        $table_attr = apply_filters( 'wishlist_table_arg', $atts );
+        return WishList_get_template( 'wishlist-table.php', $table_attr, false );
     }
 
     /**
@@ -236,8 +227,8 @@ class Manage_Wishlist {
      * @return [HTML]
      */
     public function count_html( $atts ) {
-        $count_attr = apply_filters( 'wishsuite_count_arg', $atts );
-        return woowishsuite_get_template( 'wishlist-count.php', $count_attr, false );
+        $count_attr = apply_filters( 'wishlist_count_arg', $atts );
+        return WishList_get_template( 'wishlist-count.php', $count_attr, false );
     }
 
     /**
@@ -245,7 +236,7 @@ class Manage_Wishlist {
      * @return [string]
      */
     public function get_cookie_name() {
-        $name = 'wishsuite_item_list';
+        $name = 'wishlist_item_list';
         if ( is_multisite() ){
             $name .= '_' . get_current_blog_id();
         }
@@ -265,7 +256,7 @@ class Manage_Wishlist {
                 'number'  => $per_page,
                 'offset'  => $offset,
             ];
-            $items = \WooWishSuite\Manage_Data::instance()->read( $args );
+            $items = \WishList\Manage_Data::instance()->read( $args );
 
             $ids = array();
             foreach ( $items as $itemkey => $item ) {
@@ -307,9 +298,9 @@ class Manage_Wishlist {
 
         $ids = $this->get_wishlist_products();
 
-        $shareablebtn = shopxpert_get_option( 'enable_social_share','wishsuite_table_settings_tabs','on' );
-        if ( ( $shareablebtn === 'on' ) && isset( $_GET['wishsuitepids'] ) ) {
-            $query_perametter_ids = sanitize_text_field( $_GET['wishsuitepids'] );
+        $shareablebtn = shopxpert_get_option( 'enable_social_share','wishlist_table_settings_tabs','on' );
+        if ( ( $shareablebtn === 'on' ) && isset( $_GET['wishlistpids'] ) ) {
+            $query_perametter_ids = sanitize_text_field( $_GET['wishlistpids'] );
             if( !empty( $query_perametter_ids ) ){
                 $ids = explode( ',', $query_perametter_ids );
             }
@@ -342,7 +333,7 @@ class Manage_Wishlist {
             $rating_count   = $product->get_rating_count();
             $average        = $product->get_average_rating();
 
-            $get_row = \WooWishSuite\Manage_Data::instance()->read_single_item( get_current_user_id(), $product->get_id() );
+            $get_row = \WishList\Manage_Data::instance()->read_single_item( get_current_user_id(), $product->get_id() );
             if( is_object( $get_row ) && $get_row->quantity ){
                 $min_value = $get_row->quantity;
             }else{
@@ -408,7 +399,7 @@ class Manage_Wishlist {
             'add_to_cart'   => esc_html__( 'Add To Cart', 'shopxpert' ),
         );
 
-        $fields_settings = shopxpert_get_option( 'show_fields', 'wishsuite_table_settings_tabs' );
+        $fields_settings = shopxpert_get_option( 'show_fields', 'wishlist_table_settings_tabs' );
 
         if ( isset( $fields_settings ) && ( is_array( $fields_settings ) ) && count( $fields_settings ) > 1 ) {
             $fields = $fields_settings;
@@ -478,7 +469,7 @@ class Manage_Wishlist {
                 break;
 
             case 'add_to_cart':
-                echo apply_filters( 'woowishsuite_add_to_cart_btn', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo apply_filters( 'WishList_add_to_cart_btn', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             case 'attribute':
@@ -519,7 +510,7 @@ class Manage_Wishlist {
             return $field;
         }
 
-        $default = woowishsuite_get_default_fields();
+        $default = WishList_get_default_fields();
 
         $str = substr( $field, 0, 3 );
         if( 'pa_' === $str ){
@@ -597,7 +588,7 @@ class Manage_Wishlist {
      */
     public function social_share(){
 
-        if( shopxpert_get_option( 'enable_social_share','wishsuite_table_settings_tabs','on' ) !== 'on' ){
+        if( shopxpert_get_option( 'enable_social_share','wishlist_table_settings_tabs','on' ) !== 'on' ){
             return;
         }
 
@@ -606,8 +597,8 @@ class Manage_Wishlist {
         $atts = [
             'products_ids' => $ids,
         ];
-        $social_share_attr = apply_filters( 'wishsuite_social_share_arg', $atts );
-        woowishsuite_get_template( 'wishlist-social-share.php', $social_share_attr, true );
+        $social_share_attr = apply_filters( 'wishlist_social_share_arg', $atts );
+        WishList_get_template( 'wishlist-social-share.php', $social_share_attr, true );
         
     }
 
@@ -617,8 +608,8 @@ class Manage_Wishlist {
      */
     public function pagination(){
         $current_page = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-        $total_items = count( \WooWishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() );
-        $product_per_page = shopxpert_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 );
+        $total_items = count( \WishList\Frontend\Manage_Wishlist::instance()->get_products_data() );
+        $product_per_page = shopxpert_get_option( 'wishlist_product_per_page', 'wishlist_table_settings_tabs', 20 );
         $total_pages = ceil($total_items / $product_per_page);
         $args = array(
             'base' => str_replace( $total_pages, '%#%', esc_url( get_pagenum_link( $total_pages ) ) ),

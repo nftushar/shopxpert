@@ -8,14 +8,14 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 
-class Wb_Wishsuite_Table_Widget extends Widget_Base {
+class Wb_Wishlist_Table_Widget extends Widget_Base {
 
     public function get_name() {
-        return 'wb_wishsuite_table'; // This should match the key in widget_list
+        return 'wb_wishlist_table'; // This should match the key in widget_list
     }
 
     public function get_title() {
-        return __( 'WishSuite Table', 'shopxpert' );
+        return __( 'WishList Table', 'shopxpert' );
     }
 
     public function get_categories() {
@@ -26,9 +26,9 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
 
         // Content
         $this->start_controls_section(
-            'wishsuite_content',
+            'wishlist_content',
             [
-                'label' => __( 'WishSuite', 'shopxpert' ),
+                'label' => __( 'WishList', 'shopxpert' ),
             ]
         );
 
@@ -58,7 +58,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Heading Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content table thead > tr th' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content table thead > tr th' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -69,7 +69,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'name' => 'heading_background',
                     'label' => __( 'Heading Background', 'shopxpert' ),
                     'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content table thead > tr th',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content table thead > tr th',
                     'exclude' =>['image'],
                 ]
             );
@@ -79,7 +79,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'heading_border',
                     'label' => __( 'Border', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content table thead > tr',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content table thead > tr',
                 ]
             );
 
@@ -88,7 +88,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'heading_typography',
                     'label' => __( 'Typography', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content table thead > tr th',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content table thead > tr th',
                 ]
             );
             
@@ -107,7 +107,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'table_body_border',
                     'label' => __( 'Border', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content table,.wishsuite-table-content table tbody > tr',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content table,.wishlist-table-content table tbody > tr',
                 ]
             );
 
@@ -125,7 +125,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'table_body_title_typography',
                     'label' => __( 'Typography', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content table tbody > tr td.wishsuite-product-title',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content table tbody > tr td.wishlist-product-title',
                 ]
             );
 
@@ -135,7 +135,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content table tbody > tr td.wishsuite-product-title a' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content table tbody > tr td.wishlist-product-title a' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -146,7 +146,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Hover Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content table tbody > tr td.wishsuite-product-title a:hover' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content table tbody > tr td.wishlist-product-title a:hover' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -165,7 +165,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'table_body_price_typography',
                     'label' => __( 'Typography', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content table tbody > tr td.wishsuite-product-price',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content table tbody > tr td.wishlist-product-price',
                 ]
             );
 
@@ -175,8 +175,8 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content table tbody > tr td.wishsuite-product-price' => 'color: {{VALUE}}',
-                        '{{WRAPPER}} .wishsuite-table-content table tbody > tr td.wishsuite-product-price .woocommerce-Price-amount' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content table tbody > tr td.wishlist-product-price' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content table tbody > tr td.wishlist-product-price .woocommerce-Price-amount' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -195,7 +195,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content .quantity .qty' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content .quantity .qty' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -204,7 +204,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'table_body_quantity_field_typography',
                     'label' => __( 'Typography', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content .quantity .qty',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content .quantity .qty',
                 ]
             );
             $this->add_control(
@@ -213,7 +213,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Background Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content .quantity .qty' => 'background-color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content .quantity .qty' => 'background-color: {{VALUE}}',
                     ],
                 ]
             );
@@ -223,7 +223,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Border Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content .quantity .qty' => 'border-color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-table-content .quantity .qty' => 'border-color: {{VALUE}}',
                     ],
                 ]
             );
@@ -243,8 +243,8 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-remove::before' => 'background-color: {{VALUE}}',
-                        '{{WRAPPER}} .wishsuite-remove::after' => 'background-color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-remove::before' => 'background-color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-remove::after' => 'background-color: {{VALUE}}',
                     ],
                 ]
             );
@@ -254,8 +254,8 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Hover Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-remove:hover::before' => 'background-color: {{VALUE}}',
-                        '{{WRAPPER}} .wishsuite-remove:hover::after' => 'background-color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-remove:hover::before' => 'background-color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-remove:hover::after' => 'background-color: {{VALUE}}',
                     ],
                 ]
             );
@@ -274,7 +274,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Title Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-social-share .wishsuite-social-title' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-social-share .wishlist-social-title' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -283,7 +283,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'table_body_social_share_title_typography',
                     'label' => __( 'Typography', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-social-share .wishsuite-social-title',
+                    'selector' => '{{WRAPPER}} .wishlist-social-share .wishlist-social-title',
                 ]
             );
 
@@ -293,7 +293,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Icon Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-social-share ul li a' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-social-share ul li a' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -303,7 +303,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'label' => __( 'Icon Hover Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-social-share ul li a:hover' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-social-share ul li a:hover' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -315,7 +315,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-social-share ul li a .wishsuite-social-icon svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .wishlist-social-share ul li a .wishlist-social-icon svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -336,7 +336,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                 [
                     'name' => 'table_add_to_cart_button_typography',
                     'label' => __( 'Typography', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-table-content table .wishsuite-addtocart',
+                    'selector' => '{{WRAPPER}} .wishlist-table-content table .wishlist-addtocart',
                 ]
             );
 
@@ -347,7 +347,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-table-content table .wishsuite-addtocart' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .wishlist-table-content table .wishlist-addtocart' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -368,7 +368,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                             'label' => __( 'Color', 'shopxpert' ),
                             'type' => Controls_Manager::COLOR,
                             'selectors' => [
-                                '{{WRAPPER}} .wishsuite-table-content table .wishsuite-addtocart' => 'color: {{VALUE}}',
+                                '{{WRAPPER}} .wishlist-table-content table .wishlist-addtocart' => 'color: {{VALUE}}',
                             ],
                         ]
                     );
@@ -379,7 +379,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                             'name' => 'table_cart_button_bg_color',
                             'label' => __( 'Background', 'shopxpert' ),
                             'types' => [ 'classic', 'gradient' ],
-                            'selector' => '{{WRAPPER}} .wishsuite-table-content table .wishsuite-addtocart',
+                            'selector' => '{{WRAPPER}} .wishlist-table-content table .wishlist-addtocart',
                             'exclude' =>['image'],
                         ]
                     );
@@ -400,7 +400,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                             'label' => __( 'Color', 'shopxpert' ),
                             'type' => Controls_Manager::COLOR,
                             'selectors' => [
-                                '{{WRAPPER}} .wishsuite-table-content table .wishsuite-addtocart:hover' => 'color: {{VALUE}}',
+                                '{{WRAPPER}} .wishlist-table-content table .wishlist-addtocart:hover' => 'color: {{VALUE}}',
                             ],
                         ]
                     );
@@ -411,7 +411,7 @@ class Wb_Wishsuite_Table_Widget extends Widget_Base {
                             'name' => 'table_cart_button_hover_bg_color',
                             'label' => __( 'Background', 'shopxpert' ),
                             'types' => [ 'classic', 'gradient' ],
-                            'selector' => '{{WRAPPER}} .wishsuite-table-content table .wishsuite-addtocart:hover',
+                            'selector' => '{{WRAPPER}} .wishlist-table-content table .wishlist-addtocart:hover',
                             'exclude' =>['image'],
                         ]
                     );

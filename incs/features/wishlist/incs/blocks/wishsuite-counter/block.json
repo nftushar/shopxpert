@@ -3,7 +3,7 @@
 	"apiVersion": 3,
     "name": "shopxpert/wishlist-counter",
     "category": "shopxpert-blocks",
-    "title": "WL: WooWishSuite Counter",
+    "title": "WL: WishList Counter",
     "description":"Display Wishlist Counter.",
     "keywords": ["shopxpert","wishlist","count","wishlist","wishlist counter"],
     "render": "file:./index.php",

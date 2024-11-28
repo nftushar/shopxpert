@@ -11,6 +11,7 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
         array (
             'Shopxpert\\Incs\\Admin\\Templates\\' => 31,
             'Shopxpert\\Incs\\Admin\\Inc\\' => 25,
+            'Shopxpert\\' => 10,
             'ShopXpert \\' => 11,
         ),
     );
@@ -23,6 +24,10 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
         'Shopxpert\\Incs\\Admin\\Inc\\' => 
         array (
             0 => __DIR__ . '/../..' . '/incs/admin/inc',
+        ),
+        'Shopxpert\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'ShopXpert \\' => 
         array (

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: ShopXpert
+Plugin Name:wwe ShopXpert
 Plugin URI:https://github.com/tushar/shopxpert
 Description: An all-in-one WooCommerce solution for label customization, pre-orders, and more.
 Version: 1.0.3

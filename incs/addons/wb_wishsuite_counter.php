@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
+class Shopxpert_Wb_Wishlist_Counter_Widget extends Widget_Base {
 
     public function get_name() {
-        return 'wb-wishsuite-counter';
+        return 'wb-wishlist-counter';
     }
 
     public function get_title() {
-        return __( 'WL: WishSuite Counter', 'shopxpert' );
+        return __( 'WL: WishList Counter', 'shopxpert' );
     }
 
     public function get_icon() {
@@ -26,16 +26,16 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
     }
 
     public function get_keywords(){
-        return ['wishlist counter','product counter','wishsuite counter'];
+        return ['wishlist counter','product counter','wishlist counter'];
     }
 
     protected function register_controls() {
 
         // Content
         $this->start_controls_section(
-            'wishsuite_content',
+            'wishlist_content',
             [
-                'label' => __( 'WishSuite Counter', 'shopxpert' ),
+                'label' => __( 'WishList Counter', 'shopxpert' ),
             ]
         );
 
@@ -81,7 +81,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
                     'selectors' => [
                         '{{WRAPPER}}' => 'text-align: {{VALUE}};',
                     ],
-                    'prefix_class'=> 'wishsuite-align-%s',
+                    'prefix_class'=> 'wishlist-align-%s',
                     'default' => 'left',
                 ]
             );
@@ -100,7 +100,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
                     'label' => __( 'Counter Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-counter-area span.wishsuite-counter' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-counter-area span.wishlist-counter' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -111,7 +111,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
                     'name' => 'counter_background',
                     'label' => __( 'Counter Background', 'shopxpert' ),
                     'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .wishsuite-counter-area span.wishsuite-counter',
+                    'selector' => '{{WRAPPER}} .wishlist-counter-area span.wishlist-counter',
                     'exclude' =>['image'],
                 ]
             );
@@ -131,7 +131,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
                     'label' => __( 'Counter Icon Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-counter-area span.wishsuite-counter-icon' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-counter-area span.wishlist-counter-icon' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -153,7 +153,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
                     'label' => __( 'Counter Text Color', 'shopxpert' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wishsuite-counter-area.wishsuite-has-text' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .wishlist-counter-area.wishlist-has-text' => 'color: {{VALUE}}',
                     ],
                     'condition'=>[
                         'counter_after_text!'=>''
@@ -166,7 +166,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
                 [
                     'name' => 'counter_text_typography',
                     'label' => __( 'Typography', 'shopxpert' ),
-                    'selector' => '{{WRAPPER}} .wishsuite-counter-area.wishsuite-has-text',
+                    'selector' => '{{WRAPPER}} .wishlist-counter-area.wishlist-has-text',
                     'condition'=>[
                         'counter_after_text!'=>''
                     ]
@@ -183,7 +183,7 @@ class Shopxpert_Wb_Wishsuite_Counter_Widget extends Widget_Base {
         $short_code_attributes = [
             'text' => $settings['counter_after_text'],
         ];
-        echo shopxpert_do_shortcode( 'wishsuite_counter', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        echo shopxpert_do_shortcode( 'wishlist_counter', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     }
 

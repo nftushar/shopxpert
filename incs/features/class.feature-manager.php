@@ -1,6 +1,8 @@
 <?php
 
 use function Shopxpert\incs\shopxpert_get_option;
+
+error_log("AA hello WishList");
  
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -63,14 +65,11 @@ class Shopxpert_Feature_Manager {
 
         // pre-orders
         if ( !is_admin() && shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' ) == 'on' ) {
+            error_log("BB hello pre-orders");
+
             require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/pre-orders/pre-orders.php' );
         }  
-
-        // Search
-        if( shopxpert_get_option( 'ajaxsearch', 'shopxpert_others_tabs', 'off' ) == 'on' ){
-            require( SHOPXPERT_ADDONS_PL_PATH. 'incs/features/ajax-search/main.php' );
-        }
-        
+ 
 
         // Stock on Hold
         if( shopxpert_get_option( 'enable', 'shopxpert_backorder_settings', 'off' ) == 'on' ){
@@ -78,22 +77,33 @@ class Shopxpert_Feature_Manager {
         }
 
 
+        $value = shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' );
+        error_log("Wishlist option value: " . $value);
+
+        if ( $value == 'on' ) {
+            error_log("BB hello WishList");
+            // $this->deactivate( 'wishlist/wishlist.php' );
+            if ( ! class_exists('WooWishList_Base') ) {
+                require_once( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/wishlist/init.php' );
+            }
+        }
 
 
         // Wishlist
-        if( shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ) == 'on' ){
+        if( shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ) == 'off' ){
+            error_log("BB hello WishList");
             // $this->deactivate( 'wishlist/wishlist.php' );
-            if( ! class_exists('WooWishSuite_Base') ){
+            if( ! class_exists('WooWishList_Base') ){
                 require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/wishlist/init.php' );
             }
         }
 
-        // Pro-Features
-        if ( is_plugin_active('shopxpert-addons-pro/shopxpert_addons_pro.php') && defined( "SHOPXPERT_ADDONS_PL_PATH_PRO" ) ) {
+        // partial-payment
+        if ( is_plugin_active('shopxpert-addons/shopxpert_addons.php') && defined( "SHOPXPERT_ADDONS_PL_PATH" ) ) {
 
             // Partial payment
             if ( ( shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' ) == 'on' ) ) {
-                require_once( SHOPXPERT_ADDONS_PL_PATH_PRO . 'incs/features/partial-payment/partial-payment.php' );
+                require_once( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/partial-payment/partial-payment.php' );
             }
         }
     }
@@ -103,8 +113,8 @@ class Shopxpert_Feature_Manager {
      * @return [void]
      */
     public function include_product_filter_Feature_file() {
-        if ( file_exists( SHOPXPERT_ADDONS_PL_PATH_PRO . 'incs/features/product-filter/product-filter.php' ) ) {
-            require_once( SHOPXPERT_ADDONS_PL_PATH_PRO . 'incs/features/product-filter/product-filter.php' );
+        if ( file_exists( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/product-filter/product-filter.php' ) ) {
+            require_once( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/product-filter/product-filter.php' );
 
             if ( shopxpert_get_option( 'enable', 'shopxpert_product_filter_settings', 'off' ) == 'on' ) {
                 shopxpert_product_filter( true );

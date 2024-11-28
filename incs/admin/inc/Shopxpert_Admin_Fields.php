@@ -301,15 +301,6 @@ class Shopxpert_Admin_Fields {
                         'documentation' => esc_url('https://#/doc/wishlist-for-woocommerce/')
                     ), 
                     
-                    array(
-                        'name'    => 'ajaxsearch',
-                        'label'   => esc_html__( 'Search Widget', 'shopxpert' ),
-                        'desc'    => esc_html__( 'Search Widget', 'shopxpert' ),
-                        'type'    => 'element',
-                        'default' => 'off',
-                        'documentation' => esc_url('https://#/doc/how-to-use-woocommerce-ajax-search/')
-                    ),
-                    
                 ),
 
                 'others' => array(

@@ -1,5 +1,5 @@
 <?php
-namespace WooWishSuite;
+namespace WishList;
 /**
  * Frontend handlers class
  */

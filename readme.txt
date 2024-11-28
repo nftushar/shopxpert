@@ -38,12 +38,6 @@ Let customers create and manage a wishlist of products they love. This feature i
 - Enable the Wishlist feature in ShopXpert Settings.
 - Customers can add items to their wishlist directly from the product page.
 
-🔍 <strong>Dynamic AJAX Search Widget</strong>  
-Enhance your store's search functionality with instant results. The AJAX-powered widget provides users with faster and more relevant search results as they type.  
-<strong>How to Use:</strong>
-- Add the Search Widget to any widget area via Appearance > Widgets.
-- Customize the search behavior in the ShopXpert settings panel.
-
 📄 <strong>Page Duplicator</strong>  
 Duplicate any page in your WooCommerce store, making it easier to create similar pages without manually recreating content. Useful for creating templates or similar pages.  
 <strong>How to Use:</strong>
@@ -71,8 +65,6 @@ Absolutely! ShopXpert allows you to enable pre-orders for any product. You can s
 <strong>How does the wishlist feature work?</strong>  
 Once enabled, your customers can add products to their wishlist from the product page. They can view and manage their wishlist on their account page.
 
-<strong>Is ShopXpert compatible with AJAX search?</strong>  
-Yes, the plugin includes a Dynamic AJAX Search Widget that delivers real-time search results. Simply add the widget to a sidebar or widget area from Appearance > Widgets.
 
 <strong>Can I duplicate pages in WooCommerce?</strong>  
 Yes, with the Page Duplicator feature, you can duplicate any page to create multiple versions or templates, saving time and maintaining consistent formatting.
@@ -123,15 +115,9 @@ Yes, with the Page Duplicator feature, you can duplicate any page to create mult
    Keep customers engaged by allowing them to save products to their wishlist.  
    <strong>Steps:</strong>
    - Enable the Wishlist feature in ShopXpert Settings.
-   - Customers can add products to their wishlist, viewable on their account page.
+   - Customers can add products to their wishlist, viewable on their account page. 
 
-5. <strong>Dynamic AJAX Search Widget</strong>  
-   Improve search accuracy and speed with the Search Widget.  
-   <strong>Steps:</strong>
-   - Add the widget from Appearance > Widgets.
-   - Customize the widget settings to enhance search functionality.
-
-6. <strong>Page Duplicator</strong>  
+5. <strong>Page Duplicator</strong>  
    The Page Duplicator feature allows you to quickly duplicate any page in your WooCommerce store, making it easier to create similar pages without manually recreating content.  
    <strong>Steps:</strong>
    - Go to the WordPress dashboard and navigate to the page you want to duplicate.

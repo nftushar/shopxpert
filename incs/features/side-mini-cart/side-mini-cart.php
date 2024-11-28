@@ -1,5 +1,5 @@
 <?php
-namespace shopxpert\Features\SideMiniCart;
+namespace ShopxPert\Features\SideMiniCart;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Side_Mini_Cart{
@@ -47,13 +47,13 @@ class Side_Mini_Cart{
      * @return void
      */
     public function define_constants(){
-        define( 'shopxpert\Features\SideMiniCart\MODULE_FILE', __FILE__ );
-        define( 'shopxpert\Features\SideMiniCart\MODULE_PATH', __DIR__ );
-        define( 'shopxpert\Features\SideMiniCart\WIDGETS_PATH', MODULE_PATH. "/includes/widgets" );
-        define( 'shopxpert\Features\SideMiniCart\BLOCKS_PATH', MODULE_PATH. "/includes/blocks" );
-        define( 'shopxpert\Features\SideMiniCart\MODULE_URL', plugins_url( '', MODULE_FILE ) );
-        define( 'shopxpert\Features\SideMiniCart\MODULE_ASSETS', MODULE_URL . '/assets' );
-        define( 'shopxpert\Features\SideMiniCart\ENABLED', self::$_enabled );
+        define( 'ShopxPert\Features\SideMiniCart\MODULE_FILE', __FILE__ );
+        define( 'ShopxPert\Features\SideMiniCart\MODULE_PATH', __DIR__ );
+        define( 'ShopxPert\Features\SideMiniCart\WIDGETS_PATH', MODULE_PATH. "/includes/widgets" );
+        define( 'ShopxPert\Features\SideMiniCart\BLOCKS_PATH', MODULE_PATH. "/includes/blocks" );
+        define( 'ShopxPert\Features\SideMiniCart\MODULE_URL', plugins_url( '', MODULE_FILE ) );
+        define( 'ShopxPert\Features\SideMiniCart\MODULE_ASSETS', MODULE_URL . '/assets' );
+        define( 'ShopxPert\Features\SideMiniCart\ENABLED', self::$_enabled );
     }
 
     /**

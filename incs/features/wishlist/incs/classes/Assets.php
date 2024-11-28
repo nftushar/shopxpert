@@ -1,6 +1,7 @@
 <?php
-namespace WooWishSuite;
+namespace WishList;
 use function  Shopxpert\incs\shopxpert_get_option;
+
  
 /**
  * Assets handlers class
@@ -40,17 +41,18 @@ class Assets {
     public function get_scripts() {
         return [
             'wishlist-admin' => [
-                'src'     => WOOWISHSUITE_ASSETS . '/js/admin.js',
+                'src'     => WISHLIST_ASSETS . '/js/admin.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery' ]
             ],
             'wishlist-frontend' => [
-                'src'     => WOOWISHSUITE_ASSETS . '/js/frontend.js',
+                'src'     => WISHLIST_ASSETS . '/js/frontend.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery', 'wc-add-to-cart-variation' ]
             ],
         ];
         
+        error_log( 'zzz: ' . WISHLIST_ASSETS . '/js/admin.js' );
     }
 
     /**
@@ -61,11 +63,11 @@ class Assets {
     public function get_styles() {
         return [
             'wishlist-admin' => [
-                'src'     => WOOWISHSUITE_ASSETS . '/css/admin.css',
+                'src'     => WISHLIST_ASSETS . '/css/admin.css',
                 'version' => SHOPXPERT_VERSION,
             ],
             'wishlist-frontend' => [
-                'src'     => WOOWISHSUITE_ASSETS . '/css/frontend.css',
+                'src'     => WISHLIST_ASSETS . '/css/frontend.css',
                 'version' => SHOPXPERT_VERSION,
             ],
         ];
@@ -95,18 +97,18 @@ class Assets {
         
         // Frontend Localize data
         $option_data = array(
-            'after_added_to_cart' => shopxpert_get_option( 'after_added_to_cart', 'wishsuite_table_settings_tabs', 'on' ),
+            'after_added_to_cart' => shopxpert_get_option( 'after_added_to_cart', 'wishlist_table_settings_tabs', 'on' ),
         );
         
-        if( is_user_logged_in() &&  shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' ) === 'on' ){
+        if( is_user_logged_in() &&  shopxpert_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' ) === 'on' ){
             $option_data['btn_limit_login_off'] = 'off';
-        }else if( !is_user_logged_in() && shopxpert_get_option( 'enable_login_limit', 'wishsuite_general_tabs', 'off' ) === 'on' ){
+        }else if( !is_user_logged_in() && shopxpert_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' ) === 'on' ){
             $option_data['btn_limit_login_off'] = 'on';
         }
 
         $localize_data = array(
             'ajaxurl'     => admin_url( 'admin-ajax.php' ),
-            'wsnonce'     => wp_create_nonce('wishSuite_nonce'),
+            'wsnonce'     => wp_create_nonce('wishList_nonce'),
             'option_data' => $option_data,
         );
 
@@ -116,14 +118,14 @@ class Assets {
             $setting_page = 1;
         }
         $admin_option_data = array(
-            'btn_icon_type'        => shopxpert_get_option( 'button_icon_type', 'wishsuite_style_settings_tabs', 'default' ),
-            'added_btn_icon_type'  => shopxpert_get_option( 'addedbutton_icon_type', 'wishsuite_style_settings_tabs', 'default' ),
-            'shop_btn_position'    => shopxpert_get_option( 'shop_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' ),
-            'product_btn_position' => shopxpert_get_option( 'product_btn_position', 'wishsuite_settings_tabs', 'after_cart_btn' ),
-            'button_style'         => shopxpert_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' ),
-            'table_style'          => shopxpert_get_option( 'table_style', 'wishsuite_style_settings_tabs', 'default' ),
-            'enable_social_share'  => shopxpert_get_option( 'enable_social_share','wishsuite_table_settings_tabs','on' ),
-            'enable_login_limit'   => shopxpert_get_option( 'enable_login_limit','wishsuite_general_tabs','off' ),
+            'btn_icon_type'        => shopxpert_get_option( 'button_icon_type', 'wishlist_style_settings_tabs', 'default' ),
+            'added_btn_icon_type'  => shopxpert_get_option( 'addedbutton_icon_type', 'wishlist_style_settings_tabs', 'default' ),
+            'shop_btn_position'    => shopxpert_get_option( 'shop_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' ),
+            'product_btn_position' => shopxpert_get_option( 'product_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' ),
+            'button_style'         => shopxpert_get_option( 'button_style', 'wishlist_style_settings_tabs', 'default' ),
+            'table_style'          => shopxpert_get_option( 'table_style', 'wishlist_style_settings_tabs', 'default' ),
+            'enable_social_share'  => shopxpert_get_option( 'enable_social_share','wishlist_table_settings_tabs','on' ),
+            'enable_login_limit'   => shopxpert_get_option( 'enable_login_limit','wishlist_general_tabs','off' ),
         );
         $admin_localize_data = array(
             'ajaxurl'    => admin_url( 'admin-ajax.php' ),
@@ -131,8 +133,8 @@ class Assets {
             'option_data'=> $admin_option_data,
         );
 
-        wp_localize_script( 'wishlist-frontend', 'WooWishSuite', $localize_data );
-        wp_localize_script( 'wishlist-admin', 'WooWishSuite', $admin_localize_data );
+        wp_localize_script( 'wishlist-frontend', 'WishList', $localize_data );
+        wp_localize_script( 'wishlist-admin', 'WishList', $admin_localize_data );
 
         if( class_exists( '\Elementor\Plugin' ) && ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) ){
             wp_enqueue_style( 'wishlist-frontend' );
@@ -150,18 +152,18 @@ class Assets {
         $button_custom_css = $table_custom_css = '';
 
         // Button Custom Style
-        if( 'custom' === shopxpert_get_option( 'button_style', 'wishsuite_style_settings_tabs', 'default' ) ){
+        if( 'custom' === shopxpert_get_option( 'button_style', 'wishlist_style_settings_tabs', 'default' ) ){
 
-            $btn_padding = woowishsuite_dimensions( 'button_custom_padding','wishsuite_style_settings_tabs','padding' );
-            $btn_margin  = woowishsuite_dimensions( 'button_custom_margin','wishsuite_style_settings_tabs','margin' );
-            $btn_border_radius = woowishsuite_dimensions( 'button_custom_border_radius','wishsuite_style_settings_tabs','border-radius' );
+            $btn_padding = WishList_dimensions( 'button_custom_padding','wishlist_style_settings_tabs','padding' );
+            $btn_margin  = WishList_dimensions( 'button_custom_margin','wishlist_style_settings_tabs','margin' );
+            $btn_border_radius = WishList_dimensions( 'button_custom_border_radius','wishlist_style_settings_tabs','border-radius' );
 
-            $btn_color    = woowishsuite_generate_css('button_color','wishsuite_style_settings_tabs','color');
-            $btn_bg_color = woowishsuite_generate_css('background_color','wishsuite_style_settings_tabs','background-color');
+            $btn_color    = WishList_generate_css('button_color','wishlist_style_settings_tabs','color');
+            $btn_bg_color = WishList_generate_css('background_color','wishlist_style_settings_tabs','background-color');
 
             // Hover
-            $btn_hover_color    = woowishsuite_generate_css('button_hover_color','wishsuite_style_settings_tabs','color');
-            $btn_hover_bg_color = woowishsuite_generate_css('hover_background_color','wishsuite_style_settings_tabs','background-color');
+            $btn_hover_color    = WishList_generate_css('button_hover_color','wishlist_style_settings_tabs','color');
+            $btn_hover_bg_color = WishList_generate_css('hover_background_color','wishlist_style_settings_tabs','background-color');
 
             $button_custom_css = "
                 .wishlist-button{
@@ -179,19 +181,19 @@ class Assets {
         }
 
         // Wishlist table style
-        if( 'custom' === shopxpert_get_option( 'table_style', 'wishsuite_style_settings_tabs', 'default' ) ){
+        if( 'custom' === shopxpert_get_option( 'table_style', 'wishlist_style_settings_tabs', 'default' ) ){
 
-            $heading_color    = woowishsuite_generate_css('table_heading_color','wishsuite_style_settings_tabs','color');
-            $heading_bg_color = woowishsuite_generate_css('table_heading_bg_color','wishsuite_style_settings_tabs','background-color');
-            $heading_border_color = woowishsuite_generate_css('table_heading_border_color','wishsuite_style_settings_tabs','border-color');
+            $heading_color    = WishList_generate_css('table_heading_color','wishlist_style_settings_tabs','color');
+            $heading_bg_color = WishList_generate_css('table_heading_bg_color','wishlist_style_settings_tabs','background-color');
+            $heading_border_color = WishList_generate_css('table_heading_border_color','wishlist_style_settings_tabs','border-color');
 
-            $border_color = woowishsuite_generate_css('table_border_color','wishsuite_style_settings_tabs','border-color');
+            $border_color = WishList_generate_css('table_border_color','wishlist_style_settings_tabs','border-color');
 
             // Add To cart Button
-            $button_color = woowishsuite_generate_css('table_cart_button_color','wishsuite_style_settings_tabs','color');
-            $button_bg_color = woowishsuite_generate_css('table_cart_button_bg_color','wishsuite_style_settings_tabs','background-color');
-            $button_hover_color = woowishsuite_generate_css('table_cart_button_hover_color','wishsuite_style_settings_tabs','color');
-            $button_hover_bg_color = woowishsuite_generate_css('table_cart_button_hover_bg_color','wishsuite_style_settings_tabs','background-color');
+            $button_color = WishList_generate_css('table_cart_button_color','wishlist_style_settings_tabs','color');
+            $button_bg_color = WishList_generate_css('table_cart_button_bg_color','wishlist_style_settings_tabs','background-color');
+            $button_hover_color = WishList_generate_css('table_cart_button_hover_color','wishlist_style_settings_tabs','color');
+            $button_hover_bg_color = WishList_generate_css('table_cart_button_hover_bg_color','wishlist_style_settings_tabs','background-color');
 
             $table_custom_css = "
                 .wishlist-table-content table thead > tr{

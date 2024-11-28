@@ -1,5 +1,5 @@
 <?php
-namespace WooWishSuite;
+namespace WishList;
 /**
  * Manage_Data handlers class
  */
@@ -49,7 +49,7 @@ class Manage_Data {
             $this->update( $data );
         }else{
             $inserted = $wpdb->insert(
-                $wpdb->prefix . 'wishsuite_list',
+                $wpdb->prefix . 'wishlist_list',
                 $data,
                 [
                     '%d',
@@ -93,13 +93,13 @@ class Manage_Data {
         $cache_key    = "all:$key:$last_changed";
 
         $sql = $args['number'] === -1 ? $wpdb->prepare(
-            "SELECT * FROM {$wpdb->prefix}wishsuite_list
+            "SELECT * FROM {$wpdb->prefix}wishlist_list
             WHERE user_id = %d
             ORDER BY %s %s
             LIMIT %d, %d",
             $args['user_id'], $args['orderby'], $args['order'], 0, 10000
         ) : $wpdb->prepare(
-            "SELECT * FROM {$wpdb->prefix}wishsuite_list
+            "SELECT * FROM {$wpdb->prefix}wishlist_list
             WHERE user_id = %d
             ORDER BY %s %s
             LIMIT %d, %d",
@@ -138,7 +138,7 @@ class Manage_Data {
         unset( $data['date_added'] );
 
         $updated = $wpdb->update(
-            $wpdb->prefix . 'wishsuite_list',
+            $wpdb->prefix . 'wishlist_list',
             $data,
             [ 
                 'user_id'    => $user_id,
@@ -168,7 +168,7 @@ class Manage_Data {
         $count = wp_cache_get( 'count', 'shopxpert' );
 
         if ( false === $count ) {
-            $count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT count(id) FROM {$wpdb->prefix}wishsuite_list WHERE user_id = %d", $user_id ) );
+            $count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT count(id) FROM {$wpdb->prefix}wishlist_list WHERE user_id = %d", $user_id ) );
 
             wp_cache_set( 'count', $count, 'shopxpert' );
         }
@@ -188,7 +188,7 @@ class Manage_Data {
 
         if ( false === $product ) {
             $product = $wpdb->get_row(
-                $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}wishsuite_list WHERE user_id = %d AND product_id = %d", $user_id, $product_id )
+                $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}wishlist_list WHERE user_id = %d AND product_id = %d", $user_id, $product_id )
             );
             wp_cache_set( 'wishlist-product-' . $user_id.$product_id, $product, 'shopxpert' );
         }
@@ -209,7 +209,7 @@ class Manage_Data {
         $this->purge_cache( $user_id );
 
         return $wpdb->delete(
-            $wpdb->prefix . 'wishsuite_list',
+            $wpdb->prefix . 'wishlist_list',
             [ 
                 'user_id'    => $user_id,
                 'product_id' => $product_id
