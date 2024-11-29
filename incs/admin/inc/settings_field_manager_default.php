@@ -1,4 +1,6 @@
 <?php
+
+namespace WishList\Admin;
 /**
  * Settings Api class
  */
@@ -167,6 +169,21 @@ class ShopXpert_Settings_Field_Manager_Default {
         }
         return $desc;
     }
+
+
+    /**
+     * Get Title for display
+     *
+     * @param array $args settings field args
+     */
+    public function callback_title( $args ) {
+        $headding    = isset( $args['headding'] ) ? $args['headding'] : '';
+        $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $html        = sprintf( '<h2 class="element_section_title %1$s-title">%2$s</h2>', $size, $headding );
+        echo $html;
+    }
+
+
 
     /**
      * Get Title for display

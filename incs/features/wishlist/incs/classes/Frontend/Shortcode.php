@@ -62,11 +62,10 @@ class Shortcode {
 
         //my account url
         $myaccount_url =  get_permalink( get_option('woocommerce_myaccount_page_id') );
-        error_log("hello WishList");
-
+ 
         // Fetch option data
         $button_text        = shopxpert_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
-        error_log("wishlist btn text","$button_text");
+     
         $button_added_text  = shopxpert_get_option( 'added_button_text','wishlist_settings_tabs', 'Product Added' );
         $button_exist_text  = shopxpert_get_option( 'exist_button_text','wishlist_settings_tabs', 'Product already added' );
         $shop_page_btn_position     = shopxpert_get_option( 'shop_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );

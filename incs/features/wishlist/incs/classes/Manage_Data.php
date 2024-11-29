@@ -31,7 +31,7 @@ class Manage_Data {
         global $wpdb;
 
         if ( empty( $args['product_id'] ) ) {
-            return new \WP_Error( 'no-product_id', __( 'You must provide a product ID.', 'shopxpert' ) );
+            return new \WP_Error( 'no-product_id', __( 'You must provide a product ID.', 'wishlist' ) );
         }
 
         $defaults = [
@@ -60,7 +60,7 @@ class Manage_Data {
             );
 
             if ( ! $inserted ) {
-                return new \WP_Error( 'failed-to-insert', __( 'Failed to insert data', 'shopxpert' ) );
+                return new \WP_Error( 'failed-to-insert', __( 'Failed to insert data', 'wishlist' ) );
             }
 
             $this->purge_cache();
@@ -88,7 +88,7 @@ class Manage_Data {
 
         $args = wp_parse_args( $args, $defaults );
 
-        $last_changed = wp_cache_get_last_changed( 'shopxpert' );
+        $last_changed = wp_cache_get_last_changed( 'wishlist' );
         $key          = md5( serialize( array_diff_assoc( $args, $defaults ) ) );
         $cache_key    = "all:$key:$last_changed";
 
@@ -105,12 +105,12 @@ class Manage_Data {
             LIMIT %d, %d",
             $args['user_id'], $args['orderby'], $args['order'], $args['offset'], $args['number']);
 
-        $items = wp_cache_get( $cache_key, 'shopxpert' );
+        $items = wp_cache_get( $cache_key, 'wishlist' );
 
         if ( false === $items ) {
             $items = $wpdb->get_results( $sql, ARRAY_A );
 
-            wp_cache_set( $cache_key, $items, 'shopxpert' );
+            wp_cache_set( $cache_key, $items, 'wishlist' );
         }
 
         return $items;
@@ -165,12 +165,12 @@ class Manage_Data {
     public function item_count( $user_id ) {
         global $wpdb;
 
-        $count = wp_cache_get( 'count', 'shopxpert' );
+        $count = wp_cache_get( 'count', 'wishlist' );
 
         if ( false === $count ) {
             $count = (int) $wpdb->get_var( $wpdb->prepare( "SELECT count(id) FROM {$wpdb->prefix}wishlist_list WHERE user_id = %d", $user_id ) );
 
-            wp_cache_set( 'count', $count, 'shopxpert' );
+            wp_cache_set( 'count', $count, 'wishlist' );
         }
 
         return $count;
@@ -184,13 +184,13 @@ class Manage_Data {
     public function read_single_item( $user_id, $product_id ) {
         global $wpdb;
 
-        $product = wp_cache_get( 'wishlist-product-' . $user_id.$product_id, 'shopxpert' );
+        $product = wp_cache_get( 'wishlist-product-' . $user_id.$product_id, 'wishlist' );
 
         if ( false === $product ) {
             $product = $wpdb->get_row(
                 $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}wishlist_list WHERE user_id = %d AND product_id = %d", $user_id, $product_id )
             );
-            wp_cache_set( 'wishlist-product-' . $user_id.$product_id, $product, 'shopxpert' );
+            wp_cache_set( 'wishlist-product-' . $user_id.$product_id, $product, 'wishlist' );
         }
 
         return $product;
@@ -225,7 +225,7 @@ class Manage_Data {
      * @return [type] 
      */
     public function purge_cache( $user_id = null ) {
-        $group = 'shopxpert';
+        $group = 'wishlist';
 
         if ( $user_id ) {
             wp_cache_delete( 'wishlist-product-' . $user_id, $group );

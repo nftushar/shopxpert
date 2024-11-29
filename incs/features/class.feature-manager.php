@@ -1,8 +1,7 @@
 <?php
 
 use function Shopxpert\incs\shopxpert_get_option;
-
-error_log("AA hello WishList");
+ 
  
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -64,9 +63,7 @@ class Shopxpert_Feature_Manager {
         }  
 
         // pre-orders
-        if ( !is_admin() && shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' ) == 'on' ) {
-            error_log("BB hello pre-orders");
-
+        if ( !is_admin() && shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' ) == 'on' ) { 
             require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/pre-orders/pre-orders.php' );
         }  
  
@@ -77,11 +74,9 @@ class Shopxpert_Feature_Manager {
         }
 
 
-        $value = shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' );
-        error_log("Wishlist option value: " . $value);
+        $value = shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ); 
 
-        if ( $value == 'on' ) {
-            error_log("BB hello WishList");
+        if ( $value == 'on' ) { 
             // $this->deactivate( 'wishlist/wishlist.php' );
             if ( ! class_exists('WooWishList_Base') ) {
                 require_once( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/wishlist/init.php' );
@@ -90,8 +85,7 @@ class Shopxpert_Feature_Manager {
 
 
         // Wishlist
-        if( shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ) == 'off' ){
-            error_log("BB hello WishList");
+        if( shopxpert_get_option( 'wishlist', 'shopxpert_others_tabs', 'off' ) == 'off' ){ 
             // $this->deactivate( 'wishlist/wishlist.php' );
             if( ! class_exists('WooWishList_Base') ){
                 require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/features/wishlist/init.php' );

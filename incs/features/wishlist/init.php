@@ -4,7 +4,7 @@
  
  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  
- error_log("hello WishList init");
+ 
 /**
  * Plugin Main Class
  */

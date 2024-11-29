@@ -3,8 +3,7 @@ namespace WishList\Admin;
 
 use function  Shopxpert\incs\shopxpert_get_option;
 
-error_log("hello WishList");
-
+ 
 /**
  * Dashboard handlers class
  */

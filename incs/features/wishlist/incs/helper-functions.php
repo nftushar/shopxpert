@@ -23,49 +23,43 @@ function WishList_get_post_list( $post_type = 'page' ){
     }
 }
 
-/**
- * [wishlist_locate_template]
- * @param  [string] $tmp_name Template name
- * @return [Template path]
- */
+
 function wishlist_locate_template( $tmp_name ) {
     $woo_tmp_base = WC()->template_path();
+    $woo_tmp_path = $woo_tmp_base . $tmp_name; //active theme directory/woocommerce/
+    $theme_tmp_path = '/' . $tmp_name; //active theme root directory
+    $plugin_tmp_path = WISHLIST_DIR . 'incs/templates/' . $tmp_name;
+ 
 
-    $woo_tmp_path     = $woo_tmp_base . $tmp_name; //active theme directory/woocommerce/
-    $theme_tmp_path   = '/' . $tmp_name; //active theme root directory
-    $plugin_tmp_path  = WISHLIST_DIR . 'incs/templates/' . $tmp_name;
+    $located = locate_template([ $woo_tmp_path, $theme_tmp_path ]); 
 
-    $located = locate_template( [ $woo_tmp_path, $theme_tmp_path ] );
-
-    if ( ! $located && file_exists( $plugin_tmp_path ) ) {
-        return apply_filters( 'wishlist_locate_template', $plugin_tmp_path, $tmp_name );
+    if ( empty( $located ) && file_exists( $plugin_tmp_path ) ) {
+        $located = $plugin_tmp_path;  // Explicitly assign the plugin template path if not found in theme
     }
 
     return apply_filters( 'wishlist_locate_template', $located, $tmp_name );
 }
 
-/**
- * [WishList_get_template]
- * @param  [string]  $tmp_name Template name
- * @param  [array]  $args template argument array
- * @param  boolean $echo
- * @return [void]
- */
-function WishList_get_template( $tmp_name, $args = null, $echo = true ) {
-    $located = wishlist_locate_template( $tmp_name );
 
+
+function WishList_get_template( $tmp_name, $args = null, $echo = true ) {
+    $located = wishlist_locate_template( $tmp_name ); 
     if ( $args && is_array( $args ) ) {
         extract( $args );
     }
 
     if ( $echo !== true ) { ob_start(); }
 
-    // include file located.
-    include( $located );
+    // Check if the file exists before including
+    if ( file_exists( $located ) ) {
+        include( $located );
+    } else {
+        error_log('Template file not found: ' . $located);
+    }
 
     if ( $echo !== true ) { return ob_get_clean(); }
-
 }
+
 
 /**
  * [WishList_get_page_url]
@@ -190,18 +184,26 @@ function WishList_generate_css( $key, $tab, $css_attr ){
         return $css_attr.';';
     }else{
         return false;
-    }
-
+    } 
 }
 
 /**
  * [WishList_icon_list]
  * @return [svg]
  */
+
+
+
+
+
+
+
+
+
+
 function WishList_icon_list( $key = '' ){
-    $icon_list = [
-        'default' => '<svg height="15px" width="15px" viewBox="0 0 471.701 471.701">
-            <path class="heart" d="M433.601,67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7,13.6-92.4,38.3l-12.9,12.9l-13.1-13.1 c-24.7-24.7-57.6-38.4-92.5-38.4c-34.8,0-67.6,13.6-92.2,38.2c-24.7,24.7-38.3,57.5-38.2,92.4c0,34.9,13.7,67.6,38.4,92.3 l187.8,187.8c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-3.9l188.2-187.5c24.7-24.7,38.3-57.5,38.3-92.4 C471.801,124.501,458.301,91.701,433.601,67.001z M414.401,232.701l-178.7,178l-178.3-178.3c-19.6-19.6-30.4-45.6-30.4-73.3 s10.7-53.7,30.3-73.2c19.5-19.5,45.5-30.3,73.1-30.3c27.7,0,53.8,10.8,73.4,30.4l22.6,22.6c5.3,5.3,13.8,5.3,19.1,0l22.4-22.4 c19.6-19.6,45.7-30.4,73.3-30.4c27.6,0,53.6,10.8,73.2,30.3c19.6,19.6,30.3,45.6,30.3,73.3 C444.801,187.101,434.001,213.101,414.401,232.701z"/><g class="loading"><path d="M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479 c-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933 c0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207 c-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4 C426.667,7.641,419.026,0,409.6,0z"/><path d="M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696 c-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606 c-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4 c0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068 c40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z"/></g><g class="check"><path d="M238.933,0C106.974,0,0,106.974,0,238.933s106.974,238.933,238.933,238.933s238.933-106.974,238.933-238.933 C477.726,107.033,370.834,0.141,238.933,0z M238.933,443.733c-113.108,0-204.8-91.692-204.8-204.8s91.692-204.8,204.8-204.8 s204.8,91.692,204.8,204.8C443.611,351.991,351.991,443.611,238.933,443.733z"/><path d="M370.046,141.534c-6.614-6.388-17.099-6.388-23.712,0v0L187.733,300.134l-56.201-56.201 c-6.548-6.78-17.353-6.967-24.132-0.419c-6.78,6.548-6.967,17.353-0.419,24.132c0.137,0.142,0.277,0.282,0.419,0.419 l68.267,68.267c6.664,6.663,17.468,6.663,24.132,0l170.667-170.667C377.014,158.886,376.826,148.082,370.046,141.534z"/></g></svg>',
+  $icon_list = [
+        'default' => '<svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="3" stroke="#000" fill="none"><path d="M9.06 25c-1.38-7.7 3.72-14.37 11.67-15 7-.55 10.47 7.93 11.17 9.55a.13.13 0 0 0 .25 0c3.25-8.91 9.17-9.29 11.25-9.5 5.6-.6 13.11 3.73 11.6 13.82-2.16 14-23.12 29.81-23.12 29.81S11.79 40.05 9.06 25Z"/></svg>',
         'loading' => '<svg height="15px" width="15px" viewBox="0 0 471.701 471.701">
             <g class="loading"><path d="M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479 c-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933 c0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207 c-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4 C426.667,7.641,419.026,0,409.6,0z"></path><path d="M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696 c-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606 c-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4 c0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068 c40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z"></path></g></svg>',
         'email' => '<svg id="Capa_1" enable-background="new 0 0 479.058 479.058" height="512" viewBox="0 0 479.058 479.058" width="512" xmlns="http://www.w3.org/2000/svg">

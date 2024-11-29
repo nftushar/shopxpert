@@ -25,8 +25,15 @@ class Admin_Fields {
     }
 
     function __construct() {
-        require_once( SHOPXPERT_ADDONS_PL_PATH .'incs/admin/inc/settings_field_manager_default.php' );
-        $this->settings_api = new \ShopXpert_Settings_Field_Manager_Default();
+       
+        require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/settings_field_manager_default.php';
+        
+        if (class_exists('ShopXpert_Settings_Field_Manager_Default')) {
+            error_log('Class ShopXpert_Settings_Field_Manager_Default not found after require.');
+            error_log(SHOPXPERT_ADDONS_PL_PATH .'incs/admin/inc/settings_field_manager_default.php'); 
+        }
+
+        $this->settings_api = new \WishList\Admin\ShopXpert_Settings_Field_Manager_Default();
         add_action( 'admin_init', [ $this, 'admin_init' ] );
     }
 
