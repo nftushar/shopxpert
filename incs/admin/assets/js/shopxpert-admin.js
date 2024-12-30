@@ -236,7 +236,7 @@ console.log("JS Switch Enable/Disable Function");
         $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
     });
 
-    $('.shopxpert-admin-header-actions .shopxpert-admin-btn').on('click', function () {
+    $('.shopxpert-header-admin-actions .shopxpert-admin-btn').on('click', function () {
         $(this).closest('.shopxpert-admin-main-tab-pane').find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
     });
 

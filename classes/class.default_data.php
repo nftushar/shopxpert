@@ -44,22 +44,7 @@ class ShopXpert_Default_Data{
         add_filter( 'post_class', [ $this, 'post_class' ] );
     }
 
-    // public function wc_fontend_includes() {
-    //     if( defined( 'WC_ABSPATH' ) ){
-    //         include_once WC_ABSPATH . 'includes/wc-cart-functions.php';
-    //         include_once WC_ABSPATH . 'includes/wc-notice-functions.php';
-    //         include_once WC_ABSPATH . 'includes/wc-template-hooks.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-template-loader.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-frontend-scripts.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-form-handler.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-cart.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-tax.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-shipping-zones.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-customer.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-embed.php';
-    //         include_once WC_ABSPATH . 'includes/class-wc-session-handler.php';
-    //     }
-    // }
+ 
 
     /**
      * [body_class] Body Classes
@@ -185,9 +170,7 @@ class ShopXpert_Default_Data{
                     add_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
                 }
 
-                if( has_action('woocommerce_sidebar', 'woocommerce_get_sidebar') === false ) {
-                    add_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
-                }
+             
 
             }
             

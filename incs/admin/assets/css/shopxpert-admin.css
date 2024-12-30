@@ -1,11 +1,9 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
-
-
+ 
 .shopxpert-admin-wrapper {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Merriweather", serif;
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
@@ -15,7 +13,7 @@
   color: #6D7175;
 }
 .shopxpert-admin-wrapper h1, .shopxpert-admin-wrapper h2, .shopxpert-admin-wrapper h3, .shopxpert-admin-wrapper h4, .shopxpert-admin-wrapper h5, .shopxpert-admin-wrapper h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Merriweather", serif;
   line-height: 1.2;
   margin-top: 0;
   background-image: linear-gradient(to right, #f112e6, #0126fc );
@@ -625,7 +623,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
   background-color: #0065cc;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
-
+ 
 /* Button Field Type */
 .shopxpert-admin-button-type a{
   text-decoration: none;
@@ -989,9 +987,9 @@ ul.shopxpert-nested-tabs li a.wlactive{
 /* Enabled button */
 .shopxpert-admin-header .shopxpert-admin-btn.enable {
 margin-right: 16px; 
-color: #16d61f;   
-background-image: linear-gradient(to right, #56ef3b, #0b580a); 
--webkit-background-clip: text;  
+color: #000;   
+background-image:linear-gradient(to right, #56ef3b, #109010);
+/* -webkit-background-clip: text;   */
 border: 2px solid transparent; 
 border-image: linear-gradient(to right, #26D0CE, #1A2980) 1; /* Initial gradient border */
 padding: 10px 20px;
@@ -1004,18 +1002,17 @@ transition: background-image 0.3s ease, border-color 0.3s ease, color 0.3s ease,
 .shopxpert-admin-header .shopxpert-admin-btn.enable:hover {
   color: transparent;  
   background-image: linear-gradient(to right, #fc1572, #7587f2); 
-  -webkit-background-clip: text;   
+    -webkit-background-clip: text;     
   border-color: transparent;   
   background-color: #0065cc;  /* New background color on hover */
 }
 
 
 /* Disabled button */
-.shopxpert-admin-header .shopxpert-admin-btn.disable {
-
-color: transparent;   
-background-image: linear-gradient(to right, #ef3b3b, #0b580a);  
--webkit-background-clip: text;  
+.shopxpert-admin-header .shopxpert-admin-btn.disable { 
+color: #000;   
+background-image: linear-gradient(to right, #ef3b3b, #c80e2e);
+/* -webkit-background-clip: text;   */
 border: 2px solid transparent;   
 border-image: linear-gradient(to right, #26D0CE, #1A2980) 1;  
 padding: 10px 20px;
@@ -1027,10 +1024,9 @@ transition: background-image 0.3s ease, border-color 0.3s ease, color 0.3s ease,
 
 /* Hover state for disabled button (no effect, stays disabled) */
 .shopxpert-admin-header .shopxpert-admin-btn.disable:hover {
-color: transparent;  
+  color: transparent;  
 background-image: linear-gradient(to right, #d02626, #f44242); 
--webkit-background-clip: text;  
-color: transparent;   
+-webkit-background-clip: text;   
 border-color: transparent;  
 background-color: #0065cc;  
 }
@@ -1100,8 +1096,8 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: -5px;
 }
 .shopxpert-admin-switch-block-title {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 24px !important;
   display: flex;
   align-items: center;
@@ -1617,10 +1613,9 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding-bottom: 10px;
 }
 .shopxpert-admin-option-heading:not(.shopxpert_heading_style_two) {
-  padding: 16px 20px;
+  padding: 7px 20px;
   border-radius: 5px;
-  background-color: aliceblue;
-  
+  background-color: aliceblue; 
   border: 1px solid transparent;
   border-image: linear-gradient(to right, #ff3f3f, #0a61ff) 1;
   box-shadow: 3px 3px 12px 0px rgb(241 39 140 / 18%);
@@ -1635,7 +1630,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 @media only screen and (max-width: 575px) {
   .shopxpert-admin-option-heading:not(.shopxpert_heading_style_two) {
-    padding: 12px 20px;
+    padding: px 20px;
   }
 }
 .shopxpert-admin-option-heading-title {
@@ -2206,7 +2201,7 @@ animation: loadingspin 2s linear infinite;
 }
 
 .shopxpert-Feature-setting-popup-content .shopxpert-admin-btn {
-margin: 0;
+/* margin: 0; */
 padding: 7px 35px;
 transition: 0.4s;
 }

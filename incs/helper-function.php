@@ -1153,16 +1153,7 @@ if( class_exists('WooCommerce') ){
         echo '</div></div></div>';
     }
 
-    // Change Product Per page
-    // if( shopxpert_get_option( 'enablecustomlayout', 'shopxpert_woo_template_tabs', 'on' ) == 'on' ){
-    //     function shopxpert_custom_number_of_posts() {
-    //         $limit = shopxpert_get_option( 'shoppageproductlimit', 'shopxpert_woo_template_tabs', 2 );
-    //         $postsperpage = apply_filters( 'product_custom_limit', $limit );
-    //         return $postsperpage;
-    //     }
-    //     add_filter( 'loop_shop_per_page', 'shopxpert_custom_number_of_posts' );
-    // }
-
+ 
     // Customize rating html
     if( !function_exists('shopxpert_wc_get_rating_html') ){
         function shopxpert_wc_get_rating_html( $block = '' ){

@@ -10,13 +10,13 @@
     <div class="shopxpert-admin-main-tab-pane-inner">
         
         <!-- Header Start -->
-        <div class="shopxpert-admin-header">
-            <div class="shopxpert-admin-header-content">
-                <h6 class="shopxpert-admin-header-title"><?php echo esc_html__('ShopXpert  Element','shopxpert');?></h6>
-                <p class="shopxpert-admin-header-text"><?php echo esc_html__('You can activate or deactivate all options in One click','shopxpert');?></p>
+        <div class="shopxpert-header-admin">
+            <div class="shopxpert-header-admin-content">
+                <h6 class="shopxpert-header-admin-title"><?php echo esc_html__('ShopXpert  Element','shopxpert');?></h6>
+                <p class="shopxpert-header-admin-text"><?php echo esc_html__('You can activate or deactivate all options in One click','shopxpert');?></p>
             </div>
-            <div class="shopxpert-admin-header-actions">
-                <button class="shopxpert-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('Enable all','shopxpert'); ?></button>
+            <div class="shopxpert-header-admin-actions">
+                <button class="shopxpert-admin-btn enable" data-switch-toggle="enable" data-switch-target="element"><?php echo esc_html__('xx Enable all','shopxpert'); ?></button>
                 <button class="shopxpert-admin-btn disable" data-switch-toggle="disable" data-switch-target="element"><?php echo esc_html__('Disable all','shopxpert'); ?></button>
             </div>
         </div>
