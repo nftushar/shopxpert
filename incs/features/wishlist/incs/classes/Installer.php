@@ -37,7 +37,7 @@ class Installer {
         ) $charset_collate";
 
         if ( ! function_exists( 'dbDelta' ) ) {
-            require_once ABSPATH . 'wp-admin/incs/upgrade.php';
+            require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         }
 
         dbDelta( $schema );
