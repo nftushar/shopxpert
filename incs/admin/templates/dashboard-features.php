@@ -1,4 +1,5 @@
 <?php
+
 namespace Shopxpert\Incs\Admin\Templates;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
@@ -11,11 +12,12 @@ $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others
 
  $all_fields = array_merge($Feature_fields);
 $element_keys = Shopxpert_Admin_Fields_Manager::instance()->get_field_key($all_fields, 'name');
-
-
+echo"<h1>d 22 Helloo</h1> "; 
+ 
 ?>
-<div id="shopxpert_others_tabs" class="shopxpert-admin-main-tab-pane">
-    <div class="shopxpert-admin-main-tab-pane-inner"> 
+
+<div id="shopxpert_others_tabs" class="shopxpert-admin-main-tab-pane">  
+    <div class="shopxpert-admin-main-tab-pane-inner">   
         <!-- Header Start -->
         <div class="shopxpert-admin-header">
             <div class="shopxpert-admin-header-content">
@@ -28,14 +30,16 @@ $element_keys = Shopxpert_Admin_Fields_Manager::instance()->get_field_key($all_f
             </div>
         </div>
         <!-- Header End -->
-
+  <h1>111 22 Helloo</h1> 
         <form class="shopxpert-dashboard" id="shopxpert-dashboard-Feature-form" action="#" method="post" data-section="shopxpert_others_tabs" data-fields='<?php echo wp_json_encode($element_keys); ?>'> 
             <!-- Features Start -->
             <div class="shopxpert-admin-switch-blocks">
                 <?php 
-
+ echo"<h1>xxxHelloo</h1>";
                 foreach($Feature_fields as $key => $field) {
                     Shopxpert_Admin_Fields_Manager::instance()->add_field($field, 'shopxpert_others_tabs');
+ echo"<h1>11 Helloo</h1>";
+
                 }
                 ?>
             </div>

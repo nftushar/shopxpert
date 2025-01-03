@@ -59,13 +59,13 @@ class ShopXpert_Admin_Init {
         add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
         
         // Use admin_footer to correctly get the screen object for popup loading
-        add_action('admin_footer', [$this, 'print_Feature_setting_popup']);
+        add_action('admin_footer', [$this, 'print_feature_setting_popup']);
         
         add_action('wp_ajax_shopxpert_save_opt_data', [$this, 'save_data']);
-        add_action('wp_ajax_shopxpert_Feature_data', [$this, 'Feature_data']);
+        add_action('wp_ajax_shopxpert_feature_data', [$this, 'feature_data']);
         
         // Redirect main menu to the Settings submenu page
-        // add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
+        //   add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
     }
 
     /**
@@ -99,7 +99,7 @@ class ShopXpert_Admin_Init {
             esc_html__('Settings', 'shopxpert'),  // Menu title
             self::MENU_CAPABILITY,                // Capability
             'shopxpert',                          // Menu slug
-            [$this, 'plugin_page']                // Callback function
+            [$this, 'plugin_features_page']                // Callback function
         );
     }
 
@@ -142,24 +142,23 @@ class ShopXpert_Admin_Init {
      }
 
 
-    public function plugin_page() {
+    public function plugin_features_page() {
         ?>
         <div class="wrap shopxpert-admin-wrapper">
             <div class="shopxpert-admin-main-content">
                 <?php self::load_template('navs'); ?>
-                <div class="shopxpert-admin-main-body">  
-                    <?php self::load_template('welcome'); ?>
-                    <?php self::load_template('Feature'); ?>
+                <div class="shopxpert-admin-main-body">    
+                <?php self::load_template('features'); ?>
                 </div>
             </div> 
         </div>
         <?php
     }
 
-    public function print_Feature_setting_popup() {
+    public function print_feature_setting_popup() {
         $screen = get_current_screen();
         if ('shopxpert_page_shopxpert' === $screen->base) {  
-            self::load_template('Feature-setting-popup');
+            self::load_template('feature-setting-popup');
         }
     }
   
@@ -189,9 +188,7 @@ class ShopXpert_Admin_Init {
             }
         }, 0); // Ensure this runs early
     }
-    
-    
-
+     
  
 /**
  * [shopxpert_save_opt_data] WP Ajax Callback
@@ -266,10 +263,10 @@ public function update_option($section, $option_key, $new_value) {
  
 
     /**
-     * [Feature_data] Wp Ajax Callback
+     * [feature_data] Wp Ajax Callback
      * @return [JSON|Null]
      */
-    public function Feature_data() {
+    public function feature_data() {
         if (!current_user_can(self::MENU_CAPABILITY)) {
             // error_log('User does not have the required capability.');
             return;
@@ -285,27 +282,27 @@ public function update_option($section, $option_key, $new_value) {
     
         // // error_log(print_r($fields, true)); // Log the fields array
     
-        // Handle Feature data reset
+        // Handle feature data reset
         if ($subaction === 'reset_data' && !empty($section)) {
             delete_option($section);
             wp_send_json_success(['message' => 'Data reset successfully']);
         }
     
-        // Get Feature data only if section and fields are provided
+        // Get feature data only if section and fields are provided
         if (empty($section) || empty($fields)) {
-            wp_send_json_error(['message' => 'Feature_data Section or fields data is missing.']);
+            wp_send_json_error(['message' => 'feature_data Section or fields data is missing.']);
             return; // Ensure no further processing is done if validation fails
         }
     
-        // Fetch Feature fields based on section or fieldname
-        $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
+        // Fetch feature fields based on section or fieldname
+        $feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
         $section_fields = [];
-        foreach ($Feature_fields as $Feature) {
-            if (isset($Feature['section']) && $Feature['section'] === $section) {
-                $section_fields = $Feature['setting_fields'];
+        foreach ($feature_fields as $feature) {
+            if (isset($feature['section']) && $feature['section'] === $section) {
+                $section_fields = $feature['setting_fields'];
                 break;
-            } elseif (isset($Feature['name']) && $Feature['name'] === $fieldname) {
-                $section_fields = $Feature['setting_fields'];
+            } elseif (isset($feature['name']) && $feature['name'] === $fieldname) {
+                $section_fields = $feature['setting_fields'];
                 break;
             }
         }
@@ -327,24 +324,16 @@ public function update_option($section, $option_key, $new_value) {
             'fields'  => wp_json_encode($fields)
         ]);
     }
-    
-    
-    
      
-    
-
 
     /**
      * [enqueue_scripts] Add Scripts Base Menu Slug
      * @param  [string] $hook
      * @return [void]
      */
-        public function enqueue_scripts( $hook  ) {
-            
+        public function enqueue_scripts( $hook  ) { 
             if( $hook === 'shopxpert_page_shopxpert' || $hook === 'shopxpert_page_shopxpert_templates' || $hook === 'shopxpert_page_shopxpert_extension'){
-                  wp_enqueue_style('shopxpert-sweetalert');
-
-
+                  wp_enqueue_style('shopxpert-sweetalert'); 
                   wp_enqueue_script( 
                     'select2', 
                     SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/select2.min.js', 
