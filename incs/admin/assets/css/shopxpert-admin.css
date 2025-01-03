@@ -988,7 +988,7 @@ ul.shopxpert-nested-tabs li a.wlactive{
 .shopxpert-admin-header .shopxpert-admin-btn.enable {
 margin-right: 16px; 
 color: #000;   
-background-image:linear-gradient(to right, #56ef3b, #109010);
+background-image:linear-gradient(to right, #b5ffa8, #00e705);;
 /* -webkit-background-clip: text;   */
 border: 2px solid transparent; 
 border-image: linear-gradient(to right, #26D0CE, #1A2980) 1; /* Initial gradient border */
@@ -1011,7 +1011,7 @@ transition: background-image 0.3s ease, border-color 0.3s ease, color 0.3s ease,
 /* Disabled button */
 .shopxpert-admin-header .shopxpert-admin-btn.disable { 
 color: #000;   
-background-image: linear-gradient(to right, #ef3b3b, #c80e2e);
+background-image: linear-gradient(to right, #ef3b3b, #d6929d);;
 /* -webkit-background-clip: text;   */
 border: 2px solid transparent;   
 border-image: linear-gradient(to right, #26D0CE, #1A2980) 1;  
@@ -1059,8 +1059,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
 .shopxpert-admin-switch-blocks {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px -20px;
+  flex-wrap: wrap; 
 }
 .shopxpert-admin-switch-block {
   background-color: #f5f5f500;
@@ -1095,7 +1094,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: -5px;
 }
 .shopxpert-admin-switch-block-title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 24px !important;
   display: flex;
@@ -1467,8 +1466,8 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   height: 60px;
   color: #FFFFFF;
   border-radius: 5px;
-  background-color: #ff23b7;
-  box-shadow: 5px 5px 0 0 #0065cc;
+  background-image: linear-gradient(to right, #f112e6, #f98ed0);
+  box-shadow: 5px 5px 0 0 #020202;
 }
 .shopxpert-admin-infobox-icon i {
   font-size: 24px;
