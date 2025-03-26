@@ -4,7 +4,7 @@ Tags:label customization, pre-orders, wishlist, stock on hold, dynamic search
 Requires at least: 5.0  
 Requires PHP: 7.0  
 Tested up to: 6.7  
-Stable tag: 1.0.4  
+Stable tag: 1.0.5 
 License: GPL-2.0-or-later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -70,6 +70,16 @@ Once enabled, your customers can add products to their wishlist from the product
 Yes, with the Page Duplicator feature, you can duplicate any page to create multiple versions or templates, saving time and maintaining consistent formatting.
 
 == Changelog ==
+= 1.0.5 =  
+* **Fixes:**
+  - Resolved an issue with file path debugging for required files.
+  - Improved error handling for missing dependencies.
+
+* **Enhancements:**
+  - Added WooCommerce as a required dependency for ShopXpert.
+  - Implemented a check to ensure WooCommerce is active before the plugin runs.
+  - Added admin notices and automatic deactivation if WooCommerce is not installed or active.
+
 = 1.0.4 =  
 * **New Feature:**
   - Page Duplicator: Quickly duplicate any page in your WooCommerce store.
