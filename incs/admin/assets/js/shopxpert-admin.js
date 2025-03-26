@@ -1,6 +1,4 @@
-// alert("hello");
-
-
+//   alert("hello");  
 jQuery(document).ready(function($) {
     $('.datepicker').datepicker({
         dateFormat: 'yy-mm-dd' // Adjust the format as needed

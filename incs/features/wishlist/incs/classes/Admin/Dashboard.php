@@ -67,7 +67,7 @@ class Dashboard {
         self::$admin_menu_hook = add_submenu_page(
             'shopxpert_page',
             esc_html__( 'Wishlist', 'shopxpert' ),
-            esc_html__( 'r Wishlist', 'shopxpert' ),
+            esc_html__( 'Wishlist', 'shopxpert' ),
             'manage_options',
             self::MENU_PAGE_SLUG,
             [ $this,'dashboard' ]

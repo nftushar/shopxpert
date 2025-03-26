@@ -68,7 +68,7 @@ class Shopxpert_Admin_Fields {
             ),
 
             'shopxpert_others_tabs' => array(
- 
+
                 'features' => array( 
                     array(
                         'name'     => 'rename_label_settings',

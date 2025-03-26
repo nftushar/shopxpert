@@ -2,32 +2,16 @@
   "name": "shopxpert",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000s\u0000h\u0000o\u0000p\u0000x\u0000p\u0000e\u0000r\u0000t\u0000\r\u0000 \u0000",
-  "main": "admin-script.js", 
-    "scripts": {
-          "test": "echo \"Error: no test specified\" && exit 1",
-          "purge": "node purgecss.js",
-        "build:css": "sass incs/admin/assets/scss/shopxpert-admin.scss:incs/admin/assets/css/shopxpert-admin.min.css --style=compressed",
-        "watch:css": "sass --watch incs/admin/assets/scss/shopxpert-admin.scss:incs/admin/assets/css/shopxpert-admin.min.css",
-        "build": "npm run build:css"
-    },
-    "devDependencies": {
-        "sass": "^1.69.0"
-    },
- 
-
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nftushar/shopxpert.git"
+  "main": "admin-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/nftushar/shopxpert/issues"
-  },
-  "homepage": "https://github.com/nftushar/shopxpert#readme",
-  "devDependencies": {
-     "sass": "^1.69.0"
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

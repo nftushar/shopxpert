@@ -11,12 +11,11 @@
 
         <!-- Infoboxes Start -->
         <div class="shopxpert-admin-infoboxes">
-
             <!-- Infobox Start -->
             <div class="shopxpert-admin-infobox">
                 <div class="shopxpert-admin-infobox-icon"><i class="wli wli-file"></i></div>
                 <div class="shopxpert-admin-infobox-content">
-                    <h3 class="shopxpert-admin-infobox-title"><?php echo esc_html__('Documentation','shopxpert'); ?></h3>
+                    <h3 class="shopxpert-admin-infobox-title"><?php echo esc_html__('x Documentation','shopxpert'); ?></h3>
                     <p class="shopxpert-admin-infobox-text"><?php echo esc_html__("Our documentation is regularly updated and organized to help you get the most out of the plugin. This guide is here to make using the plugin easy and effective.",'shopxpert');?></p>
                     <a href="#" class="shopxpert-admin-btn shopxpert-admin-btn-primary-outline" target="_blank"><?php echo esc_html__('Get Now','shopxpert'); ?></a>
                 </div>

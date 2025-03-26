@@ -91,7 +91,6 @@ class ShopXpert_Settings_Field_Manager_Default {
      * registers them to WordPress and ready for use.
      */
     function admin_init() {
-        
         //register settings sections
         foreach ( $this->settings_sections as $section ) {
             if ( false == get_option( $section['id'] ) ) {
