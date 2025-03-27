@@ -57,10 +57,25 @@ class Shopxpert_Feature_Manager {
      */
     public function include_file() {
 
-        // Change Label
-        if ( !is_admin() && shopxpert_get_option( 'enablerenamelabel', 'shopxpert_rename_label_tabs', 'off' ) == 'on' ) {
-            require( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/rename-label/rename_label.php' );
-        }  
+    // Check if WooCommerce is active
+    if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+        error_log( 'WooCommerce is not active. Skipping WooCommerce-dependent features.' );
+        if ( is_admin() ) {
+            add_action( 'admin_notices', function() {
+                echo '<div class="error"><p><strong>ShopXpert</strong> requires WooCommerce to be active. Please activate WooCommerce to enable all features.</p></div>';
+            });
+        }
+        return; // Exit early if WooCommerce is not active
+    }
+
+    // Change Label
+    if ( !is_admin() && shopxpert_get_option( 'enablerenamelabel', 'shopxpert_rename_label_tabs', 'off' ) == 'on' ) {
+        error_log( 'Condition met: Including rename_label.php' );
+        require( SHOPXPERT_ADDONS_PL_PATH . 'incs/features/rename-label/rename_label.php' );
+    } else {
+        error_log( 'Condition not met: is_admin = ' . ( is_admin() ? 'true' : 'false' ) . 
+                   ', enablerenamelabel = ' . shopxpert_get_option( 'enablerenamelabel', 'shopxpert_rename_label_tabs', 'off' ) );
+    }  
 
         // pre-orders
         if ( !is_admin() && shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' ) == 'on' ) { 

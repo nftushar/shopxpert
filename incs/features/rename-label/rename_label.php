@@ -11,6 +11,8 @@ if ( ! function_exists('shopxpert_custom_add_cart_button_shop_page') ) {
     function shopxpert_custom_add_cart_button_shop_page( $label ) {
         // Get the label text
         $label_text = shopxpert_get_option_label_text( 'wl_shop_add_to_cart_txt', 'shopxpert_rename_label_tabs', 'Add to Cart' );
+        ver_dump("test tabel" .$label_text);
+error_log("test tabel" .$label_text);
         return esc_html( $label_text ); // Ensure output is escaped
     }
 }

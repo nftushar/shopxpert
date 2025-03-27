@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: D ShopXpert
+Plugin Name: ShopXpert
 Plugin URI: https://github.com/tushar/shopxpert
 Description: An all-in-one WooCommerce solution for label customization, pre-orders, and more.
 Version: 1.0.4
@@ -27,7 +27,7 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 }
 
 // Include WooCommerce check
-require_once plugin_dir_path(__FILE__) . 'includes/class-shopxpert-woocommerce-check.php';
+require_once plugin_dir_path(__FILE__) . 'incs/class-shopxpert-woocommerce-check.php';
 
 // Required File
 require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/main.php';

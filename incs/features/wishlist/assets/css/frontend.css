@@ -26,8 +26,8 @@ a.wishlist-addtocart.added::after{
 }
 
 .wishlist-loader {
-    position: absolute;
-    left: 5px;
+    display: inline-block;
+    vertical-align: middle;
 }
 a.wishlist-button::after,.woocommerce a.button.wishlist-button::after{
     display: none;
