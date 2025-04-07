@@ -1306,8 +1306,12 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 .shopxpert-admin-main-tab-pane-inner .shopxpert-extension-col-3 .shopxpert-admin-extension{
   width: calc(50% - 30px);
 }
+ 
+
 .shopxpert-admin-main-tab-pane-inner .wrap{
   margin: 0;
+  display: grid;
+  justify-content: center
 }
 .shopxpert-admin-main-tab-pane-inner .wrap > h2{
   display: none;
