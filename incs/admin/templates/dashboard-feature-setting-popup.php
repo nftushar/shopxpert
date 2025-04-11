@@ -1,6 +1,9 @@
-<?php
-    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+<?php 
+namespace ShopXpert\Admin\Templates;
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
+
 <script type="text/template" id="tmpl-shopxpertFeature">
     <div class="shopxpert-Feature-setting-popup">
         <div id="shopxpert-admin-pro-popup" class="shopxpert-admin-popup open">
