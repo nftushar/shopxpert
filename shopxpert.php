@@ -34,15 +34,4 @@ require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/main.php';
 
 // Load the plugin's base functionality
 \ShopXpert\shopxpert();
-
-
-function shopxpert_enqueue_scripts() {
-    wp_enqueue_script('shopxpert-react-app', plugins_url('assets/js/app.js', __FILE__), array(), SHOPXPERT_VERSION, true);
-    wp_enqueue_style('shopxpert-react-app', plugins_url('assets/css/app.css', __FILE__), array(), SHOPXPERT_VERSION);
-}
-add_action('wp_enqueue_scripts', 'shopxpert_enqueue_scripts');
-
-function shopxpert_render_react_component() {
-    echo '<div id="shopxpert-react-app"></div>';
-}
-add_shortcode('shopxpert_react', 'shopxpert_render_react_component');
+ 
