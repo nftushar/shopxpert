@@ -174,7 +174,7 @@ class ShopXpert_Admin_Init
         error_log("Current Screen: " . $screen->base); // Debugging
         if ('shopxpert_page_shopxpert' === $screen->base) {
             include_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popup.php';
-            var_dump("Template included successfully.");
+            // var_dump("Template included successfully.");
         } else {
             error_log("Screen does not match: " . $screen->base);
         }

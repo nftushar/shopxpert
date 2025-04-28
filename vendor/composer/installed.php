@@ -3,7 +3,7 @@
         'name' => 'user/shopxpert',
         'pretty_version' => '1.0.1',
         'version' => '1.0.1.0',
-        'reference' => NULL,
+        'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'user/shopxpert' => array(
             'pretty_version' => '1.0.1',
             'version' => '1.0.1.0',
-            'reference' => NULL,
+            'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

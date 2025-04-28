@@ -1,5 +1,8 @@
 <?php
 namespace WishList;
+
+use function Shopxpert\incs\shopxpert_update_option;
+
 /**
  * Installer class
  */
@@ -59,8 +62,9 @@ class Installer {
                 '<!-- wp:shortcode -->[wishlist_table]<!-- /wp:shortcode -->'
             );
             if( $create_page_id ){
-                shopxpert_update_option( 'wishlist_table_settings_tabs','wishlist_page', $create_page_id );
+                shopxpert_update_option( 'wishlist_table_settings_tabs', 'wishlist_page', $create_page_id ); //  
             }
+            
         }
     }
 
