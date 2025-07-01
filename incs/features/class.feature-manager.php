@@ -114,6 +114,12 @@ class Shopxpert_Feature_Manager
                 require_once(SHOPXPERT_ADDONS_PL_PATH . 'incs/features/partial-payment/partial-payment.php');
             }
         }
+
+        // Fake Order Detection
+        if (shopxpert_get_option('enable_fake_order_detection', 'shopxpert_fake_order_detection_settings', 'off') == 'on') {
+            require_once(SHOPXPERT_ADDONS_PL_PATH . 'incs/features/fake-order-detection/class.fake-order-detection.php');
+            new ShopXpert_Fake_Order_Detection();
+        }
     }
 
     /**

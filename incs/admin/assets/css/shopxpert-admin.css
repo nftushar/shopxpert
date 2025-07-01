@@ -2293,3 +2293,69 @@ margin-top: 20px;
 font-size: 16px;
 line-height: 26px;
 }
+
+/* --- Fake Order Detection Section --- */
+.shopxpert-fake-order-section {
+    background: #f8fafc;
+    border: 1px solid #d1e7dd;
+    border-radius: 8px;
+    padding: 24px 24px 12px 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.shopxpert-fake-order-section h2,
+.shopxpert-fake-order-section .element_section_title {
+    color: #0d6efd;
+    margin-top: 0;
+}
+.shopxpert-fake-order-section .shopxpert-action-field-left label {
+    color: #212529;
+    font-weight: 600;
+}
+.shopxpert-fake-order-section textarea,
+.shopxpert-fake-order-section input[type="text"] {
+    border: 1px solid #b6d4fe;
+    background: #fff;
+    border-radius: 4px;
+    padding: 6px 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.shopxpert-fake-order-section .shopxpert-highlight {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    color: #856404;
+    border-radius: 4px;
+}
+.shopxpert-fake-order-section .shopxpert-toggle {
+    accent-color: #0d6efd;
+}
+
+/* --- ShopXpert Feature Section --- */
+.shopxpert-feature-section {
+    background: #e7f1ff;
+    border: 1px solid #b6d4fe;
+    border-radius: 8px;
+    padding: 20px 24px 12px 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.shopxpert-feature-section h2,
+.shopxpert-feature-section .element_section_title {
+    color: #0d6efd;
+    margin-top: 0;
+}
+.shopxpert-feature-section .shopxpert-highlight {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    color: #856404;
+    border-radius: 4px;
+}
+.shopxpert-feature-section .button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}

@@ -8,6 +8,8 @@ use Shopxpert\Incs;
 use function Shopxpert\shopxpert_taxonomy_list;
 use function Shopxpert\shopxpert_post_name;
 use function Shopxpert\Incs\shopxpert_get_post_types;
+use function esc_html__;
+use function esc_url;
  
 
 if (!defined('ABSPATH')) exit; 
@@ -80,7 +82,12 @@ class Shopxpert_Admin_Fields {
                         'require_settings'=> true,
                         'documentation' => esc_url('https://#/doc/change-woocommerce-text/'),
                         'setting_fields' => array(
-                            
+                            array(
+                                'name'  => 'rename_label_section_title',
+                                'headding' => 'Change Label',
+                                'type'  => 'title',
+                                'class' => 'shopxpert-feature-section',
+                            ),
                             array(
                                 'name'  => 'enablerenamelabel',
                                 'label' => esc_html__( 'Enable / Disable', 'shopxpert' ),
@@ -177,7 +184,12 @@ class Shopxpert_Admin_Fields {
                         'require_settings'=> true,
                         'documentation' => esc_url('https://#/doc/change-woocommerce-text/'),
                         'setting_fields' => array(
-    
+                            array(
+                                'name'  => 'pre_orders_section_title',
+                                'headding' => 'Pre Orders',
+                                'type'  => 'title',
+                                'class' => 'shopxpert-feature-section',
+                            ),
                             array(
                                 'name'  => 'enable',
                                 'label' => esc_html__( 'Enable / Disable', 'shopxpert' ),
@@ -256,7 +268,12 @@ class Shopxpert_Admin_Fields {
                         'require_settings'  => true,
                         'documentation' => esc_url('https://#/doc/how-to-enable-woocommerce-backorder/'),
                         'setting_fields' => array(
-                        
+                            array(
+                                'name'  => 'stock_on_hold_section_title',
+                                'headding' => 'Stock on Hold',
+                                'type'  => 'title',
+                                'class' => 'shopxpert-feature-section',
+                            ),
                             array(
                                 'name'  => 'enable',
                                 'label' => esc_html__( 'Enable / Disable', 'shopxpert' ),
@@ -301,6 +318,70 @@ class Shopxpert_Admin_Fields {
                         'documentation' => esc_url('https://#/doc/wishlist-for-woocommerce/')
                     ), 
                     
+                    array(
+                        'name'     => 'fake_order_detection',
+                        'label'    => esc_html__( 'Fake Order Detection', 'shopxpert' ),
+                        'type'     => 'Feature',
+                        'default'  => 'off',
+                        'section'  => 'shopxpert_fake_order_detection_settings',
+                        'option_id'=> 'enable_fake_order_detection',
+                        'require_settings'=> true,
+                        'documentation' => esc_url('https://#/doc/fake-order-detection/'),
+                        'setting_fields' => array(
+                            array(
+                                'name'  => 'fake_order_detection_section_title',
+                                'headding' => 'xxFake Order Detection',
+                                'type'  => 'title',
+                                'class' => 'shopxpert-fake-order-section',
+                            ),
+                            array(
+                                'name'  => 'fake_order_detection_info',
+                                'type'  => 'html',
+                                'desc'  => '<div class="shopxpert-highlight"><span class="dashicons dashicons-info"></span> <strong>' . esc_html__('Tip:', 'shopxpert') . '</strong> ' . esc_html__('Use the blacklist fields to block known spam domains and IPs. Changes take effect immediately.', 'shopxpert') . '</div>',
+                            ),
+                            array(
+                                'name'  => 'enable_fake_order_detection',
+                                'label' => esc_html__( 'Enable / Disable', 'shopxpert' ),
+                                'desc'  => esc_html__( 'Enable this option to detect and block fake or spam orders in WooCommerce.', 'shopxpert' ),
+                                'type'  => 'checkbox',
+                                'default' => 'off',
+                                'class'   =>'shopxpert-action-field-left shopxpert-toggle',
+                            ),
+                            array(
+                                'name'  => 'fake_order_email_blacklist',
+                                'label' => esc_html__( 'Email Domain Blacklist', 'shopxpert' ),
+                                'desc'  => esc_html__( 'Enter one suspicious email domain per line (e.g., mailinator.com).', 'shopxpert' ),
+                                'type'  => 'textarea',
+                                'default' => "mailinator.com\ntempmail.com\n10minutemail.com\nyopmail.com\nguerrillamail.com",
+                                'class'   =>'shopxpert-action-field-left',
+                            ),
+                            array(
+                                'name'  => 'fake_order_ip_blacklist',
+                                'label' => esc_html__( 'Spam IP Blacklist', 'shopxpert' ),
+                                'desc'  => esc_html__( 'Enter one suspicious IP address per line.', 'shopxpert' ),
+                                'type'  => 'textarea',
+                                'default' => "1.2.3.4\n5.6.7.8",
+                                'class'   =>'shopxpert-action-field-left',
+                            ),
+                            array(
+                                'name'  => 'enable_fraud_api',
+                                'label' => esc_html__( 'Enable Fraud Scoring API', 'shopxpert' ),
+                                'desc'  => esc_html__( 'Enable integration with a third-party fraud scoring API.', 'shopxpert' ),
+                                'type'  => 'checkbox',
+                                'default' => 'off',
+                                'class'   =>'shopxpert-action-field-left shopxpert-toggle',
+                            ),
+                            array(
+                                'name'  => 'fraud_api_key',
+                                'label' => esc_html__( 'Fraud API Key', 'shopxpert' ),
+                                'desc'  => esc_html__( 'Enter your fraud scoring API key here.', 'shopxpert' ),
+                                'type'  => 'text',
+                                'default' => '',
+                                'class'   =>'shopxpert-action-field-left',
+                            ),
+                        )
+                    ),
+
                 ),
 
                 'others' => array(
