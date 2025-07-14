@@ -4,7 +4,7 @@
  
 .shopxpert-admin-wrapper {
   font-family: "Merriweather", serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
   font-style: normal;
   line-height: 1.715;
@@ -1095,9 +1095,8 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: -5px;
 }
 .shopxpert-admin-switch-block-title {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 24px !important;
+  font-size: 14px;
+  font-weight: 400; 
   display: flex;
   align-items: center;
   margin-right: 7px;
@@ -1621,7 +1620,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   background-color: aliceblue; 
   border: 1px solid transparent;
   border-image: linear-gradient(to right, #ff3f3f, #0a61ff) 1;
-  box-shadow: 3px 3px 12px 0px rgb(241 39 140 / 18%);
+  /* box-shadow: 3px 3px 12px 0px rgb(241 39 140 / 18%); */
 }
 .shopxpert_heading_style_two{
   width: 100%;

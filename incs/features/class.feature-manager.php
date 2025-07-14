@@ -120,6 +120,15 @@ class Shopxpert_Feature_Manager
             require_once(SHOPXPERT_ADDONS_PL_PATH . 'incs/features/fake-order-detection/class.fake-order-detection.php');
             new ShopXpert_Fake_Order_Detection();
         }
+
+        // Product Comparison
+        $comparison_enabled = shopxpert_get_option('product_comparison', 'shopxpert_others_tabs', 'off');
+        if ($comparison_enabled === 'on') {
+            require_once(SHOPXPERT_ADDONS_PL_PATH . 'incs/features/product-comparison/class.product-comparison.php');
+            if (function_exists('Shopxpert\\ProductComparison\\Shopxpert_Product_Comparison')) {
+                \Shopxpert\ProductComparison\Shopxpert_Product_Comparison();
+            }
+        }
     }
 
     /**
