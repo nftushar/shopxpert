@@ -16,7 +16,7 @@
   font-family: "Merriweather", serif;
   line-height: 1.2;
   margin-top: 0;
-  background-image: linear-gradient(to right, #f112e6, #0126fc );
+  background-color: #294ec4;
   -webkit-background-clip: text;
   color: transparent;  
 }
@@ -988,7 +988,7 @@ ul.shopxpert-nested-tabs li a.wlactive{
 .shopxpert-admin-header .shopxpert-admin-btn.enable {
 margin-right: 16px; 
 color: #000;   
-background-image:linear-gradient(to right, #56ef3b, #109010);
+background-color: #00e705;
 /* -webkit-background-clip: text;   */
 border: 2px solid transparent; 
 border-image: linear-gradient(to right, #26D0CE, #1A2980) 1; /* Initial gradient border */
@@ -1011,7 +1011,7 @@ transition: background-image 0.3s ease, border-color 0.3s ease, color 0.3s ease,
 /* Disabled button */
 .shopxpert-admin-header .shopxpert-admin-btn.disable { 
 color: #000;   
-background-image: linear-gradient(to right, #ef3b3b, #c80e2e);
+background-color: #f05d5d;
 /* -webkit-background-clip: text;   */
 border: 2px solid transparent;   
 border-image: linear-gradient(to right, #26D0CE, #1A2980) 1;  

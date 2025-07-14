@@ -330,7 +330,7 @@ class Shopxpert_Admin_Fields {
                         'setting_fields' => array(
                             array(
                                 'name'  => 'fake_order_detection_section_title',
-                                'headding' => 'xxFake Order Detection',
+                                'headding' => 'Fake Order Detection',
                                 'type'  => 'title',
                                 'class' => 'shopxpert-fake-order-section',
                             ),
