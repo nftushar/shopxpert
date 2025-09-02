@@ -1,9 +1,6 @@
 jQuery(document).ready(function($) {
     $('#shopxpert-form').on('submit', function(e) {
-        e.preventDefault();
-        
-console.log("shopxpert form");
-
+        e.preventDefault(); 
         // Serialize form data
         var formData = $(this).serialize();
 

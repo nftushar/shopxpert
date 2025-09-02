@@ -75,8 +75,6 @@ jQuery(document).ready(function($) {
 
     /* Number Input */
     $('.shopxpert-admin-number-btn').on('click', function(e){
-        console.log("hello");
-        
         e.preventDefault()
         const $this = $(this),
             $input = $this.parent('.shopxpert-admin-number').find('input[type="number"]')[0]
@@ -130,9 +128,7 @@ jQuery(document).ready(function($) {
 
     /* Switch Enable/Disable Function */
     $('[data-switch-toggle]').on('click', function (e) {
-        e.preventDefault();
-console.log("JS Switch Enable/Disable Function");
-
+        e.preventDefault(); 
         const $this = $(this),
             $type = $this.data('switch-toggle'),
             $target = $this.data('switch-target'),
