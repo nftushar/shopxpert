@@ -63,10 +63,19 @@ final class Shopxpert_Product_Comparison_Base {
         \add_action('wp_ajax_nopriv_shopxpert_comparison_remove', [ $this, 'ajax_remove_product' ]);
         \add_action('wp_ajax_shopxpert_comparison_remove_all', [ $this, 'ajax_remove_all' ]);
         \add_action('wp_ajax_nopriv_shopxpert_comparison_remove_all', [ $this, 'ajax_remove_all' ]);
+        \add_action('wp_ajax_shopxpert_comparison_count', [ $this, 'ajax_get_count' ]);
+        \add_action('wp_ajax_nopriv_shopxpert_comparison_count', [ $this, 'ajax_get_count' ]);
+        \add_action('wp_ajax_shopxpert_comparison_search', [ $this, 'ajax_search_products' ]);
+        \add_action('wp_ajax_nopriv_shopxpert_comparison_search', [ $this, 'ajax_search_products' ]);
+        \add_action('wp_ajax_shopxpert_comparison_footer_data', [ $this, 'ajax_get_footer_data' ]);
+        \add_action('wp_ajax_nopriv_shopxpert_comparison_footer_data', [ $this, 'ajax_get_footer_data' ]);
         if ( is_admin() ) {
             require_once __DIR__ . '/Admin_Fields.php';
             \add_action( 'admin_menu', [ $this, 'register_admin_menu' ] );
         }
+        
+        // Register widget
+        \add_action( 'widgets_init', [ $this, 'register_widget' ] );
     }
 
     /**
@@ -136,6 +145,84 @@ final class Shopxpert_Product_Comparison_Base {
     }
 
     /**
+     * AJAX: Get comparison count
+     */
+    public function ajax_get_count() {
+        check_ajax_referer('shopxpert_comparison_nonce', 'nonce');
+        $list = \Shopxpert\ProductComparison\Manage_Comparison::instance()->get_comparison_list();
+        wp_send_json_success([
+            'count' => count($list),
+        ]);
+    }
+
+    /**
+     * AJAX: Search products
+     */
+    public function ajax_search_products() {
+        check_ajax_referer('shopxpert_comparison_nonce', 'nonce');
+        $query = sanitize_text_field($_POST['query'] ?? '');
+        
+        if (strlen($query) < 2) {
+            wp_send_json_success(['products' => []]);
+        }
+        
+        $args = [
+            'post_type' => 'product',
+            'post_status' => 'publish',
+            'posts_per_page' => 10,
+            's' => $query,
+            'meta_query' => [
+                [
+                    'key' => '_visibility',
+                    'value' => ['visible', 'catalog'],
+                    'compare' => 'IN'
+                ]
+            ]
+        ];
+        
+        $products = get_posts($args);
+        $results = [];
+        
+        foreach ($products as $product) {
+            $wc_product = wc_get_product($product->ID);
+            if (!$wc_product) continue;
+            
+            $results[] = [
+                'id' => $product->ID,
+                'name' => $product->post_title,
+                'price' => $wc_product->get_price_html(),
+                'image' => get_the_post_thumbnail_url($product->ID, 'thumbnail') ?: wc_placeholder_img_src('thumbnail'),
+                'url' => get_permalink($product->ID)
+            ];
+        }
+        
+        wp_send_json_success(['products' => $results]);
+    }
+
+    /**
+     * AJAX: Get footer data
+     */
+    public function ajax_get_footer_data() {
+        check_ajax_referer('shopxpert_comparison_nonce', 'nonce');
+        $list = \Shopxpert\ProductComparison\Manage_Comparison::instance()->get_comparison_list();
+        $products = [];
+        
+        foreach ($list as $product_id) {
+            $product = wc_get_product($product_id);
+            if (!$product) continue;
+            
+            $products[] = [
+                'id' => $product_id,
+                'name' => $product->get_name(),
+                'image' => get_the_post_thumbnail_url($product_id, 'thumbnail') ?: wc_placeholder_img_src('thumbnail'),
+                'price' => $product->get_price_html()
+            ];
+        }
+        
+        wp_send_json_success(['products' => $products]);
+    }
+
+    /**
      * Register Product Comparison admin menu
      */
     public function register_admin_menu() {
@@ -147,6 +234,14 @@ final class Shopxpert_Product_Comparison_Base {
             'product_comparison',
             [ \Shopxpert\ProductComparison\Admin_Fields::instance(), 'plugin_page' ]
         );
+    }
+
+    /**
+     * Register Product Comparison widget
+     */
+    public function register_widget() {
+        require_once __DIR__ . '/Widget.php';
+        \register_widget( '\Shopxpert\ProductComparison\Widget' );
     }
 
     // Add more methods for popup, table, etc. as needed

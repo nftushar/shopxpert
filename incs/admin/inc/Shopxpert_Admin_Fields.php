@@ -169,7 +169,7 @@ class Shopxpert_Admin_Fields {
                                 'placeholder' => esc_html__( 'Place order', 'shopxpert' ),
                                 'class'       => 'depend_enable_rename_label shopxpert-action-field-left',
                             ),
-
+            
                         )
                     ), 
                     array(
@@ -602,17 +602,7 @@ class Shopxpert_Admin_Fields {
 
                 'others' => array(
 
-                    array(
-                        'name'  => 'loadproductlimit',
-                        'label' => esc_html__( 'Load Products in Elementor Addons', 'shopxpert' ),
-                        'desc'  => esc_html__( 'Set the number of products to load in Elementor Addons', 'shopxpert' ),
-                        'min'               => 1,
-                        'max'               => 100,
-                        'step'              => '1',
-                        'type'              => 'number',
-                        'default'           => '20',
-                        'sanitize_callback' => 'floatval'
-                    )
+                    
 
                 ),
 
@@ -624,9 +614,6 @@ class Shopxpert_Admin_Fields {
          if( !is_plugin_active('ht-mega-for-elementor/htmega_addons_elementor.php') ){
 
             $post_types = shopxpert_get_post_types( array( 'defaultadd' => 'all' ) );
-            if ( did_action( 'elementor/loaded' ) && defined( 'ELEMENTOR_VERSION' ) ) {
-                $post_types['elementor_library'] = esc_html__( 'Templates', 'shopxpert' );
-            }
 
             $settings_fields['shopxpert_others_tabs']['features'][] = [
                 'name'     => 'postduplicator',

@@ -81,20 +81,9 @@ class Shopxpert_Custom_Meta_Fields{
                 echo '<p class=" form-field _selectproduct_layout_field">';
                     echo '<label for="_selectproduct_layout">'.esc_html__( 'Select Product layout', 'shopxpert' ).'</label>';
                     echo '<select class="select short" id="_selectproduct_layout" name="_selectproduct_layout">';
-                        $shopxpert_templates = $elementor_templates = [];
+                        $shopxpert_templates = [];
                         if( function_exists( 'shopxpert_wltemplate_list' ) ){
                             $shopxpert_templates = shopxpert_wltemplate_list( array('single') );
-                        }
-                        if( function_exists('shopxpert_elementor_template') ){
-                            $elementor_templates = shopxpert_elementor_template();
-                        }
-
-                        if( !empty( $elementor_templates ) ){
-                            echo '<optgroup label="'.esc_attr('Elementor').'">';
-                            foreach ( $elementor_templates as $template_key => $template ) {
-                                echo '<option value="'.esc_attr( $template_key ).'" '.selected( $value, $template_key, false ).'>'.esc_html__( $template, 'shopxpert' ).'</option>';
-                            }
-                            echo '</optgroup>';
                         }
 
                         if( !empty( $shopxpert_templates ) ){
@@ -387,20 +376,9 @@ class Shopxpert_Custom_Meta_Fields{
             <select class="postform" id="equipment-group" name="wooletor_selectcategory_layout">
 
                 <?php
-                    $shopxpert_templates = $elementor_templates = [];
+                    $shopxpert_templates = [];
                     if( function_exists( 'shopxpert_wltemplate_list' ) ){
                         $shopxpert_templates = shopxpert_wltemplate_list( array('shop','archive') );
-                    }
-                    if( function_exists('shopxpert_elementor_template') ){
-                        $elementor_templates = shopxpert_elementor_template();
-                    }
-
-                    if( !empty( $elementor_templates ) ){
-                        echo '<optgroup label="'.esc_attr('Elementor').'">';
-                        foreach ( $elementor_templates as $template_key => $template ) {
-                            echo '<option value="'.esc_attr( $template_key ).'">'.esc_html__( $template, 'shopxpert' ).'</option>';
-                        }
-                        echo '</optgroup>';
                     }
 
                     if( !empty( $shopxpert_templates ) ){
@@ -435,20 +413,9 @@ class Shopxpert_Custom_Meta_Fields{
                 <td>
                     <select class="postform" id="wooletor_selectcategory_layout" name="wooletor_selectcategory_layout">
                         <?php
-                            $shopxpert_templates = $elementor_templates = [];
+                            $shopxpert_templates = [];
                             if( function_exists( 'shopxpert_wltemplate_list' ) ){
                                 $shopxpert_templates = shopxpert_wltemplate_list( array('shop','archive') );
-                            }
-                            if( function_exists('shopxpert_elementor_template') ){
-                                $elementor_templates = shopxpert_elementor_template();
-                            }
-
-                            if( !empty( $elementor_templates ) ){
-                                echo '<optgroup label="'.esc_attr('Elementor').'">';
-                                foreach ( $elementor_templates as $template_key => $template ) {
-                                    echo '<option value="'.esc_attr( $template_key ).'" '.selected( $category_layout, $template_key, false ).'>'.esc_html__( $template, 'shopxpert' ).'</option>';
-                                }
-                                echo '</optgroup>';
                             }
 
                             if( !empty( $shopxpert_templates ) ){

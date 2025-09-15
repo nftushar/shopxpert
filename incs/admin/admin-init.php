@@ -80,8 +80,7 @@ class ShopXpert_Admin_Init
     public function include()
     {
         require_once('inc/Shopxpert_Admin_Fields_Manager.php');
-        require_once('inc/Shopxpert_Admin_Fields.php');
-        require_once('inc/template-library.php');
+        require_once('inc/Shopxpert_Admin_Fields.php'); 
     }
 
     /**

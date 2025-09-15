@@ -20,7 +20,7 @@ function shopxpert_is_woocommerce() {
  * @return [boolean]
  */
 function shopxpert() {
-    return class_exists( '\ShopXpert\Main' );
+    return class_exists( '\\ShopXpert\\Main' );
 }
 
 /**
@@ -78,15 +78,15 @@ function shopxpert_wltemplate_list( $type = [] ){
 * @return [boolean]
 */
 function shopxpert_is_elementor_version( $operator = '<', $version = '2.6.0' ) {
-    return defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, $version, $operator );
+    return false;
 }
 
 /**
  * Get elementor instance
- * @return [\Elementor\Plugin]
+ * @return [\\Elementor\\Plugin]
  */
 function shopxpert_elementor() {
-	return \Elementor\Plugin::instance();
+	return null;
 }
 
 /**
@@ -94,7 +94,7 @@ function shopxpert_elementor() {
 * @return [boolean]
 */
 function shopxpert_is_elementor_editor(){
-    return class_exists('\Elementor\Plugin') ? true : false;
+    return false;
 }
 
 /**
@@ -102,11 +102,7 @@ function shopxpert_is_elementor_editor(){
 * @return [boolean]
 */
 function shopxpert_is_elementor_editor_mode(){
-    if( shopxpert_is_elementor_editor() && \Elementor\Plugin::instance()->editor->is_edit_mode() ){
-        return true;
-    }else{
-        return false;
-    }
+    return false;
 }
 
 /**
@@ -114,7 +110,7 @@ function shopxpert_is_elementor_editor_mode(){
 * @return boolean
 */
 function shopxpert_is_preview_mode(){
-    if( shopxpert_is_elementor_editor_mode() || get_post_type() === 'shopxpert-template' ){
+    if( get_post_type() === 'shopxpert-template' ){
         return true;
     }else{
         return false;
@@ -126,7 +122,7 @@ function shopxpert_is_preview_mode(){
  * @return [void]
  */
 function shopxpert_is_elementor_active() {
-    return did_action('elementor/loaded');
+    return false;
 }
 
 /**
@@ -136,21 +132,7 @@ function shopxpert_is_elementor_active() {
  * @return [HTML]
  */
 function shopxpert_build_page_content( $page_id ){
-    return class_exists('\Elementor\Plugin') ? \Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $page_id ) : '';
-}
-
-/**
-* Checked Current theme is FSE
-*/
-function shopxpert_current_theme_is_fse() {
-	if ( function_exists( 'wp_is_block_theme' ) ) {
-		return (bool) wp_is_block_theme();
-	}
-	if ( function_exists( 'gutenberg_is_fse_theme' ) ) {
-		return (bool) gutenberg_is_fse_theme();
-	}
-
-	return false;
+    return '';
 }
 
 /**
@@ -162,60 +144,7 @@ function shopxpert_current_theme_is_fse() {
  * @return [html]  html | false
  */
 function shopxpert_render_icon( $settings = [], $new_icon = 'selected_icon', $old_icon = 'icon', $attributes = [] ){
-
-    $migrated = isset( $settings['__fa4_migrated'][$new_icon] );
-    $is_new = empty( $settings[$old_icon] ) && \Elementor\Icons_Manager::is_migration_allowed();
-
-    $attributes['aria-hidden'] = 'true';
-    $output = '';
-
-    if ( shopxpert_is_elementor_version( '>=', '2.6.0' ) && ( $is_new || $migrated ) ) {
-
-        if ( empty( $settings[$new_icon]['library'] ) ) {
-            return false;
-        }
-
-        $tag = 'i';
-        // handler SVG Icon
-        if ( 'svg' === $settings[$new_icon]['library'] ) {
-            if ( ! isset( $settings[$new_icon]['value']['id'] ) ) {
-                return '';
-            }
-            $output = Elementor\Core\Files\File_Types\Svg::get_inline_svg( $settings[$new_icon]['value']['id'] );
-
-        } else {
-            $icon_types = \Elementor\Icons_Manager::get_icon_manager_tabs();
-            if ( isset( $icon_types[ $settings[$new_icon]['library'] ]['render_callback'] ) && is_callable( $icon_types[ $settings[$new_icon]['library'] ]['render_callback'] ) ) {
-                return call_user_func_array( $icon_types[ $settings[$new_icon]['library'] ]['render_callback'], [ $settings[$new_icon], $attributes, $tag ] );
-            }
-
-            if ( empty( $attributes['class'] ) ) {
-                $attributes['class'] = $settings[$new_icon]['value'];
-            } else {
-                if ( is_array( $attributes['class'] ) ) {
-                    $attributes['class'][] = $settings[$new_icon]['value'];
-                } else {
-                    $attributes['class'] .= ' ' . $settings[$new_icon]['value'];
-                }
-            }
-            $output = '<' . $tag . ' ' . \Elementor\Utils::render_html_attributes( $attributes ) . '></' . $tag . '>';
-        }
-
-    } else {
-        if ( empty( $attributes['class'] ) ) {
-            $attributes['class'] = $settings[ $old_icon ];
-        } else {
-            if ( is_array( $attributes['class'] ) ) {
-                $attributes['class'][] = $settings[ $old_icon ];
-            } else {
-                $attributes['class'] .= ' ' . $settings[ $old_icon ];
-            }
-        }
-        $output = sprintf( '<i %s></i>', \Elementor\Utils::render_html_attributes( $attributes ) );
-    }
-
-    return $output;
- 
+    return '';
 }
 
 /**
@@ -511,20 +440,7 @@ function shopxpert_post_name( $post_type = 'post', $args = [] ){
  * return array
  */
 function shopxpert_elementor_template() {
-    $templates = '';
-    if( class_exists('\Elementor\Plugin') ){
-        $templates = \Elementor\Plugin::instance()->templates_manager->get_source( 'local' )->get_items();
-    }
-    $types = array();
-    if ( empty( $templates ) ) {
-        $template_lists = [ '0' => __( 'No saved templates found.', 'shopxpert' ) ];
-    } else {
-        $template_lists = [ '0' => __( 'Select Template', 'shopxpert' ) ];
-        foreach ( $templates as $template ) {
-            $template_lists[ $template['template_id'] ] = $template['title'] . ' (' . $template['type'] . ')';
-        }
-    }
-    return $template_lists;
+    return [ '0' => __( 'No saved templates found.', 'shopxpert' ) ];
 }
 
 
@@ -715,6 +631,27 @@ function shopxpert_get_html_allowed_tags($tag_type = 'title') {
         'span'   => [
 			'class' => [],
 			'id'    => [],
+			'line-height' => [],
+			'letter-spacing' => [],
+			'font-weight' => [],
+			'font-size' => [],
+			'font-family' => [],
+			'word-spacing' => [],
+			'color' => [],
+			'background-color' => [],
+			'padding' => [],
+			'margin' => [],
+			'border' => [],
+			'border-radius' => [],
+			'width' => [],
+			'height' => [],
+			'display' => [],
+			'position' => [],
+			'top' => [],
+			'left' => [],
+			'right' => [],
+			'bottom' => [],
+			'background' => [],
 			'style' => [],
 		],
 		'strong' => [
@@ -1165,7 +1102,7 @@ if( class_exists('WooCommerce') ){
             $rating_fraction = $average - $rating_whole;
             $flug = 0;
 
-            $icon_svg = get_option('elementor_experiment-e_font_icon_svg','default');
+            $icon_svg = 'default';
             $icon_prefix = ( $icon_svg == 'active' || $block == 'yes' ) ? 'fa' : 'fas';
             
             if ( $rating_count > 0 ) {
@@ -1180,18 +1117,10 @@ if( class_exists('WooCommerce') ){
                                     echo '<i class="'.esc_attr($icon_prefix).' fa-star"></i>';
                                 } else {
                                     if( $rating_fraction > 0 && $flug == 0 ){
-                                        if( $icon_svg == 'active' || $block == 'yes' ){
-                                            echo '<i class="fa fa-star-half-o"></i>';
-                                        }else{
-                                            echo '<i class="fas fa-star-half-alt"></i>';
-                                        }
+                                        echo '<i class="far fa-star empty"></i>';
                                         $flug = 1;
                                     } else {
-                                        if( $icon_svg == 'active' || $block == 'yes' ){
-                                            echo '<i class="fa fa-star-o"></i>';
-                                        }else{
-                                            echo '<i class="far fa-star empty"></i>';
-                                        }
+                                        echo '<i class="far fa-star empty"></i>';
                                     }
                                 }
                             } ?>
@@ -1207,17 +1136,7 @@ if( class_exists('WooCommerce') ){
         }
     }
 
-    // HTML Markup Render in footer
-    // function shopxpert_html_render_infooter(){
-    //     if ( true === apply_filters( 'shopxpert_footer_content_visibility', true ) ) {
-    //         do_action( 'shopxpert_footer_render_content' );
-    //     }
-    // }
-    // add_action( 'wp_footer', 'shopxpert_html_render_infooter' );
-
-
     
-
     /**
      * [shopxpert_stock_status]
      */

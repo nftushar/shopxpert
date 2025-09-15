@@ -30,7 +30,6 @@ class Assets_Management{
      * [__construct] Class Constructor
      */
     function __construct(){
-
         $this->init();
     }
 
@@ -39,17 +38,11 @@ class Assets_Management{
      * @return [void]
      */
     public function init() {
-
         // Register Scripts
         add_action( 'wp_enqueue_scripts', [ $this, 'register_assets' ] );
         add_action( 'admin_enqueue_scripts', [ $this, 'register_assets' ] );
-
-        // Elementor Editor Scripts
-        add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_elementor_editor' ] );
-
         // Frontend Scripts
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_scripts' ] );
-
         add_filter( 'body_class', [ $this, 'body_classes' ] );
 
     }
@@ -93,72 +86,6 @@ class Assets_Management{
     public function get_scripts() {
 
         $script_list = [
-            // 'slick' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/js/slick.min.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'countdown-min' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/js/jquery.countdown.min.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'shopxpert-accordion-min' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/js/accordion.min.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'select2-min' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/js/select2.min.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'wow' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/lib/js/wow.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'jarallax' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/lib/js/jarallax.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'magnific-popup' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/lib/js/magnific-popup.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'one-page-nav' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/lib/js/one-page-nav.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jarallax','magnific-popup','wow','jquery' ]
-            // ],
-            // 'shopxpert-widgets-scripts' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/js/shopxpert-widgets-active.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery','slick','wc-add-to-cart-variation' ]
-            // ],
-            // 'shopxpert-ajax-search' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/addons/ajax-search/js/ajax-search.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'shopxpert-widgets-scripts' ]
-            // ],
-            // 'jquery-single-product-ajax-cart' =>[
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'assets/js/single_product_ajax_add_to_cart.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'shopxpert-flash-sale-Feature' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/features/flash-sale/assets/js/flash-sale.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery', 'countdown-min' ]
-            // ],
-
-            // 'shopxpert-jquery-interdependencies' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/jquery-interdependencies.min.js', 
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ],
-            // ],
             'shopxpert-condition' => [
                 'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/shopxpert-condition.js', 
                 'version' => SHOPXPERT_VERSION,
@@ -172,42 +99,6 @@ class Assets_Management{
                 'deps'    => [ 'jquery', 'wp-util', 'serializejson' ]
             ],
 
-
-            // 'shopxpert-sweetalert' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/sweetalert2.min.js',
-            //     'version' => SHOPXPERT_VERSION
-            // ],
-            // 'shopxpert-modernizr' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/modernizr.custom.63321.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'jquery-selectric' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/jquery.selectric.min.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'jquery-ScrollMagic' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/ScrollMagic.min.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'babel-min' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/lib/js/babel.min.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery' ]
-            // ],
-            // 'shopxpert-templates' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/template_library_manager.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'jquery', 'wp-util' ]
-            // ],
-            // 'shopxpert-install-manager' => [
-            //     'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/install_manager.js',
-            //     'version' => SHOPXPERT_VERSION,
-            //     'deps'    => [ 'wp-util', 'updates' ]
-            // ],
-            
         ];
 
         return $script_list;
@@ -273,7 +164,6 @@ if (is_admin()) {
         'ajaxurl'          => admin_url('admin-ajax.php'),
         'nonce'            => $nonce,
         'adminURL'         => admin_url(),
-        'elementorURL'     => admin_url('edit.php?post_type=elementor_library'),
         'version'          => SHOPXPERT_VERSION,
         'pluginURL'        => plugin_dir_url(__FILE__),
         'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
@@ -300,8 +190,7 @@ if (is_admin()) {
             'email' => $current_user->user_email,
         ],
     ];
-    wp_localize_script('shopxpert-templates', 'WLTM', $localize_data);
-    wp_localize_script('shopxpert-install-manager', 'WLIM', $localize_data);
+    // Elementor template/install manager removed
 }
 
     }
@@ -336,24 +225,8 @@ if (is_admin()) {
     }
 
     /**
-     * Elementor Editor Panenl Script
-     *
-     * @return void
+     * Elementor editor assets removed
      */
-    public function enqueue_elementor_editor(){
-        wp_enqueue_style('shopxert-elementor-editor', SHOPXPERT_ADDONS_PL_URL . 'assets/css/shopxert-elementor-editor.css',['elementor-editor'], SHOPXPERT_VERSION );
-        wp_enqueue_script( 'shopxert-elementor-editor', SHOPXPERT_ADDONS_PL_URL . 'assets/js/shopxert-elementor-editor.js', ['elementor-editor', 'jquery'], SHOPXPERT_VERSION, true );
-
-        // Localized data for elementor editor
-        wp_localize_script(
-            'shopxert-elementor-editor',
-            'shopxertSetting',
-            array(
-                'hasPro'     => is_plugin_active('shopxert-addons-pro/shopxert_addons_pro.php') ? true : false,
-                'proWidgets' => Widgets_Control::promotional_widget_list(),
-            )
-        );
-    }
     
 
 }

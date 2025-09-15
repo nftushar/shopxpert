@@ -1,0 +1,617 @@
+/* ShopXpert Product Comparison Styles */
+
+/* Compare Button Styles */
+.shopxpert-compare-btn {
+    background: #007cba;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.shopxpert-compare-btn:hover {
+    background: #005a87;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 124, 186, 0.3);
+}
+
+.shopxpert-compare-btn:disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.shopxpert-compare-btn.add-to-compare {
+    background: #28a745;
+}
+
+.shopxpert-compare-btn.add-to-compare:hover {
+    background: #218838;
+}
+
+.shopxpert-compare-btn.remove-from-compare {
+    background: #dc3545;
+}
+
+.shopxpert-compare-btn.remove-from-compare:hover {
+    background: #c82333;
+}
+
+/* Compare Button with Icon */
+.shopxpert-compare-btn .compare-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* Product Counter Badge */
+.shopxpert-compare-counter {
+    background: #ff6b6b;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Comparison Table Styles */
+.shopxpert-compare-table-container {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.shopxpert-compare-table-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+.shopxpert-compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    background: #ffffff;
+}
+
+.shopxpert-compare-table th {
+    background: #f8f9fa;
+    color: #495057;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.shopxpert-compare-table td {
+    padding: 15px 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: top;
+    min-width: 120px;
+}
+
+.shopxpert-compare-table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Product Image in Table */
+.shopxpert-compare-table .product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Title in Table */
+.shopxpert-compare-table .product-title {
+    font-weight: 600;
+    color: #333333;
+    text-decoration: none;
+    line-height: 1.4;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.shopxpert-compare-table .product-title:hover {
+    color: #007cba;
+}
+
+/* Product Rating */
+.shopxpert-compare-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin: 8px 0;
+}
+
+.shopxpert-compare-rating .star {
+    color: #ffc107;
+    font-size: 16px;
+}
+
+.shopxpert-compare-rating .rating-text {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #666666;
+}
+
+/* Product Price */
+.shopxpert-compare-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #28a745;
+    margin: 8px 0;
+}
+
+.shopxpert-compare-price del {
+    color: #dc3545;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* Product Description */
+.shopxpert-compare-description {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+    text-align: left;
+    max-height: 60px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Product SKU */
+.shopxpert-compare-sku {
+    font-size: 12px;
+    color: #999999;
+    background: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+/* Product Availability */
+.shopxpert-compare-availability {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.shopxpert-compare-availability.in-stock {
+    background: #d4edda;
+    color: #155724;
+}
+
+.shopxpert-compare-availability.out-of-stock {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.shopxpert-compare-availability.on-backorder {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Add to Cart Button in Table */
+.shopxpert-compare-add-to-cart {
+    background: #28a745;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 8px 0;
+}
+
+.shopxpert-compare-add-to-cart:hover {
+    background: #218838;
+    transform: translateY(-1px);
+}
+
+.shopxpert-compare-add-to-cart:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Remove All Button */
+.shopxpert-compare-btn.remove-all-compare {
+    background: #dc3545;
+    margin: 10px 0;
+    float: right;
+}
+
+.shopxpert-compare-btn.remove-all-compare:hover {
+    background: #c82333;
+}
+
+/* Empty State */
+.shopxpert-compare-table-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666666;
+    font-size: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Feedback Messages */
+.shopxpert-compare-feedback {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.shopxpert-compare-feedback.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.shopxpert-compare-feedback.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Search Bar Styles */
+.shopxpert-compare-search {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+
+.shopxpert-compare-search:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
+}
+
+.shopxpert-compare-search-results {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.shopxpert-compare-search-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease;
+}
+
+.shopxpert-compare-search-item:hover {
+    background: #f8f9fa;
+}
+
+.shopxpert-compare-search-item:last-child {
+    border-bottom: none;
+}
+
+.shopxpert-compare-search-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.shopxpert-compare-search-item .product-info {
+    flex: 1;
+}
+
+.shopxpert-compare-search-item .product-name {
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 2px;
+}
+
+.shopxpert-compare-search-item .product-price {
+    font-size: 14px;
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shopxpert-compare-table-container {
+        margin: 10px 0;
+        border-radius: 0;
+    }
+    
+    .shopxpert-compare-table {
+        font-size: 14px;
+    }
+    
+    .shopxpert-compare-table th,
+    .shopxpert-compare-table td {
+        padding: 10px 5px;
+    }
+    
+    .shopxpert-compare-table .product-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .shopxpert-compare-table-title {
+        font-size: 20px;
+        padding: 15px;
+    }
+    
+    .shopxpert-compare-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .shopxpert-compare-search {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .shopxpert-compare-table {
+        font-size: 12px;
+    }
+    
+    .shopxpert-compare-table th,
+    .shopxpert-compare-table td {
+        padding: 8px 3px;
+    }
+    
+    .shopxpert-compare-table .product-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .shopxpert-compare-table-title {
+        font-size: 18px;
+        padding: 12px;
+    }
+    
+    .shopxpert-compare-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Loading Animation */
+.shopxpert-compare-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #007cba;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Popup Styles */
+.shopxpert-compare-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.shopxpert-compare-popup-content {
+    background: #ffffff;
+    border-radius: 12px;
+    max-width: 95%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+    animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.shopxpert-compare-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.shopxpert-compare-popup-close:hover {
+    background: #c82333;
+}
+
+/* Footer Comparison Bar */
+.shopxpert-compare-footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid #e9ecef;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    gap: 15px;
+}
+
+.shopxpert-compare-footer-bar.show {
+    display: flex;
+}
+
+.shopxpert-compare-footer-products {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+.shopxpert-compare-footer-product {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    min-width: fit-content;
+}
+
+.shopxpert-compare-footer-product img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.shopxpert-compare-footer-product .product-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333333;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shopxpert-compare-footer-remove {
+    background: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shopxpert-compare-footer-remove:hover {
+    background: #c82333;
+}
+
+.shopxpert-compare-footer-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Animation Classes */
+.shopxpert-fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.shopxpert-slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -17,7 +17,7 @@
   font-size: large;
   line-height: 1.2;
   margin-top: 0;
-  background-color: #294ec4;
+  background-color: #000;
   -webkit-background-clip: text;
   color: transparent;  
 }
@@ -233,12 +233,12 @@ transform: translate(0, -50%) rotate(90deg);
 }
 .shopxpert-admin-btn-primary {
   color: #fff;
-  border-color: #2563eb;
-  background-color: #2563eb;
+  border-color: #2271b1;
+  background-color: #2271b1;
 }
 .shopxpert-admin-btn-primary-outline {
-  color: #2563eb;
-  border-color: #2563eb;
+  color: #2271b1;
+  border-color: #2271b1;
   background-color: transparent;
 }
 .shopxpert-admin-btn.hover-effect-1:not(.activated,[disabled=disabled]):hover {
@@ -334,7 +334,7 @@ transform: translate(0, -50%) rotate(90deg);
   color: #222;
 }
 .shopxpert-Feature-field.shopxpert-Feature-enable .shopxpert-admin-switch-block-setting{
-  color:#2563eb;
+  color:#2271b1;
 }
 .shopxpert-Feature-field .shopxpert-admin-switch-block-setting i{
   font-size: 16px;
@@ -429,8 +429,7 @@ transform: translate(0, -50%) rotate(90deg);
   color: #6D7175;
   border: 1px solid #DCDCDC;
   border-radius: 3px;
-  border: 1px solid transparent;
-  border-image: linear-gradient(to right, #ff3f3f, #0a61ff) 1;
+  border: 3px solid solid #2271b1; 
   box-shadow: 3px 3px 12px 0px rgb(241 39 140 / 18%);
 }
 .shopxpert-admin-input input:focus,.shopxpert-admin-input textarea:focus {
@@ -483,11 +482,11 @@ transform: translate(0, -50%) rotate(90deg);
   border-radius: 50%;
 }
 .shopxpert-admin-radio label::before {
-  border: 2px solid #2563eb;
+  border: 2px solid #2271b1;
 }
 .shopxpert-admin-radio label::after {
   opacity: 0;
-  background-color: #2563eb;
+  background-color: #2271b1;
 }
 
 /* Form Color */
@@ -614,8 +613,8 @@ button.shopxpert-repeater-item-add, .shopxpert-repeater-custom-action {
   float: right;
   margin-right: 10px;
   margin-top: 10px;
-  background-color: #2563eb;
-  border-color: #2563eb;
+  background-color: #2271b1;
+  border-color: #2271b1;
   padding: 1px 10px;
   box-shadow:none;
 }
@@ -724,7 +723,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
 
 .shopxpert-admin-main-nav {
   overflow: hidden;
-  border-bottom: 2px solid #2563eb;
+  border-bottom: 2px solid #2271b1;
 }
 .shopxpert-admin-main-nav-ul {
   display: flex;
@@ -769,7 +768,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
   padding: 15px 22px;
   transition: all 0.15s ease 0s !important;
   white-space: nowrap;
-  color: #2563eb;
+  color: #2271b1;
   border-radius: 10px 10px 0 0;
   background-color: #fff;
 }
@@ -794,7 +793,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
   }
 }
 .shopxpert-admin-main-nav-btn svg path {
-  fill: #2563eb;
+  fill: #2271b1;
 }
 .shopxpert-admin-main-nav-btn svg.left {
   right: 100%;
@@ -816,7 +815,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
 }
 .shopxpert-admin-main-nav-btn.wlactive, .shopxpert-admin-main-nav-btn:hover {
   color: #fff;
-  background-color: #2563eb;
+  background-color: #2271b1;
 }
 .shopxpert-admin-main-nav-btn.wlactive i, .shopxpert-admin-main-nav-btn:hover i {
   opacity: 1;
@@ -828,7 +827,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
   color: #fff;
 }
 .shopxpert-admin-main-nav-btn:focus {
-  color: #2563eb;
+  color: #2271b1;
 }
 
 /* Nested Tab */
@@ -875,10 +874,10 @@ ul.shopxpert-nested-tabs li a:after {
   left: 0;
 }
 ul.shopxpert-nested-tabs li a.wlactive:after,ul.shopxpert-nested-tabs li a:hover:after{
-  background: #2563eb;
+  background: #2271b1;
 }
 ul.shopxpert-nested-tabs li a.wlactive{
-  /* color: #000000; */
+  color: #000;
   font-weight: 700;
 }
 
@@ -993,7 +992,7 @@ ul.shopxpert-nested-tabs li a.wlactive{
 .shopxpert-admin-header .shopxpert-admin-btn.enable {
 margin-right: 16px; 
 color: #fff;   
-background-color: #2563eb; 
+background-color: #2271b1; 
 border: 2px solid transparent;  
 padding: 10px 20px;
 font-weight: bold;
@@ -1138,7 +1137,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 .shopxpert-admin-switch-block-setting {
   display: flex;
   padding: 0;
-  color: #2563eb;
+  color: #2271b1;
   border: none;
   background-color: transparent;
 }
@@ -1180,7 +1179,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-top: 65px;
   padding: 70px 180px;
   border-radius: 10px;
-  background-image: linear-gradient(272.65deg, #9BF4FF 0%, #2563eb 100%);
+  background-image: linear-gradient(272.65deg, #9BF4FF 0%, #2271b1 100%);
 }
 @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 768px) and (max-width: 991px) {
   .shopxpert-admin-subscribe {
@@ -1383,8 +1382,8 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 }
 .shopxpert-admin-extension .button {
-  background: #2563eb !important;
-  border-color: #2563eb !important;
+  background: #2271b1 !important;
+  border-color: #2271b1 !important;
   padding: 5px 40px;
   color: #fff !important;
   transition: all 0.3s ease 0s;
@@ -1401,7 +1400,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-right: 10px;
 }
 .shopxpert-admin-extension-info a {
-  color: #2563eb;
+  color: #2271b1;
 }
 .shopxpert-admin-extension-info a:hover {
   text-decoration: underline;
@@ -1465,7 +1464,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   height: 60px;
   color: #fff;
   border-radius: 5px;
-  background-color: #2563eb;
+  background-color: #2271b1;
   box-shadow: 5px 5px 0 0 #0065cc;
 }
 .shopxpert-admin-infobox-icon i {
@@ -1519,7 +1518,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .shopxpert-admin-infobox:hover .shopxpert-admin-btn {
   color: #fff;
-  background-color: #2563eb;
+  background-color: #2271b1;
 }
 
 .shopxpert-admin-options {
@@ -1703,7 +1702,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .shopxpert-admin-popup-close:hover {
   color: #fff;
-  background-color: #2563eb;
+  background-color: #2271b1;
 }
 .shopxpert-admin-popup-icon {
   display: flex;
@@ -1715,7 +1714,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   line-height: 1 !important;
   margin-bottom: 15px;
   color: transparent;
-  text-shadow: 3px 3px 0 #2563eb;
+  text-shadow: 3px 3px 0 #2271b1;
   -webkit-text-stroke: 2px rgba(0, 126, 255, 0.2);
 }
 .shopxpert-admin-popup-text {
@@ -1787,7 +1786,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 5px 5px 5px 20px;
   color: #fff;
   border-radius: 100px;
-  background-color: #2563eb;
+  background-color: #2271b1;
 }
 .shopxpert-banner-btn .icon {
   font-size: 22px;
@@ -1798,7 +1797,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   height: 40px;
   margin-left: 10px;
   transition: all 0.3s ease 0s;
-  color: #2563eb;
+  color: #2271b1;
   border-radius: 50%;
   background-color: #fff;
 }
@@ -1834,7 +1833,7 @@ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   font-size: 14px;
 }
 .shopxpert-rating-intro p a {
-  color: #2563eb;
+  color: #2271b1;
 }
 .shopxpert-rating-intro p a:hover {
   text-decoration: underline;
@@ -2028,7 +2027,7 @@ background-color: #e9ecef;
 }
 .select2-results__option--selected {
 color: #fff;
-background-color: #2563eb;
+background-color: #2271b1;
 }
 /* Extension Tabs */
 .extension-admin-tab-area.wp-filter {
@@ -2061,7 +2060,7 @@ content: "";
 transition: all 0.3s ease 0s;
 opacity: 0.25;
 border-radius: 10px;
-background-color: #2563eb;
+background-color: #2271b1;
 }
 .shopxpert-admin-tabs.filter-links li::before {
 left: -2.5px;
@@ -2090,18 +2089,18 @@ line-height: 1;
 display: flex;
 padding: 9px 20px;
 text-transform: capitalize;
-color: #2563eb;
+color: #2271b1;
 border-radius: 5px;
 margin: 0;
 border: none;
 }
 .shopxpert-admin-tabs.filter-links li a.wlactive {
 color: #fff;
-background-color: #2563eb;
+background-color: #2271b1;
 }
 .shopxpert-admin-tabs.filter-links li a.wlactive:hover,.shopxpert-admin-tabs.filter-links li a.wlactive:focus {
 color: #fff;
-background-color: #2563eb;
+background-color: #2271b1;
 }
 
 /* Feature Edit PopUp */
@@ -2209,7 +2208,7 @@ background-color: #fff;
 box-shadow: 0 3px 5px rgb(0 0 0 / 25%);
 }
 .shopxpert-Feature-setting-popup-content .shopxpert-admin-popup-close:hover {
-background-color: #2563eb;
+background-color: #2271b1;
 }
 .shopxpert-visibility-none {
 opacity: 0;

@@ -136,10 +136,7 @@ class Assets {
         wp_localize_script( 'wishlist-frontend', 'WishList', $localize_data );
         wp_localize_script( 'wishlist-admin', 'WishList', $admin_localize_data );
 
-        if( class_exists( '\Elementor\Plugin' ) && ( \Elementor\Plugin::$instance->preview->is_preview_mode() ) ){
-            wp_enqueue_style( 'wishlist-frontend' );
-            wp_enqueue_script( 'wishlist-frontend' );
-        }
+        // Elementor-specific preview enqueues removed
         
     }
 

@@ -44,9 +44,7 @@ class Assets_Management{
         add_action( 'wp_enqueue_scripts', [ $this, 'register_assets' ] );
         add_action( 'admin_enqueue_scripts', [ $this, 'register_assets' ] );
 
-        // Elementor Editor Scripts
-        add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_elementor_editor' ] );
-
+         
         // Frontend Scripts
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_scripts' ] );
 
@@ -177,7 +175,6 @@ class Assets_Management{
                 'ajaxurl'          => admin_url('admin-ajax.php'),
                 'nonce'            => wp_create_nonce('shopxper_nonce_action'),
                 'adminURL'         => admin_url(),
-                'elementorURL'     => admin_url('edit.php?post_type=elementor_library'),
                 'version'          => SHOPXPERT_VERSION,
                 'pluginURL'        => plugin_dir_url(__FILE__),
                 'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
@@ -204,8 +201,7 @@ class Assets_Management{
                     'email' => $current_user->user_email,
                 ],
             ];
-            wp_localize_script('shopxpert-templates', 'WLTM', $localize_data);
-            wp_localize_script('shopxpert-install-manager', 'WLIM', $localize_data);
+            // Elementor URLs/data removed
         }
     }
     
@@ -239,24 +235,8 @@ class Assets_Management{
     }
 
         /**
-     * Elementor Editor Panenl Script
-     *
-     * @return void
+     * Elementor editor assets removed
      */
-    public function enqueue_elementor_editor(){
-        wp_enqueue_style('shopxert-elementor-editor', SHOPXPERT_ADDONS_PL_URL . 'assets/css/shopxert-elementor-editor.css',['elementor-editor'], SHOPXPERT_VERSION );
-        wp_enqueue_script( 'shopxert-elementor-editor', SHOPXPERT_ADDONS_PL_URL . 'assets/js/shopxert-elementor-editor.js', ['elementor-editor', 'jquery'], SHOPXPERT_VERSION, true );
-
-        // Localized data for elementor editor
-        wp_localize_script(
-            'shopxert-elementor-editor',
-            'shopxertSetting',
-            array(
-                'hasPro'     => is_plugin_active('shopxert-addons-pro/shopxert_addons_pro.php') ? true : false,
-                // 'proWidgets' => Widgets_Control::promotional_widget_list(),
-            )
-        );
-    }
 
 }
 

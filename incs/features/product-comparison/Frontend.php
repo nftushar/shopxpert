@@ -32,8 +32,10 @@ class Frontend {
         $this->incs();
         Shortcode::instance();
         Manage_Comparison::instance();
+        Product_Display::instance();
         \add_action('wp_enqueue_scripts', [ $this, 'enqueue_assets' ]);
         \add_action('admin_enqueue_scripts', [ $this, 'enqueue_assets' ]);
+        \add_action('wp_footer', [ $this, 'add_footer_elements' ]);
     }
 
     /**
@@ -42,6 +44,7 @@ class Frontend {
     public function incs() {
         require_once __DIR__ . '/Manage_Comparison.php';
         require_once __DIR__ . '/Shortcode.php';
+        require_once __DIR__ . '/Product_Display.php';
     }
 
     /**
@@ -62,6 +65,37 @@ class Frontend {
         }
     }
 
-    // Future: Add methods for asset loading, hooks, etc.
-    // Note: The next step is to create the assets/js directory and product-comparison.js file for AJAX interactivity.
+    /**
+     * Add footer elements (popup, footer bar, etc.)
+     */
+    public function add_footer_elements() {
+        // Check if function exists
+        if (!function_exists('\\Shopxpert\\incs\\shopxpert_get_option')) {
+            return;
+        }
+
+        // Only add if comparison is enabled
+        if (!\Shopxpert\incs\shopxpert_get_option('enable', 'product_comparison_settings_tabs', 'on')) {
+            return;
+        }
+
+        // Add popup
+        echo '<div class="shopxpert-compare-popup">';
+        echo '<div class="shopxpert-compare-popup-content">';
+        echo '<button class="shopxpert-compare-popup-close">×</button>';
+        echo '<div class="shopxpert-compare-popup-body"></div>';
+        echo '</div>';
+        echo '</div>';
+
+        // Add footer bar if enabled
+        if (\Shopxpert\incs\shopxpert_get_option('show_footer_bar', 'product_comparison_settings_tabs', 'on')) {
+            echo '<div class="shopxpert-compare-footer-bar">';
+            echo '<div class="shopxpert-compare-footer-products"></div>';
+            echo '<div class="shopxpert-compare-footer-actions">';
+            echo '<button class="shopxpert-compare-btn shopxpert-compare-footer-view">' . \__('View Comparison', 'shopxpert') . '</button>';
+            echo '<button class="shopxpert-compare-btn remove-all-compare">' . \__('Clear All', 'shopxpert') . '</button>';
+            echo '</div>';
+            echo '</div>';
+        }
+    }
 } 
