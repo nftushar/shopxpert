@@ -260,15 +260,17 @@ class ShopXpert_Settings_Field_Manager_Default {
     function callback_checkbox( $args ) {
 
         $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+        $checked = checked( $value, 'on', false );
+        $input_id = sprintf( 'htoptions_sp_%1$s[%2$s]', $args['section'], $args['id'] );
 
-        $html  = '<fieldset class="htoptions_element_checkbox">';
-        $html  .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
-        $html  .= sprintf( '<input type="checkbox" class="checkbox" id="htoptions_sp_%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s />', $args['section'], $args['id'], checked( $value, 'on', false ) );
-        $html  .= sprintf( '<label for="htoptions_sp_%1$s[%2$s]">%3$s</label>', $args['section'], $args['id'], $args['desc'] );
-        $html  .= sprintf( '<div class="htoption_checkbox_desc" id="htoptions_sp_%1$s[%2$s]">%3$s</div>', $args['section'], $args['id'], $args['desc'] );
-        $html  .= '</fieldset>';
+        $html  = '<div class="shopxpert-admin-switch">';
+            $html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
+            $html .= sprintf( '<input type="checkbox" class="checkbox" id="%1$s" name="%2$s[%3$s]" value="on" %4$s />', $input_id, $args['section'], $args['id'], $checked );
+            $html .= sprintf( '<label for="%1$s"><span class="shopxpert-admin-switch-label on">%2$s</span><span class="shopxpert-admin-switch-label off">%3$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $input_id, 'On', 'Off' );
+        $html .= '</div>';
+        $html .= $this->get_field_description( $args );
 
-        echo $html;
+        echo $html; 
     }
 
     /**

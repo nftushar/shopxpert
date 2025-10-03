@@ -69,11 +69,7 @@ final class Shopxpert_Product_Comparison_Base {
         \add_action('wp_ajax_nopriv_shopxpert_comparison_search', [ $this, 'ajax_search_products' ]);
         \add_action('wp_ajax_shopxpert_comparison_footer_data', [ $this, 'ajax_get_footer_data' ]);
         \add_action('wp_ajax_nopriv_shopxpert_comparison_footer_data', [ $this, 'ajax_get_footer_data' ]);
-        if ( is_admin() ) {
-            require_once __DIR__ . '/Admin_Fields.php';
-            \add_action( 'admin_menu', [ $this, 'register_admin_menu' ] );
-        }
-        
+       
         // Register widget
         \add_action( 'widgets_init', [ $this, 'register_widget' ] );
     }
@@ -221,20 +217,7 @@ final class Shopxpert_Product_Comparison_Base {
         
         wp_send_json_success(['products' => $products]);
     }
-
-    /**
-     * Register Product Comparison admin menu
-     */
-    public function register_admin_menu() {
-        add_submenu_page(
-            'shopxpert_page',
-            esc_html__( 'Product Comparison', 'shopxpert' ),
-            esc_html__( 'Product Comparison', 'shopxpert' ),
-            'manage_options',
-            'product_comparison',
-            [ \Shopxpert\ProductComparison\Admin_Fields::instance(), 'plugin_page' ]
-        );
-    }
+ 
 
     /**
      * Register Product Comparison widget

@@ -147,7 +147,7 @@ if (is_admin()) {
         'message' => [
             'btntxt'  => esc_html__('Save Changes', 'shopxpert'),
             'loading' => esc_html__('Saving...', 'shopxpert'),
-            'success' => esc_html__('ZZ Saved success Data', 'shopxpert'),
+            'success' => esc_html__('successfully Saved', 'shopxpert'),
             'yes'     => esc_html__('Yes', 'shopxpert'),
             'cancel'  => esc_html__('Cancel', 'shopxpert'),
             'sure'    => esc_html__('Are you sure?', 'shopxpert'),

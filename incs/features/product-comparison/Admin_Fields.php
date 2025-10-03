@@ -69,7 +69,7 @@ class Admin_Fields {
                     'name'    => 'table_title',
                     'label'   => __( 'Comparison Table Title', 'shopxpert' ),
                     'type'    => 'text',
-                    'default' => __( 'Product Comparison', 'shopxpert' ),
+                    'default' => __( 's Product Comparison', 'shopxpert' ),
                 ],
                 [
                     'name'    => 'show_on_shop',
@@ -175,7 +175,7 @@ class Admin_Fields {
 
     public function plugin_page() {
         echo '<div class="wrap">';
-        echo '<h2>' . esc_html__( 'Product Comparison Settings', 'shopxpert' ) . '</h2>';
+        echo '<h2>' . esc_html__( '3 Product Comparison Settings', 'shopxpert' ) . '</h2>';
         $this->settings_api->show_navigation();
         $this->settings_api->show_forms();
         echo '</div>';

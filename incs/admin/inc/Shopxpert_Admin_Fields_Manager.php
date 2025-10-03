@@ -55,6 +55,15 @@ class Shopxpert_Admin_Fields_Manager {
         $fields            = isset( $option['fields'] ) ? $option['fields'] : [];
         $callback          = isset( $option['callback'] ) ? $option['callback'] : [ $this, 'callback_' . $type ];
 
+        // Skip rendering internal "Enable / Disable" checkbox fields inside Feature settings
+        if (
+            isset($option['type'], $option['label'])
+            && $option['type'] === 'checkbox'
+            && trim(wp_strip_all_tags($option['label'])) === 'Enable / Disable'
+        ) {
+            return;
+        }
+
         $depend = '';
         if ( ! empty( $option['condition'] ) ) {
 
@@ -373,6 +382,11 @@ class Shopxpert_Admin_Fields_Manager {
         if( !empty( $args['additional_info']['setting_fields'] ) ){
             $setting_fields = wp_json_encode( $this->get_field_key( $args['additional_info']['setting_fields'], 'name' ) );
         }
+        // Match Element behavior: only show settings cog when ON and require_settings=true
+        $visibility = 'shopxpert-visibility-none';
+        if( ( $args['additional_info']['require_settings'] === true ) && ( $value === 'on' ) ){
+            $visibility = '';
+        }
 
         $html  = '<div class="shopxpert-admin-switch-block shopxpert-Feature-field '.esc_attr( $args['class'] ).'" '.$args['depend'].' >';
             $html .= '<div class="shopxpert-admin-switch-block-content">';
@@ -384,7 +398,13 @@ class Shopxpert_Admin_Fields_Manager {
                 $html  .= '</div>';
             $html  .= '</div>';
             $html  .= '<div class="shopxpert-admin-switch-block-actions" '.$data_atr.'>';
-            $html  .= !empty( $args['additional_info']['require_settings'] ) ? '<a href="#" class="shopxpert-admin-switch-block-setting" data-section="'.$args['section'].'" data-fields=\'' .$setting_fields. '\'><i class="wli wli-cog-light"></i></a>' : '';
+            $html  .= !empty( $args['additional_info']['require_settings'] ) ? '<a href="#" class="shopxpert-admin-switch-block-setting '.$visibility.'" data-section="'.$args['section'].'" data-fields=\'' .$setting_fields. '\'><i class="wli wli-cog-light"></i></a>' : '';
+            $html  .= '<div class="shopxpert-admin-switch" data-switch-id="element">';
+                // Hidden off to ensure unchecked state is saved
+                $html  .= sprintf( '<input type="hidden" name="%2$s" value="off" />', $args['section'], $args['id'] );
+                $html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" name="%2$s" value="on" %3$s/>', $args['section'], $args['id'], checked( $value, 'on', false ) );
+                $html  .= sprintf( '<label for="shopxpert_field_%1$s[%2$s]"><span class="shopxpert-admin-switch-label on">%3$s</span><span class="shopxpert-admin-switch-label off">%4$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $args['section'], $args['id'], 'On', 'Off' );
+            $html  .= '</div>';
             $html  .= '</div>';
         $html  .= '</div>';
 
@@ -509,6 +529,10 @@ class Shopxpert_Admin_Fields_Manager {
             $visibility = '';
         }
 
+        // Add enabled class for consistent ON styling like Feature cards
+        if( $value === 'on' ){
+            $args['class'] .= ' shopxpert-Feature-enable';
+        }
         $html  = '<div class="shopxpert-admin-switch-block '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
             $html .= '<div class="shopxpert-admin-switch-block-content">';
                 $html  .= sprintf('<h6 class="shopxpert-admin-switch-block-title">%1$s</h6>', $args['name'] );
@@ -521,8 +545,10 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '<div class="shopxpert-admin-switch-block-actions" '.$data_atr.'>';
             $html  .= !empty( $args['additional_info']['require_settings'] ) ? '<a href="#" class="shopxpert-admin-switch-block-setting '.$visibility.'" data-section="'.$args['section'].'" data-fieldname="'.$args['id'].'" data-fields=\'' .$setting_fields. '\'><i class="wli wli-cog-light"></i></a>' : '';
                 $html  .= '<div class="shopxpert-admin-switch" '.$switch_id.'>';
+                        // Hidden off to ensure unchecked state is saved
+                        $html  .= sprintf( '<input type="hidden" name="%2$s" value="off" />', $args['section'], $args['id'] );
                         $html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" name="%2$s" data-depend-id="%4$s" value="on" %3$s/>', $args['section'], $args['id'], $checked, $args['depend_id'] );
-                        $html  .= sprintf( '<label for="shopxpert_field_%1$s[%2$s]"><span class="shopxpert-admin-switch-label on">%3$s</span><span class="shopxpert-admin-switch-label off">%4$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $args['section'], $args['id'], 'on', 'off' );
+                        $html  .= sprintf( '<label for="shopxpert_field_%1$s[%2$s]"><span class="shopxpert-admin-switch-label on">%3$s</span><span class="shopxpert-admin-switch-label off">%4$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $args['section'], $args['id'], 'On', 'Off' );
                     $html  .= '</div>';
                 $html  .= '</div>';
         $html  .= '</div>';
@@ -584,14 +610,16 @@ class Shopxpert_Admin_Fields_Manager {
             $data_atr = esc_attr( 'data-shopxpert=disabled' );
         }
 
-        $html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
+		$html  = '<div class="shopxpert-admin-option '.esc_attr( $args['class'] ).'" '.$args['depend'].'>';
             $html  .= '<div class="shopxpert-admin-option-content">';
                 $html  .= $this->get_field_title( $args );
                 $html  .= $this->get_field_description( $args );
             $html  .= '</div>';
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-switch">';
-                    $html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" data-depend-id="%4$s" name="%2$s" value="on" %3$s/>', $args['section'], $args['id'], $checked, $args['depend_id'] );
+					// Hidden off to ensure unchecked state is saved
+					$html  .= sprintf( '<input type="hidden" name="%2$s" value="off" />', $args['section'], $args['id'] );
+					$html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" data-depend-id="%4$s" name="%2$s" value="on" %3$s/>', $args['section'], $args['id'], $checked, $args['depend_id'] );
                     $html  .= sprintf( '<label for="shopxpert_field_%1$s[%2$s]"><span class="shopxpert-admin-switch-label on">%3$s</span><span class="shopxpert-admin-switch-label off">%4$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $args['section'], $args['id'], 'on', 'off' );
                 $html  .= '</div>';
             $html  .= '</div>';
