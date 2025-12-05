@@ -1,7 +1,4 @@
-*{
-    background-color: rgb(242, 255, 0);
-}
-td.product-name .backorder_notification{
+ td.product-name .backorder_notification{
     display: none;
 }
 td.product-name .shopxpert-backorder-notification.backorder_notification{
