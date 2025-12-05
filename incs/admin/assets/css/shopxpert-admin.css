@@ -771,8 +771,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
   transition: all 0.15s ease 0s !important;
   white-space: nowrap;
   color: #2271b1;
-  border-radius: 10px 10px 0 0;
-  background-color: #fff;
+  border-radius: 10px 10px 0 0; 
 }
 @media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   .shopxpert-admin-main-nav-btn {
@@ -815,10 +814,7 @@ button.shopxpert-repeater-item-add:hover, .wp-core-ui .button-primary.shopxpert-
   font-size: 18px;
   margin-right: 5px;
 }
-.shopxpert-admin-main-nav-btn.wlactive, .shopxpert-admin-main-nav-btn:hover {
-  color: #fff;
-  background-color: #2271b1;
-}
+ 
 .shopxpert-admin-main-nav-btn.wlactive i, .shopxpert-admin-main-nav-btn:hover i {
   opacity: 1;
 }

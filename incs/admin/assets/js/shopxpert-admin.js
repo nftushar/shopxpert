@@ -155,6 +155,10 @@ jQuery(document).ready(function($) {
             }
         });
 
+        // Activate the save button for the current tab after bulk toggle
+        const $tabPane = $this.closest('.shopxpert-admin-main-tab-pane');
+        $tabPane.find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
+
     });
 
     /* Select 2 */

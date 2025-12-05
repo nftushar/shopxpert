@@ -13,7 +13,21 @@ use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
 $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
 
 $all_fields = array_merge($Feature_fields);
-$element_keys = Shopxpert_Admin_Fields_Manager::instance()->get_field_key($all_fields, 'name');
+
+// Build key/section map so each toggle saves to its correct option section.
+$element_keys = [];
+foreach ($all_fields as $field) {
+    // Prefer option_id, then name
+    $key = isset($field['option_id']) && !empty($field['option_id']) ? $field['option_id'] : (isset($field['name']) ? $field['name'] : '');
+    if (empty($key)) {
+        continue;
+    }
+    // Use field-specific section when provided, otherwise fall back to the form section
+    $element_keys[] = [
+        'key'     => $key,
+        'section' => isset($field['section']) && !empty($field['section']) ? $field['section'] : 'shopxpert_others_tabs',
+    ];
+}
 ?>
 
 <div id="shopxpert_others_tabs" class="shopxpert-admin-main-tab-pane">

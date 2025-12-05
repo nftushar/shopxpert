@@ -916,23 +916,47 @@ class Shopxpert_Admin_Fields_Manager {
      * @return array
      */
     public function get_field_key( $elements, $key ){
+        // Prefer the requested key (option_id for saving), then fall back to option_id and name
+        // so every toggle is included (e.g., wishlist/postduplicator without option_id).
         $element_keys = array_map(
-            function( $element ) use( $key ){ 
-                if( $element['type'] !== 'title' ){
-                    if( isset( $element['is_pro'] ) && $element['is_pro'] == true ){
-                        return false;
-                    }if( isset( $element['html'] ) && !empty( $element['html'] ) ){
-                        return false;
-                    }else{
-                        return $element[$key]; 
-                    }
-                }else{
+            function( $element ) use( $key ){
+                if ( $element['type'] === 'title' ) {
                     return false;
                 }
-            }, 
+
+                if ( isset( $element['is_pro'] ) && $element['is_pro'] === true ) {
+                    return false;
+                }
+
+                if ( isset( $element['html'] ) && ! empty( $element['html'] ) ) {
+                    return false;
+                }
+
+                $value = isset( $element[ $key ] ) ? $element[ $key ] : '';
+                if ( $value === '' && isset( $element['option_id'] ) ) {
+                    $value = $element['option_id'];
+                }
+                if ( $value === '' && isset( $element['name'] ) ) {
+                    $value = $element['name'];
+                }
+
+                return $value !== '' ? $value : false;
+            },
             $elements
         );
-        $element_values = array_values( array_filter( $element_keys, function( $element ){ if( $element !== false ){return $element;} } ) );
+
+        // Remove falsy and duplicates while preserving order
+        $element_values = array_values(
+            array_unique(
+                array_filter(
+                    $element_keys,
+                    function ( $element ) {
+                        return $element !== false && $element !== '';
+                    }
+                )
+            )
+        );
+
         return $element_values;
     }
 

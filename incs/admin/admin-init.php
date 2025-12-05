@@ -70,7 +70,8 @@ class ShopXpert_Admin_Init
         add_action('wp_ajax_shopxpert_Feature_data', [$this, 'handle_shopxpert_Feature_data']);
 
         // Redirect main menu to the Settings submenu page
-        // add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
+        add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
+        add_action('admin_init', [$this, 'redirect_to_settings']);
     }
 
     /**
@@ -94,7 +95,7 @@ class ShopXpert_Admin_Init
             esc_html__('ShopXpert ', 'shopxpert'),
             self::MENU_CAPABILITY,
             self::MENU_PAGE_SLUG,
-            [$this, 'main_menu_page_content'],
+            [$this, 'plugin_page'], // Show the same settings UI on the parent page
             SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/icons/menu-bar_20x20.png',
             57
         );
@@ -116,6 +117,11 @@ class ShopXpert_Admin_Init
     public function redirect_to_settings()
     {
         global $pagenow;
+
+        // If already on the target page, do nothing.
+        if ($pagenow === 'admin.php' && isset($_GET['page']) && $_GET['page'] === 'shopxpert') {
+            return;
+        }
 
         if ($pagenow === 'admin.php' && isset($_GET['page']) && $_GET['page'] === self::MENU_PAGE_SLUG) {
             wp_redirect(admin_url('admin.php?page=shopxpert'));
@@ -235,6 +241,7 @@ class ShopXpert_Admin_Init
             $fields = json_decode(stripslashes($fields), true);
         }
 
+        error_log('[shopxpert_save_opt_data] section=' . $section . ' fields=' . wp_json_encode($fields) . ' data=' . wp_json_encode($data));
 
         if (empty($section) || empty($fields)) {
             return;
@@ -244,15 +251,28 @@ class ShopXpert_Admin_Init
             $data = [];
         }
 
-        // Ensure the section option exists in the database
-        if (false === get_option($section)) {
-            add_option($section);
-        }
-
         // Update the options
-        foreach ($fields as $field) {
-            $value = isset($data[$field]) ? $data[$field] : null;
-            $this->update_option($section, $field, $value);
+        foreach ($fields as $field_entry) {
+            $target_section = $section;
+            $option_key = $field_entry;
+
+            // New structure: ['key' => option_key, 'section' => target_section]
+            if (is_array($field_entry)) {
+                $option_key = isset($field_entry['key']) ? $field_entry['key'] : '';
+                $target_section = isset($field_entry['section']) && !empty($field_entry['section']) ? $field_entry['section'] : $section;
+            }
+
+            if (empty($option_key)) {
+                continue;
+            }
+
+            // Ensure the section option exists in the database
+            if (false === get_option($target_section)) {
+                add_option($target_section);
+            }
+
+            $value = isset($data[$option_key]) ? $data[$option_key] : null;
+            $this->update_option($target_section, $option_key, $value);
         }
 
         wp_send_json_success([
@@ -282,6 +302,8 @@ class ShopXpert_Admin_Init
 
         // Save the updated options back to the database 
         update_option($section, $options_data);
+
+        error_log('[shopxpert_save_opt_data] saved section=' . $section . ' key=' . $option_key . ' value=' . wp_json_encode($new_value));
     }
 
 
