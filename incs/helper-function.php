@@ -28,6 +28,19 @@ function shopxpert() {
 */
 function shopxpert_get_option( $option, $section, $default = '' ){
     $options = get_option( $section );
+    
+    if ( defined( 'WP_DEBUG' ) && WP_DEBUG && strpos( $section, 'rename_label' ) !== false ) {
+        error_log( '[ShopXpert Helper] shopxpert_get_option called:' );
+        error_log( '[ShopXpert Helper] - Option: ' . $option );
+        error_log( '[ShopXpert Helper] - Section: ' . $section );
+        error_log( '[ShopXpert Helper] - Default: ' . $default );
+        error_log( '[ShopXpert Helper] - Options retrieved: ' . print_r( $options, true ) );
+        error_log( '[ShopXpert Helper] - Option exists: ' . ( isset( $options[$option] ) ? 'YES' : 'NO' ) );
+        if ( isset( $options[$option] ) ) {
+            error_log( '[ShopXpert Helper] - Option value: "' . $options[$option] . '"' );
+        }
+    }
+    
     if ( isset( $options[$option] ) ) {
         return $options[$option];
     }

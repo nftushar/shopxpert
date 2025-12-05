@@ -62,7 +62,9 @@ class Shopxpert_Feature_Manager
     {
         // Check if WooCommerce is active
         if (! is_plugin_active('woocommerce/woocommerce.php')) {
-            error_log('WooCommerce is not active. Skipping WooCommerce-dependent features.');
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                error_log('[ShopXpert Feature Manager] WooCommerce is not active. Skipping WooCommerce-dependent features.');
+            }
             if (is_admin()) {
                 add_action('admin_notices', function () {
                     echo '<div class="error"><p><strong>ShopXpert</strong> requires WooCommerce to be active. Please activate WooCommerce to enable all features.</p></div>';
@@ -71,9 +73,51 @@ class Shopxpert_Feature_Manager
             return; // Exit early if WooCommerce is not active
         }
 
-        // Change Label
-        if (!is_admin() && shopxpert_get_option('enablerenamelabel', 'shopxpert_rename_label_tabs', 'off') == 'on') {
-            require(SHOPXPERT_ADDONS_PL_PATH . 'incs/features/rename-label/rename_label.php');
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[ShopXpert Feature Manager] WooCommerce is active. Checking features...');
+            error_log('[ShopXpert Feature Manager] is_admin(): ' . (is_admin() ? 'YES' : 'NO'));
+        }
+
+        // Change Label Feature
+        $rename_label_enabled = shopxpert_get_option('enablerenamelabel', 'shopxpert_others_tabs', 'off');
+        $is_admin_page = is_admin();
+        
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[ShopXpert Feature Manager] Change Label Feature Check:');
+            error_log('[ShopXpert Feature Manager] - Option value: ' . $rename_label_enabled);
+            error_log('[ShopXpert Feature Manager] - Is admin: ' . ($is_admin_page ? 'YES' : 'NO'));
+            error_log('[ShopXpert Feature Manager] - Should load: ' . (!$is_admin_page && $rename_label_enabled == 'on' ? 'YES' : 'NO'));
+            
+            // Check what options exist
+            $all_options = get_option('shopxpert_others_tabs');
+            error_log('[ShopXpert Feature Manager] - All shopxpert_others_tabs options: ' . print_r($all_options, true));
+        }
+        
+        if (!is_admin() && $rename_label_enabled == 'on') {
+            $rename_label_file = SHOPXPERT_ADDONS_PL_PATH . 'incs/features/rename-label/rename_label.php';
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                error_log('[ShopXpert Feature Manager] Loading Change Label file: ' . $rename_label_file);
+                error_log('[ShopXpert Feature Manager] File exists: ' . (file_exists($rename_label_file) ? 'YES' : 'NO'));
+            }
+            
+            if (file_exists($rename_label_file)) {
+                require($rename_label_file);
+                if (defined('WP_DEBUG') && WP_DEBUG) {
+                    error_log('[ShopXpert Feature Manager] Change Label file loaded successfully');
+                }
+            } else {
+                if (defined('WP_DEBUG') && WP_DEBUG) {
+                    error_log('[ShopXpert Feature Manager] ERROR: Change Label file not found at: ' . $rename_label_file);
+                }
+            }
+        } else {
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                if ($is_admin_page) {
+                    error_log('[ShopXpert Feature Manager] Change Label feature skipped: Admin page (only loads on frontend)');
+                } else {
+                    error_log('[ShopXpert Feature Manager] Change Label feature skipped: Feature not enabled (value: ' . $rename_label_enabled . ')');
+                }
+            }
         }
 
         // pre-orders
