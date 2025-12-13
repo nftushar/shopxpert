@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
 {
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'S' =>
         array (
             'Shopxpert\\Incs\\Admin\\Templates\\' => 31,
             'Shopxpert\\Incs\\Admin\\Inc\\' => 25,
@@ -17,19 +17,19 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
     );
 
     public static $prefixDirsPsr4 = array (
-        'Shopxpert\\Incs\\Admin\\Templates\\' => 
+        'Shopxpert\\Incs\\Admin\\Templates\\' =>
         array (
             0 => __DIR__ . '/../..' . '/incs/admin/templates',
         ),
-        'Shopxpert\\Incs\\Admin\\Inc\\' => 
+        'Shopxpert\\Incs\\Admin\\Inc\\' =>
         array (
             0 => __DIR__ . '/../..' . '/incs/admin/inc',
         ),
-        'Shopxpert\\' => 
+        'Shopxpert\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'ShopXpert \\' => 
+        'ShopXpert \\' =>
         array (
             0 => __DIR__ . '/../..' . '/incs',
         ),
