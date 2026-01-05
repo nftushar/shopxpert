@@ -4,7 +4,7 @@ Tags:label customization, pre-orders, wishlist, stock on hold, dynamic search
 Requires at least: 5.0  
 Requires PHP: 7.0  
 Tested up to: 6.9
-Stable tag: 1.0.6  
+Stable tag: 1.0.7  
 License: GPL-2.0-or-later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -70,6 +70,10 @@ Once enabled, your customers can add products to their wishlist from the product
 Yes, with the Page Duplicator feature, you can duplicate any page to create multiple versions or templates, saving time and maintaining consistent formatting.
 
 == Changelog ==
+
+= 1.0.7 =   
+* **Fix:**
+  - Fix bug and Improved features.
 
 = 1.0.6 =  
 * **Updates:**
