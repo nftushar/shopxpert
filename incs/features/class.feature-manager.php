@@ -79,12 +79,16 @@ class Shopxpert_Feature_Manager
         }
 
         // Change Label Feature
-        $rename_label_enabled = shopxpert_get_option('enablerenamelabel', 'shopxpert_others_tabs', 'off');
+        // Prefer the feature card key ('rename_label_settings') but fallback to legacy 'enablerenamelabel' for compatibility.
+        $rename_label_enabled = shopxpert_get_option('rename_label_settings', 'shopxpert_others_tabs', 'off');
+        if ( $rename_label_enabled === 'off' ) {
+            $rename_label_enabled = shopxpert_get_option('enablerenamelabel', 'shopxpert_others_tabs', 'off');
+        }
         $is_admin_page = is_admin();
         
         if (defined('WP_DEBUG') && WP_DEBUG) {
             error_log('[ShopXpert Feature Manager] Change Label Feature Check:');
-            error_log('[ShopXpert Feature Manager] - Option value: ' . $rename_label_enabled);
+            error_log('[ShopXpert Feature Manager] - Resolved option value: ' . $rename_label_enabled);
             error_log('[ShopXpert Feature Manager] - Is admin: ' . ($is_admin_page ? 'YES' : 'NO'));
             error_log('[ShopXpert Feature Manager] - Should load: ' . (!$is_admin_page && $rename_label_enabled == 'on' ? 'YES' : 'NO'));
             

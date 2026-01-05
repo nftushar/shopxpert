@@ -153,7 +153,12 @@ class Shopxpert_Custom_Meta_Fields{
             }
 
             // Pre Orders
-            if( ( shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' ) == 'on' ) ){
+            $pre_order_enabled = shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' );
+            if ( $pre_order_enabled === 'off' ) {
+                // Backwards-compatibility: older installations used 'enablerpreorder'
+                $pre_order_enabled = shopxpert_get_option( 'enablerpreorder', 'shopxpert_pre_order_settings', 'off' );
+            }
+            if( $pre_order_enabled == 'on' ){
                 ?>
                     <div class="options_group">
                         <h4 class="shopxpert-group-heading" style="margin-bottom: 0;margin-left: 12px;"><?php echo esc_html__('Pre Order','shopxpert'); ?></h4>
@@ -259,7 +264,12 @@ class Shopxpert_Custom_Meta_Fields{
             }
 
             // Manage Pre Order data
-            if( ( shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' ) == 'on' ) ){
+            $pre_order_enabled = shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' );
+            if ( $pre_order_enabled === 'off' ) {
+                // Backwards-compatibility: older installations used 'enablerpreorder'
+                $pre_order_enabled = shopxpert_get_option( 'enablerpreorder', 'shopxpert_pre_order_settings', 'off' );
+            }
+            if( $pre_order_enabled == 'on' ){
 
                 $pre_order_status = !empty( $_POST['shopxpert_pre_order_enable'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_enable'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_pre_order_enable', $pre_order_status );
