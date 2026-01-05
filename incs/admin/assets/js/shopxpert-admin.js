@@ -128,36 +128,36 @@ jQuery(document).ready(function($) {
 
     /* Switch Enable/Disable Function */
     $('[data-switch-toggle]').on('click', function (e) {
-        e.preventDefault(); 
+        e.preventDefault();
         const $this = $(this),
             $type = $this.data('switch-toggle'),
             $target = $this.data('switch-target'),
-            $switches = $(`[data-switch-id="${$target}"`)
+            $switches = $(`[data-switch-id="${$target}"]`);
 
         $switches.each(function () {
-            const $switch = $(this)
+            const $switch = $(this);
             if ($switch.data('shopxpert') !== 'disabled') {
-                const $input = $switch.find('input[type="checkbox"');
+                const $input = $switch.find('input[type="checkbox"]');
                 var actionBtn = $switch.closest('.shopxpert-admin-switch-block-actions').find('.shopxpert-admin-switch-block-setting');
-                if ($type === 'enable' && $input.is(":visible")) {
-                    $input[0].setAttribute("checked", "checked");
-                    $input[0].checked = true;
-                    if (actionBtn.hasClass('shopxpert-visibility-none')) {
-                        actionBtn.removeClass('shopxpert-visibility-none');
+
+                if ($input.length && $input.is(":visible")) {
+                    if ($type === 'enable') {
+                        $input.prop('checked', true).trigger('change');
+                        if (actionBtn.hasClass('shopxpert-visibility-none')) {
+                            actionBtn.removeClass('shopxpert-visibility-none');
+                        }
+                    }
+                    if ($type === 'disable') {
+                        $input.prop('checked', false).trigger('change');
+                        actionBtn.addClass('shopxpert-visibility-none');
                     }
                 }
-                if ($type === 'disable' && $input.is(":visible")) {
-                    $input[0].removeAttribute("checked");
-                    $input[0].checked = false;
-                    actionBtn.addClass('shopxpert-visibility-none');
-                }
-
             }
         });
 
         // Activate the save button for the current tab after bulk toggle
         const $tabPane = $this.closest('.shopxpert-admin-main-tab-pane');
-        $tabPane.find('.shopxpert-admin-btn-save').removeClass('disabled').attr('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
+        $tabPane.find('.shopxpert-admin-btn-save').removeClass('disabled').prop('disabled', false).text(SHOPXPERT_ADMIN.message.btntxt);
 
     });
 

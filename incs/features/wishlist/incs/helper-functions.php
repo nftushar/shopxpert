@@ -9,6 +9,9 @@
  use function  Shopxpert\incs\shopxpert_get_option;
 
 
+// Note: do NOT declare global `shopxpert_get_option` here to avoid redeclaration conflicts.
+// Use the `WishList_get_option()` wrapper below which safely proxies to the namespaced or global helper when available.
+
 function WishList_get_post_list( $post_type = 'page' ){
     $options = array();
     $options['0'] = __('Select','shopxpert');
@@ -48,6 +51,11 @@ function WishList_get_template( $tmp_name, $args = null, $echo = true ) {
         extract( $args );
     }
 
+    // Backwards-compatibility: provide $wishlist for templates that expect it
+    if ( isset( $shopxpert ) && ! isset( $wishlist ) ) {
+        $wishlist = $shopxpert;
+    }
+
     if ( $echo !== true ) { ob_start(); }
 
     // Check if the file exists before including
@@ -60,13 +68,31 @@ function WishList_get_template( $tmp_name, $args = null, $echo = true ) {
     if ( $echo !== true ) { return ob_get_clean(); }
 }
 
+/**
+ * Safe wrapper for shopxpert_get_option that works even if the function is not loaded
+ * Falls back to the provided default when the Shopxpert helper is unavailable
+ */
+function WishList_get_option( $key, $section = '', $default = null ) {
+    // Prefer namespaced function if available
+    if ( function_exists('\\Shopxpert\\incs\\shopxpert_get_option') ) {
+        return \Shopxpert\incs\shopxpert_get_option( $key, $section, $default );
+    }
+
+    // Fallback to global helper if present
+    if ( function_exists('shopxpert_get_option') ) {
+        return shopxpert_get_option( $key, $section, $default );
+    }
+
+    return $default;
+}
+
 
 /**
  * [WishList_get_page_url]
  * @return [URL]
  */
 function WishList_get_page_url() {
-    $page_id = shopxpert_get_option( 'wishlist_page', 'wishlist_table_settings_tabs' );
+    $page_id = WishList_get_option( 'wishlist_page', 'wishlist_table_settings_tabs' );
     return get_permalink( $page_id );
 }
 
@@ -105,7 +131,7 @@ function WishList_get_default_fields(){
  * @return [array]
  */
 function WishList_table_active_heading(){
-    $active_heading = !empty( shopxpert_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) ) ? shopxpert_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) : array();
+    $active_heading = !empty( WishList_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) ) ? WishList_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) : array();
     return $active_heading;
 }
 
@@ -162,7 +188,7 @@ function WishList_get_available_attributes() {
  * @return [String | Bool]
  */
 function WishList_dimensions( $key, $tab, $css_attr ){
-    $dimensions = !empty( shopxpert_get_option( $key, $tab ) ) ? shopxpert_get_option( $key, $tab ) : array();
+    $dimensions = !empty( WishList_get_option( $key, $tab ) ) ? WishList_get_option( $key, $tab ) : array();
     if( !empty( $dimensions['top'] ) || !empty( $dimensions['right'] ) || !empty( $dimensions['bottom'] ) || !empty( $dimensions['left'] ) ){
         $unit = empty( $dimensions['unit'] ) ? 'px' : $dimensions['unit'];
         $css_attr .= ":{$dimensions['top']}{$unit} {$dimensions['right']}{$unit} {$dimensions['bottom']}{$unit} {$dimensions['left']}{$unit}";
@@ -177,7 +203,7 @@ function WishList_dimensions( $key, $tab, $css_attr ){
  * @return [String | Bool]
  */
 function WishList_generate_css( $key, $tab, $css_attr ){
-    $field_value = !empty( shopxpert_get_option( $key, $tab ) ) ? shopxpert_get_option( $key, $tab ) : '';
+    $field_value = !empty( WishList_get_option( $key, $tab ) ) ? WishList_get_option( $key, $tab ) : '';
 
     if( !empty( $field_value ) ){
         $css_attr .= ":{$field_value}";

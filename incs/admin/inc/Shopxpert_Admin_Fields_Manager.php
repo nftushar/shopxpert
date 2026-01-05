@@ -270,7 +270,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '</div>';
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-input">';
-                    $html  .= sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%4$s" value="%5$s" %6$s data-depend-id="%7$s" />', $type, $size, $args['section'], $args['id'], $value, $placeholder, $args['depend_id'] );
+                    $html  .= sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s" %6$s data-depend-id="%7$s" />', $type, $size, $args['section'], $args['id'], $value, $placeholder, $args['depend_id'] );
                 $html  .= '</div>';
             $html  .= '</div>';
         $html  .= '</div>';
@@ -302,7 +302,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '</div>';
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-input">';
-                    $html  .= sprintf( '<textarea rows="4" cols="50" class="%1$s-text" id="%2$s[%3$s]" name="%3$s" %4$s data-depend-id="%6$s">%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value, $args['depend_id'] );
+                    $html  .= sprintf( '<textarea rows="4" cols="50" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" %4$s data-depend-id="%6$s">%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value, $args['depend_id'] );
                 $html  .= '</div>';
             $html  .= '</div>';
         $html  .= '</div>';
@@ -338,7 +338,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-media-upload">';
                     $html .= '<div class="shopxpert_display">'.$save_file.'</div>';
-                    $html  .= sprintf( '<input type="hidden" class="%1$s-text shopxpert-url" id="%2$s[%3$s]" name="%3$s" value="%4$s" data-depend-id="%5$s"/>', $size, $args['section'], $args['id'], $value, $args['depend_id'] );
+                    $html  .= sprintf( '<input type="hidden" class="%1$s-text shopxpert-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-depend-id="%5$s"/>', $size, $args['section'], $args['id'], $value, $args['depend_id'] );
                     $html  .= '<input type="button" class="button shopxpert-browse" value="' . $label . '" />';
                     $html  .= '<input type="button" class="button shopxpert-remove" value="' . $remove_label . '" />';
                 $html  .= '</div>';
@@ -401,8 +401,8 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= !empty( $args['additional_info']['require_settings'] ) ? '<a href="#" class="shopxpert-admin-switch-block-setting '.$visibility.'" data-section="'.$args['section'].'" data-fields=\'' .$setting_fields. '\'><i class="wli wli-cog-light"></i></a>' : '';
             $html  .= '<div class="shopxpert-admin-switch" data-switch-id="element">';
                 // Hidden off to ensure unchecked state is saved
-                $html  .= sprintf( '<input type="hidden" name="%2$s" value="off" />', $args['section'], $args['id'] );
-                $html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" name="%2$s" value="on" %3$s/>', $args['section'], $args['id'], checked( $value, 'on', false ) );
+                $html  .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
+                $html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s/>', $args['section'], $args['id'], checked( $value, 'on', false ) );
                 $html  .= sprintf( '<label for="shopxpert_field_%1$s[%2$s]"><span class="shopxpert-admin-switch-label on">%3$s</span><span class="shopxpert-admin-switch-label off">%4$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $args['section'], $args['id'], 'On', 'Off' );
             $html  .= '</div>';
             $html  .= '</div>';
@@ -546,8 +546,8 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= !empty( $args['additional_info']['require_settings'] ) ? '<a href="#" class="shopxpert-admin-switch-block-setting '.$visibility.'" data-section="'.$args['section'].'" data-fieldname="'.$args['id'].'" data-fields=\'' .$setting_fields. '\'><i class="wli wli-cog-light"></i></a>' : '';
                 $html  .= '<div class="shopxpert-admin-switch" '.$switch_id.'>';
                         // Hidden off to ensure unchecked state is saved
-                        $html  .= sprintf( '<input type="hidden" name="%2$s" value="off" />', $args['section'], $args['id'] );
-                        $html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" name="%2$s" data-depend-id="%4$s" value="on" %3$s/>', $args['section'], $args['id'], $checked, $args['depend_id'] );
+                        $html  .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
+                        $html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" name="%1$s[%2$s]" data-depend-id="%4$s" value="on" %3$s/>', $args['section'], $args['id'], $checked, $args['depend_id'] );
                         $html  .= sprintf( '<label for="shopxpert_field_%1$s[%2$s]"><span class="shopxpert-admin-switch-label on">%3$s</span><span class="shopxpert-admin-switch-label off">%4$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $args['section'], $args['id'], 'On', 'Off' );
                     $html  .= '</div>';
                 $html  .= '</div>';
@@ -584,7 +584,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '</div>';
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-number">';
-                    $html  .= sprintf( '<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%4$s" data-depend-id="%11$s" value="%5$s" %6$s%7$s%8$s%9$s%10$s />', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step, $checked, $args['depend_id'] );
+                    $html  .= sprintf( '<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" data-depend-id="%11$s" value="%5$s" %6$s%7$s%8$s%9$s%10$s />', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step, $checked, $args['depend_id'] );
                     $html  .= '<span class="shopxpert-admin-number-btn increase">+</span>';
                     $html  .= '<span class="shopxpert-admin-number-btn decrease">-</span>';
                 $html  .= '</div>';
@@ -618,8 +618,8 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-switch">';
 					// Hidden off to ensure unchecked state is saved
-					$html  .= sprintf( '<input type="hidden" name="%2$s" value="off" />', $args['section'], $args['id'] );
-					$html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" data-depend-id="%4$s" name="%2$s" value="on" %3$s/>', $args['section'], $args['id'], $checked, $args['depend_id'] );
+					$html  .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
+					$html  .= sprintf( '<input type="checkbox" class="checkbox" id="shopxpert_field_%1$s[%2$s]" data-depend-id="%4$s" name="%1$s[%2$s]" value="on" %3$s/>', $args['section'], $args['id'], $checked, $args['depend_id'] );
                     $html  .= sprintf( '<label for="shopxpert_field_%1$s[%2$s]"><span class="shopxpert-admin-switch-label on">%3$s</span><span class="shopxpert-admin-switch-label off">%4$s</span><span class="shopxpert-admin-switch-indicator"></span></label>', $args['section'], $args['id'], 'on', 'off' );
                 $html  .= '</div>';
             $html  .= '</div>';
@@ -652,7 +652,7 @@ class Shopxpert_Admin_Fields_Manager {
 
                 foreach ( $args['options'] as $key => $label ) {
                     $html  .= '<div class="shopxpert-admin-radio">';
-                        $html .= sprintf( '<input type="radio" class="radio" id="shopxpert_field_%1$s[%2$s][%3$s]" name="%2$s" data-depend-id="%6$s" value="%3$s" %4$s %5$s />', $args['section'], $args['id'], $key, checked( $value, $key, false ), $disabled, $args['depend_id'] );
+                        $html .= sprintf( '<input type="radio" class="radio" id="shopxpert_field_%1$s[%2$s][%3$s]" name="%1$s[%2$s]" data-depend-id="%6$s" value="%3$s" %4$s %5$s />', $args['section'], $args['id'], $key, checked( $value, $key, false ), $disabled, $args['depend_id'] );
                         $html .= sprintf( '<label for="shopxpert_field_%1$s[%2$s][%3$s]">%4$s</label>',  $args['section'], $args['id'], $key, $label );
                     $html  .= '</div>';
                 }
@@ -688,7 +688,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html .= '</div>';
             $html .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html .= '<div class="shopxpert-admin-select">';
-                    $html  .= sprintf( '<select class="%1$s" name="%3$s" data-depend-id="%5$s" id="%2$s[%3$s]" %4$s>', $size, $args['section'], $args['id'], $disabled, $args['depend_id'] );
+                    $html  .= sprintf( '<select class="%1$s" name="%2$s[%3$s]" data-depend-id="%5$s" id="%2$s[%3$s]" %4$s>', $size, $args['section'], $args['id'], $disabled, $args['depend_id'] );
                         foreach ( $args['options'] as $key => $label ) {
                             $html .= sprintf( '<option value="%s"%s>%s</option>', $key, selected( $value, $key, false ), $label );
                         }
@@ -724,7 +724,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html .= '</div>';
             $html .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html .= '<div class="shopxpert-admin-select">';
-                    $html  .= sprintf( '<select class="%1$s" name="%3$s" data-depend-id="%5$s" id="%2$s[%3$s]" %4$s>', $size, $args['section'], $args['id'], $disabled, $args['depend_id'] );
+                    $html  .= sprintf( '<select class="%1$s" name="%2$s[%3$s]" data-depend-id="%5$s" id="%2$s[%3$s]" %4$s>', $size, $args['section'], $args['id'], $disabled, $args['depend_id'] );
                         
                         foreach( $args['options']['group'] as $key => $label ){
 
@@ -768,7 +768,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html .= '</div>';
             $html .= '<div class="shopxpert-admin-option-action" '.$data_atr.' data-depend-id="'.$args['depend_id'].'">';
                 $html .= '<div class="shopxpert-admin-select">';
-                    $html .= sprintf( '<select multiple="multiple" class="%1$s" name="%2$s[]" %3$s>', $args['section'], $args['id'], $disabled );
+                    $html .= sprintf( '<select multiple="multiple" class="%1$s" name="%1$s[%2$s][]" %3$s>', $args['section'], $args['id'], $disabled );
                         foreach ( $args['options'] as $key => $label ) {
                             $selected = '';
                             if( !empty( $value ) ){
@@ -809,7 +809,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '</div>';
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-color">';
-                    $html  .= sprintf( '<input type="text" class="%1$s-text wp-color-picker-field" id="%2$s[%3$s]" name="%3$s" data-depend-id="%6$s" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['depend_id'] );
+                    $html  .= sprintf( '<input type="text" class="%1$s-text wp-color-picker-field" id="%2$s[%3$s]" name="%2$s[%3$s]" data-depend-id="%6$s" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, $args['std'], $args['depend_id'] );
                 $html  .= '</div>';
             $html  .= '</div>';
         $html  .= '</div>';
@@ -844,10 +844,10 @@ class Shopxpert_Admin_Fields_Manager {
                     $new_value = isset( $value[$key] ) ? $value[$key] : '';
                     $html .= '<li>';
                         if( 'unit' === $key ){
-                            $html    .= sprintf( '<input type="text" class="dimensionsbox" id="shopxpert_sp_%1$s[%2$s][%3$s]" name="%2$s[%3$s]" value="%4$s" />', $args['section'], $args['id'], $key, $new_value );
+                            $html    .= sprintf( '<input type="text" class="dimensionsbox" id="shopxpert_sp_%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%4$s" />', $args['section'], $args['id'], $key, $new_value );
                             $html    .= sprintf( '<label for="shopxpert_sp_%1$s[%2$s][%3$s]">%4$s</label>', $args['section'], $args['id'], $key, $label );
                         }else{
-                            $html    .= sprintf( '<input type="number" class="dimensionsbox" id="shopxpert_sp_%1$s[%2$s][%3$s]" name="%2$s[%3$s]" value="%4$s" />', $args['section'], $args['id'], $key, $new_value );
+                            $html    .= sprintf( '<input type="number" class="dimensionsbox" id="shopxpert_sp_%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%4$s" />', $args['section'], $args['id'], $key, $new_value );
                             $html    .= sprintf( '<label for="shopxpert_sp_%1$s[%2$s][%3$s]">%4$s</label>', $args['section'], $args['id'], $key, $label );
                         }
                     $html .= '</li>';
@@ -884,7 +884,7 @@ class Shopxpert_Admin_Fields_Manager {
             $html  .= '</div>';
             $html  .= '<div class="shopxpert-admin-option-action" '.$data_atr.'>';
                 $html  .= '<div class="shopxpert-admin-input">';
-                    $html  .= sprintf( '<input type="%1$s" class="%2$s-text shopxpert-date-picker-field" id="%3$s[%4$s]" name="%4$s" data-depend-id="%7$s" value="%5$s" %6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $args['depend_id'] );
+                    $html  .= sprintf( '<input type="%1$s" class="%2$s-text shopxpert-date-picker-field" id="%3$s[%4$s]" name="%3$s[%4$s]" data-depend-id="%7$s" value="%5$s" %6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $args['depend_id'] );
                 $html  .= '</div>';
             $html  .= '</div>';
         $html  .= '</div>';
@@ -902,6 +902,10 @@ class Shopxpert_Admin_Fields_Manager {
      */
     public function get_option( $option, $section, $default = '' ) {
         $options = get_option( $section );
+        // Ensure we work with an array to avoid PHP notices
+        if ( ! is_array( $options ) ) {
+            $options = array();
+        }
         if ( isset( $options[$option] ) ) {
             return $options[$option];
         }

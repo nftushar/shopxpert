@@ -107,6 +107,12 @@ class Assets_Management{
                 'deps'    => [ 'jquery'],
             ],
 
+            'serializejson' => [
+                'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/jquery.serializejson.js',
+                'version' => SHOPXPERT_VERSION,
+                'deps'    => [ 'jquery' ],
+            ],
+
             'shopxpert-admin-main' =>[
                 'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/shopxpert-admin.js',
                 'version' => SHOPXPERT_VERSION,
@@ -158,7 +164,7 @@ class Assets_Management{
                 'message' => [
                     'btntxt'  => esc_html__('Save Changes', 'shopxpert'),
                     'loading' => esc_html__('Saving...', 'shopxpert'),
-                    'success' => esc_html__('Saved success Data', 'shopxpert'),
+                    'success' => esc_html__('Saved success', 'shopxpert'),
                     'yes'     => esc_html__('Yes', 'shopxpert'),
                     'cancel'  => esc_html__('Cancel', 'shopxpert'),
                     'sure'    => esc_html__('Are you sure?', 'shopxpert'),

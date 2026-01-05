@@ -271,7 +271,17 @@ class ShopXpert_Admin_Init
                 add_option($target_section);
             }
 
-            $value = isset($data[$option_key]) ? $data[$option_key] : null;
+            // Resolve value: support both flattened data (option => value)
+            // and nested section data (section => [ option => value ])
+            $value = null;
+            if ( is_array( $data ) ) {
+                if ( isset( $data[ $option_key ] ) ) {
+                    $value = $data[ $option_key ];
+                } elseif ( isset( $data[ $target_section ] ) && is_array( $data[ $target_section ] ) && isset( $data[ $target_section ][ $option_key ] ) ) {
+                    $value = $data[ $target_section ][ $option_key ];
+                }
+            }
+
             $this->update_option($target_section, $option_key, $value);
         }
 

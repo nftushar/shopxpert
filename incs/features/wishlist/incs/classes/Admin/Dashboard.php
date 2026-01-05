@@ -110,7 +110,7 @@ class Dashboard {
      * @param WP_Post $post  The current post object.
      */
     public function add_display_post_states( $post_states, $post ){
-        if ( (int)shopxpert_get_option( 'wishlist_page', 'wishlist_table_settings_tabs' ) === $post->ID ) {
+        if ( (int)WishList_get_option( 'wishlist_page', 'wishlist_table_settings_tabs' ) === $post->ID ) {
             $post_states['wishlist_page_for_wishlist_table'] = __( 'WishList', 'shopxpert' );
         }
         return $post_states;

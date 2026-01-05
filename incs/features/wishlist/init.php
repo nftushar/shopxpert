@@ -127,8 +127,8 @@ final class Shopxpert_WishList_Base{
      */
     public function wc_image_filter_size(){
 
-        $image_dimention = shopxpert_get_option( 'image_size', 'wishlist_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
-        $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishlist_table_settings_tabs' ) ) ? true : false;
+$image_dimention = WishList_get_option( 'image_size', 'wishlist_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
+            $hard_crop = !empty( WishList_get_option( 'hard_crop', 'wishlist_table_settings_tabs' ) ) ? true : false;
 
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
             return array(

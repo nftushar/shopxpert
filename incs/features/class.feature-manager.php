@@ -121,7 +121,15 @@ class Shopxpert_Feature_Manager
         }
 
         // pre-orders
-        if (!is_admin() && shopxpert_get_option('enable', 'shopxpert_pre_order_settings', 'off') == 'on') {
+        $pre_order_enabled = shopxpert_get_option('enable', 'shopxpert_pre_order_settings', 'off');
+        if ($pre_order_enabled === 'off') {
+            // Backwards-compatibility: older versions used 'enablerpreorder' as the option key
+            $pre_order_enabled = shopxpert_get_option('enablerpreorder', 'shopxpert_pre_order_settings', 'off');
+        }
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[ShopXpert Feature Manager] Pre-orders enabled check: ' . $pre_order_enabled);
+        }
+        if (!is_admin() && $pre_order_enabled == 'on') {
             require_once(SHOPXPERT_ADDONS_PL_PATH . 'incs/features/pre-orders/pre-orders.php');
         }
 
@@ -167,6 +175,16 @@ class Shopxpert_Feature_Manager
 
         // Product Comparison
         $comparison_enabled = shopxpert_get_option('product_comparison', 'shopxpert_others_tabs', 'off');
+        // Backwards-compatibility: check dedicated product-comparison settings and alternate keys
+        if ($comparison_enabled === 'off') {
+            $comparison_enabled = shopxpert_get_option('enable_product_comparison', 'shopxpert_product_comparison_settings', 'off');
+            if ($comparison_enabled === 'off') {
+                $comparison_enabled = shopxpert_get_option('enable_product_comparison', 'shopxpert_others_tabs', 'off');
+            }
+        }
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[ShopXpert Feature Manager] Product Comparison enabled check: ' . $comparison_enabled);
+        }
         if ($comparison_enabled === 'on') {
             require_once(SHOPXPERT_ADDONS_PL_PATH . 'incs/features/product-comparison/class.product-comparison.php');
             if (function_exists('Shopxpert\\ProductComparison\\Shopxpert_Product_Comparison')) {

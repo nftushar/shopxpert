@@ -2,6 +2,13 @@
     <table class="wishlist_table">
         <thead>
             <?php
+                // Backwards-compatible: ensure $wishlist instance exists in template
+                if ( ! isset( $wishlist ) || ! is_object( $wishlist ) ) {
+                    $wishlist = \WishList\Frontend\Manage_Wishlist::instance();
+                }
+
+                $fields = ! empty( $fields ) && is_array( $fields ) ? $fields : array();
+
                 $cell_count = 1;
                 if( !empty( $fields ) ){
                     $cell_count = count( $fields );

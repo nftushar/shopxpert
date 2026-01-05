@@ -60,8 +60,8 @@
         'linkedin'   => esc_html__( 'Linkedin', 'shopxpert' ),
         'telegram'   => esc_html__( 'Telegram', 'shopxpert' ),
     ];
-	$button_list = shopxpert_get_option( 'social_share_buttons','wishlist_table_settings_tabs', $default_buttons );
-	$button_text = shopxpert_get_option( 'social_share_button_title','wishlist_table_settings_tabs', 'Share:' );
+	$button_list = WishList_get_option( 'social_share_buttons','wishlist_table_settings_tabs', $default_buttons );
+	$button_text = WishList_get_option( 'social_share_button_title','wishlist_table_settings_tabs', 'Share:' );
 
 	if( is_array($button_list) ){
 
