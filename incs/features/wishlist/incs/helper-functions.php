@@ -105,58 +105,67 @@ function WishList_add_to_cart( $product, $quentity ){
     return \WishList\Frontend\Manage_Wishlist::instance()->add_to_cart_html( $product, $quentity );
 }
 
-/**
- * Get default fields List
- * return array
- */
-function WishList_get_default_fields(){
-    $fields = array(
-        'remove'      => esc_html__( 'Remove', 'shopxpert' ),
-        'image'       => esc_html__( 'Image', 'shopxpert' ),
-        'title'       => esc_html__( 'Title', 'shopxpert' ),
-        'price'       => esc_html__( 'Price', 'shopxpert' ),
-        'quantity'    => esc_html__( 'Quantity', 'shopxpert' ),
-        'add_to_cart' => esc_html__( 'Add To Cart', 'shopxpert' ),
-        'description' => esc_html__( 'Description', 'shopxpert' ),
-        'availability'=> esc_html__( 'Availability', 'shopxpert' ),
-        'sku'         => esc_html__( 'Sku', 'shopxpert' ),
-        'weight'      => esc_html__( 'Weight', 'shopxpert' ),
-        'dimensions'  => esc_html__( 'Dimensions', 'shopxpert' ),
-    );
-    return apply_filters( 'wishlist_default_fields', $fields );
-}
-
-/**
- * [WishList_table_active_heading]
- * @return [array]
- */
-function WishList_table_active_heading(){
-    $active_heading = !empty( WishList_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) ) ? WishList_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) : array();
-    return $active_heading;
-}
-
-/**
- * [WishList_table_heading]
- * @return [array]
- */
-function WishList_table_heading(){
-    $new_list = array();
-
-    $active_default_fields = array(
-        'remove'      => esc_html__( 'Remove', 'shopxpert' ),
-        'image'       => esc_html__( 'Image', 'shopxpert' ),
-        'title'       => esc_html__( 'Title', 'shopxpert' ),
-        'price'       => esc_html__( 'Price', 'shopxpert' ),
-        'quantity'    => esc_html__( 'Quantity', 'shopxpert' ),
-        'add_to_cart' => esc_html__( 'Add To Cart', 'shopxpert' ),
-    );
-
-    $field_list = count( WishList_table_active_heading() ) > 0 ? WishList_table_active_heading() : $active_default_fields;
-    foreach ( $field_list as $key => $value ) {
-        $new_list[$key] = \WishList\Frontend\Manage_Wishlist::instance()->field_name( $key );
+    /**
+     * Get default fields List
+     * return array
+     */
+    function WishList_get_default_fields(){
+        $fields = array(
+            'remove'      => esc_html__( 'Remove', 'shopxpert' ),
+            'image'       => esc_html__( 'Image', 'shopxpert' ),
+            'title'       => esc_html__( 'Title', 'shopxpert' ),
+            'price'       => esc_html__( 'Price', 'shopxpert' ),
+            'quantity'    => esc_html__( 'Quantity', 'shopxpert' ),
+            'add_to_cart' => esc_html__( 'Add To Cart', 'shopxpert' ),
+            'description' => esc_html__( 'Description', 'shopxpert' ),
+            'availability'=> esc_html__( 'Availability', 'shopxpert' ),
+            'sku'         => esc_html__( 'Sku', 'shopxpert' ),
+            'weight'      => esc_html__( 'Weight', 'shopxpert' ),
+            'dimensions'  => esc_html__( 'Dimensions', 'shopxpert' ),
+        );
+        return apply_filters( 'wishlist_default_fields', $fields );
     }
-    return $new_list;
-}
+
+    /**
+     * [WishList_table_active_heading]
+     * @return [array]
+     */
+    function WishList_table_active_heading(){
+        $active_heading = !empty( WishList_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) ) ? WishList_get_option( 'show_fields', 'wishlist_table_settings_tabs' ) : array();
+        return $active_heading;
+    }
+
+        /**
+         * Get Wishlist table headings.
+         *
+         * @return array
+         */
+        function WishList_table_heading(): array {
+            $default_fields = [
+                'remove'      => esc_html__( 'Remove', 'shopxpert' ),
+                'image'       => esc_html__( 'Image', 'shopxpert' ),
+                'title'       => esc_html__( 'Title', 'shopxpert' ),
+                'price'       => esc_html__( 'Price', 'shopxpert' ),
+                'quantity'    => esc_html__( 'Quantity', 'shopxpert' ),
+                'add_to_cart' => esc_html__( 'Add To Cart', 'shopxpert' ),
+            ];
+
+            // Use active headings if available, otherwise fallback to default
+            $active_fields = WishList_table_active_heading();
+            $field_list    = ! empty( $active_fields ) ? $active_fields : $default_fields;
+
+            $headings = [];
+
+            $wishlist = \WishList\Frontend\Manage_Wishlist::instance();
+
+            foreach ( $field_list as $key => $label ) {
+                // Safely get the field name; fallback to key if undefined
+                $headings[ $key ] = $wishlist->field_name( $key ) ?: $key;
+            }
+
+            return $headings;
+        }
+
 
 /**
  * Get Post List

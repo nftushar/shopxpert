@@ -431,96 +431,93 @@ class Manage_Wishlist {
      * @param  [array] $product
      * @return [html] 
      */
-    public function display_field( $field_id, $product ) {
+      public function display_field( $field_id, $product ) {
 
-        $type = $field_id;
+    $type = $field_id;
 
-        if ( 'pa_' === substr( $field_id, 0, 3 ) ) {
-            $type = 'attribute';
-        }
-        
-        switch ( $type ) {
-            case 'remove':
-                ?>
-                    <a href="#" class="wishlist-remove" data-product_id="<?php echo esc_attr( $product['id'] ); ?>">&nbsp;</a>
-                <?php
-                break;
-
-            case 'image':
-                ?>
-                    <a href="<?php echo esc_url(get_permalink( $product['id'] )); ?>"> <?php echo wp_kses_post($product['image']); ?> </a>
-                <?php
-                break;
-
-            case 'title':
-                echo '<a href="'.esc_url(get_permalink( $product['id'] )).'">'.$product[ $field_id ].'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                break;
-
-            case 'price':
-                echo wp_kses_post( $product[ $field_id ] );
-                break;
-
-            case 'quantity':
-                echo $product[ $field_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                break;
-
-            case 'ratting':
-                echo '<span class="wishlist-product-ratting">'.wp_kses_post( $product[ $field_id ] ).'</span>';
-                break;
-
-            case 'add_to_cart':
-                echo apply_filters( 'WishList_add_to_cart_btn', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                break;
-
-            case 'attribute':
-                echo wp_kses_post( $product[ $field_id ] );
-                break;
-
-            case 'weight':
-                if ( $product[ $field_id ] ) {
-                    $unit = $product[ $field_id ] !== '-' ? get_option( 'woocommerce_weight_unit' ) : '';
-                    echo wc_format_localized_decimal( $product[ $field_id ] ) . ' ' . esc_attr( $unit ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                } 
-                break;
-
-            case 'description':
-                echo apply_filters( 'woocommerce_short_description', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                break;
-
-            default:
-                echo wp_kses_post( $product[ $field_id ] );
-                break;
-        }
-
-
+    if ( 'pa_' === substr( $field_id, 0, 3 ) ) {
+        $type = 'attribute';
     }
+    
+    switch ( $type ) {
+
+        case 'remove':
+            ?>
+            <a href="#" class="wishlist-remove" data-product_id="<?php echo esc_attr( $product['id'] ?? 0 ); ?>">&nbsp;</a>
+            <?php
+            break;
+
+        case 'image':
+            ?>
+            <a href="<?php echo esc_url( get_permalink( $product['id'] ?? 0 ) ); ?>">
+                <?php echo isset( $product['image'] ) ? wp_kses_post( $product['image'] ) : ''; ?>
+            </a>
+            <?php
+            break;
+
+        case 'title':
+            echo '<a href="'.esc_url( get_permalink( $product['id'] ?? 0 ) ).'">'.( $product[ $field_id ] ?? '' ).'</a>';
+            break;
+
+        case 'price':
+        case 'attribute':
+            echo isset( $product[ $field_id ] ) ? wp_kses_post( $product[ $field_id ] ) : '';
+            break;
+
+        case 'quantity':
+        case 'ratting':
+            echo isset( $product[ $field_id ] ) ? $product[ $field_id ] : '';
+            break;
+
+        case 'add_to_cart':
+            echo isset( $product[ $field_id ] ) ? apply_filters( 'WishList_add_to_cart_btn', $product[ $field_id ] ) : '';
+            break;
+
+        case 'weight':
+            if ( ! empty( $product[ $field_id ] ) ) {
+                $unit = $product[ $field_id ] !== '-' ? get_option( 'woocommerce_weight_unit' ) : '';
+                echo wc_format_localized_decimal( $product[ $field_id ] ) . ' ' . esc_attr( $unit );
+            }
+            break;
+
+        case 'description':
+            echo isset( $product[ $field_id ] ) ? apply_filters( 'woocommerce_short_description', $product[ $field_id ] ) : '';
+            break;
+
+        default:
+            echo isset( $product[ $field_id ] ) ? wp_kses_post( $product[ $field_id ] ) : '';
+            break;
+    }
+}
 
     /**
      * [field_name]
      * @param  [string] $field
      * @return [string] 
      */
-    public function field_name( $field, $custom = false ){
-
-        if( empty( $field ) ){
-            return;
-        }
-
-        if( $custom === true ){
-            return $field;
-        }
-
-        $default = WishList_get_default_fields();
-
-        $str = substr( $field, 0, 3 );
-        if( 'pa_' === $str ){
-            $field_name = wc_attribute_label( $field );
-        }else{
-            $field_name = $default[$field];
-        }
-        return $field_name;
-
+public function field_name( string $field, bool $custom = false ): string {
+    // Return empty string if field is empty
+    if ( empty( $field ) ) {
+        return '';
     }
+
+    // If custom flag is true, just return the field as-is
+    if ( $custom ) {
+        return $field;
+    }
+
+    // Handle product attributes (pa_*)
+    if ( str_starts_with( $field, 'pa_' ) ) {
+        return wc_attribute_label( $field );
+    }
+
+    // Get default wishlist fields
+    $default_fields = WishList_get_default_fields();
+
+    // Return default value if exists, else fallback to the field itself
+    return $default_fields[ $field ] ?? $field;
+}
+
 
     /**
      * [add_to_cart_html]
