@@ -102,41 +102,46 @@ class Ajax {
      * @param  boolean $id product id
      * @return [void]
      */
-    public function variation_form_html( $id = false ){
+    public function variation_form_html( $id = 0 ) {
 
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( wp_unslash( $_GET['nonce'] ),  'wishList_nonce' ) ){
-            $errormessage = array(
-                'message'  => __('Nonce Varification Faild !','shopxpert')
+        // Nonce check
+        if (
+            empty( $_POST['nonce'] ) ||
+            ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'wishList_nonce' )
+        ) {
+            wp_send_json_error(
+                [
+                    'message' => __( 'Nonce verification failed!', 'shopxpert' ),
+                ]
             );
-            wp_send_json_error( $errormessage );
         }
 
-        if( isset( $_POST['id'] ) ) {
-            $id = sanitize_text_field( (int) $_POST['id'] );
+        // Product ID
+        if ( ! empty( $_POST['id'] ) ) {
+            $id = absint( $_POST['id'] );
         }
-        if( ! $id || ! class_exists( 'WooCommerce' ) ) {
-            return;
+
+        if ( ! $id || ! class_exists( 'WooCommerce' ) ) {
+            wp_die();
         }
 
         global $post;
 
-        $args = array( 
-            'post_type' => 'product',
-            'post__in' => array( $id ) 
-        );
+        $post = get_post( $id );
 
-        $get_posts = get_posts( $args );
+        if ( ! $post || 'product' !== $post->post_type ) {
+            wp_die();
+        }
 
-        foreach( $get_posts as $post ) :
-            setup_postdata( $post );
-            woocommerce_template_single_add_to_cart();
-        endforeach; 
+        setup_postdata( $post );
 
-        wp_reset_postdata(); 
+        woocommerce_template_single_add_to_cart();
+
+        wp_reset_postdata();
 
         wp_die();
-
     }
+
 
     /**
      * [insert_to_cart] Insert add to cart
