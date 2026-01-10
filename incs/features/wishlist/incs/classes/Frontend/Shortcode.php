@@ -1,8 +1,7 @@
 <?php
 namespace WishList\Frontend;
 
-use function  Shopxpert\incs\shopxpert_get_option;
-
+use function Shopxpert\incs\shopxpert_get_option;
 
 /**
  * Shortcode handler class
@@ -10,15 +9,21 @@ use function  Shopxpert\incs\shopxpert_get_option;
 class Shortcode {
 
     /**
-     * [$_instance]
-     * @var null
+     * Check if wishlist feature is enabled
+     */
+    private function is_wishlist_enabled() {
+        return WishList_get_option(
+            'wishlist',
+            'shopxpert_others_tabs',
+            'off'
+        ) === 'on';
+    }
+
+    /**
+     * Singleton instance
      */
     private static $_instance = null;
 
-    /**
-     * [instance] Initializes a singleton instance
-     * @return [Base]
-     */
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
             self::$_instance = new self();
@@ -27,211 +32,200 @@ class Shortcode {
     }
 
     /**
-     * Initializes the class
+     * Register shortcodes
      */
-    function __construct() {
+    public function __construct() {
         add_shortcode( 'wishlist_button', [ $this, 'button_shortcode' ] );
         add_shortcode( 'wishlist_table', [ $this, 'table_shortcode' ] );
         add_shortcode( 'wishlist_counter', [ $this, 'counter_shortcode' ] );
     }
 
     /**
-     * [button_shortcode] Button Shortcode callable function
-     * @param  [type] $atts 
-     * @param  string $content
-     * @return [HTML] 
+     * Wishlist Button Shortcode
      */
-    public function button_shortcode( $atts, $content = '' ){
+    public function button_shortcode( $atts, $content = '' ) {
+
+        if ( ! $this->is_wishlist_enabled() ) {
+            return '';
+        }
+
         wp_enqueue_style( 'wishlist-frontend' );
         wp_enqueue_script( 'wishlist-frontend' );
 
         global $product;
+
         $product_id = '';
         if ( $product && is_a( $product, 'WC_Product' ) ) {
             $product_id = $product->get_id();
-        } else if ( get_post_type( get_the_ID() ) === 'product' ) {
+        } elseif ( get_post_type( get_the_ID() ) === 'product' ) {
             $product_id = get_the_ID();
-        }else{
-            $product_id = '';
         }
 
-        $has_product = false;
-        if ( Manage_Wishlist::instance()->is_product_in_wishlist( $product_id ) ) {
-            $has_product = true;
-        }
+        $has_product = Manage_Wishlist::instance()->is_product_in_wishlist( $product_id );
 
-        //my account url
-        $myaccount_url =  get_permalink( get_option('woocommerce_myaccount_page_id') );
- 
-        // Fetch option data
-        $button_text        = WishList_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
-     
-        $button_added_text  = WishList_get_option( 'added_button_text','wishlist_settings_tabs', 'Product Added' );
-        $button_exist_text  = WishList_get_option( 'exist_button_text','wishlist_settings_tabs', 'Product already added' );
-        $shop_page_btn_position     = WishList_get_option( 'shop_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
-        $product_page_btn_position  = WishList_get_option( 'product_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
-        $button_style               = WishList_get_option( 'button_style', 'wishlist_style_settings_tabs', 'default' );
-        $enable_login_limit         = WishList_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
+        $myaccount_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
 
-        if ( !is_user_logged_in() && $enable_login_limit == 'on' ) {
-            $button_text   = WishList_get_option( 'logout_button','wishlist_general_tabs', 'Please login' );
-            $page_url      = $myaccount_url;
-            $has_product   = false;
-        }else{
-            $button_text = WishList_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
+        $button_text       = WishList_get_option( 'button_text', 'wishlist_settings_tabs', 'Wishlist' );
+        $button_added_text = WishList_get_option( 'added_button_text', 'wishlist_settings_tabs', 'Product Added' );
+        $button_exist_text = WishList_get_option( 'exist_button_text', 'wishlist_settings_tabs', 'Product already added' );
+
+        $shop_position    = WishList_get_option( 'shop_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
+        $product_position = WishList_get_option( 'product_btn_position', 'wishlist_settings_tabs', 'after_cart_btn' );
+        $button_style     = WishList_get_option( 'button_style', 'wishlist_style_settings_tabs', 'default' );
+        $login_limit      = WishList_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
+
+        if ( ! is_user_logged_in() && $login_limit === 'on' ) {
+            $button_text = WishList_get_option( 'logout_button', 'wishlist_general_tabs', 'Please login' );
+            $page_url    = $myaccount_url;
+            $has_product = false;
+        } else {
             $page_url = WishList_get_page_url();
         }
 
-        $button_class = array(
+        $button_class = [
             'wishlist-btn',
             'wishlist-button',
-            'wishlist-shop-'.$shop_page_btn_position,
-            'wishlist-product-'.$product_page_btn_position,
-        );
+            'wishlist-shop-' . $shop_position,
+            'wishlist-product-' . $product_position,
+        ];
 
-        if( $button_style === 'themestyle' ){
+        if ( $button_style === 'themestyle' ) {
             $button_class[] = 'button';
         }
 
-        if ( $has_product === true && ( $key = array_search( 'wishlist-btn', $button_class ) ) !== false ) {
-            unset( $button_class[$key] );
+        if ( $has_product ) {
+            $button_class = array_diff( $button_class, [ 'wishlist-btn' ] );
         }
 
+        $button_icon       = $this->icon_generate();
+        $added_button_icon = $this->icon_generate( 'added' );
 
-        $button_icon        = $this->icon_generate();
-        $added_button_icon  = $this->icon_generate('added');
-        
-        if( !empty( $button_text ) ){
-            $button_text = '<span class="wishlist-btn-text">'.$button_text.'</span>';
-        }
-        
-        if( !empty( $button_exist_text ) ){
-            $button_exist_text = '<span class="wishlist-btn-text">'.$button_exist_text.'</span>';
-        }
+        $button_text_html = ! empty( $button_text )
+            ? '<span class="wishlist-btn-text">' . esc_html( $button_text ) . '</span>'
+            : '';
 
-        if( !empty( $button_added_text ) ){
-            $button_added_text = '<span class="wishlist-btn-text">'.$button_added_text.'</span>';
-        }
+        $button_added_html = ! empty( $button_added_text )
+            ? '<span class="wishlist-btn-text">' . esc_html( $button_added_text ) . '</span>'
+            : '';
 
-        // Shortcode atts
-        $default_atts = array(
+        $button_exist_html = ! empty( $button_exist_text )
+            ? '<span class="wishlist-btn-text">' . esc_html( $button_exist_text ) . '</span>'
+            : '';
+
+        $default_atts = [
             'product_id'        => $product_id,
             'button_url'        => $page_url,
-            'button_class'      => implode(' ', $button_class ),
-            'button_text'       => $button_icon.$button_text,
-            'button_added_text' => $added_button_icon.$button_added_text,
-            'button_exist_text' => $added_button_icon.$button_exist_text,
+            'button_class'      => implode( ' ', $button_class ),
+            'button_text'       => $button_text_html ? $button_icon . $button_text_html : '',
+            'button_added_text' => $button_added_html ? $added_button_icon . $button_added_html : '',
+            'button_exist_text' => $button_exist_html ? $added_button_icon . $button_exist_html : '',
             'has_product'       => $has_product,
-            'template_name'     => ( $has_product === true ) ? 'exist' : 'add',
-        );
-        $atts = shortcode_atts( $default_atts, $atts, $content );
-        return Manage_Wishlist::instance()->button_html( $atts );
+            'template_name'     => $has_product ? 'exist' : 'add',
+        ];
 
+        $atts = shortcode_atts( $default_atts, $atts, $content );
+
+        return Manage_Wishlist::instance()->button_html( $atts );
     }
 
     /**
-     * [table_shortcode] Table List Shortcode callable function
-     * @param  [type] $atts
-     * @param  string $content
-     * @return [HTML] 
+     * Wishlist Table Shortcode
      */
-    public function table_shortcode( $atts, $content = '' ){
+    public function table_shortcode( $atts, $content = '' ) {
+
+        if ( ! $this->is_wishlist_enabled() ) {
+            return '';
+        }
+
         wp_enqueue_style( 'wishlist-frontend' );
         wp_enqueue_script( 'wishlist-frontend' );
 
-        /* Fetch From option data */
         $empty_text = WishList_get_option( 'empty_table_text', 'wishlist_table_settings_tabs' );
 
-        $current_page = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-        $product_per_page = (int) WishList_get_option( 'wishlist_product_per_page', 'wishlist_table_settings_tabs', 20 );
+        $current_page     = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+        $products_perpage = (int) WishList_get_option( 'wishlist_product_per_page', 'wishlist_table_settings_tabs', 20 );
 
-        /* Product and Field */
-        $products   = Manage_Wishlist::instance()->get_products_data( $product_per_page, $current_page );
-        $fields     = Manage_Wishlist::instance()->get_all_fields();
+        $products = Manage_Wishlist::instance()->get_products_data( $products_perpage, $current_page );
+        $fields   = Manage_Wishlist::instance()->get_all_fields();
 
-        $custom_heading = !empty( WishList_get_option( 'table_heading', 'wishlist_table_settings_tabs' ) ) ? WishList_get_option( 'table_heading', 'wishlist_table_settings_tabs' ) : array();
-        $enable_login_limit = WishList_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
+        $heading = WishList_get_option( 'table_heading', 'wishlist_table_settings_tabs', [] );
+        $login_limit = WishList_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
 
-        $default_atts = array(
-            'shopxpert'    => Manage_Wishlist::instance(),
-            'products'     => $products,
-            'fields'       => $fields,
-            'heading_txt'  => $custom_heading,
-            'empty_text'   => !empty( $empty_text ) ? $empty_text : '',
-        );
-
-        if ( !is_user_logged_in() && $enable_login_limit == 'on' ) {
-            return do_shortcode('[woocommerce_my_account]');
-        }else{
-            $atts = shortcode_atts( $default_atts, $atts, $content );
-            return Manage_Wishlist::instance()->table_html( $atts );
-        }
-    }
-
-    /**
-     * WishList Counter Shortcode
-     *
-     * @param [array] $atts
-     * @param string $content
-     * @return void
-     */
-    public function counter_shortcode( $atts, $content = '' ){
-        wp_enqueue_style( 'wishlist-frontend' );
-
-        $enable_login_limit = WishList_get_option( 'enable_login_limit', 'wishlist_general_tabs', 'off' );
-        $myaccount_url      =  get_permalink( get_option('woocommerce_myaccount_page_id') );
-
-        $products   = Manage_Wishlist::instance()->get_products_data();
-        if ( !is_user_logged_in() && $enable_login_limit == 'on' ) {
-            $button_text   = WishList_get_option( 'logout_button','wishlist_general_tabs', 'Please login' );
-            $page_url      = $myaccount_url;
-            $has_product   = false;
-        }else{
-            $button_text = WishList_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
-            $page_url = WishList_get_page_url();
+        if ( ! is_user_logged_in() && $login_limit === 'on' ) {
+            return do_shortcode( '[woocommerce_my_account]' );
         }
 
-        $default_atts = array(
-            'products'      => $products,
-            'item_count'    => count($products),
-            'page_url'      => $page_url,
-            'text'          => '',
-        );
+        $default_atts = [
+            'shopxpert'   => Manage_Wishlist::instance(),
+            'products'    => $products,
+            'fields'      => $fields,
+            'heading_txt' => $heading,
+            'empty_text'  => $empty_text ?: '',
+        ];
 
         $atts = shortcode_atts( $default_atts, $atts, $content );
-        return Manage_Wishlist::instance()->count_html( $atts );
 
+        return Manage_Wishlist::instance()->table_html( $atts );
     }
 
     /**
-     * [icon_generate]
-     * @param  string $type
-     * @return [HTML]
+     * Wishlist Counter Shortcode
      */
-    public function icon_generate( $type = '' ){
+    public function counter_shortcode( $atts, $content = '' ) {
 
-        $default_icon   = WishList_icon_list('default');
-        $default_loader = '<span class="wishlist-loader">'.WishList_icon_list('loading').'</span>';
-        
-        $button_icon = '';
-        $button_text = ( $type === 'added' ) ? WishList_get_option( 'added_button_text','wishlist_settings_tabs', 'Wishlist' ) : WishList_get_option( 'button_text','wishlist_settings_tabs', 'Wishlist' );
-        $button_icon_type  = WishList_get_option( $type.'button_icon_type', 'wishlist_style_settings_tabs', 'default' );
+        if ( ! $this->is_wishlist_enabled() ) {
+            return '';
+        }
 
-        if( $button_icon_type === 'custom' ){
-            $button_icon = WishList_get_option( $type.'button_custom_icon','wishlist_style_settings_tabs', '' );
-        }else{
-            if( $button_icon_type !== 'none' ){
-                return $default_icon;
+        wp_enqueue_style( 'wishlist-frontend' );
+
+        $products = Manage_Wishlist::instance()->get_products_data();
+        $page_url = WishList_get_page_url();
+
+        $default_atts = [
+            'products'   => $products,
+            'item_count' => count( $products ),
+            'page_url'   => $page_url,
+            'text'       => '',
+        ];
+
+        $atts = shortcode_atts( $default_atts, $atts, $content );
+
+        return Manage_Wishlist::instance()->count_html( $atts );
+    }
+
+    /**
+     * Generate button icon
+     */
+    public function icon_generate( $type = '' ) {
+
+        if ( ! $this->is_wishlist_enabled() ) {
+            return '';
+        }
+
+        $icon_type = WishList_get_option(
+            $type . 'button_icon_type',
+            'wishlist_style_settings_tabs',
+            'default'
+        );
+
+        if ( $icon_type === 'none' ) {
+            return '';
+        }
+
+        if ( $icon_type === 'custom' ) {
+            $custom_icon = WishList_get_option(
+                $type . 'button_custom_icon',
+                'wishlist_style_settings_tabs',
+                ''
+            );
+
+            if ( $custom_icon ) {
+                return '<img src="' . esc_url( $custom_icon ) . '" alt="">';
             }
         }
 
-        if( !empty( $button_icon ) ){
-            $button_icon = '<img src="'.esc_url( $button_icon ).'" alt="'.esc_attr( $button_text ).'">';
-        }
-
-        return $button_icon.$default_loader;
-
+        return WishList_icon_list( 'default' )
+            . '<span class="wishlist-loader">' . WishList_icon_list( 'loading' ) . '</span>';
     }
-
-
 }
