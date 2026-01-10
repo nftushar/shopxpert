@@ -72,6 +72,9 @@ class ShopXpert_Admin_Init
         // Redirect main menu to the Settings submenu page
         add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
         add_action('admin_init', [$this, 'redirect_to_settings']);
+
+        add_action('admin_init', [$this, 'shopxpert_log_features_status']);
+
     }
 
     /**
@@ -83,6 +86,30 @@ class ShopXpert_Admin_Init
         require_once('inc/Shopxpert_Admin_Fields_Manager.php');
         require_once('inc/Shopxpert_Admin_Fields.php'); 
     }
+
+
+
+
+        public function shopxpert_log_features_status() {
+            $screen = get_current_screen();
+            if ( ! $screen || strpos($screen->id, 'shopxpert') === false ) return;
+
+            $features = [ 
+                'Pre Order'              => shopxpert_get_option('enable', 'shopxpert_pre_order_settings', 'off'),
+                'Wishlist'               => shopxpert_get_option('wishlist', 'shopxpert_others_tabs', 'off'),
+                'Fake Order Detection'    => shopxpert_get_option('enable_fake_order_detection', 'shopxpert_fake_order_detection_settings', 'off'),
+                'Product Comparison'      => shopxpert_get_option('enable_product_comparison', 'shopxpert_product_comparison_settings', 'off'),
+            ];
+
+            foreach ($features as $feature => $status) {
+                error_log("ShopXpert Feature: {$feature} Status: {$status}");
+            }
+        }
+
+
+ 
+
+
 
     /**
      * [add_menu] Add admin menu and submenu pages
@@ -174,16 +201,19 @@ class ShopXpert_Admin_Init
     }
 
   
-    public function print_Feature_setting_popup() {
-        $screen = get_current_screen();
-        error_log("Current Screen: " . $screen->base); // Debugging
-        if ('shopxpert_page_shopxpert' === $screen->base) {
-            include_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popup.php';
-            // var_dump("Template included successfully.");
-        } else {
-            error_log("Screen does not match: " . $screen->base);
-        }
-    }
+            public function print_Feature_setting_popup() {
+                $screen = get_current_screen();
+                if (!$screen) return;
+
+                error_log("Current Screen: " . $screen->base);
+
+                $allowed_screens = ['shopxpert_page_shopxpert', 'shopxpert_page_wishlist']; // add more if needed
+                if (in_array($screen->base, $allowed_screens)) {
+                    include_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popup.php';
+                } else {
+                    error_log("Screen does not match for popup: " . $screen->base);
+                }
+            }
 
 
     /**

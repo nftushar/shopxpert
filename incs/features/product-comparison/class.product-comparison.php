@@ -93,9 +93,11 @@ final class Shopxpert_Product_Comparison_Base {
      * Example: Render compare button (stub)
      */
     public function render_compare_button( $product_id ) {
+         $enabled = shopxpert_get_option('enable_product_comparison', 'shopxpert_product_comparison_settings', 'off');
+        if ( $enabled !== 'on' ) return; // stop execution if disabled
+
         $settings = $this->get_settings();
-        // Output button HTML based on settings
-        echo '<button class="shopxpert-compare-btn">' . \esc_html( $settings['button_text'] ) . '</button>';
+        echo '<button class="shopxpert-compare-btn">' . esc_html( $settings['button_text'] ) . '</button>';
     }
 
     /**

@@ -182,9 +182,11 @@ class Shopxpert_Feature_Manager
         // Backwards-compatibility: check dedicated product-comparison settings and alternate keys
         if ($comparison_enabled === 'off') {
             $comparison_enabled = shopxpert_get_option('enable_product_comparison', 'shopxpert_product_comparison_settings', 'off');
+            error_log('Product Comparison Enabled? ' . $comparison_enabled);
             if ($comparison_enabled === 'off') {
                 $comparison_enabled = shopxpert_get_option('enable_product_comparison', 'shopxpert_others_tabs', 'off');
-            }
+                error_log('Product Comparison Enabled? ' . $comparison_enabled);
+                }
         }
         if (defined('WP_DEBUG') && WP_DEBUG) {
             error_log('[ShopXpert Feature Manager] Product Comparison enabled check: ' . $comparison_enabled);

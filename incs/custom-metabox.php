@@ -1,5 +1,6 @@
 <?php  
 
+namespace WishList\Admin;
 use function Shopxpert\incs\shopxpert_get_option;
 
 
@@ -67,8 +68,11 @@ class Shopxpert_Custom_Meta_Fields{
      *
      * @return void
      */
-    public function product_shopxpert_data_panel(){
+     public function product_shopxpert_data_panel(){
         global $post;
+
+        // Log product ID
+        error_log( 'ShopXpert Product ID: ' . $post->ID );
 
         // Single product layout field
         echo '<div id="shopxpert_product_data" class="panel woocommerce_options_panel hidden">';
@@ -77,6 +81,9 @@ class Shopxpert_Custom_Meta_Fields{
             echo '<div class="options_group">';
                 $value = get_post_meta( $post->ID, '_selectproduct_layout', true );
                 if( empty( $value ) ) $value = '0';
+
+                // Log selected layout
+                error_log( 'Selected Product Layout: ' . $value );
                 
                 echo '<p class=" form-field _selectproduct_layout_field">';
                     echo '<label for="_selectproduct_layout">'.esc_html__( 'Select Product layout', 'shopxpert' ).'</label>';
@@ -94,7 +101,6 @@ class Shopxpert_Custom_Meta_Fields{
                             echo '</optgroup>';
                         }
                     echo '</select></p>';
-
             echo '</div>';
 
             // Custom Cart Content
@@ -107,234 +113,122 @@ class Shopxpert_Custom_Meta_Fields{
                         'description' => __( 'If you want to show cart page custom content', 'shopxpert' ),
                     )
                 );
+
+                // Log cart custom content
+                $cart_content = get_post_meta( $post->ID, 'shopxpert_cart_custom_content', true );
+                error_log( 'Cart Custom Content: ' . $cart_content );
             echo '</div>';
 
             // Partial Payment
-            if( ( shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' ) == 'on' ) ){
-                ?>
-                    <div class="options_group">
-                        <h4 class="shopxpert-group-heading" style="margin-bottom: 0;margin-left: 12px;"><?php echo esc_html__('Partial Payment','shopxpert'); ?></h4>
-                        <?php
+            $partial_enabled = shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' );
+            error_log( 'Partial Payment Option: ' . $partial_enabled );
 
-                            $enable_status = get_post_meta( $post->ID, 'shopxpert_partial_payment_enable', true );
-                            $display_field = $enable_status === 'yes' ? 'shopxpert-hidden-field' : 'shopxpert-hidden-field hidden';
+            if( $partial_enabled === 'on' ){
+                $enable_status = get_post_meta( $post->ID, 'shopxpert_partial_payment_enable', true );
+                error_log( 'Partial Payment Enabled (Post Meta): ' . $enable_status );
 
-                            woocommerce_wp_checkbox(
-                                array(
-                                    'id'          => 'shopxpert_partial_payment_enable',
-                                    'label'       => esc_html__('Enable Partial Payment', 'shopxpert'),
-                                    'description' => esc_html__('Enable this to require a partial payment for this product.', 'shopxpert'),
-                                    'desc_tip'    => true
-                                )
-                            );
+                $display_field = $enable_status === 'yes' ? 'shopxpert-hidden-field' : 'shopxpert-hidden-field hidden';
 
-                            woocommerce_wp_select( [
-                                'id'      => 'shopxpert_partial_payment_amount_type',
-                                'label'   => esc_html__( 'Partial Amount Type', 'shopxpert' ),
-                                'options' => [
-                                    'fixedamount'   => esc_html__('Fixed Amount','shopxpert'),
-                                    'percentage'    => esc_html__('Percentage','shopxpert'),
-                                ],
-                                'value'         => $this->get_saved_data( $post->ID, 'shopxpert_partial_payment_amount_type', 'amount_type', 'shopxpert_partial_payment_settings', 'percentage' ),
-                                'wrapper_class' => $display_field,
-                            ] );
-            
-                            woocommerce_wp_text_input( [
-                                'id'          => 'shopxpert_partial_payment_amount',
-                                'label'       => esc_html__( 'Partial Payment Amount', 'shopxpert' ),
-                                'placeholder' => esc_html__( 'Amount', 'shopxpert' ),
-                                'value'       => $this->get_saved_data( $post->ID, 'shopxpert_partial_payment_amount', 'amount', 'shopxpert_partial_payment_settings', '50' ),
-                                'wrapper_class' => $display_field,
-                            ] );
+                echo '<div class="options_group">';
+                    woocommerce_wp_checkbox(
+                        array(
+                            'id'          => 'shopxpert_partial_payment_enable',
+                            'label'       => esc_html__('Enable Partial Payment', 'shopxpert'),
+                            'description' => esc_html__('Enable this to require a partial payment for this product.', 'shopxpert'),
+                            'desc_tip'    => true
+                        )
+                    );
 
-                        ?>
-                    </div>
-                <?php
+                    woocommerce_wp_select( [
+                        'id'      => 'shopxpert_partial_payment_amount_type',
+                        'label'   => esc_html__( 'Partial Amount Type', 'shopxpert' ),
+                        'options' => [
+                            'fixedamount' => esc_html__('Fixed Amount','shopxpert'),
+                            'percentage'  => esc_html__('Percentage','shopxpert'),
+                        ],
+                        'value'         => $this->get_saved_data( $post->ID, 'shopxpert_partial_payment_amount_type', 'amount_type', 'shopxpert_partial_payment_settings', 'percentage' ),
+                        'wrapper_class' => $display_field,
+                    ] );
+
+                    woocommerce_wp_text_input( [
+                        'id'          => 'shopxpert_partial_payment_amount',
+                        'label'       => esc_html__( 'Partial Payment Amount', 'shopxpert' ),
+                        'placeholder' => esc_html__( 'Amount', 'shopxpert' ),
+                        'value'       => $this->get_saved_data( $post->ID, 'shopxpert_partial_payment_amount', 'amount', 'shopxpert_partial_payment_settings', '50' ),
+                        'wrapper_class' => $display_field,
+                    ] );
+                echo '</div>';
             }
 
             // Pre Orders
             $pre_order_enabled = shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' );
             if ( $pre_order_enabled === 'off' ) {
-                // Backwards-compatibility: older installations used 'enablerpreorder'
                 $pre_order_enabled = shopxpert_get_option( 'enablerpreorder', 'shopxpert_pre_order_settings', 'off' );
             }
+            error_log( 'Pre Order Option: ' . $pre_order_enabled );
+
             if( $pre_order_enabled == 'on' ){
-                ?>
-                    <div class="options_group">
-                        <h4 class="shopxpert-group-heading" style="margin-bottom: 0;margin-left: 12px;"><?php echo esc_html__('Pre Order','shopxpert'); ?></h4>
-                        <?php
-                            $enable_pre_order = get_post_meta( $post->ID, 'shopxpert_pre_order_enable', true );
-                            $wrapper_class = $enable_pre_order === 'yes' ? 'shopxpert-hidden-field' : 'shopxpert-hidden-field hidden';
-
-                            woocommerce_wp_checkbox(
-                                [
-                                    'id'          => 'shopxpert_pre_order_enable',
-                                    'label'       => esc_html__('Enable Pre Order', 'shopxpert'),
-                                    'description' => esc_html__('Enable this to require a pre order for this product.', 'shopxpert'),
-                                    'desc_tip'    => true
-                                ]
-                            );
-
-                            echo '<div class="shopxpert-pre-order-fields '.$wrapper_class.'">';
-
-                                $manage_price = get_post_meta( $post->ID, 'shopxpert_pre_order_manage_price', true );
-                                $price_field_class = $manage_price !== 'product_price' ? '' : 'hidden';
-
-                                echo '<p class="form-field shopxpert_pre_order_available_date_field">';
-
-                                    echo '<label for="shopxpert_pre_order_available_date">'.esc_html__( 'Available Date', 'shopxpert' ).'</label>';
-                                    echo sprintf( '<input type="date" class="short" id="%1$s" name="%1$s" value="%2$s"/>', 'shopxpert_pre_order_available_date', $this->get_saved_data( $post->ID, 'shopxpert_pre_order_available_date', 'shopxpert_pre_order_available_date', 'shopxpert_pre_order_settings', '' ) );
-
-                                    echo sprintf( '<input type="time" class="shopxpert_pre_order_available_time" id="%1$s" name="%1$s" value="%2$s"/>', 'shopxpert_pre_order_available_time', $this->get_saved_data( $post->ID, 'shopxpert_pre_order_available_time', 'shopxpert_pre_order_available_time', 'shopxpert_pre_order_settings', '' ) );
-
-                                echo '</p>';
-
-                                woocommerce_wp_select( 
-                                    [
-                                        'id'      => 'shopxpert_pre_order_manage_price',
-                                        'label'   => esc_html__( 'Manage Price', 'shopxpert' ),
-                                        'options' =>  [
-                                            'product_price' => esc_html__( 'Product Price', 'shopxpert' ),
-                                            'increase_price' => esc_html__( 'Increase Price', 'shopxpert' ),
-                                            'decrease_price' => esc_html__( 'Decrease Price', 'shopxpert' ),
-                                            'fixed_price'   => esc_html__( 'Fixed Price', 'shopxpert' ),
-                                        ],
-                                        'value' => $this->get_saved_data( $post->ID, 'shopxpert_pre_order_manage_price', 'shopxpert_pre_order_manage_price', 'shopxpert_pre_order_settings', 'product_price' ),
-                                    ] 
-                                );
-                                woocommerce_wp_select( 
-                                    [
-                                        'id'      => 'shopxpert_pre_order_amount_type',
-                                        'label'   => esc_html__( 'Amount Type', 'shopxpert' ),
-                                        'options' =>  [
-                                            'fixed_amount' => esc_html__( 'Fixed Amount', 'shopxpert' ),
-                                            'percentage'   => esc_html__( 'Percentage', 'shopxpert' ),
-                                        ],
-                                        'value' => $this->get_saved_data( $post->ID, 'shopxpert_pre_order_amount_type', 'shopxpert_pre_order_amount_type', 'shopxpert_pre_order_settings', 'percentage' ),
-                                        'wrapper_class' => ( get_post_meta( $post->ID, 'shopxpert_pre_order_manage_price', true ) == 'fixed_price' || get_post_meta( $post->ID, 'shopxpert_pre_order_manage_price', true ) == 'product_price' ) ? 'hidden' : '',
-                                    ] 
-                                );
-
-                                woocommerce_wp_text_input( [
-                                    'id'          => 'shopxpert_pre_order_amount',
-                                    'label'       => esc_html__( 'Amount', 'shopxpert' ),
-                                    'placeholder' => esc_html__( 'Amount', 'shopxpert' ),
-                                    'value'       => $this->get_saved_data( $post->ID, 'shopxpert_pre_order_amount', 'shopxpert_pre_order_amount', 'shopxpert_pre_order_settings', '50' ),
-                                    'wrapper_class' => 'shopxpert-mange-price '.$price_field_class,
-                                ] );
-
-                            echo '</div>';
-                        ?>
-                    </div>
-                <?php
+                $enable_pre_order = get_post_meta( $post->ID, 'shopxpert_pre_order_enable', true );
+                error_log( 'Pre Order Enabled (Post Meta): ' . $enable_pre_order );
             }
 
         echo '</div>';
     }
+
 
     /**
      * save_shopxpert_product_meta custom tab data save
      *
      * @return void
      */
-    public function save_shopxpert_product_meta( $post_id ){
+     public function save_shopxpert_product_meta( $post_id ){
 
-        if( wp_verify_nonce( sanitize_key( $_POST['woocommerce_meta_nonce'] ), 'woocommerce_save_data' ) ){
+        if ( isset($_POST['woocommerce_meta_nonce']) && wp_verify_nonce($_POST['woocommerce_meta_nonce'], 'woocommerce_save_data') ) {
 
             // Single Product Layout
             $selectproduct_layout = !empty( $_POST['_selectproduct_layout'] ) ? sanitize_text_field( $_POST['_selectproduct_layout'] ) : '';
             update_post_meta( $post_id, '_selectproduct_layout', $selectproduct_layout );
+            error_log( 'Saved Product Layout: ' . $selectproduct_layout );
 
-            // Cat Page Custom Content
-            $selectproduct_cart_content = !empty( $_POST['shopxpert_cart_custom_content'] ) ? sanitize_text_field( $_POST['shopxpert_cart_custom_content'] ) : '';
+            // Cart Content
+            $selectproduct_cart_content = !empty( $_POST['shopxpert_cart_custom_content'] ) ? wp_kses_post( $_POST['shopxpert_cart_custom_content'] ) : '';
             update_post_meta( $post_id, 'shopxpert_cart_custom_content', $selectproduct_cart_content );
+            error_log( 'Saved Cart Content: ' . $selectproduct_cart_content );
 
-            // Manage Partial Payment data
-            if( ( shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' ) == 'on' ) ){
+            // Partial Payment
+            $partial_enabled = shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' );
+            error_log( 'Partial Payment Option (Save): ' . $partial_enabled );
 
+            if( $partial_enabled === 'on' ){
                 $status = !empty( $_POST['shopxpert_partial_payment_enable'] ) ? sanitize_text_field( $_POST['shopxpert_partial_payment_enable'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_partial_payment_enable', $status );
+                error_log( 'Saved Partial Payment Enable: ' . $status );
 
                 $amount_type = !empty( $_POST['shopxpert_partial_payment_amount_type'] ) ? sanitize_text_field( $_POST['shopxpert_partial_payment_amount_type'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_partial_payment_amount_type', $amount_type );
+                error_log( 'Saved Partial Payment Amount Type: ' . $amount_type );
 
                 $amount = !empty( $_POST['shopxpert_partial_payment_amount'] ) ? sanitize_text_field( $_POST['shopxpert_partial_payment_amount'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_partial_payment_amount', $amount );
-
+                error_log( 'Saved Partial Payment Amount: ' . $amount );
             }
 
-            // Manage Pre Order data
+            // Pre Order
             $pre_order_enabled = shopxpert_get_option( 'enable', 'shopxpert_pre_order_settings', 'off' );
             if ( $pre_order_enabled === 'off' ) {
-                // Backwards-compatibility: older installations used 'enablerpreorder'
                 $pre_order_enabled = shopxpert_get_option( 'enablerpreorder', 'shopxpert_pre_order_settings', 'off' );
             }
-            if( $pre_order_enabled == 'on' ){
+            error_log( 'Pre Order Option (Save): ' . $pre_order_enabled );
 
+            if( $pre_order_enabled == 'on' ){
                 $pre_order_status = !empty( $_POST['shopxpert_pre_order_enable'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_enable'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_pre_order_enable', $pre_order_status );
-
-                $pre_order_date = !empty( $_POST['shopxpert_pre_order_available_date'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_available_date'] ) : '';
-                update_post_meta( $post_id, 'shopxpert_pre_order_available_date', $pre_order_date );
-
-                $pre_order_time = !empty( $_POST['shopxpert_pre_order_available_time'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_available_time'] ) : '00:00';
-                update_post_meta( $post_id, 'shopxpert_pre_order_available_time', $pre_order_time );
-
-                $pre_order_manage_price = !empty( $_POST['shopxpert_pre_order_manage_price'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_manage_price'] ) : '';
-                update_post_meta( $post_id, 'shopxpert_pre_order_manage_price', $pre_order_manage_price );
-
-                $pre_order_amount_type = !empty( $_POST['shopxpert_pre_order_amount_type'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_amount_type'] ) : '';
-                update_post_meta( $post_id, 'shopxpert_pre_order_amount_type', $pre_order_amount_type );
-
-                $pre_order_amount = !empty( $_POST['shopxpert_pre_order_amount'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_amount'] ) : '';
-                update_post_meta( $post_id, 'shopxpert_pre_order_amount', $pre_order_amount );
-
-                $get_field_date  = strtotime( $pre_order_date );
-                $get_field_time  = self::time_to_second( $pre_order_time );
-                if ( $get_field_date ) {
-                    $get_field_date += $get_field_time - get_option( 'gmt_offset' ) * HOUR_IN_SECONDS;
-                }
-                $next_date = wp_next_scheduled( '_shopxpert_pre_order_schedule_date_cron', array( $post_id ) );
-                if ( $next_date ) {
-                    if ( $next_date !== $get_field_date ) {
-                        wp_unschedule_event( $next_date, '_shopxpert_pre_order_schedule_date_cron', array( $post_id ) );
-                        if ( $get_field_date ) {
-                            wp_schedule_single_event( $get_field_date, '_shopxpert_pre_order_schedule_date_cron', array( $post_id ) );
-                        } else {
-                            wp_schedule_single_event( $next_date, '_shopxpert_pre_order_schedule_date_cron', array( $post_id ) );
-                        }
-                    } elseif ( $get_field_date == '' ) {
-                        wp_unschedule_event( $next_date, '_shopxpert_pre_order_schedule_date_cron', array( $post_id ) );
-                    }
-                } else {
-                    if ( $get_field_date ) {
-                        wp_schedule_single_event( $get_field_date, '_shopxpert_pre_order_schedule_date_cron', array( $post_id ) );
-                    }
-                }
-
-
+                error_log( 'Saved Pre Order Enable: ' . $pre_order_status );
             }
 
-        }else{
-
-            delete_post_meta( $post_id, '_selectproduct_layout' );
-			delete_post_meta( $post_id, 'shopxpert_cart_custom_content' );
-
-            // Partial Payment
-            delete_post_meta( $post_id, 'shopxpert_partial_payment_enable' );
-            delete_post_meta( $post_id, 'shopxpert_partial_payment_amount_type' );
-            delete_post_meta( $post_id, 'shopxpert_partial_payment_amount' );
-
-            // Pre Orders
-            delete_post_meta ( $post_id, 'shopxpert_pre_order_enable' );
-            delete_post_meta ( $post_id, 'shopxpert_pre_order_available_date' );
-            delete_post_meta ( $post_id, 'shopxpert_pre_order_manage_price' );
-            delete_post_meta ( $post_id, 'shopxpert_pre_order_amount_type' );
-            delete_post_meta ( $post_id, 'shopxpert_pre_order_amount' );
-
-			return false;
+        } else {
+            error_log( 'ShopXpert: Nonce failed, data not saved.' );
         }
-
     }
 
     /**
@@ -382,8 +276,8 @@ class Shopxpert_Custom_Meta_Fields{
     public function taxonomy_add_new_meta_field(){
         ?>
         <div class="form-field term-group">
-            <label for="wooletor_selectcategory_layout"><?php esc_html_e('Category Layout', 'shopxpert'); ?></label>
-            <select class="postform" id="equipment-group" name="wooletor_selectcategory_layout">
+            <label for="shopxpert_selectcategory_layout"><?php esc_html_e('Category Layout', 'shopxpert'); ?></label>
+            <select class="postform" id="equipment-group" name="shopxpert_selectcategory_layout">
 
                 <?php
                     $shopxpert_templates = [];
@@ -415,13 +309,13 @@ class Shopxpert_Custom_Meta_Fields{
         $term_id = $term->term_id;
 
         // retrieve the existing value(s) for this meta field.
-        $category_layout = get_term_meta( $term_id, 'wooletor_selectcategory_layout', true);
+        $category_layout = get_term_meta( $term_id, 'shopxpert_selectcategory_layout', true);
 
         ?>
             <tr class="form-field">
-                <th scope="row" valign="top"><label for="wooletor_selectcategory_layout"><?php esc_html_e( 'Category Layout', 'shopxpert' ); ?></label></th>
+                <th scope="row" valign="top"><label for="shopxpert_selectcategory_layout"><?php esc_html_e( 'Category Layout', 'shopxpert' ); ?></label></th>
                 <td>
-                    <select class="postform" id="wooletor_selectcategory_layout" name="wooletor_selectcategory_layout">
+                    <select class="postform" id="shopxpert_selectcategory_layout" name="shopxpert_selectcategory_layout">
                         <?php
                             $shopxpert_templates = [];
                             if( function_exists( 'shopxpert_wltemplate_list' ) ){
@@ -448,8 +342,8 @@ class Shopxpert_Custom_Meta_Fields{
      * @return void
      */
     public function save_taxonomy_custom_meta( $term_id ) {
-        $shopxpert_categorylayout = filter_input( INPUT_POST, 'wooletor_selectcategory_layout' );
-        update_term_meta( $term_id, 'wooletor_selectcategory_layout', $shopxpert_categorylayout );
+        $shopxpert_categorylayout = filter_input( INPUT_POST, 'shopxpert_selectcategory_layout' );
+        update_term_meta( $term_id, 'shopxpert_selectcategory_layout', $shopxpert_categorylayout );
     }
 
 }
