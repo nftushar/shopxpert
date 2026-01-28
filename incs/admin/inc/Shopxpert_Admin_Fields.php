@@ -40,6 +40,7 @@ class Shopxpert_Admin_Fields {
                     array(
                         'name'     => 'pre_orders',
                         'label'    => esc_html__( 'Pre Orders', 'shopxpert' ),
+                        'icon'     => 'dashicons-calendar-alt',
                         'type'     => 'Feature',
                         'default'  => 'off',
                         'section'  => 'shopxpert_pre_order_settings',
@@ -124,6 +125,7 @@ class Shopxpert_Admin_Fields {
                     array(
                         'name'     => 'shopxpert_backorder_settings',
                         'label'    => esc_html__( 'Stock on Hold', 'shopxpert' ),
+                        'icon'     => 'dashicons-clock',
                         'type'     => 'Feature',
                         'default'  => 'off',
                         'section'  => 'shopxpert_backorder_settings',

@@ -206,8 +206,7 @@ class Schema {
      * @return array
      */
     public static function get_slow_queries() {
-        // This would require specific MySQL setup
-        // For now, just return guidance
+        
         return [
             'recommendation' => 'Enable MySQL slow query log to identify bottlenecks',
             'threshold' => '0.5 seconds',

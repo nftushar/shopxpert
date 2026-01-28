@@ -121,6 +121,9 @@ class Shopxpert_Admin_Fields_Manager {
             ]
         );
 
+        // Allow passing an icon class for feature cards
+        $args['icon'] = isset( $option['icon'] ) ? $option['icon'] : '';
+
         $this->create_field( $args, $callback );
 
     }
@@ -390,7 +393,11 @@ class Shopxpert_Admin_Fields_Manager {
 
         $html  = '<div class="shopxpert-admin-switch-block shopxpert-Feature-field '.esc_attr( $args['class'] ).'" '.$args['depend'].' >';
             $html .= '<div class="shopxpert-admin-switch-block-content">';
-                $html  .= sprintf('<h6 class="shopxpert-admin-switch-block-title">%1$s</h6>', $args['name'] );
+                $icon_html = '';
+                if ( ! empty( $args['icon'] ) ) {
+                    $icon_html = sprintf( '<span class="shopxpert-feature-icon"><i class="dashicons %s" aria-hidden="true"></i></span>', esc_attr( $args['icon'] ) );
+                }
+                $html  .= sprintf('<h6 class="shopxpert-admin-switch-block-title">%1$s%2$s</h6>', $icon_html, $args['name'] );
                 $html  .= '<div class="shopxpert-admin-switch-block-info">';
                     $html  .= !empty( $args['additional_info']['preview'] ) ? '<a href="'.$args['additional_info']['preview'].'" data-shopxpert-tooltip="'.esc_attr__('Preview','shopxpert').'" target="_blank"><i class="wli wli-monitor"></i></a>' : '';
                     $html  .= !empty( $args['additional_info']['documentation'] ) ? '<a href="'.$args['additional_info']['documentation'].'" data-shopxpert-tooltip="'.esc_attr__('Documentation','shopxpert').'" target="_blank"><i class="wli wli-question"></i></a>' : '';

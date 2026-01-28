@@ -140,16 +140,37 @@ class Assets_Management {
         $styles  = $this->get_styles();
     
         // Register and enqueue Scripts
+        $defer_handles = array('shopxpert-admin-main', 'shopxpert-condition', 'serializejson');
         foreach ($scripts as $handle => $script) {
             $deps = isset($script['deps']) ? $script['deps'] : [];
-            wp_register_script($handle, $script['src'], $deps, $script['version'], true);
-            wp_enqueue_script($handle);
-        } 
+
+            // If local asset, prefer file modification time for cache busting in dev
+            $version = isset($script['version']) ? $script['version'] : null;
+            if ( strpos( $script['src'], SHOPXPERT_ADDONS_PL_URL ) === 0 ) {
+                $local_path = str_replace( SHOPXPERT_ADDONS_PL_URL, SHOPXPERT_ADDONS_PL_PATH, $script['src'] );
+                if ( file_exists( $local_path ) ) {
+                    $version = filemtime( $local_path );
+                }
+            }
+
+            wp_register_script( $handle, $script['src'], $deps, $version, true );
+            wp_enqueue_script( $handle );
+        }
+        // Add defer attribute to non-critical scripts
+        add_filter( 'script_loader_tag', [ $this, 'add_script_defer_attribute' ], 10, 3 );
     
         // Register and enqueue Styles
         foreach ($styles as $handle => $style) {
             $deps = isset($style['deps']) ? $style['deps'] : [];
-            wp_register_style($handle, $style['src'], $deps, $style['version']);
+            // Use filemtime for local CSS versions
+            $version = isset($style['version']) ? $style['version'] : null;
+            if ( isset( $style['src'] ) && strpos( $style['src'], SHOPXPERT_ADDONS_PL_URL ) === 0 ) {
+                $local_path = str_replace( SHOPXPERT_ADDONS_PL_URL, SHOPXPERT_ADDONS_PL_PATH, $style['src'] );
+                if ( file_exists( $local_path ) ) {
+                    $version = filemtime( $local_path );
+                }
+            }
+            wp_register_style( $handle, $style['src'], $deps, $version );
             wp_enqueue_style($handle);
         }
         
@@ -214,6 +235,25 @@ class Assets_Management {
             ];
             // Elementor URLs/data removed
         }
+    }
+
+    /**
+     * Add defer attribute for selected script handles
+     *
+     * @param string $tag
+     * @param string $handle
+     * @param string $src
+     * @return string
+     */
+    public function add_script_defer_attribute( $tag, $handle, $src ) {
+        $defer_handles = array('shopxpert-admin-main', 'shopxpert-condition', 'serializejson');
+        if ( in_array( $handle, $defer_handles, true ) ) {
+            // only add defer for non-module scripts
+            if ( false === stripos( $tag, ' defer' ) ) {
+                $tag = str_replace( '></script>', ' defer></script>', $tag );
+            }
+        }
+        return $tag;
     }
     
 
