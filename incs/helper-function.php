@@ -1,11 +1,11 @@
 <?php
 
-namespace Shopxpert\incs;
-use Shopxpert\Incs\Admin\Inc;
+namespace ShopXpert;
+
+use ShopXpert\Cache\Manager as CacheManager;
 
 // Exit if accessed directly
 if( ! defined( 'ABSPATH' ) ) exit();
-
 
 /**
  * [shopxpert_is_woocommerce]
@@ -16,35 +16,20 @@ function shopxpert_is_woocommerce() {
 }
 
 /**
- * [shopxpert]
- * @return [boolean]
+ * Get an option value with intelligent caching
+ * 
+ * Reduces database queries by caching option lookups using:
+ * - wp_cache for in-request caching
+ * - WordPress transients for persistent caching
+ * 
+ * @param string $option The option name
+ * @param string $section The option section/group
+ * @param mixed $default Default value if not found
+ * @return mixed The option value or default
  */
-function shopxpert() {
-    return class_exists( '\\ShopXpert\\Main' );
-}
-
-/**
-* Options return
-*/
 function shopxpert_get_option( $option, $section, $default = '' ){
-    $options = get_option( $section );
-    
-    if ( defined( 'WP_DEBUG' ) && WP_DEBUG && strpos( $section, 'rename_label' ) !== false ) {
-        error_log( '[ShopXpert Helper] shopxpert_get_option called:' );
-        error_log( '[ShopXpert Helper] - Option: ' . $option );
-        error_log( '[ShopXpert Helper] - Section: ' . $section );
-        error_log( '[ShopXpert Helper] - Default: ' . $default );
-        error_log( '[ShopXpert Helper] - Options retrieved: ' . print_r( $options, true ) );
-        error_log( '[ShopXpert Helper] - Option exists: ' . ( isset( $options[$option] ) ? 'YES' : 'NO' ) );
-        if ( isset( $options[$option] ) ) {
-            error_log( '[ShopXpert Helper] - Option value: "' . $options[$option] . '"' );
-        }
-    }
-    
-    if ( isset( $options[$option] ) ) {
-        return $options[$option];
-    }
-    return $default;
+    // Use caching manager for intelligent caching
+    return CacheManager::get_option( $option, $section, $default );
 }
 
  

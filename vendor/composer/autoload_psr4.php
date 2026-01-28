@@ -6,8 +6,12 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Shopxpert\\Incs\\Admin\\Templates\\' => array($baseDir . '/incs/admin/templates'),
-    'Shopxpert\\Incs\\Admin\\Inc\\' => array($baseDir . '/incs/admin/inc'),
-    'Shopxpert\\' => array($baseDir . '/src'),
-    'ShopXpert \\' => array($baseDir . '/incs'),
+    'ShopXpert\\Query\\' => array($baseDir . '/incs/Query'),
+    'ShopXpert\\Options\\' => array($baseDir . '/incs/Options'),
+    'ShopXpert\\Features\\PreOrders\\' => array($baseDir . '/incs/features/pre-orders'),
+    'ShopXpert\\Features\\' => array($baseDir . '/incs/features'),
+    'ShopXpert\\Database\\' => array($baseDir . '/incs/Database'),
+    'ShopXpert\\Classes\\' => array($baseDir . '/classes'),
+    'ShopXpert\\Cache\\' => array($baseDir . '/incs/Cache'),
+    'ShopXpert\\' => array($baseDir . '/incs'),
 );

@@ -1,15 +1,12 @@
 <?php 
 
-namespace shopxpert;
- 
+namespace ShopXpert;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
  * Base
  */
-
-
 final class Base {
 
     const MINIMUM_PHP_VERSION = '5.4';
@@ -27,9 +24,35 @@ final class Base {
     private function __construct() {
         // Initialize your class here
         add_action('plugins_loaded', [$this, 'init']);
+        
+        // Initialize caching and preload settings on plugins_loaded
+        add_action('plugins_loaded', [$this, 'init_cache'], 5);
+    }
 
-        // Startshop Template CPT Manager
-        // require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/Shopxpert_Template_Manager.php';
+    /**
+     * Initialize caching system
+     * @return void
+     */
+    public function init_cache() {
+        // Preload all settings to reduce database queries
+        \ShopXpert\Cache\Manager::preload_settings();
+
+        // Register cache invalidation hooks for when settings are updated
+        add_action('update_option_shopxpert_others_tabs', [$this, 'on_settings_update']);
+        add_action('update_option_shopxpert_pre_order_settings', [$this, 'on_settings_update']);
+        add_action('update_option_shopxpert_backorder_settings', [$this, 'on_settings_update']);
+        add_action('update_option_shopxpert_product_comparison_settings', [$this, 'on_settings_update']);
+        add_action('update_option_shopxpert_fake_order_detection_settings', [$this, 'on_settings_update']);
+        add_action('update_option_shopxpert_partial_payment_settings', [$this, 'on_settings_update']);
+        add_action('update_option_shopxpert_product_filter_settings', [$this, 'on_settings_update']);
+    }
+
+    /**
+     * Handle settings update to invalidate cache
+     * @return void
+     */
+    public function on_settings_update() {
+        \ShopXpert\Cache\Manager::flush_all();
     }
 
     /**
@@ -43,25 +66,17 @@ final class Base {
     
 
     public function included_files() {
-    
-        require SHOPXPERT_ADDONS_PL_PATH . 'incs/helper-function.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'incs/addons/wb_wishlist_table.php';
-        require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.assest_management.php';
-        //   require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.widgets_control.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.default_data.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.quickview_manage.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.icon_list.php';
-        // require SHOPXPERT_ADDONS_PL_PATH . 'classes/class.multi_language.php';
-        //    require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popups.php'; 
-
-        // Admin Setting file
+        // Initialize Assets Management to register all hooks
+        // Must be before feature manager for assets to load properly
+        \ShopXpert\Classes\Assets_Management::instance();
+        
+        // Initialize Feature Manager for all features
+        \ShopXpert\Features\Shopxpert_Feature_Manager::instance();
+        
+        // Initialize Admin interface if in admin
         if (is_admin()) {
-             require SHOPXPERT_ADDONS_PL_PATH . 'incs/custom-metabox.php';
-            require SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/admin-init.php';
+            \ShopXpert\Admin\ShopXpert_Admin_Init::instance();
         }
-
-        // Features Manager
-        require( SHOPXPERT_ADDONS_PL_PATH. 'incs/features/class.feature-manager.php' );
     } 
 }
 
@@ -72,4 +87,4 @@ final class Base {
  */
 function shopxpert() {
     return Base::instance();
-} 
+}

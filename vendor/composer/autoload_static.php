@@ -6,30 +6,55 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
 {
+    public static $files = array (
+        '920aa45e7e3df21368fd95e7430b31e5' => __DIR__ . '/../..' . '/incs/helper-function.php',
+        '3ce7d43f2e4b6d285d57aa6f29a2a870' => __DIR__ . '/../..' . '/incs/class-shopxpert-woocommerce-check.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' =>
         array (
-            'Shopxpert\\Incs\\Admin\\Templates\\' => 31,
-            'Shopxpert\\Incs\\Admin\\Inc\\' => 25,
-            'Shopxpert\\' => 10,
-            'ShopXpert \\' => 11,
+            'ShopXpert\\Query\\' => 16,
+            'ShopXpert\\Options\\' => 18,
+            'ShopXpert\\Features\\PreOrders\\' => 29,
+            'ShopXpert\\Features\\' => 19,
+            'ShopXpert\\Database\\' => 19,
+            'ShopXpert\\Classes\\' => 18,
+            'ShopXpert\\Cache\\' => 16,
+            'ShopXpert\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Shopxpert\\Incs\\Admin\\Templates\\' =>
+        'ShopXpert\\Query\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/incs/admin/templates',
+            0 => __DIR__ . '/../..' . '/incs/Query',
         ),
-        'Shopxpert\\Incs\\Admin\\Inc\\' =>
+        'ShopXpert\\Options\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/incs/admin/inc',
+            0 => __DIR__ . '/../..' . '/incs/Options',
         ),
-        'Shopxpert\\' =>
+        'ShopXpert\\Features\\PreOrders\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/incs/features/pre-orders',
         ),
-        'ShopXpert \\' =>
+        'ShopXpert\\Features\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/incs/features',
+        ),
+        'ShopXpert\\Database\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/incs/Database',
+        ),
+        'ShopXpert\\Classes\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/classes',
+        ),
+        'ShopXpert\\Cache\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/incs/Cache',
+        ),
+        'ShopXpert\\' =>
         array (
             0 => __DIR__ . '/../..' . '/incs',
         ),
@@ -37,6 +62,20 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'ShopXpert\\Admin\\Inc\\ShopXpert_Settings_Field_Manager_Default' => __DIR__ . '/../..' . '/incs/admin/inc/settings_field_manager_default.php',
+        'ShopXpert\\Admin\\Inc\\Shopxpert_Admin_Fields' => __DIR__ . '/../..' . '/incs/admin/inc/Shopxpert_Admin_Fields.php',
+        'ShopXpert\\Admin\\Inc\\Shopxpert_Admin_Fields_Manager' => __DIR__ . '/../..' . '/incs/admin/inc/Shopxpert_Admin_Fields_Manager.php',
+        'ShopXpert\\Admin\\ShopXpert_Admin_Init' => __DIR__ . '/../..' . '/incs/admin/admin-init.php',
+        'ShopXpert\\Classes\\Assets_Management' => __DIR__ . '/../..' . '/classes/class.assest_management.php',
+        'ShopXpert\\Classes\\Installer' => __DIR__ . '/../..' . '/classes/class.installer.php',
+        'ShopXpert\\Classes\\ShopXpert_Default_Data' => __DIR__ . '/../..' . '/classes/class.default_data.php',
+        'ShopXpert\\Features\\PreOrders\\Shopxpert_Admin_Pre_Orders' => __DIR__ . '/../..' . '/incs/features/pre-orders/admin/class.admin-pre-order.php',
+        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_AddTo_Cart' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-add-to-cart.php',
+        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Content' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-content.php',
+        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Place' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-place.php',
+        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Price' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-price.php',
+        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Orders' => __DIR__ . '/../..' . '/incs/features/pre-orders/pre-orders.php',
+        'ShopXpert\\Features\\Shopxpert_Feature_Manager' => __DIR__ . '/../..' . '/incs/features/class.feature-manager.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

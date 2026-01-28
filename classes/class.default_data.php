@@ -1,6 +1,9 @@
 <?php
+
+namespace ShopXpert\Classes;
+
 /**
-* ShopXpert_Default_Data
+* ShopXpert Default Data
 */
 class ShopXpert_Default_Data{
 

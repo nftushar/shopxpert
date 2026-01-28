@@ -48,18 +48,3 @@ function shopxpert_action_links($links) {
     return $links;
 }
  
-require_once plugin_dir_path(__FILE__) . 'incs/features/product-comparison/class.product-comparison.php';
-if (class_exists('\Shopxpert\ProductComparison\Shopxpert_Product_Comparison_Base')) {
-    \Shopxpert\ProductComparison\Shopxpert_Product_Comparison_Base::instance();
-}
-require_once plugin_dir_path(__FILE__) . 'incs/features/product-comparison/Manage_Comparison.php';
-require_once plugin_dir_path(__FILE__) . 'incs/features/product-comparison/Shortcode.php';
-if (class_exists('\Shopxpert\ProductComparison\Shortcode')) {
-    $shopxpert_comparison_shortcode = new \Shopxpert\ProductComparison\Shortcode();
-}
- 
-require_once plugin_dir_path(__FILE__) . 'incs/features/product-comparison/Frontend.php';
-if (class_exists('\Shopxpert\ProductComparison\Frontend')) {
-    \Shopxpert\ProductComparison\Frontend::instance();
-}
- 

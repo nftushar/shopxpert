@@ -1,18 +1,19 @@
 <?php
 
- namespace Shopxpert\Incs\Admin\Templates;
+ namespace ShopXpert\Admin\Templates;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields;
+use ShopXpert\Admin\Inc\Shopxpert_Admin_Fields;
 
 
 // Test if the class exists
-if (class_exists('Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields')) {
+if (class_exists('ShopXpert\Admin\Inc\Shopxpert_Admin_Fields')) {
     $navs = Shopxpert_Admin_Fields::instance()->field_sections();;
 
 } else {
     echo "Class not found!";
+    $navs = [];
 } 
 
 ?>

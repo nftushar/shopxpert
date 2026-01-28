@@ -7,4 +7,18 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'ShopXpert\\Admin\\Inc\\ShopXpert_Settings_Field_Manager_Default' => $baseDir . '/incs/admin/inc/settings_field_manager_default.php',
+    'ShopXpert\\Admin\\Inc\\Shopxpert_Admin_Fields' => $baseDir . '/incs/admin/inc/Shopxpert_Admin_Fields.php',
+    'ShopXpert\\Admin\\Inc\\Shopxpert_Admin_Fields_Manager' => $baseDir . '/incs/admin/inc/Shopxpert_Admin_Fields_Manager.php',
+    'ShopXpert\\Admin\\ShopXpert_Admin_Init' => $baseDir . '/incs/admin/admin-init.php',
+    'ShopXpert\\Classes\\Assets_Management' => $baseDir . '/classes/class.assest_management.php',
+    'ShopXpert\\Classes\\Installer' => $baseDir . '/classes/class.installer.php',
+    'ShopXpert\\Classes\\ShopXpert_Default_Data' => $baseDir . '/classes/class.default_data.php',
+    'ShopXpert\\Features\\PreOrders\\Shopxpert_Admin_Pre_Orders' => $baseDir . '/incs/features/pre-orders/admin/class.admin-pre-order.php',
+    'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_AddTo_Cart' => $baseDir . '/incs/features/pre-orders/includes/class.pre-order-add-to-cart.php',
+    'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Content' => $baseDir . '/incs/features/pre-orders/includes/class.pre-order-content.php',
+    'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Place' => $baseDir . '/incs/features/pre-orders/includes/class.pre-order-place.php',
+    'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Price' => $baseDir . '/incs/features/pre-orders/includes/class.pre-order-price.php',
+    'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Orders' => $baseDir . '/incs/features/pre-orders/pre-orders.php',
+    'ShopXpert\\Features\\Shopxpert_Feature_Manager' => $baseDir . '/incs/features/class.feature-manager.php',
 );

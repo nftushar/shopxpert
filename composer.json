@@ -3,11 +3,35 @@
     "version": "1.0.1",
     "autoload": {
         "psr-4": {
-            "ShopXpert \\": "incs/",
-            "Shopxpert\\Incs\\Admin\\Inc\\": "incs/admin/inc/",
-            "Shopxpert\\Incs\\Admin\\Templates\\": "incs/admin/templates/",
-            "Shopxpert\\": "src/"
-        }
+            "ShopXpert\\": "incs/",
+            "ShopXpert\\Classes\\": "classes/",
+            "ShopXpert\\Features\\": "incs/features/",
+            "ShopXpert\\Features\\PreOrders\\": "incs/features/pre-orders/",
+            "ShopXpert\\Cache\\": "incs/Cache/",
+            "ShopXpert\\Options\\": "incs/Options/",
+            "ShopXpert\\Query\\": "incs/Query/",
+            "ShopXpert\\Database\\": "incs/Database/"
+        },
+        "classmap": [
+            "incs/features/class.feature-manager.php",
+            "incs/admin/admin-init.php",
+            "incs/admin/inc/Shopxpert_Admin_Fields.php",
+            "incs/admin/inc/Shopxpert_Admin_Fields_Manager.php",
+            "incs/admin/inc/settings_field_manager_default.php",
+            "classes/class.default_data.php",
+            "classes/class.installer.php",
+            "classes/class.assest_management.php",
+            "incs/features/pre-orders/pre-orders.php",
+            "incs/features/pre-orders/includes/class.pre-order-add-to-cart.php",
+            "incs/features/pre-orders/includes/class.pre-order-price.php",
+            "incs/features/pre-orders/includes/class.pre-order-content.php",
+            "incs/features/pre-orders/includes/class.pre-order-place.php",
+            "incs/features/pre-orders/admin/class.admin-pre-order.php"
+        ],
+        "files": [
+            "incs/helper-function.php",
+            "incs/class-shopxpert-woocommerce-check.php"
+        ]
     }, 
     "authors": [
         {

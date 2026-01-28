@@ -1,7 +1,7 @@
 <?php  
 
-namespace WishList\Admin;
-use function Shopxpert\incs\shopxpert_get_option;
+namespace ShopXpert;
+use function ShopXpert\shopxpert_get_option;
 
 
 

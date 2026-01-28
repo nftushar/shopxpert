@@ -1,13 +1,13 @@
 <?php
 
-namespace Shopxpert\Incs\Admin\Templates;
+namespace ShopXpert\Admin\Templates;
 
 
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields;
-use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
+use ShopXpert\Admin\Inc\Shopxpert_Admin_Fields;
+use ShopXpert\Admin\Inc\Shopxpert_Admin_Fields_Manager;
 
 // Get the fields using the singleton instance of Shopxpert_Admin_Fields
 $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];

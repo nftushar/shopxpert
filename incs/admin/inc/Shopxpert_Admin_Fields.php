@@ -1,13 +1,12 @@
 <?php
 
-namespace Shopxpert\Incs\Admin\Inc;
+namespace ShopXpert\Admin\Inc;
 
-
-use Shopxpert\Incs;
+use ShopXpert\Cache\Manager as CacheManager;
 // Ensure the correct function is available
-use function Shopxpert\shopxpert_taxonomy_list;
-use function Shopxpert\shopxpert_post_name;
-use function Shopxpert\Incs\shopxpert_get_post_types;
+use function ShopXpert\shopxpert_taxonomy_list;
+use function ShopXpert\shopxpert_post_name;
+use function ShopXpert\shopxpert_get_post_types;
  
 
 if (!defined('ABSPATH')) exit; 

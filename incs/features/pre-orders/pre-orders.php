@@ -1,6 +1,8 @@
 <?php  
 
-use function Shopxpert\incs\shopxpert_get_option;
+namespace ShopXpert\Features\PreOrders;
+
+use function ShopXpert\shopxpert_get_option;
 
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -29,8 +31,8 @@ class Shopxpert_Pre_Orders{
         // Enqueue scripts
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
-        // Include Nessary file
-        $this->include();
+        // Initialize classes - autoloaded via composer
+        $this->init_classes();
 
         if( is_admin() ){
             Shopxpert_Admin_Pre_Orders::get_instance();
@@ -70,26 +72,14 @@ class Shopxpert_Pre_Orders{
     }
 
     /**
-     * Inclode Nessery file
+     * Initialize classes via autoloader
+     * All classes use ShopXpert\Features\PreOrders namespace
      *
      * @return void
      */
-    public function include(){
-        // Add to cart button
-        require_once( __DIR__. '/includes/class.pre-order-add-to-cart.php' );
-
-        // Manage Price
-        require_once( __DIR__. '/includes/class.pre-order-price.php' );
-
-        // Manage Pre order content
-        require_once( __DIR__. '/includes/class.pre-order-content.php' );
-
-        // Manage Order
-        require_once( __DIR__. '/includes/class.pre-order-place.php' );
-
-        // Manage Pre Order Admin
-        require_once( __DIR__. '/admin/class.admin-pre-order.php' );
-
+    public function init_classes(){
+        // Classes are auto-loaded via composer PSR-4 mapping
+        // Namespace: ShopXpert\Features\PreOrders\*
     }
 
     /**

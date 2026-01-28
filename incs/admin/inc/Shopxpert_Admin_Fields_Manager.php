@@ -1,5 +1,5 @@
 <?php
- namespace Shopxpert\Incs\Admin\Inc;
+ namespace ShopXpert\Admin\Inc;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

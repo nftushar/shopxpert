@@ -1,11 +1,11 @@
 <?php 
 
-namespace ShopXpert ;
+namespace ShopXpert\Classes;
  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
-* Assest Management
+* Asset Management Data
 */
 class Assets_Management{
     

@@ -1,4 +1,7 @@
 <?php  
+
+namespace ShopXpert\Features\PreOrders;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Shopxpert_Pre_Order_Price extends Shopxpert_Pre_Orders{

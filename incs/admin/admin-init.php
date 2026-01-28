@@ -1,12 +1,10 @@
 <?php
 
-namespace Shopxpert\Incs\Admin;
+namespace ShopXpert\Admin;
 
-use Shopxpert\Incs;
-use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields_Manager;
-use Shopxpert\Incs\Admin\Inc\Shopxpert_Admin_Fields;
+use ShopXpert\Cache\Manager as CacheManager;
 
-use function Shopxpert\incs\shopxpert_clean;
+use function ShopXpert\shopxpert_clean;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -83,8 +81,8 @@ class ShopXpert_Admin_Init
      */
     public function include()
     {
-        require_once('inc/Shopxpert_Admin_Fields_Manager.php');
-        require_once('inc/Shopxpert_Admin_Fields.php'); 
+        // Classes are auto-loaded via composer PSR-4 mapping
+        // No require_once needed
     }
 
 
@@ -381,7 +379,7 @@ class ShopXpert_Admin_Init
         }
 
         // Fetch Feature fields based on section or fieldname
-        $Feature_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
+        $Feature_fields = \ShopXpert\Admin\Inc\Shopxpert_Admin_Fields::instance()->fields()['shopxpert_others_tabs']['features'];
         $section_fields = [];
         foreach ($Feature_fields as $Feature) {
             if (isset($Feature['section']) && $Feature['section'] === $section) {
@@ -397,7 +395,7 @@ class ShopXpert_Admin_Init
         if ($subaction === 'get_data') {
             foreach ($section_fields as $field) {
                 ob_start();
-                Shopxpert_Admin_Fields_Manager::instance()->add_field($field, $section);
+                \ShopXpert\Admin\Inc\Shopxpert_Admin_Fields_Manager::instance()->add_field($field, $section);
                 $field_html .= ob_get_clean();
             }
             $message = esc_html__('Data Fetch successfully!', 'shopxpert');

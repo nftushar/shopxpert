@@ -41,7 +41,7 @@ class Widgets_And_Blocks {
     public function block_list( $block_list = [] ){
 
         $block_list['wishlist_table'] = [
-            'label'  => __('WishList Table','shopxpert'),
+            'label'  => __('sWishList Table','shopxpert'),
             'name'   => 'shopxpert/wishlist-table',
             'server_side_render' => true,
             'type'   => 'common',

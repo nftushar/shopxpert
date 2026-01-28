@@ -1,6 +1,6 @@
 <?php
 
-namespace WishList\Admin;
+namespace ShopXpert\Admin\Inc;
 /**
  * Settings Api class
  */

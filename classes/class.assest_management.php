@@ -1,13 +1,14 @@
-<?php 
+<?php
 
-namespace ShopXpert ;
- 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+namespace ShopXpert\Classes;
+
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
-* Assest Management
-*/
-class Assets_Management{
+ * Assets Management
+ * Handles all plugin asset registration and enqueueing
+ */
+class Assets_Management {
     
     /**
      * [$instance]
@@ -76,9 +77,13 @@ class Assets_Management{
         $style_list = [
            
             'shopxpert-admin' => [  
-
                 'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/css/shopxpert-admin.css',
                 'version' => SHOPXPERT_VERSION
+            ],
+            
+            'shopxpert-sweetalert' => [
+                'src'     => 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css',
+                'version' => '2.1.2'
             ],
         ];
         return $style_list;
@@ -113,7 +118,7 @@ class Assets_Management{
                 'deps'    => [ 'jquery' ],
             ],
 
-            'shopxpert-admin-main' =>[
+            'shopxpert-admin-main' => [
                 'src'     => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/js/shopxpert-admin.js',
                 'version' => SHOPXPERT_VERSION,
                 'deps'    => [ 'jquery', 'wp-util', 'serializejson' ]
@@ -151,9 +156,9 @@ class Assets_Management{
         // Localize Scripts
         $localizeargs = array(
             'shopxpertajaxurl' => admin_url('admin-ajax.php'),
-            'ajax_nonce' => ('shopxper_nonce_action'),
+            'ajax_nonce' => wp_create_nonce('shopxper_nonce_action'),
         );
-        wp_localize_script('shopxpert-widgets-scripts', 'shopxper_addons', $localizeargs);
+        wp_localize_script('shopxpert-admin-main', 'shopxper_addons', $localizeargs);
     
         // For Admin
         if (is_admin()) {
@@ -183,8 +188,8 @@ class Assets_Management{
                 'adminURL'         => admin_url(),
                 'version'          => SHOPXPERT_VERSION,
                 'pluginURL'        => plugin_dir_url(__FILE__),
-                'alldata'          => !empty(base::$template_info['templates']) ? base::$template_info['templates'] : array(),
-                'prolink'          => 'https:// shopxpert .com/pricing/?utm_source=admin&utm_medium=library',
+                'alldata'          => array(),
+                'prolink'          => 'https://shopxpert.com/pricing/?utm_source=admin&utm_medium=library',
                 'prolabel'         => esc_html__('Pro', 'shopxpert'),
                 'loadingimg'       => SHOPXPERT_ADDONS_PL_URL . 'incs/admin/assets/images/loading.gif',
                 'message'          => [

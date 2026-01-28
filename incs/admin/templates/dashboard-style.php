@@ -1,8 +1,8 @@
 <?php
     if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-    $element_fields = Shopxpert_Admin_Fields::instance()->fields()['shopxpert_style_tabs'];
-    $element_keys   = Shopxpert_Admin_Fields_Manager::instance()->get_field_key( $element_fields, 'name' );
+    $element_fields = \ShopXpert\Admin\Inc\Shopxpert_Admin_Fields::instance()->fields()['shopxpert_style_tabs'];
+    $element_keys   = \ShopXpert\Admin\Inc\Shopxpert_Admin_Fields_Manager::instance()->get_field_key( $element_fields, 'name' );
 
 ?>
 <div id="shopxpert_style_tabs" class="shopxpert-admin-main-tab-pane">
