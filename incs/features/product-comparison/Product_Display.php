@@ -1,6 +1,8 @@
 <?php
 
-namespace Shopxpert\ProductComparison;
+namespace ShopXpert\Features\ProductComparison;
+
+use function ShopXpert\shopxpert_get_option;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

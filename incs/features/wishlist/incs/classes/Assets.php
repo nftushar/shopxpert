@@ -1,6 +1,6 @@
 <?php
-namespace WishList;
-use function  Shopxpert\incs\shopxpert_get_option;
+namespace ShopXpert\Features\Wishlist;
+use function ShopXpert\shopxpert_get_option;
 
  
 /**

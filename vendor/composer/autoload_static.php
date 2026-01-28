@@ -16,6 +16,8 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
         array (
             'ShopXpert\\Query\\' => 16,
             'ShopXpert\\Options\\' => 18,
+            'ShopXpert\\Features\\Wishlist\\' => 28,
+            'ShopXpert\\Features\\ProductComparison\\' => 37,
             'ShopXpert\\Features\\PreOrders\\' => 29,
             'ShopXpert\\Features\\' => 19,
             'ShopXpert\\Database\\' => 19,
@@ -33,6 +35,14 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
         'ShopXpert\\Options\\' =>
         array (
             0 => __DIR__ . '/../..' . '/incs/Options',
+        ),
+        'ShopXpert\\Features\\Wishlist\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/incs/features/wishlist/incs/classes',
+        ),
+        'ShopXpert\\Features\\ProductComparison\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/incs/features/product-comparison',
         ),
         'ShopXpert\\Features\\PreOrders\\' =>
         array (

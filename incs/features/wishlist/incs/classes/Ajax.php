@@ -1,5 +1,5 @@
 <?php
-namespace WishList;
+namespace ShopXpert\Features\Wishlist;
 /**
  * Ajax handlers class
  */

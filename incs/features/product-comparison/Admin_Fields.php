@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopxpert\ProductComparison;
+namespace ShopXpert\Features\ProductComparison;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -16,9 +16,9 @@ class Admin_Fields {
     }
 
     public function __construct() {
-        require_once( SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/inc/settings_field_manager_default.php' );
-        $this->settings_api = new \WishList\Admin\ShopXpert_Settings_Field_Manager_Default();
-        \add_action( 'admin_init', [ $this, 'admin_init' ] );
+        // Settings API is auto-loaded via composer
+        $this->settings_api = new \ShopXpert\Admin\Inc\ShopXpert_Settings_Field_Manager_Default();
+        add_action( 'admin_init', [ $this, 'admin_init' ] );
     }
 
     public function admin_init() {

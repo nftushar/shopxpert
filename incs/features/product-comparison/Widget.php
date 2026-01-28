@@ -1,6 +1,8 @@
 <?php
 
-namespace Shopxpert\ProductComparison;
+namespace ShopXpert\Features\ProductComparison;
+
+use function ShopXpert\shopxpert_get_option;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -28,7 +30,7 @@ class Widget extends \WP_Widget {
      */
     public function widget($args, $instance) {
         // Check if comparison is enabled
-        if (!\Shopxpert\incs\shopxpert_get_option('enable', 'product_comparison_settings_tabs', 'on')) {
+        if (!shopxpert_get_option('enable', 'product_comparison_settings_tabs', 'on')) {
             return;
         }
 

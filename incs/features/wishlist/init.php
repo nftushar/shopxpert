@@ -1,14 +1,16 @@
 <?php
- 
- use function Shopxpert\incs\shopxpert_get_option;
- 
- if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
- 
- 
+
+namespace ShopXpert\Features\Wishlist;
+
+use function ShopXpert\shopxpert_get_option;
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+
 /**
  * Plugin Main Class
  */
-final class Shopxpert_WishList_Base{
+final class Shopxpert_WishList_Base {
 
     /**
      * [$_instance]
@@ -30,9 +32,9 @@ final class Shopxpert_WishList_Base{
     /**
      * [__construct] Class Constructor
      */
-    private function __construct(){
+    private function __construct() {
         $this->define_constants();
-        $this->incs();
+        // Classes are auto-loaded via Composer PSR-4
         if( get_option('shopxpert_wishList_status', 'no') === 'no' ){
             add_action( 'wp_loaded',[ $this, 'activate' ] );
             update_option( 'shopxpert_wishList_status','yes' );
@@ -56,38 +58,22 @@ final class Shopxpert_WishList_Base{
     }
 
     /**
-     * [incs] Load file
-     * @return [void]
-     */
-    public function incs(){
-        require_once(__DIR__ . '/incs/classes/Installer.php');  
-        require_once(__DIR__ . '/incs/helper-functions.php');
-        require_once( __DIR__. '/incs/classes/Manage_Data.php' );
-        require_once(__DIR__ . '/incs/classes/Assets.php');
-        require_once(__DIR__ . '/incs/classes/Admin.php');
-        require_once(__DIR__ . '/incs/classes/Frontend.php');
-        require_once(__DIR__ . '/incs/classes/Ajax.php');
-        require_once(__DIR__ . '/incs/classes/Widgets_And_Blocks.php');
-
-    }
-
-    /**
      * Initialize the plugin
      *
      * @return void
      */
     public function init_plugin() { 
-        WishList\Assets::instance();
+        Assets::instance();
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            WishList\Ajax::instance();
+            Ajax::instance();
         }
 
         if ( is_admin() ) {
-            WishList\Admin::instance();
+            Admin::instance();
         }
-        WishList\Frontend::instance();
-        WishList\Widgets_And_Blocks::instance();
+        Frontend::instance();
+        Widgets_And_Blocks::instance();
 
         // add image size
         $this->set_image_size();
@@ -104,7 +90,7 @@ final class Shopxpert_WishList_Base{
      * @return void
      */
     public function activate() {
-        $installer = new WishList\Installer();
+        $installer = new Installer();
         $installer->run();
     }
 
@@ -126,9 +112,8 @@ final class Shopxpert_WishList_Base{
      * @return [array]
      */
     public function wc_image_filter_size(){
-
-$image_dimention = WishList_get_option( 'image_size', 'wishlist_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
-            $hard_crop = !empty( WishList_get_option( 'hard_crop', 'wishlist_table_settings_tabs' ) ) ? true : false;
+        $image_dimention = shopxpert_get_option( 'image_size', 'wishlist_table_settings_tabs', array( 'width'=>80,'height'=>80 ) );
+        $hard_crop = !empty( shopxpert_get_option( 'hard_crop', 'wishlist_table_settings_tabs' ) ) ? true : false;
 
         if( isset( $image_dimention ) && is_array( $image_dimention ) ){
             return array(

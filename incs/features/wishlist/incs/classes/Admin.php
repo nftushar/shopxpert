@@ -1,5 +1,5 @@
 <?php
-namespace WishList;
+namespace ShopXpert\Features\Wishlist;
 
 /**
  * Admin handlers class
@@ -27,7 +27,7 @@ class Admin {
      * Initialize the class
      */
     private function __construct() {
-        require_once( __DIR__. '/Admin/Dashboard.php' );
+        // Dashboard is auto-loaded via Composer PSR-4
         Admin\Dashboard::instance();
     }
 

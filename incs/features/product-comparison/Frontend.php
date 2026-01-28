@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopxpert\ProductComparison;
+namespace ShopXpert\Features\ProductComparison;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -29,34 +29,29 @@ class Frontend {
      * Initialize the class
      */
     private function __construct() {
-        $this->incs();
+        // Classes are auto-loaded via composer PSR-4
         Shortcode::instance();
         Manage_Comparison::instance();
         Product_Display::instance();
-        \add_action('wp_enqueue_scripts', [ $this, 'enqueue_assets' ]);
-        \add_action('admin_enqueue_scripts', [ $this, 'enqueue_assets' ]);
-        \add_action('wp_footer', [ $this, 'add_footer_elements' ]);
-    }
-
-    /**
-     * Require sub-classes
-     */
-    public function incs() {
-        require_once __DIR__ . '/Manage_Comparison.php';
-        require_once __DIR__ . '/Shortcode.php';
-        require_once __DIR__ . '/Product_Display.php';
+        add_action('wp_enqueue_scripts', [ $this, 'enqueue_assets' ]);
+        add_action('admin_enqueue_scripts', [ $this, 'enqueue_assets' ]);
+        add_action('wp_footer', [ $this, 'add_footer_elements' ]);
     }
 
     /**
      * Enqueue frontend and admin assets for product comparison
      */
     public function enqueue_assets() {
-        $css = PRODUCT_COMPARISON_URL . '/assets/css/product-comparison.css';
-        $js = PRODUCT_COMPARISON_URL . '/assets/js/product-comparison.js';
-        if ( \file_exists( PRODUCT_COMPARISON_DIR . '/assets/css/product-comparison.css' ) ) {
+        $base_url = \plugins_url( '', __FILE__ );
+        $base_dir = \plugin_dir_path( __FILE__ );
+        
+        $css = $base_url . '/assets/css/product-comparison.css';
+        $js = $base_url . '/assets/js/product-comparison.js';
+        
+        if ( \file_exists( $base_dir . 'assets/css/product-comparison.css' ) ) {
             \wp_enqueue_style( 'shopxpert-product-comparison', $css, [], null );
         }
-        if ( \file_exists( PRODUCT_COMPARISON_DIR . '/assets/js/product-comparison.js' ) ) {
+        if ( \file_exists( $base_dir . 'assets/js/product-comparison.js' ) ) {
             \wp_enqueue_script( 'shopxpert-product-comparison', $js, [ 'jquery' ], null, true );
             \wp_localize_script( 'shopxpert-product-comparison', 'ShopxpertComparison', [
                 'ajax_url' => \admin_url( 'admin-ajax.php' ),
@@ -70,12 +65,12 @@ class Frontend {
      */
     public function add_footer_elements() {
         // Check if function exists
-        if (!function_exists('\\Shopxpert\\incs\\shopxpert_get_option')) {
+        if (!function_exists('shopxpert_get_option')) {
             return;
         }
 
         // Only add if comparison is enabled
-        if (!\Shopxpert\incs\shopxpert_get_option('enable', 'product_comparison_settings_tabs', 'on')) {
+        if (!shopxpert_get_option('enable', 'product_comparison_settings_tabs', 'on')) {
             return;
         }
 
@@ -88,7 +83,7 @@ class Frontend {
         echo '</div>';
 
         // Add footer bar if enabled
-        if (\Shopxpert\incs\shopxpert_get_option('show_footer_bar', 'product_comparison_settings_tabs', 'on')) {
+        if (shopxpert_get_option('show_footer_bar', 'product_comparison_settings_tabs', 'on')) {
             echo '<div class="shopxpert-compare-footer-bar">';
             echo '<div class="shopxpert-compare-footer-products"></div>';
             echo '<div class="shopxpert-compare-footer-actions">';

@@ -7,6 +7,8 @@
             "ShopXpert\\Classes\\": "classes/",
             "ShopXpert\\Features\\": "incs/features/",
             "ShopXpert\\Features\\PreOrders\\": "incs/features/pre-orders/",
+            "ShopXpert\\Features\\ProductComparison\\": "incs/features/product-comparison/",
+            "ShopXpert\\Features\\Wishlist\\": "incs/features/wishlist/incs/classes/",
             "ShopXpert\\Cache\\": "incs/Cache/",
             "ShopXpert\\Options\\": "incs/Options/",
             "ShopXpert\\Query\\": "incs/Query/",

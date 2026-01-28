@@ -1,26 +1,10 @@
 <?php
 
-namespace Shopxpert\ProductComparison;
+namespace ShopXpert\Features\ProductComparison;
+
+use function ShopXpert\shopxpert_get_option;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-if ( ! function_exists( 'shortcode_atts' ) ) {
-    require_once( ABSPATH . 'wp-includes/shortcodes.php' );
-}
-if ( ! function_exists( 'get_the_ID' ) ) {
-    require_once( ABSPATH . 'wp-includes/post-template.php' );
-}
-if ( ! function_exists( '__' ) ) {
-    require_once( ABSPATH . 'wp-includes/l10n.php' );
-}
-if ( ! function_exists( 'esc_attr' ) ) {
-    require_once( ABSPATH . 'wp-includes/formatting.php' );
-}
-if ( ! function_exists( 'esc_html' ) ) {
-    require_once( ABSPATH . 'wp-includes/formatting.php' );
-}
-
-require_once dirname(__FILE__) . '/Manage_Comparison.php';
 
 /**
  * Shortcode handler class for Product Comparison
@@ -55,7 +39,7 @@ class Shortcode {
      * [button_shortcode] Button Shortcode callable function
      */
     public function button_shortcode( $atts, $content = '' ) {
-       $enabled = \Shopxpert\incs\shopxpert_get_option(
+       $enabled = shopxpert_get_option(
             'enable',
             'shopxpert_product_comparison_settings',
             'off'
@@ -66,21 +50,21 @@ class Shortcode {
         }
 
 
-        $atts = \shortcode_atts([
-            'product_id' => \get_the_ID(),
+        $atts = shortcode_atts([
+            'product_id' => get_the_ID(),
             'show_icon' => 'true',
             'show_counter' => 'true',
             'button_style' => 'default', // default, icon-only, text-only
         ], $atts);
         
         $product_id = intval($atts['product_id']);
-        $list = \Shopxpert\ProductComparison\Manage_Comparison::instance()->get_comparison_list();
+        $list = Manage_Comparison::instance()->get_comparison_list();
         $in_list = in_array($product_id, $list);
         $button_text = $in_list
-            ? \Shopxpert\incs\shopxpert_get_option('remove_button_text', 'shopxpert_product_comparison_settings', __( 'Remove from Compare', 'shopxpert' ))
-            : \Shopxpert\incs\shopxpert_get_option('button_text', 'shopxpert_product_comparison_settings', __( 's Add to Compare', 'shopxpert' ));
+            ? shopxpert_get_option('remove_button_text', 'shopxpert_product_comparison_settings', __( 'Remove from Compare', 'shopxpert' ))
+            : shopxpert_get_option('button_text', 'shopxpert_product_comparison_settings', __( 'Add to Compare', 'shopxpert' ));
         $button_class = $in_list ? 'remove-from-compare' : 'add-to-compare';
-        $max_products = intval(\Shopxpert\incs\shopxpert_get_option('max_products', 'shopxpert_product_comparison_settings', 4));
+        $max_products = intval(shopxpert_get_option('max_products', 'shopxpert_product_comparison_settings', 4));
         
         if (!$in_list && count($list) >= $max_products) {
             return '<button class="shopxpert-compare-btn add-to-compare" disabled>' . esc_html__('Max products reached', 'shopxpert') . '</button>';

@@ -1,8 +1,8 @@
 <?php
 
-namespace Shopxpert\ProductComparison;
+namespace ShopXpert\Features\ProductComparison;
 
-use function Shopxpert\incs\shopxpert_get_option;
+use function ShopXpert\shopxpert_get_option;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -225,8 +225,8 @@ final class Shopxpert_Product_Comparison_Base {
      * Register Product Comparison widget
      */
     public function register_widget() {
-        require_once __DIR__ . '/Widget.php';
-        \register_widget( '\Shopxpert\ProductComparison\Widget' );
+        // Widget auto-loaded via composer PSR-4
+        \register_widget( '\ShopXpert\Features\ProductComparison\Widget' );
     }
 
     // Add more methods for popup, table, etc. as needed

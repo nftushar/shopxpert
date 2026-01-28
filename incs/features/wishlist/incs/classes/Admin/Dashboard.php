@@ -1,7 +1,7 @@
 <?php
-namespace WishList\Admin;
+namespace ShopXpert\Features\Wishlist\Admin;
 
-use function  Shopxpert\incs\shopxpert_get_option;
+use function ShopXpert\shopxpert_get_option;
 
  
 /**
@@ -47,9 +47,7 @@ class Dashboard {
      * Initialize the class
      */
     private function __construct() {
-
-        require_once( __DIR__. '/Admin_Fields.php' );
-
+        // Admin_Fields is auto-loaded via Composer PSR-4
         Admin_Fields::instance();
 
         add_action( 'admin_menu', [ $this, 'add_menu' ], 225 );

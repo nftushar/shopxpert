@@ -1,7 +1,7 @@
 <?php
-namespace WishList\Frontend;
+namespace ShopXpert\Features\Wishlist\Frontend;
 
-use function Shopxpert\incs\shopxpert_get_option;
+use function ShopXpert\shopxpert_get_option;
 
 /**
  * Shortcode handler class

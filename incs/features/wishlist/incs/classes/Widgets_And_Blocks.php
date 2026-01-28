@@ -1,5 +1,5 @@
 <?php
-namespace WishList;
+namespace ShopXpert\Features\Wishlist;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

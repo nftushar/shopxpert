@@ -1,10 +1,6 @@
 <?php
 
-namespace Shopxpert\ProductComparison;
-
-if ( ! function_exists( 'is_user_logged_in' ) ) {
-    require_once( ABSPATH . 'wp-includes/pluggable.php' );
-}
+namespace ShopXpert\Features\ProductComparison;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 

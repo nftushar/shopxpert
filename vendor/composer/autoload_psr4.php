@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'ShopXpert\\Query\\' => array($baseDir . '/incs/Query'),
     'ShopXpert\\Options\\' => array($baseDir . '/incs/Options'),
+    'ShopXpert\\Features\\Wishlist\\' => array($baseDir . '/incs/features/wishlist/incs/classes'),
+    'ShopXpert\\Features\\ProductComparison\\' => array($baseDir . '/incs/features/product-comparison'),
     'ShopXpert\\Features\\PreOrders\\' => array($baseDir . '/incs/features/pre-orders'),
     'ShopXpert\\Features\\' => array($baseDir . '/incs/features'),
     'ShopXpert\\Database\\' => array($baseDir . '/incs/Database'),

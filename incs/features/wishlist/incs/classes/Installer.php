@@ -1,5 +1,5 @@
 <?php
-namespace WishList;
+namespace ShopXpert\Features\Wishlist;
 
 use function Shopxpert\incs\shopxpert_update_option;
 

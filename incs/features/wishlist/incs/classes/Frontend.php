@@ -1,5 +1,5 @@
 <?php
-namespace WishList;
+namespace ShopXpert\Features\Wishlist;
 /**
  * Frontend handlers class
  */
@@ -29,11 +29,6 @@ class Frontend {
         $this->incs();
         Frontend\Shortcode::instance();
         Frontend\Manage_Wishlist::instance();
-    }
-
-    public function incs(){
-        require_once( __DIR__. '/Frontend/Manage_Wishlist.php' );
-        require_once __DIR__ . '/Frontend/Shortcode.php';
     }
 
 }
