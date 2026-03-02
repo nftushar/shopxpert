@@ -51,8 +51,6 @@ class Assets {
                 'deps'    => [ 'jquery', 'wc-add-to-cart-variation' ]
             ],
         ];
-        
-        error_log( 'zzz: ' . WISHLIST_ASSETS . '/js/admin.js' );
     }
 
     /**

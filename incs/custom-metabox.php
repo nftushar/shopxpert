@@ -70,9 +70,7 @@ class Shopxpert_Custom_Meta_Fields{
      */
      public function product_shopxpert_data_panel(){
         global $post;
-
-        // Log product ID
-        error_log( 'ShopXpert Product ID: ' . $post->ID );
+ 
 
         // Single product layout field
         echo '<div id="shopxpert_product_data" class="panel woocommerce_options_panel hidden">';
@@ -83,7 +81,6 @@ class Shopxpert_Custom_Meta_Fields{
                 if( empty( $value ) ) $value = '0';
 
                 // Log selected layout
-                error_log( 'Selected Product Layout: ' . $value );
                 
                 echo '<p class=" form-field _selectproduct_layout_field">';
                     echo '<label for="_selectproduct_layout">'.esc_html__( 'Select Product layout', 'shopxpert' ).'</label>';
@@ -116,16 +113,13 @@ class Shopxpert_Custom_Meta_Fields{
 
                 // Log cart custom content
                 $cart_content = get_post_meta( $post->ID, 'shopxpert_cart_custom_content', true );
-                error_log( 'Cart Custom Content: ' . $cart_content );
             echo '</div>';
 
             // Partial Payment
             $partial_enabled = shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' );
-            error_log( 'Partial Payment Option: ' . $partial_enabled );
 
             if( $partial_enabled === 'on' ){
                 $enable_status = get_post_meta( $post->ID, 'shopxpert_partial_payment_enable', true );
-                error_log( 'Partial Payment Enabled (Post Meta): ' . $enable_status );
 
                 $display_field = $enable_status === 'yes' ? 'shopxpert-hidden-field' : 'shopxpert-hidden-field hidden';
 
@@ -165,11 +159,9 @@ class Shopxpert_Custom_Meta_Fields{
             if ( $pre_order_enabled === 'off' ) {
                 $pre_order_enabled = shopxpert_get_option( 'enablerpreorder', 'shopxpert_pre_order_settings', 'off' );
             }
-            error_log( 'Pre Order Option: ' . $pre_order_enabled );
 
             if( $pre_order_enabled == 'on' ){
                 $enable_pre_order = get_post_meta( $post->ID, 'shopxpert_pre_order_enable', true );
-                error_log( 'Pre Order Enabled (Post Meta): ' . $enable_pre_order );
             }
 
         echo '</div>';
@@ -188,29 +180,23 @@ class Shopxpert_Custom_Meta_Fields{
             // Single Product Layout
             $selectproduct_layout = !empty( $_POST['_selectproduct_layout'] ) ? sanitize_text_field( $_POST['_selectproduct_layout'] ) : '';
             update_post_meta( $post_id, '_selectproduct_layout', $selectproduct_layout );
-            error_log( 'Saved Product Layout: ' . $selectproduct_layout );
 
             // Cart Content
             $selectproduct_cart_content = !empty( $_POST['shopxpert_cart_custom_content'] ) ? wp_kses_post( $_POST['shopxpert_cart_custom_content'] ) : '';
             update_post_meta( $post_id, 'shopxpert_cart_custom_content', $selectproduct_cart_content );
-            error_log( 'Saved Cart Content: ' . $selectproduct_cart_content );
 
             // Partial Payment
             $partial_enabled = shopxpert_get_option( 'enable', 'shopxpert_partial_payment_settings', 'off' );
-            error_log( 'Partial Payment Option (Save): ' . $partial_enabled );
 
             if( $partial_enabled === 'on' ){
                 $status = !empty( $_POST['shopxpert_partial_payment_enable'] ) ? sanitize_text_field( $_POST['shopxpert_partial_payment_enable'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_partial_payment_enable', $status );
-                error_log( 'Saved Partial Payment Enable: ' . $status );
 
                 $amount_type = !empty( $_POST['shopxpert_partial_payment_amount_type'] ) ? sanitize_text_field( $_POST['shopxpert_partial_payment_amount_type'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_partial_payment_amount_type', $amount_type );
-                error_log( 'Saved Partial Payment Amount Type: ' . $amount_type );
 
                 $amount = !empty( $_POST['shopxpert_partial_payment_amount'] ) ? sanitize_text_field( $_POST['shopxpert_partial_payment_amount'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_partial_payment_amount', $amount );
-                error_log( 'Saved Partial Payment Amount: ' . $amount );
             }
 
             // Pre Order
@@ -218,16 +204,13 @@ class Shopxpert_Custom_Meta_Fields{
             if ( $pre_order_enabled === 'off' ) {
                 $pre_order_enabled = shopxpert_get_option( 'enablerpreorder', 'shopxpert_pre_order_settings', 'off' );
             }
-            error_log( 'Pre Order Option (Save): ' . $pre_order_enabled );
 
             if( $pre_order_enabled == 'on' ){
                 $pre_order_status = !empty( $_POST['shopxpert_pre_order_enable'] ) ? sanitize_text_field( $_POST['shopxpert_pre_order_enable'] ) : '';
                 update_post_meta( $post_id, 'shopxpert_pre_order_enable', $pre_order_status );
-                error_log( 'Saved Pre Order Enable: ' . $pre_order_status );
             }
 
         } else {
-            error_log( 'ShopXpert: Nonce failed, data not saved.' );
         }
     }
 

@@ -60,19 +60,11 @@ class ShopXpert_Admin_Init
     {
         add_action('admin_menu', [$this, 'add_menu'], 10);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
-
-        // Use admin_footer to correctly get the screen object for popup loading
         add_action('admin_footer', [$this, 'print_Feature_setting_popup']);
-
         add_action('wp_ajax_shopxpert_save_opt_data', [$this, 'save_data']);
         add_action('wp_ajax_shopxpert_Feature_data', [$this, 'handle_shopxpert_Feature_data']);
-
-        // Redirect main menu to the Settings submenu page
         add_action('admin_menu', [$this, 'redirect_to_settings'], 11);
         add_action('admin_init', [$this, 'redirect_to_settings']);
-
-        add_action('admin_init', [$this, 'shopxpert_log_features_status']);
-
     }
 
     /**
@@ -82,27 +74,7 @@ class ShopXpert_Admin_Init
     public function include()
     {
         // Classes are auto-loaded via composer PSR-4 mapping
-        // No require_once needed
     }
-
-
-
-
-        public function shopxpert_log_features_status() {
-            $screen = get_current_screen();
-            if ( ! $screen || strpos($screen->id, 'shopxpert') === false ) return;
-
-            $features = [ 
-                'Pre Order'              => shopxpert_get_option('enable', 'shopxpert_pre_order_settings', 'off'),
-                'Wishlist'               => shopxpert_get_option('wishlist', 'shopxpert_others_tabs', 'off'),
-                'Fake Order Detection'    => shopxpert_get_option('enable_fake_order_detection', 'shopxpert_fake_order_detection_settings', 'off'),
-                'Product Comparison'      => shopxpert_get_option('enable_product_comparison', 'shopxpert_product_comparison_settings', 'off'),
-            ];
-
-            foreach ($features as $feature => $status) {
-                error_log("ShopXpert Feature: {$feature} Status: {$status}");
-            }
-        }
 
 
  
@@ -199,47 +171,34 @@ class ShopXpert_Admin_Init
     }
 
   
-            public function print_Feature_setting_popup() {
-                $screen = get_current_screen();
-                if (!$screen) return;
+    public function print_Feature_setting_popup() {
+        $screen = get_current_screen();
+        if (!$screen) return;
 
-                error_log("Current Screen: " . $screen->base);
-
-                $allowed_screens = ['shopxpert_page_shopxpert', 'shopxpert_page_wishlist']; // add more if needed
-                if (in_array($screen->base, $allowed_screens)) {
-                    include_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popup.php';
-                } else {
-                    error_log("Screen does not match for popup: " . $screen->base);
-                }
-            }
+        $allowed_screens = ['shopxpert_page_shopxpert', 'shopxpert_page_wishlist'];
+        if (in_array($screen->base, $allowed_screens)) {
+            include_once SHOPXPERT_ADDONS_PL_PATH . 'incs/admin/templates/dashboard-feature-setting-popup.php';
+        }
+    }
 
 
     /**
-     * [remove_all_notices] remove admin notices
-     * @return [void] 
+     * Remove admin notices on ShopXpert pages
+     * 
+     * @return void
      */
-    public function xxremove_all_notices()
-    {
-        add_action('admin_notices', function () {
-            $screen = get_current_screen();
-            if ('shopxpert_page_shopxpert' === $screen->base) {
-                remove_all_actions('admin_notices');
-                remove_all_actions('all_admin_notices');
-            }
-        }, 0);
-    }
-
     public function remove_all_notices()
     {
         add_action('admin_notices', function () {
             $screen = get_current_screen();
-
-            $current_url = $_SERVER['REQUEST_URI'];
-            if ('shopxpert_page_shopxpert' === $screen->base || strpos($current_url, 'admin.php?page=shopxpert_page') !== false) {
+            $current_url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+            
+            if ('shopxpert_page_shopxpert' === $screen->base || 
+                strpos($current_url, 'admin.php?page=shopxpert_page') !== false) {
                 remove_all_actions('admin_notices');
                 remove_all_actions('all_admin_notices');
             }
-        }, 0); // Ensure this runs early
+        }, 0);
     }
 
 
@@ -253,23 +212,18 @@ class ShopXpert_Admin_Init
     public function save_data()
     {
         if (! current_user_can(self::MENU_CAPABILITY)) {
-            error_log('User does not have the required capability.');
             return;
         }
 
         check_ajax_referer('shopxper_nonce_action', 'nonce');
 
-        // Fetch and clean the input data
         $data     = isset($_POST['data']) ? shopxpert_clean($_POST['data']) : [];
         $section  = isset($_POST['section']) ? sanitize_text_field($_POST['section']) : '';
         $fields = isset($_POST['fields']) ? $_POST['fields'] : [];
 
-        // Ensure $fields is an array and process it accordingly
         if (!is_array($fields)) {
             $fields = json_decode(stripslashes($fields), true);
         }
-
-        error_log('[shopxpert_save_opt_data] section=' . $section . ' fields=' . wp_json_encode($fields) . ' data=' . wp_json_encode($data));
 
         if (empty($section) || empty($fields)) {
             return;
@@ -340,8 +294,6 @@ class ShopXpert_Admin_Init
 
         // Save the updated options back to the database 
         update_option($section, $options_data);
-
-        error_log('[shopxpert_save_opt_data] saved section=' . $section . ' key=' . $option_key . ' value=' . wp_json_encode($new_value));
     }
 
 
@@ -352,19 +304,15 @@ class ShopXpert_Admin_Init
     public function handle_shopxpert_Feature_data()
     {
         if (!current_user_can(self::MENU_CAPABILITY)) {
-            error_log("AJAX request received for shopxpert_Feature_data");
             return;
         }
  
         check_ajax_referer('shopxper_nonce_action', 'nonce');
 
-        // Retrieve and sanitize POST data
         $subaction = isset($_POST['subaction']) ? sanitize_text_field(wp_unslash($_POST['subaction'])) : '';
         $section = isset($_POST['section']) ? sanitize_text_field(wp_unslash($_POST['section'])) : '';
         $fields = isset($_POST['fields']) ? (is_array($_POST['fields']) ? $_POST['fields'] : json_decode(wp_unslash($_POST['fields']), true)) : [];
         $fieldname = isset($_POST['fieldname']) ? sanitize_text_field(wp_unslash($_POST['fieldname'])) : '';
-
-        // // error_log(print_r($fields, true)); // Log the fields array
 
         // Handle Feature data reset
         if ($subaction === 'reset_data' && !empty($section)) {

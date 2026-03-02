@@ -61,8 +61,6 @@ function WishList_get_template( $tmp_name, $args = null, $echo = true ) {
     // Check if the file exists before including
     if ( file_exists( $located ) ) {
         include( $located );
-    } else {
-        error_log('Template file not found: ' . $located);
     }
 
     if ( $echo !== true ) { return ob_get_clean(); }

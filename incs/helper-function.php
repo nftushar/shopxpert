@@ -72,38 +72,6 @@ function shopxpert_wltemplate_list( $type = [] ){
  
 
 /**
-* Elementor Version check
-* @return [boolean]
-*/
-function shopxpert_is_elementor_version( $operator = '<', $version = '2.6.0' ) {
-    return false;
-}
-
-/**
- * Get elementor instance
- * @return [\\Elementor\\Plugin]
- */
-function shopxpert_elementor() {
-	return null;
-}
-
-/**
-* Is Elementor check
-* @return [boolean]
-*/
-function shopxpert_is_elementor_editor(){
-    return false;
-}
-
-/**
-* Elementor editor mode
-* @return [boolean]
-*/
-function shopxpert_is_elementor_editor_mode(){
-    return false;
-}
-
-/**
 * Template Preview mode
 * @return boolean
 */
@@ -113,36 +81,6 @@ function shopxpert_is_preview_mode(){
     }else{
         return false;
     }
-}
-/**
- * Has Elementor action
- *
- * @return [void]
- */
-function shopxpert_is_elementor_active() {
-    return false;
-}
-
-/**
- * Build Page Conntent
- *
- * @param [ind] $page_id
- * @return [HTML]
- */
-function shopxpert_build_page_content( $page_id ){
-    return '';
-}
-
-/**
- * [movepro_render_icon]
- * @param  array  $settings 
- * @param  string $new_icon  new icon id
- * @param  string $old_icon  Old icon id
- * @param  array  $attributes icon attributes
- * @return [html]  html | false
- */
-function shopxpert_render_icon( $settings = [], $new_icon = 'selected_icon', $old_icon = 'icon', $attributes = [] ){
-    return '';
 }
 
 /**

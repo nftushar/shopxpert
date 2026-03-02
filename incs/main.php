@@ -66,18 +66,20 @@ final class Base {
     
 
     public function included_files() {
-        // Initialize Assets Management to register all hooks
-        // Must be before feature manager for assets to load properly
+        // Load helper functions (provides backward compatibility)
+        require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/Helpers/Loader.php';
+        
+        // Initialize Assets Management
         \ShopXpert\Classes\Assets_Management::instance();
         
-        // Initialize Feature Manager for all features
+        // Initialize Feature Manager
         \ShopXpert\Features\Shopxpert_Feature_Manager::instance();
         
-        // Initialize Admin interface if in admin
+        // Initialize Admin interface
         if (is_admin()) {
             \ShopXpert\Admin\ShopXpert_Admin_Init::instance();
         }
-    } 
+    }
 }
 
 /**

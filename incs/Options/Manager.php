@@ -13,12 +13,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * Instead of multiple get_option() calls, loads all settings once and caches them.
  * This reduces database queries by 50-70% for settings-heavy operations.
  */
-class Manager {
-
-    /**
-     * All loaded settings
-     * @var array
-     */
+class Manager { 
     private static $all_settings = [];
 
     /**

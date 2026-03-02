@@ -34,13 +34,10 @@ class Manage_Comparison {
      */
     public function add_product($product_id) {
         $list = $this->get_comparison_list();
-        error_log('Before add: ' . print_r($list, true));
         if (!in_array($product_id, $list)) {
             $list[] = $product_id;
             $this->save_comparison_list($list);
-            error_log('Added product: ' . $product_id);
         }
-        error_log('After add: ' . print_r($list, true));
     }
 
     /**
@@ -64,7 +61,6 @@ class Manage_Comparison {
             $list = isset($_COOKIE['shopxpert_comparison_list']) ? json_decode(stripslashes($_COOKIE['shopxpert_comparison_list']), true) : [];
             if (!is_array($list)) $list = [];
         }
-        error_log('get_comparison_list: ' . print_r($list, true));
         return $list;
     }
 

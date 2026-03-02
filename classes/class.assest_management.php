@@ -258,10 +258,16 @@ class Assets_Management {
     
 
     /**
-     * [enqueue_frontend_scripts Load frontend scripts]
+     * [enqueue_frontend_scripts Load frontend scripts CONDITIONALLY]
+     * Only loads assets when specific features are enabled and on appropriate pages
      * @return [void]
      */
     public function enqueue_frontend_scripts() {
+
+        // Early return if not on relevant pages to improve performance
+        if ( !is_shop() && !is_product() && !is_product_category() && !is_product_tag() && !is_cart() && !is_checkout() ) {
+            return;
+        }
 
         $current_theme = wp_get_theme( 'oceanwp' );
         // CSS File
@@ -283,6 +289,22 @@ class Assets_Management {
         if ( is_rtl() ) {
             wp_enqueue_style(  'shopxpert-widgets-rtl' );
         }
+    }
+
+    /**
+     * Check if we should load frontend assets based on enabled features
+     * This is used for conditional loading to improve performance
+     * 
+     * @return bool
+     */
+    public static function should_load_frontend_assets() {
+        // Check if any shopxpert features are enabled
+        $wishlist_enabled = shopxpert_get_option('wishlist', 'shopxpert_others_tabs', 'off') == 'on';
+        $comparison_enabled = shopxpert_get_option('product_comparison', 'shopxpert_others_tabs', 'off') === 'on';
+        $pre_order_enabled = shopxpert_get_option('enable', 'shopxpert_pre_order_settings', 'off') === 'on';
+        $backorder_enabled = shopxpert_get_option('enable', 'shopxpert_backorder_settings', 'off') === 'on';
+        
+        return $wishlist_enabled || $comparison_enabled || $pre_order_enabled || $backorder_enabled;
     }
 
         /**
