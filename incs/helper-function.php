@@ -372,12 +372,11 @@ function shopxpert_post_name( $post_type = 'post', $args = [] ){
 }
 
 /*
- * Elementor Templates List
- * return array
- */
+// Original Elementor template function removed
 function shopxpert_elementor_template() {
     return [ '0' => __( 'No saved templates found.', 'shopxpert' ) ];
 }
+*/
 
 
 

@@ -123,7 +123,7 @@ class ShopXpert_Default_Data{
     }
 
     /**
-     * Product review tab empty content for elementor editor mode
+     * Product review tab content
      *
      * @return void
      */
