@@ -76,16 +76,6 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
         'ShopXpert\\Admin\\Inc\\Shopxpert_Admin_Fields' => __DIR__ . '/../..' . '/incs/admin/inc/Shopxpert_Admin_Fields.php',
         'ShopXpert\\Admin\\Inc\\Shopxpert_Admin_Fields_Manager' => __DIR__ . '/../..' . '/incs/admin/inc/Shopxpert_Admin_Fields_Manager.php',
         'ShopXpert\\Admin\\ShopXpert_Admin_Init' => __DIR__ . '/../..' . '/incs/admin/admin-init.php',
-        'ShopXpert\\Classes\\Assets_Management' => __DIR__ . '/../..' . '/classes/class.assest_management.php',
-        'ShopXpert\\Classes\\Installer' => __DIR__ . '/../..' . '/classes/class.installer.php',
-        'ShopXpert\\Classes\\ShopXpert_Default_Data' => __DIR__ . '/../..' . '/classes/class.default_data.php',
-        'ShopXpert\\Features\\PreOrders\\Shopxpert_Admin_Pre_Orders' => __DIR__ . '/../..' . '/incs/features/pre-orders/admin/class.admin-pre-order.php',
-        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_AddTo_Cart' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-add-to-cart.php',
-        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Content' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-content.php',
-        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Place' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-place.php',
-        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Order_Price' => __DIR__ . '/../..' . '/incs/features/pre-orders/includes/class.pre-order-price.php',
-        'ShopXpert\\Features\\PreOrders\\Shopxpert_Pre_Orders' => __DIR__ . '/../..' . '/incs/features/pre-orders/pre-orders.php',
-        'ShopXpert\\Features\\Shopxpert_Feature_Manager' => __DIR__ . '/../..' . '/incs/features/class.feature-manager.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
