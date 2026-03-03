@@ -1,8 +1,6 @@
 <?php
 namespace ShopXpert\Classes;
 
-use ShopXpert\Database\Schema;
-
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
