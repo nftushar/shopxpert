@@ -134,8 +134,6 @@ class Assets {
         wp_localize_script( 'wishlist-frontend', 'WishList', $localize_data );
         wp_localize_script( 'wishlist-admin', 'WishList', $admin_localize_data );
 
-        // Elementor-specific preview enqueues removed
-        
     }
 
     /**

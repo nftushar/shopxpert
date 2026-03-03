@@ -199,7 +199,6 @@ class Shopxpert_Feature_Manager
      */
     public function include_under_admin()
     {
-        // Post Duplicator - Load without Elementor dependency
         if (shopxpert_get_option('postduplicator', 'shopxpert_others_tabs', 'off') === 'on') {
             if (class_exists('ShopXpert\\Features\\PostDuplicator\\Shopxpert_Post_Duplicator')) {
                 new \ShopXpert\Features\PostDuplicator\Shopxpert_Post_Duplicator();
