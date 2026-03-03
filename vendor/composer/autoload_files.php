@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     '920aa45e7e3df21368fd95e7430b31e5' => $baseDir . '/incs/helper-function.php',
     '3ce7d43f2e4b6d285d57aa6f29a2a870' => $baseDir . '/incs/class-shopxpert-woocommerce-check.php',
+    '5e5e14fd0d69cac6e89c84791f834bbc' => $baseDir . '/incs/main.php',
 );

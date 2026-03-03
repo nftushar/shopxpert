@@ -9,6 +9,7 @@ class ComposerStaticInit8224887165fdec6dbaae4696e7fd03d2
     public static $files = array (
         '920aa45e7e3df21368fd95e7430b31e5' => __DIR__ . '/../..' . '/incs/helper-function.php',
         '3ce7d43f2e4b6d285d57aa6f29a2a870' => __DIR__ . '/../..' . '/incs/class-shopxpert-woocommerce-check.php',
+        '5e5e14fd0d69cac6e89c84791f834bbc' => __DIR__ . '/../..' . '/incs/main.php',
     );
 
     public static $prefixLengthsPsr4 = array (

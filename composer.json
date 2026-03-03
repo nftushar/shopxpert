@@ -22,7 +22,8 @@
         ],
         "files": [
             "incs/helper-function.php",
-            "incs/class-shopxpert-woocommerce-check.php"
+            "incs/class-shopxpert-woocommerce-check.php",
+            "incs/main.php"
         ]
     }, 
     "authors": [
