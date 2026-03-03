@@ -63,9 +63,6 @@ final class Base {
     
 
     public function included_files() {
-        // Load helper functions (provides backward compatibility)
-        require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/Helpers/Loader.php';
-        
         // Initialize Assets Management
         \ShopXpert\Classes\Assets_Management::instance();
         
