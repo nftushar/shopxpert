@@ -369,16 +369,7 @@ function shopxpert_post_name( $post_type = 'post', $args = [] ){
         }
         return $options;
     }
-}
-
-/*
-// Original Elementor template function removed
-function shopxpert_elementor_template() {
-    return [ '0' => __( 'No saved templates found.', 'shopxpert' ) ];
-}
-*/
-
-
+} 
 
 
 function shopxpert_get_option_label_text( $option, $section, $default = '' ){

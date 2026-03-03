@@ -189,8 +189,7 @@ if (is_admin()) {
         'user'           => [
             'email' => $current_user->user_email,
         ],
-    ];
-    // Elementor template/install manager removed
+    ]; 
 }
 
     }
@@ -222,12 +221,7 @@ if (is_admin()) {
         if ( is_rtl() ) {
             wp_enqueue_style(  'shopxpert-widgets-rtl' );
         }
-    }
-
-    /**
-     * Elementor editor assets removed
-     */
-    
+    } 
 
 }
 

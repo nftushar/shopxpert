@@ -232,8 +232,7 @@ class Assets_Management {
                 'user'           => [
                     'email' => $current_user->user_email,
                 ],
-            ];
-            // Elementor URLs/data removed
+            ]; 
         }
     }
 
@@ -306,10 +305,7 @@ class Assets_Management {
         
         return $wishlist_enabled || $comparison_enabled || $pre_order_enabled || $backorder_enabled;
     }
-
-        /**
-     * Elementor editor assets removed
-     */
+ 
 
 }
 

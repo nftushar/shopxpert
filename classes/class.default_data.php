@@ -34,8 +34,7 @@ class ShopXpert_Default_Data{
      * [__construct] Class Constructor
      */
     function __construct(){
-        add_action( 'init', [ $this, 'init'] );
-        // Elementor hook removed
+        add_action( 'init', [ $this, 'init'] ); 
     }
 
     /**
@@ -85,30 +84,7 @@ class ShopXpert_Default_Data{
 		return empty( $product ) ? null : $product;
 
 	}
-
-    /**
-     * [theme_hook_reactive]
-     * @param  [object] $element
-     * @param [int] $section_id
-     */
-    public function theme_hook_reactive( $element, $section_id ){
-        // Elementor editor specific code removed
-    }
-
-    /**
-     * [theme_hooks]
-     * @return [void]
-     */
-    public function theme_hooks( $name = '' ){
-        // Elementor specific theme hooks removed
-    }
-
-    /**
-     * [default] Show Default data in Elementor Editor Mode
-     * @param  string $addons   Addon Name
-     * @param  array  $settings Addon Settings
-     * @return [html] 
-     */
+ 
     public function default( $addons = '', $settings = array() ){
         return '';
     }

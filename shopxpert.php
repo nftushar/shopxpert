@@ -19,17 +19,10 @@ define('SHOPXPERT_ADDONS_PL_ROOT', __FILE__);
 define('SHOPXPERT_ADDONS_PL_URL', plugins_url('/', SHOPXPERT_ADDONS_PL_ROOT));
 define('SHOPXPERT_ADDONS_PL_PATH', plugin_dir_path(SHOPXPERT_ADDONS_PL_ROOT));
 
-// Include the Composer autoloader (if using Composer) 
-
+// Load Composer autoloader (PSR-4 namespaces)
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
-
-// Include WooCommerce check
-require_once plugin_dir_path(__FILE__) . 'incs/class-shopxpert-woocommerce-check.php';
-
-// Required File
-require_once SHOPXPERT_ADDONS_PL_PATH . 'incs/main.php';
 
 // Load the plugin's base functionality
 \ShopXpert\shopxpert();
