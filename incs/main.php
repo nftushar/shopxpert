@@ -9,9 +9,6 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  */
 final class Base {
 
-    const MINIMUM_PHP_VERSION = '5.4';
-    const MINIMUM_ELEMENTOR_VERSION = '3.0.0';
-
     private static $instance = null;
 
     public static function instance() {
